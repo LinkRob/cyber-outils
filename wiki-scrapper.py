@@ -1,19 +1,25 @@
 import socket
 import ssl
+import urllib.parse
 
-# Configuration de la cible
+print("=== EXTRACTEUR DE CONTENU DE WIKI ===")
 hote = "zeldawikidelinkrob.fandom.com"
-# Chemin de l'API cachée de MediaWiki pour lister les pages
-chemin = "/api.php?action=query&list=allpages&format=json"
 
-print(f"[*] Connexion sécurisée à {hote}...")
+# On demande à l'utilisateur quelle page il veut aspirer
+page_cible = input("Entrez le titre de la page à extraire (ex: Appareil Photo, Arbre Mojo) : ")
 
-# 1. Création d'une connexion SSL/TLS sécurisée (Port 443 comme vu au scan)
+# Étape cruciale : On encode le titre pour que les espaces et accents passent dans l'URL
+page_encodee = urllib.parse.quote(page_cible)
+
+# Chemin de l'API pour récupérer le TEXTE BRUT de l'article spécifié
+chemin = f"/api.php?action=query&titles={page_encodee}&prop=revisions&rvprop=content&format=json"
+
+print(f"[*] Extraction du contenu de la page '{page_cible}'...")
+
 contexte = ssl.create_default_context()
 with socket.create_connection((hote, 443)) as sock:
     with contexte.wrap_socket(sock, server_hostname=hote) as ssock:
         
-        # 2. Construction de la requête HTTP brute (comme un vrai navigateur)
         requete = (
             f"GET {chemin} HTTP/1.1\r\n"
             f"Host: {hote}\r\n"
@@ -21,10 +27,8 @@ with socket.create_connection((hote, 443)) as sock:
             "Connection: close\r\n\r\n"
         )
         
-        # 3. Envoi de la requête au serveur de ton wiki
         ssock.sendall(requete.encode())
         
-        # 4. Récupération de la réponse du serveur
         reponse = b""
         while True:
             donnees = ssock.recv(4096)
@@ -32,6 +36,9 @@ with socket.create_connection((hote, 443)) as sock:
                 break
             reponse += donnees
 
-# 5. Décodage et affichage du résultat brut informatique (JSON)
-print("[+] Données du wiki récupérées avec succès :\n")
-print(reponse.decode(errors='ignore'))
+# On sépare l'en-tête HTTP du vrai contenu JSON pour y voir plus clair
+parties = reponse.decode(errors='ignore').split("\r\n\r\n")
+corps_json = parties[1] if len(parties) > 1 else reponse.decode(errors='ignore')
+
+print("[+] Contenu brut récupéré :\n")
+print(corps_json)
