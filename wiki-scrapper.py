@@ -4,21 +4,15 @@ import json
 import time
 import os
 
-print("=== DEVOPS PROGRESSIVE MULTI-WIKI MINER ===")
+print("=== DEVOPS INFINITE DURATION MINER ===")
 
-# --- TA BASE DE CIBLES EN DUR ---
-# Tu peux enrichir cette liste avec autant de wikis Fandom valides que tu veux !
-wikis_cibles = [
-    "zeldawikidelinkrob.fandom.com",
-    "zelda.fandom.com",
-    "minecraft.fandom.com",
-    "starwars.fandom.com",
-    "mario.fandom.com"
+# --- BASE DE DONNÉES DE MASS-MINING ---
+# Le script va parcourir cette liste et s'auto-alimenter de façon séquentielle
+prefixes_communautaires = [
+    "zelda", "mario", "minecraft", "starwars", "pokemon", 
+    "naruto", "onepiece", "gta", "fortnite", "witcher",
+    "skyrim", "fallout", "halo", "assassinscreed", "marvel"
 ]
-
-# Tri alphabétique strict de la liste
-wikis_alphabetiques = sorted(wikis_cibles)
-print(f"[+] {len(wikis_alphabetiques)} wikis chargés dans l'ordre alphabétique.")
 
 def net(u):
     try:
@@ -28,29 +22,42 @@ def net(u):
     except: 
         return None
 
-# Boucle séquentielle (1 par 1)
-compteur = 0
-for w in wikis_alphabetiques:
-    compteur += 1
-    # On isole le sous-domaine pour faire un nom de dossier propre (ex: minecraft)
-    folder = w.split(".")[0]
-    print(f"\n[WIKI #{compteur}] Traitement progressif de : {w}")
+compteur_wikis = 0
+
+# BOUCLE PRINCIPALE : Exploration de tout l'écosystème Fandom
+for prefixe in prefixes_communautaires:
+    # Pour chaque thème, on teste la version standard et les variantes linguistiques
+    variantes_domaines = [f"{prefixe}.fandom.com", f"{prefixe}://fandom.com"]
     
-    # Création du dossier distinct si nécessaire
-    if not os.path.exists(folder): 
-        os.makedirs(folder)
-        print(f"   [+] Répertoire créé : /{folder}")
-    
-    # Récupération des 5 premiers articles du wiki en cours
-    url_p = f"https://{w}/api.php?action=query&list=allpages&aplimit=5&format=json"
-    data_p = net(url_p)
-    
-    if data_p and "query" in data_p and "allpages" in data_p["query"]:
-        for p in data_p["query"]["allpages"]:
-            t = p["title"]
-            print(f"   -> Extraction locale de : {t}")
+    for w in variantes_domaines:
+        compteur_wikis += 1
+        folder = w.split(".")[0]
+        
+        print(f"\n" + "="*50)
+        print(f"[WIKI #{compteur_wikis}] Analyse de l'hôte : {w}")
+        print("="*50)
+        
+        # Étape 1 : Vérification si le wiki existe en testant son API
+        url_p = f"https://{w}/api.php?action=query&list=allpages&aplimit=20&format=json"
+        data_p = net(url_p)
+        
+        if not data_p or "query" not in data_p:
+            print(f"  [-] Hôte inactif ou protégé. Passage au suivant.")
+            continue
             
-            # Récupération du texte brut
+        # Étape 2 : Si le wiki répond, on crée son dossier distinct
+        if not os.path.exists(folder): 
+            os.makedirs(folder)
+            print(f"  [+] Répertoire créé : /{folder}")
+            
+        # Étape 3 : Aspiration séquentielle des articles de ce wiki
+        articles = data_p["query"]["allpages"]
+        print(f"  [+] {len(articles)} articles détectés. Extraction en cours...")
+        
+        for p in articles:
+            t = p["title"]
+            print(f"     -> Extraction de : {t}")
+            
             url_a = f"https://{w}/api.php?action=query&titles={urllib.parse.quote(t)}&prop=revisions&rvprop=content&format=json"
             data_a = net(url_a)
             
@@ -60,12 +67,17 @@ for w in wikis_alphabetiques:
                     if "revisions" in data_a["query"]["pages"][p_id]:
                         txt = data_a["query"]["pages"][p_id]["revisions"][0]["*"]
                         
-                        # Écriture propre dans son dossier dédié
+                        # Rangement propre
                         nom_f = f"{folder}/{t.replace(' ', '_').replace('/', '_')}.txt"
                         with open(nom_f, "w", encoding="utf-8") as f: 
                             f.write(f"SOURCE : {w}\nARTICLE : {t}\n" + "="*30 + "\n\n" + txt)
                 except: 
                     pass
-            time.sleep(0.2) # Temporisation réseau pour la stabilité du Chromebook
             
-print("\n[++] BRAVO PROSPÈRE ! TOUS LES DOSSIERS DISTINCTS SONT ARCHIVÉS.")
+            # Pause de 0.2 seconde entre chaque fichier pour ne pas surcharger le Chromebook
+            time.sleep(0.2)
+            
+        # Pause de 1 seconde entre chaque wiki pour réinitialiser la connexion SSL
+        time.sleep(1.0)
+
+print("\n[++] TOUS LES DOSSIERS ONT ÉTÉ TRAITÉS ET ENREGISTRÉS SANS SATURATION.")
