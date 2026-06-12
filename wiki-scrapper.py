@@ -1,68 +1,71 @@
-import socket
-import ssl
-import json
+import urllib.request
 import urllib.parse
+import json
 import time
+import os
 
-hote = "zeldawikidelinkrob.fandom.com"
-contexte = ssl.create_default_context()
+print("=== DEVOPS PROGRESSIVE MULTI-WIKI MINER ===")
 
-def envoyer_requete(chemin_api):
-    """Fonction réutilisable pour interroger l'API en HTTPS brut"""
-    with socket.create_connection((hote, 443)) as sock:
-        with contexte.wrap_socket(sock, server_hostname=hote) as ssock:
-            requete = (
-                f"GET {chemin_api} HTTP/1.1\r\n"
-                f"Host: {hote}\r\n"
-                "User-Agent: CyberScanner/1.0\r\n"
-                "Connection: close\r\n\r\n"
-            )
-            ssock.sendall(requete.encode())
-            reponse = b""
-            while True:
-                donnees = ssock.recv(4096)
-                if not donnees:
-                    break
-                reponse += donnees
-    parties = reponse.decode(errors='ignore').split("\r\n\r\n")
-    return parties[1] if len(parties) > 1 else parties[0]
+# --- TA BASE DE CIBLES EN DUR ---
+# Tu peux enrichir cette liste avec autant de wikis Fandom valides que tu veux !
+wikis_cibles = [
+    "zeldawikidelinkrob.fandom.com",
+    "zelda.fandom.com",
+    "minecraft.fandom.com",
+    "starwars.fandom.com",
+    "mario.fandom.com"
+]
 
-print("=== DEVOPS MASS WIKI ASPIRATOR ===")
-print("[*] Étape 1 : Récupération de la liste de TOUS les articles...")
+# Tri alphabétique strict de la liste
+wikis_alphabetiques = sorted(wikis_cibles)
+print(f"[+] {len(wikis_alphabetiques)} wikis chargés dans l'ordre alphabétique.")
 
-chemin_liste = "/api.php?action=query&list=allpages&aplimit=max&format=json"
-corps_liste = envoyer_requete(chemin_liste)
+def net(u):
+    try:
+        req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=5) as r: 
+            return json.loads(r.read().decode("utf-8"))
+    except: 
+        return None
 
-try:
-    donnees_liste = json.loads(corps_liste)
-    liste_pages = donnees_liste["query"]["allpages"]
-    titres = [page["title"] for page in liste_pages]
+# Boucle séquentielle (1 par 1)
+compteur = 0
+for w in wikis_alphabetiques:
+    compteur += 1
+    # On isole le sous-domaine pour faire un nom de dossier propre (ex: minecraft)
+    folder = w.split(".")[0]
+    print(f"\n[WIKI #{compteur}] Traitement progressif de : {w}")
     
-    print(f"[+] {len(titres)} articles détectés sur le wiki :")
-    print(", ".join(titres))
-    print("\n[*] Étape 2 : Aspiration de masse en cours...")
-
-    for titre in titres:
-        print(f" -> Téléchargement et nettoyage de : {titre}...")
-        titre_encode = urllib.parse.quote(titre)
-        chemin_article = f"/api.php?action=query&titles={titre_encode}&prop=revisions&rvprop=content&format=json"
-        
-        corps_article = envoyer_requete(chemin_article)
-        donnees_article = json.loads(corps_article)
-        pages = donnees_article["query"]["pages"]
-        page_id = list(pages.keys())[0]
-        
-        if page_id != "-1":
-            texte_propre = pages[page_id]["revisions"][0]["*"]
-            nom_fichier = f"{titre.replace(' ', '_').replace('/', '_')}.txt"
-            with open(nom_fichier, "w", encoding="utf-8") as f:
-                f.write(f"ARTICLE : {titre}\n")
-                f.write("=" * 30 + "\n\n")
-                f.write(texte_propre)
-        
-        time.sleep(0.2)
-
-    print("\n[++] TOUS LES ARTICLES ONT ÉTÉ ASPIRÉS ET SAUVEGARDÉS !")
-
-except Exception as e:
-    print(f"[-] Erreur durant l'aspiration globale : {e}")
+    # Création du dossier distinct si nécessaire
+    if not os.path.exists(folder): 
+        os.makedirs(folder)
+        print(f"   [+] Répertoire créé : /{folder}")
+    
+    # Récupération des 5 premiers articles du wiki en cours
+    url_p = f"https://{w}/api.php?action=query&list=allpages&aplimit=5&format=json"
+    data_p = net(url_p)
+    
+    if data_p and "query" in data_p and "allpages" in data_p["query"]:
+        for p in data_p["query"]["allpages"]:
+            t = p["title"]
+            print(f"   -> Extraction locale de : {t}")
+            
+            # Récupération du texte brut
+            url_a = f"https://{w}/api.php?action=query&titles={urllib.parse.quote(t)}&prop=revisions&rvprop=content&format=json"
+            data_a = net(url_a)
+            
+            if data_a and "query" in data_a and "pages" in data_a["query"]:
+                try:
+                    p_id = list(data_a["query"]["pages"].keys())[0]
+                    if "revisions" in data_a["query"]["pages"][p_id]:
+                        txt = data_a["query"]["pages"][p_id]["revisions"][0]["*"]
+                        
+                        # Écriture propre dans son dossier dédié
+                        nom_f = f"{folder}/{t.replace(' ', '_').replace('/', '_')}.txt"
+                        with open(nom_f, "w", encoding="utf-8") as f: 
+                            f.write(f"SOURCE : {w}\nARTICLE : {t}\n" + "="*30 + "\n\n" + txt)
+                except: 
+                    pass
+            time.sleep(0.2) # Temporisation réseau pour la stabilité du Chromebook
+            
+print("\n[++] BRAVO PROSPÈRE ! TOUS LES DOSSIERS DISTINCTS SONT ARCHIVÉS.")
