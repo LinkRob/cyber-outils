@@ -4,61 +4,59 @@ import json
 import time
 import os
 
-print("=== DEVOPS INFINITE DURATION MINER ===")
+print("=== DEVOPS MASTER PROGRESSIVE SCRAPER ===")
 
-# --- BASE DE DONNÉES DE MASS-MINING ---
-# Le script va parcourir cette liste et s'auto-alimenter de façon séquentielle
-prefixes_communautaires = [
-    "zelda", "mario", "minecraft", "starwars", "pokemon", 
-    "naruto", "onepiece", "gta", "fortnite", "witcher",
-    "skyrim", "fallout", "halo", "assassinscreed", "marvel"
+# L'arsenal complet des thèmes Fandom à siphonner de manière séquentielle
+themes_industriels = [
+    "zelda", "mario", "minecraft", "starwars", "pokemon", "naruto", "onepiece", 
+    "gta", "fortnite", "witcher", "skyrim", "fallout", "halo", "assassinscreed", 
+    "marvel", "dc", "disney", "harrypotter", "lordoftherings", "gameofthrones",
+    "dragonball", "bleach", "myheroacademia", "demonslayer", "attackontitan",
+    "callofduty", "leagueoflegends", "worldofwarcraft", "eldenring", "darksouls"
 ]
 
 def net(u):
     try:
         req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=5) as r: 
+        with urllib.request.urlopen(req, timeout=7) as r: 
             return json.loads(r.read().decode("utf-8"))
     except: 
         return None
 
-compteur_wikis = 0
-
-# BOUCLE PRINCIPALE : Exploration de tout l'écosystème Fandom
-for prefixe in prefixes_communautaires:
-    # Pour chaque thème, on teste la version standard et les variantes linguistiques
-    variantes_domaines = [f"{prefixe}.fandom.com", f"{prefixe}://fandom.com"]
+compteur = 0
+for t in themes_industriels:
+    # On génère la liste des cibles standards et francophones pour chaque thème
+    cibles = [f"{t}.fandom.com", f"{t}-fr.fandom.com"]
     
-    for w in variantes_domaines:
-        compteur_wikis += 1
-        folder = w.split(".")[0]
+    for hote in cibles:
+        compteur += 1
+        folder = hote.split(".")[0]
         
         print(f"\n" + "="*50)
-        print(f"[WIKI #{compteur_wikis}] Analyse de l'hôte : {w}")
+        print(f"[CRAWL #{compteur}] Tentative sur l'hôte : {hote}")
         print("="*50)
         
-        # Étape 1 : Vérification si le wiki existe en testant son API
-        url_p = f"https://{w}/api.php?action=query&list=allpages&aplimit=20&format=json"
+        # Test de l'API pour voir si le wiki existe
+        url_p = f"https://{hote}/api.php?action=query&list=allpages&aplimit=20&format=json"
         data_p = net(url_p)
         
-        if not data_p or "query" not in data_p:
-            print(f"  [-] Hôte inactif ou protégé. Passage au suivant.")
+        if not data_p or "query" not in data_p or "allpages" not in data_p["query"]:
+            print(f"  [-] Serveur inactif ou inexistant. Passage au suivant.")
             continue
             
-        # Étape 2 : Si le wiki répond, on crée son dossier distinct
-        if not os.path.exists(folder): 
+        if not os.path.exists(folder):
             os.makedirs(folder)
-            print(f"  [+] Répertoire créé : /{folder}")
+            print(f"  [+] Dossier distinct créé : /{folder}")
             
-        # Étape 3 : Aspiration séquentielle des articles de ce wiki
         articles = data_p["query"]["allpages"]
-        print(f"  [+] {len(articles)} articles détectés. Extraction en cours...")
+        print(f"  [+] {len(articles)} pages détectées. Extraction séquentielle...")
         
         for p in articles:
-            t = p["title"]
-            print(f"     -> Extraction de : {t}")
+            titre = p["title"]
+            print(f"     -> Téléchargement de : {titre}")
             
-            url_a = f"https://{w}/api.php?action=query&titles={urllib.parse.quote(t)}&prop=revisions&rvprop=content&format=json"
+            titre_enc = urllib.parse.quote(titre)
+            url_a = f"https://{hote}/api.php?action=query&titles={titre_enc}&prop=revisions&rvprop=content&format=json"
             data_a = net(url_a)
             
             if data_a and "query" in data_a and "pages" in data_a["query"]:
@@ -67,17 +65,12 @@ for prefixe in prefixes_communautaires:
                     if "revisions" in data_a["query"]["pages"][p_id]:
                         txt = data_a["query"]["pages"][p_id]["revisions"][0]["*"]
                         
-                        # Rangement propre
-                        nom_f = f"{folder}/{t.replace(' ', '_').replace('/', '_')}.txt"
-                        with open(nom_f, "w", encoding="utf-8") as f: 
-                            f.write(f"SOURCE : {w}\nARTICLE : {t}\n" + "="*30 + "\n\n" + txt)
-                except: 
+                        nom_f = f"{folder}/{titre.replace(' ', '_').replace('/', '_')}.txt"
+                        with open(nom_f, "w", encoding="utf-8") as f:
+                            f.write(f"WIKI : {hote}\nTITLE : {titre}\n\n" + txt)
+                except:
                     pass
-            
-            # Pause de 0.2 seconde entre chaque fichier pour ne pas surcharger le Chromebook
-            time.sleep(0.2)
-            
-        # Pause de 1 seconde entre chaque wiki pour réinitialiser la connexion SSL
-        time.sleep(1.0)
+            time.sleep(0.2) # Respiration par fichier pour tromper le pare-feu
+        time.sleep(1.0) # Respiration entre les serveurs
 
-print("\n[++] TOUS LES DOSSIERS ONT ÉTÉ TRAITÉS ET ENREGISTRÉS SANS SATURATION.")
+print("\n[++] TOUTES LES ARCHIVES CONFIGURÉES ONT ÉTÉ EXTRAITES.")
