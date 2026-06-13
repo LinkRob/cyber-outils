@@ -1,0 +1,207 @@
+{{For|the Bedrock Edition folder|com.mojang}}
+{{exclusive|java}}
+
+<samp>'''.minecraft'''</samp> (or simply <samp>'''minecraft'''</samp> in macOS) is the folder [[Java Edition|''Minecraft: Java Edition]] creates to run from. This folder includes the <samp>[[wikipedia:JAR (file format)|.jar]]</samp> files, sound, music, resource packs, personal options, worlds, etc.
+
+== Locating <samp>.minecraft</samp> ==
+
+{{/path}}
+
+Locating the <samp>.minecraft</samp> folder can be vital for installing a resource pack or locating any made screenshots.
+
+The Windows location in the table above is just the default case. Launchers can set the <samp>.minecraft</samp> at any path.
+
+If you're a Windows user and are unfamiliar with how to find your appdata folder, follow these steps:
+
+# Click Start → Run. If you don't see "Run", press {{key|Windows + R}}.
+# Type {{code|%APPDATA%\.minecraft}} and click "OK".
+
+If you're a Mac user, you can open the folder through Spotlight:
+
+# Open Finder and press {{key|Shift + Command + G}} or open the Spotlight popup through the magnifying glass icon on the right of the Menu Bar.
+# Type {{code|~/Library/Application&nbsp;Support/minecraft}} and hit {{key|Enter}}.
+
+On Linux or macOS, the {{code|~}} in the path refers to the home directory. Folders starting with a {{code|.}} are hidden by default. In most file managers, hitting Ctrl + H toggles their hidden status. In macOS specifically, since version 10.12 (Sierra), the shortcut {{key|Command + Shift + .}} toggles the hidden status of files.
+
+
+If you want to change directory of the <samp>.minecraft</samp> folder, see [[Tutorials/Custom Minecraft directory]].
+
+== <samp>.minecraft</samp> file hierarchy ==
+{| class="collapsible collapse-button-none" data-description="List"
+! List
+|-
+|
+<div class="toccolours treeview">
+* .minecraft
+** assets
+*** indexes
+**** ''version''.json
+*** log_configs
+**** client-''version''.xml
+*** objects
+*** skinpacks
+*** virtual
+** bin
+*** jinput.jar
+*** lwjgl.jar
+*** lwjgl_util.jar
+*** [[client.jar|minecraft.jar]] (it is the [[client.jar]] for 1.5.2. The game doesn't use it after the launcher update, though; it uses the "versions" folder instead.)
+*** natives
+**** (.dll files)
+*** [Random ID]
+**** (.dll files)
+** [[Commands/debug|debug]]
+*** ''year''-''month''-''day''_''hour''.''minute''.''second''.zip
+**** deviations
+***** <tick_number>@''year''-''month''-''day''_''hour''.''minute''.''second''.txt
+**** metrics
+***** eventloops.csv
+***** frame_times_ms_.csv
+***** jvm.csv
+***** mailboxes.csv
+***** rendering_chunk_dispatching.csv
+***** rendering_chunk_stats.csv
+***** task_total_duration_ms.csv
+**** profiling.txt
+** libraries
+*** [Various libraries packaged per [[wikipedia:Apache Maven|Maven]] convention (without POM files)]
+** logs
+*** ''year''-''month''-''day''-''sessionNumber''.log.gz
+*** latest.log
+** [[Resource pack|resourcepacks]]
+** saves
+***[[Java Edition level format|''worldName'']]
+**** advancements
+***** ''uuid''.json
+**** data
+***** [[idcounts.dat]]
+***** [[Map_item_format#map_<#>.dat_format|map_''id''.dat]]
+***** [[scoreboard.dat]]
+***** [[raids.dat]]
+**** [[Data pack|datapacks]]
+**** DIM1
+***** data
+****** [[raids.dat|raids_end.dat]]
+***** {{Tooltip|poi|Villager identified beds, job sites, and bells}}
+****** [[Chunk format|r.''x''.''z''.mca]]
+***** region
+****** [[Chunk format|r.''x''.''z''.mca]]
+**** DIM-1
+***** data
+****** [[raids.dat|raids_nether.dat]]
+***** {{Tooltip|poi|Villager identified beds, job sites, and bells}}
+****** [[Chunk format|r.''x''.''z''.mca]]
+***** region
+****** [[Chunk format|r.''x''.''z''.mca]]
+**** generated
+***** ''(namespace)''
+****** structures
+******* [[Structure block file format|''name''.nbt]]
+**** playerdata
+***** [[Player.dat format|''uuid''.dat]]
+****{{Tooltip|poi|Villager identified beds, job sites, and bells}}
+***** [[Chunk format|r.''x''.''z''.mca]]
+**** region
+***** [[Chunk format|r.''x''.''z''.mca]]
+**** stats
+***** ''uuid''.json
+**** icon.png
+****[[level.dat]]
+**** level.dat_mcr
+**** level.dat_old
+**** resources.zip
+****[[session.lock]]
+**[[screenshots]]
+***''year''-''month''-''day''_''hour''.''minute''.''second''.png (or, ...''second''_''instance''.png)
+** stats
+*** stats_''player''_unsent.dat
+*** stats_''player''_unsent.old
+** [[Texture pack|texturepacks]]
+** texturepacks-mp-cache
+** versions
+***''version''
+****[[client.jar|''version''.jar]]
+**** [[client.json|''version''.json]] 
+** webcache
+*** Cache
+**** data_0
+**** data_1
+**** data_2
+**** data_3
+**** f_<hexa>
+*** Cookies
+*** Cookies-journal
+*** GPUCache
+**** data_0
+**** data_1
+**** data_2
+**** data_3
+**** index
+*** Visited Links
+** debug.stitched_items.png
+** debug.stitched_terrain.png
+** hotbar.nbt
+** lastlogin
+** nativelog.txt (macOS only)
+** nativeUpdaterLog.txt (macOS only)
+** launcher_cef_log.txt
+** launcher_entitlements.json
+** launcher_gamer_pics.json
+** launcher_msa_credentials.json
+**[[launcher_profiles.json]]
+** launcher_settings.json
+** launcher_skins.json
+** launcher_ui_state.json
+**[[options.txt]]
+** output-client.log
+** output-server.log
+** realms_persistence.json
+**[[servers.dat]]
+** textures_0.png
+** textures_1.png
+** textures_2.png
+** textures_3.png
+** textures_4.png
+** usercache.json
+</div>
+|-
+|
+|}
+Use of a resource pack can be forced by naming its zip file to {{cd|resources.zip}} and placing it in the root folder of the world save.<ref>[https://web.archive.org/web/20140221073128/https://www.mojang.com/2014/02/minecraft-snapshot-14w07a/ Minecraft snapshot 14w07a] – Dinnerbone on mojang.com; February 14, 2014</ref> This feature is single-player only;<ref>{{Cite bug|MC|73716|Resources.zip doesn't work for servers (and possibly LAN worlds)|date=October 27, 2014}}</ref> however, there is another way for servers to ask or force clients to use the server resource pack.
+
+For Windows OS and Linux, the contents of {{Cd|nativelog.txt}} and {{Cd|nativeUpdaterLog.txt}} can be found within {{Cd|launcher_log.txt}} when applicable (i.e. the contents of{{Cd|nativeUpdaterLog.txt}} will only be present in {{Cd|latest_log.txt}} after the launcher is updated / launched for the first time).
+
+== History ==
+{{History|java infdev}}
+{{History||(June 29, 2010)|Added {{cd|level.dat_old}}}}
+{{History|java alpha}}
+{{History||v1.0.11|Added {{cd|session.lock}}}}
+{{History|java}}
+{{History||1.13|snap=17w43a|Removed structure data.
+|Added datapacks folder.}}
+{{History||1.14|snap=18w47a|Added {{cd|raids.dat}}}}
+{{History|||snap=19w13a|Removed {{cd|villages.dat}} and added {{cd|poi}} region files.}}
+{{History|foot}}
+
+== References ==
+{{reflist}}
+
+
+{{Java Edition}}
+
+[[Category:Development]]
+
+[[de:.minecraft]]
+[[es:.minecraft]]
+[[fr:.minecraft]]
+[[ja:.minecraft]]
+[[ko:.minecraft]]
+[[lzh:.minecraft]]
+[[nl:.minecraft]]
+[[pl:.minecraft]]
+[[pt:.minecraft]]
+[[ru:.minecraft]]
+[[th:.minecraft]]
+[[tr:.minecraft]]
+[[uk:.minecraft]]
+[[zh:.minecraft]]

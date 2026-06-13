@@ -1,0 +1,221 @@
+{{about|the activator rail|other types of rails|Rail (disambiguation)}}
+{{Block
+|image=Activator Rail.png
+|image2=Powered Activator Rail.png
+|transparent=Yes
+|light=No
+|tool=pickaxe
+|renewable=Yes
+|stackable=Yes (64)
+|flammable=No
+|lavasusceptible=No
+}}
+
+An '''activator rail''' is a type of powerable [[rail]] that can eject [[Player|players]] and [[Mob|mobs]] from regular [[Minecart|minecarts]], lock and unlock [[Minecart with Hopper|hopper minecarts]] and ignite [[Minecart with TNT|TNT minecarts]].
+
+== Obtaining ==
+
+=== Breaking ===
+
+An activator rail can be broken by hand or using any [[tool]], dropping itself as an item, but a [[pickaxe]] is fastest. To break an activator rail, {{control|mine}} it:
+{{breaking row|horizontal=1|Activator Rail|Pickaxe}}
+
+An activator rail also drops as an item when the block beneath it is removed or a [[piston]] moves it into a space with no floor below it.
+
+=== Chest loot ===
+
+{{LootChestItem|activator-rail}}
+
+=== Crafting ===
+
+{{Crafting
+|A1= Iron Ingot
+|B1= Stick
+|C1= Iron Ingot
+|A2= Iron Ingot
+|B2= Redstone Torch
+|C2= Iron Ingot
+|A3= Iron Ingot
+|B3= Stick
+|C3= Iron Ingot
+|Output= Activator Rail,6
+|type= Transportation
+}}
+
+== Usage ==
+
+An activator rail can be used as a rail and as a redstone component.
+
+To place an activator rail, {{control|use}} an activator rail item while pointing at a surface facing the space the activator rail should occupy. An activator rail can be placed on:
+* the '''top''' of any full solid [[opaque]] block (stone, dirt, blocks of gold, etc.), including full-block mechanism components ([[command block]]s, [[dispenser]]s, [[dropper]]s, [[note block]]s, and [[redstone lamp]]s)
+* the '''top''' of a [[hopper]], upside-down [[slab]], or upside-down [[stairs]].
+*the '''top''' of any transparent block (glass, etc.)
+
+An activator rail cannot be attached to the side or bottom of any block, but attempting to make such an attachment may cause the activator rail to attach to the top of a block under the destination space. For example, if a fence is on the ground, attempting to attach an activator rail to the side of the fence causes the activator rail to be attached to the top of the ground next to the fence instead.
+
+When placed, an activator rail configures itself to line up with any adjacent [[rail]]s (including [[detector rail]]s, [[powered rail]]s, and other activator rails), as well as adjacent rails one block up. The behaviors {{in|je|be}} diverge in the following ways.
+
+{{IN|je}}:
+
+: If there are two adjacent rails on non-opposite sides, or three or more adjacent rails, or no adjacent rails at all, an activator rail aligns itself in the direction the player is facing. If an existing activator rail is connected to only one other rail or none at all, and a new rail is placed perpendicular to the activator rail, then the activator rail aligns itself in the east-west direction (if it isn't already facing that way). If a rail it would align with is one block up, an activator rail slants upward toward it (with multiple options to slant upward to, an activator rail "prefers" west or south). Other configurations can be created by placing and removing various rails.{{testingame}}
+
+{{IN|be}}:{{testingame}}
+
+: If there are two adjacent rails on non-opposite sides, or three or more adjacent rails, an activator rail aligns itself in the east-west direction. If there are no adjacent rails, an activator rail aligns itself in the north-south direction (but if a rail is later placed to the east or west, the activator rail re-orients itself in the east-west direction even if it is already connected to another rail to the north or south). If a rail it would align with is one block up, an activator rail slants upward toward it (with multiple options to slant upward to, an activator rail "prefers", in order: west, east, south, and north). Other configurations can be created by placing and removing various rails.
+
+It cannot be placed suspended in midair, even with commands.<ref>{{bug|MC-182709|||Invalid}}</ref>
+
+=== Rail ===
+{{main|Rail}}
+
+Activator rails (and other rails) can be used as "roads" for [[minecart]]s. A minecart that enters an activator rail's space from either end of the activator rail continues to move, losing only a little velocity (which can then be increased again with [[powered rail]]s). A minecart that enters an activator rail's space from the side turns east or south (depending on the activator rail's orientation), or in the downward direction for a slanted activator rail.
+
+=== Redstone component ===
+{{see also|Redstone circuit}}
+
+Activator rails can be used to affect minecarts that travel over them.
+
+; Activation
+
+: An activator rail is a [[Redstone components#Mechanism components|redstone mechanism]] and can be activated by:
+:* an adjacent active '''[[power component]]''' (for example, a [[redstone torch]], a [[block of redstone]], a [[daylight sensor]], etc.)
+:* an adjacent '''powered block''' (strongly-powered or weakly-powered)
+:* a powered '''[[redstone comparator]]''' or '''[[redstone repeater]]''' facing the activator rail
+:* powered '''[[redstone dust]]''' configured to point at the activator rail, or configured as a plus sign.‌ An activator rail is ''not'' activated by adjacent powered redstone dust that is configured to point in another direction.
+
+: An activated activator rail also activates any adjacent activator rails it is connected to, up to eight away from the original activation source. Thus a single activation source can activate up to 17 rails (one original in the middle and eight on either side). An activated activator rail does not activate adjacent rails not connected to it.
+
+; Behavior
+
+An activator rail affects minecarts above it with varying effects that occur as soon as any part of the minecart is on the activator rail.
+
+An ''active'' activator rail:
+* starts shaking, and ejects mobs (including players) from minecarts — the destination location is picked the same way as when [[Minecart#Dismounting|dismounting]] a minecart
+* repeatedly activates [[command block minecart]]s — a command block minecart executes its command every four game ticks until the command block minecart is no longer on the activator rail
+* disables [[hopper minecart]]s — a disabled hopper minecart cannot pick up items it travels through until it is enabled by an inactive activator rail (or until it is broken and re-placed)
+* primes [[TNT minecart]]s — primed TNT minecarts explode after four seconds with an explosive power proportional to their speed over the activator rail.
+
+An ''inactive'' activator rail enables [[hopper minecart]]s — an enabled hopper minecart picks up items it travels through until it is disabled by an active activator rail.
+
+== Sounds ==
+{{Sound table/Block/Metal}}
+
+== Data values ==
+
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showitemtags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Activator Rail
+|spritetype=block
+|nameid=activator_rail
+|blocktags=prevent_mob_spawning_inside, rails
+|itemtags=rails
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Activator Rail
+|spritetype=block
+|nameid=activator_rail
+|id=126
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+{{:Powered Rail/BS}}
+
+== History ==
+
+{{History|java}}
+{{History||1.5|snap=13w02a|[[File:Activator Rail (NS) JE1 BE1.png|32px]] [[File:Activator Rail (EW) JE1 BE1.png|32px]] [[File:Activator Rail (nS) JE1 BE1.png|32px]] [[File:Activator Rail (Ew) JE1 BE1.png|32px]] [[File:Activator Rail (Ns) JE1 BE1.png|32px]] [[File:Activator Rail (eW) JE1 BE1.png|32px]]<br>[[File:Powered Activator Rail (NS) JE1 BE1.png|32px]] [[File:Powered Activator Rail (EW) JE1 BE1.png|32px]] [[File:Powered Activator Rail (nS) JE1 BE1.png|32px]] [[File:Powered  Activator Rail (Ew) JE1 BE1.png|32px]] [[File:Powered  Activator Rail (Ns) JE1 BE1.png|32px]] [[File:Powered Activator Rail (eW) JE1 BE1.png|32px]]<br>[[File:Off Activator Rail (texture) JE1 BE1.png|32px]] Added activator rails.}}
+{{History|||snap=13w02b|The [[crafting]] recipe of activator rails has now been changed to include [[stick]]s and [[redstone torch]]. Previously, it required only 6 iron ingots vertically at the end.}}
+{{History|||snap=13w04a|Activated activator rails now disable [[minecarts with hoppers]].}}
+{{History||1.7.2|snap=13w39a|Activated activator rails now activate [[minecarts with command blocks]].}}
+{{History||1.8|snap=14w05a|Activated activator rails now eject [[player]]s and [[mob]]s from [[minecart]]s.}}
+{{History|||snap=14w10a|[[File:Missing Model JE2.png|32px]] Activator rails with [[Java Edition data values/Pre-flattening/Block IDs/Before 14w25a|numerical metadata variants]] 6, 7, 14 and 15, which are inaccessible through normal gameplay or even commands and as such require the use of external editors to exist, now have [[Missing model|no model]]. Their appearances prior to this point were unknown.}}
+{{History|||snap=14w25a|Activator rails are now defined via [[block states]] rather than by numerical metadata. Prior to this version, the numerical metadata variants of the activator rail were as follows:
+{{dvt|spritetype=block|sprite=activator-rail|Unpowered north-south}}
+{{dvt|spritetype=block|sprite=activator-rail|Unpowered east-west}}
+{{dvt|spritetype=block|sprite=activator-rail|Unpowered ascending east}}
+{{dvt|spritetype=block|sprite=activator-rail|Unpowered ascending west}}
+{{dvt|spritetype=block|sprite=activator-rail|Unpowered ascending north}}
+{{dvt|spritetype=block|sprite=activator-rail|Unpowered ascending south}}
+{{dvt|spritetype=block|sprite=missing-texture-block|dv=6-7|[[Java Edition removed blocks/Metadata variants#Boring variants|Inaccessible - behavior unknown]]}}
+{{dvt|spritetype=block|sprite=activator-rail|dv=8|Powered north-south}}
+{{dvt|spritetype=block|sprite=activator-rail|Powered east-west}}
+{{dvt|spritetype=block|sprite=activator-rail|Powered ascending east}}
+{{dvt|spritetype=block|sprite=activator-rail|Powered ascending west}}
+{{dvt|spritetype=block|sprite=activator-rail|Powered ascending north}}
+{{dvt|spritetype=block|sprite=activator-rail|Powered ascending south}}
+{{dvt|spritetype=block|sprite=missing-texture-block|dv=14-15|[[Java Edition removed blocks/Metadata variants#Boring variants|Inaccessible - behavior unknown]]|foot=1}}}}
+{{History|||snap=14w26a|Activator rails with metadata values 6, 7, 14 and 15 have now been completely removed from the game.}}
+{{History||1.9|snap=15w39a|The dismounting location of activator rails is now predictable. [[Entity|Entities]] now dismount from vehicles ([[boat]]s, [[minecart]]s, [[horse]]s) by the right side relative to the motion of the vehicle. If the right side is unavailable, the other potential locations are tested in this order: Right, Left, Back Right, Back Left, Front Right, Front Left, Back, Front.}}
+{{History|||snap=15w44a|Activator rails can now be found in  [[minecart with chest|chest minecarts]] in [[mineshaft]]s.}}
+{{History||1.11|snap=16w32b|All rail types', including activator rails, hitbox heights have now been decreased from a full block to a half block.}}
+{{History||1.13|snap=17w47a|Prior to [[Java Edition 1.13/Flattening|''The Flattening'']], this block's numeral ID was 157.}}
+{{History||1.14|snap=18w43a|[[File:Activator Rail (NS) JE2 BE2.png|32px]] [[File:Activator Rail (EW) JE2 BE2.png|32px]] [[File:Activator Rail (nS) JE2 BE2.png|32px]] [[File:Activator Rail (Ew) JE2 BE2.png|32px]] [[File:Activator Rail (Ns) JE2 BE2.png|32px]] [[File:Activator Rail (eW) JE2 BE2.png|32px]]<br>[[File:Powered Activator Rail (NS) JE2 BE2.png|32px]] [[File:Powered Activator Rail (EW) JE2 BE2.png|32px]] [[File:Powered Activator Rail (nS) JE2 BE2.png|32px]] [[File:Powered Activator Rail (Ew) JE2 BE2.png|32px]] [[File:Powered Activator Rail (Ns) JE2 BE2.png|32px]] [[File:Powered Activator Rail (eW) JE2 BE2.png|32px]]<br>[[File:Off Activator Rail (texture) JE2 BE2.png|32px]] The textures of activator rails have now been changed.}}
+{{History|||snap=19w12b|Activator rails can now be placed on [[glass]], [[ice]], [[glowstone]] and [[sea lantern]].}}
+{{History||1.17|snap=20w45a|All rail types can now be waterlogged.}}
+
+{{History|pocket alpha}}
+{{History||v0.13.0|snap=build 1|[[File:Activator Rail (NS) JE1 BE1.png|32px]] [[File:Powered Activator Rail (NS) JE1 BE1.png|32px]] [[File:Off Activator Rail (texture) JE1 BE1.png|32px]] Added activator rails.}}
+{{History||v0.14.0|snap=build 1|Activator rails can now be found inside [[minecarts with chests]] in [[mineshaft]]s.}}
+{{History|bedrock}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Activator Rail (NS) JE2 BE2.png|32px]] [[File:Powered Activator Rail (NS) JE2 BE2.png|32px]] [[File:Off Activator Rail (texture) JE2 BE2.png|32px]] The textures of activator rails have now been changed.}}
+
+{{History|console}}
+{{History||xbox=TU19|xbone=CU7|ps=1.10|wiiu=Patch 1|switch=1.0.1|[[File:Activator Rail (NS) JE1 BE1.png|32px]] [[File:Powered Activator Rail (NS) JE1 BE1.png|32px]] [[File:Off Activator Rail (texture) JE1 BE1.png|32px]] Added activator rails.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|Activated activator rails now eject [[player]]s and [[mob]]s from [[minecart]]s.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Activator Rail (NS) JE2 BE2.png|32px]] [[File:Powered Activator Rail (NS) JE2 BE2.png|32px]] [[File:Off Activator Rail (texture) JE2 BE2.png|32px]] The textures of activator rails have now been changed.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Activator Rail (NS) JE1 BE1.png|32px]] [[File:Powered Activator Rail (NS) JE1 BE1.png|32px]] [[File:Off Activator Rail (texture) JE1 BE1.png|32px]] Added activator rails.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+== Gallery ==
+<gallery>
+File:Shaking minecart.png|A minecart is shaking on an ''active'' activator rail
+</gallery>
+
+== See also ==
+
+* [[Rail]]
+* [[Powered Rail]]
+* [[Detector Rail]]
+
+== References ==
+{{Reflist}}
+
+{{Redstone}}
+{{Blocks|Utility}}
+
+[[Category:Non-solid blocks]]
+[[Category:Mechanisms]]
+[[Category:Mechanics]]
+[[Category:Redstone mechanics]]
+[[Category:Manufactured blocks]]
+
+[[de:Aktivierungsschiene]]
+[[es:Raíl activador]]
+[[fr:Rails déclencheurs]]
+[[it:Binario]]
+[[ja:アクティベーターレール]]
+[[ko:활성화 레일]]
+[[nl:Activatiespoor]]
+[[pl:Tory aktywacyjne]]
+[[pt:Trilho ativador]]
+[[ru:Активирующие рельсы]]
+[[zh:激活铁轨]]

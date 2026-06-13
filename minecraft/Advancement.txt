@@ -1,0 +1,2103 @@
+{{About||the command|Commands/advancement|the data pack format|Advancement/JSON format|the old Java Edition achievement|Achievement/Java Edition}}
+{{Distinguish|text=[[Achievement]]s in Bedrock Edition}}
+{{exclusive|java}}
+[[File:AdvancementMade.png|thumb|right|240px|The popup that appears when normal advancements are made.]]
+[[File:GoalReached.png|thumb|right|240px|The popup that appears when goal advancements are reached.]]
+[[File:ChallengeComplete.png|thumb|right|240px|The popup that appears when challenge advancements are completed.]]
+
+'''Advancements''' are a way to gradually guide new players into ''[[Minecraft]]'' and give them challenges to complete, similar to the basic system of [[achievement]]s {{in|be}}.
+
+== Obtaining ==
+Advancements can be completed in any [[game mode]], and are obtained and saved per world. Advancements can also be granted (and revoked) using the {{cmd|advancement}} command.
+
+Although advancements guide players logically through the game, they are independent of each other; an advancement can be completed without having completed the advancements "before" it. There are 110 of them: 16 in the '''Minecraft''' tab, 24 in the '''Nether''' tab, 9 in the '''The End''' tab, 35 in the '''Adventure''' tab, and 26 in the '''Husbandry''' tab.
+
+When advancements are obtained, a sliding {{w|Toast (computing)|toast}} notification displays in the top right corner, and a message is displayed in chat if the [[game rule]] {{code|announceAdvancements}} is set to {{cd|true}}.‌ The color of the header text in the notification depends on the advancement; normal and goal advancements have yellow header text, while challenge advancements have pink header text. Completing a normal advancement causes the header text to display "Advancement Made!", completing a goal advancement results in a "Goal Reached!" header, and completing a challenge advancement shows "Challenge Complete!" In addition, [[#Sounds|music plays]] and [[experience]] is rewarded when completing these kinds of advancements.
+
+== Interface ==
+[[File:AdvancementsInterface.png|thumb|300px|The advancement interface. The "Isn't It Iron Pick" advancement is selected.]]
+
+The button to access the Advancements screen is found on the [[pause menu]] screen. The [[player]] can also open this screen by pressing {{key|L}} (this can be changed in the in-game [[options]] menu).
+
+The advancement system involves several trees composed of advancements, each tree beginning with a root advancement from which several branches diverge. By clicking and dragging, the player can view different branches of an advancement tree. Each tree is categorized into different tabs (which are defined by the root advancements). Tabs are not visible if no advancements in the tab have been unlocked. There are currently five tabs in vanilla Minecraft:
+
+* [[#Minecraft|'''Minecraft''']]: The heart and story of the game
+* [[#Nether|'''Nether''']]: Bring summer clothes
+* [[#The End|'''The End''']]: Or the beginning?
+* [[#Adventure|'''Adventure''']]: Adventure, exploration, and combat
+* [[#Husbandry|'''Husbandry''']]: The world is full of friends and food
+
+Each tab has a different background with a repeating texture. Tabs only appear when at least one advancement in that tab has been made. Tabs are ordered left to right, based on when the first advancement in each tab was made.
+
+Advancement icons display a header name and description when hovered over. The advancement descriptions have a unique color depending on the type of advancement with normal and goal advancements having green descriptions and challenge advancements having purple ones. As more advancements are unlocked, new ones become visible, with up to two advancements being displayed ahead of an unlocked one. Unlocked advancements show all of its '''direct''' parents advancements (the advancements between the root advancement of the tab and it), even those that have not been unlocked (but only show up to 2 advancements downstream of advancements already unlocked). Nine advancements, "How Did We Get Here?", "Voluntary Exile", "Hero of the Village", "Arbalistic", "You've Got a Friend in Me", "Smells Interesting", "Birthday Song", "Little Sniffs", and "Planting the Past" are hidden advancements, meaning that they cannot be viewed by the [[player]] until they have been unlocked, regardless of if its child advancement(s) (any advancement after it, including all branches), if any have been unlocked, which would normally display its parent advancements (as advancements can be unlocked and completed in any order).
+
+If the player has not completed/unlocked any advancements, the interface shows a black background with white text reading "There doesn't seem to be anything here... :(".<ref>{{bug|MC-115297|||WAI}}</ref>
+
+The icon frames of advancements can vary in appearance based on difficulty, and whether or not it was completed. A legend is provided below:
+
+{| class="wikitable" data-description="Advancement icons" style="text-align: center"
+! colspan="2" | Icon Frame
+! rowspan="2" | Description
+|-
+! Incomplete/Regular
+! Completed
+|-
+| [[File:Advancement-plain-raw.png|52px|link=]]
+| [[File:Advancement-plain-worn.png|52px|link=]]
+| Advancement
+|-
+| [[File:Advancement-oval-raw.png|52px|link=]]
+| [[File:Advancement-oval-worn.png|52px|link=]]
+| Goal
+|-
+| [[File:Advancement-fancy-raw.png|52px|link=]]
+| [[File:Advancement-fancy-worn.png|52px|link=]]
+| Challenge
+|-
+|}
+
+Extra advancements and tabs can be added and customized with the use of [[/JSON format|JSON files]] and [[data pack]]s.
+
+== List of advancements ==
+=== Minecraft ===
+[[File:Advancements Tree.png|thumb|center|350px|alt=|Advancement tree in the "Minecraft" tab]]
+{{-}}
+{{Advancements
+|head=1
+|category= [[File:Grass Block.png|16px|link=]] Minecraft
+|title=Minecraft
+|bg=plain
+|Grass Block
+|The heart and story of the game
+|—
+|Have a [[Crafting Table|crafting table]] in your inventory.
+|story/root
+}}
+{{Advancements
+|title=Stone Age
+|bg=plain
+|Wooden Pickaxe
+|Mine Stone with your new Pickaxe
+|Minecraft
+|Have ''one'' of these 3 stones in the <code>[[Tag#items stone_tool_materials|#stone_tool_materials]]</code> item tag:
+{{flatlist|indent=1|
+* {{BlockLink|Cobblestone}}
+* {{BlockLink|Blackstone}}
+* {{BlockLink|Cobbled Deepslate}}
+}} in your inventory.
+|story/mine_stone
+}}
+{{Advancements
+|title=Getting an Upgrade
+|bg=plain
+|Stone Pickaxe
+|Construct a better Pickaxe
+|Stone Age
+|Have a [[pickaxe|stone pickaxe]] in your inventory.
+|story/upgrade_tools
+}}
+{{Advancements
+|title=Acquire Hardware
+|bg=plain
+|Iron Ingot
+|Smelt an Iron Ingot
+|Getting an Upgrade
+|Have an [[Iron Ingot|iron ingot]] in your inventory.
+|story/smelt_iron
+}}
+{{Advancements
+|title=Suit Up
+|bg=plain
+|Iron Chestplate
+|Protect yourself with a piece of iron armor
+|Acquire Hardware
+|Have any type of iron [[armor]] in your inventory.
+|story/obtain_armor
+}}
+{{Advancements
+|title=Hot Stuff
+|bg=plain
+|Lava Bucket
+|Fill a Bucket with lava
+|Acquire Hardware
+|Have a [[Lava Bucket|lava bucket]] in your inventory.
+|story/lava_bucket
+}}
+{{Advancements
+|title=Isn't It Iron Pick
+|bg=plain
+|Iron Pickaxe
+|Upgrade your Pickaxe
+|Acquire Hardware
+|Have an [[pickaxe|iron pickaxe]] in your inventory.
+|story/iron_tools
+}}
+{{Advancements
+|title=Not Today, Thank You
+|bg=plain
+|Shield
+|Deflect a projectile with a Shield
+|Suit Up
+|Block any projectile with a [[shield]].
+|story/deflect_arrow
+}}
+{{Advancements
+|title=Ice Bucket Challenge
+|bg=plain
+|Obsidian
+|Obtain a block of Obsidian
+|Hot Stuff
+|Have a block of [[obsidian]] in your inventory.
+|story/form_obsidian
+}}
+{{Advancements
+|title=Diamonds!
+|bg=plain
+|Diamond
+|Acquire diamonds
+|Isn't It Iron Pick
+|Have a [[diamond]] in your inventory.
+|story/mine_diamond
+}}
+{{Advancements
+|title=We Need to Go Deeper
+|bg=plain
+|Flint and Steel
+|Build, light and enter a Nether Portal
+|Ice Bucket Challenge
+|Enter [[the Nether]] dimension.
+|story/enter_the_nether
+}}
+{{Advancements
+|title=Cover Me with Diamonds
+|bg=plain
+|Diamond Chestplate
+|Diamond armor saves lives
+|Diamonds!
+|Have any type of diamond [[armor]] in your inventory.
+|story/shiny_gear
+}}
+{{Advancements
+|title=Enchanter
+|bg=plain
+|Enchanted Book.gif
+|Enchant an item at an Enchanting Table
+|Diamonds!/Ice Bucket Challenge
+|Insert an item in an [[Enchanting Table|enchanting table]], then apply an enchantment.
+|story/enchant_item
+}}
+{{Advancements
+|title=Zombie Doctor
+|bg=oval
+|Golden Apple
+|Weaken and then cure a [[Zombie Villager]]
+|We Need to Go Deeper
+|{{control|Use}} a [[Golden Apple|golden apple]] on a zombie villager under the [[Weakness]] effect; the advancement is granted when the zombie villager [[Zombie Villager#Curing|converts into a villager]].<br>''In [[multiplayer]], only the player that feeds the golden apple gets the advancement.''
+|story/cure_zombie_villager
+}}
+{{Advancements
+|title=Eye Spy
+|bg=plain
+|Eye of Ender
+|Follow an Eye of Ender
+|We Need to Go Deeper
+|Enter a [[stronghold]].
+|story/follow_ender_eye
+}}
+{{Advancements
+|foot=1
+|title=The End?
+|bg=plain
+|End Stone
+|Enter the End Portal
+|Eye Spy
+|Enter [[the End]] dimension.
+|story/enter_the_end
+}}
+
+=== Nether ===
+[[File:Advancements Tree - Nether.png|thumb|center|350px|alt=|Advancement tree in the "Nether" tab {{Until|Chase the Skies}}]]
+{{-}}
+{{Advancements
+|head=1
+|prize=1
+|category= [[File:Red Nether Bricks.png|15px|link=]] Nether
+|title=Nether
+|bg=plain
+|Red Nether Bricks
+|Bring summer clothes
+|—
+|Enter [[the Nether]] dimension.
+|nether/root
+}}
+{{Advancements
+|title=Return to Sender
+|bg=fancy
+|Fire Charge
+|Destroy a [[Ghast]] with a fireball
+|Nether
+|Kill a ghast by deflecting a ghast fireball back into it via hitting or shooting a projectile at the fireball.
+|nether/return_to_sender
+|{{xp|50}} [[experience]]
+}}
+{{Advancements
+|title=Those Were the Days
+|bg=plain
+|Polished Blackstone Bricks
+|Enter a Bastion Remnant
+|Nether
+|—
+|nether/find_bastion
+|—
+}}
+{{Advancements
+|title=Hidden in the Depths
+|bg=plain
+|Ancient Debris
+|Obtain Ancient Debris
+|Nether
+|Have an [[Ancient Debris|ancient debris]] in your inventory.
+|nether/obtain_ancient_debris
+|—
+}}
+{{Advancements
+|title=Subspace Bubble
+|bg=fancy
+|Empty Map
+|Use the Nether to travel 7 km in the Overworld
+|Nether
+|Use [[the Nether]] to travel between 2 points in the [[Overworld]] with a minimum horizontal euclidean distance of 7000 blocks between each other, which is 875 blocks in the Nether.
+|nether/fast_travel
+|{{xp|100}} [[experience]]
+}}
+{{Advancements
+|title=A Terrible Fortress
+|bg=plain
+|Nether Bricks
+|Break your way into a [[Nether Fortress]]
+|Nether
+|Enter a nether fortress.
+|nether/find_fortress
+|—
+}}
+{{Advancements
+|title=Who is Cutting Onions?
+|bg=plain
+|Crying Obsidian
+|Obtain [[Crying Obsidian]]
+|Nether
+|Have a block of crying obsidian in your inventory.
+|nether/obtain_crying_obsidian
+|—
+}}
+{{Advancements
+|title=Oh Shiny
+|bg=plain
+|Gold Ingot
+|Distract Piglins with gold
+|Nether
+|While aggravated, give a [[piglin]] ''one'' of these 27 gold-related items in the <code>[[Tag#items piglin_loved|#piglin_loved]]</code> item tag:
+{{flatlist|indent=1|
+* {{ItemLink|Bell}}
+* {{BlockLink|Block of Gold}}
+* {{BlockLink|Block of Raw Gold}}
+* {{ItemLink|Clock}}
+* {{BlockLink|Deepslate Gold Ore|link=Gold Ore}}
+* {{ItemLink|Enchanted Golden Apple}}
+* {{BlockLink|Gilded Blackstone}}
+* {{ItemLink|Glistering Melon Slice}}
+* {{ItemLink|Gold Ingot}}
+* {{BlockLink|Gold Ore}}
+* {{ItemLink|Golden Apple}}
+* {{ItemLink|Golden Axe|link=axe}}
+* {{ItemLink|Golden Boots|link=boots}}
+* {{ItemLink|Golden Carrot}}
+* {{ItemLink|Golden Chestplate|link=chestplate}}
+* {{ItemLink|Golden Helmet|link=helmet}}
+* {{ItemLink|Golden Hoe|link=hoe}}
+* {{ItemLink|Golden Horse Armor|link=Horse Armor}}
+* {{ItemLink|Golden Leggings|link=leggings}}
+* {{ItemLink|Golden Nautilus Armor|link=Nautilus Armor}}
+* {{ItemLink|Golden Pickaxe|link=pickaxe}}
+* {{ItemLink|Golden Dandelion}}
+* {{ItemLink|Golden Shovel|link=shovel}}
+* {{ItemLink|Golden Spear|link=spear}}
+* {{ItemLink|Golden Sword|link=sword}}
+* {{BlockLink|Light Weighted Pressure Plate|link=Pressure Plate}} 
+* {{BlockLink|Nether Gold Ore}}
+* {{ItemLink|Raw Gold}}
+}}
+Other gold-related items do not distract the piglin and do not trigger this advancement.
+|nether/distract_piglin
+|—
+}}
+{{Advancements
+|title=This Boat Has Legs
+|bg=plain
+|Warped Fungus on a Stick
+|Ride a [[Strider]] with a [[Warped Fungus on a Stick]]
+|Nether
+|{{control|Use|text=Boost}}<ref>{{bug|MC-183764}}</ref> a strider with a warped fungus on a stick.
+|nether/ride_strider
+|—
+}}
+{{Advancements
+|title=Uneasy Alliance
+|bg=fancy
+|Ghast Tear
+|Rescue a [[Ghast]] from [[the Nether]], bring it safely home to the [[Overworld]]... and then kill it
+|Return to Sender
+|Kill a ghast while the player is in the Overworld.
+|nether/uneasy_alliance
+|{{xp|100}} [[experience]]
+}}
+{{Advancements
+|title=War Pigs
+|bg=plain
+|Chest
+|Loot a Chest in a [[Bastion Remnant]]
+|Those Were the Days
+|Open a naturally generated, never-before opened [[chest]] in a bastion remnant.
+|nether/loot_bastion
+|—
+}}
+{{Advancements
+|title=Cover Me in Debris
+|bg=fancy
+|Netherite Chestplate
+|Get a full suit of Netherite armor
+|Hidden in the Depths
+|Have a <u>full set</u> of netherite [[armor]] in your inventory.
+|nether/netherite_armor
+|{{xp|100}} [[experience]]
+}}
+{{Advancements
+|title=Spooky Scary Skeleton
+|bg=plain
+|Wither Skeleton Skull
+|Obtain a Wither Skeleton's skull
+|A Terrible Fortress
+|Have a [[head|wither skeleton skull]] in your inventory.
+|nether/get_wither_skull
+|—
+}}
+{{Advancements
+|title=Into Fire
+|bg=plain
+|Blaze Rod
+|Relieve a Blaze of its rod
+|A Terrible Fortress
+|Have a [[Blaze Rod|blaze rod]] in your inventory.
+|nether/obtain_blaze_rod
+|—
+}}
+{{Advancements
+|title=Not Quite "Nine" Lives
+|anchor=Not Quite &quot;Nine&quot; Lives
+|bg=plain
+|Respawn Anchor
+|Charge a [[Respawn Anchor]] to the maximum
+|Who is Cutting Onions?
+|—
+|nether/charge_respawn_anchor
+|—
+}}
+{{Advancements
+|title=Feels Like Home
+|bg=plain
+|Warped Fungus on a Stick
+|Take a Strider for a loooong ride on a lava lake in the Overworld
+|This Boat Has Legs
+|While riding a strider, travel 50 blocks on lava in the Overworld.<br>''Only horizontal displacement is counted. Traveling in a circle for more than 50 blocks doesn't count.''
+|nether/ride_strider_in_overworld_lava
+|—
+}}
+{{Advancements
+|title=Hot Tourist Destinations
+|bg=fancy
+|Netherite Boots
+|Explore all [[The Nether|Nether]] biomes
+|This Boat Has Legs
+|Visit ''all'' of the 5 following [[biome]]s:
+{{flatlist|indent=1|
+* {{BiomeLink|Basalt Deltas}}
+* {{BiomeLink|Crimson Forest}}
+* {{BiomeLink|Nether Wastes}}
+* {{BiomeLink|Soul Sand Valley}}
+* {{BiomeLink|Warped Forest}}
+}}
+The advancement is only for Nether biomes. Other biomes may also be visited, but are ignored for this advancement.
+|nether/explore_nether
+|{{xp|500}} [[experience]]
+}}
+{{Advancements
+|title=Withering Heights
+|bg=plain
+|Nether Star.gif
+|Summon the [[Wither]]
+|Spooky Scary Skeleton
+|Be within a 100.9×100.9×103.5 cuboid centered on the wither when it is spawned.
+|nether/summon_wither
+|—
+}}
+{{Advancements
+|title=Local Brewery
+|bg=plain
+|Uncraftable Potion
+|Brew a [[Potion]]
+|Into Fire
+|Pick up an item from a [[Brewing Stand|brewing stand]] potion slot. This does not need to be a potion. Water bottles or even [[Glass Bottle|glass bottle]]s can also trigger this advancement.<ref>{{bug|MC-116875}}</ref>
+|nether/brew_potion
+|—
+}}
+{{Advancements
+|title=Bring Home the Beacon
+|bg=plain
+|Beacon
+|Construct and place a Beacon
+|Withering Heights
+|Be within a 20×20×14 cuboid centered on a [[beacon]] block when it realizes it has become powered.
+|nether/create_beacon
+|—
+}}
+{{Advancements
+|title=A Furious Cocktail
+|bg=fancy
+|Milk Bucket
+|Have every potion effect applied at the same time
+|Local Brewery
+|Have ''all'' of these 17 status [[effect]]s applied to the [[player]] at the same time:
+{{flatlist|indent=1|
+* {{EffectLink|Fire Resistance}}
+* {{EffectLink|Infestation}}
+* {{EffectLink|Invisibility}}
+* {{EffectLink|Jump Boost}}
+* {{EffectLink|Night Vision}}
+* {{EffectLink|Oozing}}
+* {{EffectLink|Poison}}
+* {{EffectLink|Regeneration}}
+* {{EffectLink|Resistance}}
+* {{EffectLink|Slow Falling}}
+* {{EffectLink|Slowness}}
+* {{EffectLink|Speed}}
+* {{EffectLink|Strength}}
+* {{EffectLink|Water Breathing}}
+* {{EffectLink|Weakness}}
+* {{EffectLink|Weaving}}
+* {{EffectLink|Wind Charged}}
+}}
+The source of the effects is irrelevant for the purposes of this advancement. Other status effects may be applied to the player, but are ignored for this advancement.
+|nether/all_potions
+|{{xp|100}} [[experience]]
+}}
+{{Advancements
+|title=Beaconator
+|bg=oval
+|Beacon
+|Bring a Beacon to full power
+|Bring Home the Beacon
+|Be within a 20×20×14 cuboid centered on a [[beacon]] block when it realizes it is being powered by a size 4 pyramid.
+|nether/create_full_beacon
+|—
+}}
+{{Advancements
+|foot=1
+|title=How Did We Get Here?
+|bg=fancy
+|Bucket
+|Have every effect applied at the same time 
+|A Furious Cocktail
+|Have ''all'' of these 34 status [[effect]]s applied to the player at the same time:
+{{flatlist|indent=1|
+* {{EffectLink|Absorption}}
+* {{EffectLink|Bad Omen}}
+* {{EffectLink|Blindness}}
+* {{EffectLink|Breath of the Nautilus}}
+* {{EffectLink|Conduit Power}}
+* {{EffectLink|Darkness}}
+* {{EffectLink|Dolphin's Grace}}
+* {{EffectLink|Fire Resistance}}
+* {{EffectLink|Glowing}}
+* {{EffectLink|Haste}}
+* {{EffectLink|Hero of the Village}}
+* {{EffectLink|link=Hunger (effect)|Hunger}}
+* {{EffectLink|Infested}}
+* {{EffectLink|Invisibility}}
+* {{EffectLink|Jump Boost}}
+* {{EffectLink|Levitation}}
+* {{EffectLink|Mining Fatigue}}
+* {{EffectLink|Nausea}}
+* {{EffectLink|Night Vision}}
+* {{EffectLink|Oozing}}
+* {{EffectLink|Poison}}
+* {{EffectLink|Raid Omen}}
+* {{EffectLink|Regeneration}}
+* {{EffectLink|Resistance}}
+* {{EffectLink|Slow Falling}}
+* {{EffectLink|Slowness}}
+* {{EffectLink|Speed}}
+* {{EffectLink|Strength}}
+* {{EffectLink|Trial Omen}}
+* {{EffectLink|Water Breathing}}
+* {{EffectLink|Weakness}}
+* {{EffectLink|Weaving}}
+* {{EffectLink|link=Wither (effect)|Wither}}
+* {{EffectLink|Wind Charged}}
+}}
+The source of the effects is irrelevant for the purposes of this advancement. Other status effects may be applied to the player, but are ignored for this advancement.<br>''This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.''
+|nether/all_effects
+|{{xp|1000}} [[experience]]
+}}
+
+=== The End ===
+[[File:Advancements Tree - The End.png|thumb|center|350px|alt=|Advancement tree in the "The End" tab]]
+{{-}}
+{{Advancements
+|head=1
+|prize=1
+|category= [[File:End Stone.png|16px|link=]] The End
+|title=The End
+|bg=plain
+|End Stone
+|Or the beginning?
+|—
+|Enter [[the End]] dimension.
+|end/root
+|—
+}}
+{{Advancements
+|title=Free the End
+|bg=plain
+|Dragon Head
+|Good luck
+|The End
+|Kill the [[Ender Dragon|ender dragon]].<br>''If multiple players are involved in the dragon fight, only the player that deals the final blow to the dragon receives the advancement.''<ref>{{bug|MC-199994||Advancement "Free the End" is only granted to one player}}</ref>
+|end/kill_dragon
+|—
+}}
+{{Advancements
+|title=The Next Generation
+|bg=oval
+|Dragon Egg
+|Hold the Dragon Egg
+|Free the End
+|Have a [[Dragon Egg|dragon egg]] in your inventory.
+|end/dragon_egg
+|—
+}}
+{{Advancements
+|title=Remote Getaway
+|bg=plain
+|Ender Pearl
+|Escape the island
+|Free the End
+|Throw an [[Ender Pearl|ender pearl]] through, fly, or walk into an [[end gateway]].
+|end/enter_end_gateway
+|—
+}}
+{{Advancements
+|title=The End... Again...
+|bg=oval
+|End Crystal.gif
+|Respawn the Ender Dragon
+|Free the End
+|Be within a 192 block radius from the coordinates (0.0, 128, 0.0)<!-- EndDragonFight#setRespawnStage and VALID_PLAYER = EntitySelector.ENTITY_STILL_ALIVE.and(EntitySelector.withinDistance(0.0, 128.0, 0.0, 192.0));--> when an [[Ender Dragon|ender dragon]] is summoned using [[End Crystal|end crystals]].
+|end/respawn_dragon
+|—
+}}
+{{Advancements
+|title=You Need a Mint
+|bg=oval
+|Dragon's Breath
+|Collect [[Dragon's Breath]] in a [[Glass Bottle]]
+|Free the End
+|Have a bottle of dragon's breath in your inventory.
+|end/dragon_breath
+|—
+}}
+{{Advancements
+|title=The City at the End of the Game
+|bg=plain
+|Purpur Block
+|Go on in, what could happen?
+|Remote Getaway
+|Enter an [[End City|end city]].
+|end/find_end_city
+|—
+}}
+{{Advancements
+|title=Sky's the Limit
+|bg=oval
+|Elytra
+|Find Elytra
+|The City at the End of the Game
+|Have a pair of [[elytra]] in your inventory.
+|end/elytra
+|—
+}}
+{{Advancements
+|foot=1
+|title=Great View From Up Here
+|bg=fancy
+|Shulker Shell
+|Levitate up 50 blocks from the attacks of a [[Shulker]]
+|The City at the End of the Game
+|Move a distance of 50 blocks vertically with the [[Levitation]] effect applied, regardless of direction or whether it is caused by the effect.
+|end/levitate
+|{{xp|50}} [[experience]]
+}}
+
+=== Adventure ===
+[[File:Advancements Tree - Adventure.png|thumb|center|350px|alt=|Advancement tree in the "Adventure" tab {{Until|Tricky Trials}}]]
+{{-}}
+{{Advancements
+|head=1
+|prize=1
+|category= [[File:Empty Map.png|16px|link=]] Adventure
+|title=Adventure
+|bg=plain
+|Empty Map
+|Adventure, exploration and combat
+|—
+|Kill any [[entity]], or be killed by any entity.
+|adventure/root
+|—
+}}
+{{Advancements
+|title=Voluntary Exile
+|bg=plain
+|Ominous Banner
+|Kill a [[raid captain]].<br>Maybe consider staying away from villages for the time being...
+|Adventure
+|Kill an entity in the <code>[[Tag#entity_types raiders|#raiders]]</code> entity tag wearing an [[banner|ominous banner]].<br>''This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.''
+|adventure/voluntary_exile
+|—
+}}
+{{Advancements
+|title=Is It a Bird?
+|bg=plain
+|Spyglass
+|Look at a [[Parrot]] through a [[Spyglass]]
+|Adventure
+|—
+|adventure/spyglass_at_parrot
+|—
+}}
+{{Advancements
+|title=Country Lode, Take Me Home
+|bg=plain
+|Lodestone
+|{{control|Use}} a [[Compass]] on a [[Lodestone]]
+|Adventure
+|—
+|adventure/use_lodestone
+|—
+}}
+{{Advancements
+|title=Monster Hunter
+|bg=plain
+|Iron Sword
+|Kill any hostile monster
+|Adventure
+|Kill ''one'' of these 41 [[mob]]s:
+{{flatlist|indent=1|
+* {{EntityLink|Blaze}}
+* {{EntityLink|Bogged}}
+* {{EntityLink|Breeze}}
+* {{EntityLink|Camel Husk}}
+* {{EntityLink|Cave Spider}}
+* {{EntityLink|Creaking}} (requires destroying the [[creaking heart]])
+* {{EntityLink|Creeper}}
+* {{EntityLink|Drowned}}
+* {{EntityLink|Elder Guardian}}
+* {{EntityLink|Ender Dragon}}
+* {{EntityLink|Enderman}}
+* {{EntityLink|Endermite}}
+* {{EntityLink|Evoker}}
+* {{EntityLink|Ghast}}
+* {{EntityLink|Guardian}}
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Husk}}
+* {{EntityLink|Magma Cube}}
+* {{EntityLink|Parched}}
+* {{EntityLink|Phantom}}
+* {{EntityLink|Piglin}}
+* {{EntityLink|Piglin Brute}}
+* {{EntityLink|Pillager}}
+* {{EntityLink|Ravager}}
+* {{EntityLink|Shulker}}
+* {{EntityLink|Silverfish}}
+* {{EntityLink|Skeleton}}
+* {{EntityLink|Slime}}
+* {{EntityLink|Spider}}
+* {{EntityLink|Stray}}
+* {{EntityLink|Vex}}
+* {{EntityLink|Vindicator}}
+* {{EntityLink|Witch}}
+* {{EntityLink|Wither}}
+* {{EntityLink|Wither Skeleton}}
+* {{EntityLink|Zoglin}}
+* {{EntityLink|Zombie}}
+* {{EntityLink|Zombie Horse}}
+* {{EntityLink|Zombie Nautilus}}
+* {{EntityLink|Zombie Villager}}
+* {{EntityLink|Zombified Piglin}}
+}}
+Only the riders of the {{EntityLink|Chicken Jockey|chicken jockey}}s and {{EntityLink|Skeleton Horseman|skeleton horsemen}} are counted in this advancement. Other mobs like the [[warden]] may be killed, but are ignored for this advancement.
+|adventure/kill_a_mob
+|—
+}}
+{{Advancements
+|title=The Power of Books
+|bg=plain
+|Chiseled Bookshelf
+|Read the power signal of a Chiseled Bookshelf using a Comparator
+|Adventure
+|Place a comparator on any side of a chiseled bookshelf or the chiseled bookshelf against a comparator to trigger the advancement.|adventure/read_power_of_chiseled_bookshelf
+|—
+}}
+{{Advancements
+|title=What a Deal!
+|bg=plain
+|Emerald
+|Successfully trade with a Villager
+|Adventure
+|Take an item from a [[villager]] or [[Wandering Trader|wandering trader]]'s [[trading]] output slot, and put it in your inventory.
+|adventure/trade
+|—
+}}
+{{Advancements
+|title=Crafting a New Look
+|bg=plain
+|Dune Armor Trim Smithing Template
+|Craft a trimmed armor at a Smithing Table
+|Adventure
+|—
+|adventure/trim_with_any_armor_pattern
+|—
+}}
+{{Advancements
+|title=Sticky Situation
+|bg=plain
+|Honey Block
+|Jump into a [[Honey Block]] to break your fall
+|Adventure
+|Collide on a vertical side of a honey block when in air.
+|adventure/honey_block_slide
+|—
+}}
+{{Advancements
+|title=Ol' Betsy
+|bg=plain
+|Crossbow
+|Shoot a [[Crossbow]]
+|Adventure
+|—
+|adventure/ol_betsy
+|—
+}}
+{{Advancements
+|title=Surge Protector
+|bg=plain
+|Lightning Rod
+|Protect a [[Villager]] from an undesired [[Thunderstorm#Lightning|shock]] without starting a fire
+|Adventure
+|Be within 30 blocks of a lightning strike that doesn't set any blocks on fire, while an unharmed villager is within or up to six blocks above a 30×30×30 volume centred on the lightning strike.
+|adventure/lightning_rod_with_villager_no_fire
+|—
+}}
+{{Advancements
+|title=Caves & Cliffs
+|bg=plain
+|Water Bucket
+| Free-fall from the top of the world (build limit) to the bottom of the world and survive
+|Adventure
+|Fall {{tooltip|from at least y{{=}}319|The last point the player touched the ground must be at or above y{{=}}319.}} to at most y{{=}}-59 with a {{tooltip|vertical distance|This, however, does count from the highest point the player has been, so jumping makes a difference.}} of {{tooltip|''greater than'' 379 blocks|Not just integer amounts greater than 379; falling from y{{=}}320 to y{{=}}-59 does not work, but y{{=}}319.5 to y{{=}}-60 is fine.}}.
+|adventure/fall_from_world_height
+|—
+}}
+{{Advancements
+|title=Respecting the Remnants
+|bg=plain
+|Brush
+|Brush a [[Suspicious block]] to obtain a Pottery Sherd
+|Adventure
+|—
+|adventure/salvage_sherd
+|—
+}}
+{{Advancements
+|title=Sneak 100
+|bg=plain
+|Sculk Sensor.gif
+|Sneak near a Sculk Sensor or Warden to prevent it from detecting you
+|Adventure
+|Sneak within 8 blocks from a sculk sensor, or 16 blocks from a warden.
+|adventure/avoid_vibration
+|—
+}}
+{{Advancements
+|title=Sweet Dreams
+|bg=plain
+|Red Bed
+|Sleep in a Bed to change your respawn point
+|Adventure
+|Lie down in a [[bed]]. The advancement is granted as soon as the player is in bed, even if the player does not successfully sleep.
+|adventure/sleep_in_bed
+|—
+}}
+{{Advancements
+|title=Hero of the Village
+|bg=fancy
+|Ominous Banner
+|Successfully defend a village from a [[raid]]
+|Voluntary Exile
+|Kill at least one raid mob during a raid and wait until it ends in victory.<br>''This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.''
+|adventure/hero_of_the_village
+|{{xp|100}} [[experience]]
+}}
+{{Advancements
+|title=Is It a Balloon?
+|bg=plain
+|Spyglass
+|Look at a [[Ghast]] through a [[Spyglass]]
+|Is It a Bird?
+|Look at a ghast through a spyglass while the ghast is focused on you.
+|adventure/spyglass_at_ghast
+|—
+}}
+{{Advancements
+|bg=plain
+|title=A Throwaway Joke
+|Trident
+|Throw a Trident at something.<br>Note: Throwing away your only weapon is not a good idea.
+|Monster Hunter
+|Hit a [[mob]] with a thrown [[trident]].
+|adventure/throw_trident
+|—
+}}
+{{Advancements
+|title=It Spreads
+|bg=fancy
+|Sculk Catalyst
+|Kill a mob near a [[Sculk Catalyst]]
+|Monster Hunter
+|Kill ''one'' of these 70 mobs near a sculk catalyst:
+{{flatlist|indent=1|
+* {{EntityLink|Axolotl}}
+* {{EntityLink|Bee}}
+* {{EntityLink|Blaze}}
+* {{EntityLink|Bogged}}
+* {{EntityLink|Breeze}}
+* {{EntityLink|Camel}}
+* {{EntityLink|Camel Husk}}
+* {{EntityLink|Cat}}
+* {{EntityLink|Cave Spider}}
+* {{EntityLink|Chicken}}
+* {{EntityLink|Chicken Jockey}}
+* {{EntityLink|Cod}}
+* {{EntityLink|Cow}}
+* {{EntityLink|Creeper}}
+* {{EntityLink|Donkey}}
+* {{EntityLink|Dolphin}}
+* {{EntityLink|Drowned}}
+* {{EntityLink|Elder Guardian}}
+* {{EntityLink|Enderman}}
+* {{EntityLink|Endermite}}
+* {{EntityLink|Evoker}}
+* {{EntityLink|Fox}}
+* {{EntityLink|Frog}}
+* {{EntityLink|Ghast}}
+* {{EntityLink|Goat}}
+* {{EntityLink|Glow Squid}}
+* {{EntityLink|Guardian}}
+* {{EntityLink|Happy Ghast}}
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Horse}}
+* {{EntityLink|Husk}}
+* {{EntityLink|Llama}}
+* {{EntityLink|Magma Cube}}
+* {{EntityLink|Mooshroom}}
+* {{EntityLink|Nautilus}}
+* {{EntityLink|Ocelot}}
+* {{EntityLink|Panda}}
+* {{EntityLink|Parrot}}
+* {{EntityLink|Phantom}}
+* {{EntityLink|Pig}}
+* {{EntityLink|Piglin}}
+* {{EntityLink|Piglin Brute}}
+* {{EntityLink|Pillager}}
+* {{EntityLink|Polar Bear}}
+* {{EntityLink|Pufferfish}}
+* {{EntityLink|Rabbit}}
+* {{EntityLink|Ravager}}
+* {{EntityLink|Salmon}}
+* {{EntityLink|Sheep}}
+* {{EntityLink|Shulker}}
+* {{EntityLink|Silverfish}}
+* {{EntityLink|Skeleton}}
+* {{EntityLink|Skeleton Horse}}
+* {{EntityLink|Skeleton Horseman}}
+* {{EntityLink|Slime}}
+* {{EntityLink|Sniffer}}
+* {{EntityLink|Stray}}
+* {{EntityLink|Spider}}
+* {{EntityLink|Spider Jockey}}
+* {{EntityLink|Squid}}
+* {{EntityLink|Strider}}
+* {{EntityLink|Trader Llama}}
+* {{EntityLink|Tropical Fish}}
+* {{EntityLink|Turtle}}
+* {{EntityLink|Vex}}
+* {{EntityLink|Vindicator}}
+* {{EntityLink|Warden}}
+* {{EntityLink|Witch}}
+* {{EntityLink|Wither}}
+* {{EntityLink|Wither Skeleton}}
+* {{EntityLink|Wolf}}
+* {{EntityLink|Zoglin}}
+* {{EntityLink|Zombie}}
+* {{EntityLink|Zombie Horse}}
+* {{EntityLink|Zombie Nautilus}}
+* {{EntityLink|Zombie Villager}}
+* {{EntityLink|Zombified Piglin}}
+}}
+
+{{tooltip|Mobs that drop no experience|all baby animals, allays, armor stands, bats, copper golems, creakings, iron golems, snow golems, villagers, mannequins, and wandering traders}} are ignored for this advancement.
+|adventure/kill_mob_near_sculk_catalyst
+|—
+}}
+{{Advancements
+|title=Take Aim
+|bg=plain
+|Bow
+|Shoot something with an Arrow
+|Monster Hunter
+|Using a [[bow]] or a [[crossbow]], shoot an entity with an [[arrow]], [[Arrow#Tipped arrows|tipped arrow]], or [[Arrow#Spectral arrows|spectral arrow]].
+|adventure/shoot_arrow
+|—
+}}
+{{Advancements
+|title=Monsters Hunted
+|bg=fancy
+|Diamond Sword
+|Kill one of every hostile monster
+|Monster Hunter
+|Kill ''each'' of these 41 [[mob]]s:
+{{flatlist|indent=1|
+* {{EntityLink|Blaze}}
+* {{EntityLink|Bogged}}
+* {{EntityLink|Breeze}}
+* {{EntityLink|Camel Husk}}
+* {{EntityLink|Cave Spider}}
+* {{EntityLink|Creaking}} (requires destroying the [[creaking heart]])
+* {{EntityLink|Creeper}}
+* {{EntityLink|Drowned}}
+* {{EntityLink|Elder Guardian}}
+* {{EntityLink|Ender Dragon}}
+* {{EntityLink|Enderman}}
+* {{EntityLink|Endermite}}
+* {{EntityLink|Evoker}}
+* {{EntityLink|Ghast}}
+* {{EntityLink|Guardian}}
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Husk}}
+* {{EntityLink|Magma Cube}}
+* {{EntityLink|Parched}}
+* {{EntityLink|Phantom}}
+* {{EntityLink|Piglin}}
+* {{EntityLink|Piglin Brute}}
+* {{EntityLink|Pillager}}
+* {{EntityLink|Ravager}}
+* {{EntityLink|Shulker}}
+* {{EntityLink|Silverfish}}
+* {{EntityLink|Skeleton}}
+* {{EntityLink|Slime}}
+* {{EntityLink|Spider}}
+* {{EntityLink|Stray}}
+* {{EntityLink|Vex}}
+* {{EntityLink|Vindicator}}
+* {{EntityLink|Witch}}
+* {{EntityLink|Wither}}
+* {{EntityLink|Wither Skeleton}}
+* {{EntityLink|Zoglin}}
+* {{EntityLink|Zombie}}
+* {{EntityLink|Zombie Horse}}
+* {{EntityLink|Zombie Nautilus}}
+* {{EntityLink|Zombie Villager}}
+* {{EntityLink|Zombified Piglin}}
+}}
+Other mobs may be killed, but are ignored for this advancement. Only the riders of the {{EntityLink|Chicken Jockey|chicken jockey}}s and {{EntityLink|Skeleton Horseman|skeleton horsemen}} are counted in this advancement. 
+|adventure/kill_all_mobs
+|{{xp|100}} [[experience]]
+}}
+{{Advancements
+|title=Postmortal
+|bg=oval
+|Totem of Undying
+|Use a [[Totem of Undying]] to cheat death
+|Monster Hunter
+|Activate a totem of undying by taking fatal damage.
+|adventure/totem_of_undying
+|—
+}}
+{{Advancements
+|title=Mob Kabob
+|bg=fancy
+|Iron Spear
+|Hit five mobs in the same charge attack using a [[spear]] 
+|Monster Hunter
+|[[Armor stand]]s and [[The Copper Age|Mannequin]]s are also counted for this advancement.
+|adventure/spear_many_mobs
+|—
+}}
+{{Advancements
+|title=Hired Help
+|bg=oval
+|Carved Pumpkin
+|Summon an [[Iron Golem]] to help defend a village
+|What a Deal!
+|Summon an iron golem.
+|adventure/summon_iron_golem
+|—
+}}
+{{Advancements
+|title=Star Trader
+|bg=plain
+|Emerald
+|Trade with a Villager at the build height limit
+|What a Deal!
+|Stand on any block that is higher than 318 and trade with a [[villager]] or [[Wandering Trader|wandering trader]].
+|adventure/trade_at_world_height
+|—
+}}
+{{Advancements
+|title=Smithing with Style
+|bg=fancy
+|Silence Armor Trim Smithing Template
+|Apply these smithing templates at least once: Spire, Snout, Rib, Ward, Silence, Vex, Tide, Wayfinder
+|Crafting a New Look
+|—
+|adventure/trim_with_all_exclusive_armor_patterns
+|{{xp|150}} experience
+}}
+{{Advancements
+|title=Two Birds, One Arrow
+|bg=fancy
+|Crossbow
+|Kill two Phantoms with a piercing Arrow
+|Ol' Betsy
+|Use a [[crossbow]] enchanted with [[Piercing]] to kill two [[phantom]]s with a single arrow shot.
+|adventure/two_birds_one_arrow
+|{{xp|65}} [[experience]]
+}}
+{{Advancements
+|title=Who's the Pillager Now?
+|bg=plain
+|Crossbow
+|Give a Pillager a taste of their own medicine
+|Ol' Betsy
+|Kill a [[pillager]] with a [[crossbow]].
+|adventure/whos_the_pillager_now
+|—
+}}
+{{Advancements
+|title=Arbalistic
+|bg=fancy
+|Crossbow
+|Kill five unique mobs with one crossbow shot 
+|Ol' Betsy
+|<br>''This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.''
+|adventure/arbalistic
+|{{xp|85}} [[experience]]
+}}
+{{Advancements
+|title=Careful Restoration
+|bg=plain
+|Decorated Pot
+|Make a Decorated Pot out of 4 Pottery Sherds
+|Respecting the Remnants
+|—
+|adventure/craft_decorated_pot_using_only_sherds
+|—
+}}
+{{Advancements
+|title=Adventuring Time
+|bg=fancy
+|Diamond Boots
+|Discover every biome
+|Sweet Dreams
+|Visit ''all'' of these 54 [[biome]]s:
+{{flatlist|indent=1|
+* {{BiomeLink|Badlands}}
+* {{BiomeLink|Bamboo Jungle}}
+* {{BiomeLink|Beach}}
+* {{BiomeLink|Birch Forest}}
+* {{BiomeLink|Cherry Grove}}
+* {{BiomeLink|Cold Ocean|link=Ocean#Cold Ocean}}
+* {{BiomeLink|Dark Forest}}
+* {{BiomeLink|Deep Cold Ocean|link=Ocean#Deep Cold Ocean}}
+* {{BiomeLink|Deep Dark}}
+* {{BiomeLink|Deep Frozen Ocean|link=Ocean#Deep Frozen Ocean}}
+* {{BiomeLink|Deep Lukewarm Ocean|link=Ocean#Deep Lukewarm Ocean}}
+* {{BiomeLink|Deep Ocean}}
+* {{BiomeLink|Desert}}
+* {{BiomeLink|Dripstone Caves}}
+* {{BiomeLink|Eroded Badlands}}
+* {{BiomeLink|Flower Forest}}
+* {{BiomeLink|Forest}}
+* {{BiomeLink|Frozen Ocean}}
+* {{BiomeLink|Frozen Peaks}}
+* {{BiomeLink|Frozen River}}
+* {{BiomeLink|Grove}}
+* {{BiomeLink|Ice Spikes}}
+* {{BiomeLink|Jagged Peaks}}
+* {{BiomeLink|Jungle}}
+* {{BiomeLink|Lukewarm Ocean|link=Ocean#Lukewarm Ocean}}
+* {{BiomeLink|Lush Caves}}
+* {{BiomeLink|Mangrove Swamp}}
+* {{BiomeLink|Meadow}}
+* {{BiomeLink|Mushroom Fields}}
+* {{BiomeLink|Ocean}}
+* {{BiomeLink|Old Growth Birch Forest}}
+* {{BiomeLink|Old Growth Pine Taiga}}
+* {{BiomeLink|Old Growth Spruce Taiga}}
+* {{BiomeLink|Pale Garden}}
+* {{BiomeLink|Plains}}
+* {{BiomeLink|River}}
+* {{BiomeLink|Savanna}}
+* {{BiomeLink|Savanna Plateau}}
+* {{BiomeLink|Snowy Beach}}
+* {{BiomeLink|Snowy Plains}}
+* {{BiomeLink|Snowy Slopes}}
+* {{BiomeLink|Snowy Taiga}}
+* {{BiomeLink|Sparse Jungle}}
+* {{BiomeLink|Stony Peaks}}
+* {{BiomeLink|Stony Shore}}
+* {{BiomeLink|Sunflower Plains}}
+* {{BiomeLink|Swamp}}
+* {{BiomeLink|Taiga}}
+* {{BiomeLink|Warm Ocean|link=Ocean#Warm Ocean}}
+* {{BiomeLink|Windswept Forest}}
+* {{BiomeLink|Windswept Gravelly Hills}}
+* {{BiomeLink|Windswept Hills}}
+* {{BiomeLink|Windswept Savanna}}
+* {{BiomeLink|Wooded Badlands}}
+}}
+The advancement is only for [[Overworld]] biomes. Other biomes may also be visited, but are ignored for this advancement.
+|adventure/adventuring_time
+|{{xp|500}} [[experience]]
+}}
+{{Advancements
+|title=Sound of Music
+|bg=plain
+|Jukebox
+|Make the Meadows come alive with the sound of music from a Jukebox
+|Sweet Dreams
+|While in a meadow biome, place down a jukebox and use a music disc on it.
+|adventure/play_jukebox_in_meadows
+|—
+}}
+{{Advancements
+|title=Light as a Rabbit
+|bg=plain
+|Leather Boots
+|Walk on [[powder snow|Powder Snow]]... without sinking in it
+|Sweet Dreams
+|Walk on powder snow while wearing [[Boots|leather boots]].
+|adventure/walk_on_powder_snow_with_leather_boots
+|—
+}}
+{{Advancements
+|title=Is It a Plane?
+|bg=plain
+|Spyglass
+|Look at the [[Ender Dragon]] through a [[Spyglass]]
+|Is It a Balloon?
+|—
+|adventure/spyglass_at_dragon
+|—
+}}
+{{Advancements
+|title=Very Very Frightening
+|bg=plain
+|Trident
+|Strike a Villager with lightning
+|A Throwaway Joke
+|Hit a [[villager]] with [[Thunderstorm#Lightning|lightning]] created by a [[trident]] with the [[Channeling]] enchantment.
+|adventure/very_very_frightening
+|—
+}}
+{{Advancements
+|title=Sniper Duel
+|bg=fancy
+|Arrow
+|Kill a Skeleton from at least 50 meters away
+|Take Aim
+|Be at least 50 blocks away <u>horizontally</u> when a [[skeleton]] is killed by an [[arrow]] after the [[player]] has attacked it once.
+|adventure/sniper_duel
+|{{xp|50}} [[experience]]
+}}
+{{Advancements
+|foot=1
+|title=Bullseye
+|bg=fancy
+|Target
+|Hit the bullseye of a Target block from at least 30 meters away
+|Take Aim
+|Be at least 30 blocks away horizontally when the center of a [[target]] is shot with a projectile by the [[player]].
+|adventure/bullseye
+|{{xp|50}} [[experience]]
+}}
+{{Advancements
+|title=Isn't It Scute
+|bg=plain
+|Armadillo Scute
+|Get [[armadillo scute]]s from an [[armadillo]] using a [[brush]]
+|Adventure
+|Obatin armadillo scutes by using a brush on an adult armadillo.
+|adventure/brush_armadillo
+|—
+}}
+{{Advancements
+|title=Minecraft: Trial(s) Edition
+|bg=plain
+|Chiseled Tuff
+|Step foot into the [[Trial Chambers]]
+|Adventure
+|—
+|adventure/minecraft_trials_edition
+|—
+}}
+{{Advancements
+|title=Crafters Crafting Crafters
+|bg=plain
+|Crafter
+|Be near a [[Crafter]] when it crafts a Crafter
+|Adventure
+|Stay close to a crafter, while it automatically crafts a crafter and dispenses it.
+|adventure/crafters_crafting_crafters
+|—
+}}
+{{Advancements
+|title=Lighten Up
+|bg=plain
+|Copper Bulb
+|Scrape a [[Copper Bulb]] with an axe to make it brighter
+|Minecraft: Trial(s) Edition
+|Use an axe on an activated copper bulb which is not unoxidized.
+|adventure/lighten_up
+|—
+}}
+{{Advancements
+|title=Who Needs Rockets
+|bg=plain
+|Wind Charge
+|Use a [[Wind Charge]] to launch yourself upwards 8 blocks
+|Minecraft: Trial(s) Edition
+|Launch yourself up with a wind-charge.
+|adventure/who_needs_rockets
+|—
+}}
+{{Advancements
+|title=Under Lock and Key
+|bg=plain
+|Trial Key
+|Use a [[Trial Key]] on a [[Vault]]
+|Minecraft: Trial(s) Edition
+|Use a trial key to unlock a normal vault.
+|adventure/under_lock_and_key
+|—
+}}
+{{Advancements
+|title=Revaulting
+|bg=oval
+|Wind Charge
+|Use an [[Ominous Trial Key]] on a [[Ominous Vault]]
+|Under Lock And Key
+|Use an omnious trial key to unlock an ominous vault.
+|adventure/revaulting
+|—
+}}
+{{Advancements
+|title=Blowback
+|bg=fancy
+|Wind Charge
+|Kill a [[Breeze]] with a deflected Breeze-shot [[Wind Charge]]
+|Minecraft: Trial(s) Edition
+|Kill a breeze by deflecting its wind charge.
+|adventure/blowback
+|{{xp|40}} [[experience]]
+}}
+{{Advancements
+|title=Over-Overkill
+|bg=fancy
+|Mace
+|Deal 50 hearts of damage in a single hit using the [[Mace]]
+|Minecraft: Trial(s) Edition
+|Hit ''one'' of these [[mob]]s:
+{{flatlist|indent=1|
+* {{EntityLink|Axolotl}}
+* {{EntityLink|Bee}}
+* {{EntityLink|Blaze}}
+* {{EntityLink|Bogged}}
+* {{EntityLink|Breeze}}
+* {{EntityLink|Camel}}
+* {{EntityLink|Camel Husk}}
+* {{EntityLink|Camel Husk Jockey}}
+* {{EntityLink|Cat}}
+* {{EntityLink|Cave Spider}}
+* {{EntityLink|Chicken}}
+* {{EntityLink|Chicken Jockey}}
+* {{EntityLink|Cod}}
+* {{EntityLink|Cow}}
+* {{EntityLink|Creaking}} (naturally spawned creakings has no effect as they are linked with their [[creaking heart]]s)
+* {{EntityLink|Creeper}}
+* {{EntityLink|Donkey}}
+* {{EntityLink|Dolphin}}
+* {{EntityLink|Drowned}}
+* {{EntityLink|Elder Guardian}}
+* {{EntityLink|Enderman}}
+* {{EntityLink|Endermite}}
+* {{EntityLink|Evoker}}
+* {{EntityLink|Fox}}
+* {{EntityLink|Frog}}
+* {{EntityLink|Ghast}}
+* {{EntityLink|Goat}}
+* {{EntityLink|Glow Squid}}
+* {{EntityLink|Guardian}}
+* {{EntityLink|Happy Ghast}}
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Horse}}
+* {{EntityLink|Husk}}
+* {{EntityLink|Llama}}
+* {{EntityLink|Magma Cube}}
+* [[The Copper Age|Mannequin]]
+* {{EntityLink|Mooshroom}}
+* {{EntityLink|Nautilus}}
+* {{EntityLink|Ocelot}}
+* {{EntityLink|Panda}}
+* {{EntityLink|Parrot}}
+* {{EntityLink|Parched}}
+* {{EntityLink|Phantom}}
+* {{EntityLink|Pig}}
+* {{EntityLink|Piglin}}
+* {{EntityLink|Piglin Brute}}
+* {{EntityLink|Pillager}}
+* {{EntityLink|Polar Bear}}
+* {{EntityLink|Pufferfish}}
+* {{EntityLink|Rabbit}}
+* {{EntityLink|Ravager}}
+* {{EntityLink|Salmon}}
+* {{EntityLink|Sheep}}
+* {{EntityLink|Shulker}}
+* {{EntityLink|Silverfish}}
+* {{EntityLink|Skeleton}}
+* {{EntityLink|Skeleton Horse}}
+* {{EntityLink|Skeleton Horseman}}
+* {{EntityLink|Slime}}
+* {{EntityLink|Sniffer}}
+* {{EntityLink|Stray}}
+* {{EntityLink|Spider}}
+* {{EntityLink|Spider Jockey}}
+* {{EntityLink|Squid}}
+* {{EntityLink|Strider}}
+* {{EntityLink|Trader Llama}}
+* {{EntityLink|Tropical Fish}}
+* {{EntityLink|Turtle}}
+* {{EntityLink|Vex}}
+* {{EntityLink|Vindicator}}
+* {{EntityLink|Warden}}
+* {{EntityLink|Witch}}
+* {{EntityLink|Wither}}
+* {{EntityLink|Wither Skeleton}}
+* {{EntityLink|Wolf}}
+* {{EntityLink|Zoglin}}
+* {{EntityLink|Zombie}}
+* {{EntityLink|Zombie Horse}}
+* {{EntityLink|Zombie Horseman}}
+* {{EntityLink|Zombie Nautilus}}
+* {{EntityLink|Zombie Nautilus Jockey}}
+* {{EntityLink|Zombie Villager}}
+* {{EntityLink|Zombified Piglin}}
+}}
+Only the jockey riders are counted in this advancement. 
+|adventure/overoverkill
+|{{xp|50}} [[experience]]
+}}
+
+=== Husbandry ===
+[[File:Advancements Tree - Husbandry.png|thumb|center|350px|alt=|Advancement tree in the "Husbandry" tab {{Until|Chase the Skies}}]]
+{{-}}
+{{Advancements
+|head=1
+|prize=1
+|category= [[File:Hay Bale (UD) JE2 BE2.png|15px|link=]] Husbandry
+|title=Husbandry
+|bg=plain
+|Hay Bale
+|The world is full of friends and food
+|—
+|Consume anything that can be consumed.
+|husbandry/root
+|—
+}}
+{{Advancements
+|title=Bee Our Guest
+|bg=plain
+|Honey Bottle
+|Use a [[Campfire]] to collect Honey from a [[Beehive]] using a Glass Bottle without aggravating the [[Bee]]s
+|Husbandry
+|{{control|Use}} a [[Glass Bottle|glass bottle]] on a [[beehive]] or [[beehive|bee nest]] while not angering the bees inside.
+|husbandry/safely_harvest_honey
+|—
+}}
+{{Advancements
+|title=Stay Hydrated
+|bg=plain
+|Dried Ghast
+|Dump or place a [[Dried Ghast]] in water.
+|Husbandry
+|
+|husbandry/place_dried_ghast_in_water
+|—
+}}
+{{Advancements
+|title=The Parrots and the Bats
+|bg=plain
+|Wheat
+|Breed two animals together
+|Husbandry
+|Breed a pair of ''any'' of these 27 [[mob]]s:
+
+{{flatlist|indent=1|
+* {{EntityLink|Axolotl}}
+* {{EntityLink|Bee}}
+* {{EntityLink|Camel}}
+* {{EntityLink|Cat}}
+* {{EntityLink|Chicken}}
+* {{EntityLink|Cow}}
+* {{EntityLink|Donkey}}
+* {{EntityLink|Fox}}
+* {{EntityLink|Frog}}
+* {{EntityLink|Goat}}
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Horse}}
+* {{EntityLink|Llama}}
+* {{EntityLink|Mooshroom}}
+* {{EntityLink|Mule}}
+* {{EntityLink|Ocelot}}
+* {{EntityLink|Panda}}
+* {{EntityLink|Pig}}
+* {{EntityLink|Rabbit}}
+* {{EntityLink|Sheep}}
+* {{EntityLink|Sniffer}}
+* {{EntityLink|Strider}}
+* {{EntityLink|Trader Llama}}
+* {{EntityLink|Turtle}}
+* {{EntityLink|Wolf}}
+* {{EntityLink|Nautilus}}
+}}
+
+A [[mule]] must be the result of [[breeding]] a [[horse]] and a [[donkey]] for this advancement, as they are not breedable together. Other breedable mobs are ignored for this advancement.
+|husbandry/breed_an_animal
+|—
+}}
+{{Advancements
+|title=You've Got a Friend in Me
+|bg=plain
+|Cookie
+|Have an Allay deliver items to you
+|Husbandry
+|Give an allay an item and then have it return to the player with more of that item.<br>''This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.''
+|husbandry/allay_deliver_item_to_player
+|—
+}}
+{{Advancements
+|title=Whatever Floats Your Goat!
+|bg=plain
+|Oak Boat
+|Get in a [[Boat]] and float with a [[Goat]]
+|Husbandry
+|Enter a boat or a raft with a goat.
+|husbandry/ride_a_boat_with_a_goat
+|—
+}}
+{{Advancements
+|title=Best Friends Forever
+|bg=plain
+|Lead
+|Tame an animal
+|Husbandry
+|Tame ''one'' of these 11 tameable [[mob]]s:
+
+{{flatlist|indent=1|
+* {{EntityLink|Cat}}
+* {{EntityLink|Donkey}}
+* {{EntityLink|Horse}}
+* {{EntityLink|Llama}}
+* {{EntityLink|Mule}}
+* {{EntityLink|Nautilus}}
+* {{EntityLink|Parrot}}
+* {{EntityLink|Skeleton Horse}} (accessible via [[Commands/ride|/ride]])
+* {{EntityLink|Trader Llama}}
+* {{EntityLink|Wolf}}
+* {{EntityLink|Zombie Horse}}
+* {{EntityLink|Zombie Nautilus}}
+}}
+
+|husbandry/tame_an_animal
+|—
+}}
+{{Advancements
+|title=Glow and Behold!
+|bg=plain
+|Glow Ink Sac
+|Make the text of any kind of sign glow
+|Husbandry
+|Use a [[Glow Ink Sac|glow ink sac]] on a [[sign]] or a [[hanging sign]].
+|husbandry/make_a_sign_glow
+|—
+}}
+{{Advancements
+|title=Fishy Business
+|bg=plain
+|Fishing Rod
+|Catch a fish
+|Husbandry
+|Use a [[Fishing Rod|fishing rod]] to catch any of these [[fish]]es: 
+
+{{flatlist|indent=1|
+* {{ItemLink|Raw Cod|Cod}}
+* {{ItemLink|Raw Salmon|Salmon}}
+* {{ItemLink|Tropical Fish|link=Tropical Fish (item)}}
+* {{ItemLink|Pufferfish|link=Pufferfish (item)}}
+}}
+|husbandry/fishy_business
+|—
+}}
+{{Advancements
+|title=Total Beelocation
+|bg=plain
+|Bee Nest
+|Move a [[beehive|Bee Nest]], with 3 [[Bee]]s inside, using [[Silk Touch]]
+|Husbandry
+|—
+|husbandry/silk_touch_nest
+|—
+}}
+{{Advancements
+|title=Bukkit Bukkit
+|bg=plain
+|Bucket of Tadpole
+|Catch a [[Tadpole]] in a Bucket
+|Husbandry
+|—
+|husbandry/tadpole_in_a_bucket
+|—
+}}
+{{Advancements
+|title=Smells Interesting
+|bg=plain
+|Sniffer Egg
+|Obtain a Sniffer Egg
+|Husbandry
+|Have a [[sniffer egg]] in your inventory.<br>''This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.''
+|husbandry/obtain_sniffer_egg
+|—
+}}
+{{Advancements
+|title=A Seedy Place
+|bg=plain
+|Wheat
+|Plant a seed and watch it grow
+|Husbandry
+|Plant ''one'' of these 7 crops: 
+
+{{flatlist|indent=1|
+* {{ItemLink|Beetroot Seeds|Beetroot}}
+* {{ItemLink|Melon Seeds|Melon}}
+* {{ItemLink|Nether Wart}}
+* {{ItemLink|Pumpkin Seeds|Pumpkin}}
+* {{ItemLink|Wheat Seeds|Wheat}}
+* {{ItemLink|Torchflower Seeds|Torchflower}}
+* {{ItemLink|Pitcher Pod|Pitcher}}
+}}
+
+Other crops and plants can be planted, but are ignored for this advancement.
+|husbandry/plant_seed
+|—
+}}
+{{Advancements
+|title=Wax On
+|bg=plain
+|Honeycomb
+|Apply [[Honeycomb]] to a [[Block of Copper|Copper block]]!
+|Bee Our Guest
+|{{control|Use}} a honeycomb on a copper variant block.
+|husbandry/wax_on
+|—
+}}
+{{Advancements
+|title=Two by Two
+|bg=fancy
+|Golden Carrot
+|Breed all the animals!
+|The Parrots and the Bats
+|Breed a pair of ''each'' of these 26 [[mob]]s:
+{{flatlist|indent=1|
+* {{EntityLink|Armadillo}}
+* {{EntityLink|Axolotl}}
+* {{EntityLink|Bee}}
+* {{EntityLink|Camel}}
+* {{EntityLink|Cat}}
+* {{EntityLink|Chicken}}
+* {{EntityLink|Cow}}
+* {{EntityLink|Donkey}}
+* {{EntityLink|Fox}}
+* {{EntityLink|Frog}}
+* {{EntityLink|Goat}}
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Horse}}
+* {{EntityLink|Llama}}
+* {{EntityLink|Mooshroom}}
+* {{EntityLink|Mule}}
+* {{EntityLink|Ocelot}}
+* {{EntityLink|Panda}}
+* {{EntityLink|Pig}}
+* {{EntityLink|Rabbit}}
+* {{EntityLink|Sheep}}
+* {{EntityLink|Sniffer}}
+* {{EntityLink|Strider}}
+* {{EntityLink|Turtle}}
+* {{EntityLink|Wolf}}
+* {{EntityLink|Nautilus}}
+}}
+
+A [[llama|trader llama]] does not count as a [[llama]], and a [[mule]] must be the result of [[breeding]] a [[horse]] and a [[donkey]] for this advancement as they are not breedable together. Other breedable mobs can be bred, but are ignored for this advancement.
+|husbandry/bred_all_animals
+|{{xp|100}} [[experience]]
+}}
+{{Advancements
+|title=Birthday Song
+|bg=plain
+|Note Block
+|Have an Allay drop a Cake at a Note Block
+|You've Got a Friend in Me
+|Give an allay a cake and then {{control|use}} a note block to make the allay drop the cake at a note block.<br>''This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.''
+|husbandry/allay_deliver_cake_to_note_block
+|—
+}}
+{{Advancements
+|title=A Complete Catalogue
+|bg=fancy
+|Raw Cod
+|Tame all [[Cat]] variants!
+|Best Friends Forever
+|Tame ''each'' of these 11 cat variants:
+{{flatlist|indent=1|
+* {{EntityLink|Tabby Cat|Tabby|link=Cat#Appearance}}
+* {{EntityLink|Tuxedo Cat|Tuxedo|link=Cat#Appearance}}
+* {{EntityLink|Red Cat|Red|link=Cat#Appearance}}
+* {{EntityLink|Siamese Cat|Siamese|link=Cat#Appearance}}
+* {{EntityLink|British Shorthair Cat|British Shorthair|link=Cat#Appearance}}
+* {{EntityLink|Calico Cat|Calico|link=Cat#Appearance}}
+* {{EntityLink|Persian Cat|Persian|link=Cat#Appearance}}
+* {{EntityLink|Ragdoll Cat|Ragdoll|link=Cat#Appearance}}
+* {{EntityLink|White Cat|White|link=Cat#Appearance}}
+* {{EntityLink|Jellie Cat|Jellie|link=Cat#Appearance}}
+* {{EntityLink|Black Cat|Black|link=Cat#Appearance}}
+}}
+|husbandry/complete_catalogue
+|{{xp|50}} [[experience]]
+}}
+{{Advancements
+|title=Tactical Fishing
+|bg=plain
+|Bucket of Pufferfish
+|Catch a Fish... without a Fishing Rod!
+|Fishy Business
+|{{Control|Use}} a [[Water Bucket|water bucket]] on any [[fish]] mob.
+|husbandry/tactical_fishing
+|—
+}}
+{{Advancements
+|title=When the Squad Hops into Town
+|bg=plain
+|Lead
+|Get each [[Frog]] variant on a [[Lead]]
+|Bukkit Bukkit
+|The frogs don't need to be leashed at the same time.<ref>{{bug|MC-252401|||WAI}}</ref>
+|husbandry/leash_all_frog_variants
+|—
+}}
+{{Advancements
+|title=Little Sniffs
+|bg=plain
+|Torchflower Seeds
+|Feed a [[Snifflet]]
+|Smells Interesting
+|Feed a snifflet [[torchflower seeds]].<br>''This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.''
+|husbandry/feed_snifflet
+|—
+}}
+{{Advancements
+|title=A Balanced Diet
+|bg=fancy
+|Apple
+|Eat everything that is edible, even if it's not good for you
+|A Seedy Place
+|Eat ''each'' of these 40 [[food]]s:
+{{flatlist|indent=1|
+* {{ItemLink|Apple}}
+* {{ItemLink|Baked Potato}}
+* {{ItemLink|Beetroot}}
+* {{ItemLink|Beetroot Soup}}
+* {{ItemLink|Bread}}
+* {{ItemLink|Carrot}}
+* {{ItemLink|Chorus Fruit}}
+* {{ItemLink|Cooked Chicken}}
+* {{ItemLink|Cooked Cod}}
+* {{ItemLink|Cooked Mutton}}
+* {{ItemLink|Cooked Porkchop}}
+* {{ItemLink|Cooked Rabbit}}
+* {{ItemLink|Cooked Salmon}}
+* {{ItemLink|Cookie}}
+* {{ItemLink|Dried Kelp}}
+* {{ItemLink|Enchanted Golden Apple}}
+* {{ItemLink|Glow Berries}}
+* {{ItemLink|Golden Apple}}
+* {{ItemLink|Golden Carrot}}
+* {{ItemLink|Honey Bottle}}
+* {{ItemLink|Melon Slice}}
+* {{ItemLink|Mushroom Stew}}
+* {{ItemLink|Poisonous Potato}}
+* {{ItemLink|Potato}}
+* {{ItemLink|link=Pufferfish (item)|Pufferfish}}
+* {{ItemLink|Pumpkin Pie}}
+* {{ItemLink|Rabbit Stew}}
+* {{ItemLink|Raw Beef}}
+* {{ItemLink|Raw Chicken}}
+* {{ItemLink|Raw Cod}}
+* {{ItemLink|Raw Mutton}}
+* {{ItemLink|Raw Porkchop}}
+* {{ItemLink|Raw Rabbit}}
+* {{ItemLink|Raw Salmon}}
+* {{ItemLink|Rotten Flesh}}
+* {{ItemLink|Spider Eye}}
+* {{ItemLink|Steak}}
+* {{ItemLink|Suspicious Stew}}
+* {{ItemLink|Sweet Berries}}
+* {{ItemLink|Tropical Fish|link=Tropical Fish (item)}}
+}}
+
+Other foods and consumables can be eaten, but are ignored for this advancement.
+|husbandry/balanced_diet
+|{{xp|100}} [[experience]]
+}}
+{{Advancements
+|title=Serious Dedication
+|bg=fancy
+|Netherite Hoe
+|Use a [[Netherite Ingot]] to upgrade a [[Hoe]], and then reevaluate your life choices
+|A Seedy Place
+|Have a [[hoe|netherite hoe]] in your inventory.
+|husbandry/obtain_netherite_hoe
+|{{xp|100}} [[experience]]
+}}
+{{Advancements
+|title=Wax Off
+|bg=plain
+|Stone Axe
+|Scrape Wax off of a Copper block!
+|Wax On
+|Use an [[axe]] to [[Block of Copper#Scraping|revert]] a [[Copper#Waxing|waxed copper variants]].
+|husbandry/wax_off
+|—
+}}
+{{Advancements
+|title=The Cutest Predator
+|bg=plain
+|Bucket of Axolotl
+|Catch an [[Axolotl]] in a [[Bucket]]
+|Tactical Fishing
+|{{Control|Use}} a [[Water Bucket|water bucket]] on an axolotl.
+|husbandry/axolotl_in_a_bucket
+|—
+}}
+{{Advancements
+|title=With Our Powers Combined!
+|bg=fancy
+|Verdant Froglight
+|Have all Froglights in your inventory
+|When the Squad Hops into Town
+|Have a Pearlescent, Ochre, and Verdant [[Froglight]] in your inventory.
+|husbandry/froglights
+|—
+}}
+{{Advancements
+|title=Planting the Past
+|bg=plain
+|Pitcher Pod
+|Plant any Sniffer seed
+|Little Sniffs
+|Plant a [[Torchflower Seed]] and a [[Pitcher Pod]] on farmland. ''This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.''
+|husbandry/plant_any_sniffer_seed
+|—
+}}
+{{Advancements
+|foot=1
+|title=The Healing Power of Friendship{{tooltip|!|Punctuation appears only in chat and toast when advancement has been completed.}}
+|anchor=The Healing Power of Friendship
+|bg=plain
+|Bucket of Tropical Fish
+|Team up with an axolotl and win a fight
+|The Cutest Predator
+|Have the [[Regeneration]] effect applied from assisting an axolotl or it killing a mob.
+|husbandry/kill_axolotl_target
+|—
+}}
+{{Advancements
+|foot=1
+|title=Good as New
+|bg=plain
+|Wolf Armor
+|Repair a damaged [[Wolf Armor]] using [[Armadillo Scute]]s
+|Best Friends Forever
+|Use armadilo scutes to fix a damaged or cracked wolf armor, while the wolf is wearing it.
+|husbandry/good_as_new
+|—
+}}
+
+== JSON format ==
+{{main|Advancement/JSON format}}
+
+== Sounds ==
+{{Sound table
+|sound=In.ogg
+|subtitle=MC-200463
+|source=master
+|description=When any advancement is completed
+|id=ui.toast.in
+|translationkey=-
+|volume=0.4
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Out.ogg
+|subtitle=MC-200463
+|source=master
+|description=When an advancement [[toasts|toast]] finishes
+|id=ui.toast.out
+|translationkey=-
+|volume=0.4
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Challenge complete.ogg
+|subtitle=MC-200463
+|source=master
+|description=When a challenge advancement is completed
+|id=ui.toast.challenge_complete
+|translationkey=-
+|volume=0.6
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+== History ==
+{{History||March 24, 2017|link=none|"A deafening metallic condor keeps distracting me", Dinnerbone states. Users quickly pinpointed this bizarre message to [https://web.archive.org/web/20230829050722/https://gfycat.com/deafeningmetalliccondor-minecraft-civex this Gfycat URL (archived)] officially showcasing advancements for the first time.<ref>{{tweet|Dinnerbone|845190165760925696|People wanted to see what the UI looks like for Advancements. I was going to show it but a deafening metallic condor keeps distracting me :(|March 24, 2017}}</ref>}}
+{{History|java}}
+{{History||1.12|snap=17w13a|Advancements added, replacing [[Achievement/Java_Edition|Achievement]]s.}}
+{{History|||snap=17w14a|Added new advancements, including a new "Adventure" tab.
+|Added new notifications for when players advance, which have a sliding effect, and come in two colors: yellow for normal advancements, and pink for special challenges.}}
+{{History|||snap=17w15a|Added advancement descriptions and changed several titles.
+|Added the "Adventuring Time" advancement.}}
+{{History|||snap=17w16b|Added trigger <code>item_durability_changed</code>.}}
+{{History|||snap=17w17a|Added new advancements and two new tabs: "The End" and "Nether".
+|Added trigger <code>levitation</code>.
+|Added <code>feature</code> condition to the <code>location</code> trigger.
+|Advancements can now execute commands when achieved.
+|Advancement icons now allow data values.
+|Added five modifiers to the {{cmd|advancement grant}} and {{cmd|advancement revoke}} commands: "everything", "from", "until", "through", and "only".}}
+{{History|||snap=17w17b|The default advancements now all receive their titles and descriptions from the localization files.
+|Added a new number display to track progress while completing certain advancements.
+|Added the <code>changed_dimension</code> trigger, which takes two optional conditions: <code>to</code> and <code>from</code>, both being strings that accept "overworld", "the_nether", or "the_end".
+|The "location" shared object has a new <code>dimension</code> string (same values as above).}}
+{{History|||snap=17w18a|Re-introduced announcements to chat when someone earns an advancement.
+|Added new Adventure advancements: "Best Friends Forever", "The Parrots and the Bats", and "Two by Two".
+|Added new <code>tick</code> and <code>tame_animal</code> triggers.
+|Added new <code>show_toast</code> and <code>announce_to_chat</code> display options.
+|Added {{cmd|gamerule announceAdvancements}}, which toggles announcing of advancements, 
+replacing the old <code>server.properties</code> entry.
+|"entity" objects and the <code>levitation</code> trigger now use a shared "distance" object. They check if the [[player]] is within or outside of the specified range on the <code>x</code>, <code>y</code>, or <code>z</code> axis. <code>absolute</code> and <code>horizontal</code> ranges check if the player is within range on all axes, though horizontal excludes the Y axis.
+|The "Great View From Up Here" advancement now requires 50 vertical [[block]]s, instead of levitating for 30 seconds.
+|The "Sniper Duel" advancement has been changed to horizontal distance.
+|Advancement loading is now strict JSON.}}
+{{History|||snap=17w18b|Added a new "Husbandry" tab and several new advancements: "A Seedy Place", "Serious Dedication", "A Balanced Diet", and "Hired Help".
+|The advancements added in the previous snapshot have been moved to the new Husbandry tab.
+|Added new advancement triggers: <code>consume_item</code>, <code>placed_block</code>, and <code>arbitrary_player_tick</code>.
+|The "Monster Hunter" and "Monsters Hunted" advancements now use 22 [[mob]]s instead of 23, removing the [[illusioner]] from the list.}}
+{{History|||snap=pre1|Added new advancements: "A Furious Cocktail", "Postmortal", "Subspace Bubble", and "Uneasy Alliance".
+|Added <code>hidden</code> field to advancement display info, which defaults to false.
+|Added new <code>effects_changed</code>, <code>used_totem</code>, and <code>nether_travel</code> advancements triggers.
+|Removed <code>commands</code> from advancement rewards, replaced with <code>function</code>.
+|Advancement trees are now centered in the UI.
+|[[Item]]s and [[entity|entities]] in advancements now have an extra <code>NBT</code> field.
+|Entities in advancements now have an extra <code>effects</code> and <code>location</code> field.
+|The <code>arbitrary_player_tick</code> advancement trigger has been removed.}}
+{{History|||snap=pre2|Added new hidden advancement: "How Did We Get Here?", which rewards 100 [[experience]].}}
+{{History|||snap=pre3|Advancement "How Did We Get Here?" now includes the [[Resistance]] status effect, and rewards 1000 experience.
+|Advancement "A Balanced Diet" now includes all [[fish]] types (raw and cooked if possible) and an enchanted [[golden apple]].
+|Advancements now remember the tab the [[player]] last selected.}}
+{{History|||snap=pre5|All recipe unlock advancements now have a parent of <code>recipes/root</code>.
+|Several recipe unlock advancements have been renamed.}}
+{{History|||snap=pre7|Added experience rewards to all "challenge" advancements.}}
+{{History|||snap={{tooltip|release|Changes between the last pre-release and the full release}}|slink=none|Added [[sound]]s to the toast notifications.}}
+{{History||1.13|snap=17w43a|Custom advancements have been moved into [[data pack]]s.}}
+{{History|||snap=17w45a|Added an <code>advancement</code> selector argument to test for obtained advancements.}}
+{{History|||snap=18w14a|Added new advancements: "Fishy Business", "Tactical Fishing", "A Throwaway Joke", and "Very Very Frightening".}}
+{{History|||snap=18w14b|Advancements "A Furious Cocktail" and "How Did We Get Here?" now include the [[Slow Falling]] status effect.}}
+{{History|||snap=18w19a|Advancement "How Did We Get Here?" now includes the [[Conduit Power]] status effect.}}
+{{History|||snap=18w22a|Advancement "Sniper Duel" description changed to not mention it has to be with an [[arrow]] (as it can be achieved with other projectiles too).}}
+{{History|||snap=pre6|Added a <code>nbt</code> field to the advancement icon section.}}
+{{History|||snap=pre7|Normal and goal advancements now have green descriptions, and challenge advancements have purple descriptions.}}
+{{History||1.14|snap=18w43a|Added new advancements: "Ol' Betsy", "Who's the Pillager Now?", "Two Birds, One Arrow", and the hidden advancement "Arbalistic".}}
+{{History|||snap=18w44a|Added new advancement: "A Complete Catalogue".
+|Advancements "The Parrots and the Bats" and "Best Friends Forever" now require [[cat]]s, instead of [[ocelot]]s.
+|Advancement "Two by Two" now requires [[panda]]s.}}
+{{History|||snap=19w06a|A bug was causing the advancement [[Serious Dedication]] to not be granted to the player; it was fixed in this snapshot.<ref>{{bug|MC-136400}}</ref>}}
+{{History|||Advancement "A Balanced Diet" now requires [[suspicious stew]] and [[sweet berries]].
+|snap=19w11a|Advancement "How Did We Get Here?" now requires the [[Bad Omen]] status effect.
+|Advancement "The Parrots and the Bats" can now be obtained by breeding [[fox]]es.}}
+{{History|||snap=19w12a|Advancement "Two by Two" now requires foxes.}}
+{{History|||snap=19w14a|Advancements "Monster Hunter" and "Monsters Hunted" no longer require [[polar bear]]s to be killed.}}
+{{History|||snap=Pre-Release 2|Added 2 new hidden advancements: "Voluntary Exile" and "Hero of the Village".}}
+{{History||1.14.3|snap=Pre-Release 2|[[Saturation]] is no longer required for the "How Did We Get Here?" advancement.}}
+{{History||1.15|snap=19w34a|Advancement "The Parrots and the Bats" can now be obtained by breeding [[bee]]s.}}
+{{History|||snap=19w35a|Bees are now included in the "Two by Two" advancement.<ref>{{bug|MC-159357}}</ref>
+|[[Honey bottle]]s are now included in the "A Balanced Diet" advancement.}}
+{{History|||snap=19w45a|Spectral arrows can now be used to unlock the "Take Aim" advancement.}}
+{{History|||snap=19w46a|Added three bee-related advancements: "Sticky Situation", "Bee Our Guest", and "Total Beelocation".
+|Added triggers <code>bee_nest_destroyed</code>, <code>safely_harvest_honey</code>, and <code>slide_down_block</code>}}
+{{History||1.16|snap=20w06a|The "Sky's the Limit" advancement's description has changed from "Find Elytra" to "Find elytra".
+|The "Take Aim" advancement's description has changed from "Shoot something with a bow and arrow" to "Shoot something with an arrow".}}
+{{History|||snap=20w07a|Piglins and hoglins are now required for the "Monsters Hunted" advancement, and they count toward the "Monster Hunter" advancement.
+|Hoglins can now breed, meaning they can be used for "The Parrots and the Bats" advancement.}}
+{{History|||snap=20w09a|Added the "Bullseye" advancement.}}
+{{History|||snap=20w12a|[[Hoglin]]s are now required for the "Two by Two" advancement.
+|The "Sweet Dreams" advancement's description has changed from "Change your respawn point" to "Sleep in a bed to change your respawn point".}}
+{{History|||snap=20w13a|"The Parrots and the Bats" advancement can now be obtained by breeding [[strider]]s.}}
+{{History|||snap=20w14a|The advancements "Monster Hunter" and "Monsters Hunted" now use [[elder guardian]]s, [[ender dragon]]s, [[endermite]]s, [[vex]]es, [[wither]]s, and [[zoglin]]s.}}
+{{History|||snap=20w20a|Added 10 new Nether advancements: "Those Were the Days", "Hidden in the Depths", "Who Is Cutting Onions?", "Oh Shiny", "This Boat Has Legs", "War Pigs", "Country Lode, Take Me Home", "Cover Me in Debris", "Not Quite "Nine" Lives", and "Hot Tourist Destinations".
+|Striders are now required for the "Two by Two" advancement.
+|Obtaining blackstone now counts for the "Stone Age" advancement. 
+|The advancement "Serious Dedication" is now rewarded for obtaining a [[netherite hoe]]. Previously, the player had to use all the durability on a diamond hoe. In addition to this, the description for this advancement has been changed from "Completely use up a diamond hoe, and then reevaluate your life choices" to "Use a Netherite ingot to upgrade a hoe, and then reevaluate your life choices". Also, the icon for this advancement has changed from a diamond hoe to a netherite hoe.
+|The description of the advancement "Not Today, Thank You" has changed from "Deflect an arrow or trident with a shield" to "Deflect a projectile with a shield".
+|The description of the advancement "Ice Bucket Challenge" has changed from "Form and mine a block of obsidian" to "Obtain a block of obsidian".
+|The "Bullseye" advancement now requires the bullseye to be hit from at least 30 blocks away. It is now a challenge advancement, rewarding 50 [[experience]]. The description of this advancement has changed from "Hit the bullseye of a Target block with an arrow" to "Hit the bullseye of a Target block from at least 30 meters away".
+|Added triggers <code>thrown_item_picked_up_by_entity</code>, <code>player_generates_container_loot</code>, and <code>item_used_on_block</code>.
+|Removed trigger <code>safely_harvest_honey</code> as it was made redundant by <code>item_used_on_block</code>.}}
+{{History|||snap=20w22a|The advancement "Bee Our Guest" can now be unlocked with both beehives and bee nests, instead of only beehives.}}
+{{History|||snap=Pre-release 1|The advancement file "Serious Dedication" has been renamed to <code>obtain_netherite_hoe.json</code>. This means progress in this advancement is not kept when upgrading to this version.
+|The "Two by Two" advancement now requires [[donkey]]s and [[mule]]s.
+|The "Oh Shiny" advancement now uses [[gold nugget]]s, since they were added to the {{cd|piglin_loved}} item tag.
+|The "Hot Tourist Destinations" advancement now rewards 500 [[experience]], and the "Cover Me in Debris" advancement now also rewards 100 [[experience]].
+|The capitalization of the advancement "Who Is Cutting Onions?" has changed to "Who is Cutting Onions?"}}
+{{History|||snap=Pre-release 3|The "Oh Shiny" advancement does not unlock if the distracted piglin is a baby or if [[gold nugget]]s are used.}}
+{{History|||snap=Pre-release 6|The "Oh Shiny" advancement now unlocks when the piglin is {{control|used}}.
+|Added trigger <code>player_interacted_with_entity</code>.}}
+{{History||1.16.2|snap=20w27a|[[Piglin brute]]s are required for the "Monsters Hunted" advancement and count toward the "Monster Hunter" advancement.}}
+{{History|||snap=20w30a| The ":(" ({{cd|advancements.sad_label}}) under the description of the empty advancement screen can now be modified.
+|The capitalization of the description of the advancements "Country Lode, Take Me Home" and "Bring Home the Beacon" have changed from "Use a Compass on a Lodestone" to "Use a compass on a Lodestone" and "Construct and place a Beacon" to "Construct and place a beacon", respectively.<ref>{{bug|MC-187546}}</ref>}}
+{{History||1.17|snap=21w05a|[[Glow berries]] are now included in the "A Balanced Diet" advancement.}}
+{{History|||snap=21w13a|[[Goat]]s and [[axolotl]]s are now required for the "Two by Two" advancement.
+|The advancement for obtaining [[diamond armor]] is now capitalized as "Cover Me with Diamonds", as opposed to "Cover Me With Diamonds".}}
+{{History|||snap=Pre-release 1|Added 11 new advancements: "Whatever Floats Your Goat!", "Wax On", "Wax Off", "The Cutest Predator", "The Healing Power of Friendship", "Glow and Behold!", "Light as a Rabbit", "Surge Protector", "Is It a Bird?", "Is It a Balloon?", and "Is It a Plane?"}}
+{{History|||snap=Pre-release 3|The description of the advancement "Wax On" has changed from "Apply Wax to a Copper block!" to "Apply Honeycomb to a Copper block!".}}
+{{History||1.18|snap=21w39a|Added four new advancements: "Caves & Cliffs", "Feels like home", "Star Trader", and "Sound of Music".|Advancement "Light as a Rabbit" now has "Sweet Dreams" as its parent instead of "Adventure".}}
+{{History|||snap=21w40a|The number of biomes required to visit for the "Adventuring Time" advancement has been reduced from 42 to 31, due to the removal or merge of sub-biomes.}}
+{{History|||snap=21w44a|The number of biomes required to visit for the "Adventuring Time" advancement has been increased from 31 to 50, now encompassing all biomes in the Overworld.}}
+{{History||1.19|snap=Deep Dark Experimental Snapshot 1|The number of biomes required to visit for the "Adventuring Time" advancement has been increased to 51, due to the addition of the Deep Dark biome.}}
+{{History|||snap=22w13a|Added three new advancements: "Bukkit bukkit", "It spreads", and "With our powers combined!"|[[Frog]]s are now required for the "Two by Two" advancement.}}
+{{History|||snap=22w14a|Added two new hidden advancements: "Birthday Song" and "You Got a Friend in Me".
+|The number of biomes required to visit for the "Adventuring Time" advancement has been increased to 52, due to the addition of the mangrove swamp biome.}}
+{{History|||snap=22w15a|Added two new advancements: "Sneak 100" and "When the Squad Hops into Town".
+|The Darkness effect is now required for the "How Did We Get Here?" advancement.<ref>{{bug|MC-249632}}</ref>
+|The parent advancement of "With Our Powers Combined!" is now "When the Squad Hops into Town" instead of "Bukkit Bukkit".
+|The title of the advancement "You Got a Friend in Me" has been changed to "You've Got a Friend in Me".<ref>{{bug|MC-250025}}</ref>|
+The capitalization errors in the titles and descriptions of several advancements have been fixed.<ref>{{bug|MC-226430}}</ref><ref>{{bug|MC-231458}}</ref><ref>{{bug|MC-237920}}</ref><ref>{{bug|MC-237924}}</ref><ref>{{bug|MC-249741}}</ref> Also, the ID of the advancement "Birthday Song" has been fixed from <code>husbandry/allay_deliver_cake_to_noteblock</code> to <code>husbandry/allay_deliver_cake_to_note_block</code>.<ref>{{bug|MC-249984}}</ref>
+|Added trigger <code>avoid_vibration</code> and removed triggers <code>thrown_item_picked_up_by_player</code> and <code>item_delivered_to_player</code>.}}
+{{History|||snap=22w18a|The description of the advancement "Sneak 100" has changed from "Sneak near a Sculk Sensor, Sculk Shrieker or Warden to prevent it from hearing you" to "Sneak near a Sculk Sensor or Warden to prevent it from detecting you".}}
+{{History|||snap=Pre-release 1|Advancement "It Spreads" now has "Monster Hunter" as its parent instead of "Adventure".}}
+{{History|||snap=Pre-release 2|Advancement "It Spreads" is no longer granted if a {{tooltip|mob that drops no experience|All baby animals, allays, bats, iron golems, snow golems, villagers, and wandering traders.}} is killed near a sculk catalyst.}}
+{{History||1.19.3|snap=22w42a|The advancement "Birthday Song" is now a regular advancement instead of a challenge.}}
+{{History||1.20<br>(Experimental)|link=1.19.4|snap=23w07a|The cherry grove is now required to be visited for the "Adventuring Time" advancement.}}
+{{History|||snap=1.19.4 Pre-release 1|The "A Seedy Place" advancement can be granted by planting torchflower seeds now.|The "The Parrots and the Bats" advancement can be granted by breeding sniffers now.|The "Two by Two" advancement now requires breeding a sniffer.}}
+{{History||1.20|snap=23w13a|The "A Seedy Place" advancement can be granted by planting pitcher pods now.}}
+{{History|||snap=23w16a|Added {{cd|recipe_crafted}} advancement trigger; triggered when crafting a recipe.}}
+{{History|||snap=23w17a|Added seven new advancements: "Smells interesting", "Little sniffs", "Planting the past", "Crafting a new look", "Smithing with style", "Respecting the remnants", and "Careful restoration".}}
+{{History|||snap=23w18a|Added one new advancement: "The Power of Books".|The capitalization of the titles of the advancements added in the previous snapshot are now fixed.<ref>{{bug|MC-262123}}</ref>}}
+{{History|||snap=Pre-release 6|"Smithing with Style" is a challenge advancement now.}}
+{{History||1.20.2|snap=23w31a|"Smithing with Style" now rewards 150 [[experience]].<ref>{{bug|MC-262947}}</ref>
+|"Glow and Behold!" is no longer granted when interacting with an empty sign while holding a [[glow ink sac]].<ref>{{bug|MC-261965}}</ref>}}
+{{History|||snap=Pre-release 1|The advancement progress indicator symbol ("/") is now translatable.<ref>{{bug|MC-253269}}</ref>
+|The <code>requirements</code> field can no longer be skipped in an advancement [[/JSON format|JSON file]].<ref>{{bug|MC-265126}}</ref>}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* The advancement "Sneak 100" refers to the online joke in The Elder Scrolls V: Skyrim, where you level the sneak skill up to 100.
+* As an {{w|April Fools' Day|April Fools' Joke}}, the snapshot [[Java Edition 20w14∞]] added a new advancement called "Almost there", achieved after going through any portal a billion times. The in-game description is "Visited over billion dimensions." The advancement is found in the "Adventure" tab and its parent is the advancement "Adventure." The advancement also has a [[flint and steel]] icon. The advancement can be granted using {{cmd|advancement grant @s only minecraft:adventure/almost_there}}.
+* As another April Fools' Joke, the snapshot [[Java Edition 22w13oneBlockAtATime]] added a new advancement called "Ride The End", achieved when an [[Ender Dragon]] is mounted.
+* As yet another April Fools' Joke, the snapshot [[Java Edition 23w13a or b]] added 2 new advancements called "I Voted!" and "Pro Voter", achieved when the player votes for the first time and for the 256th time, respectively.
+* The theme for completing a challenge advancement is used as Steve's victory theme in ''[[Super Smash Bros. Ultimate]]''.
+* The advancement "[[#Caves & Cliffs|Caves & Cliffs]]" refers to [[Caves & Cliffs|the Minecraft update of the same name]].
+* The advancement "You've Got a Friend in Me" is a reference to the song of the same name in {{w|Toy Story}}.
+* The advancements "Wax On" and "Wax Off" refer to a training technique in [https://www.imdb.com/title/tt0087538/ The Karate Kid].
+* The advancement "Very Very Frightening" could possibly be a reference to the song "Bohemian Rhapsody" as a nearly identical lyric is sung in said song, with nearly identical context.
+* The advancement "Voluntary Exile" contains a wrong description since the [[Tricky Trials]] update changed the [[Bad Omen]] effect to [[Raid Omen]] effect.
+
+== Gallery ==
+<gallery>
+Advancements.gif|First look at advancements; Dinnerbone showcasing usage of the interface (click to play).
+Advancement Description.png|First look at advancement descriptions.
+Advancements in Chat.jpg|Advancements being announced in chat.
+Tabthulhu.png|"Tabthulhu".
+NoAdvancements.png|The advancements screen when no advancements have been completed or unlocked.
+A Balanced Diet.png|Advancement "[[A Balanced Diet]]".
+A Complete Catalogue.png|Advancement "[[A Complete Catalogue]]".
+Monsters Hunted.png|Advancement "[[Monsters Hunted]]".
+Two by Two.png|Advancement "[[Two by Two]]"
+Achievement A Furious Cocktail.png|Advancement "[[A Furious Cocktail]]".
+</gallery>
+
+== See also ==
+* [[Tutorials/Advancement guide]]
+* [[Achievement]]
+* [[Data pack]]
+<!--
+== Notes ==
+{{notelist}}
+-->
+== References ==
+{{reflist}}
+
+{{Gameplay}}
+{{Data packs}}
+
+[[de:Fortschritte]]
+[[es:Progreso]]
+[[fr:Progrès]]
+[[it:Progresso]]
+[[ja:進捗]]
+[[ko:발전 과제]]
+[[nl:Vooruitgangen]]
+[[pl:Postępy]]
+[[pt:Progressos]]
+[[ru:Система достижений (Java Edition)]]
+[[th:ความก้าวหน้า]]
+[[uk:Досягнення (Java Edition)]]
+[[zh:进度]]

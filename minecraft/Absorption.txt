@@ -1,0 +1,104 @@
+{{Effect
+|title={{EffectSprite|absorption}} Absorption
+|image=Absorption.png
+|sources=See [[#Causes]]
+|particle= {{EffectSprite|particle-absorption}} #2552A5 (azure)
+|type=Positive
+}}
+'''Absorption''' is a [[status effect]] that pads the health bar with extra hearts.
+
+== Effect ==
+Absorption adds {{hp|4|absorption=1}} additional [[health]] points per level to the player, displayed as yellow hearts above the normal health bar. If the player takes damage while under this effect, the absorption health points are depleted first, followed by the standard health points. Absorption health cannot be replenished by natural regeneration or other effects, and vanishes when the effect ends. Negative absorption levels do not appear to have an immediate effect when applied, but give {{hp|4|absorption=1}} additional health points per level to the player when the status effect ends.
+
+== Causes ==
+{| class="wikitable" data-description="Causes"
+ ! Cause
+ ! Potency
+ ! Length
+ ! Notes
+ |-
+ | {{ItemLink|Golden Apple}}
+ | I
+ | 2:00
+ | When eaten
+ |- 
+ | {{ItemLink|Enchanted Golden Apple}}
+ | IV
+ | 2:00
+ | When eaten
+ |-   
+ | {{ItemLink|Totem of Undying}}
+ | II
+ | 0:05
+ | When activated
+ |}
+
+== Immune mobs ==
+The only completely immune mob is the [[ender dragon]]. The [[wither]], while being immune to the <code>/effect</code> command, can be given absorption hearts using the <code>/data</code> command.{{only|java}}
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="2">
+{{load advancements|How Did We Get Here?;Postmortal}}
+</table-progress-tracking>
+
+== Data values ==
+=== ID ===
+{{EffectIDLink}}
+{{edition|java}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=java
+|displayname=Absorption
+|spritetype=effect
+|nameid=absorption
+|id=22
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Absorption
+|spritetype=effect
+|nameid=absorption
+|id=22
+|foot=1}}
+
+== History ==
+{{History|java}}
+{{History||1.6.1|snap=13w24b|[[File:Absorption JE1 BE1.png|18px]]  Added Absorption, obtainable from eating either tier of [[golden apple]]s, replacing the original effect, [[Health Boost]].}}
+{{History||1.9|snap=15w37a|The Absorption level given by enchanted golden apples has been increased from I to IV.}}
+{{History|||snap=15w49a|[[File:Absorption JE2 BE2.png|18px]] Changed effect icon texture.}}
+{{History||1.11|snap=16w39a|Added the [[totem of undying]], which gives the player Absorption.}}
+{{History||1.14|snap=18w43a|[[File:Absorption JE3 BE3.png|18px]] Changed effect icon texture again.}}
+{{History||1.17|snap=20w49a|The absorption hearts [[Wither (status effect)|when withered]] or [[poison|when poisoned]] now show the textures for the effect instead of looking blank.<ref>{{bug|MC-18880|||Fixed}}</ref>}}
+{{History||1.20.2|snap=23w31a|The Absorption effect is now removed after all the absorption hearts are gone.<ref>{{bug|MC-202432|||Fixed}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=build 1|[[File:Absorption JE1 BE1.png|18px]] Added Absorption, which was unobtainable at the time.}}
+{{History||v0.12.1|snap=build 1|Absorption is now obtainable from eating either tier of golden apples.}}
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|[[Totems of undying]] now grant Absorption.}}
+{{History|bedrock}}
+{{History||1.2.0|snap=?|Enchanted golden apples now give Absorption IV, instead of I.}}
+{{History||1.8.0|snap=beta 1.8.0.10|[[File:Absorption JE2 BE2.png|18px]] Changed effect icon texture.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Absorption JE3 BE3.png|18px]] Changed effect icon texture once again.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+[[File:Hearts.png|thumb|386px|A player with the maximum number of Absorption and Health Boost hearts possible {{in|java}}.]]
+* Through use of commands, the player can achieve {{hp|1064}} health points — the maximum amount possible to obtain without attributes — using a combination of Absorption and [[Health Boost]].
+** A [[player]] who gets max [[health]] using the method above, and then adds Regeneration with the level of 255 while healing to 1034 hearts, sees the view jolt, even in [[Creative mode]].{{verify|Cannot confirm for player view jolt with max health in Creative mode prior to 1.9}}, as if taking [[damage]]. This also happens when the effect ends.
+
+== References ==
+{{reflist}}
+
+{{Effects}}
+
+[[fr:Absorption]]
+[[ja:衝撃吸収]]
+[[pt:Absorção]]
+[[zh:伤害吸收]]

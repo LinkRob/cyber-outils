@@ -1,0 +1,44 @@
+<div class="treeview"><onlyinclude>
+
+** {{nbt|string|biome}}: The biome at this location, as a [[resource location]] (see [[Biome#Biome IDs]] for the ones used in vanilla).
+** {{nbt|compound|block}}: The block at the location. Test fails if the location is unloaded.
+*** {{nbt|list|blocks}}: A list of [[Java Edition data values#Blocks|block IDs]].
+*** {{nbt|string|tag}}: The block [[tag]].
+*** {{nbt|string|nbt}}: The block NBT.
+*** {{nbt|compound|state}}: A map of [[Block states|block property]] names to values.
+**** {{nbt|boolean}}{{nbt|int}}{{nbt|string|''key''}}: Block property key and value pair. Test will fail if the block doesn't have this property.
+**** {{nbt|compound|''key''}}: Another form.
+***** {{nbt|boolean}}{{nbt|int}}{{nbt|string|max}}: A maximum value.
+***** {{nbt|boolean}}{{nbt|int}}{{nbt|string|min}}: A minimum value.
+** {{nbt|string|dimension}}: A [[resource location]] for the dimension.
+** {{nbt|compound|fluid}}: The fluid at the location. Test fails if the location is unloaded.
+*** {{nbt|string|fluid}}: The [[Java Edition data values#Fluids|fluid ID]].
+*** {{nbt|string|tag}}: The fluid [[tag]].
+*** {{nbt|compound|state}}: A map of fluid property names to values.
+**** {{nbt|boolean}}{{nbt|int}}{{nbt|string|''key''}}: Fluid property key and value pair. Test will fail if the fluid doesn't have this property.
+**** {{nbt|compound|''key''}}: Another form.
+***** {{nbt|boolean}}{{nbt|int}}{{nbt|string|max}}: A maximum value.
+***** {{nbt|boolean}}{{nbt|int}}{{nbt|string|min}}: A minimum value.
+** {{nbt|compound|light}}: The light at the location. Test fails if the location is unloaded.
+*** {{nbt|int|light}}: The light Level of visible light. Calculated using: <code>[[Light#Internal light level|(max(internal_sky_light,block_light))]]</code>.
+*** {{nbt|compound|light}}: Another form for {{nbt|int|light}}.
+**** {{nbt|int|max}}: A maximum value.
+**** {{nbt|int|min}}: A minimum value.
+** {{nbt|compound|position}}: The position.
+*** {{nbt|double|x}}: The x position.
+*** {{nbt|compound|x}}: Another form for x position.
+**** {{nbt|double|max}}: A maximum value.
+**** {{nbt|double|min}}: A minimum value.
+*** {{nbt|double|y}}: The y position.
+*** {{nbt|compound|y}}: Another form for y position.
+**** {{nbt|double|max}}: A maximum value.
+**** {{nbt|double|min}}: A minimum value.
+*** {{nbt|double|z}}: The z position.
+*** {{nbt|compound|z}}: Another form for z position.
+**** {{nbt|double|max}}: A maximum value.
+**** {{nbt|double|min}}: A minimum value.
+** {{nbt|boolean|smokey}}: When true, success if the block is closely above a campfire or soul campfire. When false, success if not.
+** {{nbt|string|structure}}: The structure the entity is currently in. This tag is a [[resource location]] for a structure feature (see [[Java Edition data values#Structures]] for the ones used in vanilla).
+</onlyinclude></div>
+[[Category:Top-level data pages]]
+[[zh:进度/条件/位置]]

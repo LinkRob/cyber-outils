@@ -1,0 +1,30 @@
+<div class="treeview">
+* {{nbt|compound}} Entity data
+** {{nbt inherit/entity}}
+** {{nbt inherit/mob}}
+** {{nbt|byte|CanDuplicate}}: 1 or 0 (true/false) – true if the allay can duplicate. This is set to {{cd|false}} when the allay duplicates, and {{cd|true}} when {{cd|DuplicationCooldown}} reaches 0.
+** {{nbt|long|DuplicationCooldown}}: The allay's duplication cooldown in ticks. This is set to {{convert|6000|game tick|minute}} when the allay duplicates.
+** {{nbt|list|Inventory}}: List of items the allay has picked up. This list can contain at most one compound tag. The item given by the player to the allay is stored in its {{cd|HandItems[0]}} tag, not here.
+*** {{nbt inherit/itemnoslot}}
+** {{nbt|compound|listener}}: The vibration event listener of this allay.
+*** {{nbt|int|distance}}: Nonnegative integer.
+*** {{nbt|compound|event}}: Optional.
+**** {{nbt|int|distance}}: Nonnegative integer.
+**** {{nbt|string|game_event}}: A resource location of the game event.
+**** {{nbt|list|pos}}: Three doubles representing the X, Y, and Z coordinates.
+**** {{nbt|int-array|projectile_owner}}: Optional. The projectile owner's [[UUID]]. The 128-bit UUID is stored as four 32-bit integers, ordered from most to least significant.
+**** {{nbt|int-array|source}}: Optional. The source entity's [[UUID]]. The 128-bit UUID is stored as four 32-bit integers, ordered from most to least significant.
+*** {{nbt|int|event_delay}}: Nonnegative integer.
+*** {{nbt|int|event_distance}}: Nonnegative integer.
+*** {{nbt|int|range}}: Nonnegative integer.
+*** {{nbt|compound|source}}: Position source.
+**** {{nbt|string|type}}: A resource location of the position source type.
+**** For type {{cd|block}}
+***** {{nbt|int-array|pos}}: X, Y, and Z coordinates.
+**** For type {{cd|entity}}
+***** {{nbt|int-array|source_entity}}: The entity's [[UUID]]. The 128-bit UUID is stored as four 32-bit integers, ordered from most to least significant.
+***** {{nbt|float|y_offset}}:
+</div><noinclude>
+[[Category:Entity data pages]]
+[[zh:悦灵/ED]]
+</noinclude>

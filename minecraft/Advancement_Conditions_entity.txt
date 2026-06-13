@@ -1,0 +1,110 @@
+<div class="treeview">
+<onlyinclude>
+** {{nbt|compound|distance}}: To test the distance to the entity this predicate is invoked upon. Passes if the calculated distance is between the entered <code>min</code> and <code>max</code>, inclusive.
+*** {{nbt|compound|absolute}}: Test the distance between the two points in 3D space.
+**** {{nbt|float|max}}
+**** {{nbt|float|min}} 
+*** {{nbt|compound|horizontal}}: Test the distance between the two points, ignoring the Y value.
+**** {{nbt|float|max}}
+**** {{nbt|float|min}}
+*** {{nbt|compound|x}}: Test the absolute difference between the X-coordinates of the two points.
+**** {{nbt|float|max}}
+**** {{nbt|float|min}}
+*** {{nbt|compound|y}}: Test the absolute difference between the Y-coordinates of the two points.
+**** {{nbt|float|max}}
+**** {{nbt|float|min}}
+*** {{nbt|compound|z}}: Test the absolute difference between the Z-coordinates of the two points.
+**** {{nbt|float|max}}
+**** {{nbt|float|min}}
+** {{nbt|compound|effects}}: For testing the active [[Effect|status effects]] on the entity.
+*** {{nbt|compound|<minecraft:effect_name>}}: A status effect that must be present.
+**** {{nbt|bool|ambient}}: Test whether the effect is from a beacon.
+**** {{nbt|int|amplifier}}: Test if the effect's amplifier matches an exact value. Level I is represented by 0.
+**** {{nbt|compound|amplifier}}: Test if the effect amplifier falls within a range of values. Level I is represented by 0.
+***** {{nbt|int|max}}
+***** {{nbt|int|min}}
+**** {{nbt|int|duration}}: Test if the effect's remaining time (in ticks) matches an exact value.
+**** {{nbt|compound|duration}}: Test if the effect's remaining time (in ticks) is between two numbers, inclusive.
+***** {{nbt|int|max}}
+***** {{nbt|int|min}}
+**** {{nbt|bool|visible}}: Test if the effect has visible particles.
+** {{nbt|compound|equipment}}: For testing the items that this entity holds in its equipment slots.
+*** {{nbt|compound|mainhand}}: Test the item in the entity's main hand.
+**** {{nbt inherit/conditions/item}}
+*** {{nbt|compound|offhand}}: Test the item in the entity's offhand.
+**** {{nbt inherit/conditions/item}}
+*** {{nbt|compound|head}}: Test the item in the entity's head armour slot.
+**** {{nbt inherit/conditions/item}}
+*** {{nbt|compound|chest}}: Test the item in the entity's chest  armour slot.
+**** {{nbt inherit/conditions/item}}
+*** {{nbt|compound|legs}}: Test the item in the entity's legs armour slot.
+**** {{nbt inherit/conditions/item}}
+*** {{nbt|compound|feet}}: Test the item in the entity's feet armour slot.
+**** {{nbt inherit/conditions/item}}
+** {{nbt|compound|flags}}: To test flags of the entity.
+*** {{nbt|bool|is_baby}}: Test whether the entity is or is not a baby variant.
+*** {{nbt|bool|is_on_fire}}: Test whether the entity is or is not on fire.
+*** {{nbt|bool|is_sneaking}}: Test whether the entity is or is not sneaking.
+*** {{nbt|bool|is_sprinting}}: Test whether the entity is or is not sprinting.
+*** {{nbt|bool|is_swimming}}: Test whether the entity is or is not swimming.
+** {{nbt|compound|location}}: Test properties of this entity's location.
+*** {{nbt inherit/conditions/location}}
+** {{nbt|string|nbt}}: Test NBT data of this entity. The outer braces <code>{ }</code> of the NBT must be included within this string. Additional care is required if the NBT contains quotation marks <code>" "</code>, as they must be escaped with a backslash before each: <code>\"</code>
+** {{nbt|compound|passenger}}: Test the entity directly riding this entity.
+*** {{nbt inherit/conditions/entity}}
+** {{nbt|compound|stepping_on}}: Test properties of the block the entity is standing on, using a location predicate.
+*** {{nbt inherit/conditions/location}}
+** {{nbt|string|team}}: Passes if the [[Scoreboard#Teams|team]] of this entity matches this string.
+** {{nbt|string|type}}: Test this entity's type. Accepts an [[Data values/Entity IDs|entity ID]].
+** {{nbt|compound|targeted_entity}}: Test properties of the entity which this entity is targeting for attacks.
+*** {{nbt inherit/conditions/entity}}
+** {{nbt|compound|vehicle}}: Test properties of the vehicle entity that this entity is riding upon.
+*** {{nbt inherit/conditions/entity}}
+** {{nbt|compound|type_specific}}: To test entity properties that can only be applied to certain entity types.  Supersedes <code>lightning_bolt</code>, <code>player</code>, <code>fishing_hook</code> and <code>catType</code>.
+*** {{nbt|string|type}}: Dictates which type-specific properties to test for.<p style="padding-block-end: 1em; margin: 0 0 0 0;">The possible values for {{nbt|string|type}} and associated extra contents:</p>
+*** '''any'''
+**** No other fields.
+*** '''cat'''
+**** {{nbt|string|variant}}: A resource location specifying a cat variant. Valid values are <code>minecraft:all_black</code>, <code>minecraft:black</code>, <code>minecraft:british</code>, <code>minecraft:calico</code>, <code>minecraft:jellie</code>, <code>minecraft:persian</code>, <code>minecraft:ragdoll</code>, <code>minecraft:red</code>, <code>minecraft:siamese</code>, <code>minecraft:tabby</code>, or <code>minecraft:white</code>.
+*** '''fishing_hook''': Test properties of the fishing hook that just got reeled in by this entity.
+**** {{nbt|boolean|in_open_water}}: Whether the fishing hook was in [[Fishing#Junk_and_treasure|open water]].
+*** '''frog'''
+**** {{nbt|string|variant}}: A resource location specifying a frog variant. Valid values are <code>minecraft:cold</code>, <code>minecraft:temperate</code>, or <code>minecraft:warm</code>.
+*** '''lightning''': To check information about this lightning bolt; fails when entity is not a lightning bolt.
+**** {{nbt|int|blocks_set_on_fire}}: Test if the number of blocks set on fire by this lightning bolt matches an exact value.
+**** {{nbt|compound|blocks_set_on_fire}}: Test the number of blocks set on fire by this lightning bolt is between a minimum and maximum value.
+***** {{nbt|int|max}}
+***** {{nbt|int|min}}
+**** {{nbt|compound|entity_struck}}: Test the properties of entities struck by this lightning bolt. Passes if at least one of the struck entities matches the entered conditions.
+***** {{nbt inherit/conditions/entity}}
+*** '''player''': Tests properties unique to players; fails when this entity is not a player.
+**** {{nbt|compound|looking_at}}: Test properties of the entity that this player is looking at, as long as it is visible and within a radius of 100 blocks. Visibility is defined through the line from the player's eyes to the entity's eyes, rather than the direction that the player is looking in.
+***** {{nbt inherit/conditions/entity}}
+**** {{nbt|compound|advancements}}: To test the player's [[advancements]].
+***** {{Nbt|boolean|<advancement id>}}: Test whether an advancement is granted or not granted. Key is an advancement ID, value is <code>true</code> or <code>false</code> to test for granted/not granted respectively.
+***** {{Nbt|compound|<advancement id>}}: Test whether specific ''criterions'' of an advancement are marked as complete.
+****** {{Nbt|boolean|<criterion id>}}: Key is one of the criteria of the advancement, value is <code>true</code> or <code>false</code> to test for completed/not completed respectively.
+**** {{nbt|string|gamemode}}: Test the [[Game modes|game mode]] of this player. Valid values are <code>survival</code>, <code>creative</code>, <code>adventure</code> and <code>spectator</code>.
+**** {{nbt|int|level}}: Test if the experience level of this player matches an exact value.
+**** {{nbt|compound|level}}: Test if the experience level of this player is between <code>min</code> and <code>max</code> values, inclusive.
+***** {{nbt|int|max}}
+***** {{nbt|int|min}}
+**** {{nbt|compound|recipes}}: To test if [[recipe]]s are known or unknown to this player.
+***** {{Nbt|boolean|<recipe id>}}: Key is the recipe ID; value is <code>true</code> or <code>false</code> to test for known/unknown respectively.
+**** {{Nbt|list|stats}}: To test this player's [[statistics]].
+***** {{Nbt|compound}} A statistic to test.
+****** {{Nbt|string|type}}: The statistic type. Valid values are <code>minecraft:custom</code>, <code>minecraft:crafted</code>, <code>minecraft:used</code>, <code>minecraft:broken</code>, <code>minecraft:mined</code>, <code>minecraft:killed</code>, <code>minecraft:picked_up</code>, <code>minecraft:dropped</code> and <code>minecraft:killed_by</code>.
+****** {{Nbt|string|stat}}: The statistic ID to test.
+****** {{Nbt|int|value}}: Test if the value of the statistic matches an exact number.
+****** {{nbt|compound|value}}: Test if the value of the statistic is between <code>min</code> and <code>max</code> values, inclusive.
+******* {{nbt|int|max}}
+******* {{nbt|int|min}}
+*** '''slime'''
+**** {{nbt|int|size}}: Test if the size of this slime matches an exact value.
+**** {{nbt|compound|size}}: Test if the size of this slime is between <code>min</code> and <code>max</code> values, inclusive.
+***** {{nbt|int|max}}
+***** {{nbt|int|min}}
+</onlyinclude></div><noinclude>
+[[Category:Top-level data pages]]
+[[zh:进度/条件/实体]]
+</noinclude>
