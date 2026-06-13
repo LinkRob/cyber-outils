@@ -1,0 +1,366 @@
+{{About|the block|the entity|Minecart with Monster Spawner|mob farms based around monster spawners|Tutorials/Monster spawner traps|the entity in ''Minecraft Dungeons''|MCD:Mob Spawner|spawn eggs|Spawn Egg}}
+{{See also|Trial Spawner|Ominous Trial Spawner|Ominous Item Spawner}}
+{{Block
+|image=Spawner with fire.png
+| extratext = [[#Gallery|View all renders]]
+|invimage2=----
+|invimage3=Monster Spawner BE
+|transparent=Partial{{fn|Like leaves, this block diffuses sky light only from directly above.}}
+|light=No
+|tool=wooden pickaxe
+|renewable=No
+|stackable=Yes (64)
+|flammable=No
+|lavasusceptible=No
+|rarity=Common
+}}
+A '''monster spawner''' is a cage-like [[block]] that can spawn [[mob]]s, the type of which being visible within it as a miniature spinning version. It cannot be obtained as an item or moved by a [[piston]], and drops [[experience]] orbs when broken.
+
+== Obtaining ==
+Monster spawners cannot be obtained in [[Survival]], even with [[Silk Touch]].
+
+A monster spawner can be obtained in [[Creative|Creative mode]] by taking it from Creative inventory, by using the {{cmd|give}} [[command]], or by using {{control|pick block}}. It is initially empty and inert, but can be configured to spawn a desired mob by {{control|using}} a [[spawn egg]] on the placed block.
+
+A {{cmd|setblock}}, {{cmd|clone}} or {{cmd|Fill}} command can also be used to obtain a monster spawner.
+
+=== Breaking ===
+If broken with a [[pickaxe]], a monster spawner drops 15-43 [[experience]]. When mined with anything else, it drops nothing.
+{{breaking row|horizontal=1|Monster Spawner|pickaxe|Wood|drop=0|foot=1}}
+
+=== Natural generation ===
+Monster spawners can generate naturally in the following places:
+
+;[[Monster Room]]s
+:One in the center of the monster room spawning one of the following mobs with the indicated frequency: [[zombie]] (50%), [[skeleton]] (25%), or [[spider]] (25%).
+;[[Mineshaft]]s
+:Any number of [[cave spider]] monster spawners, densely surrounded by [[cobweb]]s, scattered throughout.
+;[[Woodland Mansion]]s
+:Optionally one [[spider]] monster spawner, densely surrounded by [[cobweb]]s, in a rarely generated secret room on the 2nd or 3rd floor. It is sometimes visible through the windows from outside.
+;[[Stronghold]]s
+:One [[silverfish]] monster spawner in the [[end portal]] room.
+;[[Nether Fortress]]es
+:One or two [[blaze]] monster spawners on fenced platforms with full-block "stairs" leading up to them. Normally two are generated per fortress, but there can be fewer.
+;[[Bastion Remnant]]s
+:One [[magma cube]] monster spawner hanging from a [[chain]] underneath a bridge in treasure rooms.
+
+== Usage ==
+The monster spawner spawns mobs in an (at most) 9×3×9 volume (see {{slink||Mechanics}}) around it when the player is within 16 blocks. Suitable spawning locations for the block's mob type are provided in or around the spawning volume. The monster spawner attempts to spawn four [[Mob|mobs]] around it, then waits from 10 to 39.95 seconds before attempting to spawn more.
+
+In [[Peaceful]] difficulty, monster spawners still activate but do not spawn monsters {{in|be}}. {{IN|java}}, [[zombified piglin]]s, [[magma cube]]s, and [[ghast]]s do not spawn at all and other [[hostile]] mobs disappear immediately after spawning.
+
+Monster spawners are [[transparent]], but they behave like {{BlockLink|leaves}} in that they diffuse sky light coming from directly above. 
+
+{{iN|bedrock}}, they have a hitbox slightly smaller than a full block, and therefore, one can walk on the edge of a supporting full block directly below the monster spawner.
+
+=== Mechanics ===
+
+A monster spawner activates when a [[player]] (that's not in [[Spectator]] mode) comes within a spherical radius of 16 blocks from the center point of the block; i.e. 15.5 blocks from the monster spawner itself. {{IN|java}} an active monster spawner attempts to spawn mobs within a 4-block horizontal and 1-block vertical range; that is, in a 9×3×9 volume centered on the monster spawner. {{IN|bedrock}}, the horizontal spawning range is 4 blocks [[taxicab distance]], creating spawning volume extending 4 blocks in each cardinal horizontal direction from the sides of the monster spawner; its horizontal cross-section is therefore diamond-shaped. Mobs can spawn anywhere in this range that is suitable, with mobs more likely to spawn closer to the monster spawner than farther away.
+
+While mobs are spawned at fractional x and z-coordinates (i.e. not aligned to blocks), they are spawned at an integer y-coordinate. Horizontally, a mob can spawn with its ''center point'' anywhere within range, but vertically, mobs spawn with their legs at either the same layer as the monster spawner block, one block above it, or one block below it.  (Note that when there are other blocks slightly intersecting the mob's hitbox, they can sometimes glitch further away - often up - but this does not make it a true spawning point.)
+
+The monster spawner attempts to spawn 4 mobs at randomly chosen points within the spawning volume, then waits anywhere from 200 to 799 ticks (10 to 39.95 seconds) before spawning again. As it waits, the mob model inside the block spins faster and faster. Except for the normal solid-block spawning requirement, all the remaining ones must be met (not in a solid block, correct light level, etc.), so the monster spawner often produces fewer than 4 mobs. When it does spawn, it emits a "poof", and more flame particles temporarily appear around it. If the monster spawner fails to spawn any mobs because it did not pick any suitable locations, it repeats this process every [[tick]] until it succeeds. It only starts the next wait cycle after successfully spawning at least one mob.
+
+If 6 or more mobs of the monster spawner's type have their [[hitbox]] intersecting a 9×9×9 volume centered on the monster spawner block {{in|java}} or a 16×10×16 volume centered on the lower northwest corner of the monster spawner block {{in|bedrock}}, the monster spawner "poofs" without creating any mobs and then waits for the next cycle. {{needs testing|bedrock=1|Does &quot;the mob's hitbox intersects&quot; apply to Bedrock too, or is that Java-specific? (Checking before each attempt is obviously done as the cap of 6 is always reached, and the last round of spawning may poof.)}} This is checked before each of the four spawn attempts.
+[[File:Spawner setup.jpg|thumb|274x274px|Spawner setup. Blue represents minimum space needed around spawner for spawning room]]
+
+==== Spawning requirements ====
+The monster spawner performs a relaxed version of the ordinary spawning check: the general solid block requirement is removed, but the volume (hitbox of the mob) is kept along with ''some'' other checks according to mob specifics. As a result, for some types of mobs to spawn in the outer planes of the spawning volume, some planes outside the volume may also need to be free of solid blocks to conform with the mobs' height, width, or other rules governing their individual spawn volumes. Examples:
+* For mobs taller than one block (e.g., zombies, skeletons, blazes) to spawn in the top y-layer, the layer above that must contain only transparent blocks such as [[air]], [[glass]], [[leaves]], etc. 
+* {{IN|java}}, a turtle monster spawner will only spawn turtles on [[sand]] blocks less than 4 blocks above sea level (typically at Y=62). {{IN|bedrock}} no biome/light/height conditions apply for turtles in monster spawners. 
+* {{IN|bedrock}}, some animals require light level 7+, e.g. chicken, sheep, cow, rabbit. Others ignore the light level condition given in the spawning rules json files, e.g. parrot, turtle. This suggests that some of the early animals have hard-coded requirements when used in monster spawners.
+
+{| class="wikitable"
+|+ Summary of maximum spawn volumes for common monster spawners
+|-
+! Mob type
+! Required Volume (Java)
+! Required Volume (Bedrock){{verify|edition=bedrock}}
+! Vertical<br>alignment
+|-
+| {{EntityLink|Pig}}<ref group="note">Pig monster spawners only spawn naturally in certain seeds in vanilla ''Minecraft'' (which have pig monster spawners as a bug).</ref>
+|colspan=2 style="text-align:center"| 8.9 × 2.9 × 8.9
+| {{BlockGrid|s=Monster Spawner|a=Cauldron+top|a|s|a}}
+|-
+| {{EntityLink|Cave Spider}}
+|colspan=2 style="text-align:center"| 8.7 × 2.5 × 8.7
+| {{BlockGrid|s=Monster Spawner|a=Cauldron+top|a|s|a}}
+|-
+| {{EntityLink|Silverfish}}
+|colspan=2 style="text-align:center"| 8.4 × 2.3 × 8.4
+| {{BlockGrid|s=Monster Spawner|a=Cauldron+top|a|s|a}}
+|-
+| {{EntityLink|Zombie}}
+|style="text-align:center"| 8.6 × 3.95 × 8.6
+|style="text-align:center"| 8.6 × 3.9 × 8.6
+| {{BlockGrid|s=Monster Spawner|a=Cauldron+top|a|a|s|a}}
+|-
+| {{EntityLink|Skeleton}}
+|style="text-align:center"| 8.6 × 3.99 × 8.6
+|style="text-align:center"| 8.6 × 3.9 × 8.6
+| {{BlockGrid|s=Monster Spawner|a=Cauldron+top|a|a|s|a}}
+|-
+| {{EntityLink|Blaze}}
+|style="text-align:center"| 8.6 × 3.8 × 8.6
+|style="text-align:center"| 8.5 × 3.8 × 8.5
+| {{BlockGrid|s=Monster Spawner|a=Cauldron+top|a|a|s|a}}
+|-
+| {{EntityLink|Spider}}
+|colspan=2 style="text-align:center"| 9.4 × 2.9 × 9.4
+| {{BlockGrid|s=Monster Spawner|a=Cauldron+top|a|s|a}}
+|-
+| {{EntityLink|Magma Cube}}
+|style="text-align:center"| 10.04 × 4.04 × 10.04
+|style="text-align:center"| 10.08 × 4.08 × 10.08
+| {{BlockGrid|s=Monster Spawner|a=Cauldron+top|a|a|a|s|a}}
+|}
+
+{{notelist}}
+
+For all of the volumes listed in the table, the horizontal plane is centered on the center of the monster spawner block. The height values begin at the plane below the spawner. For example, the 3.8-block high volume for blazes includes one block under the spawner and 1.8 blocks above the spawner. While the spawning volume for pigs is 8.9×2.9×8.9, the requirement of grass blocks that are necessary for pigs to spawn reduces the actual volume in which they successfully spawn to 8.9×1.0×8.9. Other mobs can spawn in mid-[[air]], ignoring general rules about spawning on solid ground.
+
+The spawn conditions do not include biomes for most mobs. As such, monster spawners can place mobs where they normally wouldn't generate. For example, a mooshroom monster spawner can operate in a plains biome as long as there are mycelium blocks within the spawn area because the mooshroom's spawning code checks only for mycelium. The reason mooshrooms are not actually spawned elsewhere is that the game does not normally try to spawn them in other biomes: only the mushroom field biome has mooshroom on the list of things to spawn.
+
+=== Disabling ===
+[[File:BlazeDisableGrid.png|thumb|right|Disabling a blaze monster spawner with nine blocks. Glowstone can be replaced with other light sources of light level 15.[[File:9x9 6 block placement.png|thumb|Disabling a blaze monster spawner from above with six lava sources.]]]]
+[[File:Disabled blaze spawner.png|thumb|right|Blaze monster spawner disabled by four [[jack o'Lantern]]s. This works only {{in|bedrock}} in small rooms.]]
+[[File:MagmaSpawnerGrid.png|thumb|right|With the clever placement of nine solid blocks, a magma cube monster spawner can be completely disabled. Only the cobblestone is needed, glass is just for distance marking.]]
+{{See also|Light#Mobs}}
+The way a monster spawner can be disabled depends on the entity it tries to spawn.
+
+For a monster spawner that generates mobs that spawn only in dark conditions (light level = 0), a [[torch]] placed on any side or top of the monster spawner is sufficient to disable it for the whole 9×3×9 volume.
+
+For a [[blaze]] or [[silverfish]] monster spawner, a light level of 12 is required to prevent spawning. This can be achieved by:
+* Laying 9 blocks in the pattern shown on the right using blocks having a luminance value of 15. However, an additional glowstone must be placed under the spawner if the layer of blocks under the spawner is removed.
+* Placing 6 lava sources above a spawner in the pattern shown on the right. This assumes the spawner is centered in the 9x9 area.
+* Laying a dense 7×7 grid of torches on the monster spawner's Y level
+* {{IN|bedrock}}, placing a light source of level 15 on four surfaces
+
+A monster spawner is also disabled by filling the spawning volume with [[solid block]]s. This is often used to disable [[magma cube]] monster spawners, as magma cubes can spawn in any light level. However, since all magma cubes require the space of a large magma cube in order to spawn, a clever placement of as little as 9 solid blocks a layer above the monster spawner (see right image) can completely disable it.
+
+=== Custom monster spawners ===
+[[File:Example monster spawner - Spider.png|thumb|right|A monster spawner in a monster room that produces spiders.]]
+
+{{IN|java}}, using [[command]]s, monster spawners can be customized:
+* They can be made to spawn any kind of entity.
+* A single monster spawner can spawn multiple different entities, chosen at random from a list.
+* Properties can be set on the spawned entities.
+* Various range and timing properties of the monster spawner can be changed.
+
+Detailed technical information about custom monster spawners can be found [[#Block data|below]].
+
+{{IN|bedrock}}, monster spawner customization can not be done in the base game (i.e. without addons/behavior packs).
+
+=== Note blocks ===
+Monster spawner can be placed under [[note block]]s to produce "bass drum" sounds.
+
+=== Piston interactivity ===
+
+Monster spawners cannot be pushed by [[piston]]s. They also cannot be pushed nor pulled by [[sticky piston]]s.
+
+== Sounds ==
+{{Sound table/Block/Metal}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Monster Spawner
+|spritetype=block
+|nameid=spawner
+|foot=1}}
+{{ID table
+|displayname=Block entity
+|spritename=monster-spawner
+|spritetype=block
+|nameid=mob_spawner
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Monster Spawner
+|spritetype=block
+|nameid=mob_spawner
+|id=52
+|foot=1}}
+{{ID table
+|notnamespaced=y
+|displayname=Block entity
+|spritename=monster-spawner
+|spritetype=block
+|nameid=MobSpawner
+|foot=1}}
+
+=== Block data ===
+A monster spawner has a block entity associated with it that holds additional data about the block.
+
+{{el|java}}:
+{{see also|Block entity format}}
+{{/BE}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Block entity format]].
+
+== Video ==
+''Note: This video is outdated, as monster spawners have been added to the Creative inventory in [[Java Edition 1.19.3]].''
+<div style="text-align:center">{{yt|XlvdHQpKZGQ}}</div>
+
+== History ==
+{{info needed section|Did monster spawners have particles circa 1.4.7?}}
+{{History|java infdev}}
+{{History||20100625-2|[[File:Spawner JE1.png|32px]] Added monster spawners. 
+|Monster spawners can be picked up and when placed, spawn [[pig]]s.}}
+{{History||20100627|Monster spawners have been given a unique ID, reducing crashes.}}
+{{History|java alpha}}
+{{History||v1.0.1|Monster spawners can't be picked up anymore.}}
+{{History||v1.1.0|Removed rotating [[model]] inside of the monster spawner due to some [[multiplayer]] issues with it.}}
+{{History|java beta}}
+{{History||1.2|Monster spawners again show a rotating [[model]] inside of what they spawn in [[singleplayer]] after being missing for several versions.}}
+{{History||1.8|snap=Pre-release|Added cave spider monster spawners to [[mineshaft]]s.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease|[[File:Spawner JE2.png|32px]] The texture of monster spawners has been changed to a darker color.
+|Added blaze spawners to [[nether fortress]]es.}}
+{{History|||snap=Beta 1.9 Prerelease 3|Added natural silverfish monster spawners.}}
+{{History|||snap=Beta 1.9 Prerelease 4|Monster spawners now [[drop]] when mined using a [[tool]] enchanted with the new [[Silk Touch]] enchantment.}}
+{{History|||snap=Beta 1.9 Prerelease 5|[[Squid]] monster spawners now work only in a narrow elevation range, from 46 to 62.
+|Monster spawners no longer drop when broken using a tool enchanted with Silk Touch.}}
+{{History|||snap=Beta 1.9 Prerelease 6|Monster spawners now take much less time to destroy; the breaking time is [[tier]] dependent.}}
+{{History||1.2.1|snap=12w06a|Monster spawners now show the [[mob]] they are spawning in [[multiplayer]]; previously they would always show a [[pig]].}}
+{{History||1.3.1|snap=12w21a|[[Pick block]] no longer works on monster spawners.}}
+{{History|||snap=12w22a|Monster spawners now drop [[experience]] when destroyed.}}
+{{History|||snap=12w26a|Monster spawners now support extra data pertaining to what they spawn.}}
+{{History||1.8|snap=14w18a|Monster spawners with [[Java Edition data values/Pre-flattening/Block IDs/Before 14w25a|numerical metadata variants]] 1 through 15, which are inaccessible through normal gameplay, now have [[Missing model|no model]] [[File:Missing Model JE2.png|32px]] rather than appearing identical to monster spawners.}}
+{{History|||snap=14w26a|Block metadata has been completely removed from this snapshot onwards with the introduction of [[block states]]. As this block never used block metadata at all prior to this version, fifteen unused, inaccessible metadata variants of it have been completely removed from the game:
+{{dvt|spritetype=block|sprite=spawner|[[Monster Spawner]]}}
+{{dvt|sprite=missing-texture-block|dv=1-15|[[Java Edition removed blocks/Metadata variants#Boring variants|Inaccessible "boring" variants of monster spawners]]|foot=1}}}}
+{{History|||snap=14w26c|The horizontal spawning range of monster spawners is now calculated from the center of the [[block]] rather than the northwest corner.
+|The exclusion zone of monster spawners has been reduced: for a default monster spawner, the 6 [[mob]]s must be in a 9×9×9 region rather than 17×9×17 to prevent spawning.}}
+{{History|||snap=14w28b|The type of mob spawned from a monster spawner can now be changed by {{control|using}} a [[spawn egg]] on it.}}
+{{History||1.9|snap=16w02a|A monster spawner containing a large [[mob]] now scales down the mob to fit inside the monster spawner block.}}
+{{History||1.11|snap=16w32a|The [[block]] [[entity]] ID has been changed from <code>MobSpawner</code> to <code>mob_spawner</code>.}}
+{{History|||snap=16w39a|[[Spider]] monster spawners now generate in [[woodland mansion]]s.}}
+{{History||1.13|snap=17w47a|"Monster Spawner" has been renamed to simply "Spawner".
+|Prior to [[Java Edition 1.13/Flattening|''The Flattening'']], this block's numeral ID was 52.}}
+{{History|||snap=pre5|The ID of spawners has been changed to <code>spawner</code>.}}
+{{History||1.14|snap=18w43a|[[File:Spawner JE3.png|32px]] The texture of spawners has been changed.}}
+{{History||1.16|snap=20w16a|[[Magma cube]] spawners now generate in [[bastion remnant]]s.}}
+{{History||1.17|snap=21w20a|Assigned the "Epic" rarity to spawners, it was "Common".}}
+{{History||1.18|snap=experimental snapshot 2|[[Zombie]], [[skeleton]], [[spider]], and [[cave spider]] spawners now require a light level of 12 to prevent spawning.}}
+{{History|||snap=21w37a|The light level changes in experimental snapshot 2 have been reverted.}}
+{{History||1.19.3|snap=22w43a|The spawner is now available in the Creative inventory.<ref>{{bug|MC-132820|||Fixed}}</ref>}}
+{{History|||snap=22w44a|"Spawner" has been renamed back to "Monster Spawner".
+|The monster spawner now has the "Common" rarity again, as prior to 21w20a.
+|Monster spawners no longer have a pig in them and flame particles by default.
+|[[Pick block]] once again works on monster spawners.<ref>{{bug|MC-50605|||Fixed}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.9.0|snap=build 1|[[File:Spawner BE1.png|32px]] Added monster spawners.}}
+{{History|||snap=build 2|Added monster spawners to the [[Creative]] [[inventory]].
+|The type of [[mob]] spawned can now be changed using a [[spawn egg]].}}
+{{History|||snap=build 9|Monster spawners now emit [[light]].}}
+{{History||v0.12.1|snap=build 1|[[Blaze]] monster spawners now generate in [[nether fortress]]es.
+|Monster spawners now drop [[experience]] when mined using a [[pickaxe]].}}
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|[[Spider]] monster spawners now generate in [[woodland mansion]]s.}}
+{{History|bedrock}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Spawner BE2.png|32px]] The texture of monster spawners has been changed.}}
+{{History||1.16.0|snap=beta 1.16.0.59|[[Magma cube]] monster spawners now generate in [[bastion remnant]]s.}}
+{{History||1.17.30|snap=beta 1.17.30.21|Monster spawners no longer emit light.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Spawner JE1.png|32px]] Added monster spawners.}}
+{{History||xbox=TU5|xbone=CU1|ps=1.0|wiiu=Patch 1|[[File:Spawner JE2.png|32px]] The texture of monster spawners has been changed.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|The type of [[mob]] spawned from a monster spawner can now be changed by using a [[spawn egg]].}}
+{{History||xbox=TU69|xbone=none|ps=1.76|wiiu=Patch 38|switch=none|Monster spawners are now available in the [[Creative]] [[inventory]], and can be obtained with [[pick block]].}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Spawner JE3.png|32px]] The texture of monster spawners has been changed.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list}}
+
+== Trivia ==
+* A monster spawner containing [[zombie]]s can never spawn a [[Zombie Villager|zombie villager]].<ref>{{bug|MC-106146||Zombie spawner doesn't spawn zombie villagers|WAI}}</ref><!--{{info needed|verified in 1.16 Bedrock, need to check Java. Almost certain given 1.10/1.11 changes.}}-->
+* {{IN|java}}, monster spawners containing [[zombie]]s have a small chance to spawn a [[chicken jockey]].
+* Monster spawners containing [[zombie]]s or [[skeleton]]s have a chance for the mob spinning inside to have armor.
+* Monster spawners containing [[spider]]s have a small chance to spawn a [[spider jockey]].
+* Monster spawners containing [[Pillager]]s have a small chance for the mob spinning inside to be a [[Raid captain]] in ''Java Edition''.
+* Monster spawners containing [[Pillager]]s can spawn [[Raid captain|Raid captains.]]
+* Monster spawners in [[mushroom fields]], the [[deep dark]] or [[the Void biome]] can function normally, despite those biomes having no hostile mobs spawn naturally.
+* It is possible for a pig monster spawner to generate naturally. If a newer world is loaded in an older version of ''Minecraft'', the monster spawner can lose its metadata, causing it to enter its default state, which is a pig monster spawner. Alternatively, if a buried treasure chest generates next to a monster spawner, it duplicates the monster spawner without duplicating the NBT tag, resulting in a natural pig monster spawner.<ref>{{bug|MC-234396}}</ref> The chest also gets invalid block (monster spawner) data, making it unopenable.
+* If a monster room monster spawner overwrites a monster room chest during world generation, the monster spawner does not spawn any mobs. It appears as a pig monster spawner, but placing a [[hopper]] underneath it reveals the contents of the chest that should have been there.
+
+== Gallery ==
+===Renders===
+<gallery>
+Spawner.png
+Pig Spawner.png
+Zombie Spawner.png
+Skeleton Spawner.png
+Spider Spawner.png
+Cave Spider Spawner.png
+Silverfish Spawner.png
+Blaze Spawner.png
+Magma Cube Spawner.png
+</gallery>
+===Screenshots===
+<gallery>
+Nether Fortress Blaze Spawner.png|A [[blaze]] monster spawner in a [[nether fortress]].
+Two Spawners.png|A [[monster room]], connected to another monster room, with two monster spawners.
+Zombie in armor spawner.png|A monster spawner edited to spawn [[zombie]]s wearing enchanted diamond [[armor]].
+Blazespawner.png|Light required to disable a blaze monster spawner.
+Skeleton Dungeon.png|A monster spawner that spawns [[skeleton]]s.
+Surface spider spawner.png|A [[spider]] monster spawner that generated on the surface. The monster spawner is located roughly in the middle of the picture, underneath a [[cobweb]].
+Spawner pen.png|[[Chicken]]s spawning from multiple monster spawners.
+SpawnerInactive.png|A monster spawner in an older version of ''Minecraft''.
+Cave-spider-spawner.png|Cave spider monster spawner seen from a chamber.
+Woodland mansion 1x1 as2.png|Spider monster spawner in a [[woodland mansion]].
+Magma Cube Spawner in Bastion Remnant.png|A [[magma cube]] monster spawner inside the [[Bastion Remnant]].
+Spawnerinmineshaft.png|A spider monster spawner connected to a [[mineshaft]].
+Blazes and Wither Skeleton near a Spawner.png|Two [[blaze]]s spawned near a blaze monster spawner and a [[wither skeleton]].
+5 pig spawner glitch.png|Pig monster spawners generating when a buried treasure chest spawns inside a monster spawner (Fixed in 1.17 pre-1).
+2 spawners, geode and mineshaft.png|Amethyst geode with mineshaft and 2 cave spider monster spawners. Check the image for more details, including seed and coordinates.
+2 spawners next to to each other.png|2 cave spider monster spawners next to each other. 
+Village with spawner.png|Spider monster spawner generated right next to the village.
+Mineshaft and spawner at bedrock.png|Mineshaft and skeleton monster spawner generated at the very bottom of the world.
+</gallery>
+
+== See also ==
+* {{EntityLink|Minecart with Monster Spawner}}
+* {{BlockSprite|Monster Spawner}} [[Tutorials/Monster spawner traps|Monster spawner traps]]
+
+== Notes ==
+{{fnlist}}
+
+== References ==
+{{Reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/block-week--spawner Block of the Week: Spawner] – Minecraft.net on January 13, 2022
+
+{{Blocks|Utility}}
+
+[[Category:Generated structure blocks]]
+[[Category:Natural blocks]]
+[[Category:Nether blocks]]
+[[Category:Block entities]]
+[[Category:Utility blocks]]
+
+[[cs:Líheň oblud]]
+[[de:Spawner]]
+[[es:Generador de criaturas]]
+[[fr:Générateur de créatures]]
+[[hu:Szörnyidéző]]
+[[it:Generatore]]
+[[ja:モンスタースポナー]]
+[[ko:생성기]]
+[[nl:Monsterkooi]]
+[[pl:Spawner potworów]]
+[[pt:Gerador]]
+[[ru:Спаунер мобов]]
+[[zh:刷怪笼]]

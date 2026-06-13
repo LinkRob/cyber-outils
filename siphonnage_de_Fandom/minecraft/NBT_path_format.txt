@@ -1,0 +1,204 @@
+{{exclusive|java}}
+An '''NBT path''' is a descriptive label used to specify a collection of particular elements from an [[NBT format|NBT data tree]]. A path has the general form <code>node.….node</code>, where each <code>node</code> declares what types of child tags can be chosen from previous tags.
+
+== Nodes ==
+These are all seven types of nodes available.
+
+The tags collection start with only one element (i.e. the root tag) and changes along the nodes when resolving path. Tags in the final tag collection are just the targets selected by the NBT path.
+
+{| class="wikitable" data-description="NBT tags"
+|-
+! Name
+! Format
+! Description
+! Selection Result
+! Example
+! Example Description
+|-
+| rowspan="2"| Root compound tag
+| rowspan="2"| <code>{''tag''}</code>, where ''tag'' is the compound NBT content and can be empty.
+| rowspan="2"| Selects the starting tag, only if it matches the specified content ''tag'' (if given).<br>Only applicable as the first element in an NBT path.
+| rowspan="2"| The starting tag, or nothing if matching fails.
+| <code>'''{Invisible:1b}'''</code>
+| Selects the root tag if it has a child tag {{nbt|byte|Invisible}} with value {{cd|1}}. 
+|-
+| <code>'''{}'''</code>
+| Selects the root tag. 
+|-
+|rowspan="2"| Named tag
+|rowspan="2"| {{cd|''name''}}, where ''name'' can be a plain string or a quoted string
+|rowspan="2"| Selects child tags named ''name'' in the previous tags.
+|rowspan="2"| A collection of tags; no more elements than the previous tag collection. May be empty. 
+| <code>'''VillagerData'''</code>
+| Selects the child tag named <samp>VillagerData</samp>.
+|-
+| <code>'''"A cool name[]"'''</code>
+| Selects the child tag named <samp>A cool name[]</samp>.
+|-
+| rowspan="2"| Named compound tag
+| rowspan="2"| <code>''name''{''tag''}</code>, where ''name'' can be a plain or a quoted string, and ''tag'' is the compound NBT content which can be empty.
+| rowspan="2"| Selects child tags named ''name'' in the previous tags, only if they are compound tags, and matching the specified content ''tag'' (if given).
+| rowspan="2"| A collection of compound tags; no more elements than the previous tag collection. May be empty. 
+| <code>'''VillagerData{profession:"minecraft:nitwit"}'''</code>
+| Select the child tag {{nbt|compound|VillagerData}} only if it has a child tag {{nbt|string|profession}} with value {{cd|minecraft:nitwit}}.
+|-
+| <code>'''VillagerData{}'''</code>
+| Selects the child tag {{nbt|compound|VillagerData}} if it is a compound tag.
+|-
+|rowspan="2"| Element of named list or array tag
+|rowspan="2"| {{cd|''name''[''index'']}}, where ''name'' can be a plain or a quoted string and ''index'' is an integer.
+|rowspan="2"| Selects elements at ''index'' (or <code>listLength + index</code> if ''index'' is negative) of the child list (or array) tags named ''name'' in the previous tags.
+|rowspan="2"| A collection of tags; no more elements than the previous tag collection. May be empty. 
+| <code>'''Pos[0]'''</code>
+| Selects the first element in the child tag "Pos" list (or array).
+|-
+| <code>'''Inventory[-1]'''</code>
+| Selects the last element in the child tag "Inventory" list (or array).
+|-
+| All elements of named list or array tag
+| {{cd|''name''[]}}
+| Selects all elements of the child list (or array) tags named ''name'' in the previous tags.
+| A collection of tags; may have more elements than the previous tag collection. May be empty. 
+| <code>'''ActiveEffects[]'''</code>
+| Select all the elements in the child tag "ActiveEffects".
+|-
+|rowspan="2"|  Compound Elements of Named List Tag
+|rowspan="2"|  <code>''name''[{''tag''}]</code>, where ''name'' can be a plain or a quoted string and ''tag'' is the compound NBT content which can be empty.
+|rowspan="2"|  Selects elements in the child list tags named ''name'' in the previous tags, only if the elements are compound tags, and matching the specified content ''tag'' (if given).
+|rowspan="2"|  A collection of compound tags; may have more elements than the previous tag collection. May be empty. 
+| <code>'''Inventory[{Count:25b}]'''</code>
+| Select {{nbt|compound}}compound elements of the child {{nbt|list|Inventory}} tag that have a child tag {{nbt|byte|Count}} with value {{cd|25}}.
+|-
+| <code>'''Foo[{}]'''</code>
+| Selects {{nbt|compound}}compound elements of the child {{nbt|list|Foo}} tag.
+|-
+|rowspan="2"|  Elements of the child list (or array) in named list tag
+|rowspan="2"|  <code>''name''[''index'' or blank][''index'' or blank][''index'' or blank]......[''index'' or ''tag'']</code>, where ''name'' can be a plain string or a quoted string, ''index'' is an integer, and ''tag'' is the compound NBT content which can be empty.
+|rowspan="2"|  Selects child elements of the child elements in the lists named ''name'' in the previous tags.
+|rowspan="2"|  A collection of tags; may have more elements than the previous tag collection. May be empty. 
+| <code>'''foo[][{}]'''</code>
+| Select {{nbt|compound}}compound elements of the child lists in {{nbt|list|foo}} list.
+|-
+| <code>'''foo.bar[0][0].baz'''</code>
+| Select the baz tag in the first compound element of the first list element of the bar list in the {{nbt|compound|foo}} tag.
+|}
+
+In an NBT path, {{cd|.}} (dot/period) characters separate the nodes. Required nodes can be used arbitrarily, except the root compound tag node must be the first in the path when it is present.
+
+== Name escaping ==
+
+The '''valid character set''' (without quote) for a path seems to be all non-whitespace characters, as long as any opening brackets and braces (<code>[</code> and <code>{</code>) are closed and at the end of each node (that is, followed by nothing but a period or the end of the path). That being said, the "reasonable character set" for defining a tag name includes all [[Wikipedia:ASCII|ASCII]] lowercase and uppercase letters, digits, underscore, period, and square and curly brackets ([[Wikipedia:Regular expression|Regular expression]]: <code>[a-zA-Z0-9_\.[\]{}]*</code>).
+
+Quoted strings, such as <code>"Lorem ipsum"</code> or <code>'Lorem ipsum'</code>, can be used if a tag name needs to be escaped.
+
+== Examples ==
+=== Mixed path ===
+* <code>{}</code>—Specifies the root tag
+* <code>{foo:4.0f}</code>—Specifies the root tag if its children tag "foo" is <code>4.0f</code>
+* <code>foo</code>—Specifies the tag named "foo" under the root tag
+* <code>foo.bar</code> or <code>foo{}.bar</code>—Specifies foo's children tag named "bar".
+* <code>foo.bar[0]</code>—Specifies the first element of the list (or array) "bar"
+* <code>foo.bar[-1]</code>—Specifies the last element of the list (or array) "bar"
+* <code>foo.bar[0]."A [crazy name]!"</code>—Specifies the children tag named "A [crazy name]!" under that first element
+* <code>foo.bar[0]."A [crazy name]!".baz</code>—Specifies the children tag named "baz" under that crazily named tag
+* <code>foo.bar[]</code>—Specifies all elements of the list (or array) "bar"
+* <code>foo.bar[].baz</code>—Specifies the children tags named "baz" under all elements of the list "bar"
+* <code>foo.bar[{baz:5b}]</code>—Specifies all elements of the list "bar", in which the "baz" tags are <code>5b</code>
+* <code>foo{bar:"baz"}</code>—Specifies the "foo" tag if its child tag "bar" has the value <code>"baz"</code>
+* <code>foo{bar:"baz"}.bar</code>—Specifies the "bar" tag under "foo", only if it matches the value <code>"baz"</code>
+
+=== Example 1 ===
+<code>/data get entity @p foo.bar[0]."A [crazy name]!".baz</code>
+
+These names have been arbitrarily picked, for demonstrative purposes.
+
+*<code>foo</code>—Specifies the subtag named "foo" under the root tag.
+* <code>foo.bar</code>—Specifies foo's child named "bar".
+* <code>foo.bar[0]</code>—Specifies the first element of the list "bar"
+* <code>foo.bar[0]."A [crazy name]!"</code>—Specifies the child named "A [crazy name]!" under that first element
+* <code>foo.bar[0]."A [crazy name]!".baz</code>—Specifies the child named "baz" under that crazily named element
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+The tree structure
+<div class="collapsible-content treeview">
+* {{nbt|compound}} The root entity data
+** {{nbt|compound|foo}}: The "foo" element
+*** {{nbt|list|bar}}: The "bar" element
+**** {{nbt|compound}} The first element of list "bar"
+***** {{nbt|compound|A <nowiki>[</nowiki>crazy name<nowiki>]</nowiki>!}}: The "A [crazy name]!" element
+****** {{nbt|byte|baz}}: The "baz" element; the target element of this example.
+**** {{nbt|compound}} Another unrelated element in list "bar"
+
+</div></div>
+
+=== Example 2 ===
+<code>/data get block ~ ~ ~ Items[1].tag.pages[3]</code>
+
+A player has written a book and placed it inside a chest at their feet, and are going to work up to the above command in stages. Observe the following imaginary chat log:
+
+: {| class="collapsible collapsed collapse-button-none" data-description="bookInAChest_example"
+|-
+! style="text-align:left" | Chat log
+|-
+|
+ ''* Alex jumps on top of a chest.''
+ 
+ ''* Alex runs the command:'' /data get block <span style="color:darkcyan;font-weight:bold">~ ~ ~</span>
+ 
+ 0 55 0 has the following block data: {{{TAG_number|x|0}}, {{TAG_number|y|55}}, {{TAG_number|z|0}}, <span style="color:darkcyan;font-weight:bold">Items</span>: [{{{TAG_number|Slot|0|b}}, {{TAG_string|id|"minecraft:clock"}}, {{TAG_number|Count|1|b}}}, {{{TAG_number|Slot|9|b}}, {{TAG_string|id|"minecraft:written_book"}}, {{TAG_number|Count|1|b}}, <span style="color:darkcyan;font-weight:bold">tag</span>: {<span style="color:darkcyan;font-weight:bold">pages</span>: [<span style="color:limegreen;font-weight:bold">'{"text":"\'twas brillig and the slithy toves"}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"Did gyre and gimble in the wabe."}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"All mimsy were the borogoves,"}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"And the mome raths outgrabe."}'</span>], {{TAG_string|author|"LewisCarroll"}}, {{TAG_string|title|"Jabberwocky"}}}}], {{TAG_string|id|"minecraft:chest"}}}
+ 
+ ''* Alex only wants to look at the chest's inventory. They could [https://minecraft.fandom.com/wiki/Special:Search?search=chest&fulltext=1 search the Minecraft Wiki] for what the [[Chest#Block entity|name of that tag]] is, but because they understand how to read [[NBT format]] they decide to figure it out from that last command's output.''
+ 
+ ''* Alex runs the command:'' /data get block <span style="color:darkcyan;font-weight:bold">~ ~ ~</span> <span style="color:goldenrod;font-weight:bold">Items</span>
+ 
+ 0 55 0 has the following block data: <span style="color:lightgray">''{x: 0, y: 55, z: 0, Items: ''</span>[{{{TAG_number|Slot|0|b}}, {{TAG_string|id|"minecraft:clock"}}, {{TAG_number|Count|1|b}}}, {{{TAG_number|Slot|9|b}}, {{TAG_string|id|"minecraft:written_book"}}, {{TAG_number|Count|1|b}}, <span style="color:darkcyan;font-weight:bold">tag</span>: {<span style="color:darkcyan;font-weight:bold">pages</span>: [<span style="color:limegreen;font-weight:bold">'{"text":"\'twas brillig and the slithy toves"}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"Did gyre and gimble in the wabe."}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"All mimsy were the borogoves,"}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"And the mome raths outgrabe."}'</span>], {{TAG_string|author|"LewisCarroll"}}, {{TAG_string|title|"Jabberwocky"}}}}]<span style="color:lightgray">'', id: "minecraft:chest"}''</span>
+ 
+ ''* Alex wants to narrow this down to the second item in the chest. Counting from 0, the second item would be element 1.''
+ 
+ ''* Alex runs the command:'' /data get block <span style="color:darkcyan;font-weight:bold">~ ~ ~</span> <span style="color:goldenrod;font-weight:bold">Items[1]</span>
+ 
+ 0 55 0 has the following block data: <span style="color:lightgray">''{x: 0, y: 55, z: 0, Items: [{Slot: 0b, id: "minecraft:clock", Count: 1b}, ''</span>{{{TAG_number|Slot|9|b}}, {{TAG_string|id|"minecraft:written_book"}}, {{TAG_number|Count|1|b}}, <span style="color:darkcyan;font-weight:bold">tag</span>: {<span style="color:darkcyan;font-weight:bold">pages</span>: [<span style="color:limegreen;font-weight:bold">'{"text":"\'twas brillig and the slithy toves"}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"Did gyre and gimble in the wabe."}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"All mimsy were the borogoves,"}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"And the mome raths outgrabe."}'</span>], {{TAG_string|author|"LewisCarroll"}}, {{TAG_string|title|"Jabberwocky"}}}}<span style="color:lightgray">''], id: "minecraft:chest"}''</span>
+ 
+ ''* Alex wants just the "tag" tag.''
+ 
+ ''* Alex runs the command:'' /data get block <span style="color:darkcyan;font-weight:bold">~ ~ ~</span> <span style="color:goldenrod;font-weight:bold">Items[1].tag</span>
+ 
+ 0 55 0 has the following block data: <span style="color:lightgray">''{x: 0, y: 55, z: 0, Items: [{Slot: 0b, id: "minecraft:clock", Count: 1b}, {Slot: 9b, id: "minecraft:written_book", Count: 1b, tag: ''</span>{<span style="color:darkcyan;font-weight:bold">pages</span>: [<span style="color:limegreen;font-weight:bold">'{"text":"\'twas brillig and the slithy toves"}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"Did gyre and gimble in the wabe."}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"All mimsy were the borogoves,"}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"And the mome raths outgrabe."}'</span>], {{TAG_string|author|"LewisCarroll"}}, {{TAG_string|title|"Jabberwocky"}}}<span style="color:lightgray">''}], id: "minecraft:chest"}''</span>
+ 
+ ''* Alex wants just the "pages" tag.''
+ 
+ ''* Alex runs the command:'' /data get block <span style="color:darkcyan;font-weight:bold">~ ~ ~</span> <span style="color:goldenrod;font-weight:bold">Items[1].tag.pages</span>
+ 
+ 0 55 0 has the following block data: <span style="color:lightgray">''{x: 0, y: 55, z: 0, Items: [{Slot: 0b, id: "minecraft:clock", Count: 1b}, {Slot: 9b, id: "minecraft:written_book", Count: 1b, tag: {pages: ''</span>[<span style="color:limegreen;font-weight:bold">'{"text":"\'twas brillig and the slithy toves"}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"Did gyre and gimble in the wabe."}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"All mimsy were the borogoves,"}'</span>, <span style="color:limegreen;font-weight:bold">'{"text":"And the mome raths outgrabe."}'</span>]<span style="color:lightgray">'', author: "LewisCarroll", title: "Jabberwocky"}}], id: "minecraft:chest"}''</span>
+ 
+ ''* Alex wants just the fourth element from this list.''
+ 
+ ''* Alex runs the command: /data get block <span style="color:darkcyan;font-weight:bold">~ ~ ~</span> <span style="color:goldenrod;font-weight:bold">Items[1].tag.pages[3]</span>''
+ 
+ 0 55 0 has the following block data: <span style="color:lightgray">''{x: 0, y: 55, z: 0, Items: [{Slot: 0b, id: "minecraft:clock", Count: 1b}, {Slot: 9b, id: "minecraft:written_book", Count: 1b, tag: {pages: ['{"text":"\'twas brillig and the slithy toves"}', '{"text":"Did gyre and gimble in the wabe."}', '{"text":"All mimsy were the borogoves,"}', ''</span><span style="color:limegreen;font-weight:bold">'{"text":"And the mome raths outgrabe."}'</span><span style="color:lightgray">''], author: "LewisCarroll", title: "Jabberwocky"}}], id: "minecraft:chest"}''</span>
+ 
+ ''* Alex has what they need now, and uses the paths they have gathered to edit the book from outside the chest.''
+ 
+ ''* Alex runs the command: /data modify block <span style="color:darkcyan;font-weight:bold">~ ~ ~</span> <span style="color:goldenrod;font-weight:bold">Items[1].tag.pages[3]</span> set value <span style="color:darkorchid;font-weight:bold">'{"text":"And this pig here\'s named Babe."}'</span>
+ 
+ Modified block data of 0 55 0
+ 
+ ''* Alex runs the command: /data modify block <span style="color:darkcyan;font-weight:bold">~ ~ ~</span> <span style="color:goldenrod;font-weight:bold">Items[1].tag.pages</span> prepend value <span style="color:darkorchid;font-weight:bold">'{"text":"Call me Ishmael."}'</span>
+ 
+ Modified block data of 0 55 0
+ 
+ ''* Alex runs the command: /data modify block <span style="color:darkcyan;font-weight:bold">~ ~ ~</span> <span style="color:goldenrod;font-weight:bold">Items[1].tag.author</span> set value <span style="color:darkorchid;font-weight:bold">"Cthulhu the Sleeper"</span>
+|}
+
+== History ==
+{{stub|section=1}}
+{{History|Java}}
+{{History||1.20|snap=Pre-release 2|Single quotation marks are now supported in NBT paths.<ref>{{bug|MC-175504||Single quotation marks are not supported in NBT paths.|Fixed}}</ref>}}
+{{History|foot}}
+
+== References ==
+<references/>
+
+{{Java Edition}}
+[[ja:NBTパスフォーマット]]
+[[zh:NBT路径格式]]

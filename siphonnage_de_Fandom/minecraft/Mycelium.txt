@@ -1,0 +1,191 @@
+{{Distinguish|Nylium}}
+{{Block
+| image = <gallery>
+Mycelium.png|Mycelium
+Snowy Grass Block.png|Snowy Mycelium
+</gallery>
+|transparent=No
+|light=No
+|tool=shovel
+|renewable=Yes
+|stackable=Yes (64)
+|flammable=No
+|lavasusceptible=No
+}}
+'''Mycelium''' is a particularly rare variant of [[dirt]] that is found naturally only in [[mushroom fields]] biomes. It has a particle effect that resembles tiny [[wikipedia:Spore|spores]] being released constantly from the surface.
+
+== Obtaining ==
+=== Breaking ===
+Mycelium can be obtained by mining it using a tool with the [[Silk Touch]] enchantment. If mined with any other tool or by hand, it drops [[dirt]]. A [[shovel]] is the fastest tool to collect it.
+{{breaking row|horizontal=1|Mycelium|shovel}}
+
+=== Mob loot ===
+[[Endermen]] can pick up mycelium blocks, and drop the block they are holding if killed.
+
+== Usage ==
+=== Spread ===
+A mycelium block can spread to any [[dirt]] block within one space above, one sideways, or three down. The mycelium needs [[light level]] 9+ above it, while the dirt needs light level 4+ above it, and must not be covered by any light-impeding block or any [[opaque]] block. Mycelium reverts to dirt when covered by one of the light-impeding blocks above, and the light level at that block is below 4. The death and spread behaviors are checked when a [[random tick]] lands on the block.
+
+If there is a plant on a dirt block when mycelium spreads to it, the plant pops out and drops as an item.
+
+=== Dirt path ===
+Mycelium can be turned into a [[dirt path]] by {{control|using}} any type of [[shovel]] on it.
+
+=== Effect on plants and mobs ===
+* [[Mushroom]]s and [[fungus]] can remain on mycelium blocks in any light level, unlike the situation on other blocks, where mushrooms are broken (dropping as items) during block updates in high light.
+* [[Huge mushroom]]s can grow on mycelium, just as they can grow on [[dirt]], [[Grass Block|grass]], or [[podzol]].
+* Mycelium cannot be tilled with a [[hoe]] to make [[farmland]].<ref>{{bug|MC-8231||Mycelium and podzol cannot be tilled with hoes}}</ref>
+** However, it can first be converted to dirt path using a shovel, then tilled with a hoe to create farmland.
+* {{IN|bedrock}}, [[pumpkin]]s and [[melon]]s do not grow on it.
+* [[Sniffer]]s cannot dig on mycelium.<ref>{{bug|MC-260259||Sniffers cannot dig nor find seeds on mycelium|WAI}}</ref>
+
+== Sounds ==
+=== Generic ===
+{{Sound table/Block/Grass}}
+=== Unique ===
+{{edition|java}}:
+{{Sound table
+|sound=Shovel flatten1.ogg
+|sound2=Shovel flatten2.ogg
+|sound3=Shovel flatten3.ogg
+|sound4=Shovel flatten4.ogg
+|subtitle=Shovel flattens
+|source=block
+|description=When a shovel creates a dirt path
+|id=item.shovel.flatten
+|translationkey=subtitles.item.shovel.flatten
+|volume=1.0
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Grass hit1.ogg
+|sound2=Grass hit2.ogg
+|sound3=Grass hit3.ogg
+|sound4=Grass hit4.ogg
+|sound5=Grass hit5.ogg
+|sound6=Grass hit6.ogg
+|source=block
+|description=When a shovel creates a dirt path <ref group=sound>{{Bug|MCPE-114390}}</ref>
+|id=use.grass
+|volume=1.0
+|pitch=0.8
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Mycelium
+|spritetype=block
+|nameid=mycelium
+|blocktags=bamboo_plantable_on, enderman_holdable, mushroom_grow_block, moss_replaceable=, lush_ground_replaceable, mineable/shovel, dirt
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Mycelium
+|spritetype=block
+|nameid=mycelium
+|id=110
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+{{:Grass Block/BS}}
+
+== History ==
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease|[[File:Mycelium JE1 BE1.png|32px]] Added mycelium.}}
+{{History|||snap=Beta 1.9 Prerelease 5|Mycelium now appears in the [[Creative]] mode [[inventory]].}}
+{{History||1.2.4|snap=release|Mycelium is now the only [[block]] that [[mushroom]]s can be planted and spawned on while in direct contact with [[sun]]light.}}
+{{History||1.8|snap=14w11b|Mycelium with [[Java Edition data values/Pre-flattening/Block IDs/Before 14w25a|numerical metadata variants]] 1 through 15, which are inaccessible through normal gameplay, now have [[Missing model|no model]] [[File:Missing Model JE2.png|32px]] rather than appearing identical to mycelium.}}
+{{History|||snap=14w26a|Block metadata has been completely removed from this snapshot onward with the introduction of [[block states]]. As this block never used block metadata at all prior to this version, fifteen unused, inaccessible metadata variants of it have been completely removed from the game:
+{{dvt|spritetype=block|sprite=mycelium|[[Mycelium]]}}
+{{dvt|sprite=missing-texture-block|dv=1-15|[[Java Edition removed blocks/Metadata variants#Boring variants|Inaccessible "boring" variants of mycelium]]|foot=1}}}}
+{{History||1.9|snap=15w31a|Mycelium can now be obtained by killing an [[enderman]] that is holding the block.}}
+{{History||1.13|snap=17w47a|Prior to [[Java Edition 1.13/Flattening|''The Flattening'']], this block's numeral ID was 110.}}
+{{History||1.14|snap=18w43a|[[File:Mycelium JE2 BE2.png|32px]] The textures of mycelium has been changed.}}
+{{History|||snap=19w05a|Mycelium is now [[renewable]] due to [[wandering trader]]s selling [[podzol]].}}
+{{History|||snap=19w12a|Mycelium now has random orientations when placed, similar to [[grass block]]s.}}
+{{History||1.16.2|snap=20w27a|[[Fungi|Crimson and warped fungi]] can now be placed on mycelium.}}
+{{History||1.17|snap=20w45a|A [[shovel]] can now be used on mycelium to create a [[dirt path]] block.}}
+{{History|||snap=21w16a|Mycelium is now in the <code>dirt</code> tag.|Grass, tall grass, ferns, tall ferns, sweet berry bushes, saplings, flowers, azaleas, sugar cane, dead bushes, and bamboo can now be placed on mycelium.|Pumpkins and melons can now grow onto mycelium.}}
+{{History||1.18|snap=21w39a|[[File:Mycelium JE4.png|32px]] The default [[brightness]] has been changed from "Moody" to 50.}}
+{{History||1.19|snap=22w11a|[[File:Mycelium JE5 BE3.png|32px]] The side texture of mycelium has been changed.<ref>{{bug|MC-219843||Mycelium's side texture differs from other dirt-based blocks|Fixed}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.9.0|snap=build 1|[[File:Mycelium JE1 BE1.png|32px]] Added mycelium.}}
+{{History||v0.9.2|Mycelium now spreads correctly.}}
+{{History||v0.12.1|snap=build 1|Mycelium can now be obtained using the [[Silk Touch]] enchantment.}}
+{{History||v0.14.0|snap=build 1|Mycelium can now be obtained by killing an [[enderman]] that is holding the [[block]].}}
+{{History|bedrock}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Mycelium JE2 BE2.png|32px]] The texture of mycelium has been changed.}}
+{{History||1.16.200|snap=beta 1.16.200.52|A [[shovel]] can now be used on mycelium to create a [[dirt path]] block.}}
+{{History||1.18.0|snap=beta 1.18.0.24|Grass, tall grass, ferns, tall ferns, sweet berry bushes, saplings, flowers, azaleas, sugar cane, dead bushes, and bamboo can now be placed on mycelium.<ref>{{bug|MCPE-125928||Some blocks cannot be placed on Mycelium|Fixed}}</ref>}}
+{{History||1.19.0|snap=beta 1.19.0.20|[[File:Mycelium JE5 BE3.png|32px]] The side texture of mycelium has been changed.}}
+
+{{History|console}}
+{{History||xbox=TU7|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Mycelium JE1 BE1.png|32px]] Added mycelium.}}
+{{History|Ps4}}
+{{History||1.90|[[File:Mycelium JE2 BE2.png|32px]] The texture of mycelium has been changed.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Mycelium JE1 BE1.png|32px]] Added mycelium.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list}}
+
+== Trivia ==
+* In real life, mycelium is the part of a [[wikipedia:fungus|fungus]] that gathers nutrients, comprised of web-like threads known as [[wikipedia:hypha|hyphae]]. Mycelium can be considered the roots of a fungus, whereas the mushrooms can be considered the fruits. Although mycelium is typically white in color, it can take on other shades based on heat and thickness.
+
+== Gallery ==
+<gallery widths="200px">
+File:Mushroom Fields.png|Naturally generated mycelium in a mushroom fields biome. 
+File:MushroomBiome.png|Another view of naturally generated mycelium in a mushroom fields biome. 
+File:Snow on Mycelium.png|Mycelium as shown with [[snow]] on top. The mycelium still produces spores.
+File:Myceliumdestroysugarcane.png|Mycelium as seen spreading in [[dirt]] and destroying planted [[sugar cane]]. This is no longer possible as of 1.17, as sugar cane can now be planted on mycelium.
+File:mycelium_particles_preview.gif|Animation of particles emanating from mycelium.
+</gallery>
+
+== See also ==
+*[[Wikipedia:Mycelium|Mycelium]] on Wikipedia
+*{{BlockLink|Podzol}}
+*{{BlockLink|Nylium}}
+
+== References ==
+{{Reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/block-week-mycelium Block of the Week: Mycelium] – Minecraft.net on November 28, 2016
+
+{{Blocks|natural}}
+
+[[Category:Natural blocks]]
+[[Category:Fungi]]
+
+[[cs:Podhoubí]]
+[[de:Myzel]]
+[[es:Micelio]]
+[[fr:Mycélium]]
+[[hu:Gombafonal]]
+[[it:Micelio]]
+[[ja:菌糸]]
+[[ko:균사체]]
+[[nl:Zwamvlok]]
+[[pl:Grzybnia]]
+[[pt:Micélio]]
+[[ru:Мицелий]]
+[[zh:菌丝]]
