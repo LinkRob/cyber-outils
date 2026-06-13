@@ -1,0 +1,46 @@
+{{Infobox command
+|name=jfr
+|oplevel=4
+}}
+
+Starts and stops profiling with [https://openjdk.java.net/jeps/328 Java FlightRecorder] as well as a few custom events.
+
+==Usage==
+Profiling contains several custom events below:
+* <code>minecraft.ServerTickTime</code>: sampling event exposing average server tick times at one second intervals.
+* <code>minecraft.ChunkGeneration</code>: time taken to generate individual [[chunk]] stages.
+* <code>minecraft.PacketRead</code> | <code>minecraft.PacketSent</code>：network traffic.
+* <code>minecraft.WorldLoadFinishedEvent</code>: initial [[world]] loading duration.
+
+A summary [[JSON]] report is written both to the log file and in the debug folder accompanied by a <samp>.jfr</samp> recording ready to be analyzed in i.e [https://github.com/openjdk/jmc JMC] or any other profiler tool supporting the format.
+
+== Syntax ==
+:<code>jfr start</code>
+:: Start JFR profiling.
+:<code>jfr stop</code>
+:: Stop JFR profiling.
+
+== Result ==
+{{Result table|onlyje=1}}
+{{Result table|cmd=/jfr start|a jfr profiler has already been started|fail}}
+{{Result table|cmd=/jfr stop|there's no jfr profiler running.}}
+{{Result table|cmd=|succeed}}
+{{Result table}}
+
+== Output ==
+{{Output table}}
+{{Output table|edition=je|On fail|N/A|0|0}}
+{{Output table|On success|N/A|1|1}}
+{{Output table}}
+
+== History ==
+{{History|java}}
+{{History||1.18|snap=21w37a|Added {{cmd|jfr|link=none}}.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[es:Comandos/jfr]]
+[[ja:コマンド/jfr]]
+[[pt:Comandos/jfr]]
+[[zh:命令/jfr]]

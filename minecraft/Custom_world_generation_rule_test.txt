@@ -1,0 +1,21 @@
+<div class="treeview">
+*{{Nbt|compound}}: The root tag.<onlyinclude>
+**{{Nbt|string|predicate_type}}: Can be {{cd|always_true}}, {{cd|block_match}} to test for a block, {{cd|blockstate_match}} to test for a specific block state, {{cd|random_block_match}} to test for a block with a random chance, {{cd|random_blockstate_match}} to test for a block state with a random chance, or {{cd|tag_match}} to test for a block in a block [[tag]].
+**; If {{cd|predicate_type}} is {{cd|block_match}}, additional fields are as follows<nowiki>:</nowiki>
+** {{Nbt|string|block}}: A block ID.
+**; If {{cd|predicate_type}} is {{cd|blockstate_match}}, additional fields are as follows<nowiki>:</nowiki>
+** {{Nbt|compound|block_state}}: A block state.
+*** {{Nbt inherit/block state}}
+**; If {{cd|predicate_type}} is {{cd|random_block_match}}, additional fields are as follows<nowiki>:</nowiki>
+** {{Nbt|string|block}}: A block ID.
+** {{Nbt|float|probability}}: The probability of the predicate to pass if the block is found. Values below 0.0 is treated as 0.0; values above 1.0 is treated as 1.0.
+**; If {{cd|predicate_type}} is {{cd|random_blockstate_match}}, additional fields are as follows<nowiki>:</nowiki>
+** {{Nbt|compound|block_state}}: A block state.
+*** {{Nbt inherit/block state}}
+** {{Nbt|float|probability}}: The probability of the predicate to pass if the block state is found. Values below 0.0 is treated as 0.0; values above 1.0 is treated as 1.0.
+**; If {{cd|predicate_type}} is {{cd|tag_match}}, additional fields are as follows<nowiki>:</nowiki>
+** {{Nbt|string|tag}}: A block tag without <code>#</code>.</onlyinclude>
+</div>
+
+[[Category:Java Edition]]
+[[Category:Data packs]]

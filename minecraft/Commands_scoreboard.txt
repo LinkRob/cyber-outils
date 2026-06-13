@@ -1,0 +1,486 @@
+{{Infobox command
+|name=scoreboard
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|others=[[Options|Cheat]] only{{only|bedrock|short=1}}
+}}
+
+Manages and displays scores for various [[scoreboard]] objectives.
+
+== Objectives commands ==
+=== list ===
+:;Syntax
+::<code>'''scoreboard objectives list'''</code>
+:;Description
+::List all existing [[Scoreboard#Objectives|objectives]] with their display names and criteria.
+:;Result
+::{{Result table}}<!--
+-->{{Result table|cmd=... list|there's no objective in scoreboard system|success|fail}}<!--
+-->{{Result table|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... list|edition=je|On success|1|1|the number of objectives in scoreboard system}}<!--
+-->{{Output table|edition=be|On fail|0}}<!--
+-->{{Output table|On success|the number of objectives in scoreboard system}}<!--
+-->{{Output table}}
+=== add ===
+:;Syntax
+::<code>'''scoreboard objectives add''' <objective> <criteria> [<displayName>]</code> ({{el|java}})<br><code>'''scoreboard objectives add''' <objective: string> dummy [displayName: string]</code> ({{el|bedrock}})
+:;Description
+::Create a new objective with the given internal objective name, specified criterion, and the optional display name.
+:;Arguments
+::{{argument|objective|string|objective: string|basic_string}}
+::: Specifies the internal objective name.
+::: {{arg desc|je=string|type=word|be=string}} {{IN|bedrock}}, it must be either a single word that isn't a number (allowed characters: {{cd|-|:|.|_|delimiter=,&#32;}}, {{cd|A|Z|delimiter=-}}, {{cd|a|z|delimiter=-}}, and {{cd|0|9|delimiter=-}}) or a double-quoted string.
+::{{argument|criteria|objective_criteria|dummy}}
+::: Specifies the criterion of the new objective.
+::: {{arg desc|je=objective_criteria}} {{IN|bedrock}}, "dummy" is the only criterion currently supported.
+::{{argument|displayName|component|displayName: string|basic_string}}
+::: Specifies the display name, defaulting to <code><objective></code> when unspecified.
+::: {{IN|java}}, must be a [[raw JSON text]]. {{IN|bedrock}}, it must be either a single word that isn't a number (allowed characters: {{cd|-|:|.|_|delimiter=,&#32;}}, {{cd|A|Z|delimiter=-}}, {{cd|a|z|delimiter=-}}, and {{cd|0|9|delimiter=-}}) or a double-quoted string.
+:;Result
+::{{Result table}}<!--
+-->{{Result table|cmd=... add ...|the arguments are not specified correctly|unparseable|unparseable}}<!--
+-->{{Result table|<code><objective></code> already exists|fail|fail}}<!--
+-->{{Result table|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... add ...|edition=je|On fail|0|0|0}}<!--
+-->{{Output table|On success|1|1|the number of objectives in scoreboard system after execution}}<!--
+-->{{Output table|edition=be|On fail|0}}<!--
+-->{{Output table|On success|1}}<!--
+-->{{Output table}}
+=== remove ===
+:;Syntax
+::<code>'''scoreboard objectives remove''' <objective></code> ({{el|java}})<br><code>'''scoreboard objectives remove''' <objective: string></code> ({{el|bedrock}})
+:;Description
+::Delete the named objective from the scoreboard system. Data is deleted from the objectives list and score holders' scores, and if it was on a display list it is no longer displayed.
+:;Arguments
+::{{argument|objective|objective|objective: string|basic_string}}
+::: Specifies the internal objective name.
+::: {{arg desc|je=objective|be=basic_string}}
+:;Result
+::{{Result table}}<!--
+-->{{Result table|cmd=... remove ...|the arguments are not specified correctly|unparseable|unparseable}}<!--
+-->{{Result table|<code><objective></code> doesn't exist|fail|fail}}<!--
+-->{{Result table|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... remove ...|edition=je|On fail|0|0|0}}<!--
+-->{{Output table|On success|1|1|the number of objectives in scoreboard system after execution}}<!--
+-->{{Output table|edition=be|On fail|0}}<!--
+-->{{Output table|On success|1}}<!--
+-->{{Output table}}
+=== setdisplay ===
+:;Syntax
+::<code>'''scoreboard objectives setdisplay''' <slot> [<objective>]</code> ({{el|java}})<br><code>'''scoreboard objectives setdisplay''' <list|sidebar> [objective: string] [ascending|descending]</code> ({{el|bedrock}})<br><code>'''scoreboard objectives setdisplay''' belowname [objective: string]</code> ({{el|bedrock}})
+:;Description
+::Display score info for the objective in the given slot. Note that the objective parameter is optional; if no objective is provided, this display slot is cleared (returned to its default state). {{IN|bedrock}}, if slot is <code>list</code> or <code>sidebar</code>, there is an additional optional argument <code>ascending|descending</code> to specify the sort order.
+:;Arguments
+::{{argument|slot|scoreboard_slot|list<nowiki>|sidebar|belowname</nowiki>}}
+::: Specifies the slot to display the objective.
+::: {{arg desc|je=scoreboard_slot}} Valid slots are listed and described in [[Scoreboard#Display_slots|Display Slots]].
+::{{argument|objective|objective|objective: string|basic_string}}
+::: Specifies the internal objective name.
+::: {{arg desc|je=objective|be=basic_string}}
+::{{el|be|short=1}}: <code>ascending|descending</code>
+::: Specifies the sort order.
+:;Result
+::{{Result table}}<!--
+-->{{Result table|cmd=... setdisplay ...|the arguments are not specified correctly|unparseable|unparseable}}<!--
+-->{{Result table|cmd=... setdisplay <slot> <objective><br>... setdisplay ... [objective: string]|<code><objective></code> doesn't exist|fail|fail}}<!--
+-->{{Result table|<code><objective></code> already displays in the specified slot||success}}<!--
+-->{{Result table|cmd=... setdisplay <slot><br>... setdisplay <list<nowiki>|sidebar|belowname></nowiki>|the slot is already empty}}<!--
+-->{{Result table|cmd=|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... setdisplay ...|edition=je|On fail|0|0|0}}<!--
+-->{{Output table|On success|1|1|0}}<!--
+-->{{Output table|edition=be|On fail|0}}<!--
+-->{{Output table|On success|1}}<!--
+-->{{Output table}}
+=== modify ... displayname ===
+:;Syntax
+::<code>'''scoreboard objectives modify''' <objective> '''displayname''' <displayName></code> ({{el|java}})
+:;Description
+::Change the display name of the scoreboard in display slots.
+:;Arguments
+::{{argument|objective|objective}}
+::: Specifies the internal objective name.
+::: {{arg desc|je=objective}}
+::{{argument|displayName|component}}
+::: Specifies the display name.
+::: {{arg desc|je=component}}
+:;Result
+::{{Result table|onlyje=1}}<!--
+-->{{Result table|cmd=... modify <objective> displayname ...|the arguments are not specified correctly|unparseable}}<!--
+-->{{Result table|<code><objective></code> doesn't exist|fail}}<!--
+-->{{Result table|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... modify <objective> displayname ...|edition=je|On fail|0|0|0}}<!--
+-->{{Output table|On success|1|1|0}}<!--
+-->{{Output table}}
+=== modify ... rendertype ===
+:;Syntax
+::<code>'''scoreboard objectives modify''' <objective> '''rendertype''' (hearts<nowiki>|</nowiki>integer)</code> ({{el|java}})
+:;Description
+::Change the display format for scores in the tab player list.
+:;Arguments
+::{{argument|objective|objective}}
+::: Specifies the internal objective name.
+::: {{arg desc|je=objective}}
+::<code>hearts|integer</code>
+::: Specifies the format.
+:;Result
+::{{Result table|onlyje=1}}<!--
+-->{{Result table|cmd=... modify <objective> rendertype ...|the arguments are not specified correctly|unparseable}}<!--
+-->{{Result table|<code><objective></code> doesn't exist|fail}}<!--
+-->{{Result table|cmd=|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... modify <objective> displayname ...|edition=je|On fail|0|0|0}}<!--
+-->{{Output table|On success|1|1|0}}<!--
+-->{{Output table}}
+
+== Players commands ==
+=== list ===
+:;Syntax
+::<code>'''scoreboard players list''' [<target>]</code> ({{el|java}})<br><code>'''scoreboard players list''' [playername: target]</code> ({{el|bedrock}})
+:;Description
+::Lists all [[Scoreboard#Objectives|score holders]] which are tracked in some way by the scoreboard system. The optional <code><target></code> or <code>playername: target</code> parameter is used to list the scores of particular score holders.
+:;Arguments
+::{{argument|target|score_holder|playername: target|WildcardCommandSelector<Actor>}}
+::: Specifies the score holder(s).
+::: {{arg desc|je=score_holder|be=WildcardCommandSelector<Actor>}}
+::: {{IN|java}}, only a single score holder can be specified, and <code>*</code> doesn't work ({{bug|MC-136858}}). {{IN|bedrock}}, it can specify multiple score holders.
+:;Result
+::{{Result table}}<!--
+-->{{Result table|cmd=... list [<target>]|the arguments are not specified correctly|unparseable|unparseable}}<!--
+-->{{Result table|cmd=... list|there's no score holder being tracked by the scoreboard system|success|fail}}<!--
+-->{{Result table|cmd=... list <targets>|<code><targets></code> fails to resolve to a single score holder|fail|N/A}}<!--
+-->{{Result table|cmd=... list [playername: target]|<code>playername: target</code> fails to resolve to one or more score holders|N/A|fail}}<!--
+-->{{Result table|cmd=... list <targets><br>... list [playername: target]|the specified score holder isn't tracked by any objectives|success}}<!--
+-->{{Result table|cmd=|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... list|edition=je|On fail|0|0|0}}<!--
+-->{{Output table|On success|1|1|the number of score holders}}<!--
+-->{{Output table|edition=be|On fail|0}}<!--
+-->{{Output table|On success|the number of score holders}}<!--
+-->{{Output table|cmd=... list <targets><br>... list [playername: target]|edition=je|On fail|0|0|0}}<!--
+-->{{Output table|On success|1|1|the number of tracking objectives of the specified score holder}}<!--
+-->{{Output table|edition=be|On fail|0}}<!--
+-->{{Output table|On success|the total number of tracking objectives of each score holder}}<!--
+-->{{Output table}}
+=== get ===
+:;Syntax
+::<code>'''scoreboard players get''' <target> <objective></code> ({{el|java}})
+:;Description
+::Return the scoreboard value. Can be used in conjunction with the {{cmd|execute}} command: {{cmd|execute store result ...run scoreboard players get ...}}
+:;Arguments
+::{{argument|target|score_holder}}
+::: Specifies the score holder.
+::: {{arg desc|je=score_holder}} Only a single score holder can be specified, and <code>*</code> doesn't work.
+::{{argument|objective|objective}}
+::: Specifies the objective to get score from it.
+::: {{arg desc|je=objective}}
+:;Result
+::{{Result table|onlyje=1}}<!--
+-->{{Result table|cmd=... get ...|the arguments are not specified correctly|unparseable}}<!--
+-->{{Result table|the objective doesn't exist|fail}}<!--
+-->{{Result table|<code><targets></code> fails to resolve to a single score holder}}<!--
+-->{{Result table|the score holder has no score in the specified objective}}<!--
+-->{{Result table|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... get ...|edition=je|On fail|0|0|0}}<!--
+-->{{Output table|On success|1|1|the score's value}}<!--
+-->{{Output table}}
+=== set ===
+:;Syntax
+::<code>'''scoreboard players set''' <targets> <objective> &lt;score></code> ({{el|java}})<br><code>'''scoreboard players set''' <player: target> <objective: string> <count: int></code> ({{el|bedrock}})
+:;Description
+::Set the targets' scores in the given objective, overwriting any previous score.
+:;Arguments
+::{{argument|targets|score_holder|player: target|WildcardCommandSelector<Actor>}}
+::: Specifies the score holders.
+::: {{arg desc|je=score_holder|be=WildcardCommandSelector<Actor>}}
+::{{argument|objective|objective|objective: string|basic_string}}
+::: Specifies the objective.
+:::{{arg desc|je=objective|be=basic_string}}
+::{{argument|score|integer|count: int|int}}
+::: Specifies the new score.
+::: {{arg desc|je=integer|be=int}}
+:;Result
+::{{Result table}}<!--
+-->{{Result table|cmd=... set ...|the arguments are not specified correctly|unparseable|unparseable}}<!--
+-->{{Result table|the objective doesn't exist|fail|fail}}<!--
+-->{{Result table|<code><targets></code> or <code>player: target</code> fails to resolve to one or more score holders}}<!--
+-->{{Result table|the objective isn't writable||N/A}}<!--
+-->{{Result table|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... set ...|edition=je|On fail|0|0|0}}<!--
+-->{{Output table|On success|1|1|the number of targets multiplied by the specified score}}<!--
+-->{{Output table|edition=be|On fail|0}}<!--
+-->{{Output table|On success|1}}<!--
+-->{{Output table}}
+=== add ===
+:;Syntax
+::<code>'''scoreboard players add''' <targets> <objective> &lt;score></code> ({{el|java}})<br><code>'''scoreboard players add''' <player: target> <objective: string> <count: int></code> ({{el|bedrock}})
+:;Description
+::Increments the targets' scores in that objective by the given amount.
+:;Arguments
+::{{argument|targets|score_holder|player: target|WildcardCommandSelector<Actor>}}
+::: Specifies the score holders.
+::: {{arg desc|je=score_holder|be=WildcardCommandSelector<Actor>}}
+::{{argument|objective|objective|objective: string|basic_string}}
+::: Specifies the objective.
+::: {{arg desc|je=objective|be=basic_string}}
+::{{argument|score|integer|count: int|int}}
+::: Specifies an amount to add to the score.
+::: {{arg desc|je=integer|min=0|be=int}} {{IN|bedrock}}, a negative number will subtract from the score.
+:;Result
+::{{Result table}}<!--
+-->{{Result table|cmd=... add ...|the arguments are not specified correctly|unparseable|unparseable}}<!--
+-->{{Result table|the objective doesn't exist|fail|fail}}<!--
+-->{{Result table|<code><targets></code> or <code>player: target</code> fails to resolve to one or more score holders}}<!--
+-->{{Result table|the objective isn't writable||N/A}}<!--
+-->{{Result table|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... add ...|edition=je|On fail|0|0|0}}<!--
+-->{{Output table|On success|1|1|the sum of the objective's score value of each target after execution}}<!--
+-->{{Output table|edition=be|On fail|0}}<!--
+-->{{Output table|On success|1}}<!--
+-->{{Output table}}
+=== remove ===
+:;Syntax
+::<code>'''scoreboard players remove''' <targets> <objective> &lt;score></code> ({{el|java}})<br><code>'''scoreboard players remove''' <player: target> <objective: string> <count: int></code> ({{el|bedrock}})
+:;Description
+::Decrements the targets' scores in that objective by the given amount.
+:;Arguments
+::{{argument|targets|score_holder|player: target|WildcardCommandSelector<Actor>}}
+::: Specifies the score holders.
+::: {{arg desc|je=score_holder|be=WildcardCommandSelector<Actor>}}
+::{{argument|objective|objective|objective: string|basic_string}}
+::: Specifies the objective.
+::: {{arg desc|je=objective|be=basic_string}}
+::{{argument|score|integer|count: int|int}}
+::: Specifies an amount to subtract from the score.
+::: {{arg desc|je=integer|min=0|be=int}} {{IN|bedrock}}, a negative number will add to the score.
+:;Result
+::{{Result table}}<!--
+-->{{Result table|cmd=... remove ...|the arguments are not specified correctly|unparseable|unparseable}}<!--
+-->{{Result table|cmd=... remove ...|the objective doesn't exist|fail|fail}}<!--
+-->{{Result table|<code><targets></code> or <code>player: target</code> fails to resolve to one or more score holders}}<!--
+-->{{Result table|the objective isn't writable||N/A}}<!--
+-->{{Result table|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... remove ...|edition=je|On fail|0|0|0}}<!--
+-->{{Output table|On success|1|1|the sum of the objective's score value of each target after execution}}<!--
+-->{{Output table|edition=be|On fail|0}}<!--
+-->{{Output table|On success|1}}<!--
+-->{{Output table}}
+=== random ===
+:;Syntax
+::<code>'''scoreboard players random''' <player: target> <objective: string> <min: int> <max: int></code> ({{el|bedrock}})
+:;Description
+::Sets the targets' scores in that objective to a random number between min and max (both inclusive).
+:;Arguments
+::{{argument|be=1|player: target|WildcardCommandSelector<Actor>}}
+::: Specifies the score holders.
+::: {{arg desc|be=WildcardCommandSelector<Actor>}}
+::{{argument|be=1|objective: string|basic_string}}
+::: Specifies the objective.
+::: Must be either a single word that isn't a number (allowed characters: {{cd|-|:|.|_|delimiter=,&#32;}}, {{cd|A|Z|delimiter=-}}, {{cd|a|z|delimiter=-}}, and {{cd|0|9|delimiter=-}}) or a double-quoted string.
+::{{argument|be=1|min: int|int}}<br>{{argument|be=1|max: int|int}}
+::: Specifies the min value and max value that the random number is between.
+::: {{arg desc|be=int}}
+:;Result
+::{{Result table|onlybe=1}}<!--
+-->{{Result table|cmd=... random ...|the arguments are not specified correctly||fail}}<!--
+-->{{Result table|the objective doesn't exist}}<!--
+-->{{Result table|<code>player: target</code> fails to resolve to one or more score holders}}<!--
+-->{{Result table|<code>max: int</code> isn't greater than <code>min: int</code>}}<!--
+-->{{Result table|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... random ...|edition=be|On fail|0}}<!--
+-->{{Output table|On success|1}}<!--
+-->{{Output table}}
+=== reset ===
+:;Syntax
+::<code>'''scoreboard players reset''' <targets> [<objective>]</code> ({{el|java}})<br><code>'''scoreboard players reset''' <player: target> [objective: string]</code> ({{el|bedrock}})
+:;Description
+::Deletes score or all scores for the targets. If <code><objective></code> is specified, then only that objective is cleared. Otherwise, this applies to all objectives.
+::Note that this does not merely set the scores to 0: it removes the targets from the scoreboard system (or for the given objective) altogether.
+::{{IN|java}}, this will also disable the target players' ability to use {{cmd|trigger}} command (on the given objective if specified).
+:;Arguments
+::{{argument|targets|score_holder|player: target|WildcardCommandSelector<Actor>}}
+::: Specifies the score holders.
+::: {{arg desc|je=score_holder|be=WildcardCommandSelector<Actor>}}
+::{{argument|objective|objective|objective: string|basic_string}}
+::: Specifies the objective.
+::: {{arg desc|je=objective|be=basic_string}}
+:;Result
+::{{Result table}}<!--
+-->{{Result table|cmd=... reset ...|the arguments are not specified correctly|unparseable|unparseable}}<!--
+-->{{Result table|<code><targets></code> or <code>player: target</code> fails to resolve to one or more score holders|fail|fail}}<!--
+-->{{Result table|cmd=... reset ... [<objective>]<br>... reset ... [<objective: string>]|the objective doesn't exist}}<!--
+-->{{Result table|cmd=... reset <player: target>|all the targets are not tracked by any objective|N/A}}<!--
+-->{{Result table|cmd=... reset <player: target> [<objective: string>]|all the targets are not tracked by the specified objective}}<!--
+-->{{Result table|cmd=|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... reset ...|edition=je|On fail|0|0|0}}<!--
+-->{{Output table|On success|1|1|the number of the targets}}<!--
+-->{{Output table|edition=be|On fail|0}}<!--
+-->{{Output table|On success|the number of the targets that is tracked by the scoreboard (or the specified objective)}}<!--
+-->{{Output table}}
+=== test ===
+:;Syntax
+::<code>'''scoreboard players test''' <player: target> <objective: string> <min: wildcard int> [<max: wildcard int>]</code> ({{el|bedrock}})
+:;Description
+::Tests if targets' scores are between min and max (defaults to MAX_INT(2,147,483,647)).
+:;Arguments
+::{{argument|be=1|player: target|WildcardCommandSelector<Actor>}}
+::: Specifies the score holders.
+::: {{arg desc|je=score_holder|be=WildcardCommandSelector<Actor>}}
+::{{argument|be=1|objective: string|basic_string}}
+::: Specifies the objective.
+::: Must be either a single word that isn't a number (allowed characters: {{cd|-|:|.|_|delimiter=,&#32;}}, {{cd|A|Z|delimiter=-}}, {{cd|a|z|delimiter=-}}, and {{cd|0|9|delimiter=-}}) or a double-quoted string.
+::{{argument|be=1|min: wildcard int|CommandWildcardInt}}<br>{{argument|be=1|max: wildcard int|int}}
+::: Specifies the min value and max value that the random number is between.
+::: Must be a 32-bit integer. And <code>min: wildcard int</code> can be replaced with asterisk (*) to represent -2,147,483,648, and <code>max: wildcard</code> int can be replaced with asterisk (*) to represent 2,147,483,647.
+:;Result
+::{{Result table|onlybe=1}}<!--
+-->{{Result table|cmd=... test ...|the arguments are not specified correctly|fail}}<!--
+-->{{Result table|cmd=... test ...|the objective doesn't exist}}<!--
+-->{{Result table|<code>player: target</code> fails to resolve to one or more score holders}}<!--
+-->{{Result table|<code>max: int</code> is less than <code>min: int</code>}}<!--
+-->{{Result table|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... test ...|edition=be|On fail|0}}<!--
+-->{{Output table|On success|the number of the specified score holders whose score is between min and max}}<!--
+-->{{Output table}}
+=== enable ===
+:;Syntax
+::<code>'''scoreboard players enable''' <targets> <objective></code> ({{el|java}})
+:;Description
+::Enables the target(s) to use the {{cmd|trigger}} command on the specified objective. This command accepts non-player entities, but only players are able to actually use the {{cmd|trigger}} command. Until this command has been run, players can't {{cmd|trigger}} that objective. Using the {{cmd|trigger}} command will disable it again.
+::Note that if any of the targets did not previously have a score for that scoreboard, this command will set their score to 0.
+:;Arguments
+::{{argument|targets|score_holder}}
+::: Specifies the score holders.
+::: {{arg desc|je=score_holder}}
+::{{argument|objective|objective}}
+::: Specifies the objective.
+::: {{arg desc|je=objective}}
+:;Result
+::{{Result table|onlyje=1}}<!--
+-->{{Result table|cmd=... enable ...|the arguments are not specified correctly|unparseable}}<!--
+-->{{Result table|<code><targets></code> fails to resolve to one or more score holders|fail}}<!--
+-->{{Result table|the objective doesn't exist}}<!--
+-->{{Result table|the objective's criterion is not "trigger"}}<!--
+-->{{Result table|all the targets' scores are already enabled}}<!--
+-->{{Result table|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... enable ...|edition=je|On fail|0|0|0}}<!--
+-->{{Output table|On success|1|1|the number of the targets whose scores are newly enabled}}<!--
+-->{{Output table}}
+
+=== operation ===
+:;Syntax
+::<code>'''scoreboard players operation''' <targets> <targetObjective> <operation> &lt;source> <sourceObjective></code> ({{el|java}})<br><code>'''scoreboard players operation''' <player: target> <targetObjective: string> <operation: operator> <selector: target> <objective: string></code> ({{el|bedrock}})
+:;Description
+::Applies an arithmetic operation altering the targets' scores in the target objective, using sources' scores in the source objective as input.
+:;Arguments
+::{{argument|targets|score_holder|player: target|WildcardCommandSelector<Actor>}}
+::: Specifies the target score holders whose scores will be modified.
+::: {{arg desc|je=score_holder|be=WildcardCommandSelector<Actor>}}
+::{{argument|targetObjective|objective|targetObjective: string|basic_string}}
+::: Specifies the objective for targets.
+::: {{arg desc|je=objective|be=basic_string}}
+::{{argument|source|score_holder|selector: target|WildcardCommandSelector<Actor>}}
+::: Specifies the source score holders whose scores will be used as source inputs.
+::: {{arg desc|je=score_holder|be=WildcardCommandSelector<Actor>}}
+::{{argument|sourceObjective|objective|objective: string|basic_string}}
+::: Specifies the objective for sources.
+::: {{arg desc|je=objective|be=basic_string}}
+::{{argument|operation|operation|operation: operator|CommandOperator}}
+::: Specifies the operation to be applied.
+::: {{arg desc|je=operation|be=CommandOperator}}
+:::*<code>=</code> Assignment: Set target's score to source's score
+:::*<code>+=</code> Addition: Add source's score to target's score
+:::*<code>-=</code> Subtraction: Subtract source's score from target's score
+:::*<code>*=</code> Multiplication: Set target's score to the product of the target's and source's scores
+:::*<code>/=</code> Floor division: Divide target's score by source' scores, and the result will be rounded down to an integer.
+:::*<code>%=</code> Modulus: Divide target's score by source's score, and use the positive remainder to set the target score
+:::*{{cd|><}} Swapping: swaps target's score and source's score
+:::*{{cd|<}} Choosing minimum: Set target's score to source's score only if source's score is less.
+:::*{{cd|>}} Choosing maximum: Set target's score to source's score only if source's score is bigger.
+:::In all cases except {{cd|><}}, source's score remains unchanged when performing the operation on a target. If target or source isn't tracked by the specified objective, it will be set to 0. If more than one score holder is specified as sources, performs the operation once with each source's score. If more than one target score holder is specified, performs the operation for each target one by one.
+:;Result
+::{{Result table}}<!--
+-->{{Result table|cmd=... operation ...|the arguments are not specified correctly|unparseable|unparseable}}<!--
+-->{{Result table|<code><targets></code>, <code><source></code>, or <code>player: target</code>, <code>selector: target</code> fails to resolve to one or more score holders|fail|fail}}<!--
+-->{{Result table|cmd=... operation ...|the source objective or target objective doesn't exist}}<!--
+-->{{Result table|the objective isn't writable||N/A}}<!--
+-->{{Result table|cmd=|success}}<!--
+-->{{Result table}}
+:;Output
+::{{Output table}}<!--
+-->{{Output table|cmd=... operation ...|edition=je|On fail|0|0|0}}<!--
+-->{{Output table|On success|1|1|the sum of the objective's score value of each target after the operation on it}}<!--
+-->{{Output table|edition=be|On fail|0}}<!--
+-->{{Output table|On success|1}}<!--
+-->{{Output table}}
+
+== History ==
+
+{{History|java}}
+{{History||1.5|snap=13w04a|Added {{cmd|scoreboard|link=none}}.}}
+{{History||1.13|snap=17w45a|Split teams usage to {{cmd|team}} and tags usage to {{cmd|tag}}.}}
+{{History||1.13|snap=pre7|Added {{cmd|scoreboard|objectives|modify|<''objectiveName''>|displayname|<''displayName''>|link=none}}.}}
+{{History|||snap=pre8|Added {{cmd|scoreboard|objectives|modify|<''objectiveName''>|rendertype|''hearts''|link=none}}, which makes health bars display as hearts, like this: {{Healthbar|12}}.
+|Added {{cmd|scoreboard|objectives|modify|<objectiveName>|rendertype|''integer''|link=none}}, which makes health bars display as yellow numbers.
+|Objective names are now text components, not raw strings.}}
+{{History||1.18|snap=21w37a|Removed length limits for scoreboards, score holders and team names.}}
+
+{{History|bedrock}}
+{{History||1.7.0|snap=beta 1.7.0.2|Added {{cmd|scoreboard|link=none}}.}}
+{{History|foot}}
+
+== See also ==
+*{{cmd|team}}
+*{{cmd|tag}}
+
+{{Commands}}
+
+[[de:Befehl/scoreboard]]
+[[es:Comandos/scoreboard]]
+[[ja:コマンド/scoreboard]]
+[[ru:Команды консоли/scoreboard]]
+[[uk:Команди консолі/scoreboard]]
+[[zh:命令/scoreboard]]

@@ -1,0 +1,63 @@
+{{exclusive|bedrock}}
+{{outdated|edition=java}} 
+{{Infobox command
+|name=testfor
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|cheat=y
+}}
+
+Counts [[entities]] ([[players]], [[mobs]], [[items]], etc.) matching specified conditions.
+
+==Syntax==
+
+: <code>testfor <victim: target></code>
+
+==Arguments==
+
+{{argument|be=1|victim: target|CommandSelector<Actor>}}
+: Specifies the entities to test.
+: {{arg desc|be=actor}}
+
+==Result==
+
+{{Result table|onlybe=1}}
+{{Result table|the arguments are not specified correctly||unparseable}}
+{{Result table|<code>victim: target</code> fails to resolve to one or more entities (named players must be online)||fail}}
+{{Result table|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table|onlybe=1}}
+{{Output table|On fail|0}}
+{{Output table|On success|the number of the specified entities.}}
+{{Output table}}
+
+==Examples==
+
+* To test if Alice is online: <code>testfor Alice</code>
+* To count the number of players in Survival mode within a 3-block radius of (0,64,0): <code>testfor @a[x=0,y=64,z=0,r=3,m=0]</code>
+* To count the number of zombies within a 20-block radius of (0,64,0): <code>testfor @e[x=0,y=64,z=0,r=20,type=zombie]</code>
+
+== History ==
+
+{{History|java}}
+{{History||1.5|snap=13w03a|Added {{cmd|testfor|link=none}}.}}
+{{History||1.8|snap=14w02a|Added {{cd|dataTag}} argument to {{cmd|testfor|link=none}}.
+|{{cmd|testfor|link=none}} is no longer exclusive to command blocks.}}
+{{History|||snap=14w07a|{{cmd|testfor|link=none}} can now test for partial NBT tag matches.}}
+{{History||1.13|snap=17w45a|Removed {{cmd|testfor|link=none}}.}}
+
+{{History|pocket}}
+{{History||1.0.5|snap=alpha 1.0.5.0|Added {{cmd|testfor|link=none}}.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[de:Befehl/testfor]]
+[[es:Comandos/testfor]]
+[[ja:コマンド/testfor]]
+[[pt:Comandos/testfor]]
+[[zh:命令/testfor]]

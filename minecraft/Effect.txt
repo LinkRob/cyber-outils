@@ -1,0 +1,655 @@
+{{About||the command|commands/effect|the rendering feature|Effect (dimension)|the feature in [[Minecraft Dungeons]]|MCD:Status Effect}}
+An '''effect'''{{note|Known as '''Effect''' {{in|java}} and '''Mob Effect''' {{in|bedrock}}.}} is a helpful or harmful condition that affects an [[entity]]. Effects can be inflicted in various ways throughout the game, including consuming [[potion]]s and some [[food]] items, being in the range of [[beacon]]s and [[conduit]]s, and being attacked by or close to certain [[mob]]s. There are otherwise special conditions that inflicts effects, such as killing a [[raid captain]] which would give the [[Bad Omen]] effect.
+
+The {{command|effect}} [[command]] allows [[player]]s to inflict effects upon themselves and other [[entity|entities]].
+
+{{TOC|right}}
+
+== Behavior ==
+Any [[entity|entities]] inflicted by an effect are affected in various ways for an amount of time. During the effect, spiral-shaped [[particle]]s emanate from the position of the inflicted entity. For most effects, higher levels increase the strength of the effect.
+
+In {{JE}}, [[player]]s can open their [[inventory]] to see any current effects afflicted upon them, as well as the levels and duration of each. In {{BE}}, effects are displayed in a separate screen, which can be opened by pressing {{key|Z}} on a keyboard, pressing {{xbtn|oneview}}/{{psbtn|4touchpad}}/{{nsbtn|minus}} on a controller, or tapping the effect icon when using touch controls.
+
+Internally, in the {{command|effect}} [[command]], and in potion Amplifier NBT tags, the game stores an "amplifier" value, which is one less than the displayed level. For example, Strength II has an amplifier value of 1.
+
+{{anchor|negativelevels}}Due to the way this amplifier is stored in NBT, amplifiers of 128 to 255 (levels 129 to 256) in NBT tags (e.g. on potions) are treated as if they were −128 to −1 (levels −127 to 0) respectively.{{only|java}} The {{command|effect}} [[command]] initially applies such amplifiers in their positive-valued sense but this is later converted to the negative-valued interpretation, leading to inconsistent results. In {{BE}}, amplifiers above 127 translate to positive levels, like other amplifiers.
+
+Any number of different effects, including opposing effects such as Strength and Weakness, can be simultaneously active on a [[player]]. However, it is not possible to apply the same effect multiple times, even if they are of different levels (e.g. Strength and Strength II). When applying an effect already active on the player, higher levels overwrite lower levels, and higher durations overwrite lower durations of the same level. 
+
+In {{JE}}, when the stronger effect overrides the weaker effect, the weaker effect remains, but is hidden. It returns after the stronger effect expires, if the weaker effect has a higher duration than the stronger effect. This change makes it impossible to create custom potion antidotes by applying an amplified effect with a one tick duration.{{verify|Which version?}}
+
+In {{BE}}, when a stronger effect overrides the weaker effect, the weaker effect is deleted and does not return.<ref>{{bug|MCPE-74059}}</ref>
+
+In {{JE}}, players can use <code>/effect give <targets> <effect> infinite</code> to make effect last infinitely.
+
+When drinking from [[Milk Bucket|milk bucket]], dying, being saved from death by a [[Totem of Undying|totem of undying]], or traveling through the [[exit portal]] in [[the End]],<ref>{{bug|MC-6431}}</ref> all status effects are removed. Single-player users with cheats enabled and [[operator]]s in multiplayer servers can use {{cmd|effect '''clear''' <playername>}}{{only|Java}} or {{Command|effect <playername> '''clear'''}}{{only|bedrock}} to achieve the same goal. In {{JE}}, the command can be further specified to only remove one effect as such;  {{cmd|effect '''clear''' <playername> <effect>}}.
+
+[[Damage]] dealt by effects (a kind of "magical damage") completely bypasses [[armor]], making it a good way to deal with highly-armored targets ([[Protection]] enchantments reduce damage taken from effects, however). [[Witch]]es are the only mob to have natural protection against effects, taking 85% less{{only|java}} or 95% less{{only|bedrock}} damage from effects.
+
+== Immunity ==
+Effects can only be applied to [[Entity#Types of entities|living entities]]. Of these, certain entities are immune to some or all effects:
+* The [[ender dragon]] and the [[wither]] are immune to all effects.
+* [[Undead]] mobs are immune to regeneration and poison.
+* [[Spider]]s and [[cave spider]]s are immune to poison.
+* [[Wither skeleton]]s are immune to the wither effect in addition to being immune to regeneration and poison.
+
+== Effect list ==
+{{IN|JE}}, positive effects have blue text in potion information and are displayed on the upper row of effects in the [[heads up display]], while negative effects have red potion text and are displayed in the bottom row. Neutral effects have the blue potion text and are listed with the negative effects in the bottom row in the [[heads up display]]. {{IN|BE}}, negative effect names in potion and tipped arrow tooltips are shown in red; positive and neutral effect names in these contexts, and all effect names in the "Mob effects" screen, are shown in white.
+{| class="sortable wikitable" data-description="Effects"
+ ! class="unsortable" | Icon
+ ! Display name
+!Name
+! Effect
+ ! Type
+!ID (J.E.)
+!ID (B.E.)
+ |-
+ | style="text-align:center" | {{EffectSprite|speed}}
+ | [[Speed]]
+|{{Code|code=speed}}
+| Increases walking speed; higher levels make the affected [[entity]] faster and increases the player's field of view when affected
+ | Positive
+|1
+|1
+ |-
+ | style="text-align:center" | {{EffectSprite|slowness}}
+ | [[Slowness]]
+|{{code|slowness}}
+| Decreases walking speed; higher levels make the affected [[entity]] slower and decreases the player's field of view when affected
+ | Negative
+|2
+|2
+ |-
+ | style="text-align:center" | {{EffectSprite|haste}}
+ | [[Haste]] 
+|{{code|haste}}
+| Increases mining and [[Attack cooldown|attack speed]], higher levels increase the player's mining and attack speed
+ | Positive
+|3
+|3
+ |-
+ | style="text-align:center" | {{EffectSprite|mining-fatigue}}
+ | [[Mining Fatigue]] 
+|{{code|mining_fatigue}}
+| Decreases mining and [[Attack cooldown|attack speed]], higher levels decrease the player's mining and attack speed
+ | Negative
+|4
+|4
+ |-
+ | style="text-align:center" | {{EffectSprite|strength}}
+ | [[Strength]] 
+|{{code|strength}}
+| Increases melee [[damage]], higher levels make the affected [[entity]] do more melee damage
+ | Positive
+|5
+|5
+ |-
+ | style="text-align:center" | {{EffectSprite|instant health}}
+ | [[Instant Health]]
+|{{code|instant_health}}
+| Heals living [[entity|entities]], damages [[undead]], higher levels heal more health and do more damage
+ | Positive
+|6
+|6
+ |-
+ | style="text-align:center" | {{EffectSprite|instant damage}}
+ | [[Instant Damage]]
+|{{code|instant_damage}}
+| Damages living [[entity|entities]], heals [[undead]], higher levels do more damage and heal more health
+ | Negative
+|7
+|7
+ |-
+ | style="text-align:center" | {{EffectSprite|jump-boost}}
+ | [[Jump Boost]]
+|{{code|jump_boost}}
+| Increases jump height and reduces fall damage, higher levels make the affected entity jump higher and reduces more fall damage
+ | Positive
+|8
+|8
+ |-
+ | style="text-align:center" | {{EffectSprite|nausea}}
+ | [[Nausea]]
+|{{code|nausea}}
+| Wobbles and warps the screen
+ | Negative
+|9
+|9
+ |- 
+ | style="text-align:center" | {{EffectSprite|regeneration}}
+ | [[Regeneration]]
+|{{code|regeneration}}
+| Regenerates [[health]] over time, higher levels make health regenerate quicker
+ | Positive
+|10
+|10
+ |-
+ | style="text-align:center" | {{EffectSprite|resistance}}
+ | [[Resistance]]
+|{{code|resistance}}
+| Reduces damage, higher levels reduce more damage (on bedrock armor stands are immune)
+ | Positive
+|11
+|11
+ |-
+ | style="text-align:center" | {{EffectSprite|fire-resistance}}
+ | [[Fire Resistance]]
+|{{code|fire_resistance}}
+| Prevents the affected [[entity]] from taking damage due to [[Fire]], lava and other sources of fire damage
+ | Positive
+|12
+|12
+ |-
+ | style="text-align:center" | {{EffectSprite|water-breathing}}
+ | [[Water Breathing]]
+|{{code|water_breathing}}
+| Prevents [[Damage#Drowning|drowning]] and lets the affected entity breathe underwater
+ | Positive
+|13
+|13
+ |-
+ | style="text-align:center" | {{EffectSprite|invisibility}}
+ | [[Invisibility]]
+|{{code|invisibility}}
+| Grants invisibility, making the affected entity invisible (but not the item they hold or the armor they wear), and reduces other mobs' detection range for the affected entity, higher levels reduce other mobs' detection range more
+ | Positive
+|14
+|14
+ |-
+ | style="text-align:center" | {{EffectSprite|blindness}}
+ | [[Blindness]]
+|{{code|blindness}}
+| Impairs vision and disables the ability to [[sprint]] and [[critical hit]]
+ | Negative
+|15
+|15
+ |-
+ | style="text-align:center" | {{EffectSprite|night-vision}}
+ |[[Night Vision]]
+|{{code|night_vision}}
+| Lets the player see well in darkness and underwater
+ | Positive
+|16
+|16
+ |-
+ | style="text-align:center" | {{EffectSprite|hunger}}
+ |[[Hunger (status effect)|Hunger]]
+|{{code|hunger}}
+| Increases [[Hunger#Mechanics|food exhaustion]], higher levels cause the player to starve quicker
+ | Negative
+|17
+|17
+ |-
+ |{{EffectSprite|weakness}}
+ |[[Weakness]]
+|{{code|weakness}}
+|Decreases melee [[damage]], higher levels decrease more melee damage
+ |Negative
+|18
+|18
+ |-
+ | style="text-align:center" | {{EffectSprite|poison}}
+ | [[Poison]]
+|{{code|poison}}
+| Inflicts [[damage]] over time (but can't kill), higher levels do more damage per second, doesn't affect undead
+ | Negative
+|19
+|19
+ |-
+ | style="text-align:center" | {{EffectSprite|wither}}
+ | [[Wither (status effect)|Wither]]
+|{{code|wither}}
+| Inflicts [[damage]] over time (can kill), higher levels do more damage per second
+ | Negative
+|20
+|20
+ |-
+ | style="text-align:center" | {{EffectSprite|health-boost}}
+ | [[Health Boost]]
+|{{code|health_boost}}
+| Increases maximum [[health]], higher levels give the affected [[entity]] more maximum health
+ | Positive
+|21
+|21
+ |-
+ | style="text-align:center" | {{EffectSprite|absorption}}
+ | [[Absorption]]
+|{{code|absorption}}
+| Adds [[damage]] absorption (additional hearts that can't be regenerated), higher levels give more absorption
+ | Positive
+|22
+|22
+ |-
+ | style="text-align:center" | {{EffectSprite|saturation}}
+ | [[Saturation]]
+|{{code|saturation}}
+| Restores [[hunger]] and saturation
+ | Positive
+|23
+|23
+ |-
+ | style="text-align:center" | {{EffectSprite|glowing}}
+ | [[Glowing]]{{only|java}}
+|{{code|glowing}}
+| Outlines the affected [[entity]] (can be seen through [[block]]s)
+ | Neutral
+|24
+|N/A
+ |-
+ | style="text-align:center" | {{EffectSprite|levitation}}
+ | [[Levitation]]
+|{{code|levitation}}
+| Floats the affected [[entity]] upward
+ | Negative
+|25
+|24
+ |-
+ | style="text-align:center" | {{EffectSprite|luck}}
+ | [[Luck]] {{only|java}}
+|{{code|luck}}
+| Can increase chances of high-quality and more loot, higher levels increase the chances of better loot
+ | Positive
+|26
+|N/A
+ |-
+ | style="text-align:center" | {{EffectSprite|unluck}}
+ | [[Bad Luck]] {{only|java}}
+|{{code|unluck}}
+| Can reduce chances of high-quality and more loot, higher levels reduce the chance of good loot
+ | Negative
+|27
+|N/A
+ |-
+ | style="text-align:center" | {{EffectSprite|poison}}
+ | [[Fatal Poison]]{{only|bedrock}}
+|{{code|fatal_poison}}
+| Inflicts [[damage]] over time and potentially kills
+ | Negative
+|N/A
+|25
+ |-
+ | style="text-align:center" | {{EffectSprite|slow-falling}}
+ | [[Slow Falling]]
+|{{code|slow_falling}}
+| Decreases falling speed and negates fall [[damage]]
+ | Positive
+|28
+|27
+ |-
+ | style="text-align:center" | {{EffectSprite|conduit-power}}
+ | [[Conduit Power]]
+|{{code|conduit_power}}
+| Increases underwater visibility and [[breaking|mining]] speed, prevents [[Damage#Drowning|drowning]]
+ | Positive
+|29
+|26
+ |-
+ | style="text-align:center" | {{EffectSprite|dolphins-grace}}
+ | [[Dolphin's Grace]]{{only|java}}
+|{{code|dolphins_grace}}
+| Increases [[swimming]] speed (only obtainable from dolphins)
+ | Positive
+|30
+|N/A
+ |-
+ | style="text-align:center" | {{EffectSprite|bad-omen}}
+ | [[Bad Omen]]
+|{{code|bad_omen}}
+| Either turns into [[Raid Omen]] if the player is near a village, or [[Trial Omen]] if a player is near a [[trial spawner]]
+ | Neutral
+|31
+|28
+ |-
+ | style="text-align:center" | {{EffectSprite|hero-of-the-village}}
+ | [[Hero of the Village]]
+|{{code|hero_of_the_village}}{{only|java|short=1}}
+{{code|village_hero}}{{only|bedrock|short=1}}
+| Gives discounts on trades with [[villager]]s, and {{in|JE}}, also makes villagers throw items at the player
+ | Positive
+|32
+|29
+|-
+ | style="text-align:center" |{{EffectSprite|darkness}}
+ |[[Darkness]]
+|{{code|darkness}}
+| Darkens the players screen
+ | Negative
+|33
+|30
+|-
+ | style="text-align:center" |{{EffectSprite|infested}}
+ |[[Infested]]
+|{{code|infested}}
+| Has a chance of spawning silverfish when a mob takes damage
+ | Negative
+|34
+|31
+|-
+ | style="text-align:center" |{{EffectSprite|oozing}}
+ |[[Oozing]]
+|{{code|oozing}}
+| Spawns [[slime]]s after a mob dies
+ | Negative
+|35
+|32
+|-
+ | style="text-align:center" |{{EffectSprite|weaving}}
+ |[[Weaving]]
+|{{code|weaving}}
+| Spawns [[cobweb]]s when a mob dies, and allow to walk through cobwebs more quickly
+ | Negative
+|36
+|33
+|-
+ | style="text-align:center" |{{EffectSprite|wind-charged}}
+ |[[Wind Charged]]
+|{{code|wind_charged}}
+| Spawns a [[wind charge]] explosion after a mob dies
+ | Negative
+|37
+|34
+|-
+ | style="text-align:center" |{{EffectSprite|raid-omen}}
+ |[[Raid Omen]]
+|{{code|raid_omen}}
+| Causes an [[illager raid]] to start upon entering a village (only received from an illager captain upon its death), higher levels cause a more difficult raid{{only|java|short=1}}
+ | Negative
+|38
+|35
+|-
+ | style="text-align:center" |{{EffectSprite|trial-omen}}
+ |[[Trial Omen]]
+|{{code|trial_omen}}
+| Turns all [[trial spawner]]s into [[ominous trial spawner]]s
+ | Negative
+|39
+|36
+|-
+ | style="text-align:center" |{{EffectSprite|Breath of the Nautilus}}
+ |[[Breath of the Nautilus]]
+|{{code|breath_of_the_nautilus}}
+|Pauses the player's oxygen bar, preventing them from [[drowning]]. This status effect will soon be added in [[Mounts of Mayhem]].
+ |Positive
+|40
+|37
+|}
+
+=== Joke effects ===
+
+====[[Java Edition 15w14a]]====
+These effects only exist in [[Java Edition 15w14a|15w14a]].
+{| class="sortable wikitable" data-description="JokeEffects"
+ ! class="unsortable" |Icon
+ !Display name 
+!Name
+! Effect
+ !Type
+!ID (J.E.)
+ |-
+ | style="text-align:center" |{{EffectSprite|Slowness Revision 1}}
+ | rowspan="2" |[[Caring]]
+| {{code|slowness}}
+| rowspan="2" |Changes the mob AI to move toward the nearest mob as if it were to attack it, but makes it unable to attack that mob
+|Negative
+|2
+ |-
+| style="text-align:center" |{{EffectSprite|Poison Revision 1}}
+|{{code|poison}} 
+|Negative
+|19
+|-
+ | style="text-align:center" |{{EffectSprite|Weakness Revision 1}}
+ |[[Sharing]]
+|{{code|weakness}}
+|Drops items in a random amount of time, ranging from food to rare items like [[saddle]]s or [[diamond]]s
+|Negative
+|18
+|}
+
+====[[Java Edition 23w13a_or_b]]====
+These effects only exist in [[Java Edition 23w13a_or_b|23w13a_or_b]].
+{| class="sortable wikitable" data-description="JokeEffects"
+ ! class="unsortable" |Icon
+ !Display name
+!Name
+!Effect
+ !Type
+!ID (J.E.)
+ |-
+ | style="text-align:center" |{{EffectSprite|big}}
+ | [[Big]]
+|{{code|big}}
+|Makes entities bigger
+ |Neutral
+| 34
+ |-
+ | style="text-align:center" |{{EffectSprite|small}}
+ |[[Small]]
+|{{code|small}}
+|Makes entities smaller
+ |Neutral
+|35
+|}
+
+====[[Java Edition 24w14potato]]====
+{{expand section}}
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Stayin' Frosty;Great View From Up Here;Free Diver;We're being attacked!;I've got a bad feeling about this...}}
+</table-progress-tracking>
+
+== Advancements==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|Great View From Up Here;A Furious Cocktail;How Did We Get Here?;Voluntary Exile;Hero of the Village}}
+</table-progress-tracking>
+
+== History ==
+
+=== Effect additions===
+
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|The {{tooltip|first 19 effects|Speed, Slowness, Haste, Mining Fatigue, Strength, Instant Health, Instant Damage, Jump Boost, Nausea, Regeneration, Resistance, Fire Resistance, Water Breathing, Invisibility, Blindness, Night Vision, Hunger, Weakness, Poison}} have been introduced, {{tooltip|8 of which|Jump Boost, Strength, Resistance, Fire Resistance, Invisibility, Blindness, Night Vision, Weakness}} are nonfunctional. No [[potion]]s are added yet, so the only effects that are obtainable are Regeneration ([[golden apple]]s), Hunger ([[raw chicken]] and [[rotten flesh]]), and Poison ([[cave spider]]s). Other effects can be obtained only through NBT editing.}}
+{{History|java}}
+{{History||1.4.2|snap=12w36a|{{EffectSprite|wither-revision-1}} Added Wither.}}
+{{History||1.6.1|snap=13w23b|{{EffectSprite|health-boost-revision-1}} Added Health Boost effect. It is activated after eating the 1st tier of the [[golden apple]]. The enchanted tier does not give the effect at all.}}
+{{History|||snap=13w24b|{{EffectSprite|absorption-revision-1}} Added Absorption effect.}}
+{{History|||snap=pre|Added Saturation effect.}}
+{{History||1.9|snap=15w31a|{{EffectSprite|Levitation Revision 1}} Added Levitation effect, received when [[player]] is hit by a [[shulker]] projectile.
+|{{EffectSprite|Glowing Revision 1}} Added Glowing effect, which is received when [[player]]s or [[mob]]s are hit by [[spectral arrow]]s.}}
+{{History|||snap=15w44b|{{EffectSprite|Luck Revision 1}}{{EffectSprite|Bad luck Revision 1}} New effects, Luck and Bad Luck.}}
+{{History||1.13|snap=18w14a|{{EffectSprite|Slow Falling}} Added the Slow Falling effect, which is obtained by drinking a [[potion of Slow Falling]] or being hit by an [[arrow of Slow Falling]].}}
+{{History|||snap=18w15a|{{EffectSprite|Conduit Power}} Added the Conduit Power effect, which is obtained by activating a [[conduit]].}}
+{{History|||snap=18w19a|{{EffectSprite|Dolphin's Grace}} Added the Dolphin's Grace effect, which is obtained by [[swimming]] near [[dolphin]]s.}}
+{{History||1.14|snap=18w47a|{{EffectSprite|Bad Omen Revision 1}} Added the Bad Omen effect, which is obtained by killing a [[raid captain]]. The texture of the effect was later changed to {{EffectSprite|Bad Omen}}{{when|When did this change happen?}}}}
+{{History|||snap=19w13a|{{EffectSprite|Hero of the Village}} Added the Hero of the Village effect, obtained after defeating a raid triggered by Bad Omen.}}
+{{History||1.19|snap=Deep Dark Experimental Snapshot 1|[[File:Darkness BE1.png|32px]] Added [[Darkness]] effect.}}
+{{History||1.21||[[File:Bad Omen JE3 BE3.png|32px]] The Bad Omen icon texture has been changed.
+|Bad Omen can now be granted by drinking an [[ominous bottle]], rather than killing a [[pillager|pillager captain]].
+|Bad Omen can transform into [[Raid Omen]] if a player drinks the [[ominous bottle|bottle]] in a [[village]] or into [[Trial Omen]] if near a non-ominous [[trial spawner]].
+|Added [[Wind Charged]], [[Weaving]], [[Oozing]], [[Infested]], [[Raid Omen]] and [[Trial Omen]] effects.}}
+{{History||1.21.11|snap=25w41a|[[File:Breath of the Nautilus.png|32px]] Added the [[Breath of the Nautilus]] effect.
+|It can be granted when riding a [[nautilus]] or a [[zombie nautilus]].}}
+
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=build 1|Added mob effects.}}
+{{History||v0.12.1|snap=build 1|Added a few new ones.{{info needed|which?}}}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Added the [[File:Levitation JE1 BE1.png|32px]] Levitation mob effect, received when the [[player]] is hit by a [[shulker]] projectile.}}
+{{History|bedrock}}
+{{History||1.5.0|snap=beta 1.5.0.1|[[File:Conduit Power JE1 BE1.png|32px]] Added the Conduit Power mob effect, which is received when the [[player]] activates a [[conduit]].}}
+{{History||1.6.0|snap=beta 1.6.0.5|[[File:Slow Falling JE1 BE1.png|32px]] Added the Slow Falling mob effect, obtained by drinking a [[potion of Slow Falling]] or being hit by an [[arrow of Slow Falling]].}}
+{{History||1.8.0|snap=beta 1.8.0.10|[[File:Health Boost JE2 BE2.png|32px]]{{EffectSprite|Absorption Revision 2}} Health Boost and Absorption icons have now changed to look different.}}
+{{History||1.11.0|snap=beta 1.11.0.1|Added the [[File:Bad Omen JE1 BE1.png|32px]] Bad Omen and [[File:Hero of the Village BE1.png|32px]] Hero of the Village mob effects.}}
+{{History||1.18.0|snap=beta 1.18.0.22|Added the [[File:Darkness BE1.png|32px]] Darkness mob effect behind the Vanilla Experiments toggle.}}
+
+{{History|console}}
+{{History||xbox=TU5|wiiu=Patch 1|Effects have been introduced.}}
+{{History||xbox=TU19|xbone=CU7|ps=1.12|The [[File:Wither (effect) JE1 BE1.png|32px]] Wither effect has been added.
+|Added Absorption effect.}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|Added [[File:Levitation JE1 BE1.png|32px]] Levitation effect, received when the [[player]] is hit by a [[shulker]] projectile.}}
+{{History||xbox=TU69|xbone=none|ps=1.76|wiiu=Patch 38|Added the [[File:Slow Falling JE1 BE1.png|32px]] Slow Falling effect, obtained by drinking a [[potion of Slow Falling]] or being hit by an [[arrow of Slow Falling]].}}
+{{History||xbox=none|ps=1.91|wiiu=none|Added the [[File:Bad Omen JE2 BE2.png|32px]] Bad Omen and [[File:Hero of the Village JE1 BE2.png|32px]] Hero of the Village effects.}}
+
+{{History|new3ds}}
+{{History||0.1.0|Added an unknown number of effects.{{info needed|What effects?}}}}
+{{History|foot}}
+
+=== Other changes ===
+
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|[[Potion]]s have been added, but are unobtainable without inventory editing. All effects can appear on potions, but Invisibility and Night Vision still do not function.
+|Drinking [[milk]] now clears all effects.}}
+{{History|||snap=Beta 1.9 Prerelease 3|[[Potion]]s have been revamped and made obtainable. As part of this, {{tooltip|7 effects|Haste, Mining Fatigue, Jump Boost, Nausea, Water Breathing, Invisibility, Night Vision}} no longer exist as potions and have become unused.}}
+{{History||1.3.1|snap=12w21a|An [[enchanted golden apple]] made from [[blocks of gold]] has been added, and induced, among others, the formerly unused Resistance effect.}}
+{{History|||snap=12w26a|[[Monster spawner]]s can now be customized using third-party world editors and set to spawn [[mob]]s with effects.}}
+{{History||1.4.2|snap=12w32a|[[Beacon]]s have been added (to Creative only) and can be used to give effects to [[player]]s around them. Several effects without a [[potion]] can now be induced, including the formerly unused Haste and Jump Boost effects.
+|[[Zombie villager]]s under the effects of a [[potion]] of Weakness can now be given a [[golden apple]] to cure it.}}
+{{History|||snap=12w39a|Using external programs, [[potions]] can now be changed to give different or multiple effects for any length.}}
+{{History||1.5|snap=13w09b|Using {{cmd|effect}} the [[player]] can now apply [[potion]] effects to other players, with a maximum value of 4.}}
+{{History|||snap=13w09c|{{cmd|effect}} now has a level limit of 255.}}
+{{History||1.6.1|snap=13w23a|{{EffectLink|Regeneration Revision 1|Regeneration|link=Regeneration}} and Instant Health have been slightly nerfed, having Regeneration heal twice as slow and Instant Health be 33% less potent.}}
+{{History|||snap=13w23b|Health Boost is activated after eating the 1st tier of the [[golden apple]]. The enchanted tier does not give the effect at all.
+|Regeneration has been increased from level 1 to 2 on the normal [[golden apple]], and increased from level 4 to 5 on the enchanted golden apple.}}
+{{History|||snap=13w24a|[[Spider]]s now have a rare chance to spawn with effects on hard [[difficulty]].}}
+{{History|||snap=13w24b|Health Boost no longer activate after eating a [[golden apple]]. The Absorption effect is now triggered after eating either tier of the golden apple, and lasts for 2 minutes.}}
+{{History||1.6.2|snap=release|Extra [[health]] from Absorption effect no longer reappears every 30 seconds.{{check version|Was this a 1.6.2 change?}}}}
+{{History||1.8|snap=14w06a|Added the ability to disable effect [[particle]]s.}}
+{{History|||snap=14w25a|{{EffectLink|Mining Fatigue Revision 1|Mining Fatigue|link=Mining Fatigue}} mechanics have been adjusted. There is no longer a 20 percentage point reduction per level.}}
+{{History|||snap=14w27a|Potion of Leaping has been added.
+|Jump Boost now has bright green [[particle]]s.}}
+{{History|||snap=14w28a|Effects now accept named IDs, as well as numerical IDs.}}
+{{History||1.9|snap=15w31a|Effects are now displayed on the HUD, instead of just in the [[inventory]].}}
+{{History|||snap=15w33a|Strength was changed from +130% damage bonus per level to {{hp|3}} damage per level. Weakness was changed from {{hp|0.5}} damage reduction to {{hp|4}}.}}
+{{History|||snap=15w34b|Haste and Mining Fatigue affect the new <code>attackSpeed</code> attribute.}}
+{{History|||snap=15w44b|[[Tipped arrow]]s now display the effect's time, same as [[potion]]s.
+|Tipped arrows are now able to be obtained in survival.}}
+{{History|||snap=15w49a|The [[Ender Dragon]] is now immune to all effects.}}
+{{History||1.13|snap=18w16a|Conduit Power now gives off a different effect.}}
+{{History||1.14|snap=19w08a|Each individual effect icon texture is now found in a separate texture file.}}
+{{History||1.15|snap=19w41a|[[Saturation]], [[Instant Health]], and [[Instant damage]] now have icons.}}
+{{History||1.15.2|snap=Pre-Release 1|When a stronger effect overwrites a weaker effect, the weaker effect now returns after the stronger effect expires if the weaker effect duration has not yet expired.<ref>{{bug|MC-1541}}</ref>}}
+{{History||1.18|snap=21w39a|Redesigned how effects look in the inventory screen: can display while recipe book is showing.
+|The list of effects are now shown to the right of the player's inventory, instead of the left side.
+|When the inventory effects list is visible, it is hidden from the game view to reduce screen clutter.
+|There’s now two modes of seeing the effect list: compact and classic.}}
+{{History||1.19.3|snap=22w46a|The inventory now correctly shows the remaining time on long-duration effects, instead of {{code|**:**}}.<ref>{{bug|MC-121865}}</ref>}}
+{{History||1.19.4|snap=Pre-release 3|Changed particle and potion colors of the following effects: Swiftness, Slowness, Strength, Harming, Leaping, Resistance, Fire Resistance, Water Breathing, Invisibility, Night Vision, Poison.}}
+{{History||1.20|snap=23w12a|Wither and Slow Falling effect colors have been adjusted to make them more distinguishable.}}
+{{History||1.20.2|snap=23w32a|Game no longer uses numeric values when storing mob effects to world.|Changed following fields in mob effect instances:
+* <code>Id</code> (integer) -> <code>id</code> (string, resource location)
+* <code>Ambient</code> -> <code>ambient</code>
+* <code>Amplifier</code> -> <code>amplifier</code>
+* <code>Duration</code> -> <code>duration</code>
+* <code>ShowParticles</code> -> <code>show_particles</code>
+* <code>ShowIcon</code> -> <code>show_icon</code>
+* <code>HiddenEffect</code> -> <code>hidden_effect</code>
+* <code>FactorCalculationData</code> -> <code>factor_calculation_data</code>
+|In NBT format for living entities (players, armor stands, and all mobs): Renamed <code>ActiveEffects</code> to <code>active_effects</code>.}}
+
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=December 2, 2014|slink={{tweet|jeb_|539822336422465536}}|[[Jeb]] tweets an image of effects in progress.
+|When the [[player]] is affected with an effect, there are tabs on the right side of the screen that shows what effects are currently afflicted.
+|Jeb states that the only effects obtainable are Poison and Nausea, due to [[potion]]s not being implemented yet.}}
+{{History|||snap=December 4, 2014|slink={{tweet|jeb_|540540728347475968}}|Jeb tweets an image of the effect GUI, which appears when one of the "tabs" are selected.}}
+{{History|||snap=build 1|Currently, since [[potion]]s have not been implemented, the only effects available are {{EffectLink|Poison Revision 1|Poison|link=Poison}} from [[cave spider]]s, [[rotten flesh]] and [[pufferfish]], {{EffectLink|Hunger Revision 1|Hunger|link=Hunger}} from [[raw chicken]] and pufferfish (which doesn't function yet), and {{EffectLink|Nausea Revision 1|Nausea|link=Nausea}} from pufferfish. Other effects can be applied using an inventory editor or modifier, though some do not work properly.}}
+{{History|||snap=build 4|Drinking [[milk]] now removes all mob effects.}}
+{{History|||snap=build 12|[[Armor]] no longer decreases [[damage]] from mob effects.}}
+{{History||v0.12.1|snap=build 1|Most mob effects work properly now.
+|Jump boost can't be obtained, as [[rabbit]]s have not yet been added.
+|Mob effects now can be applied with [[potion]]s.
+|Rotten foods now cause Hunger, rather than Poison due to the addition of [[hunger]].
+|The hunger mob effect functions correctly now due to the addition of [[hunger]].}}
+{{History||v0.13.0|snap=build 1|Jump boost can now be obtained in survival because of the addition of [[rabbit]]s.}}
+{{History||v0.16.0|snap=build 1|Added an exclusive [[potion]], [[splash potion]] and [[arrow]] of Decay. It is unobtainable in survival due to the lack of a [[brewing]] recipe for it.
+|{{EffectSprite|Mining Fatigue}} Mining fatigue can now be inflicted upon the [[player]] in survival by a [[elder guardian]].}}
+{{History|||snap=build 4|{{EffectSprite|Wither Revision 1}} The wither effect can now be inflicted with the addition of the [[wither]].}}
+{{History|bedrock}}
+{{History||1.2.0|snap=?|Absorption effect amplifier has been increased for enchanted golden apples.}}
+{{History||1.4.0|snap=beta 1.2.20.1|The Water Breathing mob effect no longer gives the [[player]] enhanced underwater vision.}}
+
+{{History|console}}
+{{History||xbox=TU5|wiiu=Patch 1|Effects have been introduced. [[Potion]]s haven't been added yet, so the only things that cause them are [[golden apple]]s, [[raw chicken]], [[rotten flesh]] and [[cave spider]]s.}}
+{{History||xbox=TU7|Actual [[potion]]s have been added and some effects got an alchemical ingredient that corresponds to them. 
+|[[Milk]] has been now given the ability to cure and clear all effects.}}
+{{History||xbox=TU14|ps=1.04|An enchanted [[golden apple]] made from [[blocks of gold]] has been added, and induced, among others, the formerly unused Resistance effect.}}
+{{History||xbox=TU19|xbone=CU7|ps=1.12|Night Vision now functions, and a [[potion]] and [[splash potion]] of Night Vision has been implemented and added to [[Creative mode]].
+|[[Beacon]]s have been added and can be used to give effects to [[player]]s around them. Several effects without a [[potion]] can now be induced, including the formerly unused Haste and Jump Boost effects.
+|[[Zombie villager]]s under the effects of a [[potion]] of Weakness can now be given a [[golden apple]] to cure it.
+|Invisibility now functions, and turns mobs invisible. [[Player]]s under its effect can now not be detected by other players. A [[potion]] and [[splash potion]] of Invisibility was implemented and added to [[Creative mode]].
+|The Wither effect is inflicted by the [[wither]]'s wither skulls.
+|Absorption effect can be triggered for 2 minutes when consuming either tier of the [[golden apple]].}}
+
+{{History|new3ds}}
+{{History||1.2.12|Effects are now displayed on the HUD, instead of just in the inventory.}}
+{{History|foot}}
+
+=== April Fools effects ===
+
+{{History|java}}
+{{History||15w14a|Added the [[Caring]] effect, replacing the {{EffectSprite|Slowness Revision 1}} [[Slowness]] and {{EffectSprite|Poison Revision 1}} [[Poison]] effects.
+|Added the [[Sharing]] effect, replacing the {{EffectSprite|Weakness Revision 1}} [[Weakness]] effect.}}
+{{History||23w13a or b|Added the {{EffectSprite|Big}} [[Big]] and {{EffectSprite|Small}} [[Small]] effect.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* When having multiple effects, the effects' timers are reduced by 1 second each simultaneously, regardless of when the [[player]] took each potion. This is because they use the same "seconds counter" that "ticks" every 20 game ticks to save memory. For example, if the [[player]] drinks one [[potion]] and another different potion that doesn't reset the timer 5.5 (or any non-integer amounts) seconds later, both effects' timers subtract 1 second from both of them simultaneously.
+* When a [[creeper]] has an effect and explodes, it leaves an [[area effect cloud]] for each effect that it had before it died.{{only|java}}
+* Using a potion of [[Leaping]] II, a potion of [[Slow Falling]], and a potion of [[Swiftness]] II, the player can jump a 9 [[block]] gap.
+
+== Gallery ==
+<gallery>
+AppleEffect.jpg|Regeneration after eating a [[golden apple]] before the official update.
+GoldenApple13w23b.png|Health Boost and Regeneration II after eating a golden apple in 13w23b.
+Inventory Weakness.png|Weakness after drinking a [[Potion]] of Weakness.
+Hearts.png|The maximum amount of [[health]] using Health Boost and Absorption.
+Dragon Death.png|[[The End]] as seen when a [[player]] has night vision.
+Eat Pufferfish.png|What things look like when a player has eaten a [[pufferfish]] and receives nausea.
+Status Effect.jpg|The [[Hunger (status effect)|Hunger]] effect.
+Glowing effect.png|The Glowing effect, added to all [[entity|entities]] by [[command]].
+Invisible Phantom.png|A [[phantom]] with invisibility.
+All the status effects....png|Image showing when the player receives all effects.
+EffectCompact.png|An effect visible in a compact form in the inventory.
+OK2tE.png|Several effects applied to a player.
+Pocket Edition Poison.png|Poison in pocket edition alpha.
+Pocket Edition Jump Boost.png|Jump boost in pocket edition alpha.
+Effects Classic.jpg|Classic effects option.
+Effects Compact.png|Compact effects option.
+</gallery>
+
+== See also == 
+* [[Fire]] - gives a damaging condition similar to an effect
+* [[Powder Snow]] - gives a damaging and speed-decreasing condition similar to an effect
+
+== Notes==
+{{notelist}}
+
+== References ==
+{{reflist}}
+
+== External links ==
+* [http://www.minecraftforum.net/topic/673147-all-about-potions-and-brewing-19-reference-guidepics-and-a-mod-download-to-make-them-usable/ Minecraft Forum: All About Potions And Brewing - 1.9 Reference Guide]
+* [http://potioncraft.net/ Minecraft Potions - A Visual Guide]
+{{Effects}}
+{{gameplay|load}}
+
+[[Category:Effects| ]]
+
+[[de:Statuseffekt]]
+[[el:Status effect]]
+[[es:Efecto]]
+[[fr:Effets de potions]]
+[[hu:Állapot hatás]]
+[[it:Effetto]]
+[[ja:ステータス効果]]
+[[ko:상태 효과]]
+[[nl:Statuseffect]]
+[[pl:Efekty]]
+[[pt:Efeito]]
+[[ru:Эффект]]
+[[th:เอฟเฟกต์ของสถานะ]]
+[[uk:Ефекти]]
+[[zh:状态效果]]

@@ -1,0 +1,913 @@
+A '''hitbox''' defines the physical "boundaries" (or an approximation thereof) of a [[block]] or [[entity]]. Hitboxes are utilised in the calculations of collisions and targeting.
+
+Unlike with block models, all hitboxes are hardcoded and cannot be changed without modification, even via data packs.
+
+== Hitbox==
+
+===Collision box===
+A '''collision box''' is used to manage collision with entities.
+
+A collision box is not present for all blocks, as all [[Solid block|non-solid blocks]] such as [[grass]], [[sign]]s, [[button]], [[lever]] and [[torch]] have no collision box.
+
+===Outline box===
+An '''outline box''' is shown when looking at a given block. It becomes visible as a wireframe outline when a [[Heads-up display|crosshair]] is pointed at the block.
+
+===Interaction box===
+{{Cleanup|Move historical examples of outline boxes extending beyond interaction boxes to the [[#history]] section, as per [[Minecraft_Wiki:Style_guide#Keeping articles concise and up to date]]|section=yes}}
+An '''interaction box''' deals with aiming at blocks. When the interaction box of a block is targeted, the block can be broken, placed on or interacted with as necessary.
+
+Its default is the same as the outline box. However, the interaction box is incapable of extending outside of its own block space, despite the outline box being capable of doing so visually. There are several instances where this can be seen: 
+
+*The arm of an extended [[piston]] - specifically the part which protrudes into the piston's block space.<ref>{{bug|MC-124459}}</ref>
+*The hitboxes of [[pointed dripstone]] in [[Java Edition 20w48a]] could sometimes also randomly extend into adjacent blocks, allowing this to be seen.<ref>{{bug|MC-206643}}</ref>
+*The hitboxes of [[melon stem]]s and [[pumpkin stem]]s with ages 8{{verify}} and over could visually extend into the block space above them while they existed (from Beta 1.8 Pre-release up to [[Removed blocks|the removal]] of the last four in 14w10a and the remaining four in 14w25a).
+*The hitboxes of [[cake]]s with 8{{verify}} or more bites could extend into the adjacent block space while these existed (from Beta 1.2 up to their removal in 14w26a, although 14w25a likely made them too unstable to be properly observable)
+*The hitboxes of cakes and [[cacti]] [[Java Edition distance effects|at far distances]] could previously (from Beta 1.2 and Alpha v1.0.11 respectively up to their fixing, likely simultaneously in 15w49a, although it became unobservable for cake from 15w38a onwards due to {{bug|MC-106300}}) also become greater than a full block, allowing this to be seen.
+
+== Block==
+{{Expand section}}
+{{info needed section|Third person view hitbox, particle emission box}}
+
+===Block support shape ===
+A '''block support shape''' is mainly used to judge whether another attaching block (e.g. torches, doors, buttons, etc.) can be attached to it.
+
+Its default is the same as the collision box. There are some exceptions:
+
+*Leaves have an empty block support shape.
+*The Block support shape of the snow layer is the same as its selection box.
+*Soul sand has a full block support shape.
+* Coded interactions like the [[Sapling|Mangrove propagule]]
+
+==Entity==
+{{Expand section|Add hitbox sizes of different mobs and how they affect attack distance}}
+<!-- The above Notice could also be solved with a edit to the entity discriptor -->
+=== List of entity hitboxes ===
+The hitboxes of all entities (except [[ender dragon]], [[Item Frame|item frames]], and [[Painting|paintings]]) are always shaped in cuboids (square base), which does not always overlap with the visual parameters of the entity. For example, the [[witch]]'s hitbox does not include the top section of its hat, and the [[wither]]'s hitbox does not include the two heads on its sides. Because most hitboxes are cuboids, it is standard to measure them by their '''width and height''', with the width being the size of the base (which is a square) and height being the number of blocks tall (so a width of 0.6 means the entity is 0.6 blocks wide).
+
+Below is a list of every entity's hitbox size (as of Java 1.19.2). The hitbox sizes of entities in Bedrock Edition vary greatly from the information below, which only gives '''Java hitboxes'''.
+{| class="fandom-table"
+|Entity Name
+|Height
+|Width
+|Height Baby
+|Width Baby
+|-
+|allay
+|0.6
+|0.35
+|
+|
+|-
+|area_effect_cloud
+|Varies
+|Varies
+|
+|
+|-
+|armor_stand
+|1.975
+|0.5
+|0.9875
+|0.25
+|-
+|arrow
+|0.5
+|0.5
+|
+|
+|-
+|axolotl
+|0.42
+|0.75
+|
+|
+|-
+|bat
+|0.9
+|0.5
+|
+|
+|-
+|bee
+|0.6
+|0.7
+|0.3
+|0.35
+|-
+|blaze
+|1.8
+|0.6
+|
+|
+|-
+|boat
+|0.5625
+|1.375
+|
+|
+|-
+|cat
+|0.7
+|0.6
+|0.35
+|0.3
+|-
+|cave_spider
+|0.5
+|0.7
+|
+|
+|-
+|chest_boat
+|0.5625
+|1.375
+|
+|
+|-
+|chest_minecart
+|0.7
+|0.98
+|
+|
+|-
+|chicken
+|0.7
+|0.4
+|0.35
+|0.2
+|-
+|cod
+|0.3
+|0.5
+|
+|
+|-
+|command_block_minecart
+|0.7
+|0.98
+|
+|
+|-
+|cow
+|1.4
+|0.9
+|0.7
+|0.45
+|-
+|creeper
+|1.7
+|0.6
+|
+|
+|-
+|dolphin
+|0.6
+|0.9
+|
+|
+|-
+|donkey
+|1.5
+|1.3965
+|0.75
+|0.6982
+|-
+|dragon_fireball
+|1
+|1
+|
+|
+|-
+|drowned
+|1.95
+|0.6
+|0.975
+|0.3
+|-
+|egg
+|0.25
+|0.25
+|
+|
+|-
+|elder_guardian
+|1.9975
+|1.9975
+|
+|
+|-
+|end_crystal
+|2
+|2
+|
+|
+|-
+|ender_dragon
+|(Not cuboid)
+|(Not cuboid)
+|
+|
+|-
+|ender_pearl
+|0.25
+|0.25
+|
+|
+|-
+|enderman
+|2.9
+|0.6
+|
+|
+|-
+|endermite
+|0.3
+|0.4
+|
+|
+|-
+|evoker
+|1.95
+|0.6
+|
+|
+|-
+|evoker_fangs
+|0.8
+|0.5
+|
+|
+|-
+|experience_bottle
+|0.25
+|0.25
+|
+|
+|-
+|experience_orb
+|0.25
+|0.25
+|
+|
+|-
+|eye_of_ender
+|0.25
+|0.25
+|
+|
+|-
+|falling_block
+|0.98
+|0.98
+|
+|
+|-
+|fireball
+|1
+|1
+|
+|
+|-
+|firework_rocket
+|0.25
+|0.25
+|
+|
+|-
+|fishing_bobber
+|0.25
+|0.25
+|
+|
+|-
+|fox
+|0.7
+|0.6
+|0.35
+|0.3
+|-
+|frog
+|0.5
+|0.5
+|
+|
+|-
+|furnace_minecart
+|0.7
+|0.98
+|
+|
+|-
+|ghast
+|4
+|4
+|
+|
+|-
+|giant
+|12
+|3.6
+|
+|
+|-
+|glow_item_frame
+|(Not cuboid)
+|(Not cuboid)
+|
+|
+|-
+|glow_squid
+|0.8
+|0.8
+|
+|
+|-
+|goat
+|1.3
+|0.9
+|0.65
+|0.45
+|-
+|guardian
+|0.85
+|0.85
+|
+|
+|-
+|hoglin
+|1.4
+|1.3965
+|0.7
+|0.6982
+|-
+|hopper_minecart
+|0.7
+|0.98
+|
+|
+|-
+|horse
+|1.6
+|1.3965
+|0.8
+|0.6982
+|-
+|husk
+|1.95
+|0.6
+|0.975
+|0.3
+|-
+|illusioner
+|1.95
+|0.6
+|
+|
+|-
+|iron_golem
+|2.7
+|1.4
+|
+|
+|-
+|item
+|0.25
+|0.25
+|
+|
+|-
+|item_frame
+|(Not cuboid)
+|(Not cuboid)
+|
+|
+|-
+|leash_knot
+|0.5
+|0.375
+|
+|
+|-
+|lightning_bolt
+|0
+|0
+|
+|
+|-
+|llama
+|1.87
+|0.9
+|0.935
+|0.45
+|-
+|llama_spit
+|0.25
+|0.25
+|
+|
+|-
+|magma_cube
+|Varies
+|Varies
+|
+|
+|-
+|minecart
+|0.7
+|0.98
+|
+|
+|-
+|mooshroom
+|1.4
+|0.9
+|0.7
+|0.45
+|-
+|mule
+|1.6
+|1.3965
+|0.8
+|0.6982
+|-
+|ocelot
+|0.7
+|0.6
+|0.35
+|0.3
+|-
+|painting
+|(Not cuboid)
+|(Not cuboid)
+|
+|
+|-
+|panda
+|1.25
+|1.3
+|0.625
+|0.65
+|-
+|parrot
+|0.9
+|0.5
+|
+|
+|-
+|phantom
+|0.5
+|0.9
+|
+|
+|-
+|pig
+|0.9
+|0.9
+|0.45
+|0.45
+|-
+|piglin
+|1.95
+|0.6
+|
+|
+|-
+|piglin_brute
+|1.95
+|0.6
+|
+|
+|-
+|pillager
+|1.95
+|0.6
+|
+|
+|-
+|player
+|1.8
+|0.6
+|
+|
+|-
+|polar_bear
+|1.4
+|1.4
+|0.7
+|0.7
+|-
+|potion
+|0.25
+|0.25
+|
+|
+|-
+|pufferfish
+|0.35
+|0.35
+|
+|
+|-
+|rabbit
+|0.5
+|0.4
+|0.25
+|0.2
+|-
+|ravager
+|2.2
+|1.95
+|
+|
+|-
+|salmon
+|0.4
+|0.7
+|
+|
+|-
+|sheep
+|1.3
+|0.9
+|0.65
+|0.45
+|-
+|shulker
+|1
+|1
+|
+|
+|-
+|shulker_bullet
+|0.3125
+|0.3125
+|
+|
+|-
+|silverfish
+|0.3
+|0.4
+|
+|
+|-
+|skeleton
+|1.99
+|0.6
+|
+|
+|-
+|skeleton_horse
+|1.6
+|1.3965
+|0.8
+|0.6982
+|-
+|slime
+|Varies
+|Varies
+|
+|
+|-
+|small_fireball
+|0.3125
+|0.3125
+|
+|
+|-
+|snow_golem
+|1.9
+|0.7
+|
+|
+|-
+|snowball
+|0.25
+|0.25
+|
+|
+|-
+|spawner_minecart
+|0.7
+|0.98
+|
+|
+|-
+|spectral_arrow
+|0.5
+|0.5
+|
+|
+|-
+|spider
+|0.9
+|1.4
+|
+|
+|-
+|squid
+|0.8
+|0.8
+|
+|
+|-
+|stray
+|1.99
+|0.6
+|
+|
+|-
+|strider
+|1.7
+|0.9
+|0.85
+|0.45
+|-
+|tadpole
+|0.3
+|0.4
+|
+|
+|-
+|tnt
+|0.98
+|0.98
+|
+|
+|-
+|tnt_minecart
+|0.7
+|0.98
+|
+|
+|-
+|trader_llama
+|1.87
+|0.9
+|0.935
+|0.45
+|-
+|trident
+|0.25
+|0.25
+|
+|
+|-
+|tropical_fish
+|0.4
+|0.5
+|
+|
+|-
+|turtle
+|0.4
+|1.2
+|0.12
+|0.36
+|-
+|vex
+|0.8
+|0.4
+|
+|
+|-
+|villager
+|1.95
+|0.6
+|0.975
+|0.3
+|-
+|vindicator
+|1.95
+|0.6
+|
+|
+|-
+|wandering_trader
+|1.95
+|0.6
+|
+|
+|-
+|warden
+|2.9
+|0.9
+|
+|
+|-
+|witch
+|1.95
+|0.6
+|
+|
+|-
+|wither
+|3.5
+|0.9
+|
+|
+|-
+|wither_skeleton
+|2.4
+|0.7
+|
+|
+|-
+|wither_skull
+|0.3125
+|0.3125
+|
+|
+|-
+|wolf
+|0.85
+|0.6
+|0.425
+|0.3
+|-
+|zoglin
+|1.4
+|1.3965
+|0.7
+|0.6982
+|-
+|zombie
+|1.95
+|0.6
+|0.975
+|0.3
+|-
+|zombie_horse
+|1.6
+|1.3965
+|0.8
+|0.6982
+|-
+|zombie_villager
+|1.95
+|0.6
+|0.975
+|0.3
+|-
+|zombified_piglin
+|1.95
+|0.6
+|0.975
+|0.3
+|} 
+
+=== Non-constant hitbox sizes ===
+The size of an entity's hitbox is not necessarily static and may change depending on certain circumstances. For instance, a player's hitbox gets smaller while crouching, and the hitbox of a pufferfish changes while it's puffed out. Below is a list of all the entities who's hitbox can change sizes given specific causes. 
+{| class="fandom-table"
+!'''[[Enderman]]'''
+!Normal
+!While Angry
+|-
+|Height
+|2.9
+|3.25
+|-
+|Width
+|0.6
+|0.6
+|}
+{| class="fandom-table"
+!'''[[Player]]'''
+!Normal
+!While sneaking
+!While gliding/swimming
+!While sleeping
+|-
+|Height
+|1.8
+|1.5
+|0.6
+|0.2
+|-
+|Width
+|0.6
+|0.6
+|0.6
+|0.2
+|}
+{| class="fandom-table"
+!'''[[Pufferfish]]'''
+!Unpuffed 
+!Semi-puffed
+!Fully Puffed
+|-
+|Height
+|0.35
+|0.49
+|0.7
+|-
+|Width
+|0.35
+|0.49
+|0.7
+|}
+{| class="fandom-table"
+!'''[[Shulker]]'''
+!Closed
+!Peeking
+!Open
+|-
+|Height
+|1
+|1.2
+|2
+|-
+|Width
+|1
+|1
+|1
+|} 
+
+===Boundary box===
+The '''boundary box''' of entities can be viewed via the {{key|F3}} + {{key|B}} debug shortcut. {{only|java}}
+
+===Interaction box===
+'''Interaction box''' deals with aiming at entities. When the interaction box of an entity is targeted, the entity can be hit or interacted with as necessary.
+
+===Eye level===
+The '''eye level''' is outlined in red, and appears only on the hitboxes of all Entities. It is responsible for suffocation and drowning damage; a mob will take suffocation damage or lose air and drown if its eye level is inside a solid block or water respectively. Eye level also changes the rendering Minecraft uses if its eye level is inside water or lava respectively.
+
+==History==
+
+===Blocks===
+{{info needed section|20w49a pointed dripstone changes}}
+====Collision boxes====
+{{info needed section|
+* {{bug|MC-1635}}
+* {{bug|MC-73302}}
+* {{bug|MC-1720}}
+* b1.9pre2: did the wireframe also change?}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|[[Fence]]s now no longer have a full block hitbox on the xz plane, and instead more closely match their shape.}}
+{{History||1.1|snap=12w01a|The [[fence gate]] hitbox has changed to match the changes made to fence hitboxes.}}
+{{History||1.4.4|snap=1.4.3|[[Wall]]s now have their own collision box size - previously they shared their size with fences.<ref>{{bug|MC-1332}}</ref>
+|The above change also fixed [[Java Edition distance effects#Fences, fence gates and walls|a bug causing their hitboxes to distort and stop working correctly at far distances from the world origin]].}}
+{{History||1.5|snap=13w06a|Fence hitboxes have been changed - concave corners now have their collision boxes respect that rather than always using its effective convex hull, resulting in an invisible portion of collision box there.
+|The above change also fixed [[Java Edition distance effects#Fences, fence gates and walls|a bug causing their hitboxes to distort and stop working correctly at far distances from the world origin]].}}
+{{History||1.13|snap=17w47a|The hitbox of [[brewing stand]]s now takes into account the central rod as well.<ref>{{bug|MC-4504}}</ref>{{verify|is this actually an entity collision thing?}}
+|The collision box of [[wall]]s has been made to be correctly concave.<ref>{{bug|MC-2666}}</ref>{{verify|is this also an entity collision thing?}}}}
+{{History||1.14|snap=19w13a|The outline boxes of [[cauldron]]s now better fits the model, allowing for blocks beneath it to be targeted.<ref>{{bug|MC-129205}}</ref>{{verify|is this actually an entity collision thing?}}}}
+{{History|foot}}
+
+====Outline and interaction boxes====
+
+{{History|java pre-classic}}
+{{History||rd-132211|Targeted blocks now have a visual indicator in which they alternate between bright and dark continuously.}}
+{{History|java classic}}
+{{History||0.0.13a|Targeted blocks also have a thin outline box.}}
+{{History||0.24_SURVIVAL_TEST|The holographic pulsating hitbox displayed when able to place or break a block has been removed, leaving just the wireframe hitbox.}}
+{{History||?|The hitboxes for some blocks (flowers, mushrooms, torches) are now no longer full cubes, and are more fitting for the size of the block.}}
+{{History|java infdev}}
+{{History||Minecraft Infdev|snap=20100313|link=Minecraft Infdev|slink=Java Edition Infdev 20100313|Prior to this version, the wireframe hitbox for highlighting blocks would behave increasingly incorrectly [[Java Edition distance effects#History|at far distances from the world origin]]. On all supported hardware, its position would jitter erratically with small shifts in camera rotation. On some GPUs/graphics cards, the geometry of the box would also distort, resulting in non-cubic shapes.}}
+{{History|java}}
+{{History||?|[[Stairs]] cannot be targeted at angles where the crosshair does not point at a solid feature of the block. However, the wireframe outline still displays as a full cube regardless.}}
+{{History||?|The hitboxes for randomly misaligned blocks such as tall grass are now themselves randomly offset as well to accommodate them.}}
+{{History||1.9|snap=15w38a|[[Cake]]'s wireframe hitbox now always appears at (0,0,0) regardless of where the targeted cake actually is. This also masks a distance issue fixed in 15w49a - see below.}}
+{{History|||snap=15w46a|The hitbox of [[redstone wire]] now covers only part of the surface of the [[block]] below, based on the orientation of the redstone.}}
+{{History|||snap=15w49a|Prior to this snapshot, the wireframe hitboxes used for cake and cactus would appear stretched and misshapen [[Java Edition distance effects#History|at far distances from spawn]].}}
+{{History|||snap=15w49b|The hitbox height of the [[end portal (block)|end portal block]] has been increased from {{frac|1|16}} of a block to {{frac|3|4}} of a block.}}
+{{History||1.11|snap=16w35a|Cake's hitbox now appears at the right position again.<ref>{{bug|MC-106300}}</ref>}}
+{{History||1.13|snap=17w47a|The outline boxess of [[anvil]]s and [[hopper]]s now much more closely fit the model shape of these blocks.
+|The hitbox of [[brewing stand]]s now takes into account the central rod as well.<ref>{{bug|MC-4504}}</ref>{{verify|is this actually an entity collision thing?}}
+|The outline boxes of [[fence]]s is now correctly L-shaped, T-shaped or +-shaped when branching in perpendicular directions.<ref>{{bug|MC-12000}}</ref>
+|[[Cactus]] now has a correct cuboid outline box.<ref>{{bug|MC-59610}}</ref>
+|Blocks containing multiple [[vines]] now have better outline boxes.
+|[[Glass pane]]s and [[iron bars]] have cleaner outline boxes when branching.
+|[[End portal frame]] outline boxes now properly account for the eye.
+|[[Piston]] and [[lily pad]] outline boxes were changed.
+|The collision box of [[wall]]s has been made to be correctly concave.<ref>{{bug|MC-2666}}</ref>{{verify|is this actually an entity collision thing?}}}}
+{{History||1.14|snap=18w48a|The outline boxes of [[bed]]s now better matches the visual shape of the bed.}}
+{{History|||snap=19w13a|The outline boxes of [[cauldron]]s now better fits the model, allowing for blocks beneath it to be targeted.<ref>{{bug|MC-129205}}</ref>}}
+{{History||1.16|snap=20w10a|[[Fire]] now has an outline box (alongside [[soul fire]]),<ref>{{bug|MC-163655}}</ref> bringing it more in line with other blocks. Previously, fire had no outline box at all, and breaking it required targeting underlying blocks, which also allowed it to be put out in [[Creative mode]] when holding a [[sword]] or [[trident]], which were programmed to not break blocks. It also prevented its block states from being read in the [[debug screen]] or modified via [[debug stick]].}}
+{{History|||snap=20w18a|The outline box of [[redstone wire]] has now been changed to much more closely the visual shape of the block. For example, redstone wire branching in different directions causes its outline box to itself branch in said directions,<ref>{{bug|MC-137336}}</ref> mirroring the behavior of fences, glass panes, iron bars and walls, and, if traveling up the side of a block, the vertical portion of the dust can now also be targeted.<ref>{{bug|MC-153508}}</ref>}}
+{{History|foot}}
+
+===Entities===
+
+====Boundary boxes====
+
+{{History|java}}
+*The hitboxes of [[pointed dripstone]] in [[Java Edition 20w48a]] could sometimes also randomly extend into adjacent blocks, allowing this to be seen.<ref>{{bug|MC-206643}}</ref>
+*The hitboxes of [[melon stem]]s and [[pumpkin stem]]s with ages 8{{verify}} and over could visually extend into the block space above them while they existed (from Beta 1.8 Pre-release up to [[Removed blocks|the removal]] of the last four in 14w10a and the remaining four in 14w25a).
+*The hitboxes of [[cake]]s with 8{{verify}} or more bites could extend into the adjacent block space while these existed (from Beta 1.2 up to their removal in 14w26a, although 14w25a likely made them too unstable to be properly observable)
+*The hitboxes of cakes and [[cacti]] [[Java Edition distance effects|at far distances]] could previously (from Beta 1.2 and Alpha v1.0.11 respectively up to their fixing, likely simultaneously in 15w49a, although it became unobservable for cake from 15w38a onwards due to {{bug|MC-106300}}) also become greater than a full block, allowing this to be seen.
+{{History||1.4.4|snap=1.4.3|{{key|F3}} + {{key|B}} now shows the hitbox around [[entities]]. At this point, the hitbox is white and opaque and does not have an outline.}}
+{{History||1.7.2|snap=1.7.1|Debug entity hitboxes have visually changed to be more intuitive.}}
+{{History|foot}}
+
+==Trivia==
+*[[Fluid]]s do not have hitboxes, even in cases where they would behave like a block.<ref>{{bug|MC-161513}}</ref> 
+*The [[ender dragon]] is composed of nine distinct hitboxes.
+
+==References==
+{{reflist}}
+
+{{Gameplay}}
+
+[[de:Hitbox]]
+[[pt:Caixa de colisão]]
+[[zh:判定箱]]

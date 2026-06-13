@@ -1,0 +1,19 @@
+<div class="treeview">
+* {{Nbt|compound}}： Root tag.<onlyinclude>
+** {{Nbt|string|predicate_type}}: can be the following values: {{cd|always_true}} to always pass; {{cd|linear_pos}} to pass with a random probability, the probability is based on the 3D Manhattan distance from the current block to the structure start. {{cd|axis_aligned_linear_pos}} to pass with a random probability, the probability only based on the distance on the specified axis.
+**; If {{cd|predicate_type}} is {{cd|linear_pos}}, the additional parameters are as follows<nowiki>:</nowiki>
+** {{Nbt|float|min_chance}}: (optional, default is 0.0) The probability (probability less than 0 is treated as 0, greater than 1 is treated as 1) for the predicate to pass when the distance of a block to the structure start is equal to or less than {{cd|min_dist}}. 
+** {{Nbt|float|max_chance}}: (optional, default is 0.0) The probability (probability less than 0 is treated as 0, greater than 1 is treated as 1) for the predicate to pass when the distance of a block to the structure start is equal to or greater than {{cd|max_dist}}. If a block's distance is between {{cd|min_dist}} and {{cd|max_dist}}, probability is obtained by linear interpolation between the values of {{cd|min_dist}} and {{cd|max_dist}}, that is, the probability is {{cd|(distance - min_dist ) / ( max_dist - min_dist ) * ( max_chance - min_chance ) + min_chance}}, and probability less than 0 is treated as 0, greater than 1 is treated as 1.
+** {{Nbt|int|min_dist}}: (optional, defaults to 0) the distance when the minimum probability is used. Must be less than {{Nbt|int|max_dist}}.
+** {{Nbt|int|max_dist}}: (optional, defaults to 0) the distance when the maximum probability is used. Must be greater than {{Nbt|int|min_dist}}.
+**; If {{cd|predicate_type}} is {{cd|axis_aligned_linear_pos}}, the additional parameters are as follows<nowiki>:</nowiki>
+** {{Nbt|string|axis}}: (optional, defaults to {{cd|y}}) can be {{cd|x}}, {{cd|y}} or {{cd|z}}.
+** {{Nbt|float|min_chance}}: (optional, default is 0.0) The probability (probability less than 0 is treated as 0, greater than 1 is treated as 1) for the predicate to pass when the distance of a block to the structure start is equal to or less than {{cd|min_dist}}. 
+** {{Nbt|float|max_chance}}: (optional, default is 0.0) The probability (probability less than 0 is treated as 0, greater than 1 is treated as 1) for the predicate to pass when the distance of a block to the structure start is equal to or greater than {{cd|max_dist}}. If a block's distance is between {{cd|min_dist}} and {{cd|max_dist}}, probability is obtained by linear interpolation between the values of {{cd|min_dist}} and {{cd|max_dist}}, that is, the probability is {{cd|(distance - min_dist ) / ( max_dist - min_dist ) * ( max_chance - min_chance ) + min_chance}}, and probability less than 0 is treated as 0, greater than 1 is treated as 1.
+** {{Nbt|int|min_dist}}: (optional, defaults to 0) the distance when the minimum probability is used. Must be less than {{Nbt|int|max_dist}}.
+** {{Nbt|int|max_dist}}: (optional, defaults to 0) the distance when the maximum probability is used. Must be greater than {{Nbt|int|min_dist}}.</onlyinclude>
+</div>
+[[ja:カスタムワールド生成/pos rule test]]
+[[zh:自定义世界生成/pos rule test]]
+[[Category:Java Edition]]
+[[Category:Data packs]]

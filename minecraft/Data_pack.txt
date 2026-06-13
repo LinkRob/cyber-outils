@@ -1,0 +1,231 @@
+{{about|the data pack system|the command|Commands/datapack|the resource pack system|resource pack}}
+{{exclusive|java}}
+
+The '''data pack''' system provides a way for players to further customize their ''Minecraft'' experience. Data packs can be used to override or add new [[Advancement/JSON format|advancement]]s, [[Custom dimension|dimension]]s, [[Function (Java Edition)|function]]s, [[loot table]]s, [[predicate]]s, [[Item modifier|item modifiers]], [[recipe]]s, [[Structure block file format|structure]]s, [[tag]]s, [[damage type]]s, [[Custom world generation|world generation settings]], and [[biomes]] without any code modification.
+
+== Usage ==
+
+Data packs can be placed in the {{code|[[.minecraft]]/saves/(world)/datapacks}} folder of a world. Each data pack is either a sub-folder or a [[wikipedia:Zip (file format)|{{code|.zip}} file]] within the {{code|datapacks}} folder. After it is in the folder, a data pack is enabled for that world when the world is [[Commands/reload|reloaded]] or loaded.
+
+Data packs load their data based on the load order. This order can be seen and altered by using the {{cmd|datapack}} command and is stored in the [[Java Edition level format#level.dat_format|{{cd|level.dat}} file]].
+
+The player can also select data packs at the world creation screen by clicking the '''Data Packs''' button and dragging-and-dropping their data pack folders/zip-files there. This is similar to the [[resource pack]] selection screen, and allows the player to enable data packs before the world is generated, and easily customize the load order too.
+
+== Contents ==
+
+=== Folder structure ===
+
+{{Collapse|title=Data packs use the following folder structure:|content=<div class="toccolours treeview">
+*''(data pack name)''
+**pack.mcmeta
+**pack.png
+**data
+***''(namespace)''
+****advancements
+*****''(advancement)''.json
+****functions
+*****''(function)''.mcfunction
+****item_modifiers
+*****''(item_modifier)''.json
+****loot_tables
+*****''(loot_table)''.json
+****predicates
+*****''(predicate)''.json
+****recipes
+*****''(recipe)''.json
+****structures
+*****''(structure)''.nbt
+****chat_type
+*****''(chat type)''.json
+****damage_type
+*****''(damage type)''.json
+****tags
+*****blocks
+******''(tag)''.json
+*****entity_types
+******''(tag)''.json
+*****fluids
+******''(tag)''.json
+*****functions
+******''(tag)''.json
+*****game_events
+******''(tag)''.json
+*****items
+******''(tag)''.json
+*****chat_type
+******''(tag)''.json
+*****damage_type
+******''(tag)''.json
+*****''(registry name)''
+******''(tag)''.json
+****dimension
+*****''(dimension)''.json
+****dimension_type
+*****''(dimension type)''.json
+****worldgen
+*****biome
+******''(biome)''.json
+*****configured_carver
+******''(carver)''.json
+*****configured_feature
+******''(feature)''.json
+*****density_function
+******''(density_function)''.json
+*****noise
+******''(noise)''.json
+*****noise_settings
+******''(noise_settings)''.json
+*****placed_feature
+******''(placed_feature)''.json
+*****processor_list
+******''(block_processor)''.json
+*****structure
+******''(structure)''.json
+*****structure_set
+******''(structure_set)''.json
+*****template_pool
+******''(jigsaw_pool)''.json
+*****world_preset
+******''(preset)''.json
+*****flat_level_generator_preset
+******''(flat_level_generator_preset)''.json
+</div>}}
+
+More than one directory for different namespaces may exist under the {{cd|data}} directory.
+
+=== {{code|pack.mcmeta}} ===
+
+A data pack is identified by ''Minecraft'' based on the presence of the {{code|pack.mcmeta}} file in the root directory of the data pack, which contains data in [[wikipedia:JSON|JSON]] format.
+
+<div class="treeview">
+* {{nbt|compound}} The root object.
+**{{nbt|compound|pack}}: Holds the data pack information.
+***{{nbt|string}}{{nbt|list}}{{nbt|compound|description}}: A [[Raw_JSON_text_format|JSON text]] that appears when hovering over the data pack's name in the list given by the {{code|/datapack list}} command, or when viewing the pack in the Create World screen.
+*** {{nbt|int|pack_format}}: Pack version. If this number does not match the current required number, the data pack displays a warning and requires additional confirmation to load the pack. See [[#Pack format]] for a full list of pack format numbers.
+** {{nbt|compound|filter}}: Section for filtering out files from data packs applied below this one. Any file that matches one of the patterns inside {{mono|block}} will be treated as if it was not present in the pack at all.
+*** {{nbt|list|block}}: List of patterns
+****{{nbt|compound}}
+*****{{nbt|string|namespace}}: A [https://en.wikipedia.org/wiki/Regular_expression regular expression] for the namespace of files to be filtered out. If unspecified, it applies to every namespace.
+*****{{nbt|string|path}}: A [https://en.wikipedia.org/wiki/Regular_expression regular expression] for the paths of files to be filtered out. If unspecified, it applies to every file.
+</div>
+
+{{code|pack.mcmeta}}, as used by the "vanilla" data pack in [[Java Edition 1.19|1.19]], as found in the [[client.jar|client]] and [https://minecraft.net/download/server official server] jars:
+<div class="collapsible collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+<syntaxhighlight lang="json">
+{
+    "pack": {
+        "pack_format": 10,
+        "description": "The default data for Minecraft"
+    }
+}
+</syntaxhighlight>
+</div>
+
+=== {{code|data}} ===
+
+{{see also|Resource location#Namespaces}}
+
+This folder contains all the data under one or multiple [[namespace]]s. It can contain {{code|advancements}}, {{code|dimension}}, {{code|dimension_type}}, {{code|functions}}, {{code|loot_tables}}, {{code|predicates}}, {{code|recipes}}, {{code|structures}}, {{code|tags}}, {{code|chat_type}}, {{code|damage_type}}, and/or {{code|worldgen}} folders. The {{code|worldgen}} folder can contain {{code|biome}}, {{code|configured_carver}}, {{code|configured_feature}}, {{code|density_function}}, {{code|flat_level_generator_preset}}, {{code|noise}}, {{code|noise_settings}}, {{code|placed_feature}}, {{code|processor_list}}, {{code|structure}}, {{code|structure_set}}, {{code|template_pool}} and {{code|world_preset}} folders.
+
+The {{code|dimension}}, {{code|dimension_type}} and {{code|worldgen}} folders are currently experimental features.
+
+Each advancement, function, loot table, predicate, structure, recipe and [[Tag|tag file]] can be placed directly in their respective folder but sub-folders are also allowed.
+
+== Pack format ==
+The table below describes the version range using each pack format number:
+
+{{Data pack format}}
+
+== Template ==
+The folder structure of the vanilla data pack:
+{{:Resource pack/Folders}}
+
+== History ==
+
+{{History|java}}
+{{History||1.13|snap=17w43a|Added data packs.}}
+{{History|||snap=17w46a|Added {{cmd|datapack}}, a command to control loaded data packs.}}
+{{History|||snap=17w48a|Data packs can now load custom recipes.
+|Added the initial pack format version of <code>4</code>.}}
+{{History|||snap=17w49a|Tags can now be created with data packs.}}
+{{History|||snap=17w49b|Tags can now be created for functions.
+|Functions tagged in <code>tick</code> now run at the beginning of every tick.}}
+{{History|||snap=18w01a|Added <code>set_name</code> function to loot tables.
+|Functions tagged in <code>load</code> now run once after a (re)load.
+|Crash reports now list what data packs are enabled.}}
+{{History||1.14|snap=18w43a|Tags can now be created for entity types.}}
+{{History||1.15|snap=19w38a|Added <code>predicates</code> folder where predicates can be defined.}}
+{{History|||snap=Pre-release 1|Changed the pack format number to <code>5</code>.}}
+{{History||1.16|snap=20w22a|Slightly changed data pack loading to prevent custom data packs from crashing.
+|If data pack reload fails, changes are not applied and the game continues using previous data.
+|Changes to data pack list are stored only after successful reload.
+|If existing data packs prevent the world from loading, the game gives an option to load the world in safe mode, which loads only vanilla data pack.
+|Added <code>--safeMode</code> option for servers to load only with vanilla data pack.
+|Game now detects any critical data pack issues, such as required tags being missing, and prevent the world from being loaded.}}
+{{History|||snap=Pre-release 1|Data packs can now be loaded before the world is created.
+|Data packs can now add and change [[dimension]]s and dimension types.}}
+{{History||1.16.2|snap=20w27a|Data packs can now have a [[pack.png]] in the root folder, and display it in the data pack menu.}}
+{{History|||snap=20w28a|Custom worlds now support custom [[biomes]] and can now be used in custom [[dimension]] generators.
+|Data packs can now customize world generation in the <code>worldgen</code> folder.}}
+{{History|||snap=Release Candidate 1|Changed the pack format number to <code>6</code>.}}
+{{History||1.17|snap=20w45a|Pack format in version.json has been split into data and resource versions.}}
+{{History|||snap=20w46a|Changed the pack format version to <code>7</code>.}}
+{{History||1.18|snap=21w37a|Changed the pack format version to <code>8</code>.}}
+{{History||1.18.2|snap=Pre-release 1|It is now possible to add custom structures in experimental data packs: the game now generates and stores data-driven configured structures.
+|A lot of the cave generation is now configurable through data packs.
+|Changed the pack format version to <code>9</code>, due to the changes above.}}
+{{History||1.19|snap=22w11a|Changed the pack format version to <code>10</code>.}}
+{{History||1.19.3|snap=22w42a|Added a subsection called <code>chat_type</code>.
+|Added a subsection called <code>datapacks</code>.
+|The Vanilla world generation data pack is now visible within the game's jar.}}
+{{History||1.19.4|snap=23w03a|Changed the pack format version to <code>11</code>.}}
+{{History|||snap=23w06a|Added [[damage type]]s.
+|Changed the pack format version to <code>12</code>.}}
+{{History||1.20|snap=23w12a|Changed the pack format version to <code>13</code>, accounting for sign data format changes.}}
+{{History|||snap=23w16a|Changed the pack format version to <code>14</code>.}}
+{{History|||snap=23w18a|Changed the pack format version to <code>15</code>, accounting for predicate/loot table and advancement changes.}}
+{{History|upcoming java}}
+{{History||1.20.2|snap=23w31a|Changed the pack format version to <code>16</code>, accounting for sign data format changes.}}
+{{History|||snap=23w32a|The version is now <code>17</code>.}}
+{{History|||snap=1.20.2 Pre-release 1|The version is now <code>18</code>.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Gallery ==
+<gallery>
+World-type-custom.png|Example of a custom world created with a data pack.
+</gallery>
+
+== See also ==
+*[[Add-on]]
+*[[Advancements]]
+*[[Biome/JSON format|Biome]]
+*[[Dimension]]
+*[[Function]]
+*[[Item modifier]]
+*[[Loot table]]
+*[[Recipe]]
+*[[Structure]]
+*[[Tag]]
+*[[Predicates]]
+*[[Tutorials/Installing a data pack]]
+*[[Tutorials/Creating a data pack]]
+*[[Resource Pack]]
+*[[Tutorials/Creating a resource pack]]
+
+{{Java Edition}}
+{{Data Packs}}
+
+[[Category:Data packs| ]]
+
+[[de:Datenpaket]]
+[[es:Paquete de datos]]
+[[fr:Pack de données]]
+[[ja:データパック]]
+[[pl:Paczki danych]]
+[[pt:Pacote de dados]]
+[[ru:Набор данных]]
+[[th:ดาต้าแพ็ก]]
+[[zh:数据包]]

@@ -1,0 +1,606 @@
+{{For}}
+{{Entity
+| image = <gallery>
+Creeper.png|Creeper
+Charged Creeper.gif|Charged Creeper
+</gallery>
+| invimage = Creeper Spawn Egg
+| health = {{hp|20}}
+| behavior = Hostile
+| damage = '''Melee:'''<br> Normal: {{hp|3}}<br> ''Explosion varies by proximity and difficulty.''<br>Maximum damage:<br>'''Regular''':<br>Easy: {{hp|22}}<br>Normal: {{hp|43}}<br>Hard: {{hp|64}}<br>'''Charged:'''<br>Easy: {{hp|43.5}}<br>Normal: {{hp|85}}<br>Hard: {{hp|127.5}}
+| spawn = Light level of 0
+| size = '''{{IN|Java}}:'''<br>
+Height: 1.7 Blocks<br>Width: 0.6 Blocks
+
+'''{{IN|Bedrock}}:'''<br>
+Height: 1.8 Blocks<br>Width: 0.6 Blocks
+| usableitems = {{drop|Item|Flint and Steel}}<br>{{drop|Item|Fire Charge}}{{only|JE}}
+}}A '''creeper''' is a common [[Mob#Hostile mobs|hostile mob]] that silently approaches [[player]]s and then [[Explosion|explodes]], which can destroy blocks and kill [[Armor|unarmored]] players on any [[difficulty]] (except for peaceful).
+
+When struck by [[Thunderstorm#Lightning|lightning]], the creeper becomes a '''charged creeper''', which amplifies its explosion power and enables [[mob head]]s to be obtained from [[piglin]]s, [[zombie]]s, [[skeleton]]s, and other creepers it kills.
+
+Due to its distinctive appearance and unique, destructive method of attack, the creeper has become one of the most iconic mobs in ''[[Minecraft]]'', being featured in promotional materials and merchandise.
+
+== Spawning ==
+
+Creepers naturally spawn in the [[Overworld]] on solid [[block]]s with a [[light level]] of 0, except in [[mushroom fields]] and [[deep dark]] [[biome]]s. They spawn individually {{in|be}} and in groups of up to four {{in|je}}.
+
+In Bedrock Edition, there is a [https://docs.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/definitions/nestedtables/density_limit density limit] of five creepers in the Overworld's ''surface''.
+
+== Drops ==
+
+When killed, creepers drop:
+* {{xp|5}} [[experience]] points, if killed by the [[player]] or a tamed [[wolf]].
+* 0–2 {{ItemLink|gunpowder}}. The maximum amount is increased by one per level of [[Looting]], for a maximum of 5 with Looting III.
+* 1 {{ItemLink|Music Disc|music disc}} at random (from [[13 Disc|13]], [[Cat Disc|cat]], [[Blocks Disc|blocks]], [[Chirp Disc|chirp]], [[Far Disc|far]], [[Mall Disc|mall]], [[Mellohi Disc|mellohi]], [[Stal Disc|stal]], [[Strad Disc|strad]], [[Ward Disc|ward]], [[11 Disc|11]], and [[Wait Disc|wait]]), if killed by a [[skeleton]], [[stray]], [[bogged]], [[parched]] or a [[wither skeleton]] (in {{JE}}).
+
+== Behavior ==
+[[File:Creeper Chase.png|thumb|left|A creeper giving chase.]]
+
+Creepers chase any [[player]] within a 16-block radius. They do not attack any other mob without provocation by being attacked first.
+
+When within 3 blocks of a player, a creeper stops moving, hisses (which almost sounds like a balloon inflating), flashes and expands, and explodes after 1.5 seconds, destroying blocks in the area as well as significantly damaging the player. A creeper's detonation can be halted if the player leaves the blast radius, including by knocking it back, going out of the creeper's sight, or if the creeper is killed before the explosion. The distance with the player at which a creeper cancels its explosion is greater at higher [[difficulty|difficulties]]. Normal creeper [[explosion]]s have a power of 3.
+
+A creeper explodes only if it has an uninterrupted line of sight with the player throughout the entire 1.5-second countdown. As a result, if the creeper does not have line-of-sight with the player, it does not start hissing even at close range, even if the player is attacking it, and a detonation is canceled if it has started. The hissing sound plays in its entirety regardless of whether the explosion happens or not.
+
+Unlike most mobs, the creeper doesn't have an idle sound, nor does it have unique step sounds. Although it does make normal stepping and swimming sounds, it is hard for players to distinguish those from sounds they make themselves. This makes the approach of a creeper difficult for an unwary player to notice until it starts hissing. 
+
+A creeper jumps down to a player if it can survive the fall. Creepers begin the 1.5-second countdown before falling, so an explosion occurs sooner after landing with higher falls.
+
+Creepers can climb up [[ladder]]s, [[vines]], and similar blocks like any other mob, but do not do so intentionally. 
+
+{{control|Using}} a [[flint and steel]] or [[fire charge]]{{only|JE}} on a creeper forces an explosion.
+
+The detection range of creepers is reduced by 50% when the player is wearing a [[head|creeper head]].{{Only|java|short=1}}
+
+Creepers flee from [[ocelot]]s and [[cat]]s within a 6-block radius, with faster movement than when pursuing a player. Cats and ocelots do not attack creepers. A creeper that has begun a detonation does not flee unless the player leaves its blast radius. <!--A cat or ocelot is defined as "nearby" if the following formula is true: {{cd|d^2 + d2^2 + d3^2 < 49}}, where {{cd|d}} is the difference in X coordinates, {{cd|d2}} is the difference in Y coordinates, and {{cd|d3}} is the difference in Z coordinates. This means a cat or ocelot is "nearby" if it is just under 7 blocks away in ''only'' one direction, or is just above 4 blocks away in every direction.-->
+
+Creepers are not targeted by [[wolf|tamed wolves]], [[Iron Golem|iron golem]]s or [[zoglin]]s. However, they are still attacked by [[wither]]s, [[snow golem]]s,<ref>{{bug|MC-73964||Snow golems can attack creepers}}</ref> [[vindicator]]s named "Johnny", [[warden]]s and [[goat]]s. When hit by a stray projectile (like a [[drowned]]'s trident), a creeper retaliates if not already chasing a player, unless said projectile is a skeleton's arrow. When attacked by a goat, or poisoned by a [[pufferfish]], a creeper does not retaliate. If a creeper is attacked by any other mob, the creeper moves toward the mob that attacked it and explodes.
+
+When a creeper is inflicted with a [[status effect]], its explosion creates an [[Lingering Potion#Area Effect Cloud|area effect cloud]] of the effect.{{only|java|short=1}}  
+
+=== Charged creeper ===
+{{anchor|Charged Creeper}}
+[[File:Charged Creeper.png|128px|right]]
+[[File:Charged and normal creeper explosion comparison.png|thumb|Two creepers' explosion damage radius in the dirt. Comparison between a charged creeper's (left) and a normal creeper's (right). Notice that the charged creeper's explosion is much bigger than the normal creeper's explosion.]]
+
+A '''charged creeper''' has a significantly increased explosion power.
+
+A charged creeper is created only when [[Thunderstorm#Lightning|lightning]] strikes within four blocks of a normal creeper. The lightning can be created in any way, including naturally, with the {{cmd|summon}} command, by a [[trident]] with the [[Channeling]] enchantment, or attracted to a [[lightning rod]]. Charged creepers are distinguished from normal creepers by the blue aura surrounding them.
+
+{{IN|java}}, a charged creeper can be summoned with the following command: <code>/summon creeper ~ ~ ~ {powered:1}</code>
+
+{{IN|bedrock}}, a charged creeper can be summoned by: {{code|/summon creeper ~ ~ ~ minecraft:become_charged}}
+
+Their countdown timers are the same as normal creepers, both in terms of range and time. With a power of 6, an explosion caused by a charged creeper is twice as powerful as the explosion caused by a creeper. Charged creepers' explosions are 50% more powerful than an explosion of [[TNT]]. How close the creeper was to the lightning strike does not affect the size or power of the explosion.
+
+Charged creepers have the same entity ID as normal creepers. The only difference is that the value of the boolean {{cd|powered}} [[Chunk format#Mobs|tag]] is set to {{cd|1}} (true).
+
+{{IN|Java}}, a charged creeper explosion that kills zombies, skeletons, [[wither skeleton]]s, [[piglin]]s, or other creepers causes one<ref>{{bug|MC-63534||Only one mob skull can be dropped if a Charged Creeper kills several mobs of the same type.|Works as Intended}}</ref> of those mobs to drop its corresponding [[Head|mob head]]. If multiple valid mobs are killed in the explosion, the one that drops a head is chosen at random. {{IN|bedrock}}, a charged creeper explosion that kills zombies, skeletons, wither skeletons, or other creepers causes all the killed mobs to drop their corresponding heads.
+
+A charged creeper does not drop its own head when it explodes, although any other charged creepers or creepers killed in the explosion drop a creeper head. Players and [[ender dragon]]s do not drop their heads,<ref>{{bug|MC-132933||Inconsistency: Player, Ender Dragon, and Wither don't drop their heads when killed by charged creeper|Works as Intended}}</ref> nor do mobs without corresponding mob heads, such as livestock animals.
+
+=== Disable creeper explosions ===
+{{exclusive|Java}}
+To disable creeper explosions while still allowing mob griefing (e.g. for villager farms), run the following command: <code>/execute as @e[type=creeper,tag=!noexplode] run data merge entity @s {ExplosionRadius:0,Tags:[noexplode]}</code>
+
+=== Farming ===
+{{Main|Tutorials/Creeper farming}}
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Creepers use the Hostile Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Creeper death.ogg
+|subtitle=Creeper dies
+|source=Hostile Creatures
+|description=When a creeper dies without exploding
+|id=entity.creeper.death
+|translationkey=subtitles.entity.creeper.death
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Creeper hurt1.ogg
+|sound2=Creeper hurt2.ogg
+|sound3=Creeper hurt3.ogg
+|sound4=Creeper hurt4.ogg
+|subtitle=Creeper hurts
+|source=Hostile Creatures
+|description=When a creeper is damaged
+|id=entity.creeper.hurt
+|translationkey=subtitles.entity.creeper.hurt
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Creeper fuse.ogg
+|subtitle=Creeper hisses
+|source=Hostile Creatures
+|description=When a creeper begins its explosion timer
+|id=entity.creeper.primed
+|translationkey=subtitles.entity.creeper.primed
+|volume=1.0
+|pitch=0.5
+|distance=16}}
+{{Sound table
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|subtitle=Explosion
+|source=block
+|description=When a creeper explodes
+|id=entity.generic.explode
+|translationkey=subtitles.entity.generic.explode
+|volume=4.0
+|pitch=0.56-0.84
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Creeper death.ogg
+|source=hostile
+|description=When a creeper dies
+|id=mob.creeper.death
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Creeper hurt1.ogg
+|sound2=Creeper hurt2.ogg
+|sound3=Creeper hurt3.ogg
+|sound4=Creeper hurt4.ogg
+|source=hostile
+|description=When a creeper is damaged
+|id=mob.creeper.say
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Creeper fuse.ogg
+|source=block
+|description=When a creeper begins its explosion timer
+|id=random.fuse
+|volume=1.0
+|pitch=0.5}}
+{{Sound table
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|source=neutral
+|description=When a creeper explodes
+|id=random.explode
+|volume=4.0
+|pitch=1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|displayname=Creeper
+|spritetype=entity
+|nameid=creeper
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Creeper
+|spritetype=entity
+|nameid=creeper
+|id=33
+|foot=1}}
+
+=== Entity data ===
+
+Creepers have entity data associated with them that contains various properties.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Archer}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|Adventure;Monster Hunter;Monsters Hunted;It Spreads}}
+</table-progress-tracking>
+
+== History ==
+{{History|java classic}}
+{{History||August 20, 2009|link=https://archive.org/download/Minecraft_IRC_Logs_2009/DBN-IRC-Logs/%23minecraft.20090820.log|[[File:Creeper (pre-release).png|24px]] A failed [[pig]] model is shown. [[Notch]] commented, "it looks creepier when animated ... haha, I'll keep it for a creepy creature. <nowiki>=D</nowiki>".{{Info needed|Was this texture affected by shadowing as well?}}}}
+{{History||September 1, 2009|link={{tumblr|notch|177152983}}|[[File:Creeper JE1.png|24px]] Creepers were shown on [[The Word of Notch]].
+|[[File:Creeper (fixed shadows) JE1.png|24px]] While the texture itself is bright, creepers appear darker than intended.
+|Creepers behave much like [[zombie]]s currently do, hopping around randomly until spotting the [[player]].
+|The melee attacks of creepers deal only {{hp|4}} worth of [[damage]] rather than the zombies' {{hp|6}}. 
+|When killed, creepers "lie down" like any other dead [[mob]] and cause a 4×4×4 spherical explosion that left a sizable crater, destroying plenty of [[block]]s and severely hurting any players nearby. 
+|The creeper is worth 250 points when killed.}}
+{{History||0.24_SURVIVAL_TEST|[[File:Creeper JE1.png|24px]] Added creepers.}}
+{{History||0.24_SURVIVAL_TEST_03|Creepers no longer drop [[water]] and [[lava]] items when blowing up the liquid.}}
+{{History||0.25 SURVIVAL TEST|[[Mob]]s, including creepers, are now more dangerous, respawn, despawn, and attack [[skeleton]]s if shot by them.}}
+{{History||October 20, 2009|link=https://notch.tumblr.com/post/218118974/slowly-coming-crawling-back|[[Notch]] mentioned that creepers no longer destroy rock-type [[block]]s.}}
+{{History||0.26 SURVIVAL TEST|[[File:Creeper JE2 BE1.png|24px]] The texture of creepers has been changed.
+|The [[explosion]]s of creepers no longer destroy [[stone]] or stone-like [[block]]s.
+|The explosions of creepers now leave smoldering.}}
+{{History||0.27 SURVIVAL TEST|The creeper is worth 200 points when killed.}}
+{{History|java indev}}
+{{History||0.31|snap=20091223-1|Creepers and other mobs no longer spawn naturally.}}
+{{History|||snap=20100202|Creepers and other mobs now spawn naturally again. However, they are currently passive.}}
+{{History|||snap=20100204-2|Creepers are now hostile again, and attack by approaching and exploding near players.{{verify|Was it in this version?}} Previously in Survival Test, creepers dealt melee damage and exploded only when killed by the player.}}
+{{History||20100219|Creepers now drop [[gunpowder|sulphur]] upon death.}}
+{{History||unknown|Creepers no longer produce leaf [[particles]] upon [[explosion]].}}
+{{History|java alpha}}
+{{History||v1.0.0|snap=?|Creepers would play the old [[player]] sound when taking damage. However, in the later versions, it was changed to using creeper hissing sounds. The old creeper explosion sound remained unchanged.}}
+{{History||v1.0.14|Added [[Music Disc|music discs]] "13" and "cat", which are dropped by creepers shot by [[skeleton]]s.}}
+{{History||v1.2.0|snap=?|slink=:Category:Information needed requiring unarchived version|Creepers now have a new [[damage]] [[sound]].
+Old damage sounds:<br>
+[[File:Creeper Oldhurt1.ogg]][[File:Creeper Oldhurt2.ogg]]<br>
+[[File:Creeper Oldhurt3.ogg]][[File:Creeper Oldhurt4.ogg]]}}
+{{History|java beta}}
+{{History||1.4|[[File:Java Edition logo 7.png|150px]] The 'A' in the ''[[Minecraft]]'' logo now includes a creeper face.}}
+{{History||1.5|[[File:Charged Creeper JE1 BE1.png|32px]] Creepers now become charged when struck by [[Thunderstorm#Lightning|lightning]], increasing the [[explosion]]'s radius and strength.}}
+{{History||1.8|snap=Pre-release|Creepers are now much more deadly, and can kill an unarmored [[player]], if in a radius of 4 to 5 [[block]]s around the creeper. This [[damage]] is also difficulty-independent.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 5|Creepers and other hostile [[mob]]s no longer attack the [[player]] in [[Creative]] mode, unless provoked.}}
+{{History|||snap=RC1|Creeper [[explosion]]s now have a new [[sound]].}}
+{{History||1.1|snap=11w50a|Creepers now drop all [[Music Disc|music disc]]s, except for "11".}}
+{{History||1.2.1|snap=12w05b|Creepers now run away from tamed [[cat]]s and [[ocelot]]s.}}
+{{History|||snap=12w07a|As part of the [[Mob#Behavior|AI]] overhaul, creepers no longer attack other [[mob]]s.{{info needed|I assume this means that they don't attack other mobs that attack the creeper if the creeper is already chasing the player, but if the creeper is not chasing after a player it'll still react to other mins attacking it?}}
+|Creepers no longer strafe toward the left of the [[player]], now stopping in front of the player.}}
+{{History||1.3.1|snap=12w30a|Creepers have been made stronger. Depending on difficulty, creeper [[damage]] is scaled now with Easy: ~50% less damage, Normal: same damage as before, and Hard: ~33% more damage than before. In full diamond [[armor]] and hard difficulty, a creeper can knock [[player]]s down to 2 hearts.<ref>{{tweet|dinner|227339500941082626|In full diamond armour + hard difficulty a creeper can knock you down to 2hearts!|July 23, 2012}}</ref>}}
+{{History||1.4.2|snap=12w38b|New creeper fall mechanics have been added; creepers now [[explosion|explode]], if they fall on the [[player]] from a certain height.}}
+{{History||1.4.4|snap=1.4.3|Creepers now drop music discs "11" and "wait".}}
+{{History||1.6.1|snap=13w18a|Creepers no longer explode when hit in [[Creative]] mode.}}
+{{History||1.7.2|snap=13w36a|Creepers can now be forcibly exploded by using [[flint and steel]].}}
+{{History||1.8|snap=14w05a|[[Player]]s can now see from the perspective of a creeper in [[Spectator]] mode. A green creeper shader is applied and the player is limited to the creeper's movements.}}
+{{History|||snap=14w11a|Other creepers, [[witch]]es, [[zombie]]s, [[skeleton]]s, [[spider]]s, [[cave spider]]s and [[zombie pigmen]] now run away from creepers that are about to explode.}}
+{{History|||snap=14w30a|Charged creepers now cause [[zombie]]s, [[skeleton]]s, [[Wither Skeleton|wither skeleton]]s and other creepers to drop [[head]]s.}}
+{{History|||snap=14w30b|Each charged creeper now causes the drop of only one [[head]], even if multiple head-dropping mobs are killed.}}
+{{History||1.8.1|snap=pre1|[[Mob]]s no longer run from creepers that are about to explode.
+|Creepers no longer attack [[iron golem]]s.}}
+{{History||1.9|snap=15w32a|The detection range of creepers is halved when the [[player]] is wearing a creeper [[mob head]].}}
+{{History|||snap=15w33c|The detection range for players wearing the creeper mob head is adjusted, now 37.5% of the normal range.}}
+{{History|||snap=15w36a|The detection range for [[player]]s wearing the creeper mob head is again 50% of the normal range.}}
+{{History|||snap=15w39a|Creepers are now slightly shorter (1.7 [[block]]s tall rather than 1.8).}}
+{{History|||snap=15w51a|Creepers no longer drop [[Music Disc|music disc]]s when [[game rule]] {{cd|doMobLoot}} is {{cd|false}}.<ref>{{bug|MC-51725||Gamerule doMobLoot does not affect the dropping of music discs|Fixed}}</ref>}}
+{{History||1.11|snap=16w32a|Creepers that explode while having a potion effect now leave behind an [[Lingering Potion#Area Effect Cloud|area effect cloud]] having that effect.
+|The [[namespaced ID]]s of creepers have been changed from {{code|Creeper}} to {{code|creeper}}.}}
+{{History||1.14|snap=18w43a|Creepers now drop music discs when killed by [[stray]]s.}}
+{{History||1.17|snap=21w15a|Creepers now show no hostility when attacked by a [[goat]].}}
+{{History||1.19.3|snap=Pre-release 2|Creepers can now be forcibly exploded by using a [[fire charge]].<ref>{{bug|MC-185618|||Fixed}}</ref>}}
+{{History||1.21|Creepers drop music discs when killed by [[bogged]]s.}}
+{{History||1.21.11|Creepers drop music discs when killed by [[parched]]s.}}
+
+{{History|pocket alpha}}
+{{History||v0.3.3|[[File:Creeper JE2 BE1.png|24px]] Added creepers.
+|They do not yet spawn naturally and require external help to spawn.<ref>https://youtu.be/vG167PET3o0</ref>
+|Creepers currently have old [[explosion]] sounds.
+|Creeper's explosions produce a white mist and have a smaller range.
+|Creepers strafe toward the left of the [[player]] and are as slow as zombies.}}
+{{History||v0.4.0|Creepers now spawn naturally.}}
+{{History||v0.7.4|Tapping and holding [[Flint and Steel|flint and steel]] on a creeper now causes it to automatically [[explosion|explode]].}}
+{{History||v0.9.0|snap=build 1|Creepers no longer float 2 pixels off the ground.}}
+{{History|||snap=build 2|An ignite button is now used to automatically explode a creeper when holding flint and steel, instead of tapping and holding.}}
+{{History|||snap=build 8|Creepers now use the new AI, so now they avoid fire, cactus, lava, and falling (and water when idle).}}
+{{History|||snap=build 9|Creepers now use the old AI again because them walking faster and not detonating.}}
+{{History||v0.9.2|Creepers now have a correct [[explosion]] range.
+|The detonation time for creepers has been fixed (would previously explode almost instantly).}}
+{{History||v0.11.0|snap=?|Creepers can now climb [[ladder]]s.}}
+{{History||v0.12.1|snap=build 1|Creepers now use the new AI again, now stopping in front of the player.|The creeper's moving speed and [[explosion]]s' knockback effect has been increased.
+|Creepers now [[explosion|explode]] if they fall on [[player]]s from a certain height.
+|[[File:Charged Creeper.png|32px]] Creepers now become charged when struck by [[Thunderstorm#Lightning|lightning]], increasing the [[explosion]]'s radius and strength.
+|Creepers now have the new explosion [[sound]].
+|Creepers now have the flashing animation and the explosions have shockwaves.}}
+{{History||v0.14.0|snap=build 1|Creepers are now slightly shorter (1.7 [[block]]s tall rather than 1.8).}}
+{{History||v0.16.0|snap=build 4|Creepers now have idle [[sound]]s.}}
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|Creepers now drop [[Music Disc|music disc]]s when killed by [[skeleton]]s.}}
+{{History||1.10.0|snap=beta 1.10.0.3|Creepers now drop music discs when killed by [[stray]]s.}}
+{{History||1.16.210|snap=beta 1.16.210.51|No longer attack back after being rammed by a [[goat]].}}
+{{History||1.20.10|snap=?|Creepers bobbing in water in a 1 block space no longer attack a swimming player for {{hp|3}}.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Creeper JE2 BE1.png|24px]] Added creepers.}}
+{{History||xbox=TU5|[[File:Charged Creeper.png|32px]] Added charged creepers.}}
+{{History||xbox=TU12|Creepers no longer attack other [[mob]]s. Before this update, a creeper shot by a [[skeleton]] would attack the skeleton, creating a crater in the process.}}
+{{History||xbox=TU14|ps=1.04|Creepers have been made stronger. Depending on difficulty, creeper [[damage]] is scaled now with Easy: ~50% less damage, Normal: same damage as before, and Hard: ~33% more damage than before. In full diamond [[armor]] and hard difficulty, a creeper can knock [[player]]s down to 2 hearts.
+|A creeper is now aggressive toward the last [[player]] that hit it.
+|The creeper's [[explosion]]s' knockback effect has been increased.
+|Creepers now [[explosion|explode]] if they fall on [[player]]s from a certain height.}}
+{{History||xbox=TU24|xbone=CU12|ps=1.16|The creeper's flashing animation has been updated.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|Creepers can now be forcibly exploded using [[Flint and Steel|flint and steel]].
+|Creepers drop a [[mob]] head when killed by a charged creeper.}}
+{{History||xbox=TU54|xbone=CU44|ps=1.52|wiiu=Patch 24|switch=1.0.4|Creepers that explode while having a [[potion]] effect now leave behind an [[Lingering Potion#Area Effect Cloud|area effect cloud]] having that effect.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|Creepers now drop [[Music Disc|music disc]]s when killed by [[stray]]s.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Creeper JE2 BE1.png|24px]] Added creepers.}}
+
+{{History|Earth}}
+{{History||0.2.0|[[File:Creeper JE2 BE1.png|24px]] Added creepers.}}
+{{History|foot}}
+
+<gallery>
+Original pig.jpg|The original [[pig]] model the creeper was based on.
+Creepers old 2009.png|The dark green creeper model.
+</gallery>
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+[[File:Creeper Danger.png|thumb|right|A sight that can scare even the most experienced ''Minecraft'' players.]]
+
+[[File:Creeper-WppWallpaper.png|thumb|right|A Creeper is seen on the default wallpaper of the [[Wikipedia:WhatsApp|WhatsApp]] application.]]
+
+*Besides Steve and the removed [[mob (entity)|mob]], the creeper is the oldest mob in ''Minecraft''.
+*[[Notch]] has stated on that "I imagine creepers as being made out of leaves or similar. I'm not sure why they explode."<ref>{{citation|url=http://web.archive.org/web/20190401000309/https:/twitter.com/notch/status/27860129973| title = I imagine them as being made out of leaves or similar. I'm not sure why they explode.}} – [https://twitter.com/notch @Notch], October 19, 2010</ref> When asked to describe its physical texture, he said they would feel "crunchy, like dry leaves.".<ref>{{tweet|notch|27464490580|I've imagined them as being crunchy, like dry leaves.|October 15, 2010}}</ref>
+**This can also be interpreted from the fact that the original texture for creepers is the same as an old texture of leaves.
+*Creepers are bright green color to camouflage them for the original classic ''Minecraft'' foliage textures, which were bright shades of green, but has since been changed.
+*In multiplayer, if a creeper is attacked by another player, and the other player runs out of sight, it does not attack any other players.
+*When asked how creepers trigger their explosive nature, [[Nathan Adams|Dinnerbone]] said "They're so nervous that they shake a lot, and then this sets them off the same way as how rubbing two sticks makes fire".<ref>{{tweet|Dinnerbone|408694324927676416|They're so nervous that they shake a lot, and then this sets them off the same way as how rubbing two sticks makes fire.|December 5, 2013}}</ref>
+*If a charged creeper is given [[Invisibility]], the "aura" effect is still visible.
+*A charged creeper explosion can inflict the greatest amount of damage any mob in the game can do at one time.
+*The creeper hiss sound uses the same sound file as when a block of TNT is primed but played at a lower pitch.
+*In [[A Minecraft Movie]], Creepers are visibly shown to have a grassy, leafy green skin. However, when they swell up to explode, they are shown to be quite hollow on the inside.
+
+=== Publicity ===
+
+Creepers have a formidable reputation in the community because of their potential to hurt or kill even veteran players and destroy structures. Their distinct appearance and destructive abilities have made them a widely recognizable ''Minecraft'' icon. Creepers are referenced in several of the items available at the ''Minecraft'' merchandise depot,<ref>[https://www.minecraftshop.com/ Official Minecraft Store]</ref> and have become an internet meme complete with fan art, webcomic references, and demotivational posters. A central part of the meme is the creeper's unofficial catchphrase derived from the mob's tendency to sneak up on the player and hiss before detonating:
+
+"''That'sssss a very nice <random valuable object> you've got there... It'd be a ssssshame if anything were to happen to it...''"<ref>{{citation|url=https://knowyourmeme.com/memes/minecraft-creeper| title = Minecraft Creeper|website=Know Your Meme}}</ref>
+
+Moe Szyslak took the appearance of a creeper and exploded in the Simpsons’ home within the 17th episode of season 25.
+
+In [[Captain Sparklez]]'s music video "Revenge"<ref>{{citation|url=https://www.youtube.com/watch?v=cPJUBQd-PNM| title = Creeper Aw Man|website=YouTube}}</ref>, where a player is chased by and fights creepers, the main viral lyric "Creeper? Aww, man!" became an iconic meme and quote over the years. 
+
+==== Merchandise ====
+
+Creepers have been portrayed in many ''Minecraft'' products including but not limited to:
+
+*The letter "A" in the ''Minecraft'' logo after [[Java Edition Beta 1.4]] (The previous logo was just "MINECRAFT" written with cobblestone blocks)
+*Stuffed toys.
+*Action figures.
+*Bracelets.
+*T-shirts
+**The creeper anatomy T-shirt reveals the insides of a creeper, and also reveals its scientific name: ''Creepus Explodus''.
+*[[LEGO Minecraft]]
+*Papercraft
+*''Minecraft'' Facebook profile image
+*In the goodie bags given out at Minecon 2011, creepers were given as a fold-able and tapable decoration for one's room or collection, along with [[diamond]] and [[grass block]].
+
+==== Appearances ====
+
+''TV series''
+*Several creepers have appeared on TV during episodes of the TV show [[wikipedia:Mad (TV series)|''Mad'']] (''Criminal Minecraft'' and ''ThunderLolcats'' <ref>{{ytl|ndA69KiffJE|MAD - Thunder Lolcats||&t=61s}}</ref>) In ''ThunderLolcats'' they use the catchphrase, saying "That'ssss.. a nice wall you've got there."
+
+''Console/PC games''
+*In [[wikipedia:Borderlands 2|''Borderlands 2'']], the {{F|borderlands|creeper}} appears in groups within a mineshaft in the most north-west part of Caustic Caverns, including [[dirt]], [[coal ore]], [[stone]], [[gold ore]], and a "Badass creeper" that is twice the strength and size of a regular creeper.
+*In [https://www.carbongames.com/ Airmech], creepers appear as a unit "skin" for the suicide bomber unit the boomer. Creepers can be either green, blue, or red, depending on the color of the team that makes them.
+*In Octodad: Dadliest Catch, a creeper head is seen on a shelf in the grocery store along with 2 Pickaxes and some grass blocks. It is part of a collection known as "Mintcraft".
+*In [http://www.awesomenauts.com Awesomenauts], one of the playable characters (Clunk) has a "skin" referencing the creeper, complete with hissing and exploding sound effects.
+*A creeper can be seen and interacted with in a level from the game [http://mcpixel.net/ McPixel].
+*Seen as [https://terraria.wiki.gg/wiki/Creeper_set a Halloween costume] in the 2D action-adventure, open-world sandbox / platformer game, [https://terraria.wiki.gg/wiki/Terraria ''Terraria''].
+*In [https://evoland.gamepedia.com/Evoland_2 Evoland 2], a game designed as a tribute to many classic games, "Dreaded Creepers" can be found as a mob in [https://evoland.gamepedia.com/The_Mine The Mine, present era]. If the player gets killed by a Dreaded Creeper, they unlock the [https://evoland.gamepedia.com/Evoland_2_achievements#sssSSSSSss_BOOM.21 sssSSSSSss BOOM!] achievement.
+*The Creeper makes various appearances in the crossover fighting game ''[[Super Smash Bros. Ultimate]]'', as it appears as a DLC costume for the [https://www.ssbwiki.com/Mii_Brawler_(SSBU) Mii Brawler], It also appears as a "spirit", and they also appear in Steve's Final Smash, the [https://www.ssbwiki.com/House_of_Boom House of Boom].
+*The Creeper, along with Steve and Alex, appear in Sonic Racing: Crossworlds as DLC Racers. Creeper's racer type is Acceleration, while Steve and Alex's are Power.
+
+''Flash games''
+*In ''Stealing the Diamond'' (The Henry Stickmin Collection), when Henry Stickmin sneaks up to the museum's outer wall and attempts to mine it with a [[pickaxe]], a creeper suddenly comes up behind him and explodes, destroying a part of the wall instead.
+*At the far end of the map in [http://www.xgenstudios.com/play/stick-rpg-2 ''Stick RPG2''], a smiling creeper can be seen in a hole at ground level.
+*One of the things the player can hit in [http://ks.renai.us/viewtopic.php?f=3&t=3071 ''Katawa Crash''] is a creeper.
+*In the game [http://www.transformice.com/ ''Transformice''], there is a creeper head that the player may purchase as a hat for their mouse.
+
+''Other games''
+*In a game called Quube Twodee made by Universal Chicken in Adelaide, Australia, one of the levels has a creeper face.
+*PixelJunk Shooter 2 for the PS3 shows a small creeper in the title screen hidden among other enemies native to Shooter 2.
+*In a [[Notch]]-designed custom level for VVVVVV, "Pyramid Escape", a creeper's face can be seen carved into the background to the far left of the pyramid.
+*In Torchlight II, the {{F|torchlight|creeper}} appears in an uncommonly generated side area of Act III's Sundred Battlefield called "{{F|torchlight|Notch%27s_Mine|text=Notch's Mine}}". As expected, the creepers found inside run toward the player and explode, leaving behind several [[dirt]] blocks. A chest at the end of the area can contain one of five Rare [[sword]]s with their own unique attributes.
+*In a game called [http://www.silvergames.com/strollin ''Strollin''], there is a purchasable creeper item, which makes bombs throw the player farther.
+*In Geometry Dash, beating level 16 (Hexagon Force) on normal mode rewards the player with a creeper face cube. This can also be colored to make it look like a normal one.
+
+''Other''
+*On Monday, June 18, 2012, a creeper was sent above the clouds into space.<ref>{{citation|url=https://web.archive.org/web/20160416233159/http://www.benoxley.com:80/physoc-outreach/| title = Physoc Outreach|website=Ben Oxley|date=June 18, 2012}}</ref>
+*As part of an official collaboration, creepers are included as monsters in a free add-on for the roleplaying game Dungeons & Dragons.<ref>https://www.dndbeyond.com/claim/source/minecraft-creatures-monstrous-compendium</ref> In the game, they are "Monstrosities" and have the alignment "Typically Neutral Evil".
+
+== Gallery ==
+<gallery>
+CreeprClose.png|A creeper staring at the [[player]].
+Creeper Pre-explosion.png|A creeper that is about to explode.
+Creeper Explosion.gif|Creeper explosion.
+ExplosionComparison.png|Comparison of explosion craters. From left to right: charged creeper, [[TNT]], creeper.
+Creeper Death.png|A creeper dying.
+Creeper View.png|A creeper's vision when [[Spectator#Mob view|spectating]] it.
+Creeper Vision.png|A forest at night through a creeper's eyes.
+CreeperExplosion .png|A creeper explosion that damaged a [[village]] house.
+Firework Star (Creeper Shape).gif|Creeper face-shaped firework.
+ZV_CloakCreeperDesign.png|A creeper face can be seen on the design of this [[Zombie Villager]]'s cloak.
+A creeper in Alpha.png|A creeper in the Alpha version of the game.
+Creeper peeking through a glass window.png|Creeper peeking through a glass window.
+Nerd Creeper.png|A [[Nerd Creeper|nerd creeper]] in [[Java Edition 3D Shareware v1.34|Minecraft 3D]] (Can be seen by typing “NEEEERD”).
+Charged creeper next to a normal creeper.png|A charged creeper next to a normal creeper.
+Photobomb.png|A creeper about to explode.
+Creeper (Trails & Tales Event).png|The Secret Creeper, featured in the [[Trails & Tales Event]].
+</gallery>
+
+=== Official artwork ===
+<gallery>
+CreeperArtwork.png|Artwork of a creeper.
+CreeperFaceArtwork.png|Artwork of a creeper's face.
+Creeper Sticker.gif|Creeper art
+Caves & Cliffs cover art.png|A creeper in promotional artwork for the first [[Caves & Cliffs]] update.
+Caves & Cliffs (Part II) Artwork.jpg|Creepers in promotional artwork for the second [[Caves & Cliffs]] update.
+Wild key art.png|A creeper in official artwork for [[The Wild Update]].
+File:Creeper Migration.jpg|Artwork of a creeper used to signal the end of account migration.<ref> https://www.minecraft.net/en-us/article/account-migration-last-call</ref>
+File:Spookyfest.jpg|Artwork for the ''Minecraft'' Spookyfest event, featuring a creeper.<ref> https://www.minecraft.net/en-us/article/the-minecraft-spookyfest-upon-us-</ref>
+File:Creeper Bit Marshmallows.png|Promotional artwork for a ''Minecraft'' collaboration with Kellogg’s Frosted Flakes.
+File:Creepy Chasing Pac-Man.jpg|“[https://pacman.fandom.com/wiki/Creepy Creepy],” a ghost resembling a creeper featured in the ''Pac-Man'' DLC.
+File:Creeper Chao.jpg|A [https://sonic.fandom.com/wiki/Chao Chao] resembling a creeper, featured in the ''Sonic the Hedgehog'' DLC.
+File:Creeper Badnik.jpg|Artwork of a creeper as it appears in the ''Sonic the Hedgehog'' [[Texture Pack DLC|texture pack]].
+File:Collect and survive with our latest drop Bundles of Bravery! Minecraft.jpg
+File:Grab your free Soundscape+ add-on and other deals in Marketplace! Minecraft.jpg
+</gallery>
+
+=== Cosmetics ===
+<gallery>
+File:Greek Creeper.png|[[Mash-up pack|Greek Mythology mash-up pack]]
+File:City Creeper.png|[[Texture Pack DLC|City texture pack]]
+File:Creeper Steve Boxhead.png|Creeper [[Steve]] Boxhead, a skin featured in the [[Skin pack|1st Birthday skin pack]].
+File:Halloween Ghost Creeper.png|[[Mash-up pack|Halloween mash-up pack]]
+File:Party Creeper.png|Party Creeper, another skin featured in the 1st Birthday skin pack.
+</gallery>
+
+=== In other media ===
+==== ''[[Minecraft: Story Mode]]'' ====
+<gallery>
+Monster Horde Story Mode.jpg|[[Minecraft Story Mode:Creeper|Creeper]] as it appears in ''[[Minecraft: Story Mode]]''.
+MCSM Creeper.png|More imagery of creepers from ''[[Minecraft: Story Mode]]''.
+MCSM Creeper Texture.png|The texture file for the creeper in ''Minecraft: Story Mode''.
+File:Icy Ender Creeper.png|[[Minecraft Story Mode:Icy Ender Creeper|Icy ender creeper]], a unique hybrid of a creeper and [[enderman]] exclusive to the game.
+File:Creeder.png|The [[Minecraft Story Mode:Creeder|creeder]], a hybrid of a creeper and [[spider]], also unique to the game.
+File:Creeders screenshot.png|A screenshot of a group of creeders chasing [[Jesse]].
+</gallery>
+
+==== ''[[Minecraft Dungeons]]'' ====
+<gallery>
+File:Creeper (Dungeons).png|A [[MCD:Creeper|creeper]] as it appears in ''[[Minecraft Dungeons]]''.
+File:Charged Creeper (Dungeons).png|A [[MCD:Charged Creeper|charged creeper]] as it appears in ''Minecraft Dungeons''.
+File:Icy Creeper.png|An [[MCD:Icy Creeper|icy creeper]], a unique variation exclusive to the game.
+File:Creeper Woods.png|[[MCD:Creeper Woods|Creeper Woods]], a [[MCD:Mission|mission]] themed around creepers.
+</gallery>
+
+==== ''[[Minecraft Legends]]'' ====
+<gallery>
+File:Creeper Render MCL.png|A [[MCL:Creeper|creeper]] as it appears in ''[[Minecraft Legends]]''.
+File:Creeper Homestead Banner MCL.png|The [[MCL:Creeper Homestead|Creeper Homestead]], a location featured in the game.
+File:Minecraft Legends Creeper Age of Empires.gif|Several creepers in the [[Minecraft Legends:Age of Empires 2 Collaboration|Age of Empires 2 Collaboration]].
+</gallery>
+
+==== ''[[Super Smash Bros. Ultimate]]'' ====
+<gallery>
+Creeper mii fighter costume.jpg|The Creeper Mii Brawler costume in ''[[Super Smash Bros. Ultimate]]''.
+SSBU spirit Creeper.png|Creeper Spirit from ''Super Smash Bros. Ultimate''.
+</gallery>
+
+==== [[LEGO Minecraft]] ====
+<gallery>
+LEGO Minecraft Micro-Mobs.jpg|Creeper and Steve micromobs from official [[LEGO Minecraft|LEGO ''Minecraft'']].
+LEGO Creeper.png|Creeper minifigure.
+LEGO Charged Creeper.png|Charged creeper minifigure.
+LEGO Exploding Creeper.png|Exploding creeper minifigure.
+LEGO Enchanted Creeper.png|[[MCD:Enchanted|Enchanted]] creeper minifigure.
+LEGO Minecraft Creeper Mine Unboxed.png|Creeper Mine LEGO set.
+LEGO Minecraft Creeper Bigfig Unboxed.png|Creeper BigFig with ocelot.
+LEGO Brickheadz Steve and Creeper Unboxed.png|Steve and creeper BrickHeadz figures.
+LEGO Minecraft Creeper Keychain.png|Creeper minifigure keychain.
+</gallery>
+
+==== ''[[A Minecraft Movie]]'' ====
+<gallery>
+File:MinecraftMovieCreeper.webp|A Creeper sneaking behind [[A Minecraft Movie| Garrett]]
+File:creeper-in-minecraft-1024x576.webp|A Creeper flashing
+File:A_Minecraft_Movie_Teaser.jpg|A Minecraft Movie Teaser Poster, featuring the iconic Creeper Face.
+</gallery>
+
+==== Minecraft Merchandise ====
+<gallery>
+File:Creeper Canopy.jpg|A photograph featuring many pieces of official creeper merchandise.
+Notch Creeper Face Shirt.png|A creeper face shirt.
+Creepus Explodus JINX.jpg|Official artwork "Creeper Anatomy" for merchandise made by [https://www.jinx.com/p/minecraft_creeper_scarf.html JINX].
+Creepers Gonna Creep JINX.jpg|Official artwork "Creepers Gonna Creep" for merchandise made by JINX.
+Drop it Creep JINX.jpg|Official artwork "Drop it Creep" for merchandise made by JINX.
+Retro Creeper JINX.jpg|Official T-shirt artwork "Retro Creeper" made by JINX.
+Three Creeper Moon JINX.jpg|Official T-shirt artwork "Three Creeper Moon" made by JINX. The name and graphics are a reference to {{Wikipedia|Three Wolf Moon}}.<ref>https://www.escapistmagazine.com/jinx-and-mojang-team-up-for-official-minecraft-merchandise/</ref>
+Creeper Demolition Company JINX.jpg|Official T-shirt artwork "Demolition Company" made by JINX.
+Creeper Glyph JINX.jpg|Official T-shirt artwork "Glyph" made by JINX.
+File:Creeper Pride.jpg|"Rainbow Creeper," an official T-Shirt design sold to celebrate Pride Month.
+File:Creeper Sweater.jpg|"Minecraft Seasons Greetings Creeper Ugly Holiday Sweater"
+Creeper Premium Zip-up Hoodie JINX.jpg|Official creeper premium zip-up hoodie made by JINX.
+Creeper Inside JINX.jpg|Official T-shirt artwork "Creeper Inside" made by JINX.
+Creeper Inside Sticker JINX.jpg|Official sticker "Creeper Inside" made by JINX.
+Creeper Inside Wall Cling JINX.jpg|Official wall decal "Creeper Inside" made by JINX.
+Creeper SSSsss Sticker.jpg|Official sticker "Creeper SSSsss" made by JINX.
+Creeper Face Sticker.jpg|Official creeper face sticker made by JINX.
+Computronic JINX.jpg|Official poster made by JINX that features a creeper.
+Creeper Plush Toy with Sound JINX.jpg|Official creeper plushy with sound made by JINX.
+Creeper Anatomy JINX.jpg|Official creeper vinyl minifigure made by JINX.
+Creeper Action Figure JINX.jpg|Official creeper action figure made by JINX.
+Poppable Creeper Figure.jpg|Official poppable 5-inch Creeper figure by [https://www.jinx.com/p/minecraft_survival_mode_exploding_creeper_5_figure.html JINX].
+Creeper Vinyl JINX.jpg|Official creeper vinyl minifigure made by JINX.
+Plastic Creeper Face Mug JINX.jpg|Official creeper face mug made by JINX.
+Creeper Flexfit Hat.jpg|Official creeper hat made by JINX.
+Creeper Face Premium Snap Back Hat JINX.jpg|Official creeper hat made by JINX.
+Creeper Head JINX.jpg|Official creeper head cosmetic made by JINX.
+Creeper Bracelet JINX.jpg|Official creeper bracelet made by JINX.
+Creeper Pendant Necklace JINX.jpg|Official creeper pendant on a necklace made by JINX.
+Creeper Face Leather Wallet JINX.jpg|Official creeper wallet made by JINX.
+Creeper Face Beanie JINX.jpg|Official creeper beanie made by JINX.
+Creeper Scarf.jpg|Official creeper scarf by JINX.
+Creeper Plushies.jpg|Official creeper plushies made by JINX.
+Minecraft creeper backpack.jpg|A ''Minecraft'' creeper backpack from [http://www.thinkgeek.com/product/1758/ ThinkGeek].
+File:Neon Creeper Blanket.jpg|"Minecraft Digital Print," a design featured on a throw blanket.
+</gallery>
+
+==== Other ====
+<gallery>
+File:MCMobSquadDftC.png|A creeper as it appears on the cover of ''[[Minecraft: Mob Squad: Don't Fear the Creeper]]''.
+File:Mobestiary Cover.jpg|A creeper as depicted on the cover of the ''Mobestiary''.
+Creeper Mobestiary.jpg|Anatomy of a creeper, as seen in the ''[[Minecraft: Mobestiary|Mobestiary]]''.
+Creeper Statblock.png|The official creeper statistics for [https://en.wikipedia.org/wiki/Dungeons_%26_Dragons ''D&D''].
+Creeper in Stick RPG 2.png|A creeper Easter egg that can be found in a game called [[w:c:stickrpg2:Stick RPG 2|''Stick RPG 2'']].
+Hexagon Force.jpg|The ''Geometry Dash'' achievement that unlocks a creeper icon.
+Henrystickmincreeper.png|The creeper from ''Henry Stickmin''.
+Terraria Creeper.png|The Creeper set from ''Terraria''.
+</gallery>
+
+=== Textures ===
+<gallery>
+File:Creeper (texture) JE2.png
+File:Creeper Armor (texture).png|Charged creeper overlay.
+File:Creeper (texture) 15w14a.png|[[Smiling Creeper|Smiling creeper]]
+File:Nerd Creeper Overlay.png|[[Nerd Creeper|Nerd creeper]] overlay.
+File:Creeper (texture) JE1.png|Original texture file of the creeper. Notice the leaves.
+</gallery>
+
+== References ==
+{{Reflist|2}}
+
+== External links ==
+*[https://www.minecraft.net/en-us/article/meet-creeper Meet the Creeper] – Minecraft.net on May 15, 2017
+
+{{Entities}}
+
+[[Category:Hostile mobs]]
+[[Category:Monster mobs]]
+
+[[cs:Creeper]]
+[[de:Creeper]]
+[[el:Creeper]]
+[[es:Creeper]]
+[[fr:Creeper]]
+[[hu:Creeper]]
+[[it:Creeper]]
+[[ja:クリーパー]]
+[[ko:크리퍼]]
+[[nl:Creeper]]
+[[pl:Creeper]]
+[[pt:Creeper]]
+[[ru:Крипер]]
+[[th:ครีปเปอร์]]
+[[tr:Creeper]]
+[[uk:Кріпер]]
+[[zh:苦力怕]]
+[[Category:Armless mobs]]
+[[Category:Retaliating mobs]]
+[[Category:Ranged-attack mobs]]

@@ -1,0 +1,221 @@
+{{about|the map used to find rare structures|the craftable map|Map|others|Map (disambiguation)}}{{Needs updating|Add info on the new jungle, swamp, and village maps in Java 1.20.2 Pre-Release 1.}}
+{{Item
+| image = <gallery>
+Ocean Explorer Map.png | Ocean
+Woodland Explorer Map.png | Woodland
+Buried Treasure Map.png | Buried Treasure
+</gallery>
+|image2 = <gallery>
+Ocean Explorer Map BE.png | Ocean (BE)
+Woodland Explorer Map BE.png | Woodland (BE)
+Buried Treasure Map BE.png | Buried in Treasure (BE)
+</gallery>
+| renewable = 
+* '''Buried Treasure''': No
+* '''Woodland, Ocean, and Trial Chambers''': Yes
+| stackable = Yes (64)
+}}
+An '''explorer map''' is a special [[map]] used to aid in finding rare [[generated structures]], including [[woodland mansion]]s, [[ocean monument]]s, [[buried treasure]]s and [[trial chambers]].
+
+== Obtaining ==
+=== Trading ===
+Journeyman-level [[cartographer]] villagers sell ocean explorer maps for 13 emeralds and a compass, as well as trial explorer maps for 12 emeralds and a compass. Master-level cartographer villagers sell woodland explorer maps for 14 emeralds and a compass.
+
+{{IN|java}}, if the cartographer is in [[the Nether]] or [[the End]], either spawned or transported, the trades for the map do not unlock. However, {{in|bedrock}}, the cartographer trades for the map are unlocked, but the purchased map shows the same layout as in the corresponding dimension and shows no destination structure, but if cartographer trades are unlocked in an old world type (prior-1.11.0), the game stops ticking.
+
+In ''Java Edition'', each cartographer sells its own unique explorer map that points to a different location than other cartographers. Purchasing another explorer map from the same cartographer results in the same explorer map. In Bedrock Edition, a cartographer sells an explorer map that points to the nearest location, regardless of whether it is explored or previously mapped by another cartographer.<!-- start to glitched out-->
+
+=== Chest loot ===
+Treasure maps, in contrast to explorer maps, generate in underwater ruins or in shipwrecks.
+{{LootChestItem|buried-treasure-map}}
+
+== Usage ==
+[[File:Explorer Map Comparison.gif|thumb|217px|Unexplored and partially explored maps.]]
+
+{{See also|Map#Mapping|Map#Map content}}
+
+=== Locating structures ===
+There are three types of explorer maps: woodland, [[ocean]], and buried treasure. The maps differ from a normal map, in that it shows the area's land-water outline, with an orange striated (striped) texture for water<ref>Specifically, biomes in the "water_on_map_outlines" [[Tag#Biomes|biome tag]].</ref>, and the blank map texture for land. The maps show a section of land that contains a [[woodland mansion]], [[monument]] or [[buried treasure]] respectively. This may not be the nearest such [[structure]] to the [[player]]. The structures are displayed as a small icon. If the player icon is smaller than it would be on a normal map, that means the player is a great distance away. When the player is less than 1027 blocks away from the map border, the icon returns to the proper size. When the player reaches the map's area of land (512×512), the [[map]] fills in like a normal map.
+
+The basic functions of a buried treasure explorer map are similar to that of the other two. However, instead of showing the structure icon on the map, it shows a red X instead. The [[buried treasure]] structure is located on the same X and Z coordinates as the middle of the X (the player marker may need to be aligned with the bottom of the middle 2×2 pixel square of the X). To locate the [[chest]] spot, hold the treasure map with both hands, not in the offhand slot.
+
+=== Cloning ===
+{{Crafting
+|showdescription=1
+|shapeless=1
+|name=[[Explorer Map]]<br>(cloned)
+|;;;Empty Map;Empty Map;Empty Map;Empty Map;Empty Map 
+|;;;;Empty Map;Empty Map;Empty Map;Empty Map
+|;;;;;Empty Map;Empty Map;Empty Map
+|Ocean Explorer Map; Woodland Explorer Map; Buried Treasure Map; Ocean Explorer Map; Woodland Explorer Map; Buried Treasure Map; Ocean Explorer Map; Woodland Explorer Map
+|Empty Map
+|;;;;;;Empty Map;Empty Map 
+|;Empty Map;Empty Map;Empty Map;Empty Map;Empty Map;Empty Map;Empty Map 
+|;;Empty Map;Empty Map;Empty Map;Empty Map;Empty Map;Empty Map
+|;;;;;;;Empty Map
+|Output= Ocean Explorer Map,2; Woodland Explorer Map,3; Buried Treasure Map,4; Ocean Explorer Map,5; Woodland Explorer Map,6; Buried Treasure Map,7; Ocean Explorer Map,8; Woodland Explorer Map,9
+|type= Miscellaneous
+|description=The output has the same map center as the input map, and the same [[monument]], [[woodland mansion]] or [[buried treasure]] marker. Cloned maps are stackable.
+}}
+
+The parts of the world that have already been explored and mapped are copied, and newly explored areas appear on both instances. In Creative mode, cloned explorer maps can be obtained by pick blocking on the explorer map displayed on [[item frames]] (the map needs to be out of the [[player]]'s inventory when using pick block, or else that map moves into the active hotbar slot).
+
+== Sounds ==
+{{edition|java}}:
+{{Sound table
+|sound=Drawmap1.ogg
+|sound2=Drawmap2.ogg
+|sound3=Drawmap3.ogg
+|subtitle=Map drawn
+|source=block
+|description=When an explorer map is edited using a cartography table
+|id=ui.cartography_table.take_result
+|translationkey=subtitles.ui.cartography_table.take_result
+|volume=1.0
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}: ''None''
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Map
+|spritetype=item
+|nameid=filled_map
+|form=item
+|translationkey=filled_map.mansion,filled_map.ocean,filled_map.buried_treasure,filled_map.trial_chambers{{verify}}
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|showaliasids=y
+|shownumericids=y
+|showforms=y
+|notshowbeitemforms=y
+|generatetranslationkeys=y
+|displayname=Map
+|spritetype=item
+|nameid=filled_map
+|aliasid=map
+|id=358
+|form=item
+|translationkey=item.map.exploration.monument.name,item.map.exploration.mansion.name,item.map.exploration.treasure.name
+|foot=1}}
+
+=== Metadata ===
+{{see also|Bedrock Edition data values}}
+{{IN|bedrock}}, the item [[Data value]] distinguishes explorer maps from one another:
+
+{{:Map/DV}}
+
+=== Item data ===
+An explorer map differs from a map in that its <code>display</code> tag is set, which includes a <code>Mapcolor</code> and a <code>LocName</code>; also its <code>Decorations</code> list includes an entry for its target monument, mansion or buried treasure. Its [[Map item format#map_<#>.dat format|map item entry]] is identical to that of a normal map, except that by the time the player sees it, its <code>colors</code> byte array is pre-filled with explorer maps' characteristic land-water boundary lines and water shading.
+
+<div class="treeview">
+It should be noted that this additional data is stored in the Cartographer's NBT data and in the inventory item's NBT data, and not in the map file (e.g. <samp>map_0.dat</samp>). If the [[player]] were to use the {{cmd|give}} command to give themselves a map with the same map ID as an existing explorer map, it would still have the Ocean Monument or the Woodland Mansion icon on the map, but it would simply be named "Map" instead of, for example, "Ocean Explorer Map".
+* {{nbt|compound}} Item data
+** {{nbt|compound|tag}}: 
+*** {{nbt|compound|display}}: How the map looks in an item slot. See also [[Player.dat_format#Display Properties]].
+**** {{nbt|string|Name}}: The name the map is given. In this case, they are localized strings: either <code>{"translate":"filled_map.monument"}</code>,<code>{"translate":"filled_map.mansion"}</code>, <code>{"translate":"filled_map.buried_treasure"}</code>, or <code>{"translate":"filled_map.trial_chambers"}</code>{{verify}}.
+**** {{nbt|int|MapColor}}: Color codes are calculated from the Red, Green and Blue components using this formula:<br>'''<span style="color:red">Red</span>[[wikipedia:Logical shift|<<]]16 + <span style="color:green">Green</span><<8 + <span style="color:blue">Blue</span>'''.<ref group=note>For positive values larger than 0x00FFFFFF, the top byte is ignored. All negative values produce white.</ref> Monument maps use 3830373, which is {{color swatch|58|114|101}}. Mansion maps use 5393476, which is {{color swatch|82|76|68}}. Buried treasure explorer maps do not use a color code.
+*** {{nbt|list|Decorations}}:
+**** {{nbt|compound}}: One of these for each icon on the map. Explorer maps always have at least one representing their target.
+***** {{nbt|string|id}}: An arbitrary unique string identifying the decoration. For explorer map target structures, this is "+".
+***** {{nbt|double|rot}}: The rotation of the icon. For explorer map target structures, this is always 180.
+***** {{nbt|byte|type}}: The ID of the [[Map#Map icons|map icon]]: 8 for a mansion map, 9 for a monument map, 26 for a treasure map.
+***** {{nbt|double|x}}: The world x-coordinate of the target structure icon.
+***** {{nbt|double|z}}: The world z-coordinate of the target structure icon.
+</div>
+; Notes
+{{notelist}}
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Treasure Hunter}}
+</table-progress-tracking>
+
+== History ==
+{{History|java}}
+{{History||1.11|snap=16w39a|[[File:Woodland Explorer Map JE1 BE1.png|32px]] [[File:Ocean Explorer Map JE1 BE1.png|32px]] Added woodland and ocean explorer maps.}}
+{{History|||snap=16w41a|Explorer maps can now no longer be zoomed out.}}
+{{History||1.13|snap=18w10a|[[File:Map (item) JE1 BE1.png|32px]] Added buried treasure explorer maps.}}
+{{History|||snap=18w11a|Buried treasure explorer maps now generate in the [[chest]]s of [[shipwreck]]s.}}
+{{History||1.14|snap=18w43a|[[File:Woodland Explorer Map JE2 BE2.png|32px]] [[File:Ocean Explorer Map JE2 BE2.png|32px]] [[File:Map (item) JE2 BE2.png|32px]] The textures for explorer maps have now been changed.}}
+{{History||1.20.2|snap=1.20.2 Pre-release 1|Updated structure icons on explorer maps sold by cartographers.}}
+{{History||Villager Trade Rebalance<br>(Experimental)|link=Java Edition 1.20.2|snap=1.20.2 Pre-release 1|Added seven new maps which cartographers can sell.}}
+
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|[[File:Woodland Explorer Map JE1 BE1.png|32px]] [[File:Ocean Explorer Map JE1 BE1.png|32px]] Added explorer maps.<ref>{{Mcnet|discovery-update-pocket-and-win-10-soon|The Discovery Update: on Pocket and Win 10 soon|March 29, 2017}}</ref>
+|Explorer maps are not yet obtainable in [[survival]] mode.}}
+{{History|||snap=alpha 1.1.0.3|Explorer maps are now obtainable as [[trading|trades]] from [[cartographer]] [[villager]]s.}}
+{{History|bedrock}}
+{{History||1.4.0|snap=beta 1.2.14.2|[[File:Map (item) JE1 BE1.png|32px]] Added buried treasure explorer maps.}}
+{{History|||snap=beta 1.2.20.1|Treasure maps now generate in [[underwater ruins]] [[chest]]s.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Woodland Explorer Map JE2 BE2.png|32px]] [[File:Ocean Explorer Map JE2 BE2.png|32px]] [[File:Map (item) JE2 BE2.png|32px]] The textures for explorer maps have now been changed.}}
+{{History||1.11.0|snap=beta 1.11.0.4|[[Trading]] has now been changed, woodland and ocean explorer maps now cost a [[compass]] and 12 [[emerald]]s.
+|Journeyman-level [[cartographer]] [[villager]]s no longer [[trading|sell]] 2 type of explorer map as they now have {{frac|1|3}} chance to sell woodland explorer maps, {{frac|1|3}} chance to sell ocean explorer maps, or {{frac|1|3}} chance to sell other [[item]]s<!-- empty locator map--> as part of their [[trading|trades]].
+|Woodland explorer maps can now be [[trading|bought]] from fletcher [[villager]]s.}}
+{{History||1.12.0|snap=beta 1.12.0.3|Journeyman-level fletcher villagers no longer [[trading|sell]] woodland explorer maps.}}
+{{History||1.13.0|snap=beta 1.13.0.1|[[File:Woodland Explorer Map BE3.png|32px]] [[File:Ocean Explorer Map BE3.png|32px]] [[File:Buried Treasure Map BE3.png|32px]] The textures of explorer maps have now been changed.}}
+{{History||1.16.100|snap=beta 1.16.100.56|The ID of maps has been changed from <code>map</code> to <code>filled_map</code>.}}
+
+{{History|console}}
+{{History||xbox=TU54|xbone=CU44|ps=1.52|wiiu=Patch 24|switch=1.0.4|[[File:Woodland Explorer Map JE1 BE1.png|32px]] [[File:Ocean Explorer Map JE1 BE1.png|32px]] Added explorer maps.}}
+{{History|PS4}}
+{{History||1.90|[[File:Woodland Explorer Map JE2 BE2.png|32px]] [[File:Ocean Explorer Map JE2 BE2.png|32px]] The textures for explorer maps have now been changed.}}
+
+{{History|new3ds}}
+{{History||1.9.19|[[File:Woodland Explorer Map JE1 BE1.png|32px]] [[File:Ocean Explorer Map JE1 BE1.png|32px]] Added explorer maps.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list}}
+
+== Trivia ==
+* When a [[cartographer]] generates the trade offers for the explorer maps, it chooses the location of one of the nearest structures of the respective type ([[monument]] or [[woodland mansion]]).
+* For the reason above, explorer maps obtained from one cartographer are always the same. Also, if two cartographers unlock the explorer map trades approximately at the same place and at the same time, the map locations are usually identical. This sometimes also happens when finding multiple treasure maps from [[ocean ruins]].
+* Explorer maps fill as the [[chunk]]s are generated, rather than when the [[player]] holds them while in the area; leaving an explorer map while exploring the area still fills the map.
+* Buried treasure explorer maps are named ''Buried Treasure Map'' {{in|java}} while {{in|bedrock}}, they are named ''Treasure Map''.
+* It is possible for a cartographer to give a monument or woodland mansion explorer map for areas where the [[generated structures|structures]] would have spawned in the world, but were unable to as a result of terrain generation. As a result, explorer maps, unfortunately, don't always guarantee that a structure exists at the purported location. This is most common with woodland mansion explorer maps, due to its generation algorithm.
+* On [[Bedrock Edition]], inventory editors and add-ons can be used to create Explorer Maps that lead to any structure.
+
+== Gallery ==
+<gallery>
+File:Explorer Maps.png|An ocean explorer map in the [[off-hand]], a woodland explorer map in the main hand, and a [[cartographer]] [[villager]] in between them.
+File:Partial Explorer Map.png|A partially-explored explorer map.
+File:ExplorerToNormal Map Comparison.png|Two fully-explored maps of the same place, one of which is a woodland explorer map.
+File:Buried Treasure Explorer Map.png|An [[item frame]] holding a buried treasure explorer map. The player can see the red X on the left side of the map.
+File:Purchase.png|Purchasing explorer maps from a cartographer.
+</gallery>
+
+== See also ==
+* [[Map]]
+* [[Woodland Mansion]]
+* [[Ocean Monument]]
+* [[Shipwreck]]
+* [[Buried treasure]]
+
+== References ==
+{{reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/taking-inventory--explorer-map Taking Inventory: Explorer Map] – Minecraft.net on November 13, 2019
+
+{{Items}}
+
+[[de:Schatzkarte]]
+[[es:Mapa (localización de estructura)]]
+[[fr:Carte d'exploration]]
+[[ja:探検家の地図]]
+[[ko:탐험 지도]]
+[[pl:Mapa eksploracyjna]]
+[[pt:Mapa de exploração]]
+[[ru:Карта сокровищ]]
+[[zh:探险家地图]]

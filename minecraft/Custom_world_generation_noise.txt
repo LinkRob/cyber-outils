@@ -1,0 +1,11 @@
+<div class="treeview">
+* {{Nbt|compound}}: The root object.<onlyinclude>
+** {{Nbt|int|firstOctave}}: First octave. If {{nbt|bool|legacy_random_source}} in the noise settings is true, it must be an integer less than or equal to 1, otherwise the value range is not unlimited.
+** {{Nbt|list|amplitudes}}: Amplitudes of sub-noise. The frequency of a sub-noise at <code>index</code> (from 0) in the list is <code>2^(- firstOctave + index)</code>, and the amplitude (the value of the sub-noise ranges from <code>-amplitude</code> to <code>+amplitude</code>) of this sub-noise is about <code>1.04 * doubleValueAtIndex * 2^(sizeOfThisList - index - 1) / (2^sizeOfThisList - 1)</code> (assuming the range of 3D Improved Perlin Noise is ±1.04). For each sub-noise, two 3D improved perlin noises are created and their average is taken. The final range of this noise value is <code>± 10 * sumOfSubNoises / ( 3 * ( 1 + 1 / m ) )</code>, where m is the number of elements in the list after removing the leading and trailing zero elements. If {{nbt|bool|legacy_random_source}} in the noise settings is true, the length must be less than or equal to <code>1-firstOctave</code>. If false, the length is unlimited.
+*** {{Nbt|double}}: A double value for a sub-noise. </onlyinclude>
+</div>
+
+[[Category:Java Edition]]
+[[Category:Data packs]]
+[[ja:カスタムワールド生成/noise]]
+[[zh:自定义世界生成/noise]]

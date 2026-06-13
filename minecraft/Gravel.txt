@@ -1,0 +1,250 @@
+{{see also|Suspicious Gravel}}
+{{Block
+|transparent=No
+|light=No
+|tool=shovel
+|renewable=Yes
+|stackable=Yes (64)
+|flammable=No
+|lavasusceptible=No
+}}
+'''Gravel''' is a gravity-affected [[block]] found in the [[Overworld]] and [[the Nether]]. It is a source of [[flint]], which has a chance to drop when gravel is broken.
+
+== Obtaining ==
+=== Natural generation ===
+Gravel is generated in [[disk]]s in [[river]]s, shallow oceans and small pools of water; in [[windswept gravelly hills]] biomes covering most of the surface; underwater covering the bottom of sufficiently deep rivers and normal, cold, and frozen [[ocean]] biomes, as well as their deep variants; and in the form of [[strip]]s in [[stony shore]]s.
+
+Gravel can generate in the [[Overworld]] in the form of [[Ore (feature)|ore feature]]s. Gravel attempts to generate 14 times per [[chunk]] in ore features of size 0-160, at all [[altitude|level]]s and in all biomes. It can replace [[stone]], [[granite]], [[andesite]], [[diorite]], polished granite{{only|be|short=1}}, polished andesite{{only|be|short=1}}, polished diorite{{only|be|short=1}}, [[tuff]]{{only|je|short=1}}, and [[deepslate]]{{only|je|short=1}}.
+
+Gravel can also generate as part of cold [[ocean ruins]] and [[trail ruins]].
+
+In the [[nether]], gravel generates naturally in layers along the shores of the [[lava sea]], in all biomes except [[Crimson Forest|crimson]] and [[warped forest]]s. The layers are one block deep in [[nether wastes]], and 3-5 blocks deep in [[soul sand valley]] and [[basalt deltas]].
+
+Ore features of gravel in the nether attempt to replace [[netherrack]] 2 times per chunk in blobs of size 0-160, from levels 5 to 41{{only|java|short=1}} or 36{{only|bedrock|short=1}}, in all Nether biomes except [[basalt deltas]].
+
+=== Breaking ===
+Gravel can be broken using any [[tool]], but a [[shovel]] is the quickest. When broken, it has a 10% chance of dropping [[flint]] instead of the gravel itself. The flint received can be controlled with [[enchantment]]s: [[Silk Touch]] removes the chance of dropping flint; [[Fortune]] increases the chance to 14% at the level I, 25% at level II, and 100%{{Needs testing|I play bedrock edition and one time when i was mining gravel with a fortune 3 diamond shovel one of the gravels dropped gravel instead of flint.}} at level III.<ref>{{bug|MC-94860||Fortune 3 shovel does not drop gravel|WAI}}</ref><ref>{{bug|MCPE-44744||Fortune 3 in a pickaxe on gravel only drops flint|WAI}}</ref>
+
+{{breaking row|horizontal=1|Gravel|Shovel}}
+
+If gravel falls onto a non-full block, it drops as an [[item (entity)|item]] and does not drop flint.<ref>{{bug|MC-118095||Dropping gravel on a torch never yields flint}}</ref><ref>{{bug|MCPE-120366||Gravel never drops flint when falling on a non-solid block. (such as a torch)}}</ref>
+
+=== Mob loot ===
+An [[enderman]] holding gravel always drops the block upon death.
+
+=== Bartering ===
+[[Piglin]]s may [[bartering|barter]] 8-16 gravel when given a [[gold ingot]].
+
+== Usage ==
+{{main|Falling Block}}
+
+If the supporting block below a block of gravel is removed, it falls until it lands on the next available block. More specifically, the gravel block turns into a "[[falling block]]" [[entity]], which is affected by gravity; when the falling block lands on a block with a solid top surface, it becomes a block again. More information about the falling block entity are available in the main article listed above.
+
+When gravel falls on a player or mob, it can engulf the head, resulting in suffocation inside gravel until destroying the block, moving out of it, or dying. If falling gravel lands in a space occupied by a non-solid block (such as [[torch]]es, [[rail]]s, or [[redstone dust]]) or non-full block (such as [[slab]]s or [[soul sand]]<ref>{{bug|MC-77079|||WAI}}</ref>), it breaks and turns into a gravel [[Item (entity)|item]]. Gravel falls slowly through a [[cobweb]] until it passes completely through, or until it touches any block, at which point it drops and becomes a gravel item.
+
+Gravel can be placed on a non-solid block without falling.
+
+[[Bamboo]] can be placed and grown on gravel.
+
+=== Crafting ingredient ===
+{{crafting usage}}
+
+=== Trading ===
+Novice-level fletcher [[villager]]s have a 50%{{only|bedrock}} or {{frac|2|3}}{{only|java}} chance to buy 10 gravel and one [[emerald]] for 10 [[flint]] as part of their trade.
+
+=== Note blocks ===
+Gravel can be placed under [[note block]]s to produce snare drum sounds.
+
+== Sounds ==
+{{Sound table/Block/Gravel}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Gravel
+|spritetype=block
+|nameid=gravel
+|blocktags=bamboo_plantable_on, enderman_holdable, lush_ground_replaceable‌, mineable/shovel
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Gravel
+|spritetype=block
+|nameid=gravel
+|id=13
+|foot=1}}
+
+=== Falling block entity ===
+{{:Falling Block/Infobox}}
+{{main|Falling Block}}
+{{:Falling Block/ED}}
+
+== History ==
+{{History|java classic}}
+{{History||May 21, 2009|link=https://web.archive.org/web/0/http://notch.tumblr.com/post/110762705/my-list-on-tile-types-so-far|[[Markus Persson|Notch]] shows interest in adding gravel.}}
+{{History||May 23, 2009|link=https://web.archive.org/web/0/http://notch.tumblr.com/post/111691116/so-i-didnt-do-multiplayer-code-but-i-had-fun|Notch says he accomplished adding [[sand]]. This claim may also extend to gravel.}}
+{{History||0.0.14a|[[File:Gravel JE1.png|32px]] Added gravel. 
+|Gravel behaves similarly to [[sand]], which was also added during this update.
+|Rather than [[falling]] by turning into a [[Falling Block|falling block entity]], gravel instantly appears at the lowest point it can go when placed above an [[air]] block, without any sort of falling animation. This behavior that lasted until the [[Java Edition Infdev 20100618|Seecret Friday 1]] update, in Infdev.
+|[[Programs and editors|Map editors]] can now be used to create floating gravel, although the server crashes if the gravel is affected from its state.}}
+{{History||0.0.15a (Multiplayer Test 1)|[[File:Gravel JE2 BE1.png|32px]] The texture of gravel has been changed.}}
+{{History||0.0.23a|A glitch occurring at this time allows [[player]]s to raise the height of a [[fluid]] [[block]] by placing gravel over it. The gravel stays suspended in mid-air until it is broken. When broken, a fluid block corresponding to the type below the gravel appears where the block was. The suspended fluid block remains immobile until a block was placed next to it, causing a flood.}}
+{{History|java indev}}
+{{History||20100219|Gravel now has a 10% chance of dropping [[flint]].}}
+{{History|java infdev}}
+{{History||20100227-1|Gravel has been removed during map tests.<ref name="firstmaptest">{{ytl|bFigFw17hXg|Minecraft InfDev. Huge Temple Of Brick!|DRMB|February 27, 2010}}</ref>}}
+{{History||20100413|Gravel has been re-added.}}
+{{History||20100617-2|Gravel now generates as [[Ore (feature)|ore feature]]s underground, along with [[dirt]], for more varied [[cave]]s.}}
+{{History||20100618|The gravel now turns into [[Falling Block|an entity]] while falling, which makes them fall more smoothly and realistically.}}
+{{History|java alpha}}
+{{History||v1.2.0_01|Some [[soul sand]] is replaced by gravel in [[the Nether]].}}
+{{History|java beta}}
+{{History||1.2|{{cd|FallingBlock}} entities now behave better in [[multiplayer]].}}
+{{History||1.8|snap=Pre-release|Terrain generation has been changed, removing gravel [[beach]]es.
+|Gravel now generates as [[disk]]s near water.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 5|[[File:Gravel JE3 BE1.png|32px]] The texture of gravel has been changed.}}
+{{History||1.3.1|snap=12w21a|[[File:Gravel JE4 BE3.png|32px]] The texture of gravel has been changed again.}}
+{{History|||snap=12w22a|Gravel is now able to be used in the [[trading]] system: buying [[flint]] costs 1 [[emerald]] and 10 gravel.}}
+{{History||1.4.2|snap=12w38a|Gravel now has new [[sound]]s when being walked on.}}
+{{History||1.7.2|snap=13w36a|Ocean floors are now made completely of gravel, instead of a mixture of dirt, sand and [[clay]].
+|Added the [[gravelly mountains]] biome (then known as mutated extreme hills), where the surface is covered in several-block-deep layers of gravel.}}
+{{History||1.8|snap=14w25a|Gravel can now be used to craft [[coarse dirt]].}}
+{{History||1.10|snap=16w20a|Falling dust [[particles]] for unsupported gravel have been added.}}
+{{History||1.12|snap=17w06a|Gravel is now used to craft [[concrete powder]].}}
+{{History||1.13|snap=18w09a|Gravel now generates in [[ocean ruins]].}}
+{{History||1.14|snap=18w43a|[[File:Gravel JE5 BE4.png|32px]] The texture of gravel has been changed.}}
+{{History|||snap=19w14a|[[Soul sand]] and gravel now generate around lava sea level instead of between y level 60 and 65.<ref>{{Cite bug|MC|152207|Almost no naturally generating soul sand in nether wastes; changed soul sand generation after 1.13.2|date=May 18, 2019}}</ref>}}
+{{History||1.16|snap=20w07a|Gravel now has a {{frac|5|109}} (~4.59%) chance of being given by the new [[piglin]]s when [[bartering]], in a stack size of 4–12, making it [[renewable resource|renewable]].}}
+{{History|||snap=20w09a|Gravel now has a {{frac|10|113}} (~8.82%) chance of being given by piglins when bartering, in a stack size of 1–5.}}
+{{History||1.16|snap=20w20a|Gravel now has a {{frac|40|423}} (~9.46%) chance of being given by piglins when bartering, in a stack size of 8–16.}}
+{{History||1.16.2|snap=20w28a|Gravel now has a {{frac|40|459}} (~8.71%) chance of being given by piglins when bartering, in a stack size of 8–16.}}
+{{History||1.17|snap=21w06a|The height limit was expanded down to Y{{=}}-64. Gravel [[Ore (feature)|blob]]s are temporary generating from Y{{=}}-64 instead of Y{{=}}0.}}
+{{History|||snap=21w07a|Gravel ore features no longer generate below Y{{=}}0, but more common than in pre 21w06a versions.}}
+{{History|||snap=21w15a|All the changes to gravel blob generation in the previous 1.17 snapshots have been reverted, but they can be re-enabled with the [[Caves & Cliffs Prototype Data Pack]].}}
+{{History||1.18|snap=Experimental Snapshot 1|Gravel blob once again generates the way it did in the 1.17 snapshots without the use of a data pack.}}
+{{History|||snap=experimental snapshot 4|[[Strip]]s of gravel sometimes generate in [[stone shore]]s and [[stony peaks]].}}
+{{History|||snap=21w37a|Strips of Gravel no longer generate in stony peaks.
+|Strips of Gravel in stone shores are now larger.}}
+{{History|||snap=21w40a|[[Ore (feature)|Blob]]s of gravel are once again able to generate below Y{{=}}0.
+|Increased the number of gravel blobs.}}
+{{History||1.20|snap=23w12a|Gravel can now be created after [[brushing]] [[suspicious gravel]].|Gravel now generates in [[trail ruins]].}}
+{{History|||snap=23w16a|The amount of gravel in trail ruins has been tweaked.}}
+
+{{History|pocket alpha}}
+{{History||Pre-release|[[File:Gravel JE2 BE1.png|32px]] Added gravel. It is currently unobtainable.}}
+{{History||v0.1.0|[[File:Gravel (inventory) BE1.png|32px]] The texture of gravel icon in the inventory has been added.}}
+{{History||v0.2.0|[[File:Gravel JE3 BE2.png|32px]] [[File:Gravel (inventory) BE2.png|32px]] The textures of gravel and icon in the inventory have been changed.
+|Gravel is now obtainable in both Survival and Creative mode.}}
+{{History||v0.4.0|[[File:Gravel (inventory) BE3.png|32px]] The texture of gravel icon in the inventory has been changed.}}
+{{History||v0.5.0|[[File:Gravel (inventory) BE4.png|32px]] The texture of gravel icon in the inventory has been changed, once again.}}
+{{History||v0.6.0|[[File:Gravel (inventory) BE5.png|32px]] The texture of gravel icon in the inventory has been changed, once again.
+|Gravel is now affected by gravity.}}
+{{History||v0.8.0|snap=build 1|[[File:Gravel JE4 BE3.png|32px]] The texture of gravel has been changed.
+|The inventory icon of gravel is now rendered block instead of texture.}}
+{{History|||snap=build 8|Falling gravel now drops a resource when landing on a non-solid [[block]].}}
+{{History||v0.9.0|snap=build 1|Terrain generation has been changed, removing gravel beaches.
+|Gravel now generates as [[disk]]s in or near water, and also completely comprises ocean floors.
+|Gravel no longer falls when generated.
+|Gravel now appears in [[village]]s.}}
+{{History||v0.10.0|snap=build 1|Falling dust [[particles]] for unsupported gravel have been added.}}
+{{History||v0.11.0|snap=build 1|Gravel no longer generates as a [[village]] path.
+|Added the [[gravelly mountains]] biome (then known as mutated extreme hills), where the surface is covered in several-block-deep layers of gravel.}}
+{{History||v0.12.1|snap=build 1|Gravel now generates in [[the Nether]].}}
+{{History|pocket}}
+{{History||1.0.4|snap=alpha 1.0.4.0|10 gravel can now be used to [[trading|trade]] with fletcher [[villager]]s for 6-10 flint.}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Gravel is now used to craft [[Concrete Powder|concrete powder]].}}
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|Gravel can now be used to craft [[Coarse Dirt|coarse dirt]].}}
+{{History||1.4.0|snap=beta 1.2.20.1|Gravel now generates in [[Ocean Ruins|ocean ruins]].}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Gravel JE5 BE4.png|32px]] The texture of gravel has been changed.}}
+{{History||1.11.0|snap=beta 1.11.0.4|[[Trading]] has been changed, fletcher [[villager]]s now have a 50% chance to [[trading|buy]] 10 gravel and one [[emerald]] for 10 flint as part of their first tier trade.}}
+{{History||1.16.0|snap=beta 1.16.0.57|Gravel now has a {{frac|10|106}} (9.43%) chance of being given by piglins when bartering, in a stack size of 8–16, making it [[renewable resource|renewable]].
+|Gravel now generates below lava sea layer in the Nether.}}
+{{History||1.18.0|snap=beta 1.18.0.21|Gravel now generates as expected.
+|[[Ore (feature)|Blob]]s of gravel are now expected to be once again able to generate below Y{{=}}0., but they don't.
+|Increased the number of gravel blobs.}}
+{{History|||snap=beta 1.18.0.24|Gravel [[Ore (feature)|ore feature]]s are now able to generate below Y{{=}}0.<ref>{{Cite bug|MCPE|144080|Gravel doesn't generate below Y{{=}}0|date=October 8, 2021}}</ref>}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.00|wiiu=Patch 1|switch=1.0.1|[[File:Gravel JE2 BE1.png|32px]] Added gravel.}}
+{{History||xbox=TU3|[[File:Gravel JE3 BE2.png|32px]] The texture of gravel has been changed.}}
+{{History||xbox=TU9|[[File:Gravel JE4 BE3.png|32px]] The texture of gravel has been changed, again.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Gravel JE5 BE4.png|32px]] The texture of gravel has been changed, once again.}}
+
+{{History|New 3DS}}
+{{History||0.1.0|[[File:Gravel JE4 BE3.png|32px]] Added gravel.}}
+{{History|foot}}
+
+=== Data history ===
+{{History|java}}
+{{History||1.13|snap=17w47a|Prior to ''[[The Flattening]]'', this block's numeral ID was 13.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* Explosions launch falling gravel.
+* If a player stands on a stack of sand or gravel, and the stack falls onto a non-solid block, the player falls fast enough to take damage or even die.
+* Gravel often falls into caves, making a mock dead end. If a player encounters a gravel dead-end while mining, removing the gravel may reveal additional passageways.
+
+== Gallery ==
+<gallery>
+Gravel In Cave.png|A naturally generated gravel blob as seen in a cave.
+Ocean life.png|A naturally generated gravel floor as seen in an [[ocean]].
+Gravel in Nether.png|A gravel blob as seen in [[the Nether]].
+Floating Gravel.png|Gravel shown to be not affected by gravity if there is a non-solid block (except [[fire]]) underneath it.
+MidairGravel.png|Gravel floating in midair in a windswept gravelly hills biome.
+Gravelcave.png|Naturally generated gravel blob in a cave.
+GravelLava.png|Gravel hanging above the lava sea, without any support below. Viewed in [[Spectator]] mode.
+GravelBeach.png|A [[disk]] of gravel by a shoreline that extends partially onto land.
+GravelStrip.png|A [[strip]] of gravel in a stony shore biome.
+</gallery>
+=== ''Java Edition'' ===
+<gallery>
+Gravelbeachonmap.png|A gravel beach before [[Java Edition Beta 1.8]].
+ShortGravelBeach.png|A shorter gravel beach before [[Java Edition Beta 1.8]].
+</gallery>
+
+=== ''Bedrock Edition'' ===
+<gallery>
+PE v0.5.0 alpha (survival).png|Gravel in early versions of ''[[Pocket Edition]]'' shown to be not affected by gravity.
+</gallery>
+
+== References ==
+{{Reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/block-week-gravel Block of the Week: Gravel] – Minecraft.net on March 23, 2018
+
+{{Blocks|natural}}
+{{Entities}}
+
+[[Category:Natural blocks]]
+[[Category:Generated structure blocks]]
+
+[[cs:Štěrk]]
+[[de:Kies]]
+[[es:Grava]]
+[[fr:Gravier]]
+[[hu:Sóder]]
+[[it:Ghiaia]]
+[[ja:砂利]]
+[[ko:자갈]]
+[[nl:Grind]]
+[[pl:Żwir]]
+[[pt:Cascalho]]
+[[ru:Гравий]]
+[[uk:Гравій]]
+[[zh:沙砾]]

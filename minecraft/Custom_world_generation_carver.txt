@@ -1,0 +1,44 @@
+<div class="treeview">
+{{Nbt|compound}} The root tag
+
+**{{Nbt|string|type}}: The type of carver to use, must be one of either <code>"cave"</code>, <code>"nether_cave"</code>, <code>"canyon"</code>, <code>"underwater_canyon"</code>, or <code>"underwater_cave"</code>.
+**{{Nbt|compound|config}}: See below.
+
+''Shared by all carver types:''
+*{{Nbt|compound|config}}:Configuration values for the carver.
+**{{Nbt|float|probability}}: The probability that each chunk attempts to generate this carver, must be between 0 and 1.
+**{{Nbt|int}}{{Nbt|compound|y}}: Height provider. The height at which this carver attempts to generate.
+*** {{nbt inherit/height_provider|indent=***}}
+**{{Nbt|float}}{{Nbt|compound|yScale}}: Float provider. Vertically scales the carved area.
+*** {{nbt inherit/float_provider|indent=***}}
+**{{Nbt|int}}{{Nbt|compound|lava_level}}: The vertical anchor where lava begins to generate.
+*** {{nbt inherit/vertical_anchor|indent=***}}
+**{{Nbt|bool|aquifers_enabled}}: If true, aquifers will be generated.
+
+''When carver type is ''<code>"cave"</code>, <code>"nether_cave"</code>, or <code>"underwater_cave"</code>'':''
+*{{Nbt|compound|config}}: Configuration values for the carver
+**{{Nbt|float}}{{Nbt|compound|horizontal_radius_multiplier}}:{{Needs testing}}
+*** {{nbt inherit/float_provider|indent=***}}
+**{{Nbt|float}}{{Nbt|compound|vertical_radius_multiplier}}:{{Needs testing}}
+*** {{nbt inherit/float_provider|indent=***}}
+**{{Nbt|float}}{{Nbt|compound|floor_level}}:{{Needs testing}}
+*** {{nbt inherit/float_provider|indent=***}}
+
+''When carver type is ''<code>"canyon"</code> or <code>"underwater_canyon"</code>'':
+*{{Nbt|compound|config}}: Configuration values for the carver.
+**{{Nbt|float}}{{Nbt|compound|vertical_rotation}}:{{Needs testing}} Creates the curves in the canyon as it continues.
+*** {{nbt inherit/float_provider|indent=***}}
+**{{Nbt|compound|shape}}: The shape to use for the ravine.
+***{{Nbt|float}}{{Nbt|compound|thickness}}:{{Needs testing}} The width of the canyon.
+**** {{nbt inherit/float_provider|indent=****}}
+***{{Nbt|int|width_smoothness}}:{{Needs testing}} Higher values seem to smooth canyon walls on the vertical axis. Must be positive.
+***{{Nbt|float}}{{Nbt|compound|distance_factor}}:{{Needs testing}}
+**** {{nbt inherit/float_provider|indent=****}}
+***{{Nbt|float}}{{Nbt|compound|horizontal_radius_factor}}:{{Needs testing}}
+**** {{nbt inherit/float_provider|indent=****}}
+***{{Nbt|float}}{{Nbt|compound|vertical_radius_default_factor}}:{{Needs testing}}
+**** {{nbt inherit/float_provider|indent=****}}
+***{{Nbt|float}}{{Nbt|compound|vertical_radius_center_factor}}:{{Needs testing}}
+**** {{nbt inherit/float_provider|indent=****}}
+</div><noinclude>
+[[zh:自定义世界生成/carver]]</noinclude>

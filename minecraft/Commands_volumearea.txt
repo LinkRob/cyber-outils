@@ -1,0 +1,51 @@
+{{Work in progress}}{{Stub}}{{Exclusive|Bedrock}}{{Experimental|Upcoming Creator Features}}{{Infobox command
+|name=volumearea
+|oplevel=1
+|cheat=y
+}}
+
+Add, remove, or list volumes in the current [[dimension]].
+
+== Syntax ==
+:<code>volumearea add <identifier: string> <from: x y z> <to: x y z> <name: string></code>
+::
+:<code>volumearea list [all-dimensions: VolumeAreaAllDimensions]</code>
+::
+:<code>volumearea remove <name: string></code>
+::
+:<code>volumearea remove <position: x y z></code>
+::
+:<code>volumearea remove_all</code>
+::
+
+== Arguments ==
+{{argument|be=1|identifier: string|basic_string}}
+:
+{{argument|be=1|from: x y z|CommandPosition}} and {{argument|be=1|to: x y z|CommandPosition}}
+:
+{{argument|be=1|name: string|basic_string}}
+:
+{{argument|be=1|position: x y z|CommandPosition}}
+:
+{{argument|be=1|[all-dimensions: VolumeAreaAllDimensions]|enum}}
+:
+
+== Result ==
+{{Result table|onlybe=1}}
+{{Result table|If the syntax is incorrect |unparseable}}
+
+
+{{Result table|{{cd|<identifier: string>}} ID not found in |fail}}
+
+{{Result table|succeed|You can execute components between coordinates. |cmd=}}
+{{Result table}}
+== History ==
+{{History|bedrock}}
+{{History||1.18.30|snap=beta 1.18.20.21|Added {{cmd|volumearea|link=none}}.}}
+{{History|
+|1.21.10|{{cmd|volumearea|link=none}} has been deleted|snap=beta 1.21.10.22}}
+{{History|foot}}
+
+{{commands}}
+
+[[zh:命令/volumearea]]

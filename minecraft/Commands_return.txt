@@ -1,0 +1,60 @@
+{{exclusive|java}}
+{{Infobox command
+|name=return
+|oplevel=2
+}}
+
+A command that can be embedded inside a [[Function (Java Edition)|function]] to control the execution of the function. Terminate the execution of the function and set the return value of the invoked function to an arbitrary integer value. By setting the return value to an arbitrary value, it can be used to record the execution results of /function commands with conditional branches and reflect them in subsequent function executions.
+
+== Usage ==
+By placing this command at the end of a function , especially a function with a conditional branch. You can terminate the function and record which branch the function followed as a return value. The return value can be recorded using The recorded return value can be referenced. And can be reflected in the execution of other commands and functions.
+
+== Syntax ==
+<code>/return <value></code><br>
+Terminate the function to which it belongs and <code>/function</code> set the return value of the command to an arbitrary integer value.
+
+<code>/return run <command></code>{{upcoming|java 1.20.2}}<br>
+Executes the command specified in , terminates the function <code>/function</code> to which it belongs, and uses the return value of that command as the return value of the command that executed that function. If the executed command fails, the return value will be 0.
+
+== Arguments ==
+{{argument|value|integer}}
+: An integer value to use as the return value of the {{cd|function}}.
+{{arg desc|je=integer}}
+
+{{argument|command}}
+: A command that provides the return value of the {{cd|function}}.
+
+== Result ==
+{{Result table|onlyje=1}}
+{{Result table|Incorrectly Specified Arguments|unparseable}}
+{{Result table|cmd=return <value>|{{cd|value}} is outside the allowed range (-2147483648 to 2147483647) or is not an intege|fail}}
+{{Result table|cmd=return run <command>|The command in {{cd|<command>}} fails|fail}}
+{{Result table|cmd=|succeed|Stops execution of the function to which it belongs and gives the specified return value to {{cmd|function}}}}
+{{Result table}}
+
+== Output ==
+{{cmd|return <value>}} uses {{cd|<value>}} as its return value, which is also used as the return value for the function. On the other hand, {{cmd|return run ...}} only sets the return value of the function, and does not have a return value itself.
+
+{{Output table|onlyje=1}}
+{{Output table|edition=je|cmd=return <value>|On success|1|1|the value of {{cd|<value>}}.}}
+{{Output table|cmd=return run <command>|On fail|1|1|0}}
+{{Output table|On success|1|1|the return value of {{cd|<command>}}.}}
+{{Output table}}
+
+Note: {{cmd|return run <command>}} has not been officially added yet. Behavior may change.
+
+== History ==
+{{history|java}}
+{{History||1.20|snap=23w16a|Added {{cd|return}}.}}
+{{History|java upcoming}}
+{{History||1.20.2|snap=23w31a|Added a new subcommand <code>run</code>.}}
+{{History|||snap=1.20.2 Pre-release 1|Temporarily removed syntax {{cmd|link=none|return run}}.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[de:Befehl/return]]
+[[ja:コマンド/return]]
+[[lzh:令/return]]
+[[pt:Comandos/return]]
+[[zh:命令/return]]

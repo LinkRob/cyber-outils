@@ -1,0 +1,107 @@
+{{Infobox command
+|name=particle
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|others=[[Options|Cheat]] only{{only|bedrock|short=1}}
+}}
+Creates [[particles]].
+
+== Syntax ==
+*'''Java Edition'''
+: <code>particle <name> [<pos>]</code>
+: <code>particle <name> <pos> <delta> <speed> <count> [force|normal] [<viewers>]</code>
+*'''Bedrock Edition'''
+: <code>particle <effect: string> [position: x y z]</code>
+
+== Arguments ==
+{{argument|name|particle|effect: string|basic_string}}
+: Specifies the particle to create.
+: {{IN|bedrock}}, {{lcfirst:{{arg desc|be=string}}}} And it should be the namespaced identifier of the particle (namespace cannot be omitted).
+: {{IN|java}}, {{lcfirst:{{arg desc|je=particle}}}}
+
+{{argument|pos|vec3|position: x y z|CommandPositionFloat}}
+: Specifies the position at which to create the particle. If not specified, defaults to the position of the executor.
+: {{arg desc|je=vec3|be=CommandPositionFloat}}
+
+{{el|je|short=1}}: {{argument|delta|vec3}}
+: {{arg desc|je=vec3}}
+: Specifies the size of the 3-dimensional cuboid volume to spawn particles in, centered on position <code><pos></code>, and multiplied by about 8 (using <code>1 1 1</code> specifies a cuboid of about 8×8×8 in size). Negative values may be used, but have the same effect as their positive counterparts (using <code>-1 -1 -1</code> still equates to an 8×8×8 cuboid). Note that the generated particles aren't evenly distributed over the cuboid, instead it uses a Gaussian distribution resulting in a particle-gradient most dense at the center. [[Commands#Tilde and caret notation|Tilde and caret notation]] may be used, the resulting coordinates are then used as delta.
+
+::''Exception 1:'' When <code><name></code> is <code>entity_effect</code> or <code>ambient_entity_effect</code>, a <code><count></code> of 0 causes the <code><delta></code> and <code><speed></code> to act like RGBE values instead, ranging from 0.0 to 1.0.  The three <code><delta></code> values give red, green, and blue components for the color; the <code><speed></code> provides an exponent that makes the colors brighter or dimmer, with 128 being a default.
+::''Exception 2:'' When <code><name></code> is <code>note</code>, a <code><count></code> of 0 causes the first value of <code><delta></code> to specify the note's color, ranging from 0.0 to 1.0. The values of 0.0 and 1.0 produce green particles, and the values in between produce colors according to the table on [[Note block#Notes|Note block § Notes]].
+::''Exception 3:'' When <code><count></code> is set to 0, the <code><delta></code> instead acts as motion values for the particle, with <code><speed></code> acting as a multiplier. <code><dx></code>, <code><dy></code> and <code><dz></code> instead becomes <code><motion:x></code>, <code><motion:y></code> and <code><motion:z></code> respectively. Particles that don't have any motion to begin with are not affected by this (Example: <code>barrier</code>).
+
+{{el|je|short=1}}: {{argument|speed|float}}
+: Specifies the speed of the particle. Does not work on all particles (Example: <code>angry_villager</code>).
+: {{arg desc|je=float|min=0.0}}
+
+{{el|je|short=1}}: {{argument|count|integer}}
+: Specifies the number of particle effects to create. If 0, it results in a single particle. See the exceptions on <code><delta></code> for why having a <code><count></code> of 0 can be useful.
+: {{arg desc|je=integer|min=0}}
+
+{{el|je|short=1}}: {{cd|force{{!}}normal}}
+: Specifies the display mode: <code>normal</code> or <code>force</code>.
+:: <code>normal</code>: the particle(s) will be sent to players within 32.0 blocks (exclusive).
+:: <code>force</code>: allows the particle(s) to be sent to players within 512.0 blocks (exclusive).
+:: Defaults to the <code>normal</code> mode.
+
+{{el|je|short=1}}: {{argument|viewers|entity}}
+: Allows control of which player should view this particle instead of everyone in the viewing range of the particle.
+: {{arg desc|je=entity|amount=multiple|type=players}}
+
+== Result ==
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|unparseable}}
+{{Result table|<code><targets></code> fails to resolve to one or more online players|fail|N/A}}
+{{Result table|all the targeted players are not less than 32.0 (in <code>normal</code> mode) / 512.0 (in <code>force</code> mode) blocks away from the particle(s)||success}}
+{{Result table|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|On success|1|1|the number of players who can see the particle(s)}}
+{{Output table|edition=be|On fail|0}}
+{{Output table|On success|1}}
+{{Output table}}
+
+== Examples ==
+To create a stationary huge explosion particle 10 blocks to the east:
+* {{El|java}}: <code>/particle minecraft:explosion_emitter ~10 ~ ~</code>
+* {{El|bedrock}}: <code>/particle minecraft:huge_explosion_emitter ~10 ~ ~</code>
+
+== History ==
+{{History|java}}
+{{History||1.8|snap=14w04a|Added {{cmd|particle|link=none}}.}}
+{{History|||snap=14w25a|{{cmd|particle|link=none}} now accepts <samp>blockdust</samp>, <samp>blockcrack</samp> and <samp>iconcrack</samp>, which it could not before despite these particles indeed existing.}}
+{{History|||snap=14w28a|Due to a bug, {{cmd|particle|link=none}} commands using <samp>blockdust</samp>, <samp>blockcrack</samp> and <samp>iconcrack</samp> no longer work.<ref>{{bug|MC-61033}}</ref>}}
+{{History|||snap=14w28b|<samp>blockdust</samp>, <samp>blockcrack</samp> and <samp>iconcrack</samp> are no longer listed as supported by {{cmd|particle|link=none}} due to the aforementioned bug. Commands can still attempt to use them (they will not reject them in the same way non-existent particles are rejected), however they will just result in errors.}}
+{{History|||snap=14w29a|Added <code>force</code> argument to {{cmd|particle|link=none}}.
+|{{cmd|particle|link=none}} can access <samp>iconcrack</samp> again.}}
+{{History||?|{{cmd|particle|link=none}} can access <samp>blockdust</samp> and <samp>blockcrack</samp> again.}}
+{{History||1.9|snap=15w32c|the range limit increased to 32 blocks (when the command /particle is used along with the force mode, the limit is 512 blocks).}}
+{{History|||snap=15w49a|Added <code>player</code> and <code>params</code> arguments to {{cmd|particle|link=none}}.}}
+{{History||1.13|snap=17w47a|Particle names have been changed for {{cmd|particle|link=none}}.
+|{{cmd|particle|link=none}} can no longer access{{verify|Can it no longer be accessed by command, but still exists internally as a particle, or was it actually removed proper, possibly replaced by some new method of rendering it?}} <samp>take</samp>, a particle used for handing the pickup animation of [[Item (entity)|dropped item]]s.{{verify|Was it used, or was it intended to be used and was scrapped, as I remember hearing somewhere? If it is in fact used, was it also used for experience orbs?}}}}
+{{History|||snap=18w03a|Added the {{cmd|link=none|particle <name> <pos>}} shortcut.}}
+{{History|||snap=22w12a|Added the {{cd|shriek}} particle. Removed the {{cd|origin}} parameter from the {{cd|vibration}} particle.}}
+
+{{History|pocket edition}}
+{{History||1.0.5|snap=alpha 1.0.5.0|Added {{cmd|particle|link=none}}.}}
+{{History|||snap=alpha 1.0.5.3|Removed {{cmd|particle|link=none}}.}}
+{{History|bedrock}}
+{{History||1.8.0|snap=beta 1.8.0.8|Re-added {{cmd|particle|link=none}}.}}
+{{History||1.17.20|snap=beta 1.17.20.23|The {{cmd|particle|link=none}} command no longer fails when run successfully.
+|The {{cmd|particle|link=none}} command's position argument is now optional.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[de:Befehl/particle]]
+[[ja:コマンド/particle]]
+[[pt:Comandos/particle]]
+[[ru:Команды консоли/particle]]
+[[uk:Команди консолі/particle]]
+[[zh:命令/particle]]

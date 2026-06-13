@@ -1,0 +1,109 @@
+{{for|the removed command with the same name {{in|bedrock}}|Commands/place (Bedrock Edition)}}
+{{for|the command to place structure file {{in|bedrock}}|Commands/structure}}
+{{Exclusive|Java}}
+{{Infobox command
+|name=place
+|oplevel=2
+}}
+
+Places a [[custom feature#Configured Feature|configured feature]], [[Custom structure#Configured Structure Feature|configured structure feature]], [[Custom structure#Structure Template|structure template]], or [[Jigsaw block|jigsaw]] if possible.
+
+== Syntax==
+:<code>/place feature <feature> [<pos>]</code> 
+::Place the [[custom feature#Configured Feature|configured feature]].
+:<code>/place jigsaw <pool> <target> <max_depth> [<position>]</code>
+::Place the [[Jigsaw block|jigsaw]].
+:<code>/place structure <structure> [<pos>]</code> 
+::Place the [[Custom structure#Configured Structure Feature|configured structure feature]].
+:<code>/place template <template> [<pos>] [<rotation>] [<mirror>] [<integrity>] [<seed>]</code>
+::Place the [[Custom structure#Structure Template|structure template]]. (Works like using the load button in the UI for a [[structure block]].)
+
+==Arguments==
+{{argument|feature|resource_key}}
+:Specifies the [[custom feature#Configured Feature|configured feature]] to place. See [[Feature]] for vanilla configured features.
+:{{arg desc|je=resource_key|registry=minecraft:worldgen/configured_feature}}
+
+{{argument|structure|resource_key}} 
+:Specifies the [[Custom structure#Configured Structure Feature|configured structure feature]]. See [[Generated structures]] for vanilla structures.
+:{{arg desc|je=resource_key|registry=minecraft:worldgen/structure}}
+
+{{argument|pool|resource_key}}
+:Specifies the start [[Custom structure#Structure Pool|structure pool]] to start generating a jigsaw.
+:{{arg desc|je=resource_key|registry=minecraft:worldgen/template_pool}}
+
+{{argument|target|resource_location}} 
+:Specifies the [[jigsaw block]] that is connected to when generating the start structure pool.
+:{{arg desc|je=resource_location}}
+
+{{argument|max_depth|integer}}
+:Specifies the max depth of the jigsaw.
+:{{arg desc|je=integer|min=1|max=7}}
+
+{{argument|template|resource_location}}
+:Specifies the [[Custom structure#Structure Template|structure template]] to place.
+:{{arg desc|je=resource_location}}
+
+{{argument|pos|block_pos}} and {{argument|position|block_pos}}
+:Specifies the position the placement should be tried.
+:{{arg desc|je=block_pos}}
+
+{{argument|rotation|template_rotation}}
+:Specifies the rotation to apply to the placed template.
+:Must be either {{cd|none}}, {{cd|clockwise_90}}, {{cd|counterclockwise_90}}, or {{cd|180}}. If omitted, defaults to {{cd|none}}.
+
+{{argument|mirror|template_mirror}}
+:Specifies the mirroring to apply to the placed template.
+:Must be either {{cd|none}}, {{cd|front_back}}, or {{cd|left_right}}. If omitted, defaults to {{cd|none}}.
+
+{{argument|integrity|float}}
+:Specifies the integrity value to apply to the placed template (how complete the template that gets placed is). If omitted, defaults to 1.0.
+:{{arg desc|je=float|min=0.0|max=1.0}}
+
+{{argument|seed|integer}}
+:Specifies the seed to use for randomized degradation of the placed template when integrity is less than 1. If omitted, defaults to 0.
+:{{arg desc|je=integer}}
+
+==Result==
+{{Result table|onlyje=1}}
+{{Result table|the arguments are not specified correctly|unparseable}}
+{{Result table|cmd=/place feature ...<br>/place template ...|chunks to place in is unloaded or out of the world|fail}}
+{{Result table|cmd=/place jigsaw ...|chunks to place in is unloaded or out of world<ref name="MC-259355">{{bug|MC-259355}}</ref>|success}}
+{{Result table|cmd=/place jigsaw ... <max_depth>|execution position is out of horizontal world boundary<ref name="MC-259355"/>|error}}
+{{Result table|cmd=/place jigsaw ... <max_depth> <position>|specified <code><position></code> is unloaded or out of world|fail}}
+{{Result table|cmd=/place structure ...|chunks to place in is unloaded or out of horizontal world boundary<ref name="MC-259355"/>}}
+{{Result table|cmd=/place structure <structure> <pos>|specified <code><pos></code> is unloaded or out of world}}
+{{Result table|cmd=/place feature ...|there's no configured feature with the provided ID}}
+{{Result table|the configured feature could not generate - depends on the configured feature}}
+{{Result table|cmd=/place jigsaw ...|there's no structure pool with the provided ID}}
+{{Result table|the specified start pool has no element<ref>{{bug|MC-259351}}</ref>|error}}
+{{Result table|try to generate an empty element (<code>empty_pool_element</code>) in start pool|fail}}
+{{Result table|the jigsaw block which needed to be connected to is not found in the start pool}}
+{{Result table|cmd=/place structure ...|there is no structure with the provided ID}}
+{{Result table|there is no valid position in this chunk to place the specified structure - depends on the structure}}
+{{Result table|there is no valid biome in this chunk to place the specified structure - depends on the structure}}
+{{Result table|cmd=/place template ...|there is no template with the provided id}}
+{{Result table|there is no palette in this template file}}
+{{Result table|there's no block and entity in this template file}}
+{{Result table|cmd=|succeed}}
+{{Result table}}
+
+==Output==
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|On success|1|1|1}}
+{{Output table|On error|0|unchanged|unchanged}}
+{{Output table}}
+
+==History==
+{{h|java}}
+{{h||1.19|snap=22w18a|Added {{cd|/place}}, replacing {{cmd|placefeature}}.}}
+{{h|||snap=22w19a|{{cd|/place}} can now place templates for structure blocks.}}
+{{h|||snap=Pre-release 1|{{cd|/place template}} can now be autocompleted.}}
+{{h|foot}}
+
+{{Commands}}
+
+[[de:Befehl/place]]
+[[es:Comandos/place]]
+[[ja:コマンド/place (Java Edition)]]
+[[zh:命令/place（Java版）]]

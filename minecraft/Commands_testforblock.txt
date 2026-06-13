@@ -1,0 +1,76 @@
+{{distinguish|Commands/testforblocks}} 
+{{exclusive|bedrock|edu}}
+{{outdated|edition = java}} 
+{{Infobox command
+|name=testforblock
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|cheat=y
+}}
+
+Tests whether a certain [[block]] is in a specific location.
+
+==Syntax==
+
+: <code>testforblock <position: x y z> <tileName: Block> [blockStates: block states]</code>
+
+==Arguments==
+
+{{argument|be=1|position: x y z |CommandPosition}}
+: Specifies the [[coordinates]] of the block to test.
+: {{arg desc|be=CommandPosition}}
+
+{{argument|be=1|tileName: Block|enum}}
+: Specifies the block to test for.
+: {{arg desc|be=Block}}
+
+{{argument|be=1|blockStates: block states|BlockStateCommandParam}}
+: Specifies the [[block states]] to match when testfor.
+: {{Arg desc|be=BlockStateCommandParam}}
+
+== Result ==
+
+{{Result table|onlybe=1}}
+{{Result table|the arguments are not specified correctly||unparseable}}
+{{Result table|the specified position is unloaded or out of the world||fail}}
+{{Result table|the block at the specified position does not match the specified block id or states}}
+{{Result table|cmd=|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table|onlybe=1}}
+{{Output table|On fail|0}}
+{{Output table|On success|1}}
+{{Output table}}
+
+==Examples==
+
+* To test if the block at (0,64,0) is [[white wool]]:
+** <code>testforblock 0 64 0 wool</code>
+** <code>testforblock 0 64 0 white_wool</code>
+* To test if the block at (0,64,0) is [[stone]]:
+** <code>testforblock 0 64 0 stone []</code>
+* To test if the block below is a [[jukebox]]:
+** <code>testforblock ~ ~-1 ~ jukebox</code>
+
+== History ==
+{{History|Java}}
+{{History||1.7.2|snap=13w37a|Added {{cmd|testforblock|link=none}}.}}
+{{History||1.11|snap=16w32a|Added [[block state]] support to {{cmd|testforblock|link=none}}.}}
+{{History||1.13|snap=17w45a|Removed {{cmd|testforblock|link=none}} in favour of {{cmd|execute if}}.}}
+
+{{History|pocket alpha}}
+{{History||v0.16.0|snap=build 1|Added {{cmd|testforblock|link=none}}.}} 
+{{History|bedrock}}
+{{History||1.18.0|snap=beta 1.18.0.20|Added [[block state]] support.}}
+{{History||1.19.70|snap=beta 1.19.70.21|Removed <code>dataValue: int</code> argument.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[de:Befehl/testforblock]]
+[[es:Comandos/testforblock]]
+[[pt:Comandos/testforblock]]
+[[zh:Commands/testforblock]]

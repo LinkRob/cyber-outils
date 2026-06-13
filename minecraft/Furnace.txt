@@ -1,0 +1,362 @@
+{{For}}
+{{Block
+| image= <gallery>
+Furnace (S).png|Furnace
+Lit Furnace (S).png|Lit Furnace
+Furnace (S) BE.png|Furnace (BE)
+Lit Furnace (S) BE.png|Lit Furnace (BE)
+</gallery>
+| extratext = View [[#Gallery|all renders]]
+| transparent = Partial <small>(when active)</small>
+| light = Yes (13) <small>(when active)</small>
+| tool = wooden pickaxe
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = No
+| lavasusceptible = No
+}}
+A '''furnace''' is a utility [[block]] used for the [[smelting]] of [[block]]s and [[item]]s.
+
+== Obtaining ==
+=== Natural generation ===
+Furnaces can be found in [[plains]], [[desert]], and some [[savanna]] [[village]] weaponsmiths. Furnaces also generate in some houses in [[snowy tundra]] villages, and in one of the [[taiga]]/[[snowy taiga]]{{only|bedrock|short=1}} village houses. They also appear in [[ancient city|ancient cities]] and [[trail ruins]], and one furnace generates in every [[igloo]].
+
+=== Breaking ===
+A furnace can be mined using any pickaxe. A furnace will also drop all of its contents when broken, including XP from smelting items that were extracted by hoppers.
+
+{{IN|java}}, a furnace mined without a [[pickaxe]] drops nothing. {{IN|bedrock}}, a furnace drops itself when mined by hand or with any tool.
+
+{{breaking row|horizontal=1|Furnace|Pickaxe|Wood|foot=1}}
+
+=== Chest loot ===
+{{LootChestItem|furnace}}
+
+=== Crafting ===
+{{Crafting
+|head=1
+|showdescription=1
+|A1= Any stone-tier block |A2= Any stone-tier block |A3= Any stone-tier block
+|B1= Any stone-tier block |B3= Any stone-tier block
+|C1= Any stone-tier block |C2= Any stone-tier block |C3= Any stone-tier block
+|Output= Furnace
+|type= Decoration block
+|description=Can use cobblestone and its other variants interchangeably.
+|foot=1
+}}
+
+The lit furnace can be obtained {{in|java}} only with commands such as {{cmd|give @s <nowiki>furnace[block_state={lit:"true"}]</nowiki>}}, although it does not appear lit in the inventory. {{IN|bedrock}}, the lit furnace block can be obtained only by inventory editing. It always stays lit, despite containing no items.
+
+== Usage ==
+Furnaces cannot be pushed by [[piston]]s {{in|java}}.
+
+=== Smelting ===
+{{main|Smelting}}
+[[File:Furnace GUI.png|thumb|right|Interface for the Furnace.]]
+
+The main purpose of a furnace is [[smelting]]. Its interface can be opened by pressing the {{Control|use|text=use item}} button on it. A fuel source (up to one stack of fuel items) is placed in the lower slot, and the items (up to one stack) to be smelted are placed in the upper slot. A furnace smelts items at a speed of one item every {{convert|200|game tick|second}} or six items per minute.
+
+The number of items that a fuel source can smelt depends on the type of fuel. As soon as smelting begins, the fuel slot is decremented immediately and that unit of fuel begins burning. The fuel continues burning until it is consumed, regardless of whether the upper slot has any items remaining to smelt. For example, a piece of coal burns for 80 seconds and can smelt eight items, but if only one item is smelted (or if the item is pulled out before smelting is complete), the coal still continues burning for the full 80 seconds, wasting seven items worth of smelting. After it burns out, no additional fuel is decremented from the fuel slot if the upper slot is empty. If the fuel slot is empty and the burning fuel is consumed before an item completes smelting, the smelting stops, the smelted item is unchanged, and smelting must be restarted with new fuel.
+
+{| class="wikitable" data-description="Furnace smelting interface"
+! [[Smelting]] Recipe
+|-
+| {{Furnace}}
+|}
+
+=== Light source ===
+[[File:Lit Furnace (S).gif|thumb|Lit Furnace]]
+Furnaces emit a light level of 13 when active, as well as smoke and flame [[particles]].
+
+=== Crafting ingredient ===
+{{crafting usage}}
+
+=== Custom name ===
+By default, the GUI of a furnace is labeled "Furnace", but this name can be customized by naming it in an [[anvil]] before placing it, or by changing the <code>CustomName</code> tag using the {{cmd|data}} command{{only|Java}}.
+
+=== Lock ===
+{{IN|je}}, a furnace can be "locked" by setting its <code>lock</code> tag using the {{cmd|data}} command. If a furnace's <code>lock</code> tag is not blank, the furnace cannot be opened unless the player is holding an item with the same name as the <code>lock</code> tag's text. For example, to lock a furnace at (0,64,0) so that the furnace cannot be opened unless the player is holding an item named "Furnace Key", use {{cmd|data merge block 0 64 0 <nowiki>{lock:{components:{"minecraft:custom_name":"Furnace Key"}}}</nowiki>}}.
+
+=== Note Blocks ===
+Furnace can be placed under [[note block]]s to produce "bass drum" sounds.
+
+== Sounds ==
+=== Generic ===
+{{Sound table/Block/Stone}}
+
+=== Unique ===
+{{edition|java}}:
+{{Sound table
+|sound=Furnace fire crackle1.ogg
+|sound2=Furnace fire crackle2.ogg
+|sound3=Furnace fire crackle3.ogg
+|sound4=Furnace fire crackle4.ogg
+|sound5=Furnace fire crackle5.ogg
+|subtitle=Furnace crackles
+|source=block
+|description=Randomly while lit
+|id=block.furnace.fire_crackle
+|translationkey=subtitles.block.furnace.fire_crackle
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Door close.ogg
+|sound2=Door open.ogg
+|subtitle=Chest locked<ref group=sound name=lock>{{Bug|MC-98316||Wrong subtitles caused by missing distinction}}</ref>
+|source=block
+|description=When a player attempts to open a furnace locked using the {{nbt|string|Lock}} tag
+|id=block.chest.locked|idnote=<ref group=sound name=lock/>
+|translationkey=subtitles.block.chest.locked|translationkeynote=<ref group=sound name=lock/>
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Furnace fire crackle1.ogg
+|sound2=Furnace fire crackle2.ogg
+|sound3=Furnace fire crackle3.ogg
+|sound4=Furnace fire crackle4.ogg
+|sound5=Furnace fire crackle5.ogg
+|source=block
+|description=Randomly while lit
+|id=block.furnace.lit
+|volume=3.0
+|pitch=1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Furnace
+|spritetype=block
+|nameid=furnace
+|foot=1}}
+{{ID table
+|displayname=Block entity
+|spritename=furnace
+|spritetype=block
+|nameid=furnace
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Furnace
+|spritetype=block
+|nameid=furnace
+|id=61}}
+{{ID table
+|displayname=Lit Furnace
+|spritetype=block
+|nameid=lit_furnace
+|id=62
+|form=block
+|translationkey=-
+|foot=1}}
+{{ID table
+|notnamespaced=y
+|displayname=Block entity
+|spritename=furnace
+|spritetype=block
+|nameid=Furnace
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+{{/BS}}
+
+=== Block data ===
+A furnace has a block entity associated with it that holds additional data about the block.
+
+{{el|java}}:
+{{see also|Block entity format}}
+{{/BE}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Block entity format]].
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Hot Topic;Smelt Everything;Super Fuel}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|Acquire Hardware}}
+</table-progress-tracking>
+
+== History ==
+{{History|java indev}}
+{{History||0.31|snap=20100129|slink=Java Edition Indev 0.31 20100129|Prior to the addition of furnaces, [[item]]s could be [[smelting|smelted]] by dropping them on the ground and then burning them with [[flint and steel]]. This was the only way to smelt [[ore]]s.}}
+{{History||20100219|[[File:Furnace (N) JE1.png|32px]] [[File:Furnace (E) JE1.png|32px]] [[File:Furnace (S) JE1.png|32px]] [[File:Furnace (W) JE1.png|32px]] [[File:Lit Furnace (N) JE1.png|32px]] [[File:Lit Furnace (E) JE1.png|32px]] [[File:Lit Furnace (S) JE1.png|32px]] [[File:Lit Furnace (W) JE1.png|32px]] Added furnaces.}}
+{{History||20100223|[[Cobblestone]] can now be [[smelting|smelted]] into [[stone]].}}
+{{History|java infdev}}
+{{History||20100227-1|[[File:Furnace (away) JE1.png|32px]] [[File:Furnace (away) JE1.png|32px]] [[File:Furnace (away) JE1.png|32px]] [[File:Furnace (away) JE1.png|32px]] [[File:Furnace (away) JE1.png|32px]] [[File:Furnace (away) JE1.png|32px]] [[File:Furnace (away) JE1.png|32px]] [[File:Furnace (away) JE1.png|32px]] Furnaces no longer have a front faces.}}
+{{History||20100313|[[File:Furnace (N) JE1.png|32px]] [[File:Furnace (E) JE1.png|32px]] [[File:Furnace (S) JE1.png|32px]] [[File:Furnace (W) JE1.png|32px]] [[File:Lit Furnace (N) JE1.png|32px]] [[File:Lit Furnace (E) JE1.png|32px]] [[File:Lit Furnace (S) JE1.png|32px]] [[File:Lit Furnace (W) JE1.png|32px]] Furnaces now have front faces again.}}
+{{History||20100325|Furnaces are now fully functional.}}
+{{History||20100327|The [[smelting]] time of furnaces has been reduced from 8 seconds to 4 seconds.}}
+{{History||20100330|The smelting time of furnaces has been increased from 4 seconds to 8 seconds per [[item]].}}
+{{History|java alpha}}
+{{History||v1.0.14|Furnaces are now used to craft [[minecarts with furnaces]].}}
+{{History||v1.2.0|snap=<nowiki>?</nowiki>|slink=:Category:Information needed requiring unarchived version|Furnaces now face toward the [[player]] when placed,<ref>{{tweet|notch|29202275279|Guess what.. Furnaces should now face the opposite direction the player is facing when you plant them.|October 30, 2010}}</ref> rather than away.}}
+{{History|java beta}}
+{{History||1.2|[[File:Furnace (N) JE2 BE1.png|32px]] [[File:Furnace (E) JE2 BE1.png|32px]] [[File:Furnace (S) JE2 BE1.png|32px]] [[File:Furnace (N) JE2 BE1.png|32px]] [[File:Furnace (N) JE2 BE1.png|32px]] [[File:Lit Furnace (E) JE2 BE1.png|32px]] [[File:Lit Furnace (S) JE2 BE1.png|32px]] [[File:Furnace (N) JE2 BE1.png|32px]] The models of furnaces have been changed. Now use their own top texture on top face.}}
+{{History||1.8|snap=Pre-release|Furnaces now generate in [[village]] blacksmiths.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 6|Furnaces take much shorter time to destroy, and the breaking time depends on the [[tiers|pickaxe's material]].}}
+{{History||1.2.4|snap=release|[[Cat]]s now try to sit on active furnaces.}}
+{{History||1.2.5|snap=pre|{{key|Shift}} + clicking can now be used to put [[item]]s into furnaces more easily.}}
+{{History||1.3.1|snap=12w18a|Wooden [[tool]]s now work in furnaces as one full furnace use.}}
+{{History|||snap=12w22a|[[Smelting]] various [[ore]]s in furnaces now reward [[player]]s with [[experience]] points.
+|When using [[lava]] as [[fuel]] inside a furnace, the [[player]] now recovers the [[bucket]].}}
+{{History||1.4.2|snap=12w39a|Previously, furnaces lit up blocks all around them, this snapshot has made furnaces [[light]] up blocks only in front of them.<ref>{{tweet|dinnerbone|250905223713914880|The furnace only gives out light from the front now, unlike before where it'd be all directions!|September 26, 2012}}</ref> ([https://web.archive.org/web/20190710084139/https://imgur.com/a/cFaAn images showing difference]) Its [[light]] value has remained as 13, but the light is emitted only from the block's front surface.}}
+{{History|||snap=12w40a|The previous change to furnaces has been reverted until the new [[light]]ing system can be optimized.}}
+{{History||1.4.6|snap=12w49a|When holding {{Control|sneak}}, the [[player]] can now place [[block]]s and [[item]]s (like [[redstone]], [[redstone repeaters|repeaters]], and [[lever]]s) directly onto furnaces.}}
+{{History||1.5|snap=13w02a|[[Hopper]]s can now be used in conjunction with furnaces, allowing for automatic smelting.
+|Furnaces renamed using an [[anvil]] now display the new name in their GUI where the normal name used to appear.}}
+{{History||1.8|snap=14w02a|When a furnace runs out of [[fuel]], the [[smelting]] progress now pauses instead of resetting.}}
+{{History|||snap=14w04a|When a furnace runs out of fuel, the [[smelting]] progress now reverses at twice the speed of smelting.}}
+{{History|||snap=14w25a|[[File:Furnace (N) JE2 BE1.png|32px]] [[File:Furnace (E) JE3.png|32px]] [[File:Furnace (S) JE3.png|32px]] [[File:Furnace (W) JE3.png|32px]] [[File:Furnace (N) JE2 BE1.png|32px]] [[File:Lit Furnace (E) JE3.png|32px]] [[File:Lit Furnace (S) JE3.png|32px]] [[File:Furnace (W) JE3.png|32px]] The top texture of the furnace now rotates according to the direction it faces.}}
+{{History|||snap=14w26a|Furnaces now allow only fuel or a single empty [[bucket]] in the fuel slot.}}
+{{History||1.9|snap=15w43a|A furnace now generates inside of [[igloo]]s.}}
+{{History|||snap=15w50a|Added a [[sound]] to furnaces: <code>block.furnace.fire_crackle</code>}}
+{{History||1.13|snap=17w47a|The different [[block]] IDs for the furnace has been merged into one ID.
+|A lit block state for furnaces has been added.
+|Prior to [[1.13/Flattening|''The Flattening'']], these [[block]]s' numeral IDs were 61 and 62.}}
+{{History|||snap=18w06a|A recipe book has been added for [[smelting]] using furnaces. It can be used only for the input slot.}}
+{{History|||snap=18w09a|When the output of a furnace is extracted with a hopper, the experience now accumulates inside the furnace, and is released the next time a player takes the output.<ref>{{bug|MC-7046||Furnace with hopper not giving XP|Fixed}}</ref>}}
+{{History||1.14|snap=18w43a|[[File:Furnace (N) JE3 BE2.png|32px]] [[File:Furnace (E) JE4.png|32px]] [[File:Furnace (S) JE4.png|32px]] [[File:Furnace (W) JE4.png|32px]] [[File:Furnace (N) JE3 BE2.png|32px]] [[File:Lit Furnace (E) JE4.png|32px]] [[File:Lit Furnace (S) JE4.png|32px]] [[File:Furnace (W) JE4.png|32px]] The texture of furnaces has been changed.}}
+{{History|||snap=18w49a|Added [[snowy tundra]] [[village]]s, where many of the houses contain furnaces indoors.
+|Furnace items can now be found in [[chest]]s in snowy tundra village houses.}}
+{{History|||snap=18w50a|Furnaces can now be found in one type of [[taiga]] village houses.
+|The updated taiga village weaponsmiths no longer contain furnaces.
+|Furnaces can now be used to craft [[blast furnace]]s and [[smoker]]s.}}
+{{History||1.16|snap=20w15a|[[Blackstone]] can now be used to create furnaces instead of [[cobblestone]].}}
+{{History|||snap=20w17a|Breaking a furnace now drops the [[experience]] accumulated from smelting.<ref>{{bug|MC-1601||Breaking a Furnace will not give you the experience for the smelted things inside|Fixed}}</ref>}}
+{{History||1.17|snap=21w07a|Furnaces can now be [[crafting|crafted]] with [[grimstone]].}}
+{{History||1.17|snap=21w08a|Furnaces are now [[crafting|crafted]] with [[cobbled deepslate]] instead of grimstone.}}
+{{History||1.19|snap=22w13a|Furnaces now generate as part of [[ancient cities]].|Furnaces no longer drop when breaking a [[minecart with furnace]].}}
+{{History||1.20|snap=23w12a|Furnaces now generate in [[trail ruins]].}}
+
+{{History|pocket alpha}}
+{{History||v0.3.2|[[File:Furnace (N) JE2 BE1.png|32px]] [[File:Furnace (E) JE2 BE1.png|32px]] [[File:Furnace (S) JE2 BE1.png|32px]] [[File:Furnace (N) JE2 BE1.png|32px]] [[File:Furnace (N) JE2 BE1.png|32px]] [[File:Lit Furnace (E) JE2 BE1.png|32px]] [[File:Lit Furnace (S) JE2 BE1.png|32px]] [[File:Furnace (N) JE2 BE1.png|32px]] Added furnaces.
+|With the addition of furnaces, every available [[block]] and [[item]] can now be gathered, [[crafting|crafted]] or [[smelting|smelted]] into (no more unlimited items).}}
+{{History||v0.9.0|snap=build 1|Furnaces now naturally spawn in [[village]]s.}}
+{{History||v0.11.0|snap=build 1|[[Crafting descriptions]] are no longer displayed in furnaces.}}
+{{History|||snap=build 3|Furnaces now [[drops|drop]] one stack for each [[item]] instead of splitting them up.}}
+{{History||v0.15.0|snap=build 1|Furnaces can now be moved by [[piston]]s.}}
+{{History||v0.16.0|snap=build 1|A better description (Input, Fuel, Result) has been added to furnaces for devices that do not use a controller.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|A furnace now generates inside of [[igloo]]s.}}
+{{History|bedrock}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Furnace (N) JE3 BE2.png|32px]] [[File:Furnace (E) BE2.png|32px]] [[File:Furnace (S) BE2.png|32px]] [[File:Furnace (N) JE3 BE2.png|32px]] [[File:Lit Furnace (N) BE2.png|32px]] [[File:Lit Furnace (E) BE2.png|32px]] [[File:Lit Furnace (S) BE2.png|32px]] [[File:Lit Furnace (N) BE2.png|32px]] The texture of furnaces has been changed.
+|Furnaces can now be used to craft [[smoker]]s and [[blast furnace]]s.
+|Furnaces now generate in the new [[village]]s.}}
+{{History||1.11.0|snap=beta 1.11.0.1|Furnaces can now be found in [[snowy tundra]] village house [[chest]]s.}}
+{{History||1.16.20|snap=beta 1.16.20.50|Furnaces now drop [[experience]] from within from processed [[item]]s.<ref>{{bug|MCPE-71651}}</ref>}}
+{{History||1.17.0|snap=beta 1.16.230.52|[[Deepslate]] can now be used to craft furnaces.}}
+{{History||1.20.30|snap=beta 1.20.30.20|Furnaces now use the <code>minecraft:cardinal_direction</code> [[block state]] instead of <code>facing_direction</code>.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Furnace (N) JE2 BE1.png|32px]] [[File:Furnace (E) JE2 BE1.png|32px]] [[File:Furnace (S) JE2 BE1.png|32px]] [[File:Furnace (N) JE2 BE1.png|32px]] [[File:Furnace (N) JE2 BE1.png|32px]] [[File:Lit Furnace (E) JE2 BE1.png|32px]] [[File:Lit Furnace (S) JE2 BE1.png|32px]] [[File:Furnace (N) JE2 BE1.png|32px]] Added furnaces.}}
+{{History||xbox=TU12|[[Cat]]s now try to sit on active furnaces, making them unusable. This is intended to annoy the [[player]].}}
+{{History||xbox=TU14|ps=1.04|Wooden [[tool]]s now work in furnaces as one full furnace use.
+|When using [[lava]] as [[fuel]] inside furnaces, the [[player]] now recovers the [[bucket]].}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|When a furnace runs out of fuel, the [[smelting]] progress now reverses at twice the speed of smelting.
+|Furnaces now allow only [[fuel]] or a single empty [[bucket]] in the fuel slot.}}
+{{History||xbox=TU53|xbone=CU43|ps=1.49|wiiu=Patch 23|switch=1.0.3|More [[item]]s can now be used as fuel in a furnace.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Furnace (N) JE3 BE2.png|32px]] [[File:Furnace (E) JE4.png|32px]] [[File:Furnace (S) JE4.png|32px]] [[File:Furnace (W) JE4.png|32px]] [[File:Furnace (N) JE3 BE2.png|32px]] [[File:Lit Furnace (E) JE4.png|32px]] [[File:Lit Furnace (S) JE4.png|32px]] [[File:Furnace (W) JE4.png|32px]] The texture of furnaces has been changed.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Furnace (N) JE2 BE1.png|32px]] [[File:Furnace (E) JE2 BE1.png|32px]] [[File:Furnace (S) JE2 BE1.png|32px]] [[File:Furnace (N) JE2 BE1.png|32px]] [[File:Furnace (N) JE2 BE1.png|32px]] [[File:Lit Furnace (E) JE2 BE1.png|32px]] [[File:Lit Furnace (S) JE2 BE1.png|32px]] [[File:Furnace (N) JE2 BE1.png|32px]] Added furnaces.}}
+{{History|foot}}
+
+=== Lit furnace "item" ===
+{{:Technical blocks/Lit Furnace}}
+
+== Issues ==
+{{Issue list}}
+
+== Trivia ==
+* Furnaces function as multiple real-world devices combined into one block: bloomeries and blast furnaces (for smelting ores), ovens (for baking and cooking), charcoal pits (for the charring of wood) and kilns (for baking of clay).
+* {{IN|be}}, the lit furnace block was legitimately obtainable by mining a furnace that is smelting an item while the pickaxe has [[Silk Touch]]. When highlighted in the inventory its name was 'lit_furnace'.
+
+== Gallery ==
+<gallery>
+Furnace (S).png | 
+Furnace (W).png | 
+Furnace (N).png | 
+Furnace (E).png | 
+Lit Furnace (S).png | 
+Furnace (W).png | 
+Furnace (N).png | 
+Lit Furnace (E).png
+Furnace (S) BE.png | 
+Furnace (W) BE.png | 
+Furnace (N).png | 
+Furnace (E) BE.png | 
+Lit Furnace (S) BE.png | 
+Lit Furnace (W) BE.png | 
+Lit Furnace (N) BE.png | 
+Lit Furnace (E) BE.png |
+</gallery>
+
+=== Screenshots ===
+<gallery>
+Furnaces in Village.png|Naturally occurring furnaces in a [[village]].
+Furnace GUI.png|The furnace GUI for Java Edition.
+Furnace in a leatherworker house.png|A furnace in a leatherworker house.
+Minecraft 2012-09-26 12-28-49.png|A furnace emitting light from its front.
+Minecraft 2012-09-26 12-28-54.png|A furnace not emitting light from its back.
+Furnace Back Light.png|A furnace emitting light from its back, before 1.4.
+</gallery>
+
+=== In other media ===
+<gallery>
+File:Croc Ad 2.jpg|[[Ari]] putting a [[salmon]] into a furnace; note the perspective of the block compared to the characters.
+</gallery>
+
+== See also == 
+*{{BlockLink|Blast Furnace}}
+*{{BlockLink|Smoker}}
+
+== References ==
+{{reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/block-week-furnace Block of the Week: Furnace] – Minecraft.net on September 15, 2017
+
+{{Blocks|Utility}}
+
+[[Category:Generated structure blocks]]
+[[Category:Manufactured blocks]]
+[[Category:Utility blocks]]
+[[Category:Storage]]
+[[Category:Block entities]]
+[[Category:Light sources]]
+
+[[cs:Pec]]
+[[de:Ofen]]
+[[es:Horno]]
+[[fr:Fourneau]]
+[[hu:Kemence]]
+[[it:Fornace]]
+[[ja:かまど]]
+[[ko:화로]]
+[[nl:Oven]]
+[[pl:Piec]]
+[[pt:Fornalha]]
+[[ru:Печь]]
+[[tr:Fırın]]
+[[uk:Піч]]
+[[zh:熔炉]]

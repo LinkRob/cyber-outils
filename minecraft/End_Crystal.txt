@@ -1,0 +1,260 @@
+{{ItemEntity
+|image=End Crystal.gif
+|imagesize=150px
+|invimage=End Crystal
+|renewable=Yes
+|stackable=Yes (64)
+|rarity=Rare
+|drops=None
+|size=
+Height: 2 Blocks<br>Width: 2 Blocks
+}}
+An '''end crystal''' is an [[entity]] that can be [[Crafting|crafted]] or found on [[the End]]'s main island, where it heals the [[Ender Dragon|ender dragon]]. It can only be placed on [[obsidian]] or [[bedrock]] and [[Explosion|explodes]] instantly when attacked or damaged in most ways.
+
+== Spawning ==
+
+=== Natural generation ===
+
+An end crystal is found atop each [[obsidian pillar]] on the central island of the End, each on top of a piece of [[bedrock]]. There are 10 end crystals in total, of which two are protected in "cages" of [[iron bars]]. All end crystals respawn one after another as the respawning process of the [[ender dragon]] starts.
+
+== Obtaining ==
+
+=== Crafting ===
+
+{{Crafting
+  |A1=Glass
+  |B1=Glass
+  |C1=Glass
+  |A2=Glass
+  |B2=Eye of Ender
+  |C2=Glass
+  |A3=Glass
+  |B3=Ghast Tear
+  |C3=Glass
+  |Output= End Crystal
+  |type= Decoration block
+}}
+
+== Usage ==
+
+=== Healing the ender dragon ===
+
+Their primary purpose is to recharge the health of the ender dragon, who gains a charge from the nearest crystal within a cuboid extending 32 blocks from the dragon in all directions. The dragon is healed {{hp|1}} each half-second. If multiple ender dragons are spawned, an end crystal can affect multiple dragons at the same time. The healing beam is neither obstructed nor is its power diminished by entities or blocks.
+
+=== Respawning the ender dragon ===
+[[File:End Crystals on the Exit portal.png|right|thumb|How to arrange end crystals on the exit portal to respawn the ender dragon.]]
+
+As items, end crystals may be placed on bedrock and [[obsidian]], if the two blocks above the bedrock or obsidian block are air or replaceable blocks and no other entities intersect the area. When an end crystal is placed in [[the End]], a [[fire]] block is created at the end crystal location. If four are placed on the end [[exit portal]], one on each of the flat sides, the crystals respawn the original end crystals on the obsidian pillars, as well as resurrect the dragon itself, before exploding. The top of each pillar also explodes, destroying any player-placed blocks. This happens even if TNT explosions are turned off in settings.
+
+If the exit portal is ever broken for any reason, end crystals can still be placed on obsidian blocks with the same location as the exit portal.
+
+=== Explosions ===
+
+End crystals explode when attacked or damaged in most ways, even by attacks that normally do zero damage. They are not affected by exploding fireworks, and if damaged by an explosion, they disappear instead of exploding.{{Only|Java}}<ref>{{bug|MC-118429||End crystals don't explode when destroyed by nearby explosions}}</ref> The end crystal's [[explosion]] has an [[Explosion#Explosion strength|explosion strength]] of 6, the same as a [[charged creeper]]. The end crystal's fire often remains after the crystal explodes. Any ender dragon charging from the crystal when it is destroyed takes {{hp|10}} damage.
+
+{{IN|java}}, an end crystal's explosion can be [[blocking|blocked]] by a [[shield]].
+
+Although an ender dragon damages most blocks and entities in its path, it cannot destroy end crystals simply by going near them.
+
+Placing [[water]] on the end crystal will neutralize the blast effect, [[damage]] and knockback.
+
+End crystals with obsidian or bedrock below them will not damage blocks below them when they explode.
+
+{{IN|bedrock}}, having the game rule {{cd|mobGriefing}} to {{cd|false}} will prevent the End Crystal from destroying any blocks. While {{in|java}} the same game rule will not prevent the End Crystal from destroying any blocks.
+
+=== Beams ===
+The end crystal naturally shoots a beam at the ender dragon and heals it when the dragon is within range. This beam can be manually created using the command {{cmd|data merge entity @e[type{{=}}end_crystal,limit{{=}}1] {BeamTarget:{X:0, Y:0, Z:0<nowiki>}}</nowiki>}} or {{cmd|data merge entity @e[type{{=}}end_crystal,limit{{=}}1] {beam_target:[I;0,0,0<nowiki>]}</nowiki>}} for versions 1.20.5 and onwards. The beam can be pointed in any direction, allowing it to mark locations or objects.
+
+=== Properties ===
+[[File:End Crystal (Slateless).gif|thumb|A base-less end crystal.]]  
+
+End crystals are of two kinds: the ones with a base beneath them are created either by game mechanism or by the {{cmd|summon}} command; while the base-less ones are created by players by manually placing the crystal items on top of [[obsidian]] or [[bedrock]].
+
+The base appears to be made of bedrock, with a crystal hovering over it. While in the End, a crystal continually generates fire at its current position, one block above the base (directly on top of the block the base is embedded in), replacing any other block at that location. This fire is capable of spreading.
+
+The end crystal entity is not solid and can be walked through freely. End crystals can be pushed by [[piston]]s, but they explode if moved while on fire. Because fire is checked only when an entity moves, end crystals do not normally take damage from their own fire unless moved.
+
+== Sounds ==
+{{edition|java}}:
+{{Sound table
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|subtitle=Explosion
+|source=block
+|description=When an end crystal explodes
+|id=entity.generic.explode
+|translationkey=subtitles.entity.generic.explode
+|volume=4.0
+|pitch=0.56-0.84
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|source=block
+|description=When an end crystal explodes
+|id=random.explode
+|volume=4.0
+|pitch=1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|firstcolumnname=Item
+|showforms=y
+|generatetranslationkeys=y
+|displayname=End Crystal
+|spritetype=item
+|nameid=end_crystal
+|form=item
+|foot=1}}
+{{ID table
+|edition=java
+|firstcolumnname=Entity
+|generatetranslationkeys=y
+|displayname=End Crystal
+|spritetype=entity
+|nameid=end_crystal
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|firstcolumnname=Item
+|shownumericids=y
+|showforms=y
+|notshowbeitemforms=y
+|generatetranslationkeys=y
+|displayname=End Crystal
+|spritetype=item
+|nameid=end_crystal
+|id=637
+|form=item
+|foot=1}} 
+{{ID table
+|edition=bedrock
+|firstcolumnname=Entity
+|shownumericids=y
+|generatetranslationkeys=y
+|displayname=End Crystal
+|spritetype=entity
+|nameid=ender_crystal
+|id=71
+|foot=1}}
+
+=== Entity data ===
+
+End crystals have entity data that define various properties of the entity.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|The End... Again...}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|The End... Again...}}
+</table-progress-tracking>
+
+== History ==
+[[File:End Crystal 19w38a.gif|thumb|Java Edition 19w38a]]
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 6|[[File:End Crystal JE1 BE1.png|32px]] Added ender crystals.}}
+{{History||1.2.1|snap=12w04a|Previously, ender crystals could be spawned using [[spawn egg]]s with ID 200 (in a [[server]], these were created using {{cmd|give 383 1 200}}). The spawned crystal would be positioned where a natural crystal would be if there was a bedrock block at the location. It was still possible until 1.9 to obtain an end crystal spawn egg, but it would not spawn anything.}}
+{{History||1.7.2|snap=13w36a|Ender crystals can now be spawned with the {{cmd|summon}} command.}}
+{{History||1.8|snap=14w06a|Ender crystals now generate one [[block]] lower. The fire they generate destroys the [[bedrock]] block that is supposed to be underneath (see {{bug|MC-47526}}).}}
+{{History||1.9|snap=15w31a|Ender crystals generate at the correct Y-level again.}}
+{{History|||snap=15w33c|Respawning the ender dragon now also respawns the ender crystals on the obsidian pillars.
+|Ender crystals now have a compound BeamTarget tag that hold the X, Y, Z block location the beam points to.}}
+{{History|||snap=15w44a|"Ender crystals" have been renamed to "end crystals".
+|[[File:End Crystal (item) JE1 BE1.png|32px]] End crystals can now be obtained as an item.
+|End crystals now drop from [[skeleton trap]] horses and can be placed only on [[obsidian]] or bedrock. Placing several of them atop the end exit portal respawns the ender dragon.}}
+{{History|||snap=15w44b|End crystals are no longer dropped by [[skeleton horse]]s.
+|Added crafting recipe for end crystals, making end crystals [[renewable]].}}
+{{History|||snap=15w49a|End crystals now require [[air]]/replaceable [[block]]s and lack of [[entity|entities]] for placement.}}
+{{History|||snap=15w51a|End crystals can no longer be placed in [[Adventure mode]].}}
+{{History||1.11|snap=16w32a|The entity ID has been changed from <code>EnderCrystal</code> to <code>ender_crystal</code>.}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], this [[item]]'s numeral ID was 426.}}
+{{History|||snap=18w20b|Renamed to "End Crystal".}}
+{{History|||snap=pre5|Entity ID has been changed to <code>end_crystal</code>.}}
+{{History||1.14|snap=18w43a|[[File:End Crystal JE2.png|32px]][[File:End Crystal (item) JE2 BE2.png|32px]] The textures of end crystals and the end crystal [[item]] have been changed.}}
+{{History||1.19.3|snap=22w43a|End crystal explosions can now be [[blocking|blocked]] by [[shield]]s.<ref>{{bug|MC-188247|||Fixed}}</ref>}}
+{{History||1.20.5|snap=24w06a|<code>BeamTarget</code> in End Crystals have been renamed to <code>beam_target</code>.}}
+
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|[[File:End Crystal JE1 BE1.png|32px]][[File:End Crystal (item) JE1 BE1.png|32px]] Added end crystals.}}
+{{History|bedrock}}
+{{History||1.6.0|snap=?|[[File:End Crystal BE2.png|32px]] [[File:End Crystal BE2.gif|32px]] The model of the end crystals has been changed. It has now two cubes instead of three.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:End Crystal BE3.png|32px]][[File:End Crystal (item) JE2 BE2.png|32px]] The textures of end crystals and the end crystal item have been changed.}}
+{{History||1.17.10|snap=beta 1.17.10.20|[[File:End Crystal JE2.png|32px]] The model of the end crystals has been changed to have three cubes again, and to match ''Java Edition''.}}
+{{History||1.19.70|snap=beta 1.19.70.20|Increased end crystal collision box size to match ''Java Edition''.|End crystals with obsidian or bedrock below them now will not damage blocks below them when they explode.}}
+
+{{History|console}}
+{{History||xbox=TU9|xbone=CU1|ps=1.0|wiiu=Patch 1|[[File:End Crystal JE1 BE1.png|32px]] Added ender crystals.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|Ender crystals now generate one block lower. The fire they generate destroys the [[bedrock]] block that is supposed to be underneath.}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|"Ender crystals" have been renamed to "end crystals".
+|[[File:End Crystal (item) JE1 BE1.png|32px]] End crystals can now be obtained as an [[item]]. 
+|End crystals now drop from [[skeleton trap]] horses and can be placed only on [[obsidian]] or bedrock. Placing several of them atop the [[end portal|end exit portal]] respawns the ender dragon.
+|Added a crafting recipe for end crystals.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:End Crystal JE2.png|32px]][[File:End Crystal (item) JE2 BE2.png|32px]] The textures of end crystals and the end crystal item have been changed.}}
+
+{{History|new 3ds}}
+{{History||1.7.10|[[File:End Crystal JE1 BE1.png|32px]][[File:End Crystal (item) JE1 BE1.png|32px]] Added end crystals.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* According to [[Jens Bergensten|Jeb]], the reason behind the current crafting recipe using glass as opposed to [[Chorus Fruit|chorus fruit]] or any materials introduced in [[Java Edition 1.9|1.9]] is as a means for players to craft end crystals in older worlds that the dragon has already been killed in.<ref>{{tweet|jeb_|667000226524372992|The problem is that you need to be able to craft the crystals on worlds in which the dragon has been destroyed already|November 18, 2015}}</ref>
+* A historical rendition of the [[beacon]] block featured an animated entity within it, which resembled a yellow miniaturized end crystal. The bedrock platform of the end crystal entity would also render below the beacon, though this would normally be hidden within the block below.
+* Using a [[piston]] to push an end crystal's fire into an end portal block deletes the end portal block. However, natural portal blocks regenerate if the end crystal is moved.
+
+== Gallery ==
+<gallery>
+End Crystal Usage.png|Using end crystals to respawn the ender dragon.
+Crystal Link.png|An ender dragon being hit with the "healing beam" of an end crystal.
+Ender Crystal.png|An end crystal.
+EnderCrystalOverworld.png|An end crystal in the Overworld spawned using {{cmd|summon}} {{code|end_crystal}}.
+Ender Dragon Revival.png|End crystals respawning the ender dragon.
+CagedEnderCrystal.png|A caged end crystal.
+Respawn ender dragon.png|A [[player]] trying to respawn the ender dragon.
+End Crystal (item).gif|An animation of the item of the end crystal.
+</gallery>
+
+== References ==
+{{reflist}}
+
+{{Entities}}
+{{Items}}
+
+[[de:Enderkristall]]
+[[el:Κρύσταλλος του Ender]]
+[[es:Cristal del End]]
+[[fr:Cristal de l'End]]
+[[ja:エンドクリスタル]]
+[[ko:엔드 수정]]
+[[nl:Endkristal]]
+[[pl:Kryształ Endu]]
+[[pt:Cristal do End]]
+[[ru:Кристалл Края]]
+[[th:คริสตัลเอนด์]]
+[[uk:Кристал Енду]]
+[[zh:末影水晶]]

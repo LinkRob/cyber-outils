@@ -1,0 +1,83 @@
+{{Infobox command
+|name=tellraw
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+}}
+
+{{distinguish|Commands/tell|Commands/say}}
+{{about|the command that sends JSON messages|the command to whisper|Commands/msg}}
+Sends a [[Raw JSON text format|JSON message]] to players.
+
+==Syntax==
+
+* '''Java Edition'''
+: <code>tellraw <targets> <message></code>
+
+* '''Bedrock Edition'''
+: <code>tellraw <target: target> <raw json message: json></code>
+
+==Arguments==
+
+{{argument|targets|entity|target: target|CommandSelector<Player>}}
+: Specifies the player(s) to send the message to.
+: {{arg desc|je=entity|amount=multiple|type=players|be=player}}
+
+{{argument|message|component|raw json message: json|Json::Value}}
+: Specifies the message to send.
+: {{arg desc|je=component|be=Json::Value}}
+
+==Result==
+
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|unparseable}}
+{{Result table|<code>player: target</code> is not in [[Target selectors#Player type and single type|player type]]|N/A|fail}}
+{{Result table|<code><targets></code> or <code>player: target</code> fails to resolve to one or more online players|fail}}
+{{Result table|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|On success|1|1|the number of targeted players}}
+{{Output table|edition=be|On fail|0}}
+{{Output table|On success|1}}
+{{Output table}}
+
+== Examples ==
+* To send the message "Hello" in chat:
+** <code>/tellraw @a "Hello"</code>{{only|java}}
+** <code>/tellraw @a {"rawtext":[{"text":"Hello"}]}</code>{{only|bedrock}}
+* To send the message "I am blue" colored blue in chat:
+** <code>/tellraw @a {"text":"I am blue","color":"blue"}</code>{{only|java}}
+** <code>/tellraw @a {"rawtext":[{"text":"§bI am blue"}]}</code>{{only|bedrock}}
+* To send the message "Hover me!" in chat, which displays the text "Hi!" when hovered over:
+** <code>/tellraw @a {"text":"Hover me!","hoverEvent":{"action":"show_text","value":"Hi!"}}</code>{{only|java}}
+* Use '\n' to insert a new line:
+** <code>/tellraw @a "Text1\nText2"</code>{{only|java}}
+** <code>/tellraw @a {"rawtext":[{"text":"Text1\nText2"}]}</code>{{only|bedrock}}
+* Display a message in the [[Enchantment Table]]'s glyphs:
+** <code>/tellraw @a {"text":"Hello World","font":"alt"}</code>{{only|java}}
+* Display a message in the [[illager]] runes:
+** <code>/tellraw @a {"text":"Hello World","font":"illageralt"}</code>{{only|java}}
+
+== History ==
+{{for|changes to the raw JSON text used by this command|Raw JSON text format#History}}
+{{History|java}}
+{{History||1.7.2|snap=13w37a|Added {{cmd|tellraw|link=none}}.}}
+{{History||1.18|snap=21w37a|Added {{font|illageralt|link=none}}.}}
+
+{{History|bedrock}}
+{{History||1.9.0|snap=beta 1.9.0.0|Added {{cmd|tellraw|link=none}}.}}
+{{History|foot}}
+
+==See also==
+
+* {{cmd|say}} — send a plain text message to all players
+* {{cmd|tell}} — send a plain private text message to specific players
+
+{{Commands}}
+
+[[de:Befehl/tellraw]]
+[[zh:命令/tellraw]]

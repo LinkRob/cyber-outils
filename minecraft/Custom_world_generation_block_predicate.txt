@@ -1,0 +1,37 @@
+<div class="treeview"><onlyinclude>
+** {{nbt|string|type}}: The type of the block predicate. One of <code>true</code> (always true), <code>all_of</code> (all the specified block predicates need to matche), <code>any_of</code> (must matches at least one of the specified block predicates), <code>has_sturdy_face</code> (checks whether the block at a location has a [[Hitbox|full block supporting surface]] in a direction), <code>inside_world_bounds</code> (whether the Y level is in the world), <code>matching_block_tag</code>, <code>matching_blocks</code>, <code>matching_fluids</code>, <code>not</code> (invert the predicate), <code>replaceable</code> ([[material]] is replacable), <code>solid</code> ([[material]] is solid), or <code>would_survive</code>.
+**; If <code>type</code> is <code>all_of</code> or <code>any_of</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|list|predicates}}: (Can be empty) The child predicates. If used with <code>all_of</code>, all the childs need to match. If used with <code>any_of</code>, at least one of the childs needs to match.
+*** {{nbt|compound}}: A block predicate.
+**** {{Nbt inherit/block predicate}}
+**; If <code>type</code> is <code>inside_world_bounds</code>, <code>solid</code>, <code>replaceable</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|list|offset}}: (optional, defaults to [0,0,0]) A list of 3 integers specifying an [X, Y, Z] block position offset to check.
+*** {{nbt|int}}: Value between -16 and 16 (inclusive).
+**; If <code>type</code> is <code>has_sturdy_face</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|list|offset}}: (optional, defaults to [0,0,0]) A list of 3 integers specifying an [X, Y, Z] block position offset to check.
+*** {{nbt|int}}: Value between -16 and 16 (inclusive).
+** {{nbt|string|direction}}: The direction of the block to check if it is sturdy. With sturdy is meant that the block's [[Hitbox|block supporting box]] is full in the direction. 
+**; If <code>type</code> is <code>matching_block_tag</code>:
+** {{nbt|list|offset}}: (optional, defaults to [0,0,0]) A list of 3 integers specifying an [X, Y, Z] block position offset to check.
+*** {{nbt|int}}: Value between -16 and 16 (inclusive).
+** {{nbt|string|tag}}: The block tag without <code>#</code> to check.
+**; If <code>type</code> is <code>matching_blocks</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|list|offset}}: (optional, defaults to [0,0,0]) A list of 3 integers specifying an [X, Y, Z] block position offset to check.
+*** {{nbt|int}}: Value between -16 and 16 (inclusive).
+** {{nbt|string}}{{nbt|list|blocks}}: The blocks that will match. Cn be a block ID or a block tag, or a list of block IDs.
+**; If <code>type</code> is <code>matching_fluids</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|list|offset}}: (optional, defaults to [0,0,0]) A list of 3 integers specifying an [X, Y, Z] block position offset to check.
+*** {{nbt|int}}: Value between -16 and 16 (inclusive).
+** {{nbt|string}}{{nbt|list|fluids}}: The fluids that will match. Cn be a fluid ID or a fluid tag, or a list of fluid IDs.
+**; If <code>type</code> is <code>not</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|compound|predicate}}: The block predicate to invert.
+*** {{Nbt inherit/block predicate}}
+**; If <code>type</code> is <code>would_survive</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|list|offset}}: (optional, defaults to [0,0,0]) A list of 3 integers specifying an [X, Y, Z] block position offset to check.
+*** {{nbt|int}}: Value between -16 and 16 (inclusive).
+** {{nbt|compound|state}}: Checks whether this block state can survive in the specified position.
+*** {{nbt inherit/block_state}}
+</onlyinclude></div>
+[[ja:カスタムワールド生成/block predicate]]
+[[Category:Java Edition]]
+[[Category:Data packs]]

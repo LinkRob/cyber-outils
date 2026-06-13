@@ -1,0 +1,109 @@
+{{Infobox command
+|name=schedule
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|others=[[Options|Cheat]] only{{only|bedrock|short=1}}
+}}
+
+{{IN|java}}, delays the execution of a [[Function (Java Edition)|function]]. The function executes on the [[server]] after specified amount of time passes.
+
+{{IN|bedrock}}, schedules a [[Function (Bedrock Edition)|function]] to be executed once an area is loaded<!--, or after a certain amount of time-->.
+
+==Syntax==
+* '''Java Edition'''
+: <code>schedule function <function> &lt;time> [append|replace]</code>
+:: Adds a schedule.
+: <code>schedule clear <function></code>
+:: Removes a schedule.
+
+* '''Bedrock Edition'''
+: <code>schedule on_area_loaded add <from: x y z> <to: x y z> <function:filepath></code>
+: <code>schedule on_area_loaded add circle <center: x y z> <radius: int> <function: filepath></code>
+: <code>schedule on_area_loaded add tickingarea <name: string> <function: filepath></code>
+:: Adds a schedule to be executed once an area is loaded.
+
+==Arguments==
+
+{{argument|function|function|function: filepath|CommandFilePath}}
+: Specify the function to be run.
+: {{arg desc|je=function|be=commandfilepath}}
+
+{{el|je|short=1}}: {{argument|time|time}}
+: Specify the delay time.
+: {{arg desc|je=time}}
+
+{{el|je|short=1}}: {{argument|function|string}} (in {{cd|/schedule clear ...}} mode)
+: Specify the function to be cleared. Should be a namespaced ID (<code>minecraft:</code> cannot be omitted) or a function tag(<code>minecraft:</code> cannot be omitted).
+: {{arg desc|je=string|type=greedy}}
+
+{{el|je|short=1}}: <code>append|replace</code>
+: <code>replace</code> simply replaces the current function's schedule time (default).
+: <code>append</code> allows multiple schedules to exist at different times.
+
+{{el|be|short=1}}: {{argument|be=1|from: x y z|CommandPosition}} and {{argument|be=1|to: x y z|CommandPosition}}
+: Specify the coordinates of opposite corners of a rectangular area used to define a loaded area.
+: {{arg desc|be=CommandPosition}}
+: For <code>x</code> and <code>z</code>, numbers less than -30,000,000 or greater than 30,000,000 are treated as -30,000,000 or 30,000,000 respectively.
+
+{{el|be|short=1}}: {{argument|be=1|center: x y z|CommandPosition}}
+: Specifies the coordinates of the center point of a circular area used to define a loaded area.
+: {{arg desc|be=CommandPosition}}
+: For <code>x</code> and <code>z</code>, numbers less than -30,000,000 or greater than 30,000,000 are treated as -30,000,000 or 30,000,000 respectively.
+
+{{el|be|short=1}}: {{argument|be=1|radius: int|int}}
+: Specifies the radius of a circular loaded area as the number of chunks from the center to the edge of the circle. 
+: {{arg desc|be=int}} It should be between 0 and 2,147,483,647 (inclusive).
+
+{{el|be|short=1}}: {{argument|be=1|name: string|basic_string}}
+: Specifies the name of a ticking area, executes function when which is added.
+: It must be either a single word (no spaces) or a quoted string.
+
+==Result==
+
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|unparseable}}
+{{Result table|the specified functions/function tags do not exist|fail|fail}}
+{{Result table|cmd=/schedule function ...|<code><<nowiki/>time></code> is 0||N/A}}
+{{Result table|specified <code><function></code> does not exist}}
+{{Result table|cmd=/schedule clear ...|schedule for <code><function></code> can't be found}}
+{{Result table|cmd=/schedule on_area_loaded add <from: x y z> <to: x y z> ...<br>/schedule on_area_loaded add circle ...|more than 2,147,483,647 chunks are specified|N/A|fail}}
+{{Result table|cmd=/schedule on_area_loaded add circle ...|<code>radius: int</code> is lower than 0}}
+{{Result table|cmd=|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|cmd=/schedule function ...|On success|1|1|The game tick the function is to execute at modulo 2147483647}}
+{{Output table|cmd=/schedule clear ...|On success|1|1|the number of schedules that are cleared.}}
+{{Output table|edition=be|On fail|0}}
+{{Output table|On success|1}}
+{{Output table}}
+
+==Notes==
+{{IN|java}}, cannot set two schedules to execute the same function at the same game tick.
+
+{{IN|java}}, in <code>append</code> mode, scheduling the same function before it is successfully run overwrites the previous schedule. If you schedule a function to happen in 5 seconds, then schedule the same function again before the 5 seconds are up, the new schedule replaces the original.
+
+Even when using the <code>[[Commands/execute|execute]] as ...</code> command, the scheduled function always runs as the Server at world spawn point.
+
+== History ==
+
+{{History|java}}
+
+{{History||1.14|snap=18w43a|Added {{cmd|schedule|link=none}}.}}
+{{History||1.15|snap=19w38a|Added a clear syntax and added an append/replace optional argument (defaults to replace).}}
+{{History|bedrock}}
+{{History||1.16.100|snap=beta 1.16.100.59|Added {{cmd|schedule|link=none}}.
+|The command itself works differently from ''Java Edition''.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[de:Befehl/schedule]]
+[[es:Comandos/schedule]]
+[[ja:コマンド/schedule]]
+[[pt:Comandos/schedule]]
+[[zh:命令/schedule]]

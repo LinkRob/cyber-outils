@@ -1,0 +1,656 @@
+{{wip}}
+{{Missing information|Legacy Console Edition terrain changes}}
+{{about|the history of world generation|the biome history (IDs, etc.)|Biome#History|the history of generated structures ([[Loot Tables]], behaviors, etc.)|Generated_structures#History}}
+
+== Java Edition ==
+
+=== Classic, Indev and early Infdev ===
+{{History|java pre-classic}}
+{{History||rd-131655|The terrain is very rough and full of caves as shown in Notch's video.{{verify|Did it ever change during CGTT ?}}
+|Levels are 256*64*256 blocks big.}}
+{{History||rd-132211|The terrain is now flat with one layer of grass and lots of stone under that.}}
+{{History||rd-20090515|The terrain is now varied in height, with a layer of grass at the top, a few layers of dirt under it, and then stone going down to the very bottom.
+|Cliffs will occaisionally generate.}}
+{{History||rd-161348|Cliffs are now more common.}}
+{{History|java classic}}
+{{History||0.0.3a|Caves now generate underground.
+}}
+{{History||0.0.12a|New terrain generator, terrain is now rougher and changes in elevation often happen in 2-high intervals.
+|Added water and lava to world generation.
+|Bedrock now generates around the sides and bottom of the map.
+|Terrain now generates in islands above sea level. Some worlds can be 95% water because of this.  
+|All dirt with access to sunlight below sea level will not become grass upon world generation.
+}}
+{{History||0.0.13a|Dirt generation is now two blocks thick.
+|Terrain generation changed, terrain is now a little smoother than earlier.
+|The world no longer generates in islands, but instead, generates lakes within the main land mass, sometimes connecting to the infinite ocean around the world.
+|Worlds were huge in size (512*512).
+}}
+{{History||0.0.13a_03|Lava now no longer generates on the surface.
+|Worlds have been reverted to the normal size (256*256).}}
+{{History||0.0.14a|Added sand, gravel, [[ore (feature)|ore blob]]s and trees.
+|Added world size option: levels can now be Small (128*128), Normal (256*256), or Huge (512*512).
+|New noise generator: Less bumps on the surface, smoother hill transition, dirt layer can once again be more than two blocks thick.
+|Ores generate in large blobs on the sides of cliffs and in caves.
+|Beaches of both sand and gravel generate on and below ocean level.}}
+{{History||0.0.14a_04|Tree shape changed - now has a plus shape on top.}}
+{{History||0.0.15a (Multiplayer Test 1)|Gravel now only spawns in water.
+|Added modern small trees.}}
+{{History||0.0.21a|Caves generate slightly differently than before.{{Info needed|In what way}}}}
+{{History||0.24_SURVIVAL_TEST|Rougher terrain and more cliffs.
+|Longer and narrower caves, these get bigger the deeper in the world that you are.
+|Lava generates right above the bedrock layer.
+|Mushrooms and Flowers now generate naturally. 
+|The noise generator is more reminiscent of the one used in 0.0.11a: Cliffs can be sheer walls again.}}
+{{History|java Indev}}
+{{History||0.31|snap=20091223-1|Levels start off as a small size now.}}
+{{History|||snap=20091223-2|Due to leaves blocking light, the ground immediately around a tree log generates as dirt.}}
+{{History|||snap=20091231-1|Grass can grow in slightly darker areas meaning the ground around trees is back to grass.}}
+{{History|||snap=20100106|Added new level generation options, see below:
+|Level type (island, floating, flat, original).<ref group=note name=Indev_map_type>See Notes §</ref>
+
+
+
+
+|Level shape (square, long, deep).
+|Level size (small, normal, huge). See below for a guide to map sizes:<ref group=note name=Indev_lvl_sizes>See Notes §</ref>
+|The default setting is Island, Small, Normal, Normal.
+|The bottommost layer of the world no longer has an infinite lava sea.{{verify|Between in-106 and in-110|edition=java|type=untestable}}
+|Flowers removed from terrain generation.
+|Removed water from above the surface.
+}}
+{{History|||snap=20100107|Added the Hell and Normal, World Theme<ref group=note name=Indev_map_type>See Notes §</ref>
+*Normal
+*Hell
+|Deep floating maps now have layers of islands.
+}}
+{{History|||snap=20100109|Added "Inland" Level Type option: like the Original type but with grass instead of water surrounding the map.
+|Removed "Original" Level Type.
+|Grass Blocks in Hell replaced with dirt. 
+}}
+{{History|||snap=20100110|Islands now have more sand.
+}}
+{{History|||snap=20100113|Ocean water is still infinite even though other water is finite.
+}}
+{{History|||snap=20100122|Liquids can now spawn.{{Info needed|Only on the surface or elsewhere ?}}
+|Liquids can spawn above sea level and on floating islands.
+|New lighting pass, preventing stack overflows on huge deep floating maps.
+|Flowers added to world generation.
+}}
+{{History|||snap=20100124-1|Added the moss stone Indev House for players to spawn in.<ref group=note name=Indev_house>See [[Indev_House#History]] for detailed information about Indev House history.</ref>
+}}
+{{History|||snap=20100124-2|All air directly above bedrock layer is turned into lava.{{verify|Could be as early as in-111-1}}
+}}
+{{History|||snap=20100128|Added Diamond Ore which gets generated in the world.
+}}
+{{History|||snap=20100130|Re-added the Infinite Lava Sea at the bottom of the map, this time its infinitely deep.
+}}
+{{History|||snap=20100131|The Lava sea will only generate whenever caves cut through the top layer of bedrock.
+|The bottom layer of bedrock can very rarely have gaps.
+}}
+{{History|||snap=20100201-2|The Lava no longer spawns on the surface
+|When generating a new level any grass block below flower turns into dirt.
+}}
+{{History|||snap=20100203|Flowers no longer spawn with dirt under them.
+}}
+{{History||20100212-1|Hell now starts off bright and gets darkened.
+}}
+{{History||20100214-1|The Indev House is now made of wooden planks and stone.
+|Hell worlds no longer start off fully bright before getting darkened.
+}}
+{{History||20100214-2|Added the Paradise and Woods themes.
+|Dirt exposed to enough light upon world generation gets turned into grass (visible in Hell).
+|When there is no good place to spawn an Indev House, it simply won't spawn. 
+}}
+{{History|java infdev}}
+{{History||20100227-1|'''The terrain generation changed greatly in this version.'''<ref group=note name=great_worldgen_change>This means that worlds converted from versions before this will change the distribution of chunks generated after.</ref>
+|World generation has been greatly simplified (with the removal of sand, blobs) in order to make infinite world generation implementation easier to work with.
+|Added [[brick pyramid]]s.
+|Added [[obsidian wall]]s.
+|All generation beyond 33,554,432 blocks is solid stone.}}
+{{History||20100227-2|Brick pyramid generation changed - they will now always come to a single point at the top, rather than sometimes being truncated, resulting in "brick square frusta".}}
+{{History||20100313|Removed obsidian walls.
+|Oceans are considerably larger than before.{{check the code|got this info from the 0313 page, is it true?}}}}
+{{History||20100320|Reimplemented primitive [[ore (feature)|ore blob]] generation, in which they spawn as scattered, single blocks.
+|Reimplemented [[tree]] generation.}}
+{{History||20100325|Ore blob generation has been changed to the modern generation type. However, a float is used in their generation, causing their generation to [[Java Edition distance effects/Historical effects|break down at excessive distances.]]
+|Added [[cave]]s. They generate through all blocks, not just terrain blocks.}}
+{{History||20100327|'''The terrain generation changed greatly in this version.'''<ref group=note name=great_worldgen_change />
+|World generation has been significantly overhauled, which is visually very obvious.
+|Removed brick pyramids.
+|Removed caves.
+|Removed [[random patch]]es of flowers.
+|The large stone wall at 33,554,432 no longer generates. Instead, the [[Far Lands]] generate at 12,550,824.}}
+{{History||20100413|All trees are now large trees.
+|[[Sand]] and [[gravel]] now generate with the world again.}}
+{{History||20100420|'''The terrain generation changed greatly in this version.'''<ref group=note name=great_worldgen_change />
+|World generation seems considerably less mountainous.}}
+{{History||20100608|All trees are now small trees again - big trees do not generate.}}
+{{History||20100611|'''The terrain generation changed greatly in this version.'''<ref group=note name=great_worldgen_change />
+|Terrain now appears to come in large islands.
+|Terrain can now generate high enough to be higher than the world height limit, causing it to be cut off.
+|Monoliths now have the potential to generate.{{verify|we need to find one, and preferably provide a seed (accessible via the world's level.dat NBT}}
+|The amount of trees that generate appears to be different now.}}
+{{History|foot}}
+
+=== Alpha-era terrain ===
+
+{{History|java infdev}}
+
+{{History||20100616|'''The terrain generation changed significantly in this version.'''<ref group=note name=great_worldgen_change />
+|Terrain generation in ocean areas is now different.{{verify|type=untestable|how?}}
+|Reimplemented caves.
+|Random patches of flowers and [[mushroom]]s now generate.
+|[[Spring]]s now generate.
+|[[Lava]] now naturally generates, although how it does so exactly is unknown.}}
+{{History||20100617-1|[[Bedrock]] now generates at the bottom of the world again.{{verify|see verify note on 20100617-1 page}}
+|Tree generation has changed such that logs only generate at layers where there are no leaves.
+|Coastlines are now "more gradual".}}
+{{History||20100617-2|Caves have been changed to be "more regional", and allegedly can form large clusters. The thickness of tunnels can also vary, affecting the frequency of branching.
+|Springs are now more common and can generate on the surface.
+|Added [[dirt]] and [[gravel]] blobs.
+|Bedrock now generates at the bottom of maps,{{verify|verify note on 20100617-2 page}} even though this was already added in the previous version.
+|Lava no longer generates at the very bottom of worlds.
+|Ore blocks were "generated with a random amount of blobs regardless to the type of ore" prior to this version.}}
+{{History||20100618|Log blocks now generate in the leaf layers of trees again.}}
+{{History||20100624|Mountains are apparently less tall in this version.}}
+{{History||20100625-2|Added [[dungeon]]s.}}
+{{History||20100627|The density of trees has been reduced.}}
+{{History||20100630|Caves can be bigger than before.}}
+{{History|java alpha}}
+{{History||v1.0.1|Added [[redstone ore]] blobs.
+|[[Coal ore]] blobs can now vary in size.{{verify}}}}
+{{History||v1.0.4|Added [[winter mode]] worlds, with their own block palette of [[snow]] and [[ice]]. Normal worlds appear unaffected in this version though.}}
+{{History||v1.0.6|Added [[cactus]] to world generation.
+|Readded large trees to world generation.}}
+{{History||v1.0.11|Added [[clay]] [[disk]]s and [[sugar cane]] random patches to world generation.}}
+{{History||v1.1.0|Clay generation is apparently more common.}}
+{{History|foot}}
+
+=== Beta-era terrain ===
+
+{{History|java alpha}}
+{{History||v1.2.0|snap=preview|'''The terrain generation changed greatly in this version.'''<ref group=note name=great_worldgen_change />
+|Added [[biome]]s.
+|Added [[the Nether]].
+|An in-game value corresponding to the [[Old Customized]] depth noise scale has been changed from 100 to 200.}}
+{{History||v1.2.0_01|Areas where [[soul sand]] would have generated in the Nether in v1.2.0 now generate with gravel instead.}}
+{{History||v1.2.0_02|Soul sand now generates in the Nether again.}}
+{{History||v1.2.6|Added water and lava [[lake]]s.}}
+{{History|java beta}}
+{{History||1.2|Added [[birch tree]]s.
+|Added [[spruce tree]]s.
+|Added [[lapis lazuli ore]] blobs to world generation.
+|There is allegedly more [[coal ore]], [[iron ore]] and [[diamond ore]] found in caves. Whether this refers to blob size or frequency is unknown.}}
+{{History||1.2_02|Lapis lazuli ore is apparently more common and can be found at bedrock level.}}
+{{History||1.3|[[Sandstone]] now generates beneath natural sand.
+|Fixed a grassland/sand biome border issue.{{info needed}}}}
+{{History||1.6|snap=Test Build 3|Added random patches of [[grass]], [[fern]]s and [[dead bush]]es to world generation.}}
+{{History|||snap=?|The frequency of blobs no longer varies per quadrant of the world.}}
+{{History||1.7|Clay generation has been fixed and no longer exclusively spawns when x and z are equal.}}
+{{History|foot}}
+
+=== Early Release-era terrain ===
+
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|'''The terrain generation changed greatly in this version.'''<ref group=note name=great_worldgen_change />
+|Terrain generation has been outright overhauled, adding and removing several biomes and changing how height is applied. The full list of precise changes may be listed later, although would end up massive.
+|Terrain now generates in the form of large continents in an endless, open ocean.
+|Height is now controlled by biomes instead of climate.
+|Biomes are now generated with a fractal based algorithm instead of a climate system.
+|Removed roses from world generation.
+|Removed {{BiomeSprite|old-savanna}} [[Savanna]], {{BiomeSprite|shrubland}} [[Shrubland]], {{BiomeSprite|rain-forest}} [[Rain Forest]], {{BiomeSprite|seasonal-forest}} [[Seasonal Forest]] and {{BiomeSprite|tundra}} [[Tundra]] biomes.
+|Added {{BiomeSprite|windswept-hills}} [[Windswept Hills|Extreme Hills]], {{BiomeSprite|river}} [[River]] and {{BiomeSprite|ocean}} [[Ocean]] biomes.
+|Added [[stronghold]]s, [[village]]s, [[mineshaft]]s, and [[ravines]].
+|Snow no longer generates in [[Taiga]]s.
+|The sea level has been decreased by one block (64 to 63).
+|Tall mountains are now exclusive to the Extreme Hills biome.
+|Oceans are now exclusive to the Ocean biome.
+|Added [[Sand]], [[Gravel]] and [[Clay]] [[disk]]s.
+|Sand and gravel beaches no longer generate.
+|The [[Far Lands]] and Farther Lands no longer generate.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease|'''The terrain generation changed slightly in this version.'''<ref group=note name=slight_worldgen_change>This means that worlds converted from versions before this '''may''' change the distribution of chunks generated after.</ref>
+|Reduced the size of islands and oceans.
+|Added {{BiomeSprite|mushroom-fields}} [[Mushroom Island]], {{BiomeSprite|mushroom-field-shore}} [[Mushroom Island Shore]], {{BiomeSprite|snowy-tundra}} [[Ice Plains]], {{BiomeSprite|snowy-mountains}} [[Ice Mountains]], {{BiomeSprite|frozen-river}} [[Frozen River]] and {{BiomeSprite|legacy-frozen-ocean}} [[Frozen Ocean]] biomes.
+|Added [[nether fortress]]es and added an (empty) portal room to [[stronghold]]s.
+|Readded roses to world generation.}}
+{{History|||snap=Beta 1.9 Prerelease 3|Added a glass tower to strongholds.
+|Added more chests to strongholds.}}
+{{History|||snap=Beta 1.9 Prerelease 4|Added {{BiomeSprite|the-end}} [[The End]].
+|Removed the glass towers of strongholds.
+Grass and flowers can now generate in snowy biomes - previously they could only generate under shade, for example from trees. When the previous behavior started is unknown.}}
+{{History||1.1|snap=11w48a|Changed temperature value of [[taiga]]s from 0.3 to 0.05, making them generate with snow again.}}
+{{History|||snap=12w01a|Added more biomes, these are: {{BiomeSprite|beach}} [[Beach]]es, and biome variants such as {{BiomeSprite|Desert Hills}} [[Desert Hills]], {{BiomeSprite|Mountain Edge}} [[Mountain Edge|Extreme Hills Edge]], {{BiomeSprite|Wooded Hills}} [[Wooded Hills|Forest Hills]] and {{BiomeSprite|Taiga Hills}} [[Taiga Hills]].
+|Reduced the height of [[Windswept Hills|Extreme Hills]].
+|Added [[superflat]] [[world type]].
+|Blacksmith buildings in villages now hold chests with loot.}}
+{{History||1.2.1|snap=12w03a|'''The terrain generation changed slightly in this version.'''<ref group=note name=slight_worldgen_change />
+|Added {{BiomeSprite|jungle}} [[Jungle]] and {{BiomeSprite|jungle-hills}} [[Jungle Hills]] biomes.}}
+{{History|||snap=12w04a|Added [[Desert Well]]s to deserts.}}
+{{History|||snap=12w05a|Mineshafts now bridge over ravines.}}
+{{History||1.3.1|snap=12w16a|Added an optional [[bonus chest]].}}
+{{History|||snap=12w19a|Changed height scale and height depth of [[Desert Hills]], [[Wooded Hills|Forest Hills]], [[Mountain Edge|Extreme Hills edge]], [[Ice Mountains]], [[Jungle Hills]] and [[Taiga Hills]] to make these hill biomes slightly taller.}}
+{{History|||snap=12w21a|Added [[desert pyramid]]s to deserts.
+|Added [[emerald ore]], which generates on blobs of up 10 blocks in [[Extreme Hills]] biome and variants.
+|Changed desert villages to have desert-specific blocks.}}
+{{History|||snap=12w22a|Added [[jungle pyramid]]s to jungles.
+|Changed emerald ore blob size to 1 block.}}
+{{History||1.4.2|snap=12w36a|Added [[carrot]]s and [[potatoes]] to villages.}}
+{{History|||snap=12w38a|[[Infested Block|Stone monster eggs]] now rarely generate in Extreme Hills biomes and variants.}}
+{{History|||snap=12w40a|Added [[swamp hut]]s to [[Swamp]]s.}}
+{{History||1.5|snap=13w01a|Added [[Nether quartz ore]], which generates at the [[Nether]].}}
+{{History||1.6.1|snap=13w17a|[[Lakes]] no longer spawn on desert biomes.}}
+{{History|||snap=13w18a|Added loot chests to nether fortresses.}}
+{{History|foot}}
+
+=== Major Release-era terrain ===
+{{info needed section|a crap ton of unaccounted for changes in this era. The reason red sandstone was introduced, for example.}}
+{{History|java}}
+{{History||1.7.2|snap=13w36a|'''The terrain generation changed greatly in this version.'''<ref group=note name=great_worldgen_change />
+|Just like [[Java Edition Beta 1.8|Beta 1.8]], Terrain generation has been outright overhauled.
+|Re-added {{BiomeSprite|savanna}} [[Savanna]], and added several of its variants.
+|Oceans are now much smaller.
+|Added {{BiomeSprite|badlands}} [[Mesa]] and its variants.
+|Each 48-bit world seed generated 64 layers of terracotta that repeated every 64 blocks on the Y-axis, for use in generating terracotta layers in mesa biomes.
+|Added {{BiomeSprite|dark-forest}} [[Roofed Forest]] and its variants.
+|Added {{BiomeSprite|sunflower-plains}} [[Sunflower Plains]] as a {{BiomeSprite|plains}} [[Plains]] variant.
+|Added {{BiomeSprite|birch-forest}} [[Birch Forest]] and its variants.
+|Added {{BiomeSprite|flower-forest}} [[Flower Forest]] as a {{BiomeSprite|forest}} [[Forest]] variant.
+|Added {{BiomeSprite|wooded-mountains}} {{BiomeSprite|gravelly-mountains}} [[Extreme Hills+]] as a {{BiomeSprite|mountains}} [[Extreme Hills]] variants.
+|{{BiomeSprite|taiga}} [[Taiga]] now normally generates without [[Snow]], similar to {{BiomeSprite|taiga}} [[Taiga]] from [[Java Edition Beta 1.8|Beta 1.8]] to [[Java Edition 1.1|1.1]]. 
+|The previous Taiga has become its own biome, {{BiomeSprite|snowy-taiga}} [[Cold Taiga]]
+|Added {{BiomeSprite|giant-tree-taiga}} [[Mega Taiga]] and its variants.
+|Added {{BiomeSprite|deep-ocean}} [[Deep Ocean]] as a {{BiomeSprite|ocean}} [[Ocean]] variant. 
+|Added several [[Biome]] variants.
+|Added [[Amplified]] [[world type]].
+|{{BiomeSprite|jungle}} [[Jungle]] are now much rarer.
+|Several changes to {{BiomeSprite|swamp}} [[Swampland]], {{BiomeSprite|plains}} [[Plains]], and {{BiomeSprite|mountains}} [[Extreme Hills]].
+|{{BiomeSprite|mountain-edge}} [[Extreme Hills Edge]] no longer generates naturally.
+|Removed {{BiomeSprite|legacy-frozen-ocean}} [[Frozen Ocean]].
+|Changed [[Biome]] categorization into 4 categories.
+|[[Biome]] elevation now has much greater variation.
+|Caverns are now less interconnected.}}
+{{History||1.8|snap=13w02a|Added [[Diorite]], [[Andesite]], and [[Granite]], which generates randomly underground.}}
+{{History|||snap=14w17a|Added [[Old Customized|Customized]] [[world type]].}}
+{{History|||snap=14w25a|Added [[Ocean Monument]]s, which generates in oceans.}}
+{{History||1.9|snap=15w31a|Terrain generation in [[The End]] has been completely changed.
+|Added [[End]] Islands, which generates hundreds of blocks from the main island.
+|Added [[End City]], which generates at the [[End]] Islands.
+|Added [[End Ship]], which sometimes generates at the [[End City]].
+|There are now 128 [[Stronghold]]s per world, instead of 3.
+|Added [[Igloo]]s.}}
+{{History||1.10|snap=16w20a|Added [[Fossil]]s, which generates underground.
+|Added [[Magma Block]]s, which generates in the [[Nether]].}}
+{{History||1.11|snap=16w39a|Added [[Woodland Mansion]], which generates very rarely in {{BiomeSprite|dark-forest}} [[Roofed Forest]].
+|Added [[End Gateway|Return Portal]]s, which generates randomly in [[End]] Islands.}}
+{{History||1.13|snap=18w06a|'''The terrain generation changed slightly in this version.'''<ref group=note name=slight_worldgen_change />
+|Removed [[Old Customized|Customized]] world.
+|Mutated/Modified biome variants now conform to biome and river boundries.<ref group=note name=MC-125037 >{{Bug|MC-125037}}</ref>
+|Spawning positions of Jungle Pyramids, Igloos, and Swamp Huts were changed slightly in each world.}}
+{{History|||snap=18w07a|[[Ravine]]s now generates in the [[Nether]].}}
+{{History|||snap=18w08a|Added {{BiomeSprite|warm-ocean}} [[Warm Ocean]] and its deep variant.
+|Added {{BiomeSprite|lukewarm-ocean}} [[Lukewarm Ocean]] and its deep variant.
+|Added {{BiomeSprite|cold-ocean}} [[Cold Ocean]] and its deep variant.
+|Re-added {{BiomeSprite|frozen-ocean}} [[Frozen Ocean]], although its different from the original version.
+|Added {{BiomeSprite|deep-frozen-ocean}} [[Deep Frozen Ocean]] as a {{BiomeSprite|frozen-ocean}} [[Frozen Ocean]] variant.}}
+{{History|||snap=18w08b|{{BiomeSprite|deep-warm-ocean}} [[Deep Warm Ocean]] no longer generates naturally.}}
+{{History|||snap=18w09a|Added [[Underwater Ruin]], which generates in all oceans.}}
+{{History|||snap=18w10d|Added [[Coral reef]]s, which generates in {{BiomeSprite|warm-ocean}} [[Warm Ocean]].}}
+{{History|||snap=18w11a|Added [[Shipwreck]]s, which generates in all oceans.}}
+{{History|||snap=18w15a|Added [[Iceberg]]s, which generates in {{BiomeSprite|frozen-ocean}} [[Frozen Ocean]].}}
+{{History|||snap=18w16a|Added [[Buffet]] world type.}}
+{{History||1.14|snap=18w43a|Added {{BiomeSprite|bamboo-jungle}} [[Bamboo Jungle]] and its mutated variant.}}
+{{History|||snap=18w47a|Added [[Pillager Outpost]]s, which generates in most land [[Biome]]s.}}
+{{History|||snap=18w49a|Added [[Snowy Tundra]] [[village]]s.}}
+{{History|||snap=19w07a|Added [[Snowy Tundra]] [[zombie village]]s.}}
+{{History||1.16|snap=20w06a|Added {{BiomeSprite|crimson-forest}} [[Crimson Forest]] to the [[Nether]].
+|Added {{BiomeSprite|warped-forest}} [[Warped Forest]] to the [[Nether]].
+|Added {{BiomeSprite|soul-sand-valley}} [[Soul Sand Valley]] to the [[Nether]].
+|The original {{BiomeSprite|nether-wastes}} [[Nether]] biome has been renamed to [[Nether Wastes]].
+|Added [[Ancient Debris]], a rare ore in the [[Nether]].}}
+{{History|||snap=20w11a|Added [[Nether Gold Ore]] to the [[Nether]].}}
+{{History|||snap=20w15a|Added {{BiomeSprite|basalt-deltas}} [[Basalt Deltas]] to the [[Nether]].}}
+{{History|||snap=20w16a|Added [[Bastion Remnant]]s, which generates in the [[Nether]].}}
+{{History||1.17|snap=20w45a|Added [[Amethyst Geode]], which generates underground.
+|Added [[Copper Ore]], a new ore in the [[Overworld]].}}
+{{History|||snap=20w49a|Added {{BiomeSprite|dripstone-caves}} [[Dripstone Caves]], which is accessable only in [[Buffet]] or [[Custom]] world type.}}
+{{History|||snap=21w06a|Complete overhaul of [[Cave]]s.
+|The World has been extended 64 blocks up and 64 blocks down, which means that it is possible to build from -64 to 319 in the overworld.
+|Ore generation has been tweaked to match the new world height.
+|Added Aquifers.
+|Added Spaghetti and Cheese [[Cave]]s.
+|Removed Underwater [[Canyon]]s and Underwater [[Caves]].}}
+{{History|||snap=21w07a|3=Added [[Grimstone]], which generates below Y=0.}}
+{{History|||snap=21w08a|Added [[Smooth Basalt]], which now generates at the [[Tuff]] layer on [[Amethyst Geode]].
+|Added [[Deepslate Ore]]s, which now generates when an ore replaces [[Deepslate]].
+|Added [[Cave|Crack Carver]]s, which is like [[Canyon]] but deeper.}}
+{{History|||snap=21w10a|Added {{BiomeSprite|lush-caves}} [[Lush Caves]], which is accessable only in [[Buffet]] or [[Custom]] world type.}}
+{{History|||snap=21w15a|Reverted most of the changes from [[21w06a]] back to the original, as the changes will be moved to [[Java Edition 1.18]]. This can be bypassed by using the Official [[Caves and Cliffs]] Datapack.
+|[[Tuff]] and [[Deepslate]] now generates in blobs between Y 0 and Y 16.}}
+{{History|||snap=21w16a|3=(Experimental changes) Aquifers below Y=0 are now sometimes made of lava.}}
+{{History|||snap=21w17a|(Experimental changes) Added Noodle [[Cave]]s.}}
+{{History|foot}}
+
+=== Mountainous Release-era terrain ===
+{{History|java}}
+{{History||1.18|snap=1.18 Experimental Snapshot 1|'''The terrain generation changed greatly in this version.'''<ref group=note name=great_worldgen_change />
+|For the first time since [[Java Edition 1.7.2]] in 2013, Terrain generation has been completely overhauled once again.
+|''Java Edition'' now uses xoroshiro128++ as its pseudorandom number generator for terrain generation, changing from the LCG it used previously.
+|All of the [[Cave]] changes from [[21w06a]] to [[21w17a]] has been re-activated.
+|{{BiomeSprite|lush-caves}} [[Lush Caves]] and {{BiomeSprite|dripstone-caves}} [[Dripstone Caves]] now generates naturally.
+|Complete Overhaul of {{BiomeSprite|mountains}} [[Mountains]].
+|Added 5 sub-biomes for the new mountains. {{BiomeSprite|mountain-meadow}} [[Mountain Meadow]], {{BiomeSprite|mountain-grove}} [[Mountain Grove]], {{BiomeSprite|snowy-slopes}} [[Snowy Slopes]], {{BiomeSprite|lofty-peaks}} [[Lofty Peaks]], and{{BiomeSprite|snow-capped-peaks}} [[Snow Capped Peaks]].
+|[[Terrain]] generation is now independent from [[Biome]]s, with [[Biome]]s adapting to whatever [[terrain]] they happen to generate throughout.
+|[[Terrain]] is now smooth and more extreme. 
+|Removed [[Large Biomes]] and [[Amplified]] world type.
+|Removed most of the sub-biomes.
+|World seeds now generate 192 layers of terracotta per world seed, instead of 64 layers of terracotta, for use in generating terracotta in badlands biomes.
+|{{BiomeSprite|eroded-badlands}} [[Eroded Badlands]] and {{BiomeSprite|ice-spikes}} [[Snowy Tundra|Ice Spikes]] was added back in [[Java Edition 1.18 experimental snapshot 2]]. Whether any of the other biomes listed will be re-added, or if any will be removed from the game outright, is currently unknown.
+|{{BiomeSprite|swamp}} [[Swamp]] does not generate properly, this is fixed in [[1.18 experimental snapshot 2]].}}
+{{History|||snap=1.18 experimental snapshot 2|'''The terrain generation changed slightly in this version.'''<ref group=note name=slight_worldgen_change />
+|{{BiomeSprite|swamp}} [[Swamp]] now generates properly.
+|{{BiomeSprite|eroded-badlands}} [[Eroded Badlands]] and {{BiomeSprite|ice-spikes}} [[Ice Spikes]] now once again generates naturally.
+|[[Terrain]] now tend to be flatter.
+|[[Biome]] are now smoother and less noisy, with less microbiomes.
+|[[Terrain]] are now taller, may generates from y=220 to y=260.
+|{{BiomeSprite|beach}} [[Beach]] are now larger. Some areas don't generates them, this is to provide some variation.
+|Reduced the size of Cheese [[Cave]]s.
+|[[Cave]] Entrance are now smaller, and less likely to go down all the way to [[Deepslate]] level.
+|{{BiomeSprite|lush-caves}} [[Lush Caves]] are now rarer and smaller.
+|Underground [[Biome]]s interfere less with surface [[Biome]]s. They can still leak out sometimes.}}
+{{History||1.19|snap=Deep Dark Experimental Snapshot 1|Added {{BiomeLink|Deep Dark}}.
+|Added [[Ancient City]].}}
+{{History|||snap=22w14a|Added {{BiomeLink|Mangrove Swamp}}.}}
+{{History||1.20<br>(Experimental)</br>|link=Java Edition 1.19.4|snap=23w12a|Added {{BiomeLink|Cherry Grove}}.
+|Added [[Trail Ruins]].}}
+{{History|foot}}
+
+== Bedrock Edition ==
+
+=== Early Alpha-era-terrain ===
+
+{{info needed section| missing changes}}
+
+{{History|Pocket Edition Alpha}}
+{{History||v0.1.0|Added a simple world generator. The world is simillar to pre-[[Java Edition Beta 1.8]] world generation.
+|The world is 256 blocks wide and 128 blocks high.
+|Added 5 [[Biome]]s, {{BiomeSprite|snowy-tundra}} [[Snowy Tundra]], {{BiomeSprite|snowy-taiga}} [[Snowy Taiga]], {{BiomeSprite|plains}} [[Plains]], {{BiomeSprite|desert}} [[Desert]], and {{BiomeSprite|forest}} [[Forest]].}}
+{{History||v0.1.3|[[Cacti]] now generates in [[Desert]].}}
+{{History|foot}}
+
+=== Pocket Edition-era-terrain ===
+
+The terrain generator was made infinite in mid-2014 with the addition of biomes from the then Java 1.7.2 generator. This world generator remained identical until Caves and Cliffs Part 2 was released in late 2021.
+
+{{History|Pocket Edition Alpha}}
+{{History||v0.9.0|snap=build 1|'''The terrain generation changed greatly in this version.'''<ref group=note name=great_worldgen_change />
+|The world is now infinite. The old limited world can be created by using [[Old]] [[world type]].
+|Added most [[Biome]]s that exist as of [[Java Edition 1.8]].
+|{{BiomeSprite|legacy-frozen-ocean}} [[Frozen Ocean]] no longer generates naturally.
+|Added [[Village]]s, [[Mineshaft]]s, [[Stronghold]]s and [[Dungeon]]s.
+|Added [[Superflat|Flat]] [[world type]].
+|Mesa biomes have a bug where new chunks generate with clay banding layers reset to a fixed preset after reloading the world.<ref group=note name=mesa1>{{Bug|MCPE-18734}}</ref>}}
+{{History||v0.9.5|Added {{BiomeSprite|eroded-badlands}} [[Eroded Badlands|Mesa Bryce]], {{BiomeSprite|gravelly-mountains}} [[Extreme Hills+]], and {{BiomeSprite|modified-jungle}} [[Jungle M]].}}
+{{History||v0.10.0|snap=build 1|Mesa biomes now has gold at every elevation, and can generate [[Mineshaft]]s on the surface.
+|[[Huge Mushroom]]s generate in [[swamp]]s.
+|Added [[Desert Well]]s.}}
+{{History||v0.11.0|snap=build 1|Added {{BiomeSprite|tall-birch-forest}} [[Birch Forest M]], {{BiomeSprite|tall-birch-hills}} [[Birch Forest Hills M]], {{BiomeSprite|gravelly-mountains}} [[Extreme Hills M]], and {{BiomeSprite|modified-gravelly-mountains}} [[Extreme Hills+ M]].}}
+{{History|||snap=build 8|Changed the default [[biome]].}}
+{{History|||snap=build 10|Increased the amount of gravel in the {{BiomeSprite|gravelly-mountains}} [[Extreme Hills M]] Biome.}}
+{{History||v0.12.1|snap=build 1|Added the {{BiomeSprite|nether-wastes}} [[Nether]] biome.
+|Added [[Nether Fortress]]es.
+|Mesa Plateau F biomes no longer generate properly.<ref group=note name=mesa2>{{Bug|MCPE-23081}}</ref>}}
+{{History|||snap=build 10|Leaves coloring shaders are now used only when the color for a [[biome]] actually changes.}}
+{{History||v0.13.0|snap=build 1|Added [[Desert Pyramid]]s.}}
+{{History||v0.14.0|snap=build 1|Added [[Swamp Hut]]s.
+|[[Cauldron]]s in [[Swamp hut]]s are filled with random [[Potion]].}}
+{{History||v0.15.0|snap=build 1|Added [[Jungle Temple]]s.
+|Added {{BiomeSprite|savanna}} [[Savanna]] and {{BiomeSprite|taiga}} [[Taiga]] village variants.
+|Villages can now generate in {{BiomeSprite|snowy-taiga}} [[Snowy Taiga]] and {{BiomeSprite|snowy-tundra}} [[Snowy Tundra]] biomes, where village buildings are constructed with spruce wood like in taiga villages.
+|Villages have a slim chance to generate as [[Zombie village|abandoned villages]], which spawn [[Zombie villager|zombified villagers]]. Cobwebs and moss stone replace some blocks in the buildings of such villages.}}
+{{History||v0.16.0|snap=?|The [[biome]]s can now be viewed on [[map]]s based on the [[tint|grass color]].
+|Added [[Ocean Monument]]s.}}
+{{History|Pocket Edition}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Added {{BiomeSprite|the-end}} [[End]] biome.
+|Added [[End City]].
+|Added [[Igloo]]s.}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Added [[Woodland Mansion]]s.}}
+{{History||1.1.0|Mesa biomes now generate the same pattern of clay banding layers per world seed after reloading the world.<ref group=note name=mesa1 />}}
+{{History||1.1.3|snap=alpha 1.1.3.0|Added [[Fossil]]s.}}
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|Added [[Canyon|Ravines]].}}
+{{History||1.4.0|snap=beta 1.2.14.2|'''''World generation is equivalent to [[Java Edition 1.13]]'''''<br>Added {{BiomeSprite|warm-ocean}} [[Warm Ocean]] and its deep variant.
+|Added {{BiomeSprite|lukewarm-ocean}} [[Lukewarm Ocean]] and its deep variant.
+|Added {{BiomeSprite|cold-ocean}} [[Cold Ocean]] and its deep variant.
+|Added {{BiomeSprite|frozen-ocean}} [[Frozen Ocean]], although its different from the original version.
+|Added {{BiomeSprite|deep-frozen-ocean}} [[Deep Frozen Ocean]] as a {{BiomeSprite|frozen-ocean}} [[Frozen Ocean]] variant.
+|Added [[Shipwreck]]s, [[Buried Treasure]], [[Coral reef|Coral Reefs]], [[Iceberg]]s, [[Canyon|Underwater Ravines]].}}
+{{History|||snap=beta 1.2.20.1|Added [[Ruin|Underwater Ruins]].
+|[[Cave]]s can now generate underwater.}}
+{{History||1.6.0|snap=beta 1.6.0.5|{{BiomeLink|Birch Forest M}}, {{BiomeLink|Birch Forest Hills M}}, {{BiomeLink|Savanna M}}, {{BiomeLink|Savanna Plateau M}}, and {{BiomeLink|Mesa Plateau F}} biomes now have the wrong grass color.<ref group=note name=grasscolor>{{Bug|MCPE-34936}}</ref>}}
+{{History||1.9.0|snap=beta 1.9.0.0|'''''World generation is equivalent to [[Java Edition 1.14]]'''''<br>Added {{BiomeSprite|bamboo-jungle}} Added [[Bamboo Jungle]].}}
+{{History||1.10.0|snap=beta 1.10.0.3|Added [[Pillager Outpost]].
+|Added new villages.}}
+{{History||1.11.0|snap=beta 1.11.0.1|Mesa Plateau F biomes now properly generate.<ref group=note name=mesa2/>}}
+{{History||1.16.0|snap=beta 1.16.0.51|'''''World generation is equivalent to [[Java Edition 1.16]]'''''<br>Added {{BiomeSprite|crimson-forest}} [[Crimson Forest]].
+|Added {{BiomeSprite|warped-forest}} [[Warped Forest]].
+|Added {{BiomeSprite|soul-sand-valley}} [[Soul Sand Valley]].
+|Added [[Basalt pillar]], [[Huge Crimson Fungi]], and [[Huge Warped Fungi]].}}
+{{History|||snap=beta 1.16.0.57|Added {{BiomeSprite|basalt-deltas}} [[Basalt Deltas]].
+|Added [[Ruined portal]] and [[Piglin Bastion]].}}
+{{History||1.17.0|snap=beta 1.16.220.50|'''''World generation is equivalent [[Java Edition 1.17]]'''''<br>Added the new [[mountain]] biomes: Lofty Peaks, Snow Capped Peaks, Snowy Slopes, Mountain Grove, and Mountain Meadow behind experimental gameplay.
+|Added [[Dripstone Caves]].}}
+{{History|||snap=beta 1.16.220.52|Added [[Lush Caves]].
+|Extended [[Altitude]].}}
+{{History|||snap=1.16.220|All above features are unavailable in release.}}
+{{History|||snap=beta 1.16.230.50|Re-added all above.}}
+{{History|||snap=beta 1.16.230.52|Deepslate now generates under Y 16.}}
+{{History|||snap=beta 1.16.230.54|Added Dripstone Clusters.}}
+{{History|||snap=beta 1.16.230.56|Added Noise, Cheese, and Spaghetti [[Cave]]s.
+|Added [[Aquifers]].}}
+{{History|||snap=beta 1.17.0.50|Added [[Amethyst Geode]].
+|Lush and Dripstone Caves generate rarely underground.}}
+{{History|||snap=release|Mountain biomes are unavailable in release.}}
+{{History||1.17.10|Re-added Mountain Biomes behind experimental gameplay.}}
+{{History|foot}}
+
+=== Mountainous Bedrock Edition-era Terrain ===
+
+{{info needed section|updates since version 1.18.}}
+
+{{History|bedrock}}
+{{History||1.18.0|snap=beta 1.18.0.20|'''World generation is equivalent to [[Java Edition 1.18]]'''.
+|All world generator changes now available outside [[experimental gameplay]].
+|Caves now reach to the surface.
+|Changed mountains to look like jagged peaks.}}
+{{History|||snap=beta 1.18.0.22|The old world type has been removed from the world creation screen. Existing old worlds are still playable, but will not receive new features onward.}}
+{{History||Wild Update<br>(Experimental)|link=Bedrock Edition 1.19.0|snap=beta 1.18.30.28|Added {{BiomeLink|Deep Dark}} behind experimental gameplay.}}
+{{History|||snap=beta 1.18.30.32|Added [[Ancient City]] behind experimental gameplay.}}
+{{History||1.19.0|snap=beta 1.19.0.20|Added {{BiomeLink|Mangrove Swamp}}.
+|Deep Dark and Mangrove Swamp are available outside experimental gameplay.}}
+{{History||1.19.40|snap=beta 1.19.40.20|{{BiomeLink|Old Growth Birch Forest}}, {{BiomeLink|Windswept Savanna}}, and {{BiomeLink|Dark Forest}} biomes now have the correct grass color, matching that of ''Java Edition''.<ref group=note name=grasscolor></ref>}}
+{{History||Next Major Update<br>(Experimental)|link=Bedrock Edition 1.19.80|snap=beta 1.19.80.20|Added {{BiomeLink|Cherry Grove}} behind experimental gameplay.}}
+{{History|||snap=beta 1.19.80.22|Added [[Trail Ruins]] behind experimental gameplay.}}
+{{History||1.20.0|snap=beta 1.20.0.21|Cherry Grove and Train Ruins are available outside experimental gameplay.}}
+{{History|foot}}
+
+==Legacy Console Edition==
+{{section needing info|Legacy Console Edition terrain changes}}
+
+Legacy Console Edition was historically updated roughly following Java Edition major releases, and as such, mirrored Java Edition changes for much of its update history.
+
+===Beta Era Terrain===
+
+Xbox 360 edition was released with features roughly equivalent to Java Edition Beta 1.6, and therefore matched its terrain generation identically.
+
+{{History|console}}
+{{History||xbox=TU1|'''''World generation is equivalent to [[Java Edition Beta 1.6.6]]'''''<br>First release with features and terrain generation roughly equivalent to Java Edition Beta 1.6
+|World sizes are limited to 864x864 blocks.}}
+{{History||xbox=TU3|'''''World generation is equivalent to [[Java Edition Beta 1.7.3]]'''''<br>Added a seed display to the level load screen (requires existing levels to be saved out again to add the display).
+|Clay generation has been fixed and no longer exclusively spawns when x and z are equal.{{Info needed}}}}
+{{History|foot}}
+
+===Early Release Era Terrain===
+
+Xbox 360 version TU5 released features identical to Java Edition Beta 1.8, and therefore, all seeds have changed. The addition of Jungle biomes in TU12 shuffled positions of all major land biomes, changing a decent portion of world seeds again on Xbox 360. All other console editions except for Nintento Switch edition were initially released with the latter world generation.
+
+{{History|console}}
+{{History||xbox=TU5|'''''World generation is equivalent to [[Java Edition Beta 1.8.1]]'''''<br>'''The terrain generation changed greatly in this version.'''<ref group=note name=great_worldgen_change />
+|Added biomes: Swampland, Ice Plains, Extreme Hills, Ocean.
+|Added Villages, mineshafts, strongholds, ravines.
+|Removed biomes - rainforest, seasonal forest, savanna, shrubland and tundra.
+|Removed the Void by making it impossible to break the bottom/top layer of bedrock.}}
+{{History||xbox=TU7|Added Mushroom island biome and Nether fortresses.}}
+{{History||xbox=TU9|'''''World generation is equivalent to [[Java Edition 1.0.0]]'''''<br>Added The End
+|The world is not infinite, but has a block placement limit similar to that of the Nether.
+|Obsidian pillars are generated in a spiral circling an unactivated exit portal.
+|The crystals on the two tallest obsidian pillars are surrounded by iron bars.
+|Re-added beaches.}}
+{{History||xbox=TU12|ps=1.00|'''''World generation is equivalent to [[Java Edition 1.2.5]]'''''<br>'''The terrain generation changed slightly in this version.'''
+|Added Jungle biomes, changing positions of all major land biomes.
+|Biome data is now saved to world, meaning biome positions no longer change in existing worlds after new game updates to world generation.
+|Build height limit changed from 128 to 256.
+|Cocoa grows on jungle trees.
+|Very rare desert wells can be found in desert biomes.
+|Mineshafts can generate with wooden bridges now when generated over a cave or over top another tunnel.}}
+{{History||xbox=TU14|xbone=|ps=1.04|'''''World generation is equivalent to [[Java Edition 1.3.2]]'''''<br>Added Desert temple, desert village, jungle temple.
+|Hills in select hill biomes are now slightly taller.}}
+{{History||xbox=none|xbone=CU1|ps=1.07|First initial release of Xbox One and PS4 editions with, classic, small, medium, and large world sizes, up to 5120x5120 blocks, and increased render distance to 18 chunks from 10 chunks.
+|Villages on larger world sizes do not spawn as common as they do on classic 864x864 world sizes. The rarity of villages on larger world sizes more reflects that of Java's spawn rate than classic world size spawn rate.}}
+{{History||xbox=TU19|xbone=CU7|ps=1.12|'''''World generation is equivalent to [[Java Edition 1.6.4]]'''''<br>Added [[witch hut]]s and [[Nether fortress]]es.
+|Lakes no longer generate naturally in deserts.}}
+{{History||xbox=TU25|xbone=CU14|ps=1.17|wiiu=Patch 1|Added custom superflat world option.}}
+{{History|foot}}
+
+===Major Release Era Terrain===
+
+Nintendo Switch edition was the only Legacy Console Edition to be initially released during this world generation's stage.
+{{History|console}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|'''''World generation is equivalent to [[Java Edition 1.8.9]]'''''<br>'''The terrain generation changed greatly in this version.'''<ref group=note name=great_worldgen_change />
+|Added ocean monuments
+|Added biomes: Mesa, Mega Taiga, Roofed Forest, Birch Forest, Forest, Savanna, Extreme Hills+, Deep Ocean, Snowless Taiga, and 20 new technical biomes.
+|Melons can now be found in jungle biomes similar to pumpkins.
+|Swamp biomes now spawn with blue orchid flowers and the coast is covered in staggered dirt block with lily pads between them.
+|Plains biomes now generate with azure bluets, oxeye daises, tulips and double tall grass.
+|Extreme hills biomes now have snow at higher elevations, gravel, flat valleys near sea level and are slightly higher. Extreme Hills Edge biomes no longer naturally generate.
+|Ocean biomes contains only gravel on the floor instead of sand, dirt and gravel.
+|Desert temples now spawn with stained clay instead of dyed wool.
+|Due to limited world sizes, biomes are now downscaled 4x (16x area) in order to fit more biomes in each world (all world sizes). This differs from the "Biome Size 2" configuration in ''Java Edition'' [[Old Customized]] world type in that the 4x size downscaling occurs before hill biomes, edge biomes, and beach/shore are applied, not after like on ''Java''. This is an exclusive feature to Legacy Console Editions.}}
+{{History||xbox=TU32|xbone=CU20|ps=1.23|wiiu=Patch 3|Fix for worlds generating slightly differently every time even with the same seed.
+|Mutated/Modified biomes now generate correctly the same each time using a set world seed.
+|Fixed a world generation bug where large areas of land biomes would generate underwater as river biomes}}
+{{History||xbox=TU39|xbone=CU27|ps=1.31|wiiu=Patch 10|Fix for an issue with hills generation. Hills and mountains are now slightly taller and more varied.}}
+{{History||xbox=TU43|xbone=CU33|ps=1.36|wiiu=Patch 13|Added Fossils and igloos
+|There's now a small chance for villages to spawn as zombie villages
+|Villages are no longer restricted by biome boundaries. They now spawn with grass paths and have bridges when generated over water. Village farms now include beetroots.
+|Mineshafts now generate in mesa biomes - previously they did not spawn at all, even underground.[verify]
+|Updated loot for loot chests in dungeons, temples, mineshafts etc.
+|Plains and sunflower plains biomes now have a chance to spawn trees.}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|switch=1.0.1|'''''World generation is equivalent to [[Java Edition 1.10.2]]'''''<br>The End has changed when generating a new world and can also be updated for old worlds. To get the new End in an old world, select "Reset End" in the "More Options" menu when loading the world.
+|After killing the ender dragon in the new End, an end gateway will spawn nearby. Throwing an ender pearl into this will teleport the player to a new area in the End with an end city and end ship. 
+|There is 1 outer end island on classic worlds, and large world sizes have up to 4 outer end islands. These spawn about 2,048 blocks from the center island in each cardinal direction and are not directly connected. This is exclusive to Legacy Console Edition.
+|Within the End City and End Ship the player can find shulkers, elytra and a dragon head.
+|Villages now generate naturally in the Taiga biome.}}
+{{History||xbox=TU54|xbone=CU44|ps=1.52|wiiu=Patch 24|switch=1.0.4|'''''World generation is equivalent to [[Java Edition 1.12.2]]'''''<br>Added Woodland mansions. These generate a lot more common than on Java Edition due to limited world sizes as a exclusive feature to Legacy Console Edition.
+|Improved spawn chances of ocean monuments.
+|Added Biome Scale Slider, Find Balanced Seed options as exclusive features to Legacy Console Edition.
+|Small biome setting was the default option since TU31, Biome Scale Slider adds new medium and large scale options. large scale option matches biome size of default ''Java Edition'' worlds. Medium scale option is 2x (4x area) smaller biomes than default ''Java Edition'' biomes.
+|Increased spawning frequency of biome specific structures as exclusive features to Legacy Console Edition.}}
+{{History||xbox=TU60|xbone=CU51|ps=1.64|wiiu=Patch 30|switch=1.0.11|Added fallen, dying and vined trees.
+|Lake generation has changed.
+|Villages Tables have brown carpet instead of a pressure plate.
+|Added Ice Plains & Cold Taiga Villages. These generate with chests, but won't generate crops.
+|Paths around village wells now made up of grass path (sandstone in desert).}}
+{{History||xbox=TU69|xbone=none|ps=1.76|wiiu=Patch 38|switch=none|'''''World generation is equivalent to [[Java Edition 1.13]]'''''<br>Added warm, lukewarm, and cold oceans. Frozen oceans now generate naturally again. Added deep ocean variants for lukewarm, cold, and frozen oceans.
+|Added Shipwrecks, Underwater Ruins, Coral Reefs, Icebergs, Underwater Caves, Underwater Ravines, and Buried Treasure}}
+{{History||xbox=none|ps=1.88|wiiu=none|Added new flowers: Lily of the Valley and Cornflower.}}
+{{History||ps=1.91|'''''World generation is equivalent to [[Java Edition 1.14]]'''''<br>Added sweet berry bushes, pillager outposts, and bamboo jungles.
+|Note on World Generation: In order to deliver the coolest generated villages possible, some world seeds may have villages generate in different areas than they used to before this update
+|Villages now have a new look, differing per biome.
+|Added village job sites and gathering sites.
+|Number of houses depends on beds.
+|Taiga villages are now more common.
+|Removed zombie villages, due to new village changes.}}
+{{History|foot}}
+
+==New Nintendo 3DS Edition==
+
+{{History|new3ds}}
+{{History||0.1.0|Added features as of [[Pocket Edition Alpha 0.15.4]].{{info needed|Is there seed parity between these New Nintendo 3DS and Pocket Edition 0.15.4/1.1.7?}}}}
+{{History||1.3.12|Added [[ocean monument]]s.}}
+{{History||1.5.25|Added [[coarse dirt]].}}
+{{History||1.7.10|Added [[the End]] with [[end cities]], [[end ship]]s, [[chorus tree]]s, and [[exit portal]]s.}}
+{{History||1.9.19|Added [[woodland mansion]]s and underground [[fossil]]s. Added natural [[magma block]] generation into [[the Nether]].}}
+{{History|foot}}
+
+== Glacier Seed Comparison ==
+<gallery>
+Glacier a1.1.2_01.png|The seed Glacier in Alpha v1.1.2_01.
+Glacier b1.7.3.png|The seed Glacier in Beta 1.7.3.
+Glacier b1.8.png|The seed Glacier in Beta 1.8.
+Glacier 1.0.0.png|The seed Glacier in 1.0.0.
+Glacier 1.2.5.png|The seed Glacier in 1.2.5.
+Glacier 1.6.4.png|The seed Glacier in 1.6.4. Very minor differences.
+Glacier 1.7.2.png|The seed Glacier in 1.7.2.
+Glacier 1.15.2.png|The seed Glacier in 1.15.2.
+1.18 experimental snapshot 1 glacier seed.png|The seed Glacier in 1.18 Experimental Snapshot 1, the first Glacier seed to actually generates glaciers at spawn.
+1.18 experimental snapshot 2 glacier seed.png|The seed Glacier in 1.18 experimental snapshot 2.
+1.18 experimental snapshot 5 glacier seed.png|The seed Glacier in 1.18 experimental snapshot 5.
+Glacier 1.20.png|The seed Glacier in 1.20.
+Glacier neobeta.png|The seed Glacier in 1.12.2 with the "Neo-Beta" [[Old Customized]] preset.
+</gallery>
+<gallery>
+Glacier a1.1.2_01 (0, 0).png|The seed Glacier in Alpha v1.1.2_01, at exactly 0,0.
+Beta 1.7.3.png|The seed Glacier in Beta 1.7.3, at exactly 0,0.
+Beta 1.8.png|The seed Glacier in Beta 1.8, at exactly 0,0.
+Java Edition 1.0.0.png|The seed Glacier in 1.0.0, at exactly 0,0.
+Java Edition 1.1.png|The seed Glacier in 1.1, at exactly 0,0.
+Java Edition 1.2.5.png|The seed Glacier in 1.2.5, at exactly 0,0.
+Java Edition 1.6.4.png|The seed Glacier in 1.6.4, at exactly 0,0.
+Java Edition 1.15.2.png|The seed Glacier in 1.15.2, at exactly 0,0.
+Java Edition 1.18 Experimental Snapshot 1.png|The seed Glacier in 1.18 Experimental Snapshot 1, at exactly 0,0.
+Java Edition 1.18 experimental snapshot 2.png|The seed Glacier in 1.18 experimental snapshot 2, at exactly 0,0.
+Java Edition 1.18 experimental snapshot 3.png|The seed Glacier in 1.18 experimental snapshot 3, at exactly 0,0.
+Java Edition 1.18 experimental snapshot 4.png|The seed Glacier in 1.18 experimental snapshot 4, at exactly 0,0.
+Java Edition world gen 1.20.png|The seed Glacier in 1.20, at exactly 0,0.
+Glacier neobeta 00.png|The seed Glacier in 1.12.2 with the "Neo-Beta" preset, at exactly 0,0.
+</gallery>
+
+==Notes==
+{{notelist}}
+:::{| class="wikitable"
+|+Map sizes (width × length × height)
+|
+!Square
+!Long
+!Deep
+
+|-
+!Small
+|128 × 128 × 64
+|256 × 64 × 64
+|64 × 64 × 256
+
+|-
+!Normal
+|256 × 256 × 64
+|512 × 128 × 64
+|128 × 128 × 256
+
+|-
+!Huge
+|512 × 512 × 64
+|1028 × 256 × 64
+|256 × 256 × 256
+
+|}
+
+=== Indev World Types ===
+* Island: World spawns as a large island surrounded with water, smaller island off the coast are comon too. Border block is water as well, sand will generate.
+* Floating: World generates in rings of floating islands high in the air. Border block is water. Sand is common although caves often lead into the void. 
+* Flat: world is a perfectly flat plane with trees growing. Border block is grass. Sand does not generate.
+* Original: Resembles classic 0.30 terrain generation
+* Inland: 
+
+[[Category:History|World generation]]

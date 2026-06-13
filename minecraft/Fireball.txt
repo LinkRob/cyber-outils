@@ -1,0 +1,157 @@
+{{for|similar projectiles}}
+{{Entity
+| title = Fireball
+| image = Fire Charge.png
+| imagesize = 100px
+| size = '''Height:'''<br>{{jebe|1 Block|0.31 blocks}}<br>'''Width:'''<br>{{jebe|1 Block|0.31 blocks}}
+| networkid = '''[[JE]]''': 63
+}}
+
+A '''fireball''' is an [[explosive]] [[projectile]] expelled from a [[ghast]] as its method of attack. 
+
+== Behavior ==
+Fireballs have a straight trajectory unaffected by gravity and a theoretically infinite range, although they despawn after 1 minute.{{only|java|short=1}}{{verify|Is this true? From what I've observed, the "frozen" fireballs which you get by having them travel beyond loaded chunks exist indefinitely.}} Fireballs do not track their target once fired and can be deflected if hit with a projectile or melee attack.
+
+At close range, it is one of the most powerful mob attacks in ''Minecraft''; a direct hit deals {{hp|6}} projectile damage from the impact, and up to {{hp|9}}, {{hp|17}}, or {{hp|25}} explosion damage from the blast, depending on difficulty. A fireball deals {{hp|1000}} damage to a ghast if the fireball was rebounded by a player.{{verify|as opposed to any other means, such as a skeleton arrow?}}
+If an entity has the fire resistance effect, it will not get damaged by the fireball, though this is not consistent unlike with blaze fireballs.
+
+When two fireballs collide, one is deflected to a random direction while the other explodes upon impact. Blocks are also set on fire by the explosion.
+
+If a ghast is killed, any remaining fireballs launched by that ghast disappear. 
+
+The minimum [[blast resistance]] required to absorb all blast force of a fireball is 4.034 (about the equivalent of [[basalt]], which is 4.2).  However, blocks with resistance as low as 3.5 survive if hit.
+
+When a player hits a fireball, only the projectile damage dealt by the fireball counts as the player's kill.
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Fireballs use the Friendly Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|subtitle=Explosion
+|source=block
+|description=When a fireball impacts something
+|id=entity.generic.explode
+|translationkey=subtitles.entity.generic.explode
+|volume=4.0
+|pitch=0.56-0.84
+|distance=16}}
+{{sound table
+|sound=Ghast fireball4.ogg
+|subtitle=Ghast shoots
+|source=hostile
+|description=When a ghast shoots a fireball
+|id=entity.ghast.shoot
+|translationkey=subtitles.entity.ghast.shoot
+|volume=10.0
+|pitch=0.8-1.2
+|distance=16 {{verify}}
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|source=block
+|description=When a fireball impacts something
+|id=random.explode
+|volume=4.0
+|pitch=1.0}}
+{{Sound table
+|sound=Ghast fireball4.ogg
+|source=hostile
+|description=When a ghast shoots a fireball
+|id=mob.ghast.fireball
+|volume=0.7
+|pitch=0.8-1.2
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|displayname=Fireball
+|spritetype=entity
+|nameid=fireball
+|entitytags=impact_projectiles
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|displayname=Fireball
+|spritetype=entity
+|nameid=fireball
+|id=85
+|foot=1}}
+
+=== Entity data ===
+{{el|java}}:
+{{main|Entity format}}
+Fireballs have entity data associated with them that contains various properties.
+{{/ED}}
+
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Return to Sender}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|Return To Sender}}
+</table-progress-tracking>
+
+== History ==
+{{for|info relating to the ghast, including its shooting behavior|Ghast#History}}
+{{History|java alpha}}
+{{History||v1.2.0|snap=preview|Added fireballs.
+|[[File:Snowball JE1 BE1.png|32px]] At the time, fireballs used the [[snowball]] texture, which was additionally lit on fire.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease|[[File:Fire Charge JE1 BE1.png|32px]] Fireballs now have a unique texture, which would later be used by [[fire charge]]s.}}
+{{History|||snap=Beta 1.9 Prerelease 5|Killing Ghasts with their own{{verify|does killing one ghast with another's fireball work?}} fireball grants the player the [[achievement]] "Return to Sender."}}
+{{History||1.5|snap=13w02a|The texture used by the fireball has been changed from [[File:Fire Charge JE1 BE1.png|32px]] to [[File:Diamond Helmet (item) JE1 BE1.png|32px]].<ref>{{bug|MC-6758}}</ref>{{verify|screenshots display this diamond helmet as being slightly cut off at the bottom}} This is likely due to the diamond helmet's [[:File:13w02a stitched items.png|position]] in <samp>[[stitched_items.png]]</samp> being the position [[:File:201301031509 items.png|where]] the fire charge was in <samp>[[items.png]]</samp>.}}
+{{History|||snap=13w02b|The accidental texture change of the fireball has been reverted from [[File:Diamond Helmet (item) JE1 BE1.png|32px]] to [[File:Fire Charge JE1 BE1.png|32px]].}}
+{{history||1.6.1|snap=13w24a|The texture of the fireball has been changed from [[File:Fire Charge JE1 BE1.png|32px]] to [[File:Ghast Fireball 13w24a.png|32px]].<ref>{{bug|MC-17827}}</ref>}}
+{{History|||snap=13w24b|The accidental texture change of the fireball has been reverted from [[File:Ghast Fireball 13w24a.png|32px]] to [[File:Fire Charge JE1 BE1.png|32px]].}}
+{{History||1.11|snap=16w32a|The projectile entity ID of the fireball has been changed from <code>Fireball</code> to <code>fireball</code>.}}
+{{History|||snap=16w40a|The [[tag]]s{{verify|what that linked page describes to wasn't added until 1.13}} <code>xTile</code>, <code>yTile</code>, <code>zTile</code>, <code>inTile</code> and <code>inGround</code> have been removed from the fireball's [[Chunk format#Projectiles|entity data]].}}
+{{History||1.14|snap=18w43a|[[File:Fire Charge JE2 BE2.png|32px]] The texture of the fireball has been changed.}}
+
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=build 1|[[File:Fire Charge JE1 BE1.png|32px]] Added fireballs.
+|As ghasts are currently unobtainable in-game without editing, their fireballs are also unobservable.}}
+{{History||v0.12.1|snap=build 1|As ghasts now spawn in [[the Nether]] and have accessible [[spawn egg]]s, their fireballs can also be encountered.}}
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|The entity ID for the fireball has been changed from <code>largefireball</code> to <code>large_fireball</code>.}}
+{{History|bedrock}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Fire Charge JE2 BE2.png|32px]] The texture of the fireball has been changed.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Fire Charge JE1 BE1.png|32px]]{{verify|TU0 is based on Beta 1.6, so can we be sure this was the texture used at the time?}} Added fireballs.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Fire Charge JE2 BE2.png|32px]] The texture of the fireball has been changed.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Fire Charge JE1 BE1.png|32px]] Added fireballs.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* If a player hits a fireball using an item with the Looting enchantment, any mob killed by that fireball has its drops affected by the enchantment as though the mob was killed by directly using the item.
+
+== References ==
+{{reflist}}
+
+{{Entities}}
+
+[[es:Bola de fuego]]

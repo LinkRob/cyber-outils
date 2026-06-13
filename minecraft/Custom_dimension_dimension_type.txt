@@ -1,0 +1,24 @@
+<div class="treeview"><onlyinclude>
+** {{nbt|boolean|ultrawarm}}: Whether the dimensions behaves like the nether (water evaporates and sponges dry) or not. Also lets stalactites drip lava and causes lava to spread faster and thinner.
+** {{nbt|boolean|natural}}: When false, compasses spin randomly, and using a [[bed]] to set the respawn point or sleep, is disabled. When true, nether portals can spawn zombified piglins.
+** {{nbt|double|coordinate_scale}}: The multiplier applied to coordinates when leaving the dimension. Value between 0.00001 and 30000000.0 (both inclusive)。
+** {{nbt|boolean|has_skylight}}: Whether the dimension has skylight or not.
+** {{nbt|boolean|has_ceiling}}: Whether the dimension has a bedrock ceiling. Note that this is only a logical ceiling. It is unrelated with whether the dimension really has a block ceiling.
+** {{nbt|float|ambient_light}}: How much light the dimension has. When set to 0, it completely follows the light level; when set to 1, there is no ambient lighting. Precise effects need testing {{Needs testing}}.
+** {{nbt|long|fixed_time}}: (optional) If this is set to an int, the time of the day is the specified value. To ensure a normal time cycle, leave the attribute undefined (i.e, do not include it).
+** {{nbt|int}}{{nbt|compound|monster_spawn_light_level}}: Value between 0 and 15 (both inclusive). Maximum light required when the monster spawns. The formula of this light is: <code>max( skyLight - 10, blockLight )</code> during thunderstorms, and <code>max( internalSkyLight, blockLight )</code> during other weather.
+*** {{nbt inherit/int provider}}
+** {{nbt|int|monster_spawn_block_light_limit}}: Value between 0 and 15 (both inclusive). Maximum block light required when the monster spawns.
+** {{nbt|boolean|piglin_safe}}: Whether [[Piglin]] and [[hoglin]] shake and transform to zombified entities.
+** {{nbt|boolean|bed_works}}: When false, the [[bed]] blows up when trying to sleep.
+** {{nbt|boolean|respawn_anchor_works}}: When false, the [[respawn anchor]] blows up when trying to set spawn point.
+** {{nbt|boolean|has_raids}}: Whether players with the [[Bad Omen]] effect can cause a [[raid]].
+** {{nbt|integer|logical_height}}: The maximum height to which [[chorus fruit]]s and [[nether portal]]s can bring players within this dimension. This excludes portals that were already built above the limit as they still connect normally. Cannot be greater than {{nbt|integer|height}}.
+** {{nbt|integer|min_y}}: The minimum height in which blocks can exist within this dimension. Must be between -2032 and 2031 and be a multiple of 16 (effectively making 2016 the maximum).
+** {{nbt|integer|height}}: The total height in which blocks can exist within this dimension. Must be between 16 and 4064 and be a multiple of 16. The maximum building height = min_y + height - 1, which cannot be greater than 2031.
+** {{nbt|string|infiniburn}}: A block tag with <code>#</code>. Fires on these blocks burns infinitely.
+** {{nbt|string|effects}}: (optional, defaults to <code>minecraft:overworld</code>) Can be <code>"minecraft:overworld"</code>, <code>"minecraft:the_nether"</code> and <code>"minecraft:the_end"</code>. Determines the [[Effect (dimension)|dimension effect]] used for this dimension. Setting to overworld makes the dimension have clouds, sun, stars and moon. Setting to the nether makes the dimension have thick [[fog]] blocking that sight, similar to the nether. Setting to the end makes the dimension have dark spotted sky similar to the end, ignoring the sky and fog color.</onlyinclude>
+</div>
+[[ja:カスタムワールド生成/dimension type]]
+[[pt:Dimensão personalizada/dimension type]]
+[[zh:自定义维度/dimension_type]]

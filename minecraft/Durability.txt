@@ -1,0 +1,251 @@
+'''Durability''' is a property that affects [[tool]]s, [[weapon]]s, and [[armor]], as well as certain other usable [[item]]s. It represents the number of ''useful actions'' an item can perform and depletes upon item use. The bar starts at green, but as the durability decreases, the color gradually turns to yellow, then orange, and finally red. When the durability is empty, the item is about to become destroyed. Durability may be increased by combining two damaged items in the crafting grid or a [[grindstone]], or repairing them with materials in an [[anvil]], or through the [[Mending]] [[enchantment]].
+
+==Interface==
+The remaining durability of any item can be seen by looking at the item's durability bar on the bottom of the item icon in the [[inventory]] and action bar. Unused items do not display a durability bar. As the item's durability decreases, the bar's colored area shortens right to left, changing color from green to red and leaving an empty gray part. When the item has a small number of uses left, the durability bar is represented as empty, due to rounding to the nearest pixel 1-down, until the tool or armor is destroyed.
+
+{{IN|java}}, the numeric durability of the [[player]]'s items can be displayed in-game by pressing {{key|F3}}+{{key|H}}. This enables additional information in the tooltips for items in the player's inventory.
+
+A weapon, tool or piece of armor picked up by a [[mob]] does not decrease in durability;<ref>{{bug|MC-151686||Swords used by non-player entities don't consume durability}}</ref> it remains the same as when the item was first picked up by the mob. However, a [[helmet]] worn by an [[undead]] mob in sunlight loses durability due to the helmet absorbing the mob's damage from burning.<ref>{{bug|MC-3453|||WAI}}</ref> {{IN|java}}, a [[crossbow]] wielded by a [[pillager]] or a [[piglin]] also loses durability and eventually breaks;<ref>{{bug|MC-163960|||WAI}}</ref> this is not the case {{in|bedrock}}.<ref>{{bug|MCPE-67489||Pillager doesn't break their crossbow}}</ref>
+
+Items with the {{cd|Unbreakable}} tag do not deplete their durability or break when used. Their durability is not shown, even with advanced tooltips enabled, though it is retained in the NBT data. Such an item can be acquired using {{command|give @s <''item_name''><nowiki>{Unbreakable:1b}</nowiki>}}.{{only|java}}
+
+==Armor durability ==
+
+[[Armor]] durability is based on the armor's type (head, torso, legs, feet) and material (leather, gold, chain mail, iron, diamond, and netherite). Any time the [[player]] takes damage that can be reduced by armor, each piece of armor they are wearing loses 1 durability for every {{hp|4}} of incoming damage (rounded down, but never below 1). 
+
+Armor can reduce damage from the following sources:
+*Direct attacks from [[mob]]s and other [[player]]s
+**This includes Strength and Weakness status effects or extra damage from enchantments.
+*Getting hit with an [[arrow]], [[Shulker|shulker bullet]], thrown [[trident]], [[egg]], [[snowball]], [[Llama|llama spit]], [[fireball]], or [[Wither|wither skull]]
+**This includes extra damage from enchantments
+*Getting hit with an [[egg]] or [[snowball]]
+*Laser beam from a [[guardian]] or [[elder guardian]]
+*Damage from [[Thorns]] enchantment (as well as [[guardian]]'s spikes)
+*Getting struck by [[lightning]]
+*Getting hit by a falling [[anvil]] or [[stalactite]]
+*Touching a block of [[fire]], [[lava]], [[magma block]] (does not damage netherite armor)
+*Touching a [[cactus]], or moving inside [[sweet berry bush]]
+*[[Explosion]]s (including [[firework]]s, but deals more than one point of durability)
+*Getting hit by or falling into a [[pointed dripstone]] (excludes fall damage which ignores armor)
+
+The following types of damage are '''not''' reduced by ordinary [[armor]] and have no effect on the armor's durability but some enchantments protect against them:
+*Ongoing damage from being on [[fire]]
+*[[Suffocation|Suffocating]] inside a [[block]] or due to entity cramming (also includes the [[world border]])
+*[[Drowning]] in [[water]] (partially for turtle shells)
+*[[Fall damage]] (including [[ender pearls]])
+*Colliding a block with [[elytra]]
+*Magic ([[Evoker|Evoker fangs]], [[dragon's breath]], [[Poison]], [[Wither (effect)|Wither]] and [[Instant Damage]] status effects)
+*Being inside of a [[powder snow]] block (except entities wearing leather armor, which prevents freezing damage)
+
+The following types of damage are '''not''' reduced by ordinary [[armor]] even with enchantments such as [[protection]]:
+*Falling into the [[void]] or {{cmd|kill}}
+*[[Food|Starvation]]
+*[[Warden]]'s ranged sonic attacks
+Values in the table below represent the number of points of durability damage this armor can take before it is destroyed.
+
+Note that every time the [[player]] takes [[damage]] that [[armor]] is capable of reducing (see [[#Armor durability|above]]), it counts as one point of durability damage for ''every'' worn armor piece. 
+
+{| class="wikitable" data-description="Durability" style="text-align:center;"
+|-
+! scope="col" |Material
+! scope="col" |Helmet
+! scope="col" |Chestplate
+! scope="col" |Leggings
+! scope="col" |Boots
+|-
+| scope="row" |'''Turtle Shell'''
+| 275|| N/A|| N/A||N/A
+|-
+| scope="row" |'''Leather'''
+|55||80||75||65
+|-
+| scope="row" |'''Golden'''
+|77|| 112|| 105||91
+|-
+| scope="row" |'''Chainmail'''
+| 165|| 240|| 225||195
+|-
+| scope="row" |'''Iron'''
+| 165|| 240|| 225||195
+|-
+| scope="row" |'''Diamond'''
+| 363|| 528|| 495||429
+|-
+| scope="row" |'''Netherite'''
+| 407|| 592|| 555||481
+|}
+
+== Tool durability==
+
+Some tools do not have durability, and can therefore be used infinitely. These include [[bucket]]s, [[clock]]s, [[compass]]es, [[lead]]s, [[spyglass]]es and [[recovery compass]]es.
+
+Some [[tool]]s are not block-breaking tools: This includes [[bow]]s, [[fishing rod]]s, [[carrots on sticks]], [[flint and steel]], [[warped fungi on sticks]], [[brush]]es, and [[elytra]]. Such tools are no better than bare fists at breaking blocks, but they do not take damage from doing so—they take [[damage]] by being used in their own various manners.
+
+For block-breaking tools, a use is counted only if a [[player]] completely breaks apart one block or hits a [[mob]]. If a [[block]] is partially broken this is not counted as a full use.
+
+Items with an [[Unbreaking]] enchantment do not always lose durability when used; for a given enchantment level, the chance of losing durability is 1 in (1+''level''). Such items last an extra ''level'' times their original durability, give or take a few.
+
+[[Axe]]s, [[pickaxe]]s, and [[shovel]]s:
+*Breaking a block that breaks instantly counts as '''0''' uses.
+*Breaking other blocks counts as '''1''' use.
+*Paving dirt or a grass block using a [[shovel]] to make a [[Dirt Path|dirt path]] counts as '''1''' use.
+*Using an [[axe]] on a [[log]] or [[wood]] to [[Stripped Wood|strip]] it  counts as '''1''' use.
+*Hitting a mob (hostile, neutral or passive) counts as '''2''' uses.
+[[Hoe]]s:
+*Breaking a block that breaks instantly counts as '''0''' uses.
+*Breaking other blocks counts as '''1''' use.
+*Tilling dirt or grass counts as '''1''' use.
+*Hitting a mob counts as '''2''' uses.
+[[Shears]]:
+*Hitting a mob counts as '''0''' uses.
+*Shearing a sheep or a shearable animal counts as '''1''' use.
+*Breaking any block counts as '''1''' use.
+[[Sword]]s:
+*Breaking a block that breaks instantly counts as '''0''' uses.
+*Hitting a mob counts as '''1''' use.
+*Breaking other blocks counts as '''2''' uses.
+[[Fishing rod]]s:
+*Breaking a block or hitting a mob counts as '''0''' uses.
+*Casting the line and reeling it in empty counts as '''0''' uses.
+*Reeling in an item counts as '''1''' use.
+*Catching the bobber/hook on a block, then reeling it in, counts as '''2''' uses.
+*Using the line to yank on an item counts as '''3''' uses.
+*Using the line to yank on a mob counts as '''5''' uses.
+[[Carrot on a stick]]
+*Breaking a block or hitting a mob counts as '''0''' uses.
+*Using the [[Carrot on a Stick#Usage|boost]] counts as '''7''' uses.
+[[Flint and steel]]
+*Breaking a block or hitting a mob counts as '''0''' uses.
+*Using it to set a block on fire or light a nether portal counts as '''1''' use.
+[[Bow]]
+*Breaking a block or hitting a mob counts as '''0''' uses.
+*Firing an arrow counts as '''1''' use.
+[[Trident]]s:
+*Breaking a block that breaks instantly counts as '''0''' uses.
+*Attacking a mob or throwing counts as '''1''' use.
+*Breaking other blocks counts as '''2''' uses.
+[[Elytra]]
+*Flying for one second counts as '''1''' use. The durability cannot go below '''1'''.
+[[Shield]]
+*When the shield blocks an attack, it takes damage equal to the strength of the attack (rounded down) plus 1. Note: when the shield blocks an attack of {{hp|3}} or stronger, it takes durability damage equal to the strength of the attack rounded up.
+[[Crossbow]]
+*Shooting an arrow counts as '''1''' use.
+*Shooting three arrows (when enchanted with multishot) counts as '''3''' uses.
+*Shooting a firework rocket counts as '''3''' uses.
+*Shooting three firework rockets (when enchanted with multishot) counts as 3 × 3 = '''9''' uses.
+[[Warped Fungus on a Stick]]
+*Breaking a block or hitting a mob counts as '''0''' uses.
+*Using the boost counts as '''1''' use.
+[[Sparkler]] and [[Glow Stick]]{{only|bedrock|education}}
+*Durability gradually decreases while the item is active and held in hand.
+*If the player has a lit sparkler in their inventory and goes into the water, the sparkler is destroyed immediately regardless of durability.
+[[Brush]]
+*Breaking a block or hitting a mob counts as '''0''' uses.
+*Brushing a [[suspicious block]] counts as '''1''' use.
+All other [[tool]]s can be used indefinitely.
+
+Using a tool properly maximizes its durability. Assuming a player uses a tool appropriately, the following list shows the maximum durability for tools of each material type.
+
+;Materials
+*Gold: 32 uses
+*Wood: 59 uses
+*Stone: 131 uses
+*Copper: 190 uses
+*Iron: 250 uses
+*Diamond: 1561 uses
+*Netherite: 2031 uses
+
+;Specific tools
+*[[Fishing rod]]: 64 uses {{only|java}} or 384 uses ‌{{only|bedrock}}
+*[[Flint and steel]]: 64 uses
+*[[Brush]]: 64 uses
+*[[Carrot on a stick]]: 25 uses
+*[[Shears]]: 238 uses
+*[[Shield]]: 336 uses
+*[[Bow]]: 384 uses
+*[[Trident]]: 250 uses
+*[[Elytra]]: 432 uses
+*[[Crossbow]]: 465 uses {{only|je}} or 464 uses {{only|be}}
+*[[Warped Fungus on a Stick]]: 100 uses
+*[[Sparkler]] {{only|be|edu}} : 100 uses
+*[[Glow Stick]] {{only|be|edu}} : 100 uses
+
+==Sounds==
+{{Edition|Java}}:
+{{Sound table
+|sound=Random break.ogg
+|subtitle=Item breaks
+|source=player
+|description=When an item's durability is exhausted
+|id=entity.item.break
+|translationkey=subtitles.entity.item.break
+|volume=0.8
+|pitch=0.8-1.2
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Random break.ogg
+|source=player
+|description=When an item's durability is exhausted
+|id=random.break
+|volume=1.0
+|pitch=0.9
+|foot=1}}
+
+==History ==
+
+{{History|java indev}}
+{{History||0.31|snap=20100110|When iron [[tool]]s were introduced, they had infinite durability.}}
+{{History|||snap=20100128|When wooden, stone, and diamond [[tool]]s were introduced, they had infinite durability.}}
+{{History|||snap=20100131|Durability of all [[tool]]s are no longer infinite and had a much lower durability than they do now. Iron tools had 129 uses, wooden tools had 33, stone tools had 65, diamond tools had 257, and gold tools have 33.}}
+{{History|java Infdev}}
+{{History||20100313|Diamond [[tool]]s' durability has been increased to 513.}}
+{{History|java alpha}}
+{{History||unknown|Diamond tools' durability have been increased to 1025.}}
+{{History||1.0.5_01|When a tool breaks in [[singleplayer]], the game no longer considers the last [[block]] broken, as if it had been done with the [[player]]'s hands.}}
+{{History|java beta}}
+{{History||1.2|The durability of wood, stone, iron, and diamond [[tool]]s have been increased to about twice the previous value. The durability of gold tools was not increased, but they were given a speed boost.}}
+{{History|java}}
+{{History||1.0.0|snap=?|Previously, all armor materials offered the same base number of [[armor]] points, and the effective armor points of a character were equal to the sum of the base armor point values, times the sum of the current durabilities, divided by the sum of the base durabilities. This is no longer the case as of [[1.9-pre1]]. This led to some interesting cases where a single, badly damaged piece could reduce total armor points or a single, high-quality piece of armor could be ''greatly'' augmented with a set of low-quality, low-tier armor.
+|When a [[tool]] breaks in [[multiplayer]], the game no longer considers the last [[block]] broken, as if it had been done with the [[player]]'s hands.}}
+{{History||1.3.1|snap=12w24a|Breaking a block that can be [[instant mining|instantly mined]] by hand while holding a block-breaking tool no longer reduces the tool's durability.}}
+{{History||1.4.2|snap=12w41a|{{key|F3+H}} now shows tool and armor durability on damaged items.}}
+{{History||1.11|snap=16w41a|The durability bar is revamped: The color is now bright during the entire length of the bar.
+|Previously, the bar fades into {{color|#5a0|grape green}}, {{color|#808000|dark yellow}}, {{color|#a50|dark orange}}, {{color|#c30|dark orange-red}}, and eventually {{color|red}} as it decreases in length.
+|The background of the durability bar is now completely black, where it used to be transparent.}}
+{{History||1.13.1|snap=18w30b|The durability of all items are decreased by one due to the fix of {{bug|MC-120664}}.}}
+{{History||1.16|snap=20w10a|Hoes now lose 2 durability when used as weapons.}}
+{{History||1.18|snap=21w37a|The durability of crossbows is increased to 465 to match {{edition|BE}}.}}
+{{History|pe alpha}}
+{{History||v0.2.0|When stone [[tools]] and shears were introduced, they had infinite durability as crafting was not yet implemented.}}
+{{History||v0.3.0|When wooden [[tool]]s were introduced, they had a much lower durability than they do now. Wooden tools had 11 uses.
+|Stone [[tool]]s' durability have been decreased to 132 uses.}}
+{{History||v0.3.3|Attacking mobs now counts as 1 use for swords and 2 uses for axes, pickaxes, and shovels.
+|The durability of wooden tools has been increased from 11 uses to 60 uses.
+|The durability of iron and diamond [[tool]]s has been increased to match {{edition|JE}}. The durability of gold tools was not increased, but they were given a speed boost.{{verify|edition=bedrock}}}}
+{{History|foot}}
+
+== See also==
+*[[Item repair]]
+
+==References==
+{{reflist}}
+
+{{Gameplay}}
+
+[[de:Gegenstandshaltbarkeit]]
+[[el:Item durability]]
+[[es:Durabilidad]]
+[[fr:Durabilité des objets]]
+[[hu:Tárgyak tartóssága]]
+[[ja:アイテム耐久度]]
+[[ko:아이템 내구도]]
+[[nl:Voorwerpduurzaamheid]]
+[[pl:Trwałość przedmiotów]]
+[[pt:Durabilidade do item]]
+[[ru:Прочность]]
+[[tr:Eşya dayanıklılığı]]
+[[zh:物品耐久]]

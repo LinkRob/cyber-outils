@@ -1,0 +1,222 @@
+{{exclusive|java|customtext=This article is for {{el|je}}.}}
+'''Features''' are small decorations that can at most write to a 3×3 chunk area centered on the placement chunk. They're locally placed per-chunk and cannot be searched for using commands. Examples are trees, flowers, ore, etc.
+
+== Feature Type ==
+A '''feature type (sometimes called feature)''' determines how and what to generate.
+
+=== List of feature types ===
+The IDs of all feature types are listed below:
+* {{cd|no_op}}&mdash;Does nothing. Useful for overwriting existing configured features.
+* {{cd|bamboo}}
+* {{cd|basalt_columns}}
+* {{cd|basalt_pillar}}
+* {{cd|block_column}}
+* {{cd|block_pile}}
+* {{cd|blue_ice}}
+* {{cd|bonus_chest}}
+* {{cd|chorus_plant}}
+* {{cd|coral_claw}}
+* {{cd|coral_mushroom}}
+* {{cd|coral_tree}}
+* {{cd|delta_feature}}
+* {{cd|desert_well}}
+* {{cd|disk}}&mdash;Only if there is [[water]] at the current block, places blocks in a circular formation using the specified radius and deepness.
+* {{cd|dripstone_cluster}}
+* {{cd|end_gateway}}
+* {{cd|end_island}}
+* {{cd|end_spike}}
+* {{cd|fill_layer}}&mdash;Fills all air blocks in a 16×1×16 layer of blocks. Used by the game in flat worlds.
+* {{cd|flower}}
+* {{cd|forest_rock}}
+* {{cd|fossil}}&mdash;Can place a small structure.
+* {{cd|freeze_top_layer}}&mdash;Places snow and replaces water with ice in snowy biomes.
+* {{cd|geode}}
+* {{cd|glowstone_blob}}
+* {{cd|huge_brown_mushroom}}
+* {{cd|huge_fungus}}
+* {{cd|huge_red_mushroom}}
+* {{cd|iceberg}}
+* {{cd|ice_spike}}
+* {{cd|kelp}}
+* {{cd|lake}}
+* {{cd|large_dripstone}}
+* {{cd|monster_room}}
+* {{cd|multiface_growth}}
+* {{cd|nether_forest_vegetation}}
+* {{cd|netherrack_replace_blobs}}&mdash;Replaces all target blocks in a certain radius with another block. If it doesn't find the target block at its position, it will move down before generating until it finds one.
+* {{cd|no_bonemeal_flower}}
+* {{cd|ore}}
+* {{cd|pointed_dripstone}}
+* {{cd|random_boolean_selector}}&mdash;Randomly chooses one of two features with each having an equal chance.
+* {{cd|random_selector}}&mdash;Randomly chooses a feature from a list with chances.
+* {{cd|random_patch}}
+* {{cd|replace_single_block}}&mdash;Replaces a single block using a list of targets and states.
+* {{cd|root_system}}&mdash;Generates a root column with a feature on top.
+* {{cd|scattered_ore}}
+* {{cd|sculk_patch}}
+* {{cd|seagrass}}
+* {{cd|sea_pickle}}
+* {{cd|simple_block}}
+* {{cd|simple_random_selector}}&mdash;Randomly chooses a feature from a list with each having an equal chance.
+* {{cd|spring_feature}}
+* {{cd|tree}}
+* {{cd|twisting_vines}}
+* {{cd|underwater_magma}}
+* {{cd|vegetation_patch}}
+* {{cd|vines}}
+* {{cd|void_start_platform}}
+* {{cd|waterlogged_vegetation_patch}}&mdash;A vegetation patch but it will try to waterlog the blocks placed.
+* {{cd|weeping_vines}}
+
+== Configured Feature ==
+A feature type determines how to generate a feature, but the specific details need to be configured additionally. After configured, it is called a '''configured feature''', or simply called a '''feature'''.
+
+Configured features are stored as JSON files within a data pack in the path data/<namespace>/worldgen/configured_feature.
+
+=== JSON Format ===
+{{:Custom world generation/configured_feature}}
+
+== Placed feature ==
+A configured feature determines what to be generated, but additional definition is required to determine where and how to place it in world generation. After added '''placement modifiers''', it is called a '''placed feature'''.
+
+Placed features are stored as JSON files within a data pack in the path data/<namespace>/worldgen/placed_feature.
+
+=== JSON Format ===
+
+<div class="treeview">
+* {{nbt|compound}}: Root object.
+** {{nbt|string}}{{nbt|compound|feature}}: A configured feature's ID, or a object of a configured feature.
+** {{nbt|list|placement}}: A list of placement modifiers. They are applied in order.
+*** {{nbt|compound}}: A placement modifier.
+**** {{nbt|string|type}}: The type of this placement modifier.
+**** Other additional fields depend on the value of {{nbt|string|type}}, described below.
+</div>
+
+=== Placement Modifier ===
+A placement modifier takes in a initial position and returns empty or one or more block positions. Each position represents a generation attempt here. The placement modifier can return empty to cancel the attempt; return multiple copies of the same position to increase the number of attempts here; return some different positions to make multiple attempts in different positions.
+
+For a placed feature, the placement modifiers in the list are applied in order to get the final list of positions from the initial position, then the feature will attempt to generate at those positions. When generating a feature directly, the initial position is the bottom northwest corner of a chunk. When referenced by another feature (such as being referenced by a feature of type <code>random_selector</code>, or by a structure pool), the initial position is where the feature is to be generated.
+
+The possible values for {{nbt|string|type}} and associated additional fields:
+
+<div class="treeview" id="biome" style="margin-top: 1em;">
+* '''biome'''&mdash;Either returns the current position or empty. Only passes if the biome at the current position includes this placed feature. No additional field. Important: This modifier type cannot be used in placed features that are referenced from other configured features.
+</div>
+
+<div class="treeview" id="block_predicate_filter" style="margin-top: 1em;">
+* '''block_predicate_filter'''&mdash;Returns the current position when the predicate is passed, otherwise return empty.
+** {{nbt|compound|predicate}}: The block predicate to test.
+*** {{nbt inherit/block_predicate}}
+</div>
+
+<div class="treeview" id="carving_mask" style="margin-top: 1em;">
+* '''carving_mask'''&mdash;Returns all positions in the current chunk that have been carved out by a carver. This does not include blocks carved out by noise caves.
+** {{nbt|string|step}}: The carving step. Either <code>air</code> or <code>liquid</code>.
+</div>
+
+<div class="treeview" id="count" style="margin-top: 1em;">
+* '''count'''&mdash;Returns multiple copies of the current block position.
+** {{nbt|int}}{{nbt|compound|count}}: Value between 0 and 256 (inclusive).
+*** {{nbt inherit/int_provider}}
+</div>
+
+<div class="treeview" id="count_on_every_layer" style="margin-top: 1em;">
+* '''count_on_every_layer'''&mdash;In the horizontal relative range (0,0) to (16,16), at each vertical layer separated by air, lava or water, tries to randomly select the specified number of horizonal positions, whose Y coordinate is one block above this layer at this selected horizonal position. Return these selected positions.
+** {{nbt|int}}{{nbt|compound|count}}：Count on each layer. Value between 0 and 256 (inclusive).
+*** {{nbt inherit/int_provider}}
+</div>
+
+<div class="treeview" id="environment_scan" style="margin-top: 1em;">
+* '''environment_scan'''&mdash;Scans blocks either up or down, until the target condition is met. Returns the block position for which the target condition matches. If no target can be found within the maximum number of steps, returns empty.
+** {{nbt|string|direction_of_search}}: One of <code>up</code> or <code>down</code>.
+** {{nbt|int|max_steps}}: Value between 1 and 32 (inclusive).
+** {{nbt|compound|target_condition}}: The block predicate that is searched for.
+*** {{nbt inherit/block_predicate}}
+** {{nbt|compound|allowed_search_condition}}:  (optional) If specified, each step must match this block position in order to continue the scan. If a block that doesn't match it is met, but no target block found, returns empty.
+*** {{nbt inherit/block_predicate}}
+</div>
+
+<div class="treeview" id="height_range" style="margin-top: 1em;">
+* '''height_range'''&mdash;Sets the Y coordinate to a value provided by a height provider. Returns the new position.
+** {{nbt|compound|height}}: The new Y coordinate.
+*** {{nbt inherit/height_provider}}
+</div>
+
+<div class="treeview" id="heightmap" style="margin-top: 1em;">
+* '''heightmap'''&mdash;Sets the Y coordinate to one block above the [[heightmap]]. Returns the new position.
+** {{nbt|string|heightmap}}: The heightmap to use. One of <code>MOTION_BLOCKING</code>, <code>MOTION_BLOCKING_NO_LEAVES</code>, <code>OCEAN_FLOOR</code>, <code>OCEAN_FLOOR_WG</code>, <code>WORLD_SURFACE</code> or <code>WORLD_SURFACE_WG</code>.
+</div>
+
+<div class="treeview" id="in_square" style="margin-top: 1em;">
+* '''in_square'''&mdash;For both X and Z, it adds a random value between 0 and 15 (both inclusive). This is a shortcut for a random_offset modifier with y_spread set to 0 and xz_spread as a uniform int from 0 to 15. No additional fields.
+</div>
+
+<div class="treeview" id="noise_based_count" style="margin-top: 1em;">
+* '''noise_based_count'''&mdash;When the noise value at the current block position is positive, returns multiple copies of the current block position, whose count is based on a noise value and can gradually change based on the noise value. When noise value is nagetive or 0, returns empty. The count is calculated by <code>ceil((noise(x / noise_factor, z / noise_factor) + noise_offset) * noise_to_count_ratio)</code>.
+** {{nbt|double|noise_factor}}: Scales the noise input horizontally. Higher values make for wider and more spaced out peaks.
+** {{nbt|double|noise_offset}}：(optional, defaults to 0) Vertical offset of the noise.
+** {{nbt|int|noise_to_count_ratio}}: Ratio of noise value to count.
+</div>
+
+<div class="treeview" id="noise_threshold_count" style="margin-top: 1em;">
+* '''noise_threshold_count'''&mdash;Returns multiple copies of the current block position. The count is either below_noise or above_noise, based on the noise value at the current block position. First checks <code>noise(x / 200, z / 200) < noise_level</code>. If that is true, uses <code>below_noise</code>, otherwise <code>above_noise</code>.
+** {{nbt|double|noise_level}}: The threshold within the noise of when to use <code>below_noise</code> or <code>above_noise</code>.
+** {{nbt|int|below_noise}}: The count when the noise is below the threshold. Value lower than 0 is treated as 0.
+** {{nbt|int|above_noise}}: The count when the noise is above the threshold. Value lower than 0 is treated as 0.
+</div>
+
+<div class="treeview" id="random_offset" style="margin-top: 1em;">
+* '''random_offset'''&mdash;Applies an offset to the current position. Note that the even though X and Z share the same int provider, they are individually sampled, so a different offset can be applied to X and Z.
+** {{nbt|int}}{{nbt|compound|xz_spread}}: Value between -16 and 16 (inclusive).
+*** {{nbt inherit/int_provider}}
+** {{nbt|int}}{{nbt|compound|y_spread}}: Value between -16 and 16 (inclusive).
+*** {{nbt inherit/int_provider}}
+</div>
+
+<div class="treeview" id="rarity_filter" style="margin-top: 1em;">
+* '''rarity_filter'''&mdash;Either returns the current position or empty. The chance is calculated by <code>1 / chance</code>.
+** {{nbt|int|chance}}: Must be a positive integer.
+</div>
+
+<div class="treeview" id="surface_relative_threshold_filter" style="margin-top: 1em;">
+* '''surface_relative_threshold_filter'''&mdash;Returns the current position if the surface is inside a range. Otherwise returns empty.
+** {{nbt|string|heightmap}}：The [[heightmap]] to use. One of <code>MOTION_BLOCKING</code>, <code>MOTION_BLOCKING_NO_LEAVES</code>, <code>OCEAN_FLOOR</code>, <code>OCEAN_FLOOR_WG</code>, <code>WORLD_SURFACE</code> or <code>WORLD_SURFACE_WG</code>.
+** {{nbt|int|min_inclusive}}: The minimum relative height from the surface to current position.
+** {{nbt|int|max_inclusive}}: The maxinum relative height from the surface to current position.
+</div>
+
+<div class="treeview" id="surface_water_depth_filter" style="margin-top: 1em;">
+* '''surface_water_depth_filter'''&mdash;If the number of blocks of a motion blocking [[material]] under the surface (the top non-air block) is less than the specified depth, return the current position. Otherwise return empty.
+** {{nbt|int|max_water_depth}}: The maximum allowed depth.
+</div>
+
+==History ==
+{{History|java}}
+{{History||1.16.2|snap=20w28a|Added experimental support for configured features in data packs.}}
+{{History||1.16.2|snap=20w29a|Renamed the <code>minecraft:decorated_flower</code> feature in <code>minecraft:no_bonemeal_flower</code>.}}
+{{History||1.17|snap=20w45a|Added <code>minecraft:geode</code> feature.}}
+{{History||1.17|snap=20w49a|Added <code>minecraft:dripstone_cluster</code>, <code>minecraft:large_dripstone</code>, and <code>minecraft:small_dripstone</code> features.}}
+{{History||1.17|snap=21w03a|Added <code>minecraft:glow_lichen</code> feature type.}}
+{{History||1.19|snap=22w11a|Added <code>block</code> field into <code>glow_lichen</code> (<code>multiface_growth</code>) feature config.
+|Added <code>minecraft:sculk_patch</code> feature type.}}
+{{History|||snap=22w12a|Leaves are now waterloggable. And foliage placers now always waterlog the blocks when replacing water, if the foliage block has a waterlogged block state.}}
+{{History|||snap=22w13a|Added <code>extra_rare_growths</code> field into <code>sculk_patch</code> feature config.}}
+{{History|||snap=22w14a|Renamed the <code>glow_lichen</code> feature type to <code>multiface_growth</code>.
+|Added <code>surface_disk</code> feature type.
+|Added <code>can_origin_replace</code> field into the <code>minecraft:disk</code> feature config. Must be a block ID or a block tag, or a list of block IDs. The feature origin must in these blocks to generate the feature.
+|Added <code>root_placer</code> field into the <code>minecraft:tree</code> feature config.
+|Added <code>attached_to_leaves</code> decorator into the <code>minecraft:tree</code> feature config.
+|Added <code>probability</code> field into the <code>leave_vine</code> decorator of the <code>minecraft:tree</code> feature config.
+|Added <code>upwards_branching_trunk_placer</code> trunk placer into the <code>minecraft:tree</code> feature config.}}
+{{History|||snap=22w15a|Merged the <code>surface_disk</code> and <code>ice_patch</code> feature types into the <code>disk</code> type.
+|Added <code>state_provider</code> and <code>targets</code> fields into the <code>minecraft:disk</code> feature config, replacing <code>state</code>, <code>targets</code> and <code>can_origin_replace</code> fields.
+|Added <code>trunk_offset_y</code> and <code>above_root_placement</code> fields into the root placer in the <code>minecraft:tree</code> feature config.
+|Removed the <code>y_offset</code> field of the <code>mangrove_root_placer</code> root placer in the <code>minecraft:tree</code> feature config. Moved all other additional fields of <code>mangrove_root_placer</code> into an object {{nbt|compound|mangrove_root_placement}}.}}
+{{History||1.19.4|snap=23w07a|Added <code>minecraft:cherry_foliage_placer</code> and <code>minecraft:cherry_trunk_placer</code> into the <code>minecraft:tree</code> feature config.}}
+{{History||1.20|snap=23w17a|Added <code>replaceable_blocks</code> field into the <code>minecraft:huge_fungus</code> feature config.}}
+{{History|foot}}
+
+{{Java Edition}}
+
+[[ja:生成物のカスタマイズ]]
+[[zh:自定义地物]]

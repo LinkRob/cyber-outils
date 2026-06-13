@@ -1,0 +1,233 @@
+{{Redirect|Gamemode|the command|Commands/gamemode}}
+{{About|how a player interacts with the world|the difficulty modes|Difficulty}}
+A '''game mode''' dictates how a [[player]] may interact with a ''Minecraft'' [[world]].
+
+== List of game modes ==
+[[File:Gamemodes.gif|218px|frame|right|Animation summarizing the game modes in ''Java Edition''.]]
+
+The number of different game modes in ''Minecraft'' depends on the exact definition of a game mode. In practice, there are most commonly considered to be four:
+
+* [[Survival]]
+* [[Creative]]
+* [[Adventure]]
+* [[Spectator]]
+
+[[Demo Mode]], which may also be counted as a game mode, is Survival with the <code>--demo</code> attribute, which defines if the game is from a trial version or not.
+
+=== True game modes ===
+The following game modes are controlled by the "gameType" variable, and all{{only|java}}/some{{only|bedrock}} are accessible in-game via the {{cmd|gamemode}} command as well as the game mode switcher.{{only|java}}
+
+==== Survival ====
+{{main|Survival}}
+In this mode, players have to gather all their materials to build, [[craft]] [[items]] and [[tools]] and gain [[experience]] points. There is a [[health]], [[hunger]], and [[armor]] bar, an [[inventory]], and also a [[Health#Drowning|oxygen bar]] when [[water|underwater]], [[suffocation|suffocating]],{{only|bedrock|short=1}} or in [[lava]].{{only|bedrock|short=1}} If a player runs out of hearts (health), the player dies and returns to the [[spawn]] point. Upon death, the player emits smoke, loses all experience and items, and a [[Death messages|death message]]. Maximum reach is 5 blocks.
+
+==== Creative ====
+{{main|Creative}}
+The player has access to an infinite amount of almost all [[block]]s and [[item]]s available, and can destroy them instantly. Players are invulnerable, unless they fall into the void,{{only|java}}, or by using {{cmd|kill}}, and do not have health, armor, oxygen, or hunger, and can [[fly]]. The player has access to items not available in Survival mode, e.g. [[spawn egg]]s and [[command block]]s. The player cannot see command blocks if they look through the Creative GUI - they need to spawn command blocks with the {{cmd|give}} or {{cmd|setblock}} commands. Maximum reach is 6 blocks.
+
+==== Adventure ====
+{{main|Adventure}}
+Players can interact with objects such as [[lever]]s and [[button]]s, and can interact with [[mob]]s. However, they can break [[blocks]] only with [[tool]]s having a CanDestroy data tag, and place blocks only if the block they are holding has a {{cd|CanPlaceOn}} data tag, making this mode good for adventure maps. Maximum reach is 5 blocks.
+
+==== Spectator ====
+{{Main|Spectator}}
+When in Spectator mode, players can clip through blocks and fly freely. The player can't interact with blocks, entities or their inventory.
+
+{{iN|java}}, the player can enter the perspective of other entities by left-clicking on them, and are invisible to all players and mobs except for other spectators. When in third-person mode, they look like a transparent, floating head with no body. The player can use the scroll wheel to adjust the speed at which they are flying, unlike flying in Creative mode.
+
+{{iN|bedrock|education}} however, the player can access this game mode by typing {{cmd|gamemode spectator}}. The Spectator game mode has slightly different mechanics from Java Edition, like spectating entities. This gamemode is still in development.<ref>{{tweet|Minecraft|1516445105137324036|We can confirm that a recent Beta and Preview contained early functionality for Spectator Mode – a much-wanted feature we're adding to Minecraft: Bedrock Edition. This will launch after the 1.19 update has released, but we’ll be testing it further in upcoming Betas and Previews.|April 19, 2022}}</ref>
+
+=== Other game modes ===
+
+==== Default ====
+{{exclusive|bedrock|section=1}}
+
+The "Default" game mode can be access by typing {{cmd|gamemode 5}}. The player can set game mode based on what default game mode is set. In a world setting, there's a dropdown to select the default game mode. The player can override the default game mode by setting the game mode to another game mode.
+
+==== Invalid game mode ====
+{{exclusive|bedrock|section=1}}
+
+Any invalid game mode will be a mix of [[Creative]] mode and [[Survival]] mode. They are only accessible with [[Tutorials/Programs and editors|third-party software]] so using the {{cmd|gamemode}} command will not work because the game is preventing the [[player]] from doing it.
+
+Like in [[Creative]] mode, the player has the ability to fly, can't take any damage and they're not affected by [[hunger]]. Despite this, [[health]] and [[hunger]] bars are still visible. [[Tool]]s have infinite durability and can't break.
+
+The [[Inventory#Creative inventory|inventory]] is like the one in [[Creative]] mode, except it's broken and you will not be able to take blocks nor items from it.
+
+=== Game states ===
+
+==== Hardcore ====
+{{main|Hardcore}}
+In this mode, which plays in the same way as Survival mode, the difficulty level is permanently set to "Hard", and when the player dies, they must either delete the map or permanently switch to [[Spectator]] mode, effectively preventing them from interacting with the world ever again.
+
+Hardcore is not technically a game mode, but rather a game mode modifier, as it cannot be enabled with the {{cmd|gamemode}} command. However, without cheating, it is possible to get only "Hardcore Survival". To obtain "Hardcore Creative" mode, the player must edit the game world with external tools, or opening to LAN, and turning on cheats. There is almost no visible difference between "Hardcore Creative" and "Non-Hardcore Creative". Because of this, "Hardcore" usually refers to "Hardcore Survival". On a server, a player who dies gets put into [[Spectator]] mode, while all other players remain in Survival mode. When looking at a Hardcore singleplayer world, the gamemode is "Hardcore Mode!" and the color is red.
+
+==== Demo Mode ====
+{{main|Demo Mode}}
+Demo Mode functionally serves to allow the [[Player|players]] to try out the game before deciding to buy ''Minecraft''. It allows players to play on a single world for a 100-minute (5 in-game days) period before the map is locked and required to be reset. The game is locked to [[Survival]] mode and cheats are off by default. While the demo version does not expire, it comes with certain restrictions, by others, as its sole purpose is to allow new players to try out ''Minecraft''.
+
+Demo Mode is not technically a game mode as it cannot be enabled with the <code>/[[Commands/gamemode|gamemode]]</code> command.
+
+=== Summary ===
+Below is a brief summary of the different available features in each game mode.
+
+{| class="wikitable sortable" style="width: auto; text-align: center; font-size: smaller" data-description="Game mode features"
+!'''Feature'''
+![[Survival]]
+![[Creative]]
+![[Adventure]]
+![[Hardcore]]
+![[Spectator]]
+|-
+! Premium account
+| {{tc|partial|required for multiplayer<ref group="fn" name="demo" />}}
+| {{tc|never|required}}
+| {{tc|never|required}}
+| {{tc|never|required}}
+| {{tc|never|required}}
+|-
+! [[Multiplayer]]
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+! [[Crafting]]
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|no}}
+|-
+! [[Smelting]]
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|no}}
+|-
+! [[Brewing]]
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|no}}
+|-
+! [[Enchanting]]
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|no}}
+|-
+! [[Inventory]]
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|partial}}
+|-
+! [[Health]]
+| {{tc|yes}}
+| {{tc|partial|Hidden<ref group="fn" name="creative-health" />}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|partial|Hidden<ref group="fn" name="creative-health" />}}
+|-
+! Respawn after death
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|partial|After death you can only enter Spectator Mode or return to the title screen}}
+| {{tc|yes}}
+|-
+! [[Block]] placing/breaking
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|partial|No, unless the player has a CanPlaceOn data tag}}
+| {{tc|yes}}
+| {{tc|no}}
+|-
+! [[Mobs]]
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+! Maximum amount of blocks (so far)
+| {{tc|partial|Partial<ref group="fn" name="survival-blocks" />}}
+| {{tc|yes}}
+| {{tc|no}}
+| {{tc|partial|Partial<ref group="fn" name="survival-blocks" />}}
+| {{tc|no}}
+|-
+! [[Daylight cycle]]
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+! [[Cheats]]
+| {{tc|partial|preset to no, but changeable}}
+| {{tc|yes}}
+| {{tc|partial|preset to no, but changeable}}
+| {{tc|no}}
+| {{tc|yes}}
+|-
+! Preset difficulty
+| {{tc|no}}
+| {{tc|no}}
+| {{tc|no}}
+| {{tc|yes}}
+| {{tc|no}}
+|-
+! [[Hunger]]
+| {{tc|partial}}<ref group="fn" name="hunger" />
+| {{tc|no}}
+| {{tc|partial}}<ref group="fn" name="hunger" />
+| {{tc|yes}}
+| {{tc|no}}
+|-
+! Available {{in|be}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+!Can phase through blocks
+| {{tc|no}}
+| {{tc|no}}
+| {{tc|no}}
+| {{tc|no}}
+| {{tc|yes}}
+|}
+
+{{notelist|fn|notes=
+<ref name="survival-blocks">In Survival, there are methods to obtain unlimited amounts of specific [[renewable resources]] such as [[logs]], [[cobblestone]], and [[water]]. In addition, the vast map area allows one to gather plenty of anything with enough effort.</ref>
+<ref name="creative-health">In Creative or in Spectator, health is still there but hidden from GUI, the player can show this by falling into the [[void]]{{only|java}}.</ref>
+<ref name="demo">Demo Mode allows gameplay of only the Survival gamemode without a premium account, and only in singleplayer. This does have a time limit though.</ref>
+<ref name="hunger">Hunger mechanics are implemented, but kill the player only if the difficulty is set to Hard mode and do not affect players on Peaceful.</ref>
+}}
+
+==Changing game mode==
+The [[command]] {{cmd|gamemode}} can be used to switch between true game modes. For example, {{cmd|gamemode creative}} (or {{cmd|gamemode c}}, {{cmd|gamemode 1}} in ''Bedrock Edition'') puts the player into Creative mode. As Hardcore is handled differently, it cannot be set via commands.
+
+{{IN|java}}, a player with operator permissions on a server or [[cheat]]s enabled is able to open a GUI by pressing {{key|F3}} and {{key|F4}}, which then allows the player to cycle through the four available gamemodes available with {{cmd|gamemode}} by pressing {{key|F4}}.
+
+{{IN|bedrock}}, the gamemode can also be changed by quitting the world, going to Edit World, tapping either Creative or Survival, and then returning to the game if cheats are enabled.
+
+==Data values==
+In the <samp>[[level.dat]]</samp> file, Survival mode is <code>gametype=0</code>, Creative is <code>gametype=1</code>, Adventure is <code>gametype=2</code>, and Spectator is <code>gametype=3</code>. Hardcore is Survival with the addition of <code>hardcore=1</code> (a normal world uses <code>hardcore=0</code> instead). This knowledge allows hacking to change game modes by editing the world's level.dat.
+
+==See also==
+*[[Gameplay]]
+
+==References==
+{{reflist}}
+
+{{Game modes}}
+
+[[zh:游戏模式]]

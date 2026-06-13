@@ -1,0 +1,70 @@
+{{Infobox command
+|name=spawnpoint
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|others=[[Options|Cheat]] only{{only|bedrock|short=1}}
+}}
+Sets the [[spawn]] point for a [[player]], works in all [[dimensions]].
+
+== Syntax ==
+* '''Java Edition'''
+:<code>spawnpoint [<targets>] [<pos>] [<angle>]</code>
+* '''Bedrock Edition'''
+:<code>spawnpoint [player: target] [spawnPos: x y z]</code>
+
+== Arguments ==
+{{argument|targets|entity|player: target|CommandSelector<Player>}}
+: Specifies the player whose spawn point should be set. If not specified, defaults to the command's executor.
+: {{arg desc|je=entity|amount=multiple|type=players|be=player}}
+
+{{argument|pos|block_pos|spawnPos: x y z|CommandPositionFloat}}
+: Specifies the coordinates of the player's new spawn point. If not specified, defaults to the position of the specified player(s) {{in|bedrock}} or the command's execution {{in|java}}.
+: {{IN|java}}, {{lcfirst:{{arg desc|je=block_pos}}}}
+: {{IN|bedrock}}, {{lcfirst:{{arg desc|be=CommandPositionFloat}}}}
+
+{{el|je|short=1}}: {{argument|angle|angle}}
+: Specifies the yaw angle to spawn with. Defaults to the direction the executor is facing.
+: {{arg desc|je=angle}}
+
+== Result ==
+
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|unparseable}}
+{{Result table|<code>player: target</code> is not in [[Target selectors#Player type and single type|player type]]|N/A|fail}}
+{{Result table|<code><targets></code> or <code>player: target</code> fails to resolve to one or more online players|fail}}
+{{Result table|<code><targets></code> or <code>player: target</code> is not specified, and the command's executor is not a player}}
+{{Result table|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|On success|1|1|the number of players whose spawnpoints are set}}
+{{Output table|edition=be|On fail|0}}
+{{Output table|On success|the number of players whose spawnpoints are set}}
+{{Output table}}
+
+== History ==
+{{History|java}}
+{{History||1.4.2|snap=12w32a|Added {{cmd|spawnpoint|link=none}}.}}
+{{History||1.16|snap=20w12a|Added support for being run in any dimension.}}
+{{History||1.16.2|snap=20w29a|Added {{cd|angle}} parameter for setting the default facing angle of a respawning player.}}
+
+{{History|pocket alpha}}
+{{History||v0.16.0|snap=build 1|Added {{cmd|spawnpoint|link=none}}.}}
+{{History|foot}}
+
+== See also ==
+* {{cmd|clearspawnpoint}}
+* {{cmd|setworldspawn}}
+
+{{Commands}}
+
+[[de:Befehl/spawnpoint]]
+[[es:Comandos/spawnpoint]]
+[[ja:コマンド/spawnpoint]]
+[[ru:Команды консоли/spawnpoint]]
+[[uk:Команди консолі/spawnpoint]]
+[[zh:命令/spawnpoint]]

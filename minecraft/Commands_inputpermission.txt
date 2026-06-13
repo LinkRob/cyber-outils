@@ -1,0 +1,50 @@
+{{Infobox command
+|name=inputpermission
+|oplevel=1
+|cheat=1
+}}
+
+Specify the operation for the player's [[permission]] status.
+
+== Syntax ==
+:<code>inputpermission query <targets: target> <permission: permission> [state: state]</code>
+::Queries the status of the specified privilege of the target.
+:<code>inputpermission set <targets: target> <permission: permission> <state: state></code>
+::Modifies the status of the specified privilege of the target.
+
+== Parameters ==
+{{argument|targets: target|CommandSelector<Player>|be=1}}
+:Specifies the owner of the permission.
+:{{arg desc|be=CommandSelector<Player>}}
+
+{{argument|permission: permission|enum|be=1}}
+:Specifies the authority for the operation.
+:Must be one of the following:
+:* <code>camera</code> — Whether the player can turn the camera view.
+:* <code>movement</code> — Whether the player can move.
+
+{{argument|state: state|enum|be=1}}
+:The status of the specified permission.
+:Must be for<code>enabled</code> (Enable) or<code>disabled</code> (Disable).
+:For<code>... query ...</code>, If not specified, all states will be queried.
+
+== Results ==
+{{Result table|onlybe=1}}
+{{Result table|the arguments are not specified correctly||unparseable}}
+{{Result table|cmd=|success|Assigning operations to permission status}}
+{{Result table}}
+
+== Output ==
+{{Output table|onlybe=1}}
+{{Output table|edition=be|On Fail|0}}
+{{Output table|On Success|1}}
+{{Output table}}
+
+== History ==
+{{History|bedrock}}
+{{History||1.19.80|snap=beta 1.19.80.21|Added{{cmd|inputpermission|link=none}}.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[zh:命令/inputpermission]]

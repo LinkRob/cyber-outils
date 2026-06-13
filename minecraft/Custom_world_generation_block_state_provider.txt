@@ -1,0 +1,62 @@
+<div class="treeview"><onlyinclude>
+** {{nbt|string|type}}: The type of the block state provider. One of {{cd|simple_state_provider}} (specifies a block state directly), {{cd|rotated_block_provider}} (rotates axially-rotated block, such as logs, chain), {{cd|weighted_state_provider}} (chooses a block state from a weighted list), {{cd|randomized_int_state_provider}} (assigns a random value to an integer block property), {{cd|noise_provider}} (randomly choose a block state according to a noise value), {{cd|dual_noise_provider}} (randomly choose a block state according to two noise values), or {{cd|noise_threshold_provider}} (use different block state when a noise value above or below the threshold).
+**; If <code>type</code> is <code>simple_state_provider</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|compound|state}}: The block state to use.
+*** {{nbt inherit/block_state}}
+**; If <code>type</code> is <code>rotated_block_provider</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|compound|state}}: The block ID to use. The block properties are ignored.
+*** {{nbt inherit/block_state}}
+**; If <code>type</code> is <code>weighted_state_provider</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|list|entries}}: (Cannot be empty) A weighted list of block state entries.
+*** {{nbt|compound}} A block state and its corresponding weight.
+**** {{nbt|compound|data}}: The block state to use.
+***** {{nbt inherit/block_state}}
+**** {{nbt|int|weight}}: The weight of this entry.
+**; If {{cd|type}} is {{cd|randomized_int_state_provider}}, additional fields are as follows<nowiki>:</nowiki>
+** {{Nbt|string|property}}: The name of a block property.
+** {{Nbt|int}}{{Nbt|compound|values}}: The value of the block property.
+*** {{Nbt inherit/int provider}}
+** {{Nbt|compound|source}}: Another block state provider that specifies the source of the block state.
+*** {{nbt inherit/block state provider}}
+**; If {{cd|type}} is {{cd|noise_provider}}, additional fields are as follows<nowiki>:</nowiki>
+** {{Nbt|long|seed}}: The seed of the noise.
+** {{Nbt|compound|noise}}: A noise.
+** {{Nbt|float|scale}}: Horizontal scale of the noise. Must be a positive value.
+** {{Nbt|list|states}}: (Cannot be empty) List of optional block states.
+*** {{Nbt|compound}}: A block state.
+**** {{Nbt inherit/block_state}}
+**; If {{cd|type}} is {{cd|dual_noise_provider}}, additional fields are as follows<nowiki>:</nowiki>
+** {{Nbt|long|seed}}: The seed of the noise.
+** {{Nbt|compound|noise}}: A noise.
+** {{Nbt|float|scale}}: Horizontal scale of noise. Must be a positive value.
+** {{Nbt|compound|slow_noise}}: The noise used for the first selection.
+** {{Nbt|float|slow_scale}}: Horizontal scale of the slow noise. Must be a positive value.
+** {{Nbt|compound|variety}}: The number of block states that seleted out by slow noise.
+*** {{Nbt|int|min_inclusive}}: The min number of block states after selection by slow noise. Must be an integer equal to or greater than 1.
+*** {{Nbt|int|max_inclusive}}: The max number of block states after selection by slow noise. Must be an integer equal to or less than 64, and must be greater than {{Nbt|int|min_inclusive}}.
+** {{Nbt|list|variety}}: Shorthand version of {{Nbt|compound|variety}}.
+*** {{Nbt|int}}: Min number. Must be an integer equal to or greater than 1.
+*** {{Nbt|int}}：Max number. Must be an integer equal to or less than 64, and must be greater than the min number.
+** {{Nbt|int|variety}}：Shorthand version of {{Nbt|compound|variety}} when the min equals to the max. Value between 1 and 64 (both inclusive).
+** {{Nbt|list|states}}: List of block states to choose from.
+*** {{Nbt|compound}}: A block state.
+**** {{Nbt inherit/block_state}}
+**; If {{cd|type}} is {{cd|noise_threshold_provider}}, additional fields are as follows<nowiki>:</nowiki>
+** {{Nbt|long|seed}}: The seed of the noise.
+** {{Nbt|compound|noise}}: A noise.
+** {{Nbt|float|scale}}: Horizontal scale of noise. Must be a positive value.
+** {{Nbt|float|threshold}}: Value between -1.0 and 1.0 (inclusive). The threshold of the noise value. If the noise value is lower than this value, the block states in {{cd|low_states}} will be selected.
+** {{Nbt|float|high_chance}}: Value between -1.0 and 1.0 (inclusive). If the noise value is higher than the threshold, the block states in {{cd|high_states}} will be selected with a probability of high_chance.
+** {{Nbt|compound|default_state}}: Default block state. These block states is used when the noise value is higher than {{cd|threshold}} but high_states is not selected according to high_chance.
+*** {{Nbt inherit/block_state}}
+** {{Nbt|list|low_states}}: (Cannot be empty) List of block states to choose from when lower than threshold.
+*** {{Nbt|compound}}: A block state.
+**** {{Nbt inherit/block_state}}
+** {{Nbt|list|high_states}}: (Cannot be empty) List of block states to choose from when higher than threshold.
+*** {{Nbt|compound}}: A block state.
+**** {{Nbt inherit/block_state}}
+</onlyinclude></div>
+
+[[Category:Java Edition]]
+[[Category:Data packs]]
+[[ja:カスタムワールド生成/block state provider]]

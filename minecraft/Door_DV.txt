@@ -1,0 +1,32 @@
+{| class="wikitable"
+|+ Upper Door
+! Bits !! Description
+|-
+| 0x1 || 0 if hinge is on the left (the default), 1 if on the right
+|-
+| 0x2 || 0 if unpowered, 1 if powered
+|-
+| 0x4 || style="color:silver" | (unused)
+|-
+| 0x8 || Always 1 for the upper part of a door.
+|}
+
+{| class="wikitable"
+|+ Lower Door
+! Bits !! Description
+|-
+| 0x1<br>0x2
+| Two bits storing a value from 0 to 3 specifying the direction the door is facing:
+*0: Facing east
+*1: Facing south
+*2: Facing west
+*3: Facing north
+|-
+| 0x4 || 0 if the entire door is closed, 1 if open.
+|-
+| 0x8 || Always 0 for the lower part of a door.
+|}<noinclude>
+[[Category:Data value pages]]
+
+[[zh:门/DV]]
+</noinclude>

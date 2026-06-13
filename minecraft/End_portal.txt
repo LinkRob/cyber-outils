@@ -1,0 +1,272 @@
+{{about|the structure used to travel to the End}}
+{{Structure
+| title = End portal
+| image = <gallery>
+End Portal (Active).png | Active
+End Portal (Inactive).png | Inactive
+</gallery>
+| biome = Any [[Overworld]] biome
+| blocks =
+* {{BlockLink|End Portal Frame}}
+* {{BlockLink|link=End Portal (block)|End Portal}} (if end portal is activated)
+| canspawn = No
+}}
+[[File:Active End Portal.png|thumb|200px|An activated end portal.]]
+
+An '''end portal''' is a naturally occurring [[generated structure]] that is used to travel into [[the End]]. It can only be found in the portal room of a [[stronghold]].
+
+== Creation ==
+In [[Survival]] mode, the player must venture to a stronghold to activate a pre-existing end portal, as [[end portal frame]] blocks cannot be obtained naturally. The portal is activated when an [[eye of ender]] has been placed in each of the end portal frame blocks, generating 9 [[end portal block]]s within the structure. Eyes of ender cannot be removed from end portal frames.
+
+In [[Creative]] mode, the player can construct an end portal by placing 12 end portal blocks in a ring enclosing an open 3×3 square and placing an eye of ender in each one. In order to activate, the end portal frames must be oriented correctly; the front face of each portal block must be pointed inward toward the 3×3 portal area. This can be achieved by the player standing in the center of the portal area and rotating to place the frames in a ring around them.
+{| class="wikitable"
+|+ Build schematics
+! Incomplete portal
+! Complete portal
+|-
+| align="center"| {{BlockGrid
+    |f=End Portal Frame|F=End Portal Frame+sideways
+    | fff 
+    |F   F
+    |F   F
+    |F   F
+    | fff 
+  }}
+| align="center"| {{BlockGrid
+    |f=End Portal Frame+active|p=End Portal|F=End Portal Frame+sideways active
+    | fff 
+    |FpppF
+    |FpppF
+    |FpppF
+    | fff 
+  }}
+|}
+
+The end portal blocks do not depend on the end portal frame to exist; thus, one may create standalone portals with commands or by breaking the frames.<ref>{{bug|MC-1174}}</ref>
+
+== Generation ==
+End portals are found within the portal room of a [[stronghold]], hanging horizontally over a pool of [[lava]], with a staircase leading up to the portal. A [[silverfish]] [[spawner]] sits in the staircase. Each individual end portal frame block has a 10% chance of containing an eye of ender, as determined by the world seed. This means there is a one in 1 trillion chance for all 12 end portal frames to contain an eye of ender, activating the portal upon initial generation. The frame has the highest probability of generating with only one eye of ender (37.7%), with probabilities dropping to 28.2% for zero, 23.0% for two, 8.52% for three, 2.13% for four, and a total of 0.433% for five or more. Because of the massive amount of possible seeds, over 8 million seeds {{in|java}} that generate portals with 12 eyes of ender are known.<ref>https://github.com/hube12/SSGOutput/releases/tag/1.1</ref>
+{| class="wikitable mw-collapsible mw-collapsed"
+|+Pre-Filled Chances
+!Eyes
+!Exactly
+!1 in
+!Or more
+!1 in
+|-
+|0
+|28.24%
+|3.5
+|100.00%
+|1
+|-
+|1
+|37.66%
+|2.7
+|71.76%
+|1.4
+|-
+|2
+|23.01%
+|4.3
+|34.10%
+|2.9
+|-
+|3
+|8.52%
+|12
+|11.09%
+|9
+|-
+|4
+|2.13%
+|47
+|2.56%
+|39
+|-
+|5
+|0.38%
+|264
+|0.43%
+|231
+|-
+|6
+|0.05%
+|2,036
+|0.05%
+|1,848
+|-
+|7
+|0.00%
+|21,383
+|0.01%
+|19,928
+|-
+|8
+|0.00%
+|307,911
+|0.00%
+|292,952
+|-
+|9
+|0.00%
+|6,235,191
+|0.00%
+|6,030,090
+|-
+|10
+|0.00%
+|187,055,743
+|0.00%
+|183,318,057
+|-
+|11
+|0.00%
+|9,259,259,259
+|0.00%
+|9,174,311,927
+|-
+|12
+|0.00%
+|1,000,000,000,000
+|0.00%
+|1,000,000,000,000
+|}
+
+== Behavior ==
+{{main|End Portal (block)}}
+
+Stepping into an activated end portal immediately opens up a loading screen and transports the player to the End — this leaves no time to back out, like entering a [[nether portal]] in Creative mode. Upon entering the End, a 5×5 horizontal [[obsidian platform|platform of obsidian]] is generated centered at block [[coordinates]] (100, 48, 0), and the player is placed on top of it (100, 49, 0, facing west).
+
+Entering an end portal does not reset [[Damage#Fall damage|falling velocity]]. If the player had fallen far enough to die of fall damage before hitting the portal, the player dies upon arrival in the End.<ref>{{bug|MC-160528}}</ref>{{Only|Java}}
+
+The end portal blocks emit a [[light level]] of 15—the brightest light level in game. Only one end portal block is needed to teleport to the End. End portal blocks can be placed anywhere with use of the {{cmd|setblock}} and {{cmd|fill}} commands, and they function as if they were a complete portal.
+
+Activating the end portal destroys any blocks located in the center 3×3 square, including [[bedrock]] or another end portal frame. It destroys [[fluid]]s, although if the source block is not also removed, then it immediately flows back through. If an end portal is generated on a [[spawner]], the fire particles remain. The destruction of the blocks does not make any sound, and applicable blocks do not drop as resources (except for the top part of a [[door]] and the extended part of a vertical [[piston]], which both destroy the whole object and drop them as resources). Events sometimes triggered by block destruction fail to occur; [[TNT]] simply disappears without detonating, and [[infested block]]s fail to spawn a silverfish. However, containers still drop their contents. Mobs (except for the [[wither]] and [[ender dragon]]) enter the portal similarly to the player. If the player rides a minecart into an active end portal, the player enters the End only after exiting the minecart.
+
+The sound for the opening of the portal is a global sound event, meaning it can be heard by all players in all dimensions. This can be disabled {{in|java}} by setting the [[game rule]] {{cd|globalSoundEvents}} to {{cd|false}}.
+
+== Sounds ==
+{{edition|java}}:
+{{Sound table
+|sound=End portal eye place1.ogg
+|sound2=End portal eye place2.ogg
+|sound3=End portal eye place3.ogg
+|subtitle=Eye of Ender attaches
+|source=block
+|description=When an eye of ender is placed in an end portal frame
+|id=block.end_portal_frame.fill
+|translationkey=subtitles.block.end_portal_frame.fill
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=End portal activation.ogg
+|subtitle=End Portal opens
+|source=hostile
+|description=When an end portal opens <ref group=sound>Does not trigger at all if the [[gamerule]] {{cd|globalSoundEvents}} is {{cd|false}}</ref>
+|id=block.end_portal.spawn
+|translationkey=subtitles.block.end_portal.spawn
+|volume=1.0
+|pitch=1.0
+|distance=16 (technical) / ∞ (effective)
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=End portal eye place1.ogg
+|sound2=End portal eye place2.ogg
+|sound3=End portal eye place3.ogg
+|source=block
+|description=When an eye of ender is placed in an end portal frame
+|id=block.end_portal_frame.fill
+|volume=0.3
+|pitch=''varies'' <ref group="sound">Can be 1.0, 0.9, or 1.1</ref>}}
+{{Sound table
+|sound=End portal activation.ogg
+|source=block
+|description=When an end portal opens
+|id=block.end_portal.spawn
+|volume=0.7
+|pitch=1.0
+|foot=1}}
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|The End?}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|Eye Spy;The End?;The End}}
+</table-progress-tracking>
+
+== History ==
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 3|The end portal is introduced, but is nonfunctional.
+|The end portal can currently be broken using [[TNT]].
+|Its rendering depends on the player's position.
+|The following texture is overlaid multiple times for the effect: [[File:End Portal (texture) JE1.png|32px]]}}
+{{History|||snap=Beta 1.9 Prerelease 4|The end portal is now functional.
+|The end portal frame now has a different texture and can no longer be broken at all.}}
+{{History||1.3.1|snap=12w18a|As a result of singleplayer being changed to an internal server, <code>travel.ogg</code> no longer plays when using an end portal.}}
+{{History|||snap=12w23a|The end portal frame is available in the [[Inventory#Creative inventory|Creative inventory]] or with the [[pick block]] option, with the tooltip '''End Portal'''.}}
+{{History||1.4.2|snap=12w34a|All entities can travel through portals. This may cause [[silverfish]] to fall into the portal to enter the End.}}
+{{History||1.6.1|snap=13w24a|End portals no longer gives the [[Achievement/Java Edition#We Need to Go Deeper|We Need to Go Deeper]] Achievement. It now gives [[Achievement/Java Edition#The End?|The End?]] Achievement like its supposed to.}} 
+{{History||1.9|snap=15w49a|The [[wither]] and [[ender dragon]] no longer travel through portals.
+|In the 0.0000000001% chance that all 12 frame blocks generate with eyes already present, the portal generates as activated.}}
+{{History|||snap=16w02a|End portals now play <code>travel.ogg</code> again.}}
+{{History||1.10|snap=16w21a|The area inside the ring no longer needs to be empty to activate; any blocks inside the ring are replaced.}}
+{{History||1.12|snap=17w17a|Added new sounds when placing [[Eye of Ender|eyes of ender]] to the portal frames and when activating the portal.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Added the end portal and exit portal.}}
+{{History|console}}
+{{History||xbox=TU9|xbone=CU1|ps=1.0|wiiu=Patch 1|Added the end portal and exit portal.}}{{History|new 3ds}}
+{{History||1.7.10|Added End portals.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* Dropping a [[Falling Block|gravity-affected block]] into the portal it causes the obsidian platform to regenerate, and the gravity-affected block is placed on the platform; however, it is destroyed when another gravity-affected block or the player goes through the portal, because doing so regenerates the obsidian platform again.
+* End portals do not naturally generate in the Nether, and a player cannot build them without enabling cheats or using Creative mode. If the player does, the portal functions normally, teleporting the player to the End.
+* If an end portal is built in the End, it functions like the [[exit portal]], teleporting the player back to their spawn point in the Overworld (or the Nether if a respawn anchor is used).
+
+== Gallery ==
+<gallery>
+New Portal.png|A Beta 1.9 pre4-style portal as seen in Jeb's live stream. It appears to have slots for [[eyes of ender]].<ref>{{tweet|notch|121664078308577280}}</ref>
+Old Completed End Portal.png|A fully repaired Beta 1.9 pre3 portal, how it appeared when portals were first released.
+Unfilled End Portal.png|An End portal with just a few [[eyes of ender]].
+Filled End Portal.png|An End portal with all the [[eyes of ender]].
+Stronghold Portal Room.png|The portal room of a stronghold.
+Active portal.png|This portal is already activated upon world generation.
+End-portal-fall.png|A screenshot demonstrating that falling through an end portal does not cancel fall damage, making it possible to die instantly on arriving in the End.
+Endgateway.png|End gateway generated somewhere in the End.
+End Portal (Inactive).png|Inactive end portal.
+End Portal (Active).png|Active end portal.
+End Portal Screenshot.jpg|An end portal.
+</gallery>
+
+== See also ==
+* [[Nether portal]]
+* [[End gateway]]
+
+== References ==
+{{Reflist}}
+
+{{Environment}}
+
+[[de:Endportal]]
+[[es:Portal del End]]
+[[fr:Portail de l'End]]
+[[it:Blocchi tecnici]]
+[[ja:エンドポータル]]
+[[ko:엔드 차원문]]
+[[nl:End Portaal]]
+[[pl:Portal Kresu]]
+[[pt:Portal do Fim]]
+[[ru:Портал Края]]
+[[uk:Портал Енду]]
+[[zh:末地传送门]]

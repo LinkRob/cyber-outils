@@ -1,0 +1,400 @@
+{{redirect|Firework}}
+{{ItemEntity
+|image=Firework Rocket.png
+|renewable='''Trail Effect'''：No<br>'''All Others'''：Yes
+|stackable=Yes (64)‎
+|size=Height: 0.25 blocks<br>Width: 0.25 blocks
+|networkid=76
+}}
+A '''firework rocket''' is an [[item]] (and [[entity]]) used for creating decorative explosions, boosting when flying with [[elytra]], and loading into a [[crossbow]] as ammunition.
+
+== Obtaining  ==
+
+Fireworks can be obtained by crafting. {{IN|java}}, a firework with no explosion effect is available on the [[Creative]] inventory and can be crafted as shown below. {{IN|bedrock}}, fireworks with the different base colors or no explosion are available in the Creative inventory.
+
+=== Crafting ===
+
+{{Crafting
+|head=1
+|showname=0
+|showdescription=1
+|Paper
+|; ; Gunpowder
+|; Gunpowder; Gunpowder
+|Gunpowder
+|Output=Firework Rocket,3
+|description=When crafted this way (without a firework star), the rocket does not have explosion effects. The value of gunpowder affects the [[Firework Rocket#Duration and direction|flight duration]].
+|type=Miscellaneous
+}}
+{{Crafting
+|Any Firework Star
+|Paper
+|; ; Gunpowder
+|; Gunpowder; Gunpowder
+|Gunpowder
+|Output= Firework Rocket,3
+|description=Adding more gunpowder increases the duration of the rocket. Up to three gunpowder can be used. Up to five firework stars can also be used with three gunpowder. Up to seven firework stars can be used by using firework stars instead of additional gunpowder. All firework stars explode almost simultaneously when the rocket detonates.
+|type=Miscellaneous
+|foot=1
+}}
+
+== Usage ==
+
+=== Launching fireworks ===
+To launch a firework rocket, {{control|use}} its item on a block. They can also be launched from [[dispenser]]s and [[crossbow]]s. If shot from a [[Multishot]] crossbow, then 3 rockets fire with the same effects.
+
+=== Elytra ===
+{{control|Using}} a firework rocket while flying with [[elytra]] propels the player in the direction they are facing. The duration of the speed boost depends on the flight duration of the rocket. If the rocket is equipped with a firework star of any kind, the player takes damage when it explodes.
+
+=== Crossbow ===
+A firework rocket can be used as ammunition for [[crossbow]]s, although it deals [[damage]] only if it has an [[explosion]] effect. A higher flight duration gives the firework rocket a longer range, and more damage is added per firework star. The [[Piercing]] enchantment has no effect on firework rockets shot from a crossbow.
+
+{{IN|java}}, if a firework rocket shot from a [[crossbow]] hits an [[entity]], the rocket instantly [[explosion|explodes]], no matter the flight duration. Attempting to do this {{in|bedrock}}, however, results in the firework passing through the entity,<ref>[[bugtracker:MCPE-52675|MCPE-52675]]</ref> so the [[player]] must plan where to aim.
+
+== Behavior ==
+{{see also|Firework Star#Effects}}
+
+Once launched, fireworks fly out vertically, with random horizontal offset up to 5 blocks. {{IN|bedrock|java}}, fireworks can fly in any of the 6 directions a dispenser can point. After [[#Duration and direction|some time]], the firework explodes into a colorful explosion based on the effects of the [[firework star]]s added upon crafting, or no explosion if no firework star was used. If multiple firework stars were added to the rocket upon crafting, they all explode simultaneously.
+
+The explosion of a firework rocket deals damage to mobs and players that are within 5 blocks and not obstructed by [[solid block]]s. The maximum damage of a rocket with one firework star is {{hp|7}}, with the damage decreasing with distance. Each additional firework star on the rocket adds {{hp|2}} points of damage, for a maximum damage of {{hp|19}} with 7 stars. Using commands to add additional firework stars results in more damage. The damage dealt is unaffected by any other ingredients used. The explosion does not destroy end crystals nor damage the Ender dragon, but does destroy armor stands.
+
+There is a delay between the detonation and the player hearing the sound, emulating real fireworks, but this sound travels much more slowly than in the real world.<ref>{{Tweet|jeb|277075644804907009|However, no sound effects for fireworks yet... but everything's implemented, so they can be added without doing a new snapshot|December 7, 2012}}</ref><ref>{{Tweet|jeb|277075517226762242|Haha, @igblan , the speed of sound is 40 m/s, because the realistic speed of ~340 m/s didn't work well in Minecraft scale|December 7, 2012}}</ref> {{IN|java}}, the explosion of a firework can be seen 64 blocks away, regardless of its height. {{IN|bedrock}}, the explosion can be seen from your render distance.
+
+Firework rockets can not propel the user more than 35.35 blocks per second when pointing downwards. 
+
+If the explosion exceeds the (unmodded) [[particle]] limit of 16,384, the oldest particles are removed before displaying new ones, resulting in severely diminished firework quality / duration. At most a firework should have 3 trail stars, more than that could waste diamonds, firework stars, and other fireworks. Particle counts per star are:
+
+{| class="wikitable" data-description="Particle counts per firework star"
+|-
+! Ball Type !! Plain !! Trail
+|-
+| Small || 98 || ~1300
+|-
+| Large || 387 || 4000+
+|-
+| Star || 122 || ~1600
+|-
+| Creeper || 266 || ~3500
+|-
+| Burst || 72 || ~930
+|}
+
+Twinkle effect adds 2 particles to the count.
+
+Like most other entities, they can be moved by [[water]] and [[explosion]]s, and teleported via [[portal]]s. They also cannot move through solid surfaced blocks, upon hitting one, they either move to a side or explode based on the duration. If a firework explodes under a block, its explosion is flattened.
+
+=== Duration and direction ===
+
+Fireworks travel different heights based on the amount of gunpowder added. The number is displayed as a tag on the item's tooltip with the description of "Flight Duration".
+
+The height it rises is between 8 and 20 blocks with 1 gunpowder, 18 to 34 blocks with 2 gunpowder, and 32 to 52 blocks with 3 gunpowder. 
+(Note: Using command blocks, firework rockets with higher durations go higher and keep accelerating with virtually no terminal velocity. If the duration is long enough, the firework rocket could reach heights of over 1,000,000 blocks and speeds of over 10,000&nbsp;m/s in a matter of minutes. Such fireworks with significant X and Z motions speed up sideways exponentially and reach outside the world boundary in a matter of seconds.{{only|java}})
+
+When spawned, <!-- server-side --> fireworks have a vertical speed of .05 and a random small X and Z speed (random value near zero with a standard deviation of .001).  Each firework also determines its lifetime in ticks by 10 &times; (number of gunpowder + 1) + random value from 0 to 5 + random value from 0 to 6, after which it explodes.  Each tick, the firework accelerates horizontally by multiplying its X and Z velocities by 1.15, and vertically by adding a constant factor of .04.
+
+Fireworks can be made to travel different directions by being dispensed or launched under flowing water. The firework's direction combines with the flow of the water to go diagonally.
+
+Firework rockets without firework stars shot from a crossbow upon hitting terrain elements will traverse along until stopped by a ledge or into unobstructed terrains again continuing its original flight path. Ledges as tall as one pixel high (e.g. from [[dirt path]]s to [[grass block]]s) will also block the firework. They will still vanish if they hit entities early amidst their flight.
+
+==Village Raids==
+After successfully defending a village from a [[Raid]] the villagers may celebrate by setting off firework rockets.
+
+==Boosting elytra==
+Fireworks can be used to boost [[elytra]] when in flight. Normally, elytra can glide for a short distance, but with the use of fireworks, the player can fly a long distance, gain speed, and take off from the ground. 
+
+Simply using the firework rocket with elytra spread boosts the player in the direction the player faces. It can leave behind a trail sometimes.
+
+Although fireworks with firework stars can be used, the player takes blast damage if they use it in flight. 
+
+There are four types of rockets, with three types of flight duration. Higher flight durations mean longer boosts. {{IN|bedrock}}, the fireworks obtained from the Creative menu have a flight duration of 1, while {{in|java}}, the fireworks obtained in the Creative menu have a flight duration of 1, 2, or 3.
+
+==Sounds ==
+{{Edition|Java}}:<br>
+Firework rockets use the Friendly Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Firework blast.ogg
+|subtitle=Firework blasts
+|source=ambient
+|description=When a non-large firework rocket explodes within a 16-block radius of the player
+|id=entity.firework_rocket.blast
+|translationkey=subtitles.entity.firework_rocket.blast
+|volume=20.0
+|pitch=0.95-1.05
+|distance=16}}
+{{Sound table
+|sound=Firework blast far.ogg
+|subtitle=Firework blasts
+|source=ambient
+|description=When a non-large firework rocket explodes greater than 16 blocks away from the player
+|id=entity.firework_rocket.blast_far
+|translationkey=subtitles.entity.firework_rocket.blast
+|volume=20.0
+|pitch=0.95-1.05
+|distance=16}}
+{{Sound table
+|sound=Firework large blast.ogg
+|subtitle=Firework blasts
+|source=ambient
+|description=When a large firework rocket explodes within a 16-block radius of the player
+|id=entity.firework_rocket.large_blast
+|translationkey=subtitles.entity.firework_rocket.blast
+|volume=20.0
+|pitch=0.95-1.05
+|distance=16}}
+{{Sound table
+|sound=Firework large blast far.ogg
+|subtitle=Firework blasts
+|source=ambient
+|description=When a large firework rocket explodes greater than 16 blocks away from the player
+|id=entity.firework_rocket.large_blast_far
+|translationkey=subtitles.entity.firework_rocket.blast
+|volume=20.0
+|pitch=0.95-1.05
+|distance=16}}
+{{Sound table
+|sound=Firework twinkle.ogg
+|subtitle=Firework twinkles
+|source=ambient
+|description=When a twinkle firework rocket explodes within a 16-block radius of the player
+|id=entity.firework_rocket.twinkle
+|translationkey=subtitles.entity.firework_rocket.twinkle
+|volume=20.0
+|pitch=0.9-1.05
+|distance=16}}
+{{Sound table
+|sound=Firework twinkle far.ogg
+|subtitle=Firework twinkles
+|source=ambient
+|description=When a twinkle firework rocket explodes greater than 16 blocks away from the player
+|id=entity.firework_rocket.twinkle_far
+|translationkey=subtitles.entity.firework_rocket.twinkle
+|volume=20.0
+|pitch=0.9-1.05
+|distance=16}}
+{{Sound table
+|sound=Firework launch.ogg
+|subtitle=Firework launches
+|source=ambient
+|description=When a dispenser shoots, a player uses, or a crossbow fires a firework rocket
+|id=entity.firework_rocket.launch
+|translationkey=subtitles.entity.firework_rocket.launch
+|volume=3.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Bow shoot.ogg
+|subtitle=Firework launches
+|source=neutral
+|description=When a dispenser fires a firework rocket
+|id=entity.firework_rocket.shoot
+|translationkey=subtitles.entity.firework_rocket.launch
+|volume=1.0
+|pitch=1.2
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Firework blast.ogg
+|source=ambient
+|description=When a non-large firework rocket explodes
+|id=firework.blast
+|volume=1.0
+|pitch=1.0}}
+{{Sound table
+|sound=Firework large blast.ogg
+|source=ambient
+|description=When a large firework rocket explodes
+|id=firework.large_blast
+|volume=1.0
+|pitch=1.0}}
+{{Sound table
+|sound=Firework twinkle.ogg
+|source=ambient
+|description=When a twinkle firework rocket explodes
+|id=firework.twinkle
+|volume=1.0
+|pitch=1.0}}
+{{Sound table
+|sound=Firework launch.ogg
+|source=ambient
+|description=When a dispenser shoots, a player uses, or a crossbow fires a firework rocket
+|id=firework.launch
+|volume=1.0
+|pitch=1.0}}
+{{Sound table
+|sound=Bow shoot.ogg
+|source=ambient
+|description=''Unused sound event''
+|id=firework.shoot
+|volume=1.0
+|pitch=1.0
+|foot=1}}
+
+==Data values==
+===ID===
+{{edition|java}}:
+{{ID table
+|edition=java
+|firstcolumnname=Item
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Firework Rocket
+|spritetype=item
+|nameid=firework_rocket
+|form=item
+|foot=1}}
+{{ID table
+|edition=java
+|firstcolumnname=Entity
+|generatetranslationkeys=y
+|displayname=Firework Rocket
+|spritetype=entity
+|nameid=firework_rocket
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|firstcolumnname=Item
+|showaliasids=y
+|shownumericids=y
+|showforms=y
+|notshowbeitemforms=y
+|generatetranslationkeys=y
+|displayname=Firework Rocket
+|spritetype=item
+|nameid=firework_rocket
+|aliasid=fireworks
+|id=519
+|form=item
+|translationkey=item.fireworks.name
+|foot=1}} 
+{{ID table
+|edition=bedrock
+|firstcolumnname=Entity
+|shownumericids=y
+|generatetranslationkeys=y
+|displayname=Firework Rocket
+|spritetype=entity
+|nameid=fireworks_rocket
+|id=72
+|foot=1}}
+
+===Item data===
+
+{{el|java}}:
+{{main|Player.dat format}}
+<div class="treeview">
+* {{nbt|compound|tag}}: The item's '''tag''' tag.
+{{:Player.dat_format/Firework Rockets}}
+</div>
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Item format]].
+
+===Entity data===
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+:See [[Bedrock Edition level format/Entity format]].
+
+==Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load advancements|Bullseye;Ol' Betsy}}
+</table-progress-tracking>
+
+==History==
+
+{{History|java}}
+{{History||November 24, 2012|link=none|[[Jeb]] stated that there may be fireworks in ''Minecraft'' at the ''Future Updates with the Minecraft PC Team'' panel at [[MINECON 2012]].}}
+{{History||December 5, 2012|link={{tweet|jeb|276367442362630144}}|Jeb released the first image of fireworks, along with the information that colors, fade, height, effects and shapes are [[crafting|craftable]].}}
+{{History||December 7, 2012|link=https://twitter.com/jeb_/status/277075087503536128|Jeb mentions that fireworks should probably scare [[wolves]] and potentially have other effects on mobs.}}
+{{History||1.4.6|snap=12w49a|[[File:Firework Rocket JE1 BE1.png|32px]] Added firework rockets.
+|Firework rockets cannot be obtained within the [[Creative inventory]].}}
+{{History|||snap=12w50a|Added [[sound]] and more effects to firework rockets.}}
+{{History||1.10|snap=16w20a|The firework rocket [[crafting]] recipe now produces 3 rockets, rather than 1.}}
+{{History||1.11|snap=16w32a|The entity ID has been changed from <code>FireworksRocketEntity</code> to <code>fireworks_rocket</code>.}}
+{{History||1.11.1|snap=16w50a|Firework rockets can now cause [[damage]] to [[entity|entities]] that are within their [[explosion]] radius.
+|Firework rockets can now boost [[player]]s while flying with [[elytra]].}}
+{{History||1.13|snap=17w47a|The ID has been changed from <code>fireworks</code> to <code>firework_rocket</code>.
+|The fade effects on fireworks can now be added by combining the firework star with [[dye]]s.
+|Prior to [[1.13/Flattening|''The Flattening'']], this [[item]]'s numeral ID was 401.}}
+{{History||1.13|snap=?|Firework rockets are now available in the [[Creative]] [[Inventory]]. However, it does not show a flight duration}}
+{{History|||snap=pre5|The [[entity]] ID of firework rockets has been changed to <code>firework_rocket</code>.}}
+{{History||1.14|snap=18w43a|Fireworks can now be shot from [[crossbow]]s.
+|[[File:Firework Rocket JE2 BE2.png|32px]] The texture of firework rockets has been changed.}}
+{{History||1.15|snap=19w36a|Firework rockets dispensed from a [[dispenser]] now travel in the direction they were fired.}}
+{{History||1.17|snap=20w45a|Simple firework rockets with one gunpowder can now be crafted using the [[recipe book]].}}
+{{History||1.19.3|snap=22w45a|All three flight durations of firework rockets are now available in the Creative inventory.<ref>{{bug
+|MC-194390||A firework rocket from the creative inventory doesn't show a flight duration|Fixed}}</ref>}}
+
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|[[File:Firework Rocket JE1 BE1.png|32px]] Added firework rockets. 
+|Firework rockets are available in the Creative inventory in 17 variants, sixteen colors in small ball duration 1, plus one additional preset with only duration 1.{{verify|type=update|Is this the right snapshot?}}{{info needed}}}}
+{{History||1.8.0|snap=beta 1.8.0.10|Firework rockets can now be held in the off-hand and be shot from [[crossbow]]s.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Firework Rocket JE2 BE2.png|32px]] The texture of firework rockets has been changed.}}
+{{History||1.16.100|snap=beta 1.16.100.56|The ID of firework rockets has been changed from <code>fireworks</code> to <code>firework_rocket</code>.}}
+
+{{History|console}}
+{{History||xbox=TU19|xbone=CU7|ps=1.12|wiiu=Patch 1|switch=1.0.1|[[File:Firework Rocket JE1 BE1.png|32px]] Added firework rockets.
+|Firework rockets are available in five types in the Creative inventory. The presets are as follows:
+* Duration 1, small ball, light blue, twinkle
+* Duration 2, creeper shaped, green
+* Duration 2, burst, red, fade to orange
+* Duration 3, burst, magenta, fade to blue, twinkle
+* Duration 2, star shaped, yellow, fade to orange, trail}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|The crafting interface has been updated to allow crafting [[firework star]]s and fireworks.}}
+{{History||xbox=TU53|xbone=CU43|ps=1.49|wiiu=Patch 23|switch=1.0.3|Firework rockets can now boost [[player]]s while flying with [[elytra]].}}
+{{History||xbox=TU53|xbone=CU43|ps=1.49|wiiu=Patch 23|switch=1.0.3|Firework rockets now [[damage]] players if there is a [[firework star]] applicated to the firework rocket.}}
+{{History||xbox=TU56|xbone=CU47|ps=1.55|wiiu=Patch 26|switch=1.0.6|Firework rockets now produce 3 rockets upon [[crafting]] them instead of 1.}}
+{{History||xbox=TU60|xbone=CU51|ps=1.64|wiiu=Patch 30|switch=1.0.11|Added new firework rocket models.}}
+{{History|PS4}}
+{{History||1.90|[[File:Firework Rocket JE2 BE2.png|32px]] The texture of firework rockets has been changed.}}
+{{History|foot}}
+
+==Issues==
+
+{{issue list}}
+
+== Trivia==
+* Launching a rocket by hand on a wooden [[pressure plate]] activates it. The same doesn't hold for stone pressure plates, or for a [[dispenser]] placing a rocket onto a wooden pressure plate.
+* New Year's Eve is what inspired [[Jeb]] to add fireworks.<ref>{{tweet|jeb|277080498814189568|@SPvs_TheWorld New Year's Eve|December 7, 2012}}</ref>
+*If the player shoots a firework into a [[nether portal]], it explodes in [[the Nether]].
+*There are around 2×10{{^|136}} distinct fireworks.
+*Including a [[Fire Charge|fire charge]] while crafting your [[Firework Star|firework star]] will not increase the damage radius of the firework blast.
+
+==Gallery==
+
+<gallery>
+File:Firework jeb twitter.jpg|[[Jeb]]'s first image of Fireworks, also showing that they can be shot from dispensers.
+File:1.4.6 release image.png|1.4.6 Release image.
+File:Flatexplosion.png|An example of a flattened firework explosion.
+File:Creeper firework.png|Creeper face shaped firework.
+</gallery>
+
+==References==
+
+{{Reflist}}
+
+{{Items}}
+{{Entities}}
+
+[[cs:Rachejtle]]
+[[de:Feuerwerksrakete]]
+[[es:Cohete de fuegos artificiales]]
+[[fr:Feu d'artifice]]
+[[hu:Tűzijáték rakéta]]
+[[ja:ロケット花火]]
+[[ko:폭죽 로켓]]
+[[nl:Vuurpijl]]
+[[pl:Fajerwerk]]
+[[pt:Fogo de artifício]]
+[[ru:Пиротехническая ракета]]
+[[th:ดอกไม้ไฟ]]
+[[zh:烟花火箭]]
+[[Category:Renewable resources]]

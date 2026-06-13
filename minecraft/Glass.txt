@@ -1,0 +1,503 @@
+{{About|the solid block|the thin block|Glass Pane|other uses}}
+
+{{Block
+| image = Glass.png
+| transparent = Yes
+| light = No
+| tool = any
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = No
+| lavasusceptible = No
+}}
+
+{{Block
+| image2 = White Stained Glass.png
+| extratext = View [[#Gallery|all renders]]
+| transparent = Yes
+| light = No
+| tool = any
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = No
+| lavasusceptible = No
+}}
+'''Glass''' is a mostly transparent [[Solid block|solid]] [[block]] that can be [[dye]]d into '''stained glass''', or crafted into [[tinted glass]].
+
+== Obtaining ==
+=== Breaking ===
+Glass drops only if it is broken with a [[tool]] enchanted with [[Silk Touch]]. Otherwise, it drops nothing.
+
+Glass does not have an assigned tool; it is mined at the same speed regardless of what tool is used.<ref>{{bug|MC-179316||Glass blocks do not have an assigned tool}}</ref>
+{{breaking row|horizontal=1|Glass|drop=0}}
+
+=== Natural generation ===
+; Glass
+A secret room containing glass can be found inside [[woodland mansion]]s.
+Glass is also generated in [[Ancient City|ancient cities]].
+
+=== Smelting ===
+{{Smelting
+|Sand; Red Sand
+|Glass
+|0,1
+}}
+
+;Stained glass
+Magenta stained glass blocks naturally generate as windows in [[End City|end cities]].
+[[file:End City Glass2.png|thumb|Magenta stained glass naturally generating in an [[end city]].]]
+
+=== Crafting ===
+{{Crafting
+  |A1= Glass  |C1= Glass  |B1= Glass
+  |A2= Glass  |B2= Matching Dye  |C2= Glass
+  |A3= Glass  |B3= Glass  |C3= Glass
+  |Output= Matching Stained Glass,8
+  |type= Building block
+}}
+<div style="display:none">
+<!--
+    This is so the pre-Village & Pillage dyes can have dye-related crafting recipes show on their respective pages.
+    They don't need to be displayed on this page because they already intuitively list "Any Matching/Colored Dye".
+-->
+{{Crafting
+ |showdescription=1
+ |A1= Glass |B1= Glass |C1= Glass
+ |A2= Glass |B2= Bone Meal; Lapis Lazuli; Cocoa Beans; Ink Sac |C2= Glass
+ |A3= Glass |B3= Glass |C3= Glass
+ |Output=White Stained Glass,8; Blue Stained Glass,8; Brown Stained Glass,8; Black Stained Glass,8
+ |type=Decoration block
+ |description={{only|bedrock|education}}
+}}
+</div>
+
+=== Trading ===
+Journeyman-level librarian [[villager]]s have a 50% chance to sell 4 glass for 1 [[emerald]].{{only|bedrock}}
+
+Journeyman-level librarian villagers have a {{frac|2|3}} chance to sell 4 glass for 1 emerald.{{only|java}}
+
+== Usage ==
+Glass blocks adjacent to other glass blocks are invisible when viewed through glass.
+
+Mobs cannot normally spawn on glass blocks. An exception to this is [[Zombie#Reinforcements|zombie reinforcements]], which can spawn on glass blocks (but not [[glass pane]]s).
+
+Mobs cannot see through glass blocks, as they treat them as completely opaque. Mobs may look at players through glass, but it is purely visual.
+
+[[Redstone dust]] and components can be placed on glass, but cannot power glass. Glass can't cut vertical redstone. Vertical redstone can be placed on glass. {{IN|java}}, it transmits redstone signals up, not down. Otherwise, glass in redstone circuits is functionally the same as an upside-down slab.
+
+=== Beacon beam color ===
+The color of the beam may be changed by placing blocks of [[stained glass]] (or stained glass panes) anywhere above the beacon block. The beam changes colors according to the colors of glass placed above it: the first block sets the beam color, while each additional block sets the color by averaging the red, green, and blue components of the current beam color and the block's color. The color values are the same as [[Dye#Color values|those for the corresponding dye]]. Stained glass panes have the same effect on the beam as stained glass blocks.
+
+The resulting beam color can be found as <math>C = \frac{1}{2^{n+1}}\left(c_0 + \sum_{i=1}^n{2^{i-1}c_i}\right)</math>where <math>c_i</math> is the sequence of glass colors (<math>c_0</math> corresponds to the lowest block and <math>c_n</math> to the highest one).
+
+As the blending algorithm is considerably simpler than that of [[Dye#Dyeing armor|leather-dyeing]], a much larger part of the sRGB space is available.{{Info needed|Needs rewording to clarify the relationship between the blending algorithm and the resulting color space.}} A player may experiment with stacking glass, although programs that calculate combinations are also available.<ref>https://minecraft.tools/en/beacon-color.php</ref>
+
+With only 15 types of glass you can make all colors, for example; red + white stained glass above a beacon will be pink, the more white you add, the lighter the color will be.
+
+=== Crafting ingredient ===
+{{crafting usage|match=end}}
+
+== Sounds ==
+{{Sound table/Block/Glass}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Glass
+|spritetype=block
+|nameid=glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=White Stained Glass
+|spritetype=block
+|nameid=white_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Orange Stained Glass
+|spritetype=block
+|nameid=orange_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Magenta Stained Glass
+|spritetype=block
+|nameid=magenta_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Light Blue Stained Glass
+|spritetype=block
+|nameid=light_blue_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Yellow Stained Glass
+|spritetype=block
+|nameid=yellow_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Lime Stained Glass
+|spritetype=block
+|nameid=lime_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Pink Stained Glass
+|spritetype=block
+|nameid=pink_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Gray Stained Glass
+|spritetype=block
+|nameid=gray_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Light Gray Stained Glass
+|spritetype=block
+|nameid=light_gray_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Cyan Stained Glass
+|spritetype=block
+|nameid=cyan_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Purple Stained Glass
+|spritetype=block
+|nameid=purple_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Blue Stained Glass
+|spritetype=block
+|nameid=blue_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Brown Stained Glass
+|spritetype=block
+|nameid=brown_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Green Stained Glass
+|spritetype=block
+|nameid=green_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Red Stained Glass
+|spritetype=block
+|nameid=red_stained_glass
+|blocktags=impermeable}}
+{{ID table
+|displayname=Black Stained Glass
+|spritetype=block
+|nameid=black_stained_glass
+|blocktags=impermeable
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|showaliasids=y
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Glass
+|spritetype=block
+|nameid=glass
+|id=20}}
+{{ID table
+|displayname=White Stained Glass
+|spritetype=block
+|nameid=white_stained_glass
+|aliasid=stained_glass / 0
+|id=241
+|translationkey=tile.stained_glass.white.name}}
+{{ID table
+|displayname=Orange Stained Glass
+|spritetype=block
+|nameid=orange_stained_glass
+|aliasid=stained_glass / 1
+|id=-673
+|translationkey=tile.stained_glass.orange.name}}
+{{ID table
+|displayname=Magenta Stained Glass
+|spritetype=block
+|nameid=magenta_stained_glass
+|aliasid=stained_glass / 2
+|id=-674
+|translationkey=tile.stained_glass.magenta.name}}
+{{ID table
+|displayname=Light Blue Stained Glass
+|spritetype=block
+|nameid=light_blue_stained_glass
+|aliasid=stained_glass / 3
+|id=-675
+|translationkey=tile.stained_glass.light_blue.name}}
+{{ID table
+|displayname=Yellow Stained Glass
+|spritetype=block
+|nameid=yellow_stained_glass
+|aliasid=stained_glass / 4
+|id=-676
+|translationkey=tile.stained_glass.yellow.name}}
+{{ID table
+|displayname=Lime Stained Glass
+|spritetype=block
+|nameid=lime_stained_glass
+|aliasid=stained_glass / 5
+|id=-677
+|translationkey=tile.stained_glass.lime.name}}
+{{ID table
+|displayname=Pink Stained Glass
+|spritetype=block
+|nameid=pink_stained_glass
+|aliasid=stained_glass / 6
+|id=-678
+|translationkey=tile.stained_glass.pink.name}}
+{{ID table
+|displayname=Gray Stained Glass
+|spritetype=block
+|nameid=gray_stained_glass
+|aliasid=stained_glass / 7
+|id=-679
+|translationkey=tile.stained_glass.gray.name}}
+{{ID table
+|displayname=Light Gray Stained Glass
+|spritetype=block
+|nameid=light_gray_stained_glass
+|aliasid=stained_glass / 8
+|id=-680
+|translationkey=tile.stained_glass.silver.name}}
+{{ID table
+|displayname=Cyan Stained Glass
+|spritetype=block
+|nameid=cyan_stained_glass
+|aliasid=stained_glass / 9
+|id=-681
+|translationkey=tile.stained_glass.cyan.name}}
+{{ID table
+|displayname=Purple Stained Glass
+|spritetype=block
+|nameid=purple_stained_glass
+|aliasid=stained_glass / 10
+|id=-682
+|translationkey=tile.stained_glass.purple.name}}
+{{ID table
+|displayname=Blue Stained Glass
+|spritetype=block
+|nameid=blue_stained_glass
+|aliasid=stained_glass / 11
+|id=-683
+|translationkey=tile.stained_glass.blue.name}}
+{{ID table
+|displayname=Brown Stained Glass
+|spritetype=block
+|nameid=brown_stained_glass
+|aliasid=stained_glass / 12
+|id=-684
+|translationkey=tile.stained_glass.brown.name}}
+{{ID table
+|displayname=Green Stained Glass
+|spritetype=block
+|nameid=green_stained_glass
+|aliasid=stained_glass / 13
+|id=-685
+|translationkey=tile.stained_glass.green.name}}
+{{ID table
+|displayname=Red Stained Glass
+|spritetype=block
+|nameid=red_stained_glass
+|aliasid=stained_glass / 14
+|id=-686
+|translationkey=tile.stained_glass.red.name}}
+{{ID table
+|displayname=Black Stained Glass
+|spritetype=block
+|nameid=black_stained_glass
+|aliasid=stained_glass / 15
+|id=-687
+|translationkey=tile.stained_glass.black.name
+|foot=1}}
+
+== History ==
+{{more images|Render of stained glass upon first introduction to Bedrock Edition - looks identical to normal glass, except that it has a visible back face}}
+{{History||May 21, 2009|link=https://web.archive.org/web/0/http://notch.tumblr.com/post/110762705/my-list-on-tile-types-so-far|[[Notch]] shows interest in adding glass as a purely aesthetic [[block]].}}
+{{History|java classic}}
+{{History||June 16, 2009|link=https://web.archive.org/web/0/https://notch.tumblr.com/post/124718567/glass-looks-pretty-bad-and-sponge|[[File:Glass JE2.png|32px]] Glass was tested by [[Notch]].}}
+{{History||0.0.19a|[[File:Glass JE1.png|32px]] Added glass.<!--Note: Although Notch posted an image (https://web.archive.org/web/0/https://notch.tumblr.com/post/124718567/glass-looks-pretty-bad-and-sponge) showcasing glass and sponge blocks with "0.0.18a_2" displayed in the top left corner, both blocks were added in 0.0.19a. 0.0.18a_02 was released two days before Notch posted the picture and in the changelog of 0.0.18a_2 there is no mention of both blocks (https://web.archive.org/web/0/https://notch.tumblr.com/post/123333539/client-0018a02-is-up). So, they were neither added nor tested in 0.0.18a_2, Notch was just already working on 0.0.19a but hadn't changed the version number yet.-->
+|Glass in the [[inventory]] is completely invisible.}}
+{{History||0.0.19a_01|[[File:Glass JE2.png|32px]] The texture of glass has been changed back to the one in the development screenshot.}}
+{{History||0.0.19a_02|[[File:Glass JE3 BE1.png|32px]] The texture of glass has been changed again, adding a border.}}
+{{History||0.0.22a|The game now supports [[sound]]s, including a sound for a [[player]] walking over glass.}}
+{{History|java indev}}
+{{History||0.31|snap=20100201-1|Glass is now obtainable through smelting [[sand]] or [[gravel]] with [[Flint and Steel]].}}
+{{History||20100212-1|Glass no longer drops itself, and makes a shattering [[sound]].
+|No longer obtained through smelting gravel.
+|Now obtained through smelting via [[furnace]].}}
+{{History|java alpha}}
+{{History||v1.0.5|[[Snow]] no longer passes through glass.}}
+{{History||August 19, 2010|link=https://web.archive.org/web/0/https://notch.tumblr.com/post/977394407/lots-of-stuff-going-on-behind-the-scenes|[[Notch]] considers hiring an artist to "make a nicer glass texture".}}
+{{History|java beta}}
+{{History||1.5_01|[[Rain]] no longer falls through translucent [[block]]s, including glass.}}
+{{History||1.6|snap=Test Build 3|[[Water]] placed above glass now creates an infinite water source.}}
+{{History||1.8|snap=Pre-release|Glass is now used to craft [[glass pane]]s.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|Glass is now used to craft [[glass bottle]]s.}}
+{{History|||snap=Beta 1.9 Prerelease 3|Glass pillars have been added on top of [[stronghold]]s.}}
+{{History|||snap=Beta 1.9 Prerelease 4|Glass pillars have been now removed from the top of strongholds.}}
+{{History||1.2.1|snap=12w07a|[[Torch]]es and [[redstone torch]]es can now be placed on top of glass, but not on the sides.}}
+{{History||1.2.4|snap=release|Glass can now be picked up with [[Silk Touch]].}}
+{{History||1.3.1|snap=12w21a|Librarian [[villager]]s now [[trading|sell]] 4–5 glass for 1 [[emerald]], making glass renewable.}}
+{{History||1.4.2|snap=12w36a|Glass is now used to craft [[beacon]]s.}}
+{{History|||snap=12w38a|A new block breaking [[sound]] for glass has been added.}}
+{{History||1.5|snap=13w01a|Glass can now be used to craft [[daylight sensor]]s.}}
+{{History||2.0|[[File:White Tinted Glass.png|32px]] [[File:Light Gray Tinted Glass.png|32px]] [[File:Gray Tinted Glass.png|32px]] [[File:Black Tinted Glass.png|32px]] [[File:Brown Tinted Glass.png|32px]] [[File:Red Tinted Glass.png|32px]] [[File:Orange Tinted Glass.png|32px]] [[File:Yellow Tinted Glass.png|32px]] [[File:Lime Tinted Glass.png|32px]] [[File:Green Tinted Glass.png|32px]] [[File:Cyan Tinted Glass.png|32px]] [[File:Light Blue Tinted Glass.png|32px]] [[File:Blue Tinted Glass.png|32px]] [[File:Purple Tinted Glass.png|32px]] [[File:Magenta Tinted Glass.png|32px]] [[File:Pink Tinted Glass.png|32px]] Added tinted glass. Tinted glass would later be added officially as stained glass.}}
+{{History||1.7.2|snap=13w41a|[[File:White Stained Glass JE1.png|32px]] [[File:Light Gray Stained Glass JE1.png|32px]] [[File:Gray Stained Glass JE1.png|32px]] [[File:Black Stained Glass JE1.png|32px]] [[File:Brown Stained Glass JE1.png|32px]] [[File:Red Stained Glass JE1.png|32px]] [[File:Orange Stained Glass JE1.png|32px]] [[File:Yellow Stained Glass JE1.png|32px]] [[File:Lime Stained Glass JE1.png|32px]] [[File:Green Stained Glass JE1.png|32px]] [[File:Cyan Stained Glass JE1.png|32px]] [[File:Light Blue Stained Glass JE1.png|32px]] [[File:Blue Stained Glass JE1.png|32px]] [[File:Purple Stained Glass JE1.png|32px]] [[File:Magenta Stained Glass JE1.png|32px]] [[File:Pink Stained Glass JE1.png|32px]] Added stained glass, using a texture similar to tinted glass from [[Java Edition 2.0]]. It differs in that each ID now has its own texture, rather than [[tint]]ing a single, grayscale texture.}}
+{{History|||snap=13w42a|[[File:White Stained Glass JE2 BE2.png|32px]] [[File:Light Gray Stained Glass JE2 BE2.png|32px]] [[File:Gray Stained Glass JE2 BE2.png|32px]] [[File:Black Stained Glass JE2 BE2.png|32px]] [[File:Brown Stained Glass JE2 BE2.png|32px]] [[File:Red Stained Glass JE2 BE2.png|32px]] [[File:Orange Stained Glass JE2 BE2.png|32px]] [[File:Yellow Stained Glass JE2 BE2.png|32px]] [[File:Lime Stained Glass JE2 BE2.png|32px]] [[File:Green Stained Glass JE2 BE2.png|32px]] [[File:Cyan Stained Glass JE2 BE2.png|32px]] [[File:Light Blue Stained Glass JE2 BE2.png|32px]] [[File:Blue Stained Glass JE2 BE2.png|32px]] [[File:Purple Stained Glass JE2 BE2.png|32px]] [[File:Magenta Stained Glass JE2 BE2.png|32px]] [[File:Pink Stained Glass JE2 BE2.png|32px]] The textures of stained glass have been changed. In addition, changes to translucent block rendering has stopped the interiors of such blocks from rendering.}}
+{{History||1.8|snap=14w02a|Librarian [[villager]]s now [[trading|sell]] 3–5 glass for 1 [[emerald]].}}
+{{History|||snap=14w18a|[[Torch]]es can now be placed on stained glass.}}
+{{History|||snap=August 5, 2014|slink={{tweet|Dinnerbone|496649440896503808}}|[[Dinnerbone]] tweeted a picture showing stained glass changing the color of a [[beacon]] beam.}}
+{{History|||snap=14w32a|[[Beacon]] beams now change color when shining through stained glass.}}
+{{History||1.9|snap=15w31a|Magenta stained glass now naturally generate as windows in [[end city|end cities]].}}
+{{History|||snap=15w44b|Glass is now used to craft [[end crystal]]s.}}
+{{History||1.11|snap=16w39a|Glass now generates in [[woodland mansion]]s.}}
+{{History||1.12|snap=17w06a|Dye colors have been changed, however, the textures for stained glass, and stained glass panes, alongside light blue dye item, did not change colors in this update. This means that they still use old colors instead of the new colors.<ref name="unchanged colors">{{Bug|MC-214641}}</ref>}}
+{{History||1.14|snap=18w43a|Stained glass panes can now also be [[craft]]ed by surrounding a [[dye]] with glass panes.
+|[[File:Glass JE4 BE2.png|32px]] The texture of glass has been changed.}}
+{{History|||snap=February 19, 2019|slink={{tweet|Jappa|1097841511079780352}}|[[Jappa]] tweets an image of smoother stained glass textures.}}
+{{History|||snap=19w08a|[[File:White Stained Glass JE3 BE3.png|32px]] [[File:Light Gray Stained Glass JE3 BE3.png|32px]] [[File:Gray Stained Glass JE3 BE3.png|32px]] [[File:Black Stained Glass JE3 BE3.png|32px]] [[File:Brown Stained Glass JE3 BE3.png|32px]] [[File:Red Stained Glass JE3 BE3.png|32px]] [[File:Orange Stained Glass JE3 BE3.png|32px]] [[File:Yellow Stained Glass JE3 BE3.png|32px]] [[File:Lime Stained Glass JE3 BE3.png|32px]] [[File:Green Stained Glass JE3 BE3.png|32px]] [[File:Cyan Stained Glass JE3 BE3.png|32px]] [[File:Light Blue Stained Glass JE3 BE3.png|32px]] [[File:Blue Stained Glass JE3 BE3.png|32px]] [[File:Purple Stained Glass JE3 BE3.png|32px]] [[File:Magenta Stained Glass JE3 BE3.png|32px]] [[File:Pink Stained Glass JE3 BE3.png|32px]] The textures of stained glass have been changed. The colors have not been changed to the new colors from the 1.12 World of Color update.<ref name="unchanged colors"></ref>}}
+{{History|||snap=19w13a|Glass can now support many non-full blocks, including [[redstone dust]], [[redstone repeater]]s and [[rail]]s. See [[Java Edition 1.14/Transparent block changes|this list]] for more info.}}
+{{History||1.17|snap=20w45a|Glass can now be used to craft [[tinted glass]].}}
+{{History||1.18|snap=Pre-release 5|[[File:Red Stained Glass JE4.png|32px]] [[File:Blue Stained Glass JE4.png|32px]] Changed red and blue stained glass textures.}}
+{{History||1.19|snap=22w13a|Glass now generates in [[Ancient City|ancient cities]].}}
+{{History||1.21|Black and white stained glass blocks now generate in atrium rooms in the [[trial chambers]].}}
+{{History||1.21.6|Glass is used to craft [[harness]]es.}}
+
+{{History|pocket alpha}}
+{{History||Pre-release|[[File:Glass JE3 BE1.png|32px]] Added glass.}}
+{{History||v0.3.2|Glass is now used to craft [[glass pane]]s.
+|Survival [[player]]s no longer have an infinite amount of glass in the [[inventory]].}}
+{{History||v0.9.0|snap=build 1|Smooth lighting from glass has been removed.
+|Glass now renders its back sides.}}
+{{History||v0.10.0|snap=build 4|Glass texture now renders only on the side of the [[block]] facing the [[player]].}}
+{{History||v0.11.0|snap=build 1|[[Water]] placed above glass now creates an infinite water source normally.}}
+{{History||v0.12.1|snap=build 1|Glass is now used to craft [[glass bottle]]s.}}
+{{History||v0.13.0|snap=build 1|Glass is now used to craft [[daylight sensor]]s.}}
+{{History||v0.16.0|snap=build 1|Glass is now used to craft [[beacon]]s.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Glass is now used to craft [[end crystal]]s.
+|[[File:Glass JE3 BE1.png|32px]] Stained glass blocks have been added, but use the regular glass texture due to issues with the rendering engine. Their back texture also shows.<!--or did they just not cull each other?-->
+|Magenta stained glass now generates in [[end cities]].}}
+{{History||1.0.4|snap=alpha 1.0.4.0|Librarian [[villager]]s now [[trading|sell]] 3–5 glass for 1 [[emerald]].}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Glass now generates in [[woodland mansion]]s.}}
+{{History|bedrock}}
+{{History||unknown|Things like [[torch]]es, [[button]]s, [[lever]]s and other [[block]]s can now be placed on the side of glass.}}
+{{History||1.2.0|snap=beta 1.2.0.2|[[File:White Stained Glass JE2 BE2.png|32px]] [[File:Light Gray Stained Glass JE2 BE2.png|32px]] [[File:Gray Stained Glass JE2 BE2.png|32px]] [[File:Black Stained Glass JE2 BE2.png|32px]] [[File:Brown Stained Glass JE2 BE2.png|32px]] [[File:Red Stained Glass JE2 BE2.png|32px]] [[File:Orange Stained Glass JE2 BE2.png|32px]] [[File:Yellow Stained Glass JE2 BE2.png|32px]] [[File:Lime Stained Glass JE2 BE2.png|32px]] [[File:Green Stained Glass JE2 BE2.png|32px]] [[File:Cyan Stained Glass JE2 BE2.png|32px]] [[File:Light Blue Stained Glass JE2 BE2.png|32px]] [[File:Blue Stained Glass JE2 BE2.png|32px]] [[File:Purple Stained Glass JE2 BE2.png|32px]] [[File:Magenta Stained Glass JE2 BE2.png|32px]] [[File:Pink Stained Glass JE2 BE2.png|32px]] Stained glass now has its own texture.
+|Stained glass is now available without the use of inventory editors and can now be crafted.
+|Stained glass no longer renders through itself.}}
+{{History||1.4.0|snap=beta 1.2.20.1|Glass and stained glass can now used to craft [[hardened glass]] and hardened stained glass, only with {{el|ee}} features turned on.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Glass JE4 BE2.png|32px]] The texture of glass has been changed.}}
+{{History||1.11.0|snap=beta 1.11.0.4|[[Trading]] has been changed, librarian [[villager]]s now have a 50% chance to [[trading|sell]] 3 glass as part of their third tier [[trading|trades]].}}
+{{History|||snap=beta 1.11.0.5|[[File:White Stained Glass JE3 BE3.png|32px]] [[File:Light Gray Stained Glass JE3 BE3.png|32px]] [[File:Gray Stained Glass JE3 BE3.png|32px]] [[File:Black Stained Glass JE3 BE3.png|32px]] [[File:Brown Stained Glass JE3 BE3.png|32px]] [[File:Red Stained Glass JE3 BE3.png|32px]] [[File:Orange Stained Glass JE3 BE3.png|32px]] [[File:Yellow Stained Glass JE3 BE3.png|32px]] [[File:Lime Stained Glass JE3 BE3.png|32px]] [[File:Green Stained Glass JE3 BE3.png|32px]] [[File:Cyan Stained Glass JE3 BE3.png|32px]] [[File:Light Blue Stained Glass JE3 BE3.png|32px]] [[File:Blue Stained Glass JE3 BE3.png|32px]] [[File:Purple Stained Glass JE3 BE3.png|32px]] [[File:Magenta Stained Glass JE3 BE3.png|32px]] [[File:Pink Stained Glass JE3 BE3.png|32px]] The textures of stained glass have been changed.}}
+{{History||1.17.0|snap=beta 1.17.0.50|Glass can now be used to [[craft]] [[tinted glass]].}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Glass JE3 BE1.png|32px]] Added glass.}}
+{{History||xbox=TU19|xbone=CU7|ps=1.12|[[File:White Stained Glass JE2 BE2.png|32px]] [[File:Light Gray Stained Glass JE2 BE2.png|32px]] [[File:Gray Stained Glass JE2 BE2.png|32px]] [[File:Black Stained Glass JE2 BE2.png|32px]] [[File:Brown Stained Glass JE2 BE2.png|32px]] [[File:Red Stained Glass JE2 BE2.png|32px]] [[File:Orange Stained Glass JE2 BE2.png|32px]] [[File:Yellow Stained Glass JE2 BE2.png|32px]] [[File:Lime Stained Glass JE2 BE2.png|32px]] [[File:Green Stained Glass JE2 BE2.png|32px]] [[File:Cyan Stained Glass JE2 BE2.png|32px]] [[File:Light Blue Stained Glass JE2 BE2.png|32px]] [[File:Blue Stained Glass JE2 BE2.png|32px]] [[File:Purple Stained Glass JE2 BE2.png|32px]] [[File:Magenta Stained Glass JE2 BE2.png|32px]] [[File:Pink Stained Glass JE2 BE2.png|32px]] Introduced stained glass in an unobtainable state.<ref>https://youtu.be/gTkqDHBvK6I</ref>
+|As a held item, it appears completely opaque.
+|Beacon beams are unaffected by stained glass.}}
+{{History||xbox=TU25|xbone=CU14|ps=1.17|Stained glass is now normally obtainable.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|[[File:White Stained Glass (texture) LCE2.png|32px]] [[File:Light Gray Stained Glass (texture) LCE2.png|32px]] [[File:Gray Stained Glass (texture) LCE2.png|32px]] [[File:Black Stained Glass (texture) LCE2.png|32px]] [[File:Brown Stained Glass (texture) LCE2.png|32px]] [[File:Red Stained Glass (texture) LCE2.png|32px]] [[File:Orange Stained Glass (texture) LCE2.png|32px]] [[File:Yellow Stained Glass (texture) LCE2.png|32px]] [[File:Lime Stained Glass (texture) LCE2.png|32px]] [[File:Green Stained Glass (texture) LCE2.png|32px]] [[File:Cyan Stained Glass (texture) LCE2.png|32px]] [[File:Light Blue Stained Glass (texture) LCE2.png|32px]] [[File:Blue Stained Glass (texture) LCE2.png|32px]] [[File:Purple Stained Glass (texture) LCE2.png|32px]] [[File:Magenta Stained Glass (texture) LCE2.png|32px]] [[File:Pink Stained Glass (texture) LCE2.png|32px]] All stained glass blocks have been made more translucent.}}
+{{History||xbox=TU54|xbone=CU44|ps=1.52|wiiu=Patch 24|switch=1.0.4|[[File:White Stained Glass JE2 BE2.png|32px]] [[File:Light Gray Stained Glass JE2 BE2.png|32px]] [[File:Gray Stained Glass JE2 BE2.png|32px]] [[File:Black Stained Glass JE2 BE2.png|32px]] [[File:Brown Stained Glass JE2 BE2.png|32px]] [[File:Red Stained Glass JE2 BE2.png|32px]] [[File:Orange Stained Glass JE2 BE2.png|32px]] [[File:Yellow Stained Glass JE2 BE2.png|32px]] [[File:Lime Stained Glass JE2 BE2.png|32px]] [[File:Green Stained Glass JE2 BE2.png|32px]] [[File:Cyan Stained Glass JE2 BE2.png|32px]] [[File:Light Blue Stained Glass JE2 BE2.png|32px]] [[File:Blue Stained Glass JE2 BE2.png|32px]] [[File:Purple Stained Glass JE2 BE2.png|32px]] [[File:Magenta Stained Glass JE2 BE2.png|32px]] [[File:Pink Stained Glass JE2 BE2.png|32px]] The texture changes to stained glass shave been reverted - they now are more opaque as they were previously.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|Stained glass can now be [[crafting|crafted]] by surrounding a [[dye]] with glass.
+|[[File:Glass JE4 BE2.png|32px]] The texture of glass has been changed.}}
+{{History||xbox=none|xbone=none|ps=1.92|wiiu=none|switch=none|[[File:White Stained Glass JE3 BE3.png|32px]] [[File:Light Gray Stained Glass JE3 BE3.png|32px]] [[File:Gray Stained Glass JE3 BE3.png|32px]] [[File:Black Stained Glass JE3 BE3.png|32px]] [[File:Brown Stained Glass JE3 BE3.png|32px]] [[File:Red Stained Glass JE3 BE3.png|32px]] [[File:Orange Stained Glass JE3 BE3.png|32px]] [[File:Yellow Stained Glass JE3 BE3.png|32px]] [[File:Lime Stained Glass JE3 BE3.png|32px]] [[File:Green Stained Glass JE3 BE3.png|32px]] [[File:Cyan Stained Glass JE3 BE3.png|32px]] [[File:Light Blue Stained Glass JE3 BE3.png|32px]] [[File:Blue Stained Glass JE3 BE3.png|32px]] [[File:Purple Stained Glass JE3 BE3.png|32px]] [[File:Magenta Stained Glass JE3 BE3.png|32px]] [[File:Pink Stained Glass JE3 BE3.png|32px]] The textures of stained glass have been changed.}}
+
+{{History|New3ds}}
+{{History||0.1.0|[[File:Glass JE3 BE1.png|32px]] Added glass.}}
+{{History||1.5.25|[[File:White Stained Glass JE2 BE2.png|32px]] [[File:Light Gray Stained Glass JE2 BE2.png|32px]] [[File:Gray Stained Glass JE2 BE2.png|32px]] [[File:Black Stained Glass JE2 BE2.png|32px]] [[File:Brown Stained Glass JE2 BE2.png|32px]] [[File:Red Stained Glass JE2 BE2.png|32px]] [[File:Orange Stained Glass JE2 BE2.png|32px]] [[File:Yellow Stained Glass JE2 BE2.png|32px]] [[File:Lime Stained Glass JE2 BE2.png|32px]] [[File:Green Stained Glass JE2 BE2.png|32px]] [[File:Cyan Stained Glass JE2 BE2.png|32px]] [[File:Light Blue Stained Glass JE2 BE2.png|32px]] [[File:Blue Stained Glass JE2 BE2.png|32px]] [[File:Purple Stained Glass JE2 BE2.png|32px]] [[File:Magenta Stained Glass JE2 BE2.png|32px]] [[File:Pink Stained Glass JE2 BE2.png|32px]] Added stained glass.}}
+{{History|foot}}
+
+=== Data history ===
+{{History|java}}
+{{History||1.7.2|snap=13w41a|Stained glass uses numeric ID 95, the ID which was formerly used by the [[locked chest]].
+|The alphanumeric ID for [[block]] 95 has been changed from {{code|chest_locked_aprilfools_super_old_legacy_we_should_not_even_have_this}} to {{code|stained_glass}}.}}
+{{History||1.13|snap=17w47a|The different [[block states]] for the <code>stained_glass</code> ID have now been split up into their own IDs.
+|Prior to [[1.13/Flattening|''The Flattening'']], this block's numeral ID was 20 and 95.}}
+{{History|bedrock}}
+{{History||1.20.30|snap=beta 1.20.20.21|The different [[block states]] for the <code>stained_glass</code> ID have now been split up into their own IDs.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list}}
+
+== Trivia ==
+*Prior to the addition of stained glass to the game, there was a similar block named ''tinted glass'' added to [[Java Edition 2.0]]. The texture for this ''tinted glass'' block was used for the implementation of stained glass in [[Java Edition 13w41a|13w41a]] before it was replaced with a smoother/transparent texture in [[Java Edition 13w42a|13w42a]].
+**The iteration of ''tinted glass'' from Java Edition 2.0 shares its name with the [[Tinted Glass|tinted glass]] block added in [[Java Edition 1.17|1.17]], though it is unlikely that the identical naming of these blocks was intentional.
+*The textures of stained glass and stained glass panes still use their original colors from prior to the [[Java Edition 1.12|1.12 World of Color]] update. The texture colors were not changed in 1.12's development, and the retexturing in [[Java Edition 1.14|1.14]] did not adjust the colors to the new 1.12 color palette.<ref name="unchanged colors"></ref>
+
+== Gallery ==
+=== Renders ===
+<gallery>
+Glass.png|Glass
+White Stained Glass.png| White Stained Glass
+Light Gray Stained Glass.png| Light Gray Stained Glass
+Gray Stained Glass.png| Gray Stained Glass
+Black Stained Glass.png| Black Stained Glass
+Brown Stained Glass.png| Brown Stained Glass
+Red Stained Glass.png| Red Stained Glass
+Orange Stained Glass.png| Orange Stained Glass
+Yellow Stained Glass.png| Yellow Stained Glass
+Lime Stained Glass.png| Lime Stained Glass
+Green Stained Glass.png| Green Stained Glass
+Cyan Stained Glass.png| Cyan Stained Glass
+Light Blue Stained Glass.png| Light Blue Stained Glass
+Blue Stained Glass.png| Blue Stained Glass
+Purple Stained Glass.png| Purple Stained Glass
+Magenta Stained Glass.png| Magenta Stained Glass
+Pink Stained Glass.png| Pink Stained Glass
+</gallery>
+
+=== Other ===
+<gallery>
+Glassclassic.jpg|First picture of glass in a test version of 0.0.18a_02.
+13w41a Banner.png|The first image of stained glass released by Mojang. Behind the glass is a [[cat]] and [[Grum]].
+Minecraft Stained Glass.png|The original look of the stained glass blocks.
+View of all Stained Glass.png|Stained glass as of 1.14.4
+Red Sandstone Coloured Beacon.png|Stained glass changing the [[beacon]]'s color.
+GlassPurchase.png|Glass being obtained by trading with a cartographer [[villager]].
+Red Sand Red Glass.png|Unimplemented smelting recipe for red glass.
+</gallery>
+
+== See also ==
+*{{BlockLink|Glass Pane}}
+*{{BlockLink|Hardened Glass}}
+*{{BlockLink|Hardened Glass Pane}}
+
+== References ==
+{{Reflist}}
+
+== External links ==
+*[https://www.minecraft.net/en-us/article/block-week-glass Block of the Week: Glass] – Minecraft.net on May 12, 2017
+*[https://www.minecraft.net/en-us/article/block-week-stained-glass Block of the Week: Stained Glass] – Minecraft.net on December 1, 2017
+
+{{Blocks|Building}}
+
+[[Category:Manufactured blocks]]
+[[Category:Generated structure blocks]]
+
+[[cs:Sklo]]
+[[de:Glas]]
+[[es:Cristal]]
+[[fr:Verre]]
+[[hu:Üveg]]
+[[it:Vetro]]
+[[ja:ガラス]]
+[[ko:유리]]
+[[nl:Glas]]
+[[pl:Szkło]]
+[[pt:Vidro]]
+[[ru:Стекло]]
+[[th:กระจก]]
+[[uk:Скло]]
+[[zh:玻璃]]

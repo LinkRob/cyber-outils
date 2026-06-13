@@ -1,0 +1,20 @@
+** {{nbt|string|type}}: Type of the surface rule, one of: <code>bandlands</code>{{sic}}, <code>block</code>, <code>condition</code>, or <code>sequence</code>. See below of extra fields for each type.
+**; If {{nbt|string|type}} is <code>bandlands</code>{{sic}} (used in badlands), no extra fields.
+**; If {{nbt|string|type}} is <code>block</code> (places the specified block), extra fields are as follows<nowiki>:</nowiki>
+** {{nbt|compound|result_state}}: The block to use.
+*** {{nbt inherit/block state}}
+**; If {{nbt|string|type}} is <code>sequence</code> (attempts to apply surface rules in order, and only the first successful surface rule is applied), extra fields are as follows<nowiki>:</nowiki>
+** {{nbt|list|sequence}}: (Required, but can be empty) List of surface rules.
+*** {{nbt|compound}}: A surface rule.
+**** {{nbt inherit/surface rule}}
+**; If {{nbt|string|type}} is <code>condition</code> (applies surface rules if the condition is met), extra fields are as follows<nowiki>:</nowiki>
+** {{nbt|compound|if_true}}: A surface rule condition.
+*** {{nbt inherit/surface rule condition}}
+** {{nbt|compound|then_run}}: A surface rule.
+*** {{nbt inherit/surface rule}}
+<noinclude>
+[[Category:Java Edition]]
+[[Category:Data packs]]
+[[ja:カスタムワールド生成/surface rule]]
+[[zh:自定义世界生成/surface rule]]
+</noinclude>

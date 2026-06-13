@@ -1,0 +1,51 @@
+** {{nbt|string|type}}: Type of the surface rule, one of: <code>biome</code>, <code>noise_threshold</code>, <code>vertical_gradient</code>, <code>y_above</code>, <code>water</code>, <code>temperature</code>, <code>steep</code>, <code>not</code>, <code>hole</code>, <code>above_preliminary_surface</code>, or <code>stone_depth</code>. See below of extra fields for each type.
+**; If {{nbt|string|type}} is <code>biome</code> (test for the biome), extra fields are as follows<nowiki>:</nowiki>
+** {{nbt|list|biome_is}}: (Required, but can be empty) List of biomes that result in true.
+*** {{nbt|string}}: The ID of a biome.
+**; If {{nbt|string|type}} is <code>noise_threshold</code> (Success when the noise value at this XZ location with Y=0 is within the specified closed interval), extra fields are as follows<nowiki>:</nowiki>
+** {{nbt|string|noise}}: The ID of a noise.
+** {{nbt|double|min_threshold}}: Min threshold of the closed interval.
+** {{nbt|double|max_threshold}}: Max threshold of the closed interval.
+**; If {{nbt|string|type}} is <code>vertical_gradient</code> (Makes the block fade upwards. Between the specified y-coords is the gradient itself. For example the gradient between bedrock and deepslate, or between deepslate and stone), extra fields are as follows<nowiki>:</nowiki>
+** {{nbt|string|random_name}}: A namespace ID used as the seed of the random. For example, the seed between bedrock and deepslate in the vanilla game is "minecraft:bedrock_floor", and the seed between deepslate and stone is "minecraft:deepslate".
+** {{nbt|compound|true_at_and_below}}: Always succcess if the y-coord is at or below this value.
+*** {{nbt inherit/vertical anchor}}
+** {{nbt|compound|false_at_and_above}}: Always fails if the y-coord is at or above this value. The y-coords between the two value produces a gradient, and the probability of success in this gradient is <code>(false_at_and_above - Y) / (false_at_and_above - true_at_and_below)</code>
+*** {{nbt inherit/vertical anchor}}
+**; If {{nbt|string|type}} is <code>y_above</code> (checks if it is above a XZ plane at the specified Y level. E.g. block whose Y coordinate is 0 is above Y=0 plane), extra fields are as follows<nowiki>:</nowiki>
+** {{nbt|compound|anchor}}: Y level.
+*** {{nbt inherit/vertical anchor}}
+** {{nbt|int|surface_depth_multiplier}}: Value between -20 and 20 (both inclusive). How much it is affected by the surface layer thickness. <code>surfaceLayerThickness * surface_depth_multiplier</code> will be added into {{cd|anchor}}.
+** {{nbt|boolean|add_stone_depth}}: Instead of current block's Y-level, checks the value of "current block's Y-level" plus "the number of non-liquid blocks between current block's downward surface and the lowest air block directly above". For example, if block at Y=2 is air, Y=1 is water, and Y=0 is stone, when applied at the stone, the number of non-liquid blocks between current block's downward surface (in this case, Y=0 plane) and the lowest air block directly above (in this case, air at Y=2) is 1 (that is, this stone itself).<!--
+Y + (addStoneDepth ? stoneDepthAbove : 0) >= anchor + surfaceDepth * surface_depth_multiplier
+stoneDepthAbove is the number of non-liquid blocks between the Y-level and the lowest air block directly above.
+surfaceDepth = (int)(sampleNoise("minecraft:surface",x,0,z) * 2.75 + 3.0 + random.nextDouble() * 0.25)-->
+**; If {{nbt|string|type}} is <code>water</code> (Check whether the offset height of the current block relative to the liquid surface (the contact surface between air and liquid) above (always a negative integer less than -1) is greater than the specified value. Always success if there's no liquid between them. For example, if there is only one liquid block between current block and the air block above, the value to check is -2), extra fields are as follows<nowiki>:</nowiki>
+** {{nbt|int|offset}}: The offset height relative to the liquid surface (the contact surface between air and liquid) above. If it is set to a value greater than -1, the condition is successful only if there is no liquid between current block and the lowest air block above. If it is set to -1, it works the same with values greater than -1 in terrain generation, and always successful in carver generation.
+** {{nbt|int|surface_depth_multiplier}}: Value between -20 and 20 (both inclusive). How much it is affected by the surface layer thickness. <code>surfaceLayerThickness * surface_depth_multiplier</code> will be added into the {{cd|offset}}.
+** {{nbt|boolean|add_stone_depth}}: Instead of current block's Y-level, checks the value of "current block's Y-level" plus "the number of non-liquid blocks between current block's downward surface and the lowest air block directly above". For example, if block at Y=2 is air, Y=1 is water, and Y=0 is stone, when applied at the stone, the number of non-liquid blocks between current block's downward surface (in this case, Y=0 plane) and the lowest air block directly above (in this case, air at Y=2) is 1 (that is, this stone itself).<!--
+waterHeight == Integer.MIN_VALUE || Y + (addStoneDepth ? stoneDepthAbove : 0) >= waterHeight + offset + surfaceDepth * surface_depth_multiplier-->
+**; If {{nbt|string|type}} is <code>temperature</code> (success when the height-adjusted temperature is low enough to snow. The height-adjusted temperature depends on the [[custom biome|biome]]'s <code>temperature</code> and <code>temperature_modifier</code> fields and the current Y-level), no extra fields.<!--
+HeightAdjustedTemperature< 0.15-->
+**; If {{nbt|string|type}} is <code>steep</code> (checks current position for steep slopes (with height difference of more than 4 blocks) that are back sun (north or east facing)), no extra fields.
+**; If {{nbt|string|type}} is <code>not</code> (inverts the condition), extra fields are as follows<nowiki>:</nowiki>
+** {{nbt|compound|invert}}: The condition to invert.
+*** {{nbt inherit/surface rule condition}}
+**; If {{nbt|string|type}} is <code>hole</code> (check whether the surface layer thickness at this horizonal location is less than 0), no extra fields.
+**; If {{nbt|string|type}} is <code>above_preliminary_surface</code> (checks whether it is higher than the preliminary surface. The preliminary surface height is the interpolated initial terrain height (determined by <code>initial_density_without_jaggedness</code>) minus 8 and then plus {{code|(surfaceLayerThickness - 8)}}), no extra fields.
+**; If {{nbt|string|type}} is <code>stone_depth</code> (checks whether the distance between the current position and the terrain surface or the cave surface is less than or equal to the specified offset value), extra fields are as follows<nowiki>:</nowiki>
+** {{nbt|int|offset}}: The offset value.
+** {{nbt|boolean|add_surface_depth}}: Whether to be affected by surface layer thickness. If true, the surface layer thickness will be addded into the {{cd|offset}}.
+** {{nbt|int|secondary_depth_range}}: How much it is affected by the noise {{cd|minecraft:surface_secondary}}. <code>niseValue × secondary_depth_range</code> will be added into the {{cd|offset}}.
+** {{nbt|string|surface_type}}: Either <code>floor</code> or <code>ceiling</code>. If <code>ceiling</code>, checks the distance to the upper surface of cave below (technically, it is the distance to the nearest liquid or air block directly below). For example, if where Y=-1 is water, and where Y=0 is stone, when applied to the stone, the distance to the nearest liquid or air block directly below (in this case, the water at Y=-1) is 0. If it is<code>floor</code>, checks the distance to the terrain surface or the lower surface of cave above (technically, it is the number of non-liquid blocks between current block and the lowest air block directly above. If there is liquid between current block and the air block above, this value may be less than the actual distance to the surface of terrain or cave). For example, where Y=2 is air, Y=1 is water, and Y=0 is stone, when applying this condition at the stone, the number of non-liquid blocks between current block and the lowest air block directly above (in this case, air at Y=2) is 0.<!--
+boolean bl = surfaceType == CEILING;
+int i = bl ? stoneDepthBelow : stoneDepthAbove;
+int j = addSurfaceDepth ? surfaceDepth : 0;
+int k = secondaryDepthRange == 0 ? 0 : (int)((SurfaceSecondary + 1) / 2 * secondary_depth_range);
+return i <= 1 + offset + j + k;-->
+<noinclude>
+[[Category:Java Edition]]
+[[Category:Data packs]]
+[[ja:カスタムワールド生成/surface rule condition]]
+[[zh:自定义世界生成/surface rule condition]]
+</noinclude>

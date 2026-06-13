@@ -1,0 +1,96 @@
+{{For|the command that fills an area of blocks|Commands/fill}}
+{{Infobox command
+|name=setblock
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|others=[[Options|Cheat]] only{{only|bedrock|short=1}}
+}}
+Changes a [[block]] to another block.
+
+== Syntax ==
+* '''Java Edition'''
+: <code>setblock <pos> <block> [destroy|keep|replace]</code> 
+* '''Bedrock Edition'''
+: <code>setblock <position: x y z> <tileName: Block> <blockStates: block states> [destroy|keep|replace]</code>
+: <code>setblock <position: x y z> <tileName: Block> [destroy|keep|replace]</code>
+
+== Arguments ==
+{{argument|pos|block_pos|position: x y z|CommandPosition}}
+: Specifies the position of the block to be changed.
+: {{arg desc|je=block_pos|be=CommandPosition}}
+
+{{argument|block|block_state|tileName: Block|enum}}
+: Specifies the new block.
+: {{arg desc|je=block_state|be=Block}}
+
+{{el|be|short=1}}: {{argument|be=1|blockStates: block states|BlockStateCommandParam}}
+: Specifies the [[block states]] to use for the block.
+: {{Arg desc|be=BlockStateCommandParam}}
+
+{{code|destroy{{!}}keep{{!}}replace}}
+: Specifies how to handle the block change. Must be one of:
+:* <code>destroy</code> — The old block [[drops]] both itself and its contents (as if destroyed by a [[player]]). Plays the appropriate block breaking noise.
+:* <code>keep</code> — Only [[air]] blocks are changed (non-air blocks are unchanged).
+:* <code>replace</code> — The old block drops neither itself nor any contents. Plays no sound.
+: If not specified, defaults to <code>replace</code>.
+
+== Result ==
+
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|unparseable}}
+{{Result table|specified position is unloaded or out of the world|fail|fail}}
+{{Result table|try to place block in [[Debug mode]]||N/A}}
+{{Result table|cmd=/setblock ... keep|try to change a non-air block|fail}}
+{{Result table|cmd=/setblock ... keep<br>/setblock ... replace|try to replace a block with an identical copy (ignoring the block entity)}}
+{{Result table|try to replace some kinds of redstone components with an unstable block (e.g. replacing one of two adjacent standing redstone torches with a TNT block)<ref>{{bug|MC-255198}}</ref>||success}}
+{{Result table|cmd=|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|On success|1|1|1}}
+{{Output table|edition=be|On fail|0}}
+{{Output table|On success|1}}
+{{Output table}}
+
+== Examples ==
+* Put a chest facing east at your feet
+** <code>setblock ~ ~ ~ chest[facing=east]</code>{{only|java}}
+** <code>setblock ~ ~ ~ chest ["facing_direction"=5]</code>{{only|bedrock}}
+* Place a sign next to it {{in|java}}
+** <code>setblock ~ ~ ~-1 birch_sign{Text1:'"My chest"',Text2:'"Do not open!"'}</code> (Note the two sets of quotes around the text. They are required.)
+* Put a top quartz slab at the top of your head
+** <code>setblock ~ ~2 ~ quartz_slab[type=top]</code>{{only|java}}
+** <code>setblock ~ ~2 ~ stone_slab ["stone_slab_type"="quartz","top_slot_bit"=true{{until|bedrock 1.20.30}}]</code>{{only|bedrock}}
+
+== See also ==
+* {{cmd|data}} — modifies the data tags of a block or entity
+* {{cmd|clone}} — copies blocks from one region to another
+* {{cmd|fill}} — fills a region with a block
+
+== History ==
+{{History|java}}
+{{History||1.7.2|snap=13w37a|Added {{cmd|setblock|link=none}}.}}
+{{History||1.11|snap=16w32a|Added [[block state]] support to {{cmd|setblock|link=none}}.}}
+{{History||1.16|snap=20w06a|{{cd|/setblock ~ ~ ~ air destroy}} now can destroy liquids.<ref>{{bug|MC-163286|resolution=Fixed}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.16.0|snap=build 1|Added {{cmd|setblock|link=none}}.}}
+{{History|bedrock}}
+{{History||1.16.210|snap=beta 1.16.210.53|Added [[block state]] support to {{cmd|setblock|link=none}}.}}
+{{History||1.19.70|snap=beta 1.19.70.21|Removed <code>tileData: int</code> argument.}}
+{{History|foot}}
+
+== References ==
+<references/>
+{{Commands}}
+
+[[de:Befehl/setblock]]
+[[es:Comandos/setblock]]
+[[ja:コマンド/setblock]]
+[[ru:Команды консоли/setblock]]
+[[uk:Команди консолі/setblock]]
+[[zh:命令/setblock]]

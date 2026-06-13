@@ -1,0 +1,111 @@
+{{Infobox command
+|name=spreadplayers
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|others=[[Options|Cheat]] only{{only|bedrock|short=1}}
+}}
+
+Teleports [[entities]] to random surface locations within an area.
+
+==Usage==
+Targets are always placed on the top non-[[air]] block (whether it's [[Solid block|solid]] or not) at a horizontal location (if not in <code>under</code> mode), and never on [[lava]], [[water]], [[bubble column]], or [[fire]].
+
+{{IN|java}}, the entities are spread to the command's execution dimension.
+
+{{IN|bedrock}}, the command changes an entity's position without changing dimension. But the position is calculated in the command's execution dimension.
+
+The {{cmd|spreadplayers}} command does not have a uniform distribution over the surface. It has a Gaussian distribution as the positions closer to the position set in the command have a higher chance of having an entity on them. This effect is very subtle and is not visible for short radius but can be a problem if you want a uniform random generation. This problem does not occur for the ''@r'' selector and dispensers.
+
+==Syntax==
+
+* '''Java Edition'''
+: <code>spreadplayers <nowiki><center></nowiki> <spreadDistance> <maxRange> <respectTeams> <targets></code>
+: <code>spreadplayers <nowiki><center></nowiki> <spreadDistance> <maxRange> under <maxHeight> <respectTeams> <targets></code>
+:: Spreads players to resulting position under the maximum height.
+
+* '''Bedrock Edition'''
+: <code>spreadplayers <x: value> <z: value> <spreadDistance: float> <maxRange: float> <victim: target></code>
+
+==Arguments==
+
+{{el|je|short=1}}: {{argument|center|vec2}}<br>
+{{el|be|short=1}}: {{argument|be=1|x: value|RelativeFloat}} and {{argument|be=1|z: value|RelativeFloat}}
+: Specifies the center of the region to spread targets to.
+: {{arg desc|je=vec2|be=RelativeFloat}}
+
+{{argument|spreadDistance|float|spreadDistance: float|float}}
+: Specifies the minimum distance between targets.
+: {{arg desc|je=float|be=float|min=0.0}} {{IN|bedrock}}, it should be at least 0.0.
+
+{{argument|maxRange|float|maxRange: float|float}}
+: Specifies the maximum distance on each horizontal axis from the center of the area to spread targets (thus, the area is square, not circular).
+: {{arg desc|je=float|min=1.0|be=float}} {{IN|bedrock}}, it must be at least 1.0 greater than <code>spreadDistance: float</code>.
+
+{{el|je|short=1}}: {{argument|maxHeight|integer}}
+: Specifies the maximum height for resulting positions.
+: {{arg desc|je=float|min=1.0}}
+
+{{el|je|short=1}}: {{argument|respectTeams|bool}}
+: Specifies whether to keep teams together. If <code>true</code>, targets on the same team are teleported to the same location.
+: {{arg desc|je=bool}}
+
+{{argument|targets|entity|victim: target|CommandSelector<Actor>}}
+: Specifies the targets to spread.
+: {{arg desc|je=entity|amount=multiple|type=entities|be=actor}}
+
+==Result==
+
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|unparseable}}
+{{Result table|<code>spreadDistance: float</code> is lower than 0.0|N/A|fail}}
+{{Result table|<code>maxRange: float</code> is lower than <code>spreadDistance: float</code> plus one}}
+{{Result table|<code><targets></code> or <code>player: target</code> fails to resolve to one or more entities (named players must be online)|fail}}
+{{Result table|there are too many targets to satisfy the <code><spreadDistance></code> requirement within the specified area}}
+{{Result table|cmd=/spreadplayers ... under ...|there is no enough space under <code><maxHeight></code> to spread to||N/A}}
+{{Result table|cmd=|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|cmd=/spreadplayers ... true ...|On success|1|1|the number of teams that these targets are in}}
+{{Output table|cmd=/spreadplayers ... false ...|On success|1|1|the number of targeted entities}}
+{{Output table|cmd=|edition=be|On fail|0}}
+{{Output table|On success|1}}
+{{Output table}}
+
+==Examples==
+
+*To teleport all [[players]] by team to random surface locations in a 1,000×1,000-block area centered on (0,0), with a minimum distance between teams of 200 blocks:
+** <code>spreadplayers 0 0 200 500 true @a</code>{{only|java}}
+* To teleport one random player from each of three teams (Red, Blue, and Green), as well as Alice and Bob, to random surface locations in a 200×200-block area centered on (0,0), with a minimum distance between players of 50 blocks:
+** <code>spreadplayers 0 0 50 100 false @r[team=Red] @r[team=Blue] @r[team=Green] Alice Bob</code>{{only|java}}
+
+==See also==
+
+*{{cmd|tp}} and {{cmd|teleport}} — different commands that teleport a single player or entity to a specific position (even underground).
+
+== History ==
+{{Expand section}}
+{{History|java}}
+{{History||1.6.1|snap=13w23a|Added {{cmd|spreadplayers|link=none}}.}}
+{{History||1.16|snap=20w21a|Added an optional <code>maxHeight</code> argument to specify maximum height.}}
+
+{{History||1.19.4|snap=22w03a|Now entities are spreaded to the command's execution dimension.<ref>{{Bug|MC-181832|resolution=Fixed}}</ref>}}
+
+{{History|pocket}}
+{{History||1.0.5|snap=alpha 1.0.5.0|Added {{cmd|spreadplayers|link=none}}.}}
+{{History|foot}}
+
+== References ==
+<references/>
+
+{{Commands}}
+
+[[de:Befehl/spreadplayers]]
+[[es:Comandos/spreadplayers]]
+[[ru:Команды консоли/spreadplayers]]
+[[uk:Команди консолі/spreadplayers]]
+[[zh:命令/spreadplayers]]

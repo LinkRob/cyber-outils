@@ -1,0 +1,96 @@
+
+{{About|The Credits and End Poem that play after using the [[Exit portal]]. "Credits" redirects here. For the Easter egg dimension, see [[Java Edition 20w14∞]]}}
+
+The Credit sequence is the lines of text and music that play when the [[player]] uses the [[Exit portal]]. This includes the End Poem, a freehand poem written by musician [[wikipedia:Julian_Gough|Julian Gough]] and the Credits, which serve to recognize those that have contributed to the game.
+
+== Obtaining ==
+After entering the [[The End|End dimension]] and killing the [[Ender dragon]], the [[Exit portal]] is activated, allowing the player to enter and view the End poem followed by the credits. The player is then teleported to their spawn point if available, or the world spawn point if not. The End Poem and credits only show upon the player's first entry of exit portal. The player can also trigger the poem and credits to show by entering an End portal built using [[Creative|Creative mode]] or [[commands]].
+
+The End poem and credits can be successively sped up by holding {{key|Space}}, then additionally {{key|Ctrl}}, then the other {{key|Ctrl}}{{only|je}}. They can be skipped entirely by pressing {{key|Esc}}{{in|je}} or "skip" {{in|be}}.
+
+The credits can also be accessed by clicking on the copyright information on the main menu screen {{in|je}} or by pressing the "credits" button in the "profile" section of the Settings screen {{in|be}}. They can also be viewed on the ''Minecraft'' website.<ref>[https://minecraft.net/credits Minecraft credits]</ref>
+
+== Contents ==
+The poem and the credits last a total of 76 minutes and 16 seconds (unaccelerated). The poem lasts 7 minutes and 38 seconds, and the credits last the remaining 68 minutes and 38 seconds.
+
+The poem takes the form of a scrolling dialogue between two speakers who are discussing the player's accomplishments, dreams, and relation to the rest of the universe. The speakers claim to be all the universe that is distinct from the player, and that the player is reading their cosmic thoughts as words on a screen. The credits appear below the End Poem. During the poem and credits, the track <code>credits.ogg</code> ("Alpha" in the [[Minecraft - Volume Beta|official soundtrack]]) plays.
+
+=== Technical details ===
+{{IN|java}}, the End Poem and credits are stored in [[client.jar]]; the text of the End Poem is located in <code>assets/minecraft/texts/end.txt</code>, the text of the credits is in <code>assets/minecraft/texts/credits.json</code>, and the text of the quote is in <code>assets/minecraft/texts/postcredits.txt</code>. {{IN|bedrock}}, the text of the End Poem is located in <code>data/credits/end.txt</code>, the text of the credits is in <code>data/credits/credits.json</code>, and the text of the quote is in <code>data/credits/quote.txt</code>. They can both be edited with a [[resource pack]]. The first speaker's dialog uses the [[formatting code]] <code>§3</code> (or dark aqua), and the second speaker's uses <code>§2</code> (or dark green). The player's name is inserted with <code>PLAYERNAME</code>, and the scrambled text is stored as <code>§f§k§a§b</code>. The poem is shown the first time the player enters the exit portal based on their {{nbt|byte|seenCredits}}{{only|je|short=1}} ({{nbt|bool|hasSeenCredits}}{{only|be|short=1}}) tag being 0 ({{cd|false}}), after which it is changed to 1 ({{cd|true}}) once the player first enters an End portal while in the End.
+
+{{/End Poem}}
+
+===End quote===
+* The following quote is attached to the End of the credits. Though signed as "Unknown" in-game, this quote was written by [[Wikipedia:H. Jackson Brown Jr.|Horace Jackson Brown Jr.]] in his book, ''P.S. I Love You''.<ref>https://www.goodreads.com/quotes/2340-twenty-years-from-now-you-will-be-more-disappointed-by</ref>
+
+{{quote|Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.|Unknown}}
+
+==Copyright==
+While the Poem has been in the game since its release, [[Mojang]] and [[Microsoft]] neither own the poem or the permission to use it, according to the original author [[wikipedia:Julian Gough|Julian Gough]]. Julian stated that due to poor and unpleasant communication between him and [[Carl Manneh]], then-CEO of Mojang, he refused to sign a contract to fully transfer the rights of the Poem to Mojang after he finished the Poem, though they reached an informal agreement. In August 2014, a month before Microsoft purchased Mojang for $2.5b, Carl contacted Julian again, asking him to sign the contract. Julian refused once more, therefore owns all rights to the Poem. On December 7th, 2022, Julian announced that the End Poem is released under the [https://creativecommons.org/publicdomain/zero/1.0/ CC0 1.0 Universal (CC0 1.0)] license.
+
+==Credits==
+The credits appear after the End Poem, and credit Mojang Studios current staff, employees from partnered companies and development studios, listed persons under "Special thanks" and Mojang Studios Alumni. The credits sequence lasts 68 minutes and 38 seconds.{{Verify}}.
+ 
+{{/Credits}}
+
+==History==
+{{History||October 16, 2011|link=none|[[Notch]] tweeted, putting out a call for writing talent to write "silly over-the-top out-of-nowhere text" for the end of the game.<ref>{{tweet|notch|125612634425921537|Are YOU a talented writer (famous is a plus ;D) who wants to write a silly over-the-top out-of-nowhere text for when you win Minecraft?|October 6, 2011.}}</ref>
+|The writer [[wikipedia:Julian Gough|Julian Gough]]<ref>{{citation|url=https://boingboing.net/2012/01/09/ending-an-endless-game-an-int.html|title=Ending an endless game: an interview with Julian Gough, author of Minecraft's epic finale|website=Boing Boing|author=Tom Chatfield|date=January 9, 2012}}</ref> wrote what has become known as the End Poem.
+|Later, Notch stated that Gough's short story [http://pastebin.com/ateTJxEK The iHole] convinced him that Gough was the right person to write the End Poem.<ref>{{tweet|notch|222246755603988480|Here's the story that convinced me @juliangough was the right guy to write the end game text for Minecraft: https://www.juliangough.com/the-ihole-in-original-apple-fl/|July 9, 2012}}</ref>}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 6|Added the End Poem and the credits. The file containing the End Poem is called win.txt.}}
+{{History||1.6.1|The file containing the End Poem is now called end.txt.}}
+{{History||1.12|snap=pre6|The ability to see the credits by clicking the copyright text on the [[menu screen]] has been added.}}
+{{History||1.12.1|The credits now scroll 50% faster when viewed directly from the menu screen than through the End Poem.}}
+{{History||1.17|snap=Pre-release 1|The credits now scroll faster when holding the space bar.
+|Now uses credits text from {{el|bedrock}}.
+|Changed the format of the credits from {{cd|.txt}} to {{cd|.json}}.
+|Removed the quote at the end of the credits.<ref name="quote">{{bug|MC-227204|||Fixed}}</ref>}}
+{{History|||snap=Pre-release 4|Fixed several typos and errors.
+|Credits now scroll even faster when holding space bar and one or both of the ctrl keys.}}
+{{History||1.18|snap=pre2|Fixed more typos and errors.
+|Re-added the quote at the end of the credits.<ref name="quote"/>}}
+{{History||1.20|snap=23w17a|Can now be scrolled upwards by pressing {{key|Up}} now.}}
+
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Added the end poem.}}
+{{History|||snap=?|The track {{cd|credits.ogg}} now plays during the end poem.}}
+{{History|bedrock}}
+{{History||1.13.0|snap=beta 1.13.0.9|Added the credits.}}
+{{History||?|The end poem now only plays once when entering the [[exit portal]].}}
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|Added the End Poem and the credits.
+|Unlike other versions of the game, the credits do not play immediately after the End Poem.}}
+{{History|foot}}
+
+==Gallery==
+<gallery>
+End Poem Header.png|The logo at the start of the poem.
+End Poem Section.png|A section of the poem.
+Who are we?.jpg|Another section of the poem.
+The End of End Poem 20 Years.png|The quote at the end of the credits.
+</gallery>
+
+==References==
+{{reflist}}
+
+== External Links ==
+*The current credits as shown on minecraft.net: [https://www.minecraft.net/en-us/credits Minecraft Credits]
+
+{{Minecraft}}
+
+[[Category:Game terms]]
+
+[[de:Abspann]]
+[[es:Poema del End]]
+[[fr:Poème de l'End]]
+[[ja:エンドポエム]]
+[[ko:엔드 시]]
+[[nl:Endgedicht]]
+[[pl:Poemat Endu]]
+[[pt:Poema Final]]
+[[ru:Поэма Края]]
+[[th:บทกวีเอนด์]]
+[[tr:Son Şiir]]
+[[uk:Поема Краю]]
+[[zh:终末之诗]]

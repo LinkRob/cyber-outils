@@ -1,0 +1,17 @@
+<div class="treeview">
+*{{nbt|compound}} Dynamic block entity data
+*** {{nbt inherit/entity}}
+** {{nbt|compound|BlockState}}: The falling block represented by this entity.
+*** {{nbt|string|Name}}: The [[resource location]] of the block.
+*** {{nbt|compound|Properties}}: Optional. The [[block states]] of the block.
+**** {{nbt|string|''Name''}}: The block state name and its value.
+** {{nbt|byte|CancelDrop}}: 1 or 0 (true/false). Whether the block will be cancelled from being placed when it lands on a solid block. When true, it also prevents the block from dropping as an item (regardless of what the <code>DropItem</code> tag is set to). However, if true and the falling block's <code>Time</code> tag goes to 0 before landing on a solid block, it will still destroy itself and drop itself as an item (or not, respective to what the <code>DropItem</code> tag is set to). <code>CancelDrop</code> defaults to false for summoned and naturally occurring falling blocks (except for [[Suspicious Block|Suspicious Blocks]]).
+** {{nbt|byte|DropItem}}: 1 or 0 (true/false) – true if the block should drop as an item when it breaks. Any block that does not have an item form ''with the same ID as the block'' does not drop even if this is set.
+** {{nbt|float|FallHurtAmount}}: Multiplied by the <code>FallDistance</code> to calculate the amount of damage to inflict. By default this value is {{hp|2}} for anvils, and {{hp|6}} for pointed dripstone.
+** {{nbt|int|FallHurtMax}}: The maximum hit points of damage to inflict on entities that intersect this falling block. For vanilla falling blocks, always {{hp|40}}.
+** {{nbt|byte|HurtEntities}}: 1 or 0 (true/false) – true if the block should hurt entities it falls on.
+** {{nbt|compound|TileEntityData}}: Optional. The tags of the block entity for this block.
+** {{nbt|int|Time}}: The number of ticks the entity has existed. When <code>Time</code> goes above 600, or above 100 while the block is below Y=1 or is outside building height, the entity is deleted.
+</div><noinclude>
+[[Category:Entity data pages]]
+</noinclude>

@@ -1,0 +1,135 @@
+{{For|the command|Commands/function}}
+{{see also|Function (Bedrock Edition)}}
+{{move|Java Edition function(s)|reason=Consistency with other articles that have a Java and bedrock variant; plural should be discussed|discuss=Talk:Function (Bedrock Edition)#Move proposal}}
+{{exclusive|java}}
+'''Functions''' are data pack files, allowing players to run lists of [[commands]]. Being text files, they are easily modifiable and less likely than [[command block]]s to induce lag when used in large quantities.
+
+This page covers how functions are defined and invoked in ''Java Edition''.
+
+== Definition ==
+A function is a text file with the file extension <code>.mcfunction</code>. The recommended encoding for function files is ANSI or UTF-8, without BOM.
+
+{{Collapse
+| title= Function files belong in the following folder of a data pack's structure, highlighted below:
+| head=1
+}}
+<div class="treeview">
+* '''''(data pack name)'''''
+** pack.mcmeta
+** pack.png
+** '''data'''
+*** '''''(namespace)'''''
+**** advancements
+***** ''(advancement)''.json
+**** '''functions'''
+***** '''''(function)''.mcfunction'''
+**** item_modifiers
+***** ''(modifier)''.json
+**** loot_tables
+***** ''(loot table)''.json
+**** predicates
+***** ''(predicate)''.json
+**** [[Data pack#Folder_structure|Further folders&hellip;]]
+</div>
+{{Collapse|tail=1}}
+
+As with all other data pack files, the <code>function</code> folder may also contain subfolders to further organize the function files within a namespace. These subfolders must be referenced when invoking the function.
+
+[[File:TestingFunctions.png|thumb|right|250px|Testing the function system. Three {{cmd|tellraw}} messages and one {{cmd|give}} command were used in this simple function.]]
+
+Within the <code>.mcfunction</code> file, one valid command is placed per line, without the usual forward slash (<code>/</code>). Players can add comments within the function text file by beginning a line with <code>#</code>. Multiple spaces between command arguments are not allowed but a line can have tabs and spaces before and after the command.
+
+=== Allowed commands ===
+Individual commands in functions can be longer than the 32,500 character limit in command blocks but the total number of commands run inside a function still obey {{cmd|gamerule maxCommandChainLength}}, which is 65,536 commands by default; any commands beyond this limit are ignored.
+
+In a singleplayer or a LAN world, like a [[command block]], a function can run any command that is no more restrictive than permission level 2.
+
+On the default multiplayer software, a function can run any command that is no more restrictive than the permission level prescribed in [[Server.properties#function-permission-level|<code>function-permission-level</code>]] setting in <code>server.properties</code>.
+
+== Invocation ==
+Functions can be invoked in several different manners from other data pack files.
+
+=== Invocation from commands ===
+Functions can be invoked using the {{cmd|function}} command.
+
+A single function can be invoked by specifying its resource location.
+
+Unlike other data pack files, functions are supported by [[tags]], allowing them to be grouped together. <code>/function</code> also accepts a function tag's resource location, invoking all listed functions.
+
+=== Invocation from advancements ===
+[[Advancements]] can run a function once as a reward for completing them. The commands in the function are run through the player who completed the advancement.
+
+Reward functions are called within advancement [[JSON]] files using the following format:
+
+ {
+   "rewards": {
+     "function": "namespace:subfolder/function"
+   }
+ }
+
+=== Invocation from function tags ===
+Functions can be grouped together using [[Tag|function tags]]. Functions in a tag get executed in the defined order, but only the first occurrence of the same function if it occurs multiple times.
+
+In addition, there are two function tags within the <code>minecraft</code> namespace that have special behavior:
+
+* Functions listed in the <code>minecraft:load</code> tag run when the world is loaded, or when the server is started. Listed functions also run whenever the data pack is reloaded.
+** These functions run before the player joins the world, meaning any [[target selectors]] do not find players. Therefore, commands like {{cmd|tellraw}} and {{cmd|title}} do not appear for any player.
+* Functions listed in the <code>minecraft:tick</code> tag run at the beginning of each tick, repeating every tick.
+
+'''Note:''' The first instance of functions tagged <code>minecraft:tick</code> run ''before'' <code>minecraft:load</code> runs. This means that when reloading or loading, the order of execution is <code>tick</code>, <code>load</code>, <code>tick</code>, <code>tick</code>, <code>tick</code>, &hellip;
+
+=== When invoked ===
+
+Functions run all their commands in a single [[tick]] and other functions called from within also run their commands in the same tick as their parent. Functions use the execution context of whatever called the function. This includes executing entity, as well as execution position, rotation, dimension, and anchor. Contextual parameters are preserved for every command in the function. An {{cmd|execute}} command can change the context, but that change does not carry through to any following commands in the same function.
+
+
+For example:
+
+ execute as @p at @s run function foo:bar
+
+ # function foo:bar
+ teleport @s ~ ~5 ~
+ setblock ~ ~-1 ~ emerald_block
+ execute at @s run setblock ~ ~-1 ~ diamond_block
+
+When invoked, this function teleports the nearest player 5 blocks up, place an [[emerald block]] one block below their original position ''before'' the teleport, and place a [[diamond block]] one block below their new position ''after'' the teleport.
+
+As seen in the above example, contextual parameters can be changed as usual by their respective {{cmd|execute}} sub-commands.
+
+== History ==
+{{History|java}}
+{{History||1.12|snap=pre1|Added functions.}}
+{{History|||snap=pre3|Commands are no longer allowed to begin with a / (forward slash)|Comments can now only be preceded with #; using // is no longer allowed}}
+{{History|||snap=pre4|Added new arguments to the {{cmd|function}} command: <code>[if{{!}}unless] [selector]</code>}}
+{{History|||snap=pre6|Skipped functions (when a conditional fails) are now considered failures when used in commands.}}
+{{History||1.13|snap=17w43a|Custom functions have been moved into data packs.}}
+{{History|||snap=17w45a|Functions are now completely parsed and cached on load.}}
+{{History|||snap=17w49b|Removed {{cmd|gamerule|gameLoopFunction}}.|Function can now be tagged.|Functions tagged in <code>tick</code> now run every tick in the beginning of the tick.}}
+{{History|||snap=18w01a|Functions tagged in <code>load</code> now run after (re)loading the datapack.}}
+{{History||1.14.4|snap=pre4|Added <code>function-permission-level</code> to [[server.properties]]}}
+{{History|upcoming java}}
+{{History||1.20.2|snap=23w31a|A single backslash <code>\</code> as the last non-whitespace character of a line now allows a command to be continued on the next line.
+|Functions can now contain macro lines, making them Function Macros.}}
+{{History|||snap=1.20.2 Pre-release 1|Numbers used as macro arguments are now always inserted without suffixes, regardless of numeric type.}}
+{{History|foot}}
+
+== Issues ==
+
+{{Issue list|Function}}
+
+== References ==
+
+{{reflist}}
+
+{{Java Edition}}
+{{Data packs}}
+
+[[de:Funktion]]
+[[es:Función (Java Edition)]]
+[[fr:Fonction]]
+[[ja:関数 (Java Edition)]]
+[[pl:Funkcja]]
+[[pt:Funções]]
+[[ru:Функция]]
+[[uk:Функція]]
+[[zh:函数（Java版）]]

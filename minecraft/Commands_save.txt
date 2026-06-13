@@ -1,0 +1,127 @@
+These [[commands]] manage [[server]] saves.
+
+== save-all ==
+{{Exclusive|Java|section=1}}
+{{Infobox command
+|name=save-all
+|oplevel=4
+|serveronly=y
+|nocmdblock=y
+}}
+
+Saves the server to the data storage device.
+Causes the server to mark all [[chunks]] and player data as needing to be saved. They are saved over time until all are flushed to the data storage device.
+
+===Syntax===
+
+<code>save-all</code>
+: Normal mode.
+<code>save-all flush</code>
+: All the chunks are saved to the data storage device immediately, freezing the server for a short time.
+
+===Result===
+
+{{Result table|onlyje=1}}
+{{Result table|if an error occurs (such as the data storage device being full, or another copy of ''Minecraft'' has the map open)|fail}}
+{{Result table|succeed}}
+{{Result table}}
+
+===Output===
+
+{{Output table}}
+{{Output table|edition=je|On fail|N/A|0|0}}
+{{Output table|On success|N/A|1|1}}
+{{Output table}}
+
+== save-off ==
+{{Exclusive|java|section=1}}
+{{Infobox command
+|name=save-off
+|oplevel=4
+|serveronly=y
+|nocmdblock=y
+}}
+
+Disables the server writing to the world files. All changes are temporarily queued.
+
+===Syntax===
+
+: <code>save-off</code>
+
+===Result===
+
+{{Result table|onlyje=1}}
+{{Result table|if automatic saving have already been turned off|fail}}
+{{Result table|succeed}}
+{{Result table}}
+
+===Output===
+
+{{Output table}}
+{{Output table|edition=je|On fail|N/A|0|0}}
+{{Output table|On success|N/A|1|1}}
+{{Output table}}
+
+== save-on ==
+{{Exclusive|java|section=1}}
+{{Infobox command
+|name=save-on
+|oplevel=4
+|serveronly=y
+|nocmdblock=y
+}}
+
+Enables the server writing to the world files.
+
+===Syntax===
+
+: <code>save-on</code>
+
+===Result===
+
+{{Result table|onlyje=1}}
+{{Result table|if automatic saving have not been turned off|fail}}
+{{Result table|succeed}}
+{{Result table}}
+
+===Output===
+
+{{Output table}}
+{{Output table|edition=je|On fail|N/A|0|0}}
+{{Output table|On success|N/A|1|1}}
+{{Output table}}
+
+== save ==
+{{Exclusive|bedrock|section=1}}
+{{Infobox command
+|name=save
+|oplevel=4
+|serveronly=y
+|nocmdblock=y
+|cheat=y
+}}
+
+Prepares a backup, queries its status, or resumes.
+
+===Syntax===
+
+: <code>save <hold|query|resume></code>
+
+===Result===
+
+When the backup is ready, save query outputs the path of every file and the amount of bytes to truncate it separated by a colon.
+
+== History ==
+{{History|java alpha}}
+{{History||v1.0.16_01|Added {{cd|/save-all}}, {{cd|/save-off}} and {{cd|/save-on}}.}}
+
+{{history|bedrock}}
+{{history||1.6.1|Added {{cd|/save}}.}}
+{{history|foot}}
+
+{{Commands}}
+
+[[de:Befehl/save-all]]
+[[ja:コマンド/save]]
+[[pt:Comandos/save]]
+[[zh:命令/save]]

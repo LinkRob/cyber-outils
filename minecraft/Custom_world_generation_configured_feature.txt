@@ -1,0 +1,492 @@
+<div class="treeview">
+* {{nbt|compound}}: Root object.
+** {{nbt|string|type}}: The ID of feature type.
+** {{nbt|compound|config}}: Configuration of this configured feature. The avialable properties vary depending on the {{nbt|string|type}}. Types that are not listed below have no config, but must still have an empty {{cd|config}} object.
+
+{{Collapse|title=If {{nbt|string|type}} is <code>bamboo</code>:|head=1}}
+:** {{nbt|float|probability}}: The probability for a podzol disk to generate below the bamboo. The disk has a radius of 1 to 4 blocks. Value between 0.0 and 1.0 (inclusive).
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>basalt_columns</code>:|head=1}}
+:** {{nbt|int}}{{nbt|compound|reach}}: The max radius of a column in this column cluster. Value between 0 and 3 (inclusive).
+:*** {{nbt inherit/int_provider}}
+:** {{nbt|int}}{{nbt|compound|height}}: The max height is <code>height + 1</code>. Value between 1 and 10 (inclusive).
+:*** {{nbt inherit/int_provider}}
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>block_column</code>:|head=1}}
+:** {{nbt|string|direction}}: The direction of the column. One of <code>up</code>, <code>down</code>, <code>north</code>, <code>east</code>, <code>south</code>, or <code>west</code>.
+:** {{nbt|compound|allowed_placement}}: A block predicate. The predicate must be passed to generate this feature.
+:*** {{nbt inherit/block_predicate}}
+:** {{nbt|boolean|prioritize_tip}}: Determines where to cut off blocks when space is restricted. If <code>true</code>, will start removing layers from the start of the column.
+:** {{nbt|list|layers}}: (Required, but can be empty) The layers of this column.
+:*** {{nbt|compound}}: A layer.
+:**** {{nbt|int}}{{nbt|compound|height}}: Specifying the height of the layer. Must be a non-negative int.
+:***** {{nbt inherit/int_provider}}
+:**** {{nbt|compound|provider}}: The block to use for this layer.
+:***** {{nbt inherit/block_state_provider}}
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>block_pile</code>:|head=1}}
+:** {{nbt|compound|state_provider}}: The block to use.
+:*** {{nbt inherit/block_state_provider}}
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>delta_feature</code>:|head=1}}
+:** {{nbt|compound|contents}}: The block to use on the inside of the delta.
+:*** {{nbt inherit/block_state}}
+:** {{nbt|compound|rim}}: The block to use for the rim of the delta.
+:*** {{nbt inherit/block_state}}
+:** {{nbt|int}}{{nbt|compound|size}}: The size of the inside of the delta. Value between 0 and 16 (inclusive).
+:*** {{Nbt inherit/int provider}}
+:** {{nbt|int}}{{nbt|compound|rim_size}}: The size of the rim of the delta. Value between 0 and 16 (inclusive).
+:*** {{nbt inherit/int_provider}}
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>disk</code>:|head=1}}
+:** {{Nbt|compound|state_provider}}: The block to use.
+:*** {{Nbt|compound|fallback}}：The block to use when all the rules' predicates are not passed.
+:**** {{Nbt inherit/block state provider}}
+:*** {{Nbt|list|rules}}: (Reqired, but can be empty) Rules of the block to use.
+:**** {{Nbt|compound}}: One rule.
+:***** {{Nbt|compound|if_true}}: The predicate of this rule.
+:****** {{nbt inherit/block predicate}}
+:***** {{Nbt|compound|then}}: The block to use when the predicate is passed.
+:****** {{Nbt inherit/block state provider}}
+:** {{Nbt|int}}{{Nbt|compound|radius}}: The radius of this disk. Value between 0 and 8 (inclusive).
+:*** {{Nbt inherit/int provider}}
+:** {{Nbt|int|half_height}}: Half of the height of this disk. Value between 0 and 4 (inclusive).
+:** {{Nbt|compound|target}}: This predicate must be passed to generate this feature.
+:*** {{nbt inherit/block predicate}}
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>dripstone_cluster</code>:|head=1}}
+:** {{nbt|int|floor_to_ceiling_search_range}}: For how many blocks the feature will search for the floor or ceiling. Value between 1 and 512 (inclusive).
+:** {{nbt|int}}{{nbt|compound|height}}: The height of the cluster. Value between 1 and 128 (inclusive).
+:*** {{Nbt inherit/int provider}}
+:** {{nbt|int}}{{nbt|compound|radius}}: The radius of the cluster. Value between 1 and 128 (inclusive).
+:*** {{nbt inherit/int_provider}}
+:** {{nbt|int|max_stalagmite_stalactite_height_diff}}: The maximum height difference between stalagmites and stalactites. Value between 0 and 64 (inclusive).
+:** {{nbt|int|height_deviation}}: The height deviation. Value between 1 and 64 (inclusive).
+:** {{nbt|int}}{{nbt|compound|dripstone_block_layer_thickness}}: The dripstone block layer's thickness. Value between 0 and 128 (inclusive).
+:*** {{nbt inherit/int_provider}}
+:** {{nbt|float}}{{nbt|compound|density}}: Value between 0.0 and 2.0 (inclusive).
+:*** {{nbt inherit/float_provider}}
+:** {{nbt|float}}{{nbt|compound|wetness}}: Value between 0.0 and 2.0 (inclusive).
+:*** {{nbt inherit/float_provider}}
+:** {{nbt|float|chance_of_dripstone_column_at_max_distance_from_center}}: Value between 0.0 and 1.0 (inclusive).
+:** {{nbt|int|max_distance_from_edge_affecting_chance_of_dripstone_column}}: Value between 1 and 64 (inclusive).
+:** {{nbt|int|max_distance_from_center_affecting_height_bias}}: Value between 1 and 64 (inclusive).
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>end_gateway</code>:|head=1}}
+:** {{nbt|boolean|exact}}: Whether the gateway should teleport entities in the exact exit position.
+:** {{nbt|list|exit}}: (optional) The block position where the gateway should exit.
+:*** {{nbt|int}}: X coordinate.
+:*** {{nbt|int}}: Y coordinate.
+:*** {{nbt|int}}: Z coordinate.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>end_spike</code>:|head=1}}
+:** {{nbt|boolean|crystal_invulnerable}}: (optional, defaults to false) Whether the end crystals on it are invulnerable.
+:** {{nbt|list|crystal_beam_target}}: (optional) Block position of the beam target.
+:*** {{nbt|int}}: The X coordinate.
+:*** {{nbt|int}}: The Y coordinate.
+:*** {{nbt|int}}: The Z coordinate.
+:** {{nbt|list|spikes}}: (Required, but can be empty. If empty, uses the default random spikes) Configurations of each spike.
+:*** {{nbt|compound}}: A spike.
+:**** {{nbt|int|centerX}}: (optional, defaults to 0) The X coordinate.
+:**** {{nbt|int|centerZ}}: (optional, defaults to 0)  The Z coordinate.
+:**** {{nbt|int|radius}}: (optional, defaults to 0)  The radius of the spike.
+:**** {{nbt|int|height}}: (optional, defaults to 0)  The height of the spike.
+:**** {{nbt|boolean|guarded}}: (optional, defaults to false)  Whether to generate an iron bar cage around the crystal.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>fill_layer</code>:|head=1}}
+:** {{nbt|compound|state}}: The block to fill with.
+:*** {{nbt inherit/block_state}}
+:** {{nbt|int|height}}: The layer to fill, starting at the bottom of the world. Value between 0 and 4064 (inclusive).
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>flower</code>, <code>no_bonemeal_flower</code>, or<code>random_patch</code>:|head=1}}
+:** {{Nbt|int|tries}}: (optional, defaults to 128) The number of attempts to generate. Must be a positive integer.
+:** {{Nbt|int|xz_spread}}: (optional, defaults to 7) The horizontal spread range. Must be a non-negative integer.
+:** {{Nbt|int|y_spread}}: (optional, defaults to 3) the vertical spread range. Must be a non-negative integer.
+:** {{Nbt|string}}{{Nbt|compound|feature}}: Can be a placed feature ID, or a placed feature object. The placed feature that the this patch generates.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>forest_rock</code>:|head=1}}
+:** {{nbt|compound|state}}: The block to use.
+:*** {{nbt inherit/block_state}}
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>fossil</code>:|head=1}}
+:** {{nbt|list|fossil_structures}}: (Cannot be empty) A list of fossil structure templates to choose from.
+:*** {{nbt|string}}: An ID of fossil structure template.
+:** {{nbt|list|overlay_structures}}: (Cannot be empty) A list of overlay structure templates to choose from.
+:*** {{nbt|string}}: An ID of overlay structure template.
+:** {{nbt|string}}{{nbt|list}}{{nbt|compound|fossil_processors}}: Can be the ID of a processor list, or a list of processors, or a object of processor list. A processor for fossil structure templates.
+:** {{nbt|string}}{{nbt|list}}{{nbt|compound|overlay_processors}}: Can be the ID of a processor list, or a list of processors, or a object of processor list. A processor for overlay structure templates.
+:** {{nbt|int|max_empty_corners_allowed}}: How many corners of the structure are allowed to be empty for it to generate. Prevents structures floating in the air.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>geode</code>:|head=1}}
+:** {{nbt|compound|blocks}}: The blocks to use.
+:*** {{nbt|compound|filling_provider}}: The block used for filling.
+:**** {{nbt inherit/block_state_provider}}
+:*** {{nbt|compound|inner_layer_provider}}: The block of the inner layer.
+:**** {{nbt inherit/block_state_provider}}
+:*** {{nbt|compound|alternate_inner_layer_provider}}: The alternate block of the inner layer.
+:**** {{nbt inherit/block_state_provider}}
+:*** {{nbt|compound|middle_layer_provider}}: The block of the middle layer.
+:**** {{nbt inherit/block_state_provider}}
+:*** {{nbt|compound|outer_layer_provider}}: The block of the outer layer.
+:**** {{nbt inherit/block_state_provider}}
+:*** {{nbt|list|inner_placements}}: (Cannot be empty) The blocks to place in the geode.
+:**** {{nbt|compound}} A block state.
+:***** {{nbt inherit/block_state}}
+:*** {{nbt|string|cannot_replace}}: A block tag with <code>#</code> listing which blocks not to replace.
+:*** {{nbt|string|invalid_blocks}}: A block tag with <code>#</code> listing invalid blocks. Due to {{bug|MC-264886}}, any value is treated as <code>#minecraft:geode_invalid_blocks</code>. Additionally, air is an invalid block.
+:** {{nbt|compound|layers}}: The max radius of each layer. Higher value results in higher max radius of each layer.
+:*** {{nbt|double|filling}}: (optional, defaults to 1.7) Value between 0.01 and 50 (inclusive).
+:*** {{nbt|double|inner_layer}}: (optional, defaults to 2.2) Value between 0.01 and 50 (inclusive).
+:*** {{nbt|double|middle_layer}}: (optional, defaults to 3.2) Value between 0.01 and 50 (inclusive).
+:*** {{nbt|double|outer_layer}}: (optional, defaults to 4.2) Value between 0.01 and 50 (inclusive).
+:** {{nbt|compound|crack}}: The configuration of the crack on the geode.
+:*** {{nbt|double|generate_crack_chance}}: (optional, defaults to 1.0) The probability for generating crack. Value between 0.0 and 1.0 (inclusive).
+:*** {{nbt|double|base_crack_size}}: (optional, efaults to 2) Value between 0.0 and 5.0 (inclusive).
+:*** {{nbt|int|crack_point_offset}}: (optional,defaults to 2) Value between 0 and 10 (inclusive).
+:** {{nbt|double|noise_multiplier}}: (optional, defaults to 0.05) Value between 0.0 and 1.0 (inclusive).
+:** {{nbt|double|use_potential_placements_chance}}: (optional, defaults to 0.35) The probability for placing the inner placement on a block of inner layer. Value between 0 and 1 (inclusive).
+:** {{nbt|double|use_alternate_layer0_chance}}: (optional, defaults to 0.0) The probability of the alternate blocks on inner layer. Value between 0 and 1 (inclusive).
+:** {{nbt|boolean|placements_require_layer0_alternate}}: (optional, defaults to true) Whether the inner placements are only allowed on the alternate inner blocks. 
+:** {{nbt|int}}{{nbt|compound|outer_wall_distance}}: (optional, defaults to a uniform int between 4 and 5) The offset on each coordinate of the center from the feature start. Value between 1 and 20 (inclusive).
+:*** {{nbt inherit/int_provider}}
+:** {{nbt|int}}{{nbt|compound|distribution_points}}: (optional, defaults to a uniform int between 3 and 4) Value between 1 and 20 (inclusive).
+:*** {{nbt inherit/int_provider}}
+:** {{Nbt|int|invalid_blocks_threshold}}: Check {{cd|distribution_points}} times near the center of the geode, and if the number of invalid blocks found exceeds this number, the feature will not be generated.
+:** {{nbt|int}}{{nbt|compound|point_offset}}: (optional, defaults to a uniform int between 1 and 2) Value between 1 and 10.
+:*** {{nbt inherit/int_provider}}
+:** {{nbt|int|min_gen_offset}}: (optional, defaults to -16) The minimum Chebyshev distance between the block and the center.
+:** {{nbt|int|max_gen_offset}}: (optional, defaults to 16) The maximum Chebyshev distance between the block and the center.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>huge_brown_mushroom</code> or <code>huge_red_mushroom</code>:|head=1}}
+:** {{nbt|compound|cap_provider}}: The block to use for the cap.
+:*** {{nbt inherit/block_state_provider}}
+:** {{nbt|compound|stem_provider}}: The block to use for the stem.
+:*** {{nbt inherit/block_state_provider}}
+:** {{nbt|int|foliage_radius}}: (optional，defaults to 2) The size of the cap.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>huge_fungus</code>:|head=1}}
+:** {{nbt|compound|hat_state}}: The block to use for the hat.
+:*** {{nbt inherit/block_state}}
+:** {{nbt|compound|decor_state}}: The block to use as decoration.
+:*** {{nbt inherit/block_state}}
+:** {{nbt|compound|stem_state}}: The block to use for the stem.
+:*** {{nbt inherit/block_state}}
+:** {{nbt|compound|valid_base_block}}: The block to place this feature on.
+:*** {{nbt inherit/block_state}}
+:** {{nbt|boolean|planted}}: (optional, defaults to false) Whether this huge fungus is planted. If false, it can't exceed the world ceiling, can replace blocks whose material is PLANT, and doesn't drop items when replace other blocks.
+:** {{nbt|compound|replaceable_blocks}}: A block predicate. The predicate must be passed to be replaced with this feature.
+:*** {{nbt inherit/block_predicate}}
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>iceberg</code>:|head=1}}
+:** {{nbt|compound|state}}: The block to use.
+:*** {{nbt inherit/block_state}}
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>lake</code>:|head=1}}
+:** {{nbt|compound|fluid}}: The block to use for the fluid of the lake.
+:*** {{nbt inherit/block state provider}}
+:** {{nbt|compound|barrier}}: The block to use for the barrier of the lake.
+:*** {{nbt inherit/block state provider}}
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>large_dripstone</code>:|head=1}}
+:** {{nbt|int|floor_to_ceiling_search_range}}: (optional, defaults to 30) The search range form start point to cave floor or ceiling (rather than from floor to ceiling). Value between 1 and 512 (inclusive).
+:** {{nbt|int}}{{nbt|compound|column_radius}}: Used to provider a min and max value for radius. Note that this int provider doesn't provider a single int, but provider the min and max value of the specified distribution. Value between 1 and 60 (inclusive). See [https://www.desmos.com/calculator/8epce7fyjr the graph for details].
+:*** {{nbt inherit/int_provider}}
+:** {{nbt|float}}{{nbt|compound|height_scale}}: Higher value leads to higher height. Value between 0.0 and 20.0 (inclusive).
+:*** {{nbt inherit/float_provider}}
+:** {{nbt|float|max_column_radius_to_cave_height_ratio}}: The ratio of the max radius to the height of the cave. Value between 0.0 and 1.0 (inclusive).
+:** {{nbt|float}}{{nbt|compound|stalactite_bluntness}}: Trancate the tip of stalactite. Higher value leads to lower height. Value between 0.1 and 10.0 (inclusive).
+:*** {{nbt inherit/float_provider}}
+:** {{nbt|float}}{{nbt|compound|stalagmite_bluntness}}: Trancate the tip of stalagmite. Higher value leads to lower height. Value between 0.1 and 10.0 (inclusive).
+:*** {{nbt inherit/float_provider}}
+:** {{nbt|float}}{{nbt|compound|wind_speed}}: Larger value results in larger inclination. Value between 0.0 and 2.0 (inclusive).
+:*** {{nbt inherit/float_provider}}
+:** {{nbt|int|min_radius_for_wind}}: The min column radius to used the wind. Value between 0 and 100.
+:** {{nbt|float|min_bluntness_for_wind}}: The min value of the bluntnesses to used the wind. Value between 0.0 and 5.0 (inclusive).
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>multiface_growth</code>:|head=1}}
+:** {{Nbt|string|block}}: (optional, defaults to {{cd|glow_lichen}}) The block to place, currently must be {{cd|glow_lichen}} or {{cd|sculk_vein}}.
+:** {{nbt|int|search_range}}: (optional, defaults to 10) Value between 1 and 64 (inclusive).
+:** {{nbt|float|chance_of_spreading}}: (optional, defaults to 0.5) Value between 0.0 and 1.0 (inclusive).
+:** {{nbt|boolean|can_place_on_floor}}: (optional, defaults to false).
+:** {{nbt|boolean|can_place_on_ceiling}}: (optional, defaults to false).
+:** {{nbt|boolean|can_place_on_wall}}: (optional, defaults to false).
+:** {{nbt|string}}{{Nbt|list|can_be_placed_on}}: Can be a block ID or a block tag, or a list of block IDs.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>nether_forest_vegetation</code>:|head=1}}
+:** {{nbt|compound|state_provider}}: The block to use.
+:*** {{nbt inherit/block_state_provider}}
+:** {{nbt|int|spread_width}}: The horizonal distance to spread to. The max width is <code>spread_width * 2 -1</code>. Must be a positive integer.
+:** {{nbt|int|spread_height}}: The vertical distance to spread. The max height is <code>spread_height * 2 -1</code>. Must be a positive integer.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>netherrack_replace_blobs</code>:|head=1}}
+:** {{nbt|compound|state}}: The block to use.
+:*** {{nbt inherit/block_state}}
+:** {{nbt|compound|target}}: The block to replace.
+:*** {{nbt inherit/block_state}}
+:** {{nbt|int}}{{nbt|compound|radius}}: Value between 0 and 12 (inclusive).
+:*** {{nbt inherit/int_provider}}
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>ore</code> or <code>scattered_ore</code>:|head=1}}
+:** {{nbt|int|size}}: Value between 0 and 64 (inclusive). Determine the volume size of the ore.{{more info}}
+:** {{nbt|float|discard_chance_on_air_exposure}}: Value between 0 and 1 (inclusive). The chance for an ore block to be discarded when it is exposed to air. Setting this to 1 makes the ore completely hidden.
+:** {{nbt|list|targets}}: (Required, but can be empty) A list of targets.
+:*** {{nbt|compound}}: A target.
+:**** {{nbt|compound|target}}: Rule test. The blocks to replace.
+:***** {{Nbt inherit/rule test}}
+:**** {{nbt|compound|state}}: The block to use.
+:***** {{nbt inherit/block_state}}
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>pointed_dripstone</code>:|head=1}}
+:** {{nbt|float|chance_of_taller_dripstone}}: (optional, defaults to 0.2) Value between 0.0 and 1.0 (inclusive). Probability for double-block dripstone.
+:** {{nbt|float|chance_of_directional_spread}}: (optional, defaults to 0.7) Value between 0.0 and 1.0 (inclusive). Probability that the dripstone spreads in a horizontal direction.
+:** {{nbt|float|chance_of_spread_radius2}}: (optional, defaults to 0.5) Value between 0.0 and 1.0 (inclusive). Probability of horizontal spread by two blocks.
+:** {{nbt|float|chance_of_spread_radius3}}: (optional. defaults to 0.5) Value between 0.0 and 1.0 (inclusive). After the spread by two blocks, probability of spreading the third block.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>random_boolean_selector</code>:|head=1}}
+:** {{nbt|string}}{{nbt|compound|feature_false}}: One [[placed feature]]. Can be an ID of a placed feature, or a placed feature object.
+:** {{nbt|string}}{{nbt|compound|feature_true}}: Another [[placed feature]]. Can be an ID of a placed feature, or a placed feature object.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>random_selector</code>:|head=1}}
+:** {{nbt|list|features}}: (Required, but can be empty) A list of placed features from which to randomly choose. Try in order from the first, generate the placed feature or try the next one according to the chance.
+:*** {{nbt|compound}} A feature and its corresponding chance.
+:**** {{nbt|string}}{{nbt|compound|feature}}: The [[placed feature]] to use. Can be an ID of a placed feature, or a placed feature object.
+:**** {{nbt|float|chance}}: The chance of this feature being chosen.
+:** {{nbt|string}}{{nbt|compound|default}}: The [[placed feature]] to use if none of the above features are chosen. Can be an ID of a placed feature, or a placed feature object.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>replace_single_block</code>:|head=1}}
+:** {{nbt|list|targets}}: (Required, but can be empty) A list of targets.
+:*** {{nbt|compound}}: A target.
+:**** {{nbt|compound|target}}: Rule test. The blocks to replace.
+:***** {{Nbt inherit/rule test}}
+:**** {{nbt|compound|state}}: The block to use.
+:***** {{nbt inherit/block_state}}
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>root_system</code>:|head=1}}
+:** {{nbt|int|required_vertical_space_for_tree}}: Value between 1 and 64 (inclusive).
+:** {{nbt|int|root_radius}}: Value between 1 and 64 (inclusive).
+:** {{nbt|int|root_placement_attempts}}: Value between 1 and 256 (inclusive).
+:** {{nbt|int|root_column_max_height}}: Value between 1 and 4096 (inclusive).
+:** {{nbt|int|hanging_root_radius}}: Value between 1 and 64 (inclusive).
+:** {{nbt|int|hanging_roots_vertical_span}}: Value between 0 and 16 (inclusive).
+:** {{nbt|int|hanging_root_placement_attempts}}: Value between 1 and 256 (inclusive).
+:** {{nbt|int|allowed_vertical_water_for_tree}}: Value between 1 and 64 (inclusive).
+:** {{nbt|string|root_replaceable}}: A block tag with <code>#</code> specifying which blocks can be replaced by the root column.
+:** {{nbt|compound|root_state_provider}}: The block to use for the root column.
+:*** {{nbt inherit/block_state_provider}}
+:** {{nbt|compound|hanging_root_state_provider}}: The block to use hanging below the root column.
+:*** {{nbt inherit/block_state_provider}}
+:** {{nbt|compound|allowed_tree_position}}: The block predicate used to check if the tree position is valid.
+:*** {{nbt inherit/block predicate}}
+:** {{nbt|string}}{{nbt|compound|feature}}: The [[placed feature]] to place on top of the root system. Can be an ID of a placed feature, or a placed feature object.
+{{Collapse|tail=1}}
+
+{{collapse|title=If {{nbt|string|type}} is <code>sculk_patch</code>:|head=1}}
+:** {{Nbt|int|charge_count}}: The number of charges. Value between 1 and 32 (inclusive).
+:** {{Nbt|int|amount_per_charge}}: The initial value of each charge. Value between 1 and 500 (inclusive).
+:** {{Nbt|int|spread_attempts}}: The number of attempts to spread. Value between 1 and 64 (inclusive).
+:** {{Nbt|int|growth_rounds}}: The number of times to generate. Value between 0 and 8 (inclusive).
+:** {{Nbt|int|spread_rounds}}: The number of times to spread. Value between 0 and 8 (inclusive).
+:** {{Nbt|int}}{{Nbt|compound|extra_rare_growths}}: The number of extra shriekers generated.
+:*** {{Nbt inherit/int provider}}
+:** {{Nbt|float|catalyst_chance}}: The probability of generating a catalyst. Value between 0.0 and 1.0 (inclusive).
+{{collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>sea_pickle</code>:|head=1}}
+:** {{nbt|int}}{{nbt|compound|count}}: Value between 0 and 256 (inclusive). The max count of the sea pickle block (not single sea pickle).
+:*** {{nbt inherit/int_provider}}
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>seagrass</code>:|head=1}}
+:** {{nbt|float|probability}}: Value between 0.0 and 1.0 (inclusive). Probability of using tall seagrass instead of seagrass
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>simple_block</code>:|head=1}}
+:** {{nbt|compound|to_place}}: The block to use.
+:*** {{nbt inherit/block_state_provider}}
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>simple_random_selector</code>:|head=1}}
+:** {{nbt|string}}{{nbt|compound}}{{nbt|list|features}}: (Cannot be an empty list) Features to choose from. Can be an ID or a tag of a placed feature, or a object of a placed feature, or a list of placed feature IDs, or a list of placed feature objects.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>spring_feature</code>:|head=1}}
+:** {{nbt|compound|state}}: The fluid to use.
+:*** {{Nbt inherit/block state}}
+:** {{nbt|int|rock_count}}: (optional, defaults to 4) The required number of blocks adjacent to the spring that belong to {{cd|valid_blocks}}.
+:** {{nbt|int|hole_count}}: (optional, defaults to 1) The required number of air blocks adjacent to the spring.
+:** {{nbt|boolean|requires_block_below}}: (optional, defaults to true) Whether the spring feature requires a block in {{nbt|list|valid_blocks}} below the fluid.
+:** {{nbt|string}}{{nbt|list|valid_blocks}}: Can be a block ID or a block tag, or a list of block IDs.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>tree</code>:|head=1}}
+:**{{nbt|boolean|ignore_vines}}: (optional, defaults to false) Allows the tree to generate even if there are vines blocking it.
+:** {{nbt|boolean|force_dirt}}: (optional, defaults to false) If true, will place the dirt provider even when the block below the tree is a valid dirt-like block.
+:** {{nbt|compound|dirt_provider}}: The block to place below the trunk. Only places if <code>force_dirt</code> is true, or if there is not a valid dirt-like block below the trunk.
+:*** {{nbt inherit/block_state_provider}}
+:** {{nbt|compound|trunk_provider}}: The block to use for the trunk. Note that when the trunk placer is <code>fancy_trunk_placer</code>, the block must have <code>axis</code> property, such as logs.
+:*** {{Nbt inherit/block state provider}}
+:** {{nbt|compound|foliage_provider}}: The block to use for the foliage.
+:*** {{Nbt inherit/block state provider}}
+:** {{nbt|compound|minimum_size}}: Defines the width of the tree at different heights relative to the lowest trunk block, for the minimum size of the feature.
+:*** {{nbt|float|min_clipped_height}}: (optional) Value between 0 and 80 (inclusive). If the possible height at this location is lower than trunk height, but greater or equal to this value, the tree will generate anyway. If not specified, the tree won't generate as long as the possible height is lower than trunk height. If the possible height at this location is lower than this value, the tree cannot generate.
+:*** {{nbt|string|type}}: One of <code>two_layers_feature_size</code> or <code>three_layers_feature_size</code>
+:***; If <code>type</code> is <code>two_layers_feature_size</code>, additional fields are as follows<nowiki>:</nowiki>
+:*** {{nbt|int|limit}}: (optional, defaults to 1) Value between 0 and 81 (inclusive). At heights lower than this value, <code>lower_size</code> is used, otherwise <code>upper_size</code>.
+:*** {{nbt|int|lower_size}}: (optional, defaults to 0) Value between 0 and 16 (inclusive). Minimum width of the tree at heights under <code>limit</code>.
+:*** {{nbt|int|upper_size}}: (optional, defaults to 1) Value between 0 and 16 (inclusive). Minimum width of the tree at heights greater than or equals <code>limit</code>.
+:***; If <code>type</code> is <code>three_layers_feature_size</code>, additional fields are as follows<nowiki>:</nowiki>
+:*** {{nbt|int|limit}}: (optional, defaults to 1) Value between 0 and 80 (inclusive). At heights lower than this value, <code>lower_size</code> is used, otherwise <code>upper_size</code> or <code>middle_size</code>.
+:*** {{nbt|int|upper_limit}}: (optional, defaults to 1) Value between 0 and 80 (inclusive). At heights between this and <code>limit</code>, <code>middle_size</code> is used. If the height is greater or equals, it will use <code>upper_size</code>.
+:*** {{nbt|int|lower_size}}: (optional. defaults to 0) Value between 0 and 16 (inclusive). Minimum width of the tree at the lowest layer.
+:*** {{nbt|int|middle_size}}: (optional, defaults to 1) Value between 0 and 16 (inclusive). Minimum width of the tree at the middle layer.
+:*** {{nbt|int|upper_size}}: (optional, defaults to 1) Value between 0 and 16 (inclusive). Minimum width of the tree at the upper layer.
+:** {{Nbt|compound|root_placer}}: (optional) Controls how tree's roots are generated.
+:*** {{Nbt|string|type}}: Type of tree root placer, currently only {{cd|mangrove_root_placer}}.
+:*** {{Nbt|compound|root_provider}}: The block used as the root of the tree.
+:**** {{Nbt inherit/block state provider}}
+:*** {{Nbt|int}}{{Nbt|compound|trunk_offset_y}}: Offset perpendicular to the trunk.
+:**** {{Nbt inherit/int provider}}
+:*** {{Nbt|compound|above_root_placement}}: (optional) The blocks above the root.
+:**** {{Nbt|compound|above_root_provider}}: The block above the root.
+:***** {{Nbt inherit/block state provider}}
+:**** {{Nbt|float|above_root_placement_chance}}: The probability of generating the block. Value between 0.0 and 1.0 (inclusive).
+:***; If {{cd|type}} is {{cd|mangrove_root_placer}}, additional fields are as follows<nowiki>:</nowiki>
+:*** {{Nbt|compound|mangrove_root_placement}}: Mangrove root placement parameter.
+:**** {{Nbt|int|max_root_width}}: The maximum width of the root. Value between 1 and 12 (inclusive).
+:**** {{Nbt|int|max_root_length}}: The maximum length of the root. Value between 1 and 64 (inclusive).
+:**** {{Nbt|float|random_skew_chance}}: The probability of random skew. Value between 0.0 and 1.0 (inclusive).
+:**** {{Nbt|string}}{{Nbt|list|can_grow_through}}: A block ID or a block tag, or a list of block IDs. Blocks that roots can grow through.
+:**** {{Nbt|string}}{{Nbt|list|muddy_roots_in}}: A block ID or a block tag, or a list of block IDs. Roots in it will turn into muddy root blocks.
+:**** {{Nbt|compound|muddy_roots_provider}}: Blocks used as muddy roots.
+:***** {{Nbt inherit/block state provider}}
+:** {{nbt|compound|trunk_placer}}:
+:*** {{nbt|int|base_height}}: Value between 0 and 32 (inclusive).
+:*** {{nbt|int|height_rand_a}}: Value between 0 and 24 (inclusive).
+:*** {{nbt|int|height_rand_b}}: Value between 0 and 24 (inclusive).
+:*** {{nbt|string|type}}: One of <code>straight_trunk_placer</code>, <code>forking_trunk_placer</code>, <code>giant_trunk_placer</code>, <code>mega_jungle_trunk_placer</code>, <code>dark_oak_trunk_placer</code>, <code>fancy_trunk_placer</code>, <code>bending_trunk_placer</code>, <code>upwards_branching_trunk_placer</code>, or <code>cherry_trunk_placer</code>.
+:***; If <code>type</code> is <code>bending_trunk_placer</code>, additional fields are as follows<nowiki>:</nowiki>
+:*** {{nbt|int}}{{nbt|compound|bend_length}}: Value between 1 and 64 (inclusive).
+:**** {{nbt inherit/int_provider}}
+:*** {{nbt|int|min_height_for_leaves}}: (optional, defaults to 1) Must be a positive integer.
+:***; If <code>type</code> is <code>upwards_branching_trunk_placer</code>, additional fields are as follows<nowiki>:</nowiki>
+:*** {{nbt|int}}{{nbt|compound|extra_branch_steps}}: The number of steps to generate extra branches. Must be a positive integer.
+:**** {{nbt inherit/int_provider}}
+:*** {{nbt|int}}{{nbt|compound|extra_branch_length}}: Generates extra branch length. Must be a non-negative integer.
+:**** {{nbt inherit/int_provider}}
+:*** {{nbt|float|place_branch_per_log_probability}}: The probability of each log producing a branch. Value between 0.0 and 1.0 (inclusive).
+:*** {{nbt|string}}{{nbt|list|can_grow_through}}: A block ID or a block tag, or a list of block IDs. Represents blocks that tree trunks can grow through.
+:***; If <code>type</code> is <code>cherry_trunk_placer</code>, additional fields are as follows<nowiki>:</nowiki>
+:*** {{nbt|int}}{{nbt|compound|branch_count}}: Value between 1 and 3 (inclusive).
+:**** {{nbt inherit/int_provider}}
+:*** {{nbt|int}}{{nbt|compound|branch_horizontal_length}}: Value between 2 and 16 (inclusive).
+:**** {{nbt inherit/int_provider}}
+:*** {{nbt|int}}{{nbt|compound|branch_start_offset_from_top}}: A uniform int provider, which provides a number between two bounds with uniform distribution. Must between -16 and 0 (inclusive). And since it needs at least 2 blocks variation for the branch starts to fit both branches, {{cd|max_inclusive}} must be at least {{cd|min_inclusive + 1}}.
+:**** {{nbt|int|min_inclusive}}: The minimum possible value.
+:**** {{nbt|int|max_inclusive}}: The maximum possible value.
+:*** {{nbt|int}}{{nbt|compound|branch_end_offset_from_top}}: Value between -16 and 16 (inclusive).
+:**** {{nbt inherit/int_provider}}
+:** {{nbt|compound|foliage_placer}}:
+:*** {{nbt|int}}{{nbt|compound|radius}}: The radius of the foliage.
+:**** {{Nbt inherit/int provider}}
+:***{{nbt|int}}{{nbt|compound|offset}}: The vertical offest from the top of trunk to the top of the foliage.{{needs testing}}
+:**** {{Nbt inherit/int provider}}
+:***{{nbt|string|type}}: One of <code>blob_foliage_placer</code>, <code>spruce_foliage_placer</code>, <code>pine_foliage_placer</code>, <code>acacia_foliage_placer</code>, <code>bush_foliage_placer</code>, <code>fancy_foliage_placer</code>, <code>jungle_foliage_placer</code>, <code>mega_pine_foliage_placer</code>, <code>dark_oak_foliage_placer</code>, <code>random_spread_foliage_placer</code>, or <code>cherry_foliage_placer</code>.
+:***;If <code>type</code> is <code>blob_foliage_placer</code>, <code>bush_foliage_placer</code>, <code>fancy_foliage_placer</code>, or <code>jungle_foliage_placer</code>, the additional fields are as follows<nowiki>:</nowiki>
+:***{{nbt|int|height}}: The foliage's height. Value between 0 and 16 (inclusive).
+:***;If <code>type</code> is <code>spruce_foliage_placer</code>, the additional fields are as follows<nowiki>:</nowiki>
+:***{{nbt|int}}{{nbt|compound|trunk_height}}: Value between 0 and 24 (inclusive).
+:****{{nbt inherit/int_provider}}
+:***;If <code>type</code> is <code>pine_foliage_placer</code>, the additional fields are as follows<nowiki>:</nowiki>
+:***{{nbt|int}}{{nbt|compound|height}}: Value between 0 and 24 (inclusive).
+:****{{Nbt inherit/int provider}}
+:***;If <code>type</code> is <code>mega_pine_foliage_placer</code>, the additional fields are as follows<nowiki>:</nowiki>
+:***{{nbt|int}}{{nbt|compound|crown_height}}: Value between 0 and 24 (inclusive).
+:****{{nbt inherit/int_provider}}
+:***;If <code>type</code> is <code>random_spread_foliage_placer</code>, the additional fields are as follows<nowiki>:</nowiki>
+:***{{nbt|int}}{{nbt|compound|foliage_height}}: Value between 1 and 512 (inclusive).
+:****{{nbt inherit/int_provider}}
+:***{{nbt|int|leaf_placement_attempts}}: Value between 0 and 256 (inclusive).
+:***;If <code>type</code> is <code>cherry_foliage_placer</code>, the additional fields are as follows<nowiki>:</nowiki>
+:***{{nbt|int}}{{nbt|compound|height}}: Value between 4 and 16 (inclusive).
+:****{{Nbt inherit/int provider}}
+:***{{nbt|float|wide_bottom_layer_hole_chance}}: Value between 0.0 and 1.0 (inclusive).
+:***{{nbt|float|corner_hole_chance}}: Value between 0.0 and 1.0 (inclusive).
+:***{{nbt|float|hanging_leaves_chance}}: Value between 0.0 and 1.0 (inclusive).
+:***{{nbt|float|hanging_leaves_extension_chance}}: Value between 0.0 and 1.0 (inclusive).
+:**{{nbt|list|decorators}}: (Required, but can be empty) Decorations to add to the tree apart from the trunk and leaves.
+:***{{nbt|compound}}: A decorator.
+:****{{nbt|string|type}}: The type of decoration to add. One of <code>trunk_vine</code>, <code>leave_vine</code>, <code>cocoa</code>, <code>beehive</code>, <code>alter_ground</code>, or <code>attached_to_leaves</code>.
+:****; If <code>type</code> is <code>leave_vine</code>, <code>cocoa</code> or <code>beehive</code>, additional fields are as follows<nowiki>:</nowiki>
+:****{{nbt|float|probability}}: Value between 0.0 and 1.0 (inclusive).
+:****; If <code>type</code> is <code>alter_ground</code>, additional fields are as follows<nowiki>:</nowiki>
+:****{{nbt|compound|provider}}: The block to replace the ground with.
+:*****{{nbt inherit/block_state_provider}}
+:****; If <code>type</code> is <code>attached_to_leaves</code>, additional fields are as follows<nowiki>:</nowiki>
+:**** {{Nbt|float|probability}}: Value between 0.0 and 1.0 (inclusive).
+:**** {{Nbt|int|exclusion_radius_xz}}: The minimum value of the horizontal distance between two decorations. Value between 0 and 16 (inclusive).
+:**** {{Nbt|int|exclusion_radius_y}}: The minimum value of the vertical distance between two decorations. Value between 0 and 16 (inclusive).
+:**** {{Nbt|int|required_empty_blocks}}: The number of empty blocks required by the decoration. Value between 0 and 16 (inclusive).
+:**** {{Nbt|compound|block_provider}}: The block of the decoration.
+:***** {{Nbt inherit/block state provider}}
+:**** {{Nbt|list|directions}}: (Cannot be empty) Directions to generate.
+:***** {{Nbt|string}}: A direction. Must be {{cd|up}}, {{cd|down}}, {{cd|north}}, {{cd|south}} , {{cd|west}}, or {{cd|east}}.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>twisting_vines</code>:|head=1}}
+:**{{nbt|int|spread_width}}: Must be a positive integer. The max spread width is <code>spread_width * 2 + 1</code>
+:**{{nbt|int|spread_height}}: Must be a positive integer. The max spread height is <code>spread_height * 2 + 1</code>
+:**{{nbt|int|max_height}}: Must be a positive integer. The max length is <code>max_height * 2</code>, and the min length is 1.
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>underwater_magma</code>:|head=1}}
+:**{{nbt|int|floor_search_range}}: Value between 0 and 512 (inclusive).
+:**{{nbt|int|placement_radius_around_floor}}: Value between 0 and 64 (inclusive).
+:**{{nbt|float|placement_probability_per_valid_position}}: Value between 0.0 and 1.0 (inclusive).
+{{Collapse|tail=1}}
+
+{{Collapse|title=If {{nbt|string|type}} is <code>vegetation_patch</code> or <code>waterlogged_vegetation_patch</code>:|head=1}}
+:**{{nbt|string|surface}}: The surface to place on. One of <code>floor</code>, or <code>ceiling</code>
+:** {{nbt|int}}{{nbt|compound|depth}}: Value between 1 and 128 (inclusive).
+:***{{nbt inherit/int_provider}}
+:**{{nbt|int|vertical_range}}: Value between 1 and 256 (inclusive).
+:**{{nbt|float|extra_bottom_block_chance}}: Value between 0.0 and 1.0 (inclusive).
+:**{{nbt|float|extra_edge_column_chance}}: Value between 0.0 and 1.0 (inclusive).
+:**{{nbt|float|vegetation_chance}}: Value between 0.0 and 1.0 (inclusive). The chance that a vegetation feature will be placed, is evaluated for each block.
+:**{{nbt|int}}{{nbt|compound|xz_radius}}: The radius of the patch.
+:***{{nbt inherit/int_provider}}
+:**{{nbt|string|replaceable}}: A block tag with <code>#</code> specifying what blocks this feature can replace.
+:**{{nbt|int}}{{nbt|compound|ground_state}}: The block to use for the ground of the patch.
+:***{{nbt inherit/block_state_provider}}
+:**{{nbt|string}}{{nbt|compound|vegetation_feature}}: The [[placed feature]] to place on top of the patch. Can be a placed feature ID, or a placed feature object.
+{{Collapse|tail=1}}
+
+</div><noinclude>
+[[ja:カスタムワールド生成/configured feature]]
+[[zh:自定义世界生成/configured feature]]

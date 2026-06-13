@@ -1,0 +1,226 @@
+[[File:Fishing.png|upright=1.6|thumb|right|The process of waiting for a fish to bite involves patience, attention to the task at hand, and a small dose of luck.]]
+'''Fishing''' is the use of a [[fishing rod]] to obtain items, usually [[fish]].
+
+== Catching fish ==
+
+[[File:Bobber3D.png|thumb|A fishing bobber {{in|bedrock}}.]]
+[[File:Treasure Rod.png|thumb|A newly obtained Fishing Rod with the enchantments Lure II, Unbreaking III, and Luck of the Sea II.]]
+To fish, the player must {{control|use}} a [[Fishing Rod|fishing rod]] to cast the line into a body of [[water]]. The player's position does not matter; the player can be in the water, underwater, sitting in a [[boat]], or standing on adjacent land. [[Fish]] can be caught just as readily in small, shallow, and/or player-created pools, both aboveground and underground.
+
+The [[wiktionary:bobber|bobber]] must be watched closely. Small splashes can be seen around the bobber. 
+
+Once the bobber hits water, the wait time is determined, and the player must wait for a random period between 5 and 30 seconds (100 to 600 ticks at 20 [[Tick|ticks]] per second) before the hook catches something.
+* Each level of the [[Lure]] enchantment on a fishing rod subtracts 5 seconds from both the minimum and maximum wait time. If it causes the wait time to be less than 0, a new wait time is generated in the next tick.
+* If the bobber is not directly exposed to [[sun]] or [[Moon|moonlight]], the wait time is approximately doubled (each tick has a 50% chance of not decrementing the count). For direct exposure, all [[Block|blocks]] above the bobber must be [[Opacity|transparent]] to sunlight, such as [[glass]] and [[carpet]]. Blocks that diffuse [[:en:Light#Sky_light|sky light]], such as [[ice]] and [[leaves]], will block direct exposure. The presence of [[Cloud|clouds]] or [[Rain|rainfall]] has no effect on direct exposure. 
+* If the bobber's block is being rained on, the wait time is reduced by approximately {{Fraction|1|5}} (each tick has a 25% chance of counting down 2 instead of 1). The bobber must be located in a [[biome]] where it is currently raining and all blocks above it must not block movement (e.g. [[torch]], [[tripwire]]).
+
+After the wait period has passed, a trail of fishing [[particles]] appear, approaching the bobber in a serpentine path (provided that the Particles [[Options#Video Settings|Video Setting]] is not set to Minimal). After 1 to 4 seconds the particles reach the bobber, the bobber dips below the surface, and the player has approximately half a second{{only|be}} or evenly-distributed one to two seconds{{Only|java}} to reel in the line before the waiting time resets. Removing the bobber from water during this interval secures the caught item on the line.
+
+Upon a successful reel-in:
+* A [[raw cod]], [[raw salmon]], [[pufferfish (item)|pufferfish]], [[tropical fish]], junk, or a treasure item appears (see [[Fishing#Junk and treasure|junk and treasure]] below), flies toward the player, and is added to the player's inventory. If the player's [[inventory]] is full, the item will drop on the ground. While the item normally flies directly to the player's position, the item may hit blocks positioned between the bobber and the player, causing it to bounce off at an angle. 
+* The rod's durability is reduced by 1 point. This can vary depending on the circumstances; see [[#Fishing rod durability|below]].
+* An [[experience orb]] worth 1–6 experience points spawns at the position of the player. Consequently, a [[Mending]]-enchanted [[fishing rod]] used only for fishing never wears out, repairing itself if damaged.
+
+If the player wanders more than 32 blocks away from the bobber, or if the player stops holding a fishing rod, the bobber and fishing line disappear with no durability reduction to the rod.
+
+The bobber floats up to the water's surface even if the fishing rod is used from underwater unless it hooks onto a [[mob]] such as [[squid]] or is obstructed by a block.
+
+[[Fish]] mobs do not attempt to bite the fish hook and bobber, but can be hooked and reeled as with other mobs.
+
+== Junk and treasure ==
+The fishing rod can occasionally catch treasure or junk instead of fish. A fishing rod without the [[Luck of the Sea]] enchantment has an 85% chance of catching fish, a 10% chance of catching junk, and a 5% chance of catching treasure. Each level of the Luck of the Sea enchantment increases the chance of catching a treasure at the expense of reducing the chances of catching fish and junk. The [[Luck]] status effect grants the same benefit.
+
+To catch items in the treasure category, the bobber must be in open water, defined as the 5×4×5 vicinity around the bobber resting on the water surface (2 blocks away horizontally, 2 blocks above the water surface, and 2 blocks deep). Each horizontal layer in this area must consist only of [[air]] and [[lily pad]]s ''or'' [[water]] source blocks, [[waterlogged]] blocks without collision (such as signs, kelp, or coral fans), and [[bubble column]]s. These conditions are checked every [[tick]] to determine if the player is eligible to receive treasure from a fishing attempt. If the conditions are not met, only items in the fish and junk categories can be obtained from fishing.
+
+{| class="wikitable mw-collapsible col-1-left col-2-center col-3-center col-4-center col-5-center col-6-center col-7-center"
+|+Catch possibilities outside Jungle biomes
+|-
+! Category
+! Chance in category<ref group="note" name="Enchantments">This does not vary depending on enchantments.</ref>
+! Unenchanted<br />chance
+! [[Luck of the Sea|LotS]] 1
+! [[Luck of the Sea|LotS]] 2
+! [[Luck of the Sea|LotS]] 3
+|-
+! Fish !! Weight !! 85% !! 84.8% !! 84.7% !! 84.5%
+|-
+|{{ItemLink|Raw Cod}}|| | 60% || 51.0% || 50.9% || 50.8% || 50.7%
+|-
+|{{ItemLink|Raw Salmon}}|| | 25% || 21.3% || 21.2% || 21.2% || 21.1%
+|-
+|{{ItemLink|link=Tropical Fish (item)|Tropical Fish}}|| | 2% || 1.7% || 1.7% || 1.7% || 1.7%
+|-
+|{{ItemLink|link=Pufferfish (item)|Pufferfish}}|| | 13% || 11.1% || 11.0% || 11.0% || 11.0%
+|-
+! Treasure !! Weight !! 5% !! 7.1% !! 9.2% !! 11.3%
+|-
+|{{ItemLink|Bow}}<ref group="note" name="Treasure">Bows and Fishing Rods caught from the Treasure category are enchanted at a random level between 22-30, but also badly damaged. Enchantment probabilities are the same as a level-30 enchantment on an [[enchanting table]]. These can also include [[Enchantment mechanics#Treasure|treasure enchantments]] that are unavailable via an enchanting table.</ref>|| 16.7% ({{frac|1|6}}) || 0.8% || 1.2% || 1.5% || 1.9%
+|-
+|{{ItemLink|Enchanted book}}<ref group="note" name="EnchantedBooks">Enchantment probabilities are the same as a level-30 enchantment on an [[enchanting table]], but the chance of multiple enchantments is not reduced. These can also include [[Enchantment mechanics#Treasure|treasure enchantments]] that are unavailable via an enchanting table.</ref>|| 16.7% ({{frac|1|6}}) || 0.8% || 1.2% || 1.5% || 1.9%
+|-
+|{{ItemSprite|fishing-rod}} [[Fishing Rod]]<ref group="note" name="Treasure" />|| 16.7% ({{frac|1|6}}) || 0.8% || 1.2% || 1.5% || 1.9%
+|-
+|{{ItemLink|Name Tag}}|| 16.7% ({{frac|1|6}}) || 0.8% || 1.2% || 1.5% || 1.9%
+|-
+|{{ItemLink|Nautilus Shell}}|| 16.7% ({{frac|1|6}}) || 0.8% || 1.2% || 1.5% || 1.9%
+|-
+|{{ItemLink|Saddle}}|| 16.7% ({{frac|1|6}}) || 0.8% || 1.2% || 1.5% || 1.9%
+|-
+! Junk !! Weight !! 10% !! 8.1% !! 6.1% !! 4.2%
+|-
+|{{BlockLink|Lily Pad}}|| 17% || 1.7% || 1.4% || 1.0% || 0.7%
+|-
+|{{ItemLink|Bowl}}|| | 10% || 1.0% || 0.8% || 0.6% || 0.4%
+|-
+|{{ItemSprite|fishing-rod}} [[Fishing Rod]]<ref group="note" name="Junk">Fishing Rods and Leather Boots caught from the Junk category are 10%–100% damaged, and always unenchanted.</ref>|| | 2% || 0.2% || 0.2% || 0.1% || 0.1%
+|-
+|{{ItemLink|Leather}}|| | 10% || 1.0% || 0.8% || 0.6% || 0.4%
+|-
+|{{ItemLink|Leather Boots}}<ref group="note" name="Junk" />|| | 10% || 1.0% || 0.8% || 0.6% || 0.4%
+|-
+|{{ItemLink|Rotten Flesh}}|| | 10% || 1.0% || 0.8% || 0.6% || 0.4%
+|-
+|{{ItemLink|Stick}}|| | 5% || 0.5% || 0.4% || 0.3% || 0.2%
+|-
+|{{ItemLink|String}}|| | 5% || 0.5% || 0.4% || 0.3% || 0.2%
+|-
+|{{ItemLink|Water Bottle}}|| | 10% || 1.0% || 0.8% || 0.6% || 0.4%
+|-
+|{{ItemLink|Bone}}|| | 10% || 1.0% || 0.8% || 0.6% || 0.4%
+|-
+|{{ItemLink|Ink Sac}} (10) || | 1% || 0.1% || 0.1% || 0.1% || 0.04%
+|-
+|{{BlockLink|Tripwire Hook}}|| | 10% || 1.0% || 0.8% || 0.6% || 0.4%
+|}
+
+{| class="wikitable mw-collapsible col-1-left col-2-center col-3-center col-4-center col-5-center col-6-center col-7-center"
+|+Catch possibilities in Jungle biomes<ref group="note" name="jungle biomes">This table presents the loot possibilities that differ from the above table for a player fishing in one of the following biomes: Jungle, Sparse jungle, and Bamboo jungle. Items listed in the above table but not the table below remain unchanged regardless of the biome in which the player is fishing.
+The percentages for Unenchanted chance and Luck of the Sea of Junk item may be inaccurate.</ref>
+|-
+! Category
+! Chance in category<ref group="note" name="Enchantments"></ref>
+! Unenchanted<br />chance
+! [[Luck of the Sea|LotS]] 1
+! [[Luck of the Sea|LotS]] 2
+! [[Luck of the Sea|LotS]] 3
+|-
+! Fish<ref group="note" name="jungle-fish">{{IN|bedrock}}, cod and salmon are the only fish that can be caught in [[jungle]] biomes and variants.</ref>!! Weight !! 85% !! 84.8% !! 84.7% !! 84.5%
+|-
+|{{ItemLink|Raw salmon}}|| | 40%{{only|bedrock|short=1}}|| 34.0%{{only|bedrock|short=1}}|| 33.9%{{only|bedrock|short=1}}|| 33.9%{{only|bedrock|short=1}}|| 33.8%{{only|bedrock|short=1}}
+|-
+! Junk !! Weight !! 10% !! 8.1% !! 6.1% !! 4.2%
+|-
+|{{BlockLink|Lily Pad}}|| 14.2% ({{frac|17|120}}){{only|bedrock|short=1}} <br> 15.5% ({{frac|17|110}}){{only|java|short=1}}|| 1.4%{{only|bedrock|short=1}} <br> 1.5%{{only|java|short=1}}|| 1.1%{{only|bedrock|short=1}} <br> 1.2%{{only|java|short=1}}|| 0.9%|| 0.6%
+|-
+|{{ItemLink|Bamboo}}|| | 8.3% ({{frac|10|120}}){{only|bedrock|short=1}} <br> 9.1% ({{frac|10|110}}){{only|java|short=1}}|| 0.8%{{only|bedrock|short=1}} <br> 0.9%{{only|java|short=1}}|| 0.7%|| 0.5%{{only|bedrock|short=1}} <br> 0.6%{{only|java|short=1}}|| 0.3%{{only|bedrock|short=1}} <br> 0.4%{{only|java|short=1}}
+|-
+|{{ItemLink|Cocoa Beans}}{{only|bedrock|short=1}}|| | 8.3% ({{frac|10|120}}) || 0.8% || 0.7% || 0.5% || 0.3%
+|-
+|{{ItemLink|Bowl}}|| | 8.3% ({{frac|10|120}}){{only|bedrock|short=1}} <br> 9.1% ({{frac|10|110}}){{only|java|short=1}}|| 0.8%{{only|bedrock|short=1}} <br> 0.9%{{only|java|short=1}}|| 0.7%|| 0.5%{{only|bedrock|short=1}} <br> 0.6%{{only|java|short=1}}|| 0.3%{{only|bedrock|short=1}} <br> 0.4%{{only|java|short=1}}
+|-
+|{{ItemSprite|fishing-rod}} [[Fishing Rod]]<ref group="note" name="Junk"></ref>|| | 1.7% ({{frac|2|120}}){{only|bedrock|short=1}} <br> 1.8% ({{frac|2|110}}){{only|java|short=1}}|| 0.2%<br>|| 0.2%<br>|| 0.1%<br>|| 0.1%<br>
+|-
+|{{ItemLink|Leather}}|| | 8.3% ({{frac|10|120}}){{only|bedrock|short=1}} <br> 9.1% ({{frac|10|110}}){{only|java|short=1}}|| 0.8%{{only|bedrock|short=1}} <br> 0.9%{{only|java|short=1}}|| 0.7%|| 0.5%{{only|bedrock|short=1}} <br> 0.6%{{only|java|short=1}}|| 0.3%{{only|bedrock|short=1}} <br> 0.4%{{only|java|short=1}}
+|-
+|{{ItemLink|Leather Boots}}<ref group="note" name="Junk" />|| | 8.3% ({{frac|10|120}}){{only|bedrock|short=1}} <br> 9.1% ({{frac|10|110}}){{only|java|short=1}}|| 0.8%{{only|bedrock|short=1}} <br> 0.9%{{only|java|short=1}}|| 0.7%|| 0.5%{{only|bedrock|short=1}} <br> 0.6%{{only|java|short=1}}|| 0.3%{{only|bedrock|short=1}} <br> 0.4%{{only|java|short=1}}
+|-
+|{{ItemLink|Rotten Flesh}}|| | 8.3% ({{frac|10|120}}){{only|bedrock|short=1}} <br> 9.1% ({{frac|10|110}}){{only|java|short=1}}|| 0.8%{{only|bedrock|short=1}} <br> 0.9%{{only|java|short=1}}|| 0.7%|| 0.5%{{only|bedrock|short=1}} <br> 0.6%{{only|java|short=1}}|| 0.3%{{only|bedrock|short=1}} <br> 0.4%{{only|java|short=1}}
+|-
+|{{ItemLink|Stick}}|| | 4.2% ({{frac|5|120}}){{only|bedrock|short=1}} <br> 4.5%  ({{frac|5|110}}){{only|java|short=1}}|| 0.4%{{only|bedrock|short=1}} <br> 0.5%{{only|java|short=1}}|| 0.3%{{only|bedrock|short=1}} <br> 0.4%{{only|java|short=1}}|| 0.3%|| 0.2%
+|-
+|{{ItemLink|String}}|| | 4.2% ({{frac|5|120}}){{only|bedrock|short=1}} <br> 4.5%  ({{frac|5|110}}){{only|java|short=1}}|| 0.4%{{only|bedrock|short=1}} <br> 0.5%{{only|java|short=1}}|| 0.3%{{only|bedrock|short=1}} <br> 0.4%{{only|java|short=1}}|| 0.3%|| 0.2%
+|-
+|{{ItemLink|Water Bottle}}|| | 8.3% ({{frac|10|120}}){{only|bedrock|short=1}} <br> 9.1% ({{frac|10|110}}){{only|java|short=1}}|| 0.8%{{only|bedrock|short=1}} <br> 0.9%{{only|java|short=1}}|| 0.7%|| 0.5%{{only|bedrock|short=1}} <br> 0.6%{{only|java|short=1}}|| 0.3%{{only|bedrock|short=1}} <br> 0.4%{{only|java|short=1}}
+|-
+|{{ItemLink|Bone}}|| | 8.3% ({{frac|10|120}}){{only|bedrock|short=1}} <br> 9.1% ({{frac|10|110}}){{only|java|short=1}}|| 0.8%{{only|bedrock|short=1}} <br> 0.9%{{only|java|short=1}}|| 0.7%|| 0.5%{{only|bedrock|short=1}} <br> 0.6%{{only|java|short=1}}|| 0.3%{{only|bedrock|short=1}} <br> 0.4%{{only|java|short=1}}
+|-
+|{{ItemLink|Ink Sac}} (10) || | 0.8% ({{frac|1|120}}){{only|bedrock|short=1}} <br> 0.9% ({{frac|1|110}}){{only|java|short=1}}|| 0.1%<br>|| 0.1%<br>|| 0.1%<br>|| 0.03%{{only|bedrock|short=1}} <br> 0.04%{{only|java|short=1}}
+|-
+|{{BlockLink|Tripwire Hook}}|| | 8.3% ({{frac|10|120}}){{only|bedrock|short=1}} <br> 9.1% ({{frac|10|110}}){{only|java|short=1}}|| 0.8%{{only|bedrock|short=1}} <br> 0.9%{{only|java|short=1}}|| 0.7%|| 0.5%{{only|bedrock|short=1}} <br> 0.6%{{only|java|short=1}}|| 0.3%{{only|bedrock|short=1}} <br> 0.4%{{only|java|short=1}}
+|}
+
+==== Notes ====
+<references group="note" />
+
+== Fishing rod durability ==
+{{See also|Fishing Rod#Usage}}
+
+The [[fishing rod]] has 64 units of durability in ''Java Edition'' and 384 units in ''Bedrock Edition''. Each use costs 1 point, and the rod breaks when all durability is consumed. The number of uses can be increased if the [[Unbreaking]] or [[Mending]] enchantments are applied.
+* Reeling in while the bobber is in the air or in the water with nothing caught on it costs no durability.
+* Reeling in and successfully catching fish, junk or treasure costs 1 durability.
+* Reeling in while the bobber is stuck in a solid block costs 2 durability.
+* Reeling in a dropped item costs 3 durability.
+* Reeling in an entity that is not a dropped item costs 5 durability.
+* A fishing rod with the [[Mending]] enchantment effectively has infinite durability from incrementally repairing itself if used for fishing only, and the player isn't wearing damaged Mending armor or holding a damaged Mending item in the offhand.
+
+The durability cost is subtracted on reel-in, rather than on hooking. Therefore, no penalty is levied for switching to another item or dropping the rod instead of reeling in.
+
+== History ==
+{{History|java alpha}}
+{{History||v1.2.0|snap=?[[Category:Information needed requiring unarchived version]]|slink=none|Added fishing.
+|The algorithm is as follows: each tick has a {{frac|1|500}} chance of catching a [[fish]], with an average time between catches of 346 ticks.}}
+{{History|java beta}}
+{{History||1.5|Added [[rain]], which improves chances of catching a fish. During a rainstorm, each tick has a {{frac|1|300}} chance to catch a fish, reducing the average time between catches from 346 ticks to 207 ticks, a 40% decrease.}}
+{{History|java}}
+{{History||1.4.2|snap=12w37a|Fishing now gives the [[player]] [[experience]] with each [[fish]] caught.}}
+{{History||1.7.2|snap=13w36a|Fishing rewards and mechanics have been massively changed, with new rewards including [[enchanted book]]s, [[saddle]]s, enchanted [[fishing rod]]s, [[name tag]]s, and such.
+|Fishing now shows [[particle]]s when a [[fish]] is approaching the bobber.
+|There is now a chance of fishing "bad" items (junk) such as [[stick]]s, [[bone]]s, and such.}}
+{{History||1.9|snap=15w43c|The Lure enchantment no longer affects the chances of catching things, only the delay.
+|The Luck of the Sea enchantment is broken due to a typo in the new fishing loot table.
+|Fished junk is now less damaged (0%–90% durability remaining) while treasure is more damaged (0%–25% durability remaining).
+|Ink sacs can now be caught singly with weight 10 (formerly a stack of 10 with weight 1).}}
+{{History||1.11|snap=16w38a|[[Ink sac]] chances have been changed from 10 chances for 1 ink sac to 1 chance for 10 ink sacs.}}
+{{History||1.13|snap=18w15a|Added [[nautilus shell]]s, obtainable as a treasure [[item]] when fishing.}}
+{{History||1.14|snap=18w43a|Added [[bamboo]], obtainable as a junk [[item]] when fishing in jungles.}}
+{{History||1.16|snap=20w12a|Treasure can now be obtained only through fishing in open water.
+|Open water is defined as a 5×4×5 area around the bobber, in which only air, water source blocks, or waterlogged blocks without collision can be present.
+|[[Tripwire]], [[bubble column]]s, and [[lily pad]]s all invalidate open water.}}
+{{History|||snap=20w13a|Open water is now calculated differently.
+|Each layer in the area around the bobber is checked, and each layer must have only air ''or'' water (or similar).
+|Bubble columns no longer invalidate water layer checks and lily pads no longer invalidate air layer checks.}}{{History|||snap=20w21a|[[Lily pad]]s now are junk loot instead of treasure.}}
+
+{{History|pocket alpha}}
+{{History||March 13, 2015|link={{tweet|darngeek|576460492291457024}}|[[Daniel Wustenhoff]] tweets an image of the [[player]] fishing.}}
+{{History||v0.11.0|snap=build 1|Added fishing.}}
+{{History||v0.12.1|snap=build 1|Fishing rewards can now be [[enchantment|enchanted]] upon capture ([[enchanted book]]s, etc).
+|Fishing now reward [[experience]].}}
+{{History||v0.13.0|snap=build 1|[[Tripwire hook]]s are now obtainable from fishing.}}
+{{History||v0.15.0|snap=build 1|Added [[name tag]]s, which can be obtained from fishing.}}
+{{History|bedrock}}
+{{History||1.4.0|snap=beta 1.2.20.1|Added [[nautilus shell]]s, obtainable as a treasure [[item]] when fishing.}}
+{{History||1.8.0|snap= beta 1.8.0.8|Fishing loot has been changed in [[jungle]]s. When fishing in a jungle [[biome]], the [[fish]] rewarded are now [[raw cod]] and [[raw salmon]] only. 
+|Added [[bamboo]], obtainable as a junk [[item]] when fishing in jungles.
+|[[Cocoa bean]] can now be obtained as junk item when fishing in jungles.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|Added fishing.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|Fishing now has [[particle]] effects - bubbles appear moving toward the bobber, just before the [[player]] has something on the hook. This has the appearance of a [[fish]] swimming toward the hook.
+|Treasure and junk [[item]]s can now be caught while fishing.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+== Trivia ==
+
+* If the players casts the bobber into a waterfall, the bobber floats up the waterfall until it reaches the top and remains there until the player either pulls it back in or catches fish on the line. If a [[fish]] is caught on the line, the bobber then falls down the waterfall.
+* The [[player]] can catch fish even if occupying the same block space as the bobber.
+* The [[player]] can freely switch between fishing rods after casting the bobber, with the enchantments on the casting rod being preserved in the bobber. This means that one rod can hook an item and another can reel it in, and the durability cost is subtracted from the rod currently equipped.
+* The [[player]] can obtain the [[achievement]] 'Cow Tipper' from reeling in [[leather]]{{only|bedrock|short=1}}.
+* If the bobber is too close to the land, the small splashes, as well as the trail of particles heading toward the bobber, can be seen on the land.
+* The player can fish while using the fishing rod in the off-hand slot.{{only|java|short=1}}
+* When in third person mode, the [[fishing rod]] is hidden, but the line and bobber are still shown.
+
+{{gameplay}}
+
+[[de:Fischerei]]
+[[es:Pesca]]
+[[ja:釣り]]
+[[ko:낚시]]
+[[pt:Pesca]]
+[[ru:Рыбалка]]
+[[th:การตกปลา]]
+[[uk:Рибальство]]
+[[zh:钓鱼]]

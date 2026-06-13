@@ -1,0 +1,169 @@
+{{exclusive|java}}
+{{Entity
+| imagesize = 295px
+| image = Zombie JE3 BE2.png
+| health = {{hp|100}}
+| damage = Easy: {{hp|26}}<br>Normal: {{hp|50}}<br>Hard: {{hp|75}}
+| size = Height: 12 blocks<br>Width: 3.6 blocks
+| spawn = Light level of 11 or above and light level of 8 or below simultaneously.<br>Conditions cannot be met in vanilla.
+| behavior = Hostile <small>(no AI)</small>
+}}
+
+'''Giants''' are [[Java Edition unused features|unused]], over-sized mobs that look like [[zombie]]s.
+
+== Drops ==
+
+A giant drops {{xp|5}} when killed and has a chance of dropping some of its equipment if it has any.
+
+== Spawning == 
+
+No biome includes giants on their spawn lists, so they can never spawn naturally.
+
+Additionally, giants simultaneously require a light level greater than 11 and less than 8. This effectively makes it impossible to make them appear through [[monster spawner]]s.
+
+Giants also have no spawn egg in the Creative inventory.
+
+=== Commands ===
+Giants can be spawned using commands such as {{cmd|summon minecraft:giant}}.
+
+== Behavior ==
+
+Giants are close to 12 blocks tall, and it uses a six-times-enlarged [[zombie]] model.
+
+Because giants are not actually undead, they do not burn in sunlight and they are damaged by [[potions of harming]]. [[Iron golem]]s attack giants as they attack other hostile mobs.
+
+Giants also do not convert into drowned when submerged in water. Instead, they slowly suffocate and die. 
+
+Giants currently have no AI. The consequence of this is that they always face south when summoned, and they always stay that way, never wandering. They cannot turn their head, chase the player, or respond to damage. A giant can never receive knockback, and a giant's viewing direction can be changed only with commands or by shoving it into a minecart that faces a different direction.
+
+Giants can move if ridden by another mob using [[Tutorials/Command NBT tags|NBT tags]].
+
+== Sounds ==
+Giants use the Hostile Creatures sound category for entity-dependent sound events.
+{{Sound table
+|rowspan=2
+|sound=Player hurt1.ogg
+|sound2=Player hurt2.ogg
+|sound3=Player hurt3.ogg
+|subtitle=Dying
+|source=hostile
+|description=When a giant dies
+|id=entity.hostile.death
+|translationkey=subtitles.entity.generic.death
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|subtitle=Something hurts
+|source=hostile
+|description=When a giant is damaged
+|id=entity.hostile.hurt
+|translationkey=subtitles.entity.generic.hurt
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{ID table
+|generatetranslationkeys=java
+|displayname=Giant
+|spritetype=entity
+|nameid=giant
+|foot=1}}
+
+=== Entity data ===
+
+{{see also|Entity format}}
+Giants have entity data associated with them that contain various properties.
+
+{{/ED}}
+
+== History ==
+
+{{History|java indev}}
+{{History||0.31|snap=20100205|[[File:Giant JE1.png|50px]] Added giants.
+|Giants act like any normal hostile [[mob]] – they walk toward the [[player]] until they are touching them. However, the giant is not able to "touch" anything unless standing on top of it, making it hard for them to do combat against opponents.}}
+{{History|java infdev}}
+{{History||?|[[File:Steve.png|50px]] Giants have been changed to use the human skin. This is known to be present in the source code of Inf-20100316 and possibly earlier/later versions.}}
+{{History||?|The previous change has been reverted.}}
+{{History|java}}
+{{history||1.0.0|snap=RC1|The hurt [[sound]]s that giants make have been changed since they were using the same sound that is used when the [[player]] is hurt. Any physical [[damage]] now plays a "tick" sound, and damage from falling now plays sounds like that sound like bones breaking, as in previous versions, whenever the giant was damaged, they would make a deep "Ooh!" sound.}}
+{{history||1.4.2|snap=12w38a|The hurt sounds for giants have been changed once again as a result of the player hurt sounds changing.}}
+{{History||1.7.2|snap=13w36a|Giants can now be spawned without mods by using the new {{cmd|summon}} [[command]].}}
+{{History||1.8|snap=14w06a|[[Armor]] on giants is now rendered. This originated from a bug in [[Java Edition 14w05a|14w05a]], which caused all [[mob]]s to render worn armor. In repairing this bug, [[Grum]] has now allowed giants to render armor.
+|Giants' AI has been removed.}}
+{{History||1.11|snap=16w32a|The [[entity]] ID of giants has been changed from <code>Giant</code> to <code>giant</code> like with all other entities in this version.}}
+{{History||1.14|snap=18w43a|[[File:Zombie JE3 BE2.png|50px]] The texture of giants have been changed as a result of the zombie texture change.}}
+{{History|||snap=18w50a|Giants now use [[zombie]] AI (for instance, they move and burn in [[sun]]light) and NBT data.
+|Giants now have the [[zombie]] hurt [[sound]] effect.
+|Giants no longer have the [[player]] hurt sound effect.
+|Giants now move twice as fast as zombies and burn in the [[sun]].
+|Giants now attack and infect [[villager]]s.
+|[[File:Baby Zombie JE2 BE2.png|25px]]Giants now also have a baby variant.
+|[[File:18w50a Giant Jockey.png|25px]]Giants now also have a chicken jockey variant.}}
+{{History|||snap=19w03a|The giant changes in snapshot [[Java Edition 18w50a|18w50a]] have been reverted.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=none|wiiu=none|[[File:Giant JE1.png|50px]] Added giants.
+|Giants cannot be spawned without modifying the game.}}
+{{History|foot}}
+
+== Issues ==
+
+Giants are an unsupported mob and as such issues relating to them may not be fixed.
+
+== Trivia ==
+
+* Because giants need to have a [[light]] level both less than 8 and greater than 11 to spawn, they don't spawn from [[monster spawner]]s. However, this spawn condition can be bypassed with a custom monster spawner, if it attempts to spawn an [[entity]] with valid spawn conditions riding a giant.
+* If the [[player]] names a giant using a [[name tag]], its name appears inside its head.
+* Changes made to the zombie model (for example, using a [[resource pack]]) change the giant's as well.
+* Notch mentioned Giant Zombies as a suggestion for a prefix mob along with other examples: "Burning Spider" and "Cobble Creeper" in a Bro-craft stream.
+* [[Notch]] removed the giants spawning capabilities because "they are too overpowered". He did not remove them entirely because "they are just too cool to remove".
+* If a giant is riding a [[minecart]], it hovers ''way'' above it.
+* If a [[mob]] is riding a giant, unless it's a large [[slime]] or [[magma cube]], a [[ghast]], or the [[ender dragon]], it is hidden inside the giant's head.
+* Players are unable to attack a giant's head and torso unless they are positioned near the bottom of the giant. Projectiles such as arrows can hit these areas as normal.
+* Giants, being capable of dealing {{hp|26}} to {{hp|75}}, and having {{hp|100}} health, are capable of killing players without armor in one hit even in [[Easy]] difficulty.
+* Killing a giant cannot give the [[player]] the Monster Hunter [[Advancement]].
+
+== Gallery ==
+<gallery>
+Giant and Zombie.png|A giant next to a normal size [[zombie]].
+MinecartGiant.png|A giant "riding" a [[minecart]].
+Giant in a cave.png|A giant in a [[cave]].
+GiantsWithEquipment.png|Two giants summoned wearing equipment.
+GiantBurning.png|A giant burning in a pool of [[lava]].
+Giant being damaged by potion.png|A giant getting damaged by a [[splash potion]] of harming.
+A giant.png|A giant in the middle of a [[plains]] [[biome]].
+Giant Spawner.png|A giant [[monster spawner]].
+UsingZombieAI.png|In [[18w50a]], a giant using the [[zombie]] AI.
+Village and Pillage Armored Giant.png|A giant that spawned with a [[chainmail]] [[helmet]] and an iron shovel spawned in [[18w50a]].
+A giant from a player's view.png|A giant mob being seen from a player.
+Giant & Golem.jpg|A giant and an iron golem.
+</gallery>
+
+{{Entities}}
+{{Unused Features}}
+[[Category:Hostile mobs]]
+[[Category:Unused mobs‎]]
+[[Category:Monster mobs]]
+[[cs:Obr]]
+[[de:Riese]]
+[[es:Gigante]]
+[[fr:Géant]]
+[[hu:Óriás]]
+[[ja:ジャイアント]]
+[[ko:거인]]
+[[nl:Reus]]
+[[pl:Gigant]]
+[[pt:Gigante]]
+[[ru:Гигант]]
+[[tr:Dev]]
+[[uk:Велетень]]
+[[zh:巨人]]
+[[Category:Monster characters]]
+[[Category:Monster Room structure subpages]]
+[[Category:Xilefian screenshots]]
+[[Category:Pages with missing sprites]]
+[[Category:Pages using deprecated sprite names]]

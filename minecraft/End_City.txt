@@ -1,0 +1,470 @@
+{{Structure
+| title = End City
+| image = EndCityEntrance.png
+| biome = * {{BiomeLink|End Midlands}}{{only|java}} 
+* {{BiomeLink|End Highlands}}{{only|java}} 
+* {{BiomeLink|The End|link=The End (biome)}}{{only|be}}
+| blocks = * {{BlockLink|Chest}}
+* {{BlockLink|End Rod}}
+* {{BlockLink|End Stone Bricks}}
+* {{BlockLink|Ender Chest}}
+* {{BlockLink|Magenta Wall Banner}}
+* {{BlockLink|Ladder}}
+* {{BlockLink|Magenta Stained Glass}}
+* {{BlockLink|Purpur Block}}
+* {{BlockLink|Purpur Slab}}
+* {{BlockLink|Purpur Stairs}}
+* {{BlockLink|Purpur Pillar}}
+* {{EntityLink|Shulker}}
+}}'''End cities''' are castle-like [[structures]] found on the outer islands of [[the End]]. They are inhabited by [[shulker]]s and hold [[End city#Loot|loot]] among the most valuable in the game.
+== Generation ==
+
+End cities naturally generate all over the End's [[The End#Outer Islands|outer islands]]. They can easily be accessed by entering the [[End gateway|end gateway portal]], but it is possible to cross the gap between the islands in other ways. They generate on the large islands, where [[Chorus plant|chorus trees]] grow. If the end gateway portal teleports the player to a small island, the player can get to the nearest large island by building, using [[elytra]], or throwing [[ender pearl]]s.
+
+End cities usually generate in flat areas, in "midlands" or "highlands" biomes, which are found on larger islands. One may find several cities clustered together, or travel for thousands of blocks before finding one. Unlike other structures, End cities are generated in a noticeable grid. They are located only in chunks numbered 0-8 ± a multiple of 20. For example one possible "cell" for an End city to be generated in is x_chunks=0-8 and z_chunks=80-88 which is equivalent to the coordinates x=0-128 and z=1280-1408. There can never be an End city at for example z=961-1279 or z=1409-1599 because it is outside any "cell".{{Note|1=Relevant code: 
+<pre>
+int i = chunkX;
+int j = chunkZ;
+if (chunkX < 0) chunkX -= 19;
+if (chunkZ < 0) chunkZ -= 19;
+int k = chunkX / 20;
+int l = chunkZ / 20;
+Random random = this.worldObj.setRandomSeed(k, l, 10387313);
+k = k * 20;
+l = l * 20;
+k = k + (random.nextInt(9) + random.nextInt(9)) / 2;
+l = l + (random.nextInt(9) + random.nextInt(9)) / 2;
+return i == k && j == l && this.endProvider.isIslandChunk(i, j);</pre>}}
+
+== Structure ==
+{{main|/Structure}}
+[[File:InsideEndCity.png|thumb|right|A view inside an End city tower.]]
+[[File:EndCityTreasure2.png|thumb|right|A treasure room with both a regular [[chest]] and an [[ender chest]].]]
+
+End cities consist of tall skyscraper-like towers constructed out of [[end stone bricks]] and [[purpur block]]s. An End city may generate as a single tower by itself, or as a sprawling complex of inter-connected towers and pathways branching from a main tower. [[End rod]]s and [[ender chest]]s are the only source of light. Many shulkers spawn around the city, and guard its various treasures. Decorative [[banner]]s hang at the tops of some towers.
+
+Several types of rooms can be found in an End city, and several different floors, including:
+
+* '''Base floors''', which are empty floors found at the base of every city; they are three stories tall, with each room wider than the one below it.
+* '''Banner rooms''' that have banners hanging on the outside, and a [[shulker]] attached to the ceiling.
+* '''Small rooms''' that have nothing in them at all.
+* '''Large rooms''' that have precarious parkour-like staircases often leading up to another tower or a loot room.
+* '''Loot rooms''' that consist of two [[chest]]s with valuable [[#Loot|loot]] at the end of a small parkour area; some rooms may have one normal chest next to an [[ender chest]] instead.
+
+There are two types of towers:
+
+* '''Small towers''' that are hollow, consisting of a single [[purpur slab]] spiral staircase of sorts.
+* '''Skyscrapers''' that consist of a treacherous double spiral staircase made of [[purpur slab]]s and [[end rod]]s; many shulkers spawn here. 
+
+[[File:EndCityBanners.png|thumb|right|[[Banner]]s flying on top of a small tower.]]
+{{-}}
+
+== End Ship ==
+
+{{For|the ocean structure|Shipwreck}}
+
+{{Structure
+| title = End Ship
+| image = End Ship.png
+| biome = * {{BiomeLink|End Midlands}}{{only|java}}
+* {{BiomeLink|End Highlands}}{{only|java}}
+* {{BiomeLink|The End (biome)|The End}}{{only|Bedrock}}
+| blocks = * {{BlockLink|Brewing Stand}}
+* {{BlockLink|Chest}}
+* {{BlockLink|Dragon Wall Head}}
+* {{BlockLink|End Rod}}
+* {{BlockLink|End Stone Bricks}}
+* {{BlockLink|Ladder}}
+* {{BlockLink|Magenta Stained Glass}}
+* {{BlockLink|Obsidian}}
+* {{BlockLink|Purpur Block}}
+* {{BlockLink|Purpur Pillar}}
+* {{BlockLink|Purpur Slab}}
+* {{BlockLink|Purpur Stairs}}
+* {{EntityLink|Item Frame}}
+* {{EntityLink|Shulker}}
+}}
+
+An '''end ship''' is a floating, boat-like structure found alongside End cities. It is relatively small, but holds even more valuable treasure than the city itself.
+
+=== Generation ===
+
+Each direction of every tower of the End city has a 50% chance of generating a bridge, and the bridge itself has a 12.5% chance to generate an end ship.
+
+When generated, the stern of the ship always faces toward the city and the bow always faces away. It generates in front of a bridge with a gated arch at the end, from which one can throw an [[ender pearl]] to reach the ship, or build a bridge.
+
+=== Structure ===
+{{main|End City/Structure/Ship}}
+
+The end ship is made of [[end stone bricks]] and [[purpur block]]s, just like the city's main towers. Their design resembles that of European square rig sailing ships, commonly seen during the golden age of exploration. Three [[shulker]]s spawn on the ship; one on the main deck, one behind the stern of the ship, and one in the treasure room.
+
+==== Main Deck ====
+
+The ship's main deck amounts to less than half of the walkable space on the ship. A [[ladder]] leads up the mast to an empty crow's nest, about 20 blocks high. There are no sails connected to the mast. 
+
+A [[dragon head]] sits at the bow of the ship, making this the only way to obtain the dragon head in [[Survival]] mode. There are two small staircases on the outside; one that leads up to the empty upper deck, and one that leads to the cabin below.
+
+==== Aftercastle ====
+
+The aftercastle contains a [[brewing stand]] sitting on a small table, with two [[Potion of Healing|Instant Health II potions]]. Another staircase leads below deck to the ship's "hotspot"; the treasure room.
+
+==== Treasure Room ====
+
+The floor of the treasure room is lined with [[obsidian]]. There are four small windows on the sides. It contains two [[End city#Loot|loot chests]] and an [[item frame]] holding a pair of [[elytra]] wings; this is the only way to obtain elytra in Survival mode. A [[shulker]] guards the elytra and the two loot chests. 
+
+<gallery>
+File:LonelyEndShip.png|An end ship.
+File:EndPierNew.png|The bridge that leads to the end ship.
+File:EndShipBow.png|The [[dragon head]], with the city in the background.
+File:EndShipBrewingRoom.png|The sterncastle of the ship. The doorway in the back leads to the treasure room. a [[Brewing Stand|brewing stand]] can be seen.
+File:ShipTreasure15w41b.png|The treasure room, where a [[shulker]] guards the [[elytra]].
+File:Treasure Room No Shulker.png|The treasure room, only without the shulker.
+</gallery>
+
+== Structure details ==
+
+One may access the individual structures of an End city by utilizing [[structure block]]s to manually load city structures from the <code>data/minecraft/structures/end_city</code> folder in [[minecraft.jar]]. To do so, set a structure block to Load mode, enter <code>end_city/''StructureName''</code> and press LOAD. The names of these structures and a small description is provided below:
+
+{| class="wikitable collapsible"
+! scope="col" style="width: 200px" | Structure name
+! scope="col" style="width: 250px" | Description
+! scope="col" style="width: 200px" | Consists of
+! scope="col" style="width: 250px" | Images
+|-
+|{{cd|end_city/base_floor}}
+|A small room with 2 [[Shulker|Shulkers]] guarding the entrance. Forms the entrance of End cities as well as the "empty rooms" found higher up in the city.
+|
+68 {{BlockLink|Purpur Block}}<br>
+54 {{BlockLink|End Stone Bricks}}<br>
+12 {{BlockLink|Magenta Stained Glass}}<br>
+12 {{BlockLink|Purpur Pillar}}<br>
+2 {{BlockLink|Purpur Stairs}}<br>
+2 {{EntityLink|Shulker}}
+|
+[[File:end_city__base_floor.png|center|200px]]
+|-
+|{{cd|end_city/base_roof}}
+|The roof generated on top of base rooms.
+|
+100 {{BlockLink|Purpur Block}}<br>
+44 {{BlockLink|Purpur Stairs}}<br>
+4 {{BlockLink|End Rod}}
+|
+[[File:end_city__base_roof.png|center|220px]]
+|-
+|{{cd|end_city/bridge_end}}
+|The small arch that forms the end and start of bridges, pointing toward End ships, or connecting to other rooms.
+|
+21 {{BlockLink|Purpur Block}}<br>
+4 {{BlockLink|Purpur Slab}}<br>
+3 {{BlockLink|Purpur Stairs}}<br>
+2 {{BlockLink|End Rod}}<br>
+1 {{BlockLink|Purpur Pillar}}
+|
+[[File:end_city__bridge_end.png|center|120px]]
+|-
+|{{cd|end_city/bridge_gentle_stairs}}
+|Stairs on a bridge built at a small incline.
+|
+42 {{BlockLink|Purpur Block}}<br>
+22 {{BlockLink|Purpur Stairs}}<br>
+12 {{BlockLink|Purpur Slab}}<br>
+2 {{BlockLink|Purpur Pillar}}
+|
+[[File:end_city__bridge_gentle_stairs.png|center|180px]]
+|-
+|{{cd|end_city/bridge_piece}}
+|A straight piece of bridge.
+|
+20 {{BlockLink|Purpur Block}}<br>
+10 {{BlockLink|Purpur Stairs}}<br>
+4 {{BlockLink|Purpur Pillar}}
+|
+[[File:end_city__bridge_piece.png|center|180px]]
+|-
+|{{cd|end_city/bridge_steep_stairs}}
+|Stairs on a bridge built at a steep incline.
+|
+24 {{BlockLink|Purpur Stairs}}<br>
+15 {{BlockLink|Purpur Block}}<br>
+2 {{BlockLink|Purpur Pillar}}
+|
+[[File:end_city__bridge_steep_stairs.png|center|180px]]
+|-
+|{{cd|end_city/fat_tower_base}}
+|The entrance to the large towers. Preceded by an opening with a single slab.
+|
+84 {{BlockLink|Purpur Pillar}}<br>
+80 {{BlockLink|Purpur Block}}<br>
+4 {{BlockLink|End Rod}}<br>
+4 {{BlockLink|Purpur Stairs}}<br>
+3 {{BlockLink|Purpur Slab}}
+|
+[[File:end_city__fat_tower_base.png|center|200px]]
+|-
+|{{cd|end_city/fat_tower_middle}}
+|The center of the large tower, lined with the purpur slab and end rod spiral staircase.
+|
+164 {{BlockLink|Purpur Pillar}}<br>
+62 {{BlockLink|Purpur Block}}<br>
+8 {{BlockLink|End Rod}}<br>
+8 {{BlockLink|Purpur Slab}}<br>
+8 {{BlockLink|Purpur Stairs}}<br>
+4 {{EntityLink|Shulker}}
+|
+[[File:end_city__fat_tower_middle.png|center|200px]]
+|-
+|{{cd|end_city/fat_tower_top}}
+|The "loot room" of the large tower, generated with 2 chests in the corner and a staircase to the roof.
+|
+352 {{BlockLink|Purpur Block}}<br>
+131 {{BlockLink|Purpur Stairs}}<br>
+106 {{BlockLink|End Stone Bricks}}<br>
+26 {{BlockLink|Magenta Stained Glass}}<br>
+18 {{BlockLink|Purpur Pillar}}<br>
+9 {{BlockLink|Purpur Slab}}<br>
+4 {{BlockLink|End Rod}}<br>
+2 {{BlockLink|Chest}}
+|
+[[File:end_city__fat_tower_top.png|center|220px]]
+|-
+|{{cd|end_city/second_floor_1}}
+|The second floor of the base tower, preceded by a purpur slab staircase. The room is otherwise empty.
+|
+95 {{BlockLink|Purpur Block}}<br>
+84 {{BlockLink|End Stone Bricks}}<br>
+44 {{BlockLink|Purpur Stairs}}<br>
+16 {{BlockLink|Magenta Stained Glass}}<br>
+12 {{BlockLink|Purpur Pillar}}<br>
+7 {{BlockLink|Purpur Slab}}<br>
+4 {{BlockLink|End Rod}}
+|
+[[File:end_city__second_floor_1.png|center|220px]]
+|-
+|{{cd|end_city/second_floor_2}}
+|Begins with a small spiral staircase in the center, with a small "statue" made of stairs in the upper corner.
+|
+82 {{BlockLink|End Stone Bricks}}<br>
+70 {{BlockLink|Purpur Block}}<br>
+54 {{BlockLink|Purpur Stairs}}<br>
+14 {{BlockLink|Magenta Stained Glass}}<br>
+12 {{BlockLink|Purpur Pillar}}<br>
+9 {{BlockLink|Purpur Slab}}<br>
+4 {{BlockLink|End Rod}}<br>
+1 {{EntityLink|Shulker}}
+|
+[[File:end_city__second_floor_2.png|center|220px]]
+|-
+|{{cd|end_city/second_roof}}
+|Similar in structure to base_roof, but slightly larger.
+|
+144 {{BlockLink|Purpur Block}}<br>
+52 {{BlockLink|Purpur Stairs}}<br>
+4 {{BlockLink|End Rod}}
+|
+[[File:end_city__second_roof.png|center|220px]]
+|-
+|{{cd|end_city/ship}}
+|The End ship.
+|
+557 {{BlockLink|Purpur Block}}<br>
+175 {{BlockLink|Purpur Stairs}}<br>
+97 {{BlockLink|Purpur Pillar}}<br>
+36 {{BlockLink|End Stone Bricks}}<br>
+26 {{BlockLink|Obsidian}}<br>
+14 {{BlockLink|Ladder}}<br>
+7 {{BlockLink|Magenta Stained Glass}}<br>
+7 {{BlockLink|Purpur Slab}}<br>
+6 {{BlockLink|End Rod}}<br>
+2 {{BlockLink|Chest}}<br>
+1 {{BlockLink|Brewing Stand}} with two [[Potion|Instant Health II Potions]]<br>
+1 {{BlockLink|Dragon Head}}<br>
+1 {{EntityLink|Item Frame}} with {{ItemLink|Elytra}}<br>
+3 {{EntityLink|Shulker}}
+|
+[[File:end_city__ship.png|center|220px]]
+|-
+|{{cd|end_city/third_floor}}
+|A purpur pillar structure sits in the center, surrounded by purpur stairs. Preceded by a purpur slab staircase.
+|
+140 {{BlockLink|Purpur Block}}<br>
+90 {{BlockLink|End Stone Bricks}}<br>
+64 {{BlockLink|Purpur Stairs}}<br>
+32 {{BlockLink|Magenta Stained Glass}}<br>
+18 {{BlockLink|Purpur Pillar}}<br>
+7 {{BlockLink|Purpur Slab}}<br>
+4 {{BlockLink|End Rod}}
+|
+|-
+|{{cd|end_city/third_floor_1}}
+|An unused room, preceded by two sets of ladders. Bizarre checkerboard-style flooring with 4 shulkers guarding this room.
+|
+140 {{BlockLink|Purpur Block}}<br>
+90 {{BlockLink|End Stone Bricks}}<br>
+64 {{BlockLink|Purpur Stairs}}<br>
+32 {{BlockLink|Magenta Stained Glass}}<br>
+18 {{BlockLink|Purpur Pillar}}<br>
+7 {{BlockLink|Purpur Slab}}<br>
+4 {{BlockLink|End Rod}}
+|
+[[File:end_city__third_floor_1.png|center|220px]]
+|-
+|{{cd|end_city/third_floor_2}}
+|The second loot room, with a regular chest and an ender chest.
+|
+132 {{BlockLink|Purpur Block}}<br>
+98 {{BlockLink|End Stone Bricks}}<br>
+56 {{BlockLink|Purpur Stairs}}<br>
+24 {{BlockLink|Magenta Stained Glass}}<br>
+12 {{BlockLink|Purpur Pillar}}<br>
+6 {{BlockLink|End Rod}}<br>
+1 {{BlockLink|Chest}}<br>
+1 {{BlockLink|Ender Chest}}<br>
+2 {{EntityLink|Shulker}}
+|
+[[File:end_city__third_floor_2.png|center|220px]]
+|-
+|{{cd|end_city/third_roof}}
+|Similar in structure to base_roof and second_roof, but is even larger.
+|
+196 {{BlockLink|Purpur Block}}<br>
+60 {{BlockLink|Purpur Stairs}}<br>
+4 {{BlockLink|End Rod}}
+|
+[[File:end_city__third_roof.png|center|220px]]
+|-
+|{{cd|end_city/tower_base}}
+|Entrance to the small tower with a ladder preceding it.
+|
+40 {{BlockLink|Purpur Block}}<br>
+39 {{BlockLink|Purpur Pillar}}<br>
+4 {{BlockLink|Purpur Slab}}<br>
+4 {{BlockLink|Purpur Stairs}}<br>
+3 {{BlockLink|Ladder}}
+|
+[[File:end_city__tower_base.png|center|200px]]
+|-
+|{{cd|end_city/tower_floor}}
+|Similar in structure to tower_base, but the ladder entrance is replaced with a solid floor.
+|
+36 {{BlockLink|Purpur Pillar}}<br>
+28 {{BlockLink|Purpur Stairs}}<br>
+21 {{BlockLink|Purpur Block}}<br>
+3 {{BlockLink|Purpur Slab}}
+|
+[[File:end_city__tower_floor.png|center|180px]]
+|-
+|{{cd|end_city/tower_piece}}
+|The middle of the small tower, with a purpur slab spiral staircase.
+|
+36 {{BlockLink|Purpur Pillar}}<br>
+12 {{BlockLink|Purpur Block}}<br>
+4 {{BlockLink|Purpur Slab}}<br>
+4 {{BlockLink|Purpur Stairs}}
+|
+[[File:end_city__tower_piece.png|center|140px]]
+|-
+|{{cd|end_city/tower_top}}
+|The roof of the small tower, with banners hanging from the sides.
+|
+66 {{BlockLink|Purpur Block}}<br>
+56 {{BlockLink|Purpur Stairs}}<br>
+26 {{BlockLink|End Stone Bricks}}<br>
+12 {{BlockLink|Purpur Pillar}}<br>
+8 {{BlockLink|Magenta Banner|text=Magenta Banner<br>with Black Chevrons}}<br>
+6 {{BlockLink|Magenta Stained Glass}}<br>
+4 {{BlockLink|End Rod}}<br>
+2 {{BlockLink|Purpur Slab}}<br>
+1 {{EntityLink|Shulker}}
+|
+[[File:end_city__tower_top.png|center|220px]]
+|}
+
+== Loot ==
+{{LootChest|end-city}}
+{{notelist}}
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load advancements|The City at the End of the Game}}
+</table-progress-tracking>
+
+== History ==
+{{History||June 22, 2015|link=https://instagram.com/p/4ObC5EpMOO/|[[Jeb]] reveals the mysterious End city structure on [[wikipedia:Instagram|Instagram]], with the words "[[MINECON 2015]] HYPE!"}}
+{{History||July 5, 2015|link=https://www.twitch.tv/mojang/v/6949826?t=13h40m25s|[[Structure block]]s were used to manually generate End cities during MINECON 2015.}}
+{{History|Java}}
+{{History||1.9|snap=15w31a|Added End cities.
+|As a leftover testing feature, a [[beacon]] with the [[Speed]] status effect can be found on end ships.<ref>{{tweet|Searge|626793834815582208|Beacon in End city ships are planned for removal.|Jul 30, 2015}}</ref>}}
+{{History|||snap=15w32c|[[Beacon]]s in end ships have been replaced by [[pumpkin]]s.
+|[[End ship]]s now generate with a [[dragon head]] at the bow.}}
+{{History|||snap=15w33c|[[Pumpkin]]s in end ships have been replaced by a [[hopper]] that contains a [[written book|book]], written by [[Searge]], titled "Work in Progress". It reads: "We will have something else here soon...".}}
+{{History|||snap=15w41a|The [[iron block]]s, [[book]], and [[hopper]] have been removed, so that the floor consists of [[obsidian]] and [[purpur block]]s.
+|A pair of [[elytra]] wings now hangs in an [[item frame]] above the [[shulker]] guarding the two treasure chests.}}
+{{History||1.11|snap=16w39a|Cursed [[enchanting|enchantments]] can now appear on items in End city [[chest]]s.
+|End cities can now be located using the {{cmd|/locate}} command.}}
+{{History||1.20<br>(Experimental)|link=1.19.4|snap=23w04a|[[Spire armor trim]]s are now found in end city chests.}}
+{{History|||snap=23w05a|Increased the chance of [[spire armor trim]]s from 4.7% to 6.7%.}}
+
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Added End cities. They spawn without [[banner]]s and spawn with regular [[glass]] instead of magenta [[glass]].}}
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|End cities now normally spawn with [[banner]]s. 
+They also now spawn with magenta [[glass]] instead of regular [[glass]].}}
+{{History|console}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|switch=1.0.1|Added End cities.}}
+{{History|new 3ds}}
+{{History||1.7.10|Added End cities.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+== Trivia ==
+
+* Some End city rooms are structured similarly to [[wikipedia:Pagoda|traditional Asian pagodas]]. Jeb had visited the [[wikipedia:Summer Palace|Summer Palace]] before the release of [[15w31a]].<ref>https://instagram.com/p/3D07UJpMOr/</ref><ref>{{tweet|jeb_|603175853795758080}}</ref>
+* The banners atop the towers have a magenta and black pattern that resembles the [[missing texture]]: [[File:Missing Texture.png|32px]]
+* End cities can be over 100 blocks tall.
+* End cities, [[Ancient City|ancient cities]], and [[bastion remnant]]s are the only places where players can find enchanted [[diamond]] gear, and one of only two ways to obtain them other than by enchanting, the other being trading with a weaponsmith, toolsmith, or armorer [[villager]].
+* On the end ship, there is a hole in the crow's nest atop of the mast, which is directly above a piece of magenta [[stained glass]] on the ship's deck. This is a relic feature from the early days of the ship's development, when the main loot inside the ship was a [[beacon]] that shoots its beam through the magenta glass and the hole in the crow's nest, creating a magenta beam. Although the beacon was replaced with the [[elytra]], the magenta glass and the hole remained unchanged.
+
+== Gallery ==
+<gallery>
+MineconEndCity.png|An image released on [[Jeb]]'s [[wikipedia:Instagram|Instagram]] reveals a mysterious structure now known as an End City.
+Combat Update.png|An end city appears in the background of the official [[Java Edition 1.9]] poster.
+End City.png|An end city and an [[end ship]] as seen from afar (before [[15w32c]]).
+CityEntrance.png|The entrance to the city, which is guarded by two [[Shulker|shulkers]].
+EndRoom2.png|A room with a complex staircase, which often has two treasure [[Chest|chests]] at the top.
+EndCityTreasure.png|A treasure room.
+EndBridge1.png|A hanging bridge with stairs, connecting one tower to another.
+SteepBridge2.png|Another bridge, but this one is much steeper.
+ATaleOfTwoCities.png|Two cities generated within a relatively short distance.
+LonelyEndShip.png|An end ship drifts lazily into the [[void]].
+SingleTower.png|A single tower that generated by itself.
+HugeEndCity.png|A large end city.
+In End City.png|A view of an end ship from one of the bridges.
+EnderHouseplant.png|A [[chorus tree]] generated inside of a room.
+Jackpot.png|5 end cities generated nearby. Note that there is also four end ships generated near each end city too.
+ElytraEnd.png|[[Elytra]] and loot chests being guarded by a shulker.
+Small End City.png|Smallest possible end city.
+2 endcities generated close to each other.png|2 end cities next to each other.
+End City Glass.png|A magenta stained glass window in an end city.
+End City Uncentered.jpg|End cities aren't centered.
+</gallery>
+
+== References ==
+{{reflist}}
+
+{{Generated structures}}
+
+[[de:Endsiedlung]]
+[[es:Ciudad del End]]
+[[fr:Cité de l'End]]
+[[ja:エンドシティ]]
+[[ko:엔드 도시]]
+[[nl:Endstad]]
+[[pl:Miasto Endu]]
+[[pt:Cidade do End]]
+[[ru:Город Края]]
+[[tr:End Şehri]]
+[[zh:末地城]]

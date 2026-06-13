@@ -1,0 +1,14 @@
+<div class="treeview">
+* {{nbt|compound}} Block entity data
+** {{nbt inherit/blockentity}}
+** {{:Chunk format/Nameable}}
+** {{nbt|list|Items}}: List of items in this container.
+*** {{nbt|compound}}: An item, including the slot tag.
+**** {{nbt inherit/item|indent=****}}
+** {{:Chunk format/Lockable}}
+** {{nbt|string|LootTable}}: Optional. [[Loot table]] to be used to fill the hopper when it is next opened, or the items are otherwise interacted with. Note that the loot table is used when the hopper tries to push items, when it's enabled.<ref name="loot" group="note">Both loot table tags are removed once the items have been generated.</ref>
+** {{nbt|long|LootTableSeed}}: Optional. Seed for generating the [[loot table]]. 0 or omitted uses a random seed.<ref name="loot" group="note" />
+** {{nbt|int|TransferCooldown}}: Time until the next transfer in [[game tick]]s, naturally between 1 and 8 or 0 if there is no transfer.
+</div><references group="note" /><noinclude>
+[[Category:Block entity pages]]
+</noinclude>
