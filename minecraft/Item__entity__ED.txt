@@ -1,0 +1,12 @@
+<div class="treeview" style="margin-top: 0;">
+* {{nbt|compound}} Entity data
+** {{nbt inherit/entity}}
+** {{nbt|short|Age}}: The number of ticks the item has been "untouched". After 6000 ticks (5 minutes) the item is destroyed. If set to -32768, the Age does not increase, preventing the item from despawning automatically.
+** {{nbt|short|Health}}: The health of the item, which starts at 5. Items take damage from fire, lava, cacti and explosions. The item is destroyed when its health reaches 0.
+** {{nbt|compound|Item}}: The inventory item, without the Slot tag.
+*** {{nbt inherit/itemnoslot|indent=***}}
+** {{nbt|int-array|Owner}}: If present, only the player with this [[UUID]] can pick up the item. Used by the [[Commands/give|give command]] (and can be set in a summon command) to prevent the wrong player from picking up the spawned item entity.
+** {{nbt|short|PickupDelay}}: The number of ticks the item cannot be picked up. Decreases by 1 per tick. If set to 32767, the PickupDelay does not decrease, preventing the item from being picked up.
+** {{nbt|int-array|Thrower}}: The [[UUID]] of the player who dropped the item. Not present if the item was not dropped by a player.
+</div><noinclude>
+[[Category:Entity data pages]]</noinclude>

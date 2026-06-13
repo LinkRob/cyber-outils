@@ -1,0 +1,120 @@
+{{Effect
+|title={{EffectSprite|levitation}} Levitation
+|image=Levitation.png
+|sources=See [[#Causes]]
+|particle= {{EffectSprite|particle-levitation}} #CEFFFF (sky blue)
+|type=Negative
+}}
+
+'''Levitation''' is a status [[effect]] that causes [[entities]] to levitate, inflicted when entities are shot by [[shulker]]s.
+
+== Effect ==
+Levitation causes the affected entity to float upward at a rate of 0.9×level [[block]]s per second{{verify|bedrock}}. This does not affect [[swimming]] or [[flying]].
+
+{{IN|java}}, negative levels cause the entity to float downward, overriding the usual falling due to gravity; level 0 (amplifier 255) makes falling, jumping and ascending [[stairs]] impossible. When damaged by a projectile or anything, this makes the player go higher in the air on level 255.
+
+An affected entity does not take [[fall damage]] until the effect wears off, after which the entity falls and takes damage from falling (if it is not immune to fall damage). 
+
+Levitation has no effect on entities [[riding]] other entities. It also has no effect on entities that are in [[water]] or [[lava]].{{only|java}}<ref name=MCPE-76143>{{bug|MCPE-76143|||WAI}}</ref><ref>{{bug|MC-83369}}</ref>
+
+== Causes ==
+{| class="wikitable" data-description="Causes"
+ ! Cause
+ ! Potency
+ ! Length
+ ! Notes
+ |-
+ | {{EntityLink|Shulker}}
+ | I
+ | 0:10
+ | 9 blocks{{Only|java}}
+ |-
+ | {{EntityLink|Shulker}}
+ | II
+ | 0:10
+ | 18 blocks{{Only|bedrock}}
+ |}
+
+== Immune mobs ==
+
+Only [[wither]]s and [[ender dragon]]s are immune to the effect. While [[shulker]]s and flying mobs can have Levitation, they are not affected. [[Blaze]]s can be affected by Levitation when not hovering.
+
+== Notes ==
+
+Mobs tied with [[balloon]]s{{only|education|bedrock}} exhibit behavior similar to if they had a high level of Levitation. However, this mechanic does not use the Levitation effect.
+
+{{IN|bedrock}}, blocking a shulker projectile with a shield still gives the player Levitation. It is unknown if this intended.
+
+If a player is given a Levitation level over 127, they instead fall down at a fast or slow rate, depending on the value.{{only|java}}
+
+If a player is given Levitation 255, they will hover on their current y level, being unable to move up or down.{{Only|Java}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=java
+|displayname=Levitation
+|spritetype=effect
+|nameid=levitation
+|id=25
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Levitation
+|spritetype=effect
+|nameid=levitation
+|id=24
+|foot=1}}
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Great View From Up Here}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|Great View From Up Here;How Did We Get Here?}}
+</table-progress-tracking>
+
+== History ==
+
+{{History|java}}
+{{History||1.9|snap=15w31a|[[File:Levitation JE1 BE1.png|18px]] Added Levitation.}}
+{{History||1.14|snap=18w43a|[[File:Levitation JE2 BE2.png|18px]] The effect icon texture of Levitation has been changed.}}
+{{History||1.16|snap=20w19a|Levitation now works when the player is gliding with elytra.<ref>{{bug|MC-89956|||Fixed}}</ref>}}
+{{History||1.20|snap=23w16a|[[Sniffer]]s no longer dig while having the Levitation effect.}}
+
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|[[File:Levitation JE1 BE1.png|18px]] Added Levitation.}}
+{{History|bedrock}}
+{{History||1.11.0|snap=beta 1.11.0.1|[[File:Levitation JE2 BE2.png|18px]] The effect icon texture of Levitation has been changed.}}
+{{History||1.13.0|snap=?|The effect now works in water and lava.<ref name=MCPE-76143/>}}
+
+{{History|console}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|switch=1.0.1|[[File:Levitation JE1 BE1.png|18px]] Added Levitation.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Levitation JE2 BE2.png|18px]] The effect icon texture of Levitation has been changed.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+== Trivia ==
+* The Levitation status effect normally raises the entity into the [[air]], unless the entity is in water.
+* The [[player]] can walk or run while having the Levitation effect, especially on level 254.
+* Using {{cmd|effect <player> minecraft:levitation <"infinite" or "time in seconds"> 255}} makes the [[player]] [[flying|fly]] in Survival and not jump, when the effect is over in Survival when in midair, hitting the ground causes the player to shoot into the [[air]], resulting in a likely death.
+* If a player uses {{command|effect}} command to self-grant Levitation 256, the player moves at 230.4 blocks per second.
+
+== References ==
+{{Reflist}}
+
+{{Effects}}
+
+[[ja:浮遊]]
+[[pt:Levitação]]
+[[zh:飘浮]]

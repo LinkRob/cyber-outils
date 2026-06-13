@@ -1,0 +1,122 @@
+{{for|developmental versions of Infdev 20100227-1|Java Edition Infdev 20100227-1/Development}}
+{{version nav
+| title = Minecraft Infdev
+| image = Infdev 20100227-1419.png
+| edition = java
+| planned = 1
+| prefix = Server
+| name = The Start of Infinite Development
+| type = 
+| date = February 27, 2010
+| clienthash = Client
+| clientdl = https://archive.org/download/inf-20100227-1433_202406
+| jsonhash = https://archive.org/download/inf-20100227-1433
+| clientmap = 
+| prev = [https://minecraft.fandom.com/wiki/Java_Edition_Indev_20100223 Indev 20100223]
+| next = [https://minecraft.fandom.com/wiki/Java_Edition_Infdev_20100227-2 Infdev 20100227-2]
+}}
+
+The first version of '''[[Minecraft Infdev]]''' was released on '''February 27, 2010''', at 14:19 UTC.<ref name="maps">[[wordofnotch:415398931|"Here, try some infinite maps"]] – [[The Word of Notch]], February 27, 2010</ref>
+
+== Additions ==
+
+=== Items ===
+; [[File:Golden Apple JE1 BE1.png|32px]] [[Golden Apple]]s
+* Restores {{Hp|20}} health, making it the best food in the game at the time.
+* Crafted from 8 [[blocks of gold]] surrounding an apple, which are still unobtainable making the item also unobtainable.
+
+=== World generation ===
+{{see also|Java Edition distance effects/Historical effects}}
+; General
+* Worlds can now generate infinitely
+* At X/Z: +1,024/-512, the skybox around the world stops rendering, giving way to a blank light blue sky. At around X/Z: 65,536 blocks away, the hitbox begins to lose its shape. At X/Z: 131,072, the gaps between chunks begin to become jumpy and distorted. These effects begin to double every exponent of two that the player walks from here. At X/Z: 2,097,152, the effects become so severe that the world seems to not render completely at certain angles. At X/Z ±16,777,216 (the point where 32-bit floating points stop having odd numbers), blocks are no longer solid, allowing the player to fall and hit a layer of lava, however the player can still swim through water. At X/Z ±33,554,432, this version's "Far Lands" start to generate. At X/Z ±2,147,483,647 (32-bit integer limit), terrain disappears completely. Unlike modern versions, the game does not crash or freeze. Instead, the world just cuts off without any negative effects.
+* The terrain generates much like it did during [[Classic]].
+* The world now only generates grass, dirt, stone, water and dandelions for the terrain, and bricks and obsidian for generated structures.
+
+; [[Java Edition Far Lands/Up to Infdev 20100325|Far Lands]]
+* As the world now generates infinitely (or at least to 32-bit integer limit), the world generation breaks at X/Z ±33,554,432, making all terrain go to maximum possible height.
+* Are a giant wall of stone blocks that go from sea level to the height limit.
+
+; [[Brick pyramid]]s
+* Generates at the exact same positions regardless of world seed. The closest one to spawn is near X 500, Z 500.
+
+; [[Obsidian wall]]s
+* Generate at 0 on X and Z axes.
+* Used to mark the center of a world.
+
+=== General ===
+; [[Sky]]
+* A 1536&times;1536 test skybox, which is completely blue (hex: {{color|#0000FF}}). It spans from X/Z: -512 to +1024. Clouds also only exist between X/Z: -512 to +512
+
+== Changes ==
+=== General ===
+; [[Debug screen]]
+* "T" value no longer displays values.
+** "O", "E", "B". and "I" values no longer function.
+=== Blocks ===
+; General
+* Blocks no longer update on their own.
+** This means that sand and gravel do not fall, crops and saplings do not grow, sponges do not work, and liquids do not spread.
+
+; [[File:Sand JE2 BE1.png|32px]] [[Sand]] and [[File:Gravel JE2 BE1.png|32px]] [[gravel]]
+* No longer generate in the map and are now unobtainable by normal means.
+
+=== Items ===
+; [[Painting]]s
+* Changed the [[crafting]] recipe to use [[stick]]s instead of [[plank]]s.
+
+;[[File:Apple JE1 BE1.png|32px]] [[Apple]]s
+* Changed texture from [[File:Golden Helmet (item) JE1 BE1.png|32px]]
+
+=== Gameplay ===
+; [[Inventory]]
+* The player now spawns with 999 [[glass]] and 990 [[planks]] in their [[hotbar]] in new worlds.
+
+; Map configuration
+* [[Map theme]], [[map shape]], and [[map type]] no longer have any effect, as all Infdev maps are of the same type.
+
+; Level saving
+* Level saving is no longer functional, as saving a level produces an empty <samp>[[.mclevel]]</samp> file.
+
+=== Entities ===
+* [[Mobs]] no longer spawn, third person view does not render the player (although the camera is still pulled out), blocks no longer drop anything, and dropping items effectively deletes them.
+
+== Removals ==
+=== General ===
+; Debug screen
+* Removed "L" lighting update value.
+
+* [[Indev house]]
+* [[Daylight cycle]]
+* Dynamic lighting
+* [[Cave]]s
+* [[Tree]]s
+* [[Ore]] generation
+* [[Mob]]s
+* [[World boundary]]
+* Music
+* Isometric Screenshots
+
+== Bugs ==
+* The [[player]] can place a [[block]] inside themselves.
+* The skybox cuts off after a while.
+* [[Chest]]s and [[furnaces]] crash the game when opened, with a NullPointerException being thrown.
+* Some blocks do not display their textures when placed (fire, gears, torches, crops). They can still be selected though.
+* Furnaces do not have a face.
+* [[Fire]] cannot be extinguished normally. Punching the fire instead punches the block behind it. Mining the block below it turns the fire invisible, though it is still there. Placing a block on the fire (replacing the fire with the block) will remove the fire.
+* Torches cannot be placed on the sides of a block.
+
+== Trivia ==
+* An early developer screenshot showed this version marked as "[[Minecraft Indev]]".<ref>[[wordofnotch:414322017|Progress update on infinite maps]] – The Word of Notch, February 27, 2010</ref>
+* This is the first time the world height was decreased.
+
+== References ==
+{{Reflist}}3.   https://youtube.com/watch?v=bFigFw17hXg
+<nowiki/>{{Java Edition versions|Infdev}}
+
+[[es:Java Edition Infdev 20100227-1]]
+[[fr:Infdev 20100227-1]]
+[[pt:Edição Java Infdev 20100227-1]]
+[[ru:Infdev 20100227]]
+[[zh:Java版Infdev 20100227-1]]
+[[ja:Java Edition Infdev 20100227-1]]

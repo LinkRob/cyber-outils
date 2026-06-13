@@ -1,0 +1,26 @@
+<div class="treeview" style="margin-top: 0;">
+* {{nbt|compound}} Entity data
+** {{nbt inherit/entity}}
+** {{nbt|int|Age}}: Age of the field. Increases by 1 every tick. When this is bigger than <code>Duration</code> + <code>WaitTime</code> the area effect cloud dissipates.
+** {{nbt|int|Color}}: The color of the displayed particle. Uses the same format as the '''color''' tag from [[Player.dat format#Display Properties|Display Properties]].
+** {{nbt|int|Duration}}: The maximum age of the field after <code>WaitTime</code>.
+** {{nbt|int|DurationOnUse}}: The amount the duration of the field changes upon applying the effect.
+** {{nbt|list|Effects}}: A list of the applied [[effect]]s.
+*** {{nbt|compound}} An individual effect.
+**** {{nbt|byte|Ambient}}: 1 or 0 (true/false) - whether or not this is an effect provided by a beacon and therefore should be less intrusive on the screen. Optional, and defaults to false. Due to a bug, it has no effect on splash potions.
+**** {{nbt|byte|Amplifier}}: The amplifier of the effect, with level I having value 0.  Negative levels are discussed [[Status effect#negativelevels|here]]. Optional, and defaults to level I.
+**** {{nbt|int|Duration}}: The duration of the effect in [[tick]]s.  Values 0 or lower are treated as 1.  Optional, and defaults to 1 tick.
+**** {{nbt|byte|Id}}: The [[Data values#Status effects|numeric ID of the effect]].
+**** {{nbt|byte|ShowIcon}}: 1 or 0 (true/false) - true if effect icon is shown. false if no icon is shown.
+**** {{nbt|byte|ShowParticles}}: 1 or 0 (true/false) - whether or not this effect produces particles. Optional, and defaults to true. Due to a bug, it has no effect on splash potions.
+** {{nbt|int-array|Owner}}: The [[UUID]] of the entity who created the cloud, stored as four ints.
+** {{nbt|string|Particle}}: The [[particle]] displayed by the field. This is the exact same as used in the {{cmd|particle}} command, including additional parameters used for particles, for example <code>dust 1 0 0 1</code>.
+** {{nbt|string|Potion}}: The name of the default potion effect. See [[Potion#Item data|potion data values]] for valid IDs.
+** {{nbt|float|Radius}}: The field's radius.
+** {{nbt|float|RadiusOnUse}}: The amount the radius changes upon applying the effect. Normally negative.
+** {{nbt|float|RadiusPerTick}}: The amount the radius changes per tick. Normally negative.
+** {{nbt|int|ReapplicationDelay}}: The number of ticks before reapplying the effect.
+** {{nbt|int|WaitTime}}: The time before deploying the field. The <code>Radius</code> is ignored, meaning that any specified effects is not applied and specified particles appear only at the center of the field, until <code>Age</code> hits this number.
+</div><noinclude>
+[[Category:Entity data pages]]
+</noinclude>

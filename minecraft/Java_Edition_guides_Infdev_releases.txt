@@ -1,0 +1,312 @@
+{{Guide nav
+|edition=java
+|vers={{vl|je Infdev|Infdev}}
+|next=Alpha 1.0 releases
+|prev=Indev releases
+}}
+{{Wip}}
+This guide is a simplified overview of all the changes in the {{edition|java}} [[Java Edition Infdev|Infdev]] releases, which assumes at least some familiarity with Indev releases.
+
+==Blocks==
+===New===
+{|{{Simple Guide table|New Blocks}}
+|-
+|[[Door]]
+|[[File:Oak Door (Right) JE4 BE1.png|84px]]
+|
+{{Crafting
+|name=[[Wood Door]]
+|A1= Oak Planks
+|B1= Oak Planks
+|A2= Oak Planks
+|B2= Oak Planks
+|A3= Oak Planks
+|B3= Oak Planks
+|Output= Oak Door
+|type= Redstone
+}}
+|
+*Axe
+|
+*Can be opened and closed.
+|-
+|[[Ladder]]
+|[[File:Ladder (S) JE2 BE1.png|84px]]
+|
+{{Crafting
+|A1= Stick
+|C1= Stick
+|A2= Stick
+|B2= Stick
+|C2= Stick
+|A3= Stick
+|C3= Stick
+|Output= Ladder
+|type= Decoration block
+}}
+|
+*Axe
+|
+*Can be used to climb upwards.
+|-
+|[[Rail]]
+|[[File:Rail (NS) JE1.png|84px]]
+|
+{{Crafting
+|A1= Iron Ingot |C1= Iron Ingot
+|A2= Iron Ingot |B2= Stick |C2= Iron Ingot
+|A3= Iron Ingot |C3= Iron Ingot
+|Output= Rail,16
+|type= Transportation
+}}
+|
+*Pickaxe
+|
+*Can be used to make minecart tracks.
+|-
+|[[Spawner]]
+|[[File:Spawner JE1.png|84px]]
+|
+*Generates in dungeons.
+|
+*Pickaxe
+|
+*Spawns zombies, skeletons or spiders around it.
+|-
+|[[Wood Stairs]]
+|{{Animate|Oak Stairs (N) JE1 BE1.png|84px}}
+|
+{{Crafting
+|name=[[Wood Stairs]]
+|A1= Oak Planks
+|A2= Oak Planks
+|B2= Oak Planks
+|A3= Oak Planks
+|B3= Oak Planks
+|C3= Oak Planks
+|Output= Oak Stairs,4
+|type= Building block
+}}
+|
+*Axe
+|
+*Allows you to walk upwards without jumping.
+|-
+|[[Stone Stairs]]
+|[[File:Cobblestone Stairs (N) JE1 BE1.png|84px]]
+|
+{{Crafting
+|A1= Cobblestone
+|A2= Cobblestone
+|B2= Cobblestone
+|A3= Cobblestone
+|B3= Cobblestone
+|C3= Cobblestone
+|Output= Cobblestone Stairs,4
+|type= Building block
+}}
+|
+*Pickaxe
+|
+*Allows you to walk upwards without jumping.
+|}
+
+===Changed===
+{|{{Simple Guide table|Changed Blocks}}
+|-
+|[[Sign]]
+|[[File:Oak Standing Sign (S) JE1 BE1.png|84px]]
+|
+*Is now a block instead of an entity.
+*Can now display custom text.
+*Now craftable:
+{{Crafting
+|A1= Oak Planks
+|B1= Oak Planks
+|C1= Oak Planks
+|A2= Oak Planks
+|B2= Oak Planks
+|C2= Oak Planks
+|B3= Stick
+|Output=Oak Sign
+|type=Decoration block
+}}
+|-
+|[[Water]] and [[Lava]]
+|{{Animate|Water JE11.gif;Lava JE11.gif|84px}}
+|
+* [[Liquids]] now flow as they do currently.
+*Water and lava now form [[stone]], [[cobblestone]] or [[obsidian]] upon contact.
+* [[Spring]]s of water or lava can now randomly generate on stone surfaces.
+|-
+|[[Sand]] and [[Gravel]]
+|{{Animate|Sand JE2.png;Gravel JE2 BE1.png|84px}}
+|
+*Sand and Gravel now fall if there is no block underneath.
+|}
+
+==Items==
+===New===
+{|{{Simple Guide table|New Items}}
+|-
+|[[Golden Apple]]
+|[[File:Golden Apple JE1 BE1.png|84px]]
+|
+{{Crafting
+|A1= Block of Gold
+|B1= Block of Gold
+|C1= Block of Gold
+|A2= Block of Gold
+|B2= Apple
+|C2= Block of Gold
+|A3= Block of Gold
+|B3= Block of Gold
+|C3= Block of Gold
+|Output= Golden Apple
+|type= Foodstuff
+}}
+*Found in dungeon chests.
+|
+*Can be eaten to fully restore the player's health.
+|-
+|[[Bucket]]
+|[[File:Bucket JE1 BE1.png|84px]]
+|
+{{Crafting
+ |A2= Iron Ingot
+ |C2= Iron Ingot
+ |B3= Iron Ingot
+ |Output= Bucket
+ |type= Miscellaneous
+}}
+*Found in dungeon chests.
+|
+*Can be used to pick up liquids.
+|-
+|[[Water Bucket]]
+|[[File:Water Bucket JE1 BE1.png|84px]]
+|
+* Using a bucket on a water source block empties the block and fills the bucket.
+|
+* Can be used to place water source blocks.
+|-
+|[[Lava Bucket]]
+|[[File:Lava Bucket JE1 BE1.png|84px]]
+|
+*Using a bucket on a lava source block empties the block and fills the bucket.
+|
+*Can be used to place lava source blocks.
+|-
+|[[Saddle]]
+|[[File:Saddle JE1 BE1.png|84px]]
+|
+*Found in dungeon chests.
+|
+*Can be used to ride pigs.
+|}
+===Changed===
+{|{{Simple Guide table|Changed Items}}
+|-
+|[[Painting]]
+|[[File:Painting JE1 BE1.png|84px]]
+|
+*Is now crafted using sticks instead of planks.
+|}
+
+==Non-Mob Entities==
+===New===
+{|{{Simple Guide table|New Non-mob entities}}
+|-
+|[[Minecart]]
+|[[File:Minecart JE2.png|84px]]
+|
+{{Crafting
+|A2= Iron Ingot
+|C2= Iron Ingot
+|A3= Iron Ingot
+|B3= Iron Ingot
+|C3= Iron Ingot
+|Output= Minecart
+|type= Transportation
+}}
+|{{Drop|Item|Minecart}}
+|
+*Can be moved along rails.
+|}
+
+==Structures==
+===New===
+{|{{Simple Guide table|New Structures}}
+|-
+|[[Brick Pyramid]]
+|[[File:Brick Pyramid.png|256px]]
+|
+*Surface
+|
+*No
+|
+*No
+|
+*A large pyramid made of bricks.
+*Removed after this version.
+|-
+|[[Dungeon]]
+|[[File:Dungeon Old.png|256px]]
+|
+*Underground
+|
+*1-2
+|
+*Zombies, skeletons or spiders are created from the spawner.
+|
+*An underground chamber made of cobblestone and moss stone, containing chests and a monster spawner.
+|-
+|[[ore (feature)|Ore blob]]
+|[[File:Blob Old.png|256px]]
+|
+*Underground
+|
+*No
+|
+*No
+|
+*A blob of ore that generates within stone.
+|}
+
+==Biomes==
+===New===
+{|{{Simple Guide table|New Biomes}}
+|-
+|[[Far Lands]]
+|[[File:Late Infdev Corner Far Lands.png|265px]]
+|
+* Found beyond 12,550,824 blocks from the center of the world.
+* Not a biome.
+|
+* No
+|-
+|[[Void]]
+|[[File:The Void Below.png|256px]]
+|
+* Found below bedrock.
+* In prior versions, below the bottom of the world was either an infinite lava sea or an infinite blue sky.
+* Also not a biome.
+|
+* No
+|}
+
+==Gameplay==
+===New===
+{|{{Simple Guide table|New Gameplay}}
+|-
+|Infinite Worlds
+|
+*Worlds are now functionally infinite in size, instead of limited to a few hundred blocks across at most.
+*Worlds are now loaded incrementally using [[chunks]], instead of loading in all at once.
+*An entirely new terrain generator has been added, creating more expansive mountains, lakes and caves than before.
+*Caves now contain lava lakes and dirt and gravel patches.
+|}
+
+[[es:Guías de Java Edition/Infdev releases]]
+[[ru:Руководства_по_Java_Edition/Релизы_Infdev]]
+[[zh:Java版指南/Infdev版本]]

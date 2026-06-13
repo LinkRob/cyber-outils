@@ -1,0 +1,96 @@
+{{for|developmental versions of 0.0.12a|Java Edition Classic 0.0.12a/Development}}
+{{Lost version|commonfake=1}}
+{{version nav
+|title=0.0.12a
+|edition=java
+|prefix=Classic
+|date=May 19, 2009
+|clientdl=Client not archived
+|serverdl=No corresponding server
+|phase=Classic
+|prevparent=0.0.11a
+|next=0.0.12a_01
+|nextparent=0.0.13a
+}}<onlyinclude>
+
+'''0.0.12a'''<ref>[[wordofnotch:110175116|"0.0.12a is up"]] – [[The Word of Notch]], May 20, 2009</ref> was a version of [[Classic]] released on May 19, 2009, at 22:36 UTC.<ref>{{link|url=https://archive.org/download/Minecraft_IRC_Logs_2009/history/files/May-15-to-June-03-2009/2009-05-19.155457-0400EDT.txt.~1~|title=TigIRC logs|date=May 19, 2009, UTC–4|website=Archive.org|quote=(18:36:09) notch: 0.0.12a is up. Water, lava, new map generation,rendering distance toggle}}</ref><ref group="note">While some sources imply that this version was released on May 20, due to timezones differences it was actually released at 22:36 UTC on May 19 (which is 00:36 on May 20, Sweden time).</ref> It added [[bedrock]], [[water]] and [[lava]], along with a [[world boundary]] and a new world generator.
+
+== Additions ==
+=== Blocks ===
+; [[File:Bedrock JE1 BE1.png|32px]] [[Bedrock]]
+* Unobtainable to the player.
+* Initially referred to as "unbreakable stone".
+* Bedrock and the layer above (if at the bottom of the world) is always dark even if exposed to the sky.
+* Cannot be broken, placed against, or otherwise selected.
+
+; [[File:Water JE1.png|32px]] [[Water]]
+* A type of liquid.
+* Does not drown the player.
+* Is transparent.
+* Spreads infinitely.
+* Water does not work outside the map (it won't spread from world border after terrain generation).<ref>{{link|url=https://forums.tigsource.com/index.php?topic=6273.msg203496#msg203496|title=Minecraft (alpha)|website=TIGSource Forums|author=Syrion|date=May 22, 2009|quote=water just outside of the map doesn't actually "work". It doesn't fill up any pits next to it.}}</ref>
+
+; [[File:Lava JE1.png|32px]] [[Lava]]
+* A type of liquid.
+* Originally was transparent, just like water. 
+* Underneath lava, the mist is thin and orange in color. 
+* Does not deal damage to the player.
+* Spreads infinitely.
+
+=== World generation ===
+; [[World boundary]]
+* An infinite ocean now surrounds the map.
+* The player can no longer pass the edge of the map.
+* [[Water]] next to [[lava]] will not produce [[stone]] upon world generation.
+
+=== Gameplay ===
+; [[Control]]s
+* Pressing {{key|F}} cycles between four levels of render distance.<ref name="TigSource">{{cite|url=https://forums.tigsource.com/index.php?topic=6273.msg201928#msg201927|title=Minecraft (alpha)|website=TigSource|date=May 19, 2009|quote=F to change draw distance. There are four settings. The fourth setting makes the game run at 50 fps on my Eee, but it's a bit.. claustrophobic. N to generate a new level. No more restarting the applet!}}</ref>
+* Pressing {{key|N}} generates a new level, with a new level generation screen.<ref name="TigSource"/>
+
+; [[Swimming]]
+* Only applies to players. [[Human]]s move at full speed in the water. Was originally much slower than in later Classic versions.
+
+== Changes ==
+=== Mobs ===
+; [[File:Steve_Revision_1.png|32px]] [[Humans]]
+* No longer get reset on level reset, meaning there is no way to get rid of mobs now.<ref>{{link|url=https://archive.org/download/Minecraft_IRC_Logs_2009/history/files/May-15-to-June-03-2009/2009-05-19.155457-0400EDT.txt.~1~|title=TigIRC logs|date=May 19, 2009, UTC–4|website=Archive.org|quote=(18:39:43) <notch> oh, they don't get reset on level resets either.. I'd better fix that.}}</ref>
+; Physics
+* Water and lava now flow to fill any available space below or next to it.<ref>{{ytl|jwgXo3LYKaU|Minecraft Water test|Nizzotch Archive}}</ref>
+** With just one water source the entire world will be flooded.<ref>{{ytl|JXfeIAjkYa0|Minecraft Huge flood|Nizzotch Archive}}</ref>
+* Water next to lava produces stone.
+* Player jump height increased by about 0.5 blocks.<ref>{{ytl|jwgXo3LYKaU|Minecraft Water test|Nizzotch Archive}}</ref>
+
+=== World generation ===
+; New level generator
+* Terrain is messier with more bumps visible on the surface. It also now generates in islands.
+* The terrain always generates one block above ocean level.
+* Lakes occur when the surrounding water is at a higher level than the terrain.
+* All dirt with access to sunlight will not become grass block upon world generation if below water level.
+* Lava lakes also spawn occasionally.
+* Worlds made before this version will receive a bedrock layer at the bottom of the map and an ocean surrounding it.</onlyinclude>
+
+== Bugs ==
+; 1 bug reported
+* The block being used to build does not show up unless it is a sapling.<ref>{{citation|url=https://forums.tigsource.com/index.php?topic=6273.msg201928#msg201928|title=Minecraft (alpha)|author=Navineous|website=Tigsource Forums |date=May 19, 2009|quote=I just found a glitch in the new version. In the top right corner my brick indication box is gone, it only shows up when I hit six and then it only shows I have a tree. But if I hit 1 2 3 or 4 it disappears. HELP! I'll post a screenshot soon.}}</ref>
+
+== Trivia ==
+* The video released by Notch on May 18th showing off 0.0.12a is actually a developer variant that was never released to the public. See [[{{PAGENAME}}/Development|Development]] for more information on this.
+* To make the water and lava texture display slightly shorter than a block, it's texture from terrain.png gets shifted down a bit in-game. This causes the texture to overlap with the block below at some angles.
+* The 0.0.13a-launcher jar contains the level generation files for this same version, which is also the same terrain generation files used in the full, public release of it (and 0.0.12a_01-03). It has variables that can enable and disable the uniform dirt layer, and it has been disabled for the public variant of 0.0.12a (or at least 0.0.12a_03 for certain). It also has variables for the water filling up the world from the corners, which can be disabled.
+
+== Notes ==
+{{Notelist}}
+
+== References ==
+{{reflist}}
+
+{{Java Edition versions|Classic}}
+
+[[es:Java Edition Classic 0.0.12a]]
+[[hu:Java Edition Classic 0.0.12a]]
+[[ja:Java Edition Classic 0.0.12a]]
+[[lzh:爪哇版古典版〇點〇點一二甲]]
+[[pt:Edição Java Classic 0.0.12a]]
+[[ru:Classic 0.0.12a]]
+[[zh:Java版Classic 0.0.12a]]

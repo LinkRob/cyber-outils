@@ -1,0 +1,245 @@
+{{Entity
+| title = Item Entity
+| image = Item.gif
+| health = {{hp|5}}<ref>Items cannot be damaged by attacking them.</ref>
+| size = Height: 0.25 Blocks<br>Width: 0.25 Blocks
+}}
+
+'''Items''' are "dropped" [[block]]s or [[item]]s (non-block resources) that appear in the world, rather than being in the [[inventory]] of a [[player]] or [[block entity]]; they are a type of [[entity]].
+
+== Appearance ==
+
+[[File:Item entities.png|150px|thumb|3D dropped items, both blocks and strict items.]]
+
+Items have two possible appearances, generally corresponding to whether the item appears as a 3D or 2D shape in a player's inventory screens. 3D items appear as their 3D shape, miniaturized to about {{frac|1|4}} scale, while 2D items appear as {{frac|1|2}} scale with all the pixels extruded into a cube. Both types slowly rotate and bob up and down; this is merely a visual effect, the item itself does not actually rotate or bob up and down.
+
+Item entities that represent a stack of more than one item appear as several items stuck together. Stacks of 1 appear as one item, 2-16 as two items, 17–32 as three, 33-48 as four, and 49+ as five.
+
+The rotation rate of the item is approximately 2.87675 degrees per tick, or 57.595 degrees per second.
+
+== Behavior ==
+
+Item entities come from many sources. Some common ones are:
+* The death of a [[mob]] or [[player]].
+* A [[block]] that is mined by a player, destroyed by an [[explosion]], or washed away by [[water]].
+* An inventory item tossed by pressing the drop item key (default {{key|Q}} on PC, {{xbtn|dpad-down}} on Xbox, {{nsbtn|down}}/{{nsbtn|dpad-down}} on Nintendo Switch, {{psbtn|dpad-down}} on PlayStation) or dragging a stack outside of an inventory window.
+** In the mobile versions of {{el|be}}, items in the hotbar can be dropped by pressing on the item's slot. The entire stack is dropped.
+* A container (other than an {{BlockLink|ender chest}} or a {{BlockLink|shulker box}}) that is destroyed while holding items inside.
+
+The player may be thought of as having an "item pickup" box that surrounds their hitbox. This pickup box extends 1 additional block to the horizontal sides, and 0.5 additional blocks up and down. Any item whose hitbox intersects with the pickup box can be picked up. The pickup box is inclusive on the horizontal sides (distance less than or equal to 1 will count), and exclusive on the vertical sides (distance less than 0.5 will count, but not equal). When the player's hitbox size changes, such as when crouching{{only|java}} or sleeping, the pickup box size changes with it.
+
+Once an item entity's hitbox overlaps with the player's pickup box, it can transfer its items. As many items as can fit in the player inventory, excluding the armor slots and the [[dual wield|off-hand slot]], are transferred. If any item is transferred, [[Item (entity)#Sounds|a "plopping" sound]] is played. If all items are transferred, the items appear to move into the center of the player. The item entity never physically moves, however, which means it can appear to go through lava and blocks in its path. This can happen through blocks that are thinner than a full block, but also through the shared edge of two full blocks. Unlike [[experience orb]]s, multiple item entities can be picked up simultaneously. Dropped items have a delay of 10 [[tick]]s (half a second) between appearing and being able to be picked up, or 40 ticks (2 seconds) if thrown by a player, [[dolphin]], or [[fox]].
+
+When two stackable items of the same type come within 3/4 of a block of each other, they merge into a single stack if the resulting stack size does not exceed that item's maximum stack size.
+
+Items do not collide with other entities(except boats) and are only moved or stopped by blocks.
+
+Like other entities, items can be pushed by flowing water and [[bubble column]]s, pushed by a [[piston]], launched by a moving [[slime block]], stuck to a [[honey block]], or caught in a [[cobweb]]. Items move at faster speeds if [[ice]] is placed under the flowing water. When in still water, items float slowly up to the surface.
+
+Items can be reared by [[fishing rod]]s, costing 3 [[durability]].{{only|je}}
+
+If an item is within a [[solid block]], then it flies out one of the unobstructed sides, or out of the top of the block if surrounded by solid blocks on all sides. It does this even if the space below is unoccupied; therefore, it is possible to recover an item dropped by breaking a hole in a floor by quickly placing another block there.
+
+Items visually disappear when the player is about 16 blocks away from them, and reappear when they get closer. This distance can be adjusted by the "Entity Distance" slider in [[Options#Video Settings|video settings]].
+
+Unlike most entities, items cannot be spectated in [[Spectator]] mode without use of the {{cmd|spectate}} command.
+
+=== Damage ===
+Items cannot be attacked by players or mobs; attempting to do so simply hits through them. However, they take damage and disappear from environmental or block-based damage such as [[explosion]]s, [[fire]], [[lava]], and contact with [[cactus|cacti]]. Items have essentially no health, so they are destroyed by the slightest damage, though if set on fire they may remain for a few seconds before disappearing. [[Nether star]]s are immune to explosions, and [[netherite]]-based items and tools are immune to fire and float on top of lava. Also, some blocks that normally damage mobs, such as [[magma block]]s, [[campfire]]s, [[Sweet Berries|sweet berry bushes]], [[flower|wither rose]]s and [[powder snow]], do not damage items.
+
+=== Despawning ===
+
+Items despawn after 6000 game [[tick]]s (5 minutes) of being in a loaded, entity-ticking [[chunk]]; this is affected by the player's [[simulation distance]]. If two item stacks merge, the timer is set to the item that has more time remaining. The 5-minute timer is paused when the chunk is unloaded or no longer processing entities. Nether stars do not despawn{{only|bedrock}}.
+
+Items that fall into the [[void]] immediately despawn when they fall below Y=-128 in the [[Overworld]], or Y=-64 in [[the Nether]] and [[the End]].
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Item Entities use the Ambient/Environment sound category for entity-dependent sound events.
+{{Sound table
+|nocat=1
+|sound=Pop.ogg
+|subtitle=Item plops
+|source=player<!--Even when not picked up by player-->
+|description=When an item is picked up
+|id=entity.item.pickup
+|translationkey=subtitles.entity.item.pickup
+|volume=0.2
+|pitch=1.6-3.4 <ref group=sound>0.6-3.4 for using {{cmd|give}} and items from advancement rewards</ref>
+|distance=16}}
+{{Sound table
+|sound=fizz.ogg
+|nocat=1
+|subtitle=Burning
+|source=ambient
+|description=When an item is destroyed by [[lava]], but not [[fire]]<ref>{{bug|MC-36538}}</ref>
+|id=entity.generic.burn
+|translationkey=subtitles.entity.generic.burn
+|volume=0.4
+|pitch=2.0-2.4
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|rowspan=2
+|sound=Pop.ogg
+|source=player
+|description=When an item is picked up
+|id=random.pop
+|volume=0.25
+|pitch=0.6-2.2}}
+{{Sound table
+|source=player
+|description=When an item is dropped
+|id=random.pop
+|volume=0.3
+|pitch=0.55-0.75}}
+{{Sound table
+|sound=fizz.ogg
+|source=block
+|description=When an item is destroyed by lava, but not fire
+|id=random.fizz
+|volume=0.5
+|pitch=1.8-2.4
+|foot=1}}
+
+== Data values ==
+
+=== ID ===
+
+{{editions|java}}:
+{{ID table
+|generatetranslationkeys=java
+|displayname=Item
+|spritename=items
+|spritetype=env
+|translationtype=entity
+|nameid=item
+|foot=1}}
+
+{{editions|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Item
+|spritename=items
+|spritetype=env
+|translationtype=entity
+|nameid=item
+|id=64
+|foot=1}}
+
+=== Entity data ===
+{{see also|Chunk format}}
+Dropped items have entity data associated with them that contain various properties of the entity.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+== History ==
+{{History|java classic}}
+{{History||0.24 Resource Test|In the first public mention of item entities, {{ytl|OP3jzMWJmu8|this early video of Minecraft (Classic 0.24) by Notch}}, they were referred to as "resources".<ref name="resources">{{ytl|YIm_AKUbqh8}} Early video of Minecraft (Classic 0.24) by Notch referring to item entities as "resources"</ref>}}
+{{History||August 4, 2009|link=https://notch.tumblr.com/post/155882307/a-video-showing-what-i-did-today-are-vids-like|Items were showcased by [[Notch]] in a blog post.}}
+{{History||0.24_SURVIVAL_TEST|Added items to the game.
+|Items currently take the form of destroyed [[block]]s.
+|Items currently pulse white (similar to the selection cursor).<ref name="resources"/>
+|Instead of appearing as shrunken down blocks, items use pixels the same size as block pixels.}}
+{{History|java indev}}
+{{History||0.31|snap=20091231-2|Dropped items don't spin and don't glow white anymore.
+|Dropped items now appear as shrunken down blocks.
+|Items no longer prevent the placement of blocks but instead are moved to the nearest chunk. {{info needed}}
+|Non-block items added (as sprites); they now rotate to face the [[player]].}}
+{{History||?|Dropped items now spin again.}}
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|[[File:Oversized items.png|100px|right]][[File:In awe at the size of these fluids.png|100px|right]] A bug causing many item forms of blocks to be displayed at the {{frac|1|2}} scale rather than {{frac|1|4}} was fixed. The following items were affected by this at least at one point:
+* [[Cactus]]
+* [[Oak Trapdoor]]
+* [[Oak Fence]]
+* [[Oak Pressure Plate]]
+* [[Stone Pressure Plate]]
+* [[Stone Button]]
+* [[Oak Stairs]]
+* [[Cobblestone Stairs]]
+* [[Snow]] (unobtainable at the time)
+* [[Farmland]] (unobtainable)
+* [[Cake]] ([[Technical blocks/Cake|unobtainable version]])
+* [[Nether Portal (block)|Nether Portal]] ([[Technical blocks/Nether Portal|unobtainable]])
+* [[Water]] ([[Technical blocks/Water|unobtainable]], before becoming 2D in [[Java Edition Infdev 20100615]])
+* [[Lava]] ([[Technical blocks/Lava|unobtainable]], before becoming 2D in [[Java Edition Infdev 20100615]])
+}}
+{{History|java}}
+{{History||1.3.1|snap=12w15a|Items that are moved into the same location now combine into stacks instead of remaining independent entities.}}
+{{History||1.4.2|snap=12w34a|Items, like other entities, can now travel through [[portal]]s.}}
+{{History|||snap=12w34b|Some [[zombie]]s, [[skeleton]]s and [[Zombified Piglin|zombie pigmen]] can now pick up items.}}
+{{History||1.4.4|snap=1.4.3|Items are now pushed out of transparent solid blocks as well as opaque ones.<ref>{{bug|MC-15}}</ref> Items can push into solid blocks while trying to escape a solid block instead of stopping (this has been used to create vertical transport of items). New feature: items are pushed out of the inside corner of stair blocks, causing "bouncing" effects.}}
+{{History||December 11, 2012|link=none|[[Dinnerbone]] tweeted a picture of [[diamond]]s being rendered in 3D as dropped items.<ref>{{tweet|dinner|278457679805030401|Diamonds are a miners best friend. It's only fair they get treated to some luxury rendering. http://dinnerbone.com/media/uploads/2012-12/screenshots/Minecraft_2012-12-11_12-13-11.png … #AndMaybeEverythingElseToo|December 11, 2012}}</ref> He also revealed that other items would rendered in this way, but only in [[fancy graphics]].<ref>{{tweet|dinner|278463997982949378|@PaymenowTV It's Fancy Rendering option, but really won't make much of a difference on even a slow pc.|December 11, 2012}}</ref>}}
+{{History||December 12, 2012|link=none|TeamMojang ([[wikipedia:Youtube|YouTube]]) posted a video showing off the new 3D items.<ref>{{ytl|tMOZLAxPWFE}}</ref>}}
+{{History||1.4.6|snap=12w49a|[[Nether star]]s are the first items to not be deleted by [[explosion]]s.}}
+{{History|||snap=12w50a|When dropped, items now render in the [[fancy graphics]] setting as 3D spinning animations (non-block items no longer display as [[Wikipedia:Sprite (computer graphics)|sprites]]).
+|Dropped items now merge with nearby items and be stacked.
+|Enchanted items now show the enchanted glow when dropped.}}
+{{History||1.5|snap=13w01a|Added [[hopper]]s, which can collect items.}}
+{{History|||snap=13w03a|Added [[Minecart with Hopper|hopper minecart]]s, which can collect items.}}
+{{History||1.8|snap=14w04a|Dropped items don't spin, and they are visible only from the south on fast graphics.}}
+{{History|||snap=14w04b|Dropped items are now completely invisible on fast graphics.}}
+{{History|||snap=14w05a|Dropped items on fast graphics now face the player on all three axes, and they spin again on fancy graphics.}}
+{{History|||snap=14w25a|Dropped items now render in 3D on fast graphics, instead of just on fancy graphics, likely due to item models being fully implemented and replacing the need for 2D items. However, they do not spin.}}
+{{History||1.8.1|snap=pre4|Dropped items now spin on fast graphics.}}
+{{History||1.10|snap=16w21a|Items can now be reared by [[fishing rod]]s.}}
+{{History||1.11|snap=16w32a|The entity ID of items has been changed from <code>Item</code> to <code>item</code>.}}
+{{History||1.13|snap=18w07a|Items in water now float up.}}
+{{History||1.16|snap=20w06a|Netherite items are the first items to not burn in [[lava]], and float in lava.}}
+{{History||1.20|snap=Pre-release 5|Item are no longer destroyed by falling [[anvil]]s.<ref>{{bug|MC-120158
+||Anvils and other falling_blocks with HurtEntities set to true kill items and xp orbs|Fixed}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.2.0|Added items to the game.}}
+{{History||?|Items now have improved graphics.{{more info|clarify}}}}
+{{History|Bedrock}}
+{{History||1.4.0|snap=beta 1.2.14.2|Items in [[water]] now float up.}}
+{{History||1.16.0|snap=beta 1.15.0.51|When dropped, items now render as 3D spinning animations (non-block items no longer display as [[Wikipedia:Sprite (computer graphics)|sprites]]).}}
+{{History|||snap=beta 1.16.0.51|Added [[netherite]] items, which float and do not burn in [[lava]].}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|Added items to the game.}}
+{{History||xbox=TU12|When dropped, items now render as 3D spinning animations (non-block items no longer display as [[Wikipedia:Sprite (computer graphics)|sprites]]).}}
+{{History||xbox=TU69|xbone=none|ps=1.76|wiiu=Patch 38|switch=none|Items in [[water]] now float up.}}
+{{History|foot}}
+
+== Trivia ==
+* {{bug|MC-4}}, the oldest standing bug in the Minecraft [[bug tracker]], involves item entity positioning being incorrectly handled.
+
+==Gallery==
+<gallery>
+3D Diamonds.png|First image of 3D dropped items.
+ItemsDespawn.gif|Items despawning after being rendered for 5 minutes.
+</gallery>
+
+== See also ==
+* [[Drops]] — items dropped by [[mobs]] when killed.
+* [[Chunk format#Items|Chunk format]] for more information about the attributes of items.
+
+== References ==
+
+{{Reflist}}
+
+{{entities}}
+{{items}}
+
+[[Category:Items| ]]
+
+[[de:Drop]]
+[[es:Objeto (entidad)]]
+[[fr:Objet (entité)]]
+[[ja:アイテム (エンティティ)]]
+[[ko:아이템 (개체)]]
+[[nl:Voorwerp (entiteit)]]
+[[pt:Drops]]
+[[ru:Предмет (сущность)]]
+[[zh:物品（实体）]]

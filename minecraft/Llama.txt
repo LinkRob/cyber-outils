@@ -1,0 +1,579 @@
+{{Redirect|Trader Llama|the Trader Llama in Minecraft Dungeons|Minecraft Dungeons:Trader Llama}}
+<!-- Do not change any mention of neutral to hostile. Llamas can attack if provoked; therefore, it is a neutral mob. -->
+{{Entity
+| image = <gallery>
+Creamy Llama.png| Adult
+Baby Creamy Llama.png| Cria
+Brown Trader Llama.png|Trader Llama
+Baby Brown Trader Llama.png|Trader Llama Cria
+</gallery>
+| extratext = View [[#Renders|all renders]]
+| invimage = Llama Spawn Egg
+| invimage2 = Trader Llama Spawn Egg
+| health = {{hp|15|mob=1}} to {{hp|30|mob=1}}
+| behavior = Neutral<br>Passive (Peaceful difficulty)
+| classification = [[Animal]]
+| damage = {{hp|1}}
+| size = '''Adult:'''<br>Height: 1.87 Blocks<br>Width: 0.9 Blocks<br>
+'''Baby:'''<br>Height: 0.935 blocks <br>Width: 0.45 Blocks
+| spawn = {{BiomeLink|Windswept Hills}}<br>{{BiomeLink|Windswept Forest}}<br>{{BiomeLink|Windswept Gravelly Hills}}<br>{{BiomeLink|Savanna Plateau}}<br>{{BiomeLink|Savanna}}{{only|be|short=1}}<br>{{BiomeLink|Windswept Savanna}}{{only|be|short=1}}
+| usableitems = {{drop|Block|Chest|note=without or with contents}}
+{{drop|Block|Carpet|id=Carpets}}
+{{drop|Item|Lead}}
+{{drop|Item|Wheat}}
+{{drop|Block|Hay Bale}}
+}}
+A '''llama''' is a tamable neutral [[mob]] used to transport large shipments of items using caravans.
+
+A '''trader llama''' is a special variant that follows [[wandering trader]]s.
+
+== Spawning ==
+A llama spawns at a light level 7 or above on [[grass block]]s in [[Savanna#Savanna Plateau|savanna plateau]], [[savanna]]{{only|be|short=1}}<ref>{{bug|MC-159092||Llamas do not spawn in regular savanna biome|WAI}}</ref> or [[Savanna#Windswept Savanna|windswept savanna]]{{only|be|short=1}} [[biome]]s in herds of 4 llamas and in [[windswept hills]], [[Windswept Hills#Windswept Forest|windswept forest]], and [[Windswept Hills#Windswept Gravelly Hills|windswept gravelly hills]] biomes in herds of 4 to 6 llamas, coming in four coat colors: brown, cream, white or gray. A [[wandering trader]]s spawns with two [[lead|leashed]] trader llamas. {{IN|bedrock}}, trader llamas always spawn with a wandering trader.
+
+10% of llamas spawn as baby llamas.
+
+Trader llamas often despawn one [[tick]] before their trader does, because a trader llama has its {{code|DespawnDelay}} set to 47999 ticks. This value is decremented each tick that the llama is untamed, unleashed, and not being ridden by a player, and is reset to one less than the trader's own {{code|DespawnDelay}} if leashed to a trader. The llama despawns if the value reaches zero.
+
+== Drops ==
+An adult llama drops when killed:
+* 0 to 2 {{ItemLink|leather}}s or up to 0-5 with [[Looting]] 3.
+* Any equipped {{blockLink|carpets|link=Carpet}} and {{BlockLink|chest}}.
+*All items in their [[inventory]].
+*{{xp|1|3}} [[experience]] orbs if killed by a tamed [[wolf]] or the [[player]]. Upon successful [[breeding]], {{xp|1|7}} is dropped.
+
+Like other baby animals, killing a baby llama yields no [[item]] or [[experience]].
+
+== Caravans ==
+[[File:Llama GUI Strength 4.png|thumb|right|The GUI of a llama with strength 4 and with a chest.]]
+Llamas do not accept [[saddle]]s, so the player cannot control its movement, even when tamed. [[Lead]]s are the best way to move llamas. Leashing a llama actually signals all other llamas not already in a caravan nearby (up to nine) to follow each other, forming a caravan of up to ten llamas. Leashing a second llama forms a caravan of ten more llamas and there is no limit on the number of llamas following a player.
+
+A llama can be equipped with a [[chest]] by right clicking a chest on it once tamed, giving it 3, 6, 9, 12 or 15 slots of inventory space, scaling directly with its {{cd|Strength}} NBT (see {{slink||Data values}} below). Once equipped, the chest cannot be retrieved without killing the llama and can be accessed by shift + right clicking the llama. A llama's potential carry capacity is a number of item slots equal to 3*{{cd|Strength}}, with a maximum of 15 spaces. 
+[[File:All llama swag patterns.png|thumb|right|350px|All llama carpet patterns.]]
+{| class="wikitable"
+! colspan="5" |Strength distribution in wild llamas
+|-
+!1!!2!!3!!4!!5
+|-
+|32.8% ||32.8%||32.8% ||0.8%||0.8%
+|}
+
+Llamas can be equipped with [[carpet]]s in their carpet slot ({{SlotSprite|Carpet}}). Each carpet color shows as a different patterned rug on the llama's back. This can be useful for color-coding their storage, similar to dyed [[shulker box]]es.
+
+For the purposes of the {{cmd|item}} command, a llama carries its carpet in the <code>horse.armor</code> slot. Trader llamas that do not have a carpet wear a unique blue rug design. It can be replaced with a carpet but not removed. When given carpets, both types of llama look the same. A llama's [[carpet]] decoration remains visible when the llama is under the effect of [[Invisibility]].
+
+== Behavior ==
+The llama floats when in water deeper than two blocks.
+
+Llamas are neutral, but if a player or mob attacks one, it spits at the attacker once to deal {{hp|1}} damage. Sometimes their spit can miss their target and hit another llama, starting a fight within a group of llamas. Additionally, a [[wandering trader]]'s llamas spit at mobs or players who attack the wandering trader.
+
+Llamas are hostile toward wolves and spit without provocation, but they don't attack tamed wolves unless provoked. Wolves are fearful of llamas of [[#Data values|strength]] 4 or 5 and always run away.<ref>{{Bug|MC-107643}}</ref> Wolves flee from weaker llamas less often.
+
+Trader llamas are hostile toward [[illager]]s{{only|java}} and all zombie variants, defending both themselves and their [[wandering trader]].
+
+=== Llama spit ===
+{{Entity
+| title = Llama Spit
+| image = Llama Spit.png
+| imagesize = 120px
+| size = Height: 0.25 Blocks<br>Width: 0.25 Blocks
+| networkid = '''[[JE]]:''' 68
+}}
+Despite the spitting being a projectile, dying from llama spit still shows the death message "<player> was slain by llama/trader llama."
+
+The spit entity must belong to an entity to do damage, meaning that a spit entity summoned by commands does no damage unless its <code>Owner</code> NBT attribute matches the UUID of an entity in loaded [[chunk]]s. 
+
+The llama spit can be deflected if hit by the player.{{only|bedrock}}
+
+Llama spit cannot pass through any blocks including [[:Category:Non-solid blocks|non-solid blocks]] (e.g. signs, open fence gates, and sugar cane) and water. The spitting animation will still show the trajectory, but the spit entity that does damage will terminate on the non-solid block.
+
+Llama spit can be [[blocking|blocked]] by a [[shield]].
+
+=== Breeding ===
+Adult tamed llamas can be bred by being fed a [[hay bale]]. The baby llama takes on the coat color of one parent at random. Its strength is chosen as a random integer between 1 and the strength of the stronger parent, inclusive. 3% of the time the resulting strength is increased by 1, but it is capped at 5.
+
+When two trader llamas are bred, the offspring wears a rug.
+
+{| class="wikitable"
+! rowspan="2" |
+Stronger parent's
+strength
+! colspan="5" |Offspring's strength
+|-
+!1!!2!!3!!4!!5
+|-
+!1
+|97%||3%|| || ||
+|-
+!2
+|48.5%||50%||1.5%|| ||
+|-
+!3
+|32.33%||33.33%||33.33%||1%||
+|-
+!4
+|24.25%|| 25%||25%||25%||0.75%
+|-
+!5
+| 19.4%||20% ||20%||20%||20.6%
+|}
+
+Select a row based on the stronger parent. The column shows the probability of the resulting offspring having a given strength.  
+
+A llama's base health (15 to 30 HP) is calculated based on that of its parents, in the same way as a [[horse]]'s.
+
+=== Taming ===
+Llamas can be tamed by repetitively riding them until hearts are displayed, done by pressing {{control|use}} on the llama while holding nothing.
+
+Taming success depends on the llama's {{cd|Temper}} NBT. {{cd|Temper}} is a positive trait, with higher values increasing the chance of successful taming. Llamas begin with a <code>Temper</code> value of 0 and a maximum of 100. When a player rides an untamed llama, a random number from 0 to 99 is chosen. The llama gets tamed successfully if this number is less than the <code>Temper</code> value, otherwise, the <code>Temper</code> is increased by 5 and the player is bucked off. <code>Temper</code> can also be increased by feeding the llama.
+
+Tamed llamas can still retaliate at players should the player hit them. If a player kills a [[wandering trader]] and stays away from the trader llamas for a while, the llamas are tame when the player rides it and the player can place carpets on the llama.
+
+Naturally spawned trader llamas are untamed and cannot be ridden while being led by their [[wandering trader]]. If unleashed, they become tamable{{only|java}} or tamed.{{only|bedrock}}
+
+A death message is displayed to a tamed llama's owner if it is killed. Tamed trader llamas will not despawn.
+
+Tamed llamas do not spit at mobs that attack its owner, although it spits at any mob that attacks the llama.
+
+Feeding a llama food can alter its behavior, restoring lost health or making a baby grow faster (babies ordinarily take around 20 minutes to mature to adults). The table below lists the effects of the 2 food items llamas accept.
+
+To feed a llama, hold a valid food item and press {{control|use|use}} while facing the llama. Llamas can be fed only when feeding would have an effect, similar to other animals. If the food is invalid, the player mounts the llama instead.
+
+{| class="wikitable" style="text-align:center" data-description="Llama food"
+ !Food!!Heals!! Speeds growth by!!Increases temper by!!Notes
+ |-
+ ! style="text-align:left" |{{ItemLink|Wheat}}
+ |{{hp|2|mob=1}} ||10 sec||+3||
+ |-
+ ! style="text-align:left" |{{BlockLink|Hay Bale}}
+ |{{hp|10|mob=1}}||1:30 minutes||+6||Activates [[love mode]] in tamed llamas.
+ |}
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Llamas, trader llamas, and llama spit use the Friendly Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Llama idle1.ogg
+|sound2=Llama idle2.ogg
+|sound3=Llama idle3.ogg
+|sound4=Llama idle4.ogg
+|sound5=Llama idle5.ogg
+|subtitle=Llama bleats
+|source=neutral
+|description=Randomly
+|id=entity.llama.ambient
+|translationkey=subtitles.entity.llama.ambient
+|volume=0.8
+|pitch=0.8-1.2 <br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|sound=Llama angry.ogg
+|subtitle=Llama bleats angrily
+|source=neutral
+|description=When a player is bucked off a llama or fails to interact with an untamed llama
+|id=entity.llama.angry
+|translationkey=subtitles.entity.llama.angry
+|volume=0.8
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|sound=Chicken plop.ogg
+|subtitle=Llama Chest equips
+|source=neutral
+|description=When a llama equips a chest
+|id=entity.llama.chest
+|translationkey=subtitles.entity.llama.chest
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Llama death1.ogg
+|sound2=Llama death2.ogg
+|subtitle=Llama dies
+|source=neutral
+|description=When a llama dies
+|id=entity.llama.death
+|translationkey=subtitles.entity.llama.death
+|volume=0.8
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|sound=Llama eat1.ogg
+|sound2=Llama eat2.ogg
+|sound3=Llama eat3.ogg
+|subtitle=Llama eats
+|source=neutral
+|description=When a llama eats an item
+|id=entity.llama.eat
+|translationkey=subtitles.entity.llama.eat
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Llama hurt1.ogg
+|sound2=Llama hurt2.ogg
+|sound3=Llama hurt3.ogg
+|subtitle=Llama hurts
+|source=neutral
+|description=When a llama is damaged
+|id=entity.llama.hurt
+|translationkey=subtitles.entity.llama.hurt
+|volume=0.8
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|sound=Llama spit1.ogg
+|sound2=Llama spit2.ogg
+|subtitle=Llama spits
+|source=neutral
+|description=When a llama spits at something
+|id=entity.llama.spit
+|translationkey=subtitles.entity.llama.spit
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Llama step1.ogg
+|sound2=Llama step2.ogg
+|sound3=Llama step3.ogg
+|sound4=Llama step4.ogg
+|sound5=Llama step5.ogg
+|subtitle=Llama steps<wbr><ref group=sound name=footstepsubtitle>{{Bug|MC-177110|||Fixed}}</ref><wbr>{{Until|JE 1.20.2}}<br>Footsteps<wbr>{{Upcoming|JE 1.20.2}}
+|source=neutral
+|description=While a llama is walking
+|id=entity.llama.step
+|translationkey=subtitles.entity.llama.step|translationkeynote=<ref group=sound name=footstepsubtitle/><wbr>{{Until|JE 1.20.2}}<br><code>subtitles.block.generic.footsteps</code><wbr>{{Upcoming|JE 1.20.2}}
+|volume=0.15
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Llama swag.ogg
+|subtitle=Llama is decorated
+|source=neutral
+|description=When a llama equips a carpet
+|id=entity.llama.swag
+|translationkey=subtitles.entity.llama.swag
+|volume=0.5
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Llama idle1.ogg
+|sound2=Llama idle2.ogg
+|sound3=Llama idle3.ogg
+|sound4=Llama idle4.ogg
+|sound5=Llama idle5.ogg
+|source=neutral
+|description=Randomly
+|id=mob.llama.idle
+|volume=0.8
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Llama angry.ogg
+|source=neutral
+|description=When a player is bucked off a llama
+|id=mob.llama.angry
+|volume=0.8
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Horse armor.ogg
+|source=neutral
+|description=When a llama equips a chest
+|id=mob.horse.armor
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Llama death1.ogg
+|sound2=Llama death2.ogg
+|source=neutral
+|description=When a llama dies
+|id=mob.llama.death
+|volume=0.8
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Llama eat1.ogg
+|sound2=Llama eat2.ogg
+|sound3=Llama eat3.ogg
+|source=neutral
+|description=When a llama eats an item
+|id=mob.llama.eat
+|volume=0.5-1.5
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Llama hurt1.ogg
+|sound2=Llama hurt2.ogg
+|sound3=Llama hurt3.ogg
+|source=neutral
+|description=When a llama is damaged
+|id=mob.llama.hurt
+|volume=0.8
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Llama spit1.ogg
+|sound2=Llama spit2.ogg
+|source=neutral
+|description=When a llama spits at something
+|id=mob.llama.spit
+|volume=0.8
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Llama step1.ogg
+|sound2=Llama step2.ogg
+|sound3=Llama step3.ogg
+|sound4=Llama step4.ogg
+|sound5=Llama step5.ogg
+|source=neutral
+|description=While a llama is walking
+|id=mob.llama.step
+|volume=0.15
+|pitch=1.0}}
+{{Sound table
+|sound=Llama swag.ogg
+|source=neutral
+|description=When a llama equips a carpet
+|id=mob.llama.swag
+|volume=0.5
+|pitch=1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|displayname=Llama
+|spritetype=entity
+|nameid=llama}}
+{{ID table
+|displayname=Trader Llama
+|spritetype=entity
+|nameid=trader_llama}}
+{{ID table
+|displayname=Llama Spit
+|spritetype=entity
+|nameid=llama_spit
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Llama
+|spritetype=entity
+|nameid=llama
+|id=29}}
+{{ID table
+|displayname=Trader Llama
+|spritetype=entity
+|nameid=trader_llama
+|id=157}}
+{{ID table
+|displayname=Llama Spit
+|spritetype=entity
+|nameid=llama_spit
+|id=102
+|foot=1}}
+
+=== Entity data ===
+{{el|java}}:
+{{main|Entity format}}
+Llamas have entity data associated with them that contain various properties.
+{{/ED}}
+
+Llama spit have entity data associated with them that contain various properties.
+{{/ED1}}
+
+{{el|bedrock}}:
+:See [[Bedrock Edition level format/Entity format]].
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|So I Got That Going for Me}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|Not Today;The Parrots and the Bats;Two By Two;Best Friends Forever;It Spreads}}
+</table-progress-tracking>
+
+== History ==
+{{History||July 26, 2016|link={{tweet|jeb_|757952180146012160}}|[[Jeb]] hosts a poll on [[wikipedia:Twitter|Twitter]], with the choice of llamas or [[wikipedia:Alpaca|alpacas]]. The final results gave favor (58%) to llamas. Alpacas had a 42%.}}
+{{History|java}}{{History||1.11|snap=16w39a|[[File:Creamy Llama Revision 1.png|32px]] [[File:Creamy Llama with Chest Revision 1.png|32px]] [[File:White Carpeted Llama Revision 1.png|32px]] [[File:Yellow Carpeted Llama Revision 1.png|32px]] [[File:Light Gray Carpeted Llama Revision 1.png|32px]] [[File:Brown Carpeted Llama Revision 1.png|32px]] [[File:White Llama Revision 1.png|32px]] [[File:White Llama with Chest Revision 1.png|32px]] [[File:Orange Carpeted Llama Revision 1.png|32px]] [[File:Lime Carpeted Llama Revision 1.png|32px]] [[File:Cyan Carpeted Llama Revision 1.png|32px]] [[File:Green Carpeted Llama Revision 1.png|32px]] [[File:Brown Llama Revision 1.png|32px]] [[File:Brown Llama with Chest Revision 1.png|32px]] [[File:Magenta Carpeted Llama Revision 1.png|32px]] [[File:Pink Carpeted Llama Revision 1.png|32px]] [[File:Purple Carpeted Llama Revision 1.png|32px]] [[File:Red Carpeted Llama Revision 1.png|32px]] [[File:Gray Llama Revision 1.png|32px]] [[File:Gray Llama with Chest Revision 1.png|32px]] [[File:Light Blue Carpeted Llama Revision 1.png|32px]] [[File:Gray Carpeted Llama Revision 1.png|32px]] [[File:Blue Carpeted Llama Revision 1.png|32px]] [[File:Black Carpeted Llama Revision 1.png|32px]] Added llamas.
+|[[File:Baby Creamy Llama Revision 1.png|32px]] [[File:Baby White Llama Revision 1.png|32px]] [[File:Baby Brown Llama Revision 1.png|32px]] [[File:Baby Gray Llama Revision 1.png|32px]] Added baby llamas.}}
+{{History|||snap=16w39b|The [[drops]] of llamas are now affected by the [[Looting]] enchantment.}}
+{{History|||snap=16w41a|The spawn rate of llamas has been drastically reduced.
+|Llama spit now has an [[entity]] id: <code>llama_spit</code>.}}
+{{History||1.14|snap=18w43a|[[File:Creamy Llama.png|32px]] [[File:Creamy Llama with Chest.png|32px]] [[File:White Carpeted Llama.png|32px]] [[File:Yellow Carpeted Llama.png|32px]] [[File:Light Gray Carpeted Llama.png|32px]] [[File:Brown Carpeted Llama.png|32px]] [[File:White Llama.png|32px]] [[File:White Llama with Chest.png|32px]] [[File:Orange Carpeted Llama.png|32px]] [[File:Lime Carpeted Llama.png|32px]] [[File:Cyan Carpeted Llama.png|32px]] [[File:Green Carpeted Llama.png|32px]] [[File:Brown Llama.png|32px]] [[File:Brown Llama with Chest.png|32px]] [[File:Magenta Carpeted Llama.png|32px]] [[File:Pink Carpeted Llama.png|32px]] [[File:Purple Carpeted Llama.png|32px]] [[File:Red Carpeted Llama.png|32px]] [[File:Gray Llama.png|32px]] [[File:Gray Llama with Chest.png|32px]] [[File:Light Blue Carpeted Llama.png|32px]] [[File:Gray Carpeted Llama.png|32px]] [[File:Blue Carpeted Llama.png|32px]] [[File:Black Carpeted Llama.png|32px]] The textures of llamas have been changed.
+|[[File:Baby Creamy Llama.png|32px]] [[File:Baby White Llama.png|32px]] [[File:Baby Brown Llama.png|32px]] [[File:Baby Gray Llama.png|32px]] The textures of baby llamas have been changed.}}
+{{History|||snap=19w05a|[[File:Creamy Trader Llama.png|32px]] [[File:White Trader Llama.png|32px]] [[File:Brown Trader Llama.png|32px]] [[File:Gray Trader Llama.png|32px]]<br>
+[[File:Baby Creamy Trader Llama.png|32px]] [[File:Baby White Trader Llama.png|32px]] [[File:Baby Brown Trader Llama.png|32px]] [[File:Baby Gray Trader Llama.png|32px]] Added trader llamas, which spawn with [[wandering trader]]s.}}
+{{History||1.16|snap=20w15a|Dispensers can now put [[carpet]]s and [[chest]]s on tamed llamas.}}
+{{History||1.17|snap=21w20a|Llamas no longer spit at players in [[peaceful]] mode.}}
+{{History||1.18|snap=experimental snapshot 6|Llamas now follow players that are holding [[hay bale]]s.}}
+{{History||1.19|snap=22w17a|Changed all variants' chest texture, to use the chest texture since the [[texture update]].}}
+{{History||1.19.4|snap=23w07a|The health of a baby is now a variation of the average of the parents' attributes, rather than being biased towards the average possible value.}}
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|[[File:Creamy Llama Revision 1.png|32px]] [[File:Creamy Llama with Chest Revision 1.png|32px]] [[File:White Carpeted Llama Revision 1.png|32px]] [[File:Yellow Carpeted Llama Revision 1.png|32px]] [[File:Light Gray Carpeted Llama Revision 1.png|32px]] [[File:Brown Carpeted Llama Revision 1.png|32px]] [[File:White Llama Revision 1.png|32px]] [[File:White Llama with Chest Revision 1.png|32px]] [[File:Orange Carpeted Llama Revision 1.png|32px]] [[File:Lime Carpeted Llama Revision 1.png|32px]] [[File:Cyan Carpeted Llama Revision 1.png|32px]] [[File:Green Carpeted Llama Revision 1.png|32px]] [[File:Brown Llama Revision 1.png|32px]] [[File:Brown Llama with Chest Revision 1.png|32px]] [[File:Magenta Carpeted Llama Revision 1.png|32px]] [[File:Pink Carpeted Llama Revision 1.png|32px]] [[File:Purple Carpeted Llama Revision 1.png|32px]] [[File:Red Carpeted Llama Revision 1.png|32px]] [[File:Gray Llama Revision 1.png|32px]] [[File:Gray Llama with Chest Revision 1.png|32px]] [[File:Light Blue Carpeted Llama Revision 1.png|32px]] [[File:Gray Carpeted Llama Revision 1.png|32px]] [[File:Blue Carpeted Llama Revision 1.png|32px]] [[File:Black Carpeted Llama Revision 1.png|32px]] Added llamas.
+|[[File:Baby Creamy Llama Revision 1.png|32px]] [[File:Baby White Llama Revision 1.png|32px]] [[File:Baby Brown Llama Revision 1.png|32px]] [[File:Baby Gray Llama Revision 1.png|32px]] Added baby llamas.}}
+{{History|bedrock}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Creamy Llama.png|32px]] [[File:Creamy Llama with Chest.png|32px]] [[File:White Carpeted Llama.png|32px]] [[File:Yellow Carpeted Llama.png|32px]] [[File:Light Gray Carpeted Llama.png|32px]] [[File:Brown Carpeted Llama.png|32px]] [[File:White Llama.png|32px]] [[File:White Llama with Chest.png|32px]] [[File:Orange Carpeted Llama.png|32px]] [[File:Lime Carpeted Llama.png|32px]] [[File:Cyan Carpeted Llama.png|32px]] [[File:Green Carpeted Llama.png|32px]] [[File:Brown Llama.png|32px]] [[File:Brown Llama with Chest.png|32px]] [[File:Magenta Carpeted Llama.png|32px]] [[File:Pink Carpeted Llama.png|32px]] [[File:Purple Carpeted Llama.png|32px]] [[File:Red Carpeted Llama.png|32px]] [[File:Gray Llama.png|32px]] [[File:Gray Llama with Chest.png|32px]] [[File:Light Blue Carpeted Llama.png|32px]] [[File:Gray Carpeted Llama.png|32px]] [[File:Blue Carpeted Llama.png|32px]] [[File:Black Carpeted Llama.png|32px]] The textures of llamas have been changed.
+|[[File:Baby Creamy Llama.png|32px]] [[File:Baby White Llama.png|32px]] [[File:Baby Brown Llama.png|32px]] [[File:Baby Gray Llama.png|32px]] The textures of baby llamas have been changed.
+|[[File:Creamy Trader Llama.png|32px]] [[File:White Trader Llama.png|32px]] [[File:Brown Trader Llama.png|32px]] [[File:Gray Trader Llama.png|32px]] Added trader llamas, which spawn with [[wandering trader]]s.}}
+{{History||1.11.0|snap=beta 1.11.0.3|Trader llamas are now hostile to [[mob]]s that attack wandering traders.
+|Trader llamas now always spawn as adult llamas.
+|Trader llamas can no longer [[breeding|breed]].}}
+{{History||1.19.10|snap=beta 1.19.10.20|Trader llamas are now separate from a normal llama.
+|Trader llamas now have their own [[spawn egg]].}}
+{{History||1.20.10|snap=beta 1.20.10.20|Llamas now can be fed with [[hay bale]]s.|Llamas now follow players that are holding [[hay bale]]s.}}
+
+{{History|console}}
+{{History||xbox=TU54|xbone=CU44|ps=1.52|wiiu=Patch 24|switch=1.0.4|[[File:Creamy Llama Revision 1.png|32px]] [[File:Creamy Llama with Chest Revision 1.png|32px]] [[File:White Carpeted Llama Revision 1.png|32px]] [[File:Yellow Carpeted Llama Revision 1.png|32px]] [[File:Light Gray Carpeted Llama Revision 1.png|32px]] [[File:Brown Carpeted Llama Revision 1.png|32px]] [[File:White Llama Revision 1.png|32px]] [[File:White Llama with Chest Revision 1.png|32px]] [[File:Orange Carpeted Llama Revision 1.png|32px]] [[File:Lime Carpeted Llama Revision 1.png|32px]] [[File:Cyan Carpeted Llama Revision 1.png|32px]] [[File:Green Carpeted Llama Revision 1.png|32px]] [[File:Brown Llama Revision 1.png|32px]] [[File:Brown Llama with Chest Revision 1.png|32px]] [[File:Magenta Carpeted Llama Revision 1.png|32px]] [[File:Pink Carpeted Llama Revision 1.png|32px]] [[File:Purple Carpeted Llama Revision 1.png|32px]] [[File:Red Carpeted Llama Revision 1.png|32px]] [[File:Gray Llama Revision 1.png|32px]] [[File:Gray Llama with Chest Revision 1.png|32px]] [[File:Light Blue Carpeted Llama Revision 1.png|32px]] [[File:Gray Carpeted Llama Revision 1.png|32px]] [[File:Blue Carpeted Llama Revision 1.png|32px]] [[File:Black Carpeted Llama Revision 1.png|32px]] Added llamas.
+|[[File:Baby Creamy Llama Revision 1.png|32px]] [[File:Baby White Llama Revision 1.png|32px]] [[File:Baby Brown Llama Revision 1.png|32px]] [[File:Baby Gray Llama Revision 1.png|32px]] Added baby llamas.}}
+
+{{History|new3ds}}
+{{History||1.9.19|[[File:Creamy Llama Revision 1.png|32px]] [[File:Creamy Llama with Chest Revision 1.png|32px]] [[File:White Carpeted Llama Revision 1.png|32px]] [[File:Yellow Carpeted Llama Revision 1.png|32px]] [[File:Light Gray Carpeted Llama Revision 1.png|32px]] [[File:Brown Carpeted Llama Revision 1.png|32px]] [[File:White Llama Revision 1.png|32px]] [[File:White Llama with Chest Revision 1.png|32px]] [[File:Orange Carpeted Llama Revision 1.png|32px]] [[File:Lime Carpeted Llama Revision 1.png|32px]] [[File:Cyan Carpeted Llama Revision 1.png|32px]] [[File:Green Carpeted Llama Revision 1.png|32px]] [[File:Brown Llama Revision 1.png|32px]] [[File:Brown Llama with Chest Revision 1.png|32px]] [[File:Magenta Carpeted Llama Revision 1.png|32px]] [[File:Pink Carpeted Llama Revision 1.png|32px]] [[File:Purple Carpeted Llama Revision 1.png|32px]] [[File:Red Carpeted Llama Revision 1.png|32px]] [[File:Gray Llama Revision 1.png|32px]] [[File:Gray Llama with Chest Revision 1.png|32px]] [[File:Light Blue Carpeted Llama Revision 1.png|32px]] [[File:Gray Carpeted Llama Revision 1.png|32px]] [[File:Blue Carpeted Llama Revision 1.png|32px]] [[File:Black Carpeted Llama Revision 1.png|32px]] Added llamas.
+|[[File:Baby Creamy Llama Revision 1.png|32px]] [[File:Baby White Llama Revision 1.png|32px]] [[File:Baby Brown Llama Revision 1.png|32px]] [[File:Baby Gray Llama Revision 1.png|32px]] Added baby llamas.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list|Llama|Trader Llama}}
+
+== Trivia ==
+*The achievement title refers to the 1980 comedy movie ''{{Wikipedia|Caddyshack}}'', where Bill Murray tells a story of how he once caddied for the Dalai Lama. In return, on his deathbed he expects to receive total consciousness, thus uttering the line "So I got that going for me".
+*Some carpets on a llama's back represent certain mobs; a green carpet uses the face of the green [[creeper]], while a purple carpet gains eyes like those of an [[enderman]]. A llama wearing a gray carpet has a mask, similar to that of a superhero or a bandit.
+*A llama can kill another llama. When the player hits a llama and hides behind another, the spit will hurt the llama the player is hiding behind, leading to a battle. Both llamas will not stop spitting at one another until one dies.
+*The llama was [[Agnes Larsson]]'s first mob she designed for Minecraft.
+*Its [[wikipedia:Lego_BrickHeadz|LEGO BrickHeadz]] figure is notable for being the 200th produced,<ref>https://twitter.com/Minecraft/status/1646916167649353746?s=20</ref> and is included in several retail sets as the "Trader Lama".
+
+== Gallery ==
+=== Screenshots ===
+<gallery>
+All llama colors.png|All four llama variants, including baby variants.
+Llama fighting.png|Llamas fighting each other.
+A Llama Getting Attacked By Bees.jpg|A llama getting attacked by [[bee]]s.
+Ugood.png|A llama stares at a player stuck in a hole.
+WanderingTraderNearPileOfStone (EduEdition).png|A pair of trader llamas following a wandering trader.
+Llama GUI.png|A GUI of a llama with strength 1.
+LlamaSurvivalHouse.png|A tamed trader llama in an early survival mode house.
+Pocket Edition Llamas.jpg|First image of llamas in ''Bedrock Edition''.
+</gallery>
+
+=== Development images ===
+<gallery>
+Llama Development Image.jpg|An image showing a sketch of a llama by [[Agnes Larsson]] then a model with a 3d bushy tail then the final llama model.<ref>{{Tweet|LadyAgnes|1506025168921112588|The first thing I worked on when I joined Mojang (except fixing bugs) was the llama. I found some old images and it made me so nostalgic! ☺️|Mar 22, 2022}}</ref>
+Llame Sketch.jpg|A llama drawing by Agnes Larsson.
+</gallery>
+
+=== Renders ===
+{{hidden begin|Show all renders}}
+<gallery>
+Creamy Llama.png
+White Llama.png
+Brown Llama.png
+Gray Llama.png
+Baby Creamy Llama.png
+Baby White Llama.png
+Baby Brown Llama.png
+Baby Gray Llama.png
+Creamy Llama with Chest.png
+White Llama with Chest.png
+Brown Llama with Chest.png
+Gray Llama with Chest.png
+Creamy Trader Llama.png
+White Trader Llama.png
+Brown Trader Llama.png
+Gray Trader Llama.png
+</gallery>
+<gallery>
+White Carpeted Llama.png
+Orange Carpeted Llama.png
+Magenta Carpeted Llama.png
+Light Blue Carpeted Llama.png
+Yellow Carpeted Llama.png
+Lime Carpeted Llama.png
+Pink Carpeted Llama.png
+Gray Carpeted Llama.png
+Light Gray Carpeted Llama.png
+Cyan Carpeted Llama.png
+Purple Carpeted Llama.png
+Blue Carpeted Llama.png
+Brown Carpeted Llama.png
+Green Carpeted Llama.png
+Red Carpeted Llama.png
+Black Carpeted Llama.png
+White Carpeted Llama with Chest.png
+Orange Carpeted Llama with Chest.png
+Magenta Carpeted Llama with Chest.png
+Light Blue Carpeted Llama with Chest.png
+Yellow Carpeted Llama with Chest.png
+Lime Carpeted Llama with Chest.png
+Pink Carpeted Llama with Chest.png
+Gray Carpeted Llama with Chest.png
+Light Gray Carpeted Llama with Chest.png
+Cyan Carpeted Llama with Chest.png
+Purple Carpeted Llama with Chest.png
+Blue Carpeted Llama with Chest.png
+Brown Carpeted Llama with Chest.png
+Green Carpeted Llama with Chest.png
+Red Carpeted Llama with Chest.png
+Black Carpeted Llama with Chest.png
+</gallery>
+{{hidden end}}
+
+===In other media ===
+<gallery>
+Llamaalpacavote.png|The vote in which the Llama was chosen over the Alpaca.
+File:Backwards Llama Statue.jpg|“Something is not right here…”<ref> https://twitter.com/CornerHardMC/status/1618339743972089862?s=20</ref>
+ExplorationUpdateFull.jpg|A Llama in promotional artwork for the [[Exploration Update]].
+Caves & Cliffs cover art.png|Trader Llamas in promotional artwork for the first [[Caves & Cliffs]] update.
+File:Llama Craft.jpg|A giant llama statue erected by the protagonists of the game.<ref>https://youtu.be/oXKVfLTrdBM</ref>
+File:LlunaStoryMode.png|[[Lluna]], a llama from ''[[Minecraft Story Mode]]''.
+File:Jolly Llama.png|The [[MCE:Jolly Llama|Jolly Llama]], a unique variation of the llama featured in ''[[Minecraft Earth]]''.
+File:Llama (hero) T Pose.png|[[MCD:Llama (hero)|Llama]], a hero from ''[[Minecraft Dungeons]]'' dressed like an actual llama.
+File:Trader Llama (Dungeons).png|A [[MCD:Trader Llama|Trader Llama]], as depicted in ''Minecraft Dungeons''.
+File:Llama Artwork MCL.png|A [[Minecraft Legends:Llama|llama]] as depicted in ''[[Minecraft Legends]]''.
+File:Saliva Figure.jpg|Action figure of a spitting llama.
+LEGO Llama.png|[[LEGO Minecraft]] creamy carpeted llama minifigure.
+LEGO Brown Llama.png|[[LEGO Minecraft]] brown llama minifigure.
+LEGO Baby Llama.png|[[LEGO Minecraft]] white cria minifigure.
+LEGO Trader Llama.png|[[LEGO Minecraft]] white trader llama minifigure.
+LEGO Minecraft Trading Post Unboxed.png|Trading Post [[LEGO Minecraft]] set.
+LEGOMCTheLlamaVillageUnboxed.png|Llama Village [[LEGO Minecraft]] set.
+LEGOBrickheadzTraderLlamaUnboxed.webp|Trader llama LEGO BrickHeadz figure.
+File:200th Brickhead.png|Promotional artwork for the Trader Llama, [[Alex]], and [[Zombie]] ''BrickHeadz''.
+File:Llama Brickheadz.png|A comparison between the in-game and Lego ''BrickHeadz'' renditions of a llama.
+File:Acid Llama.png|''Acid Llama'', an official T-Shirt featuring a llama.
+File:Llama Shirt.png|An officially licensed llama sweater.
+</gallery>
+
+
+==References==
+{{reflist}}
+
+==External Links==
+*[https://www.minecraft.net/en-us/article/meet-llama Meet the Llama] – Minecraft.net on April 18, 2017
+
+{{Entities}}
+
+[[Category:Neutral mobs]]
+[[Category:Tameable mobs]]
+[[Category:Animal mobs]]
+
+[[de:Lama]]
+[[es:Llama]]
+[[fr:Lama]]
+[[it:Lama]]
+[[ja:ラマ]]
+[[ko:라마]]
+[[nl:Lama]]
+[[pt:Lhama]]
+[[pl:Lama]]
+[[ru:Лама]]
+[[uk:Лама]]
+[[th:ลามะ]]
+[[zh:羊驼]]
+[[Category:Four legged mobs]]
+[[Category:Retaliating mobs]]
+[[Category:Ranged-attack mobs]]

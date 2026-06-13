@@ -1,0 +1,84 @@
+{{For|the enchantment in ''Minecraft Dungeons''|MCD:Looting}}
+{{enchantment
+| maxlevel = III
+| primaryitems = {{ItemSprite|Sword|link=Sword}}
+| secondaryitems = {{ItemSprite|Axe|link=Axe}}{{upcoming|java Combat Tests}}
+| weight = 2
+}}
+'''Looting''' is an [[Enchanting|enchantment]] for [[sword]]s and [[Spear|spears]] that can cause [[mob]]s to [[drop]] more items and increase the chances of rare drops. The additional drops do not affect [[experience]].
+
+== Usage ==
+
+Increases the maximum number of items for most [[Drops#Common drops|common drops]] by 1 per level. It increases the chance of [[Drops#Rare drops|rare drops]] by making a second attempt to drop if the original attempt failed. The success chance of this second attempt is {{cd|''level'' / (''level'' + 1)}}. Looting also increases the chance of [[Drops#Rare drops|rare drops]] and [[Drops#Equipped items|equipment drops]] by 1 percentage point per level.
+
+Looting affects any kills while holding the enchanted item in the ''main'' hand, not only to kills with the enchanted item.<ref>{{bug|MC-3304}}</ref> For example, a player can fire a projectile then switch to the Looting item before the projectile reaches the target to get the Looting effect, or can fire a projectile from the off-hand{{only|java}} while holding a Looting item in the main hand. This allows Looting to work on [[arrow]]s or thrown [[trident]]s, as long as the player is holding the Looting item when the arrow or trident lands.
+
+Looting applies to mobs killed with a [[sweep attack]].{{only|java}}
+
+Using [[commands]] to get higher levels than 3 works as expected, adding higher numbers with a weight of 1. High enough numbers however (like level 2500) may crash the game due to too many dropped item entities.
+
+Looting has no effect in certain cases:
+* Mobs with no drops, such as [[bat]]s, [[bee]]s, or [[endermite]]s, are not affected by this enchantment.
+* [[Wither]]s, [[Iron Golem|iron golems]]<ref name="MC-200707">{{bug|MC-200707}}</ref>, [[cat]]s<ref name="MC-200707"/> and [[Snow Golem|snow golems]] are not affected by this enchantment.
+* Looting does not increase the amount of fish dropped by [[fish]] mobs.<ref>{{bug|MC-212795}}</ref>
+** [[Guardian]]s and elder guardians are not considered fish mobs, and Looting does cause them to drop more fish.
+* {{IN|java}}, Looting does not increase the drop of [[bamboo]] from [[panda]]s.<ref>{{bug|MC-160006}}</ref>
+* Looting does not increase the drop quantity when used on a [[fox]], but it does increase the chance for a drop.
+* It does not affect the amount of [[wool]] dropped by [[sheep]].
+* It does not affect [[sponge|sponges]] or [[Smithing Template|tide armor trims]] dropped by [[Elder Guardian|elder guardian]]s.
+* It does not affect [[Totem of Undying|totems of undying]] dropped by [[evoker]]s.
+* It does not affect the amount of [[Head|skulls]] dropped by [[wither skeleton]]s, but does increase the chance for them to drop one.
+* It does not affect the amount of [[sculk catalyst|sculk catalysts]] dropped by [[warden]]s.
+
+== Data values ==
+
+=== ID ===
+
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|nameid=looting
+|displayname=Looting
+|translationtype=enchantment
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=1
+|generatetranslationkeys=bedrock
+|nameid=looting
+|displayname=Looting
+|id=14
+|translationkey=enchantment.lootBonus
+|foot=1}}
+
+== History ==
+{{info needed section|the rest of console editions, also maybe add mobs affected by looting?}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 3|Added Looting, which can be applied to [[sword]]s.}}
+{{History||1.8|snap=14w04a|Looting now gives a 1 percentage point increase per level to the chance of getting rare [[drops]].}}
+{{History|java upcoming}}
+{{History||Combat Tests|snap=Combat Test 4|Looting can now be applied to [[axe]]s.}}
+
+{{History|pocket alpha}}
+{{History||v0.12.1|snap=build 1|Added Looting.}}
+
+{{History|console}}
+{{History||xbox=TU7|xbone=CU1|ps=1.00|wiiu=Patch 1|switch=1.0.1| Added Looting.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== References ==
+{{reflist}}
+
+{{Enchantments}}
+
+[[de:Plünderung]]
+[[fr:Enchantement#Butin]]
+[[es:Botín]]
+[[ja:ドロップ増加]]
+[[pt:Saque]]
+[[th:ฉกชิง]]
+[[zh:抢夺]]

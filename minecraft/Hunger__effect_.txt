@@ -1,0 +1,105 @@
+{{Effect
+|title={{EffectSprite|hunger}} Hunger
+|image=Hunger.png
+|sources=See [[#Causes]]
+|particle= {{EffectSprite|particle-hunger}} #587653 (dull green)
+|type=Negative
+}}
+'''Hunger''' is a [[status effect]] which causes the [[hunger]] bar to deplete faster than normal.
+
+== Effect ==
+Hunger increases [[food]] exhaustion by 0.005 × level per game [[tick]] (removes {{hunger|1}} saturation point every (40 ÷ level) seconds). It also turns the hunger bar a yellow-green color({{hungerbar|2|9px|poisoned=1}}). Negative levels decrease food exhaustion, although they do not increase saturation or the hunger bar.
+
+The status effect does not decrease hunger level on [[Peaceful]], although it does re-color the hunger bar.
+
+[[File:Eating Rotten Flesh.png|thumb|right|An example of how eating rotten flesh can cause the hunger status effect.]]
+Hunger inflicted by eating [[rotten flesh]], [[raw chicken]] or by being attacked by a [[husk]] adds 3.0 to the player's exhaustion level over the course of 30 seconds, draining 3/4 of a saturation point. When a [[Pufferfish (item)|pufferfish]] is eaten, 4.5 exhaustion points are added over the course of 15 seconds, draining {{hunger|1}} and {{frac|1|8}} (0.125) saturation points.
+
+== Causes ==
+{| class="wikitable" data-description="Causes"
+ ! Cause
+ ! Potency
+ ! Length
+ ! Notes
+ |-
+ | {{EntityLink|Husk}}
+ | I
+ | (7 x [[regional difficulty]]) seconds 
+ | Attack
+ |-
+ | {{ItemLink|id=pufferfish|text=Pufferfish|Pufferfish (item)}}
+ | III
+ | 0:15
+ | Does not apply to {{EntityLink|Wolf|Wolves}} when fed pufferfish{{only|bedrock}}.
+ |-
+ | {{ItemLink|Rotten Flesh}}
+ | I
+ | 0:30
+ | 80% chance of receiving. Does not apply to {{EntityLink|Wolf|Wolves}} when fed rotten flesh.
+ |-
+ | {{ItemLink|Raw Chicken}}
+ | I
+ | 0:30
+ | 30% chance of receiving. Does not apply to {{EntityLink|Wolf|Wolves}} when fed raw chicken.
+ |}
+
+== Immune mobs ==
+
+Only [[wither]]s and [[ender dragon]]s are immune. Only [[player]]s are affected, as all other mobs do not have hunger.
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load advancements|How Did We Get Here?}}
+</table-progress-tracking>
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|shownumericids=1
+|generatetranslationkeys=java
+|nameid=hunger
+|displayname=Hunger
+|spritetype=effect
+|id=17
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=1
+|generatetranslationkeys=bedrock
+|nameid=hunger
+|displayname=Hunger
+|spritetype=effect
+|id=17
+|foot=1}}
+
+== History ==
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|Added Hunger.
+|Hunger can be obtained through eating [[raw chicken]] and [[rotten flesh]].}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|[[File:Hunger JE1 BE1.png|18px]] Hunger now has an icon.}}
+{{History||1.7.2|snap=13w36a|Added [[pufferfish (item)|pufferfish]], which give Hunger when eaten.}}
+{{History||1.10|snap=16w20a|Added [[husk]]s, which can give Hunger when attacking.}}
+{{History||1.14|snap=18w43a|[[File:Hunger JE2 BE2.png|18px]] The effect icon texture of Hunger has now been changed.}}
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=build 1|[[File:Hunger JE1 BE1.png|18px]] Added Hunger.
+|Hunger does not currently work due to the hunger bar not being implemented.|Hunger can be obtained from eating [[pufferfish]]{{verify|type=change|edition=bedrock|Was it already giving the effects?}} and [[raw chicken]].}}
+{{History||v0.12.1|snap=build 1|Hunger now works.
+|Hunger can now be obtained from eating [[rotten flesh]].}}
+{{History||v0.15.0|snap=build 1|Added [[husk]]s, which inflict Hunger.}}
+{{History|bedrock}}
+{{History||?|[[File:Hunger JE2 BE2.png|18px]] Updated the hunger icon.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list|Hunger}}
+
+{{Effects}}
+
+[[de:Hunger (Statuseffekt)]]
+[[es:Hambre (efecto)]]
+[[ja:空腹]]
+[[pt:Fome (efeito de estado)]]
+[[zh:饥饿（状态效果）]]

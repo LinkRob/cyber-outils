@@ -1,0 +1,13 @@
+<div class="treeview">
+* {{nbt|compound}} root tag
+** {{nbt inherit/entity}}
+** {{nbt|float|width}}: The width of the entities bounding box. Defaults to 1.
+** {{nbt|float|height}}: The height of the entities bounding box. Defaults to 1.
+** {{nbt|bool|response}}: A boolean specifying whether an interaction should trigger a response. Defaults to false.
+** {{nbt|compound|attack}}: The last attack (left click) to hit the entity.
+*** {{nbt|int array|player}}: The UUID of the player that attacked the entity. The 128-bit UUID is stored as four 32-bit integers, ordered from most to least significant.
+*** {{nbt|long|timestamp}}: When the attack took place.
+** {{nbt|compound|interaction}}: The last interaction (right click) to hit the entity.
+*** {{nbt|int array|player}}: The UUID of the player that interacted with the entity. The 128-bit UUID is stored as four 32-bit integers, ordered from most to least significant.
+*** {{nbt|long|timestamp}}: When the interaction took place.
+</div>

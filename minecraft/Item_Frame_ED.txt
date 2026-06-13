@@ -1,0 +1,13 @@
+<div class="treeview" style="margin-top: 0;">
+* {{nbt|compound}} Entity data
+*** {{nbt inherit/entity}}
+** {{nbt inherit/hangable}}
+** {{Nbt|byte|Fixed}}:  1 or 0 (true/false) -  true to prevent it from dropping if it has no support block, being moved (e.g. by pistons), taking damage (except from creative players), and placing an item in it, removing its item, or rotating it.
+** {{Nbt|byte|Invisible}}: 1 or 0 (true/false) -  Whether the item frame is invisible. The contained item or map remains visible.
+** {{nbt|compound|Item}}: The item, without the slot tag. If the item frame is empty, this tag does not exist.
+*** {{nbt inherit/itemnoslot|indent=***}}
+** {{nbt|float|ItemDropChance}}: The chance for the item to drop when the item frame breaks. 1.0 by default.
+** {{nbt|byte|ItemRotation}}: The number of times the item has been rotated 45 degrees clockwise.
+</div><noinclude>
+[[Category:Entity data pages]]
+</noinclude>

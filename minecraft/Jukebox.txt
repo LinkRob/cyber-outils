@@ -1,0 +1,268 @@
+{{About|the block that plays music discs|the block that makes music when hit|Note Block}}
+{{Block
+|image=Jukebox.png
+|transparent=No
+|light=No
+|tool=Axe
+|renewable=No
+|stackable=Yes (64)
+|flammable=No
+|lavasusceptible=Yes
+}}
+A '''jukebox''' is a [[block]] used to play [[music disc]]s.
+
+== Obtaining ==
+=== Breaking ===
+A jukebox can be broken using any [[tool]], but an [[axe]] is the fastest. Jukeboxes also drop all of their contents.
+{{breaking row|horizontal=1|Jukebox|Axe|foot=1}}
+
+=== Crafting ===
+{{Crafting
+|A1= Any Planks
+|B1= Any Planks
+|C1= Any Planks
+|A2= Any Planks
+|B2= Diamond
+|C2= Any Planks
+|A3= Any Planks
+|B3= Any Planks
+|C3= Any Planks
+|Output= Jukebox
+|type= Decoration block
+}}
+
+== Usage ==
+=== Playback ===
+{{control|Using}} a [[music disc]] on a jukebox inserts the disc and plays [[music]] corresponding to the type of music disc used. Pressing {{control|use}} on the jukebox again ejects the disc and stops any music playing. Music discs play only once before they must be ejected and reinserted. Note [[particles]] emit out the top when sound is playing. The sound from the jukebox travels roughly 65 blocks in all directions. It supports all available music discs in the game.
+
+[[Hopper]]s and [[dropper]]s can be used to insert a [[Music Disc|disc]] into a jukebox.
+
+Tamed [[parrot]]s and [[allay]]s dance when in a 3 block radius from a jukebox that's playing a disc. 
+
+==== Allay duplication ====
+If an [[amethyst shard]] is used on an allay dancing next to a playing jukebox, the allay consumes the amethyst shard, emits heart particles, and duplicates into two allays. Both allays have a 5-minute cooldown before they can be duplicated again.
+
+=== Redstone component ===
+{{see also|Redstone circuit}}
+
+Active jukeboxes give off a redstone signal when a [[redstone comparator]] is placed directly behind it or through an adjoining block; its strength depends on the ID of the inserted disc. The following table shows the redstone strength output for each disc.
+
+{| class="wikitable" style="margin-left: 0.5em; margin-right: 0; text-align: center;" data-description="Redstone signal strength per disc"
+!Power Level!!Disc
+|-
+|0||No disc inserted
+|-
+|1||"13"
+|-
+|2||"cat"
+|-
+|3||"blocks"
+|-
+|4||"chirp"
+|-
+|5||"far"
+|-
+|6||"mall"
+|-
+|7||"mellohi"
+|-
+|8||"stal"
+|-
+|9||"strad"
+"Lava Chicken"
+|-
+|10||"ward"
+"Tears"
+|-
+|11||"11"
+"Creator (Music Box)"
+|-
+|12||"wait"
+"Creator"
+|-
+|13||"Pigstep"
+"Precipice"
+|-
+|14||"otherside"<br>"Relic"
+|-
+|15
+|"5"
+|}
+
+They also emit a redstone signal when any music disc is played inside.
+
+==== Looping ====
+Jukeboxes disable adjacent hoppers when a music disc is playing inside them, due to them emitting a redstone signal even without using a comparator. When the song ends, the hopper placed below the jukebox will be re-enabled, so the disc will be automatically ejected and stored in the hopper. A system of hoppers and droppers can then be used to automatically re-insert the disc, causing it to loop.
+
+If the hopper under the jukebox is powered by anything else, it will not eject the disc, breaking the loop.
+
+=== Fuel ===
+Jukeboxes can be used as a [[fuel]] in [[furnace]]s, smelting 1.5 items per block.
+
+=== Note Blocks ===
+Jukeboxes can be placed under [[note block]]s to produce "bass" sounds.
+
+=== Piston interactivity ===
+Jukeboxes cannot be pushed by [[piston]]s. They also cannot be pushed or pulled by [[sticky piston]]s.
+
+== Sounds ==
+''Music discs are not included here.''
+
+{{edition|java}}:
+{{Sound table/Block/Wood/JE}}
+
+{{edition|bedrock}}:
+{{Sound table/Block/Wood/BE}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Jukebox
+|spritetype=block
+|nameid=jukebox
+|foot=1}}
+{{ID table
+|displayname=Block entity
+|spritename=jukebox
+|spritetype=block
+|nameid=jukebox
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Jukebox
+|spritetype=block
+|nameid=jukebox
+|id=84
+|foot=1}}
+{{ID table
+|notnamespaced=y
+|displayname=Block entity
+|spritename=jukebox
+|spritetype=block
+|nameid=Jukebox
+|foot=1}}
+
+=== Metadata ===
+{{see also|Data values}}
+{{/DV}}
+
+=== Block states ===
+{{see also|Block states}}
+{{/BS}}
+
+=== Block data ===
+A jukebox has a block entity associated with it that holds additional data about the block.
+
+{{el|java}}:
+{{see also|Block entity format}}
+{{/BE}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Block entity format]].
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|sound of music}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|sound of music}}
+</table-progress-tracking>
+
+== History ==
+{{History|java alpha}}
+{{History||v1.0.14|[[File:Jukebox JE1 BE1.png|32px]] Added jukeboxes.
+|Jukeboxes support up to 15 [[music disc]]s, using their data values: 0 being empty, 1 meaning it contained disc "13", and 2 meaning it contained disc "cat". Values 3–15 support any additional discs, though only "13" and "cat" are available in the vanilla game at the time.}}
+{{History|java beta}}
+{{History||1.6|snap=Test Build 3|The jukebox now ''supports'' more than 15 different music discs, because jukeboxes now have a [[block entity]], which keeps track of the music disc by its [[item]] id, instead of using the block's data values. However, this potential won't be used until [[Java Edition 1.20]] adds the 16th music disc well over a decade later.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 6|Jukeboxes are now broken faster using an [[axe]].}}
+{{History||1.2.4|snap=release|[[Spruce planks]], [[birch planks]], and [[jungle planks]] can now be used to craft jukeboxes.}}
+{{History||1.5|snap=13w04a|Active jukeboxes now give off a [[redstone]] signal when a [[redstone comparator|comparator]] is placed behind it; its strength (1–12) depends on which [[music disc|disc]] is inserted.}}
+{{History||1.7.2|snap=1.7.1|[[Acacia planks]] and [[dark oak planks]] can now be used to craft jukeboxes.}}
+{{History||1.8|snap=14w10a|[[File:14w10a jukebox.png|32px]] [[File:14w10a jukebox (anisotropic filtering).png|32px]] Due to a bug, when jukeboxes are playing music, they're replaced with a missing texture.<ref>{{bug|MC-50226}}</ref>}}
+{{History|||snap=14w10b|Jukeboxes no longer use the missing texture when playing music.}}
+{{History||1.11|snap=16w32a|The [[block]] entity ID has been changed from {{code|RecordPlayer}} to {{code|jukebox}}.}}
+{{History||1.12|snap=17w14a|[[Parrot]]s now dance to playing jukeboxes.}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], this [[block]]'s numeral ID was 84.}}
+{{History||1.14|snap=18w43a|[[File:Jukebox JE2 BE2.png|32px]] The texture of jukeboxes has been changed.}}
+{{History||1.16|snap=20w06a|[[Crimson planks]] and [[warped planks]] can now be used to craft jukeboxes.}}
+{{History||1.19|snap=22w11a|[[Mangrove planks]] can now be used to craft jukeboxes.}}
+{{History||1.19.1|snap=22w24a|[[Allay]]s now dance near jukeboxes that are playing music.|Added block entity tags {{code|IsPlaying}}, {{code|RecordStartTick}}, and {{code|TickCount}}.}}
+{{History||1.19.4|snap=23w06a|Jukeboxes now emit a note particle above them while playing a [[music disc]], to match {{el|be}}.}}
+{{History|||snap=23w07a|Jukeboxes now emit a redstone signal when any music disc is played, matching {{el|be}}.
+|Jukeboxes now redirect adjacent [[redstone wire]] to point toward themselves.
+|[[Dropper]]s, [[hopper]]s, and [[minecarts with hopper]] can now interact with a jukebox.}}
+{{History||1.20|snap=23w18a|Jukeboxes have been added to the "Redstone Blocks" tab in the Creative inventory.}}
+{{History||1.20.2|snap=23w33a|Jukeboxes now use wood sounds instead of stone sounds.<ref>{{bug|MC-200484|||Fixed}}</ref>}}
+
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|[[File:Jukebox JE1 BE1.png|32px]] Added jukeboxes.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Jukebox JE2 BE2.png|32px]] The texture of jukeboxes has now been changed.}}
+{{History||1.19.10|snap=beta 1.19.10.22|[[Allay]]s now dance near jukeboxes that are playing music.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Jukebox JE1 BE1.png|32px]] Added jukeboxes.
+|Jukeboxes spit out the music disc when done playing.{{verify|type=change|was this added later? How about removal?}}}}
+{{History||xbox=TU9|The distance jukeboxes can be heard from has now been increased.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Jukebox JE2 BE2.png|32px]] The texture of jukeboxes has now been changed.}}
+
+{{History|foot}}
+
+== Gallery ==
+<gallery>
+Better Together Jukebox.jpg|First image of a jukebox in ''Bedrock Edition''.
+Crimson Forest Jukebox.jpg|A jukebox playing in a [[crimson forest]].
+</gallery>
+
+== Issues ==
+{{Issue list}}
+
+== Trivia ==
+[[File:C418 skin.png|200px|right|thumb|C418's skin]]
+* [[C418]] has the Steve skin with a jukebox for a head, likely because it was he who made most of the music for Minecraft.
+* [[wikipedia:Phonograph cylinder|Edison phonographs]] use diamond-tipped needles. Similarly, the jukebox also needs a [[diamond]] as a crafting ingredient.
+
+== See also ==
+*[[Music]]
+
+== References ==
+{{Reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/block-week-jukebox Block of the Week: Jukebox] – Minecraft.net on May 26, 2017
+
+{{Redstone}}
+{{Blocks|Utility}}
+
+[[Category:Manufactured blocks]]
+[[Category:Utility blocks]]
+[[Category:Storage]]
+[[Category:Block entities]]
+
+[[de:Plattenspieler]]
+[[el:Τζούκμποξ]]
+[[es:Tocadiscos]]
+[[fr:Jukebox]]
+[[hu:Zenegép]]
+[[it:Giradischi]]
+[[ja:ジュークボックス]]
+[[ko:주크박스]]
+[[nl:Jukebox]]
+[[pl:Szafa grająca]]
+[[pt:Toca-discos]]
+[[ru:Проигрыватель]]
+[[th:ตู้เพลง]]
+[[tr:Müzik Kutusu]]
+[[uk:Програвач]]
+[[zh:唱片机]]

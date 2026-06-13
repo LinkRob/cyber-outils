@@ -1,0 +1,474 @@
+{{Exclusive|java|customtext=These features only exist in [[Java Edition]].}}{{about|features that are in ''Java Edition'', but unused|unused ideas|Java Edition mentioned features}}
+Since the beginning of ''[[Minecraft]]'''s development, there have been a number of features added to the game that have no actual use in Survival or in Creative. Some of these features are leftover from removed features, or simply placeholders for new features.
+
+'''Note''': that this page documents only unused features that are currently in the game. See [[Java Edition removed features]] for features previously in the game that are no longer available.
+
+== Blocks ==
+=== Unobtainable block states ===
+
+{| class="wikitable"
+! Block
+! State
+! Effect
+|-
+! {{BlockLink|Decorated Pot}}
+| <code>cracked: true</code>
+|As of now, there is no difference between a pot with this set to  <code>true</code>  and a normal pot.
+|-
+!{{BlockLink|Piston Head}}
+|<code>short: true</code>
+|Piston heads which have this set to <code>true</code> appear shorter by 4 pixels. This state is presumably only used for the extension/retraction animation, and cannot be obtained as a block itself. 
+|-
+!{{BlockLink|TNT}}
+|<code>unstable: true</code>
+|Breaking TNT which has this set to <code>true</code> will do the same thing as lighting it, eventually causing an explosion.
+|}
+
+===Unobtainable block state combinations===
+Certain blocks have certain combinations of block states that cannot be encountered in usual Survival gameplay, and instead require using [[command]]s, the [[debug stick]], a [[debug world]], or certain glitches, many version-specific. Some may also be able to be created via update suppression methods, or be able to be created in older game versions and updated forwards. As these are impossible to encounter, mapmakers may be able to use some of them as blank slates and remodel these using model files for custom blocks as these will not be able to be encountered in any gameplay. Note, however, that these states are generally fragile.
+
+{| class="wikitable"
+!Block
+! colspan="2" |Combination
+!Effect
+|-
+! rowspan="3" |{{BlockLink|Bamboo}}
+| rowspan="2" |<code>age: 0</code>
+|<code>leaves: large</code>
+|
+|-
+|<code>stage: 1</code>
+|
+|-
+|<code>stage: 1</code>
+|<code>leaves: none, small</code>
+|
+|-
+! rowspan="3" |{{BlockLink|Calibrated Sculk Sensor}}<br>{{BlockLink|Sculk Sensor}}
+| colspan="2" |<code>power: 0</code>
+<code>sculk_sensor_phase: active</code>
+|
+|-
+| rowspan="2" |<code>power:1</code>-<code>15</code>
+|<code>sculk_sensor_phase: cooldown</code>
+|
+|-
+|<code>sculk_sensor_phase: inactive</code>
+|
+|-
+!{{BlockLink|Campfire}}<br>{{BlockLink|Soul Campfire}}
+| colspan="2" |<code>lit: true</code><br><code>waterlogged: true</code>
+|
+|-
+!{{BlockLink|Candle}}
+| colspan="2" |<code>lit: true</code><br><code>waterlogged: true</code>
+|The [[graphics setting]] must be ''Fabulous!'' in order to see the emitted flame particles.
+|-
+!{{BlockLink|Chorus Plant}}
+| colspan="2" |<code>north: false</code><br><code>east: false</code><br><code>south: false</code><br><code>west: false</code><br><code>down: false</code>
+|-
+!{{BlockLink|Glow Lichen}}<br>{{BlockLink|Sculk Vein}}
+| colspan="2" |<code>north: false</code><br><code>east: false</code><br><code>south: false</code><br><code>west: false</code><br><code>up: false</code><br><code>down: false</code>
+|
+|-
+!{{BlockLink|Hanging Signs|link=Sign}}
+| colspan="2" |<code>attached: false</code><br><code>rotation: 1</code>; <code>2</code>; <code>3</code>; <code>5</code>; <code>6</code>; <code>7</code>; <code>9</code>; <code>10</code>; <code>11</code>; <code>13</code>; <code>14</code>; <code>15</code>
+|
+|-
+!{{BlockLink|Iron Door}}<br>{{BlockLink|Iron Trapdoor}}
+| colspan="2" |<code>open</code> ≠ <code>powered</code>
+|In normal gameplay, <code>open</code> and <code>powered</code> are always simultaneously either <code>true</code> or <code>false</code>, and never mismatched.
+|-
+! rowspan="2" |{{BlockLink|Mangrove Propagule}}
+| colspan="2" |<code>age: 0</code>-<code>3</code><code>hanging: false</code>
+|
+|-
+| colspan="2" |<code>stage: 1</code><code>hanging: true</code>
+|
+|-
+!{{BlockLink|Pitcher Crop|link=Pitcher Pod}}
+| colspan="2" |<code>half: upper</code><br><code>age: 0</code>; <code>1</code>; <code>2</code>
+|
+|-
+!{{BlockLink|Redstone Wire}}
+| colspan="2" |any side: <code>side</code> / <code>up</code><br>remaining sides: <code>false</code>
+|In [[Java Edition 1.15]], redstone wire will still stretch all the way to the side opposite its attachment, despite there being valid different block states which only have and visually show one attachment. Interestingly, they were even given distinct models in [[20w18a]], yet still never made available in [[Survival]]. 
+|
+|-
+! rowspan="2" |{{BlockLink|Scaffolding}}
+| colspan="2" |<code>bottom: false</code><code>distance: 1</code>-<code>7</code>
+|
+|-
+| colspan="2" |<code>bottom: true</code><code>distance: 0</code>
+|
+|-
+!{{BlockLink|Slabs}}
+| colspan="2" |<code>type: double</code><br><code>waterlogged: true</code>
+|
+|-
+! rowspan="2" |{{BlockLink|Tripwire}}
+| colspan="2" |<code>disarmed: true</code>
+<code>powered: false</code>
+|
+|-
+| colspan="2" |<code>attached: true</code>
+no opposite sides: <code>true</code>
+|
+|-
+!{{BlockLink|Tripwire Hook}}
+| colspan="2" |<code>attached: false</code>
+<code>powered: true</code>
+|
+|-
+!{{BlockLink|Vines}}
+| colspan="2" |<code>north: false</code><br><code>east: false</code><br><code>south: false</code><br><code>west: false</code><br><code>up: false</code>
+|
+|-
+! rowspan="5" |{{BlockLink|Walls}}
+| rowspan="5" |<code>up: false</code>
+|all sides: <code>none</code>
+| rowspan="5" |Most of these allow the inside of the wall to be seen, which can be seen through completely.
+|-
+|any side: <code>tall</code>/<code>low</code>
+
+remaining sides: <code>none</code>
+|-
+|two neighboring sides: <code>tall</code>/<code>low</code>
+
+remaining sides: <code>none</code>
+|-
+|three sides: <code>tall</code>/<code>low</code>
+
+remaining side: <code>none</code>
+|-
+|any side: <code>tall</code>
+
+any other side: <code>low</code>
+|}
+
+===Unobtainable fluid states===
+
+{| class="wikitable"
+!Block
+!State
+!Effect
+|-
+!{{BlockLink|Water}}<br>{{BlockLink|Lava}}
+|<code>falling: true</code>
+|Both non-flowing [[water]] and [[lava]] have a fluid state named <code>falling</code>, which is always <code>false</code>.
+|}
+
+===Unobtainable fluid state combinations===
+
+{| class="wikitable"
+!Block
+!Combination
+!Effect
+|-
+! rowspan="2" |Flowing {{BlockLink|Water}}<br>Flowing {{BlockLink|Lava}}
+|<code>falling: false</code><br><code>level: 8</code>
+| rowspan="2" |Both [[water]] and [[lava]] created from a corresponding block above have the fluid state <code>falling</code> set to <code>true</code> and <code>level</code> set to <code>8</code>, while without block above, the fluid state has <code>falling</code> set to <code>false</code> and <code>level</code> set to <code>1</code> through <code>7</code>, making the combinations of <code>falling</code> set to <code>false</code> and <code>level</code> set to <code>8</code>, and <code>falling</code> set to <code>true</code> and <code>level</code> set to <code>1</code> through <code>7</code> unobtainable.
+|-
+|<code>falling: true</code><br><code>level:1</code>-<code>7</code>
+|}
+
+==Entities ==
+
+=== Giant===
+{{main|Giant}}
+[[File:Zombie.png|100px|right]]
+
+Giants are an unused [[mob]] added in [[Indev]]. They appear to be a giant [[zombie]]. Giants have no movement AI, therefore they are unable to walk around. They cannot spawn naturally because the game requires the light level to be both greater than 11 and less than 8 and those conditions cannot be met in vanilla. This makes them impossible to appear through [[monster spawner]]s.
+
+Giants can be summoned only by using the {{cmd|summon giant}} command.
+
+During the [[20w14infinite|2020 April Fools' snapshot]], the giant is able to naturally spawn on occasion in custom dimensions.
+
+In the [[Java Edition 24w14potato]] snapshot, the giant's zombie texture is replaced with a developer skin texture, and given mob AI. Giants are only spawned by [[Java Edition 24w14potato|the Mega Spud boss mob]].
+
+===The Killer Bunny===
+{{main|Killer Rabbit}}
+[[File:Killer Bunny.png|100px|right]]
+
+The killer bunny is a variant of the rabbit that is hostile toward all [[player]]s and tamed [[wolves]]. Its fur is pure white with blood-red eyes that are horizontal, compared to a normal [[rabbit]]'s vertical eyes.
+
+If the killer bunny finds any player within a 16-block radius, it hops quickly toward the player, much faster than a normal rabbit. It moves in a style similar to that of a [[spider]]. Once it closes in, it lunges at the player, dealing a fair amount of damage. If the player strikes at the killer bunny, it runs away for a brief moment, then returns to lunging at the player. Killer rabbits are also immune to the Thorns [[enchantment]].
+
+If it cannot find a player, the killer bunny actively seeks out and attacks any [[wolves]] as well, including tamed wolves. These wolves, in turn, turn hostile and attack the killer bunny, leading to a vicious fight.
+
+On peaceful difficulty, the killer bunny does not despawn, despite its hostile nature. It still attacks wolves (both tamed and untamed).
+
+The killer bunny can be spawned only with the {{cmd|summon rabbit ~ ~ ~ {RabbitType:99} }} command.
+
+===Zombie Horse ===
+{{main|Zombie Horse}}
+[[File:Zombie Horse.png|100px|right]]
+
+Zombie horses are a variant of [[horse]]s that were added in [[Java Edition 1.6.1]], along with normal and skeleton horses. There is a zombie horse [[spawn egg]] available only in creative mode, but they remain unused in [[survival]].
+
+In addition to spawn eggs, zombie horses can be spawned with the {{cmd|summon zombie_horse}} command.
+
+=== Illusioner===
+{{main|Illusioner}}
+[[File:Illusioner.png|100px|right]]
+
+The illusioner is an unused [[illager]]<!-- Illager is correct --> that was added in [[Java Edition 1.12]]. Like other illagers, they attack [[player]]s, [[villager]]s, [[wandering trader]]s and [[iron golem]]s within a 12 blocks range. It attacks with its spells, and with its [[bow]].
+
+The illusioner has two spells: a spell that blinds its opponent, and a spell that summons duplicates and makes the illusioner invisible.  
+
+The illusioner has a face that is just like the face of an [[evoker]], formerly of a [[vindicator]].
+
+Illusioners can be spawned only with the {{cmd|summon illusioner}} command.
+
+===Minecart with Monster Spawner===
+{{main|Minecart with Monster Spawner}}
+[[File:Minecart with Spawner JE2.png|100px|right]]
+
+Minecart with monster spawner is a combination of a [[minecart]] and a [[monster spawner]].
+
+Minecarts with monster spawners cannot be obtained as an item in the inventory, and can only be placed using the <code>[[Commands/summon|/summon]]</code> [[command]].
+
+The monster spawner inside the minecart acts the same way as normal monster spawners, and the mob being spawned can be changed with <code>[[Commands/data|/data modify]]</code>.
+
+When killed, minecarts with monster spawners drop 1 {{ItemLink|minecart}}.
+
+===Unused paintings===
+{{main|Painting#Unused_paintings}}
+
+In [[Pocket Edition v0.5.0 alpha|v0.5.0 alpha]], with the addition of paintings to Pocket Edition, four unused 32×32 paintings were present in <samp>[[kz.png]]</samp> which remained unused. They were also added to Java Edition in snapshot [[Java Edition 22w16a|22w16a]]. They cannot be placed by default, but can be summoned by [[commands]] (such as {{cmd|/summon painting ~ ~ ~ {variant:"water"} }}) or through a [[datapack]].
+
+According to [[Helen Zbihlyj]]<ref>https://old.reddit.com/r/Minecraft/comments/u8hpnx/thoughts_on_the_new_paintings/i5olue6/?context=3 ([https://web.archive.org/web/20220422115723/https://old.reddit.com/r/Minecraft/comments/u8hpnx/thoughts_on_the_new_paintings/i5olue6/?context=3 archived])</ref>, these paintings were originally added "as part of a Pocket Edition promo map" (no footage found) which was planned to be a part of [[Pocket Edition]] promotion at [[MINECON 2012]] [[MINECON 2013|or 2013]] and have never been used in game. The artist of these paintings remains unknown.
+
+These paintings are only obtained from the [[Inventory|creative inventory]], when the Operator's Tab is toggled on.
+
+<gallery>
+File:Earth (texture) BE2.png
+File:Fire (texture) BE2.png
+File:Water (texture) BE2.png
+File:Wind (texture) BE2.png
+</gallery>{{-}}
+
+==Potions==
+{{main|Potion|Splash Potion|Lingering Potion|Tipped Arrow}}
+
+The uncraftable potion is a potion added in the [[Java Edition 1.9]] snapshot [[Java Edition 15w44b|15w44b]] with no effect that is unobtainable in survival without cheats as of 1.17. It is also available in splash potion and lingering potion forms, as well as for tipped arrows. It serves as a placeholder for potions that have missing or invalid potion-effect tags, which default to this.
+
+It can be obtained using the following command: {{cmd|give @p minecraft:potion<nowiki>{Potion:"minecraft:empty"}</nowiki>}}.
+
+{| class="wikitable" style="text-align: center;" data-description="Uncraftable potion"
+!Icon
+!Name
+!<abbr title="Data Value">DV</abbr>
+|-
+|{{Slot|Uncraftable Potion|link=none}}
+! Uncraftable Potion
+|373
+|-
+|{{Slot|Uncraftable Splash Potion|link=none}}
+!Uncraftable Splash Potion
+|438
+|-
+|{{Slot|Uncraftable Lingering Potion|link=none}}
+!Uncraftable Lingering Potion
+|440
+|-
+|{{Slot|Uncraftable Tipped Arrow|link=none}}
+!Uncraftable Tipped Arrow
+|441
+|}
+
+There are also potions that cannot be brewed, and give the [[player]] status effects not intended to be received by potions; e.g. Wither, Nausea. Again, these can be obtained only through custom potions.
+
+==Status effects==
+{{main|Status effects}}
+
+Various status effects remain unused in the game. They can be obtained using {{cmd|effect}} or [[potion]] NBT data, but have no way of being obtained other than that.
+
+==={{EffectLink|Luck}}===
+
+Luck increases the chance of high-quality loot. Luck can be obtained from [[Potion of Luck|potion of luck]], [[Splash Potion of Luck|splash potion of luck]], [[Lingering Potion of Luck|lingering potion of luck]] or [[Arrow of Luck|arrow of luck]], which cannot be obtained in survival. 
+
+From snapshot [[19w13a]] to [[1.14 Pre-Release 1]], the arrows of luck could be obtained from fletcher [[villagers]] when the player has the [[Hero of the Village]] status effect.
+
+==={{EffectLink|Bad Luck}}===
+
+Bad Luck is the opposite of Luck; it reduces the chances of high-quality loot. Bad Luck cannot be obtained from potions, even in creative mode.
+
+==={{EffectLink|Health Boost}}===
+
+In [[Java Edition 1.6.1]] snapshot [[13w23b]], the [[health boost]] status effect was added. It boosted the [[player]]'s hearts for a temporary time. It could be obtained from eating a [[golden apple]]. Later, in snapshot [[13w24b]], golden apples gave the player absorption instead of a health boost, but the effect was still left in the game.
+
+In [[Java Edition 1.9]] and [[Java Edition 1.14]], developers gave the Health Boost effect a new texture, despite the fact that it is still not in use.
+
+==Sounds==
+
+===Audio loops===
+
+Loops were unused [[sound]]s, found in the game files, and were possibly meant for when the [[player]] is in a specific type of location (i.e., in [[forest]]s, [[cave]]s, the [[ocean]] and beside a waterfall).
+
+They were found in <code>.minecraft/resources/sound/loops/</code>, and could be converted to reveal four loops, of birds chirping, cave chimes, ocean and waterfall noises. They were removed at an unknown time.
+
+{| class="wikitable sortable" style="width: auto; text-align: center; font-size: smaller" data-description="Sound loops"
+!'''Loop'''
+!Track
+|-
+!Birds Chirping
+|[[File:Birds screaming loop.ogg]]
+|-
+!Cave Chimes
+|[[File:Cave chimes.ogg]]
+|-
+!Ocean
+|[[File:Ocean.ogg]]
+|-
+!Waterfall
+|[[File:Waterfall.ogg]]
+|-
+|}
+
+===Others ===
+{| class="wikitable sortable" style="width: auto; text-align: center; font-size: smaller" data-description="Other sounds"
+!'''Others'''
+!Track
+|-
+!Ghast affectionate scream
+|[[File:Ghast affectionate scream.ogg]]
+|-
+!Classic Hurt
+|[[File:Hurt Old.ogg]]
+|-
+! Breath 
+|[[File:Player breathe.ogg]]
+|-
+!Wolf Howl 1
+|[[File:Wolf howl1.ogg]]
+|-
+!Wolf Howl 2
+|[[File:Wolf howl2.ogg]]
+|-
+|}
+{| class="wikitable sortable" style="width: auto; text-align: center; font-size: smaller" data-description="Other sounds"
+!'''Silverfish Walking Sounds'''
+!Track
+|-
+!Step1
+|[[File:Silverfish step1.ogg]]
+|-
+!Step2
+|[[File:Silverfish step2.ogg]]
+|-
+!Step3
+|[[File:Silverfish step3.ogg]]
+|-
+!Step4
+|[[File:Silverfish step4.ogg]]
+|-
+|}
+Some of these sounds are still usable by running:
+
+*{{cmd|playsound minecraft:entity.ghast.scream master @a}} for the "Ghast affectionate scream" sound.<ref>{{bug|MC-185411}}</ref>
+*{{cmd|playsound minecraft:entity.player.breath master @a}} for the "Breath" sound.<ref>{{bug|MC-185414}}</ref>
+*{{cmd|playsound minecraft:entity.wolf.howl master @a}} for the "Wolf Howl" sounds.<ref>{{bug|MC-185412}}</ref> (No longer works after [[Java Edition 1.21.5]])
+*{{cmd|playsound minecraft:entity.silverfish.step master @a}} for the "Silverfish walking" sounds.<ref>{{bug|MC-117609}}</ref>
+
+Curiously, the "affectionate scream" can be heard in the [https://www.youtube.com/watch?v=1DhWXAiNgfQ&ab_channel=Minecraft&t=63s Nether Update Official Trailer] at 1:03 – 1:04.
+
+In [[A Minecraft Movie]], the unused wolf howling sounds are used both in the film and the trailers.
+
+== Resources==
+{{main|History of textures/Unused textures}}
+Various resources located in the game's assets files that remain unused.
+
+===Purple arrow===
+[[File:Purple Arrow.png|150px|right]]
+[[File:Arrow (texture) JE2.png|thumb|The arrow and the purple arrow beside each other, in that respective order.]]
+{{see also|Arrow#History}}
+[[File:Purple arrow in game.jpg|thumb|The purple arrow shot by a skeleton in Survival Test.]]
+Purple arrows were shot by [[skeleton]]s in [[Survival Test]] and acted the same as regular [[arrow]]s, but could not be picked up. The purple arrow used a texture on the same sheet as the normal arrows, but the texture is not currently in use.
+
+In [[Java Edition 1.9]], a new texture was added for arrows, causing the original arrow texture, including the purple arrows to be entirely unused.<ref name="UnusedFiles">{{bug|MC-108636}}</ref>
+{{-}}
+
+===Villager speech bubble ===
+[[File:Unused villager speech bubble.png|thumb|100px|A villager speech bubble]]
+
+The villager speech bubble is an image that was added along with the villager.png file in the jar when the trading system was added. It showed a trade, where [[raw chicken]] could be sold to [[villager]]s for another raw chicken. Both raw chickens have the old raw chicken texture. During an interview about villagers, [[Jeb]] offered a possible explanation: "We did some experiments with thought bubbles, but it didn't look good. So in the end, after I'd been lead on Minecraft for a year, we just decided to add an interface instead." <ref>{{citation|url=https://minecraft.net/en-us/article/meet-villagers|title=Meet the Villagers|author=[[Marsh Davies]]|website=Minecraft.net|date=March 13, 2017}}</ref>
+
+The texture has been partially overwritten by the selection arrows.
+
+=== Minecart texture===
+{{See also|Minecart}}
+[[File:Minecart dirt.png|thumb|The minecart dirt texture .]]
+The texture from the [[minecart]] model is rarely visible. The texture appears to be dirt, which is an artifact of when the minecart used to act as a portable chest. The "dirt" level used to raise when items were put into it. The texture still appears inside minecarts, but it's blocked by a different texture.
+
+===Villager, Vindicator, evoker, and witch hood===
+[[File:Witch 18w50a.png|thumb|Witch hood seen on [[18w50a]].|213x213px]]
+{{See also|Illager}}
+[[File:MEET THE EVOKER.png|thumb|Evoker hood seen on Meet the Evoker.|211x211px]]
+
+[[Evoker]]s, [[vindicator]]s and [[witch]]es are hostile [[mob]]s based off of the [[villager]]s, and they have an unused hood texture.
+
+The evoker hood can be seen in the [[Mojang]] article "[https://www.minecraft.net/en-us/article/meet-evoker Meet the Evoker]" and the witch hood can be seen in [[Java Edition 18w50a|18w50a]].
+
+Prior to [[1.14|the 1.14 Village and Pillage update]], the villagers also had unused hood textures.
+
+===Footprint particle===
+{{See also|Particles}}
+Despite the particle itself being removed in the snapshot [[17w47a]], the texture for the 'footprint' particle still exists within the game's jar file.<ref name="UnusedFiles" />
+But the texture file has been removed since snapshot [[Java Edition 21w13a|21w13a]].
+
+[[File:Particle footstep.png|thumb|Footstep particles on sand.]]
+
+The footstep [[particle]] was introduced, but never used in-game. It was removed in snapshot [[Java Edition 17w47a|17w47a]], as part of ''[[The Flattening]]''. They were later added as an easter egg item in the [[Java Edition 20w14∞|20w14∞]] April Fools snapshot with the [[resource location]] <code>minecraft:footprint</code>. It could be obtained in the "missing" dimension or using the {{cmd|give}} command. The particle itself was readded in [[Java Edition 22w13oneBlockAtATime|22w13oneblockatatime]] which is spawned when the player walks around.
+
+{{-}}
+
+===Zombie pigmen, guardian and armor stand===
+
+The old texture for [[zombie pigmen]] used to contain the text "THX XAPHOBIA" on an unused section of the texture. The texture for the [[guardian]] contains the text "jeb_", which is [[Jens Bergensten]]'s nickname. The [[armor stand]]'s texture also contains the text "Searge", which is [[Michael Stoyke]]'s nickname.
+
+===Banner parts===
+{{See also|Banner}}
+
+banner_base and banner_overlay item textures exist but are unused, meaning it was once going to use an item model instead of the original entity model.
+
+===Old zombie villager texture===
+{{see also|Zombie Villager}}
+
+[[File:Zombie Villager.png|thumb|162x162px|Old zombie villager texture]]
+Old texture from 12w32a snapshot still exists in "textures/entity/zombie" directory but it's unused.<ref name="UnusedFiles" />
+
+===Map icons===
+{{See also|Map}}
+
+Some extra icons for maps. The white and green arrows are the only ones used normally, though the colored arrows are used for multiplayer {{in|bedrock}}.
+
+===Selected and Unselected===
+Squares labeled "SEL" and "UN SEL" (likely "SELECTED" and "UNSELECTED") can be found in "textures\gui\container\creative_inventory\tabs.png". Purpose unknown, though they could possibly be used as a template for the selected tabs and unselected tabs with the rest of tabs.png.
+
+===Skeleton melee attack ===
+[[Skeleton]]s normally wield bows, but if one were to spawn in a skeleton with a [[sword]], the skeleton can use it like a normal weapon. A similar case happens with [[wither skeleton]]s, in which one spawned with a bow can use it as intended, except the arrow is always on fire, even without lava or enchantments.
+
+===Alex skin===
+[[File:Alex all visible.png|thumb]]
+When the opacity of all pixels is set to 100%, unused textures are visible. The texture features Alex with glasses. It also features what appears to be the texture of Steve's arms implying that the Steve skin was used as a template for the Alex skin.
+<gallery>
+File:Alex_hidden_skin.png
+File:Alex_hidden_skin_back.png
+</gallery>{{-}}
+
+==References==
+{{reflist}}
+
+{{version history nav}}
+{{Minecraft}}
+
+[[cs:Nepoužívány funkce]]
+[[de:Unbenutzte Features]]
+[[es:Características no usadas de Java Edition]]
+[[it:Funzioni non usate]]
+[[ko:자바 에디션 미사용 기능]]
+[[pl:Nieużywane elementy]]
+[[pt:Recursos não implementados na Edição Java]]
+[[ru:Неиспользуемый контент (Java Edition)]]
+[[zh:Java版未使用特性]]

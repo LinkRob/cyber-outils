@@ -1,0 +1,322 @@
+{{Version nav
+| title = Combat Tests
+| image = Combatlogo.png
+| edition = Java
+| launcher = Soon
+| planned = 1
+| type = 
+| date = 2024
+}}
+'''Combat Tests''' refers to multiple experimental snapshots released with changes related to combat, which are currently in development.<ref name="Test1"/><ref name="Test2"/><ref name="Test3"/><ref name="Test4"/><ref name="Test5"/><ref name="Test6"/><ref name="Test7"/><ref name="Test8"/> Nine snapshots have already been released on [[wikipedia:Reddit|Reddit]], but they are not found in the [[launcher]]. While these snapshots are development versions for a future version, they are [[wikipedia:Fork (software development)|forks]] of 1.14.''x'', 1.15.''x'' and 1.16.''x'' releases and do not contain any features past the version it was forked from. These changes will be added to the main game when the new combat system is finalized.<ref name="Test2"/> The latest version is {{v|java-combat-snap}}.
+
+Currently, development of a combat update is in Phase 1. When Phase 2 begins, there will be fewer system changes and more focus on changes related to balance and mobs.<ref name="Test6"/><ref>{{tweet|jeb_|1291663888614936576|Yeah that makes sense. I'm still in "phase 1", which means designing systems... "Phase 2" will be more focused on numbers and mobs|7 Aug 2020}}</ref> Phase 2 may also change [[difficulty]].<ref>{{tweet|jeb_|1296768034275811329|Game difficulty will be looked at in "phase 2". I need to discuss with the team how in-depth these changes should be... like an agreement on philosophy around difficulty|21 Aug 2020}}</ref>
+
+== Additions ==
+=== Gameplay ===
+; [[Combat]]
+* New [[attribute]]: <samp>generic.attack_reach</samp>.
+** Represents the attack reach of a player.
+** Only used by [[player]]s.
+** Default base: <samp>2.5</samp>; minimum: <samp>0.0</samp>; maximum: <samp>6.0</samp>.
+*** Value is the number of blocks away the player can attack from.
+** [[Attribute#Vanilla modifiers|Weapon modifier]] now modifies <samp>generic.attack_reach</samp> with Operation <samp>0</samp> and UUID <samp>26cb07a3-209d-4110-8e10-1010243614c8</samp>.
+* Added a "Combat Reach" parameter (using attribute <samp>generic.attack_reach</samp>) to [[sword]]s, [[hoe]]s, and [[trident]]s.
+
+; [[Enchantment]]s
+*Added the [[Cleaving]] enchantment for axes.<ref name="Test3"/>
+** Adds {{hp|2}} of damage (increasing by {{hp|1}} per subsequent level) and {{convert|0.5|seconds|ticks}} of shield stunning per level.
+** Maximum level in survival is 3, though the effects continue to scale as expected if higher levels are applied with commands.
+** Incompatible with [[Sharpness]], [[Bane of Arthropods]], and [[Smite]]
+
+; [[Shield]]s
+* Added a "Shield Indicator" option that displays when the shield is active, similar to the Attack Indicator.<ref name="Test3"/>
+** Found in Video Settings, the available options are "OFF," "Crosshair," or "Hotbar."
+** Disabled by default.
+* Now activate automatically when [[sneaking]].
+** Can be enabled or disabled in the Accessibility Settings.
+** Only works when in the off-hand.
+** Enabled by default.
+
+== Changes ==
+=== Items ===
+; [[Bow]]s
+* Arrows shot from bows become less accurate if held drawn for longer than 3 seconds. Otherwise, they will always have 100% accuracy
+** This also cancels out "critical arrows".
+
+; [[Axe]]s
+* Increased [[attack speed]] for all axes to 2 (0.5 seconds), was 0.8 (1.25 seconds) for wooden and stone axes, 0.9 (~1.11 seconds) for iron axes, and 1 (1 second) for gold, diamond, and netherite axes.
+* All axes are weaker and deal {{hp|1}} more damage than their sword counterparts.
+** Wooden and gold: {{hp|5}}, was {{hp|7}}.
+** Stone: {{hp|5}}, was {{hp|9}}.
+** Iron: {{hp|6}}, was {{hp|9}}.
+** Diamond: {{hp|7}}, was {{hp|9}}.
+** Netherite: {{hp|8}}, was {{hp|10}}.
+* Always disable shields for {{convert|1.6|seconds|ticks}}, instead of having a 25% chance to disable them for {{convert|5|seconds|ticks}}.
+* Now use 1 durability when attacking instead of 2.
+* Can no longer receive combat enchantments such as Sharpness, Smite and Bane of Arthropods without using an [[anvil]].
+* Nerfed attack reach 2.5, was 3.
+* Are now able to receive the Sweeping Edge enchantment, to perform sweep attacks.
+** All tools can now have Sweeping Edge with commands or creative mode, but axes can get it in survival by using an enchanted book and an anvil.
+
+; [[Egg]]s
+* Now have a cooldown of {{convert|4|ticks}}.
+
+; [[Hoe]]s
+* Changed the attack speed for most hoes:
+** Wooden: 2 (0.5 seconds), was 1 (1 second).
+** Gold: 3.5 (~0.29 seconds), was 1 (1 second).
+** Stone: 2.5 (0.4 seconds), was 2 (0.5 seconds).
+** Diamond and netherite: 3.5 (~0.29 seconds), was 4 (0.25 seconds).
+* Changed the attack damage for all hoes:
+** Wooden, gold, and stone: {{hp|2}}, was {{hp|1}}.
+** Iron and diamond: {{hp|3}}, was {{hp|1}}.
+** Netherite: {{hp|4}}, was {{hp|1}}
+* Buffed attack reach to 3.5 blocks, was 3.
+
+; [[Pickaxe]]s
+* Increased attack speed for all pickaxes to 2.5 (0.4 seconds), was 1.2 (0.83 seconds).
+* Changed the attack damage for some pickaxes:
+** Wooden and gold: {{hp|3}}, was {{hp|2}}.
+* Reach nerfed down to 2.5, was 3
+
+; [[Shield]]
+* Now only blocks up to {{hp|5}} of attack damage.
+* Removed warm-up delay from shields ({{convert|0.25|seconds|ticks}} activation cooldown).
+* Crouching player can't perform "charged" attacks.
+* Now only block 50% of knockback when attacked by a weapon.
+** Due to a bug ({{bug|MC-147694}}) shields block more knockback.
+** An empty hand or non-tool items will still negate all knockback.
+* The arc of available protection has been decreased to 100 degrees from the previous 180 degrees.
+* Now block 100% of explosion damage, if it isn't caused by the player.
+
+; [[Shovel]]s
+* Increased attack speed for all shovels to 2 (0.5 seconds), was 1 (1 second).
+* Decreased damage for all shovels.
+** Wooden and gold: {{hp|2}}, was {{hp|2.5}}.
+** Stone: {{hp|2}}, was {{hp|3.5}}.
+** Iron: {{hp|3}}, was {{hp|4.5}}.
+** Diamond: {{hp|4}}, was {{hp|5.5}}.
+** Netherite: {{hp|5}}, was {{hp|6.5}}.
+* Reach nerfed down to 2.5, was 3.
+
+; [[Sword]]s
+* Increased attack speed for all swords to 3 (0.33 seconds), was 1.6 (0.625 seconds).
+* Decreased damage for some swords.
+** Stone: {{hp|4}}, was {{hp|5}}.
+** Iron: {{hp|5}}, was {{hp|6}}.
+** Diamond: {{hp|6}}, was {{hp|7}}.
+** Netherite: {{hp|7}}, was {{hp|8}}.
+* Reach is unchanged.
+
+; [[Trident]]
+* Increased attack speed to 2 (0.5 seconds), was 1.1 (~0.91 seconds).
+* Decreased melee damage from {{hp|9}} to {{hp|7}}.
+* Buffed attack reach to 3.5 blocks, was 3.
+* Can now be shot from dispensers.
+* Tridents with Loyalty that fall into the void will return to its owner.
+* Tridents with Impaling now deal enchantment damage to all mobs or players that are in water or rain.
+
+; [[Snowball]]s
+* Now stack to 64.
+* Now have a cooldown of {{convert|4|ticks}}.
+
+; [[Potion]]s
+* Can now stack up to 16.
+** Splash and lingering potions are not included.
+
+{| class="wikitable" style="text-align: center;"
+! rowspan=2 | Tool
+! colspan=4 | Axe
+! colspan=4 | Hoe
+! colspan=4 | Pickaxe
+! colspan=4 | Shovel
+! colspan=4 | Sword
+|-
+! Damage !! Speed !! DPS !! Reach
+! Damage !! Speed !! DPS !! Reach
+! Damage !! Speed !! DPS !! Reach
+! Damage !! Speed !! DPS !! Reach
+! Damage !! Speed !! DPS !! Reach
+|-
+! Wood
+| {{hp|5}} || 2   || 10|| 2.5
+| {{hp|2}} || 2   || 4|| 3.5
+| {{hp|3}} || 2.5 || 7.5|| 2.5
+| {{hp|2}} || 2   || 4|| 2.5
+| {{hp|4}} || 3   || 12|| 3
+|-
+! Gold
+| {{hp|5}} || 2   || 10|| 2.5
+| {{hp|2}} || 3.5 || 7|| 3.5
+| {{hp|3}} || 2.5 || 7.5|| 2.5
+| {{hp|2}} || 2   || 4|| 2.5
+| {{hp|4}} || 3   || 12|| 3
+|-
+! Stone
+| {{hp|5}} || 2   || 10|| 2.5
+| {{hp|2}} || 2.5 || 5|| 3.5
+| {{hp|3}} || 2.5 || 7.5|| 2.5
+| {{hp|2}} || 2   || 4|| 2.5
+| {{hp|4}} || 3   || 12|| 3
+|-
+! Iron
+| {{hp|6}} || 2   || 12|| 2.5
+| {{hp|3}} || 3   || 9|| 3.5
+| {{hp|4}} || 2.5 || 10|| 2.5
+| {{hp|3}} || 2   || 6|| 2.5
+| {{hp|5}} || 3   || 15|| 3
+|-
+! Diamond
+| {{hp|7}} || 2   || 14|| 2.5
+| {{hp|3}} || 3.5 || 10.5|| 3.5
+| {{hp|5}} || 2.5 || 12.5|| 2.5
+| {{hp|4}} || 2   || 8|| 2.5
+| {{hp|6}} || 3   || 18|| 3
+|-
+! Netherite
+| {{hp|8}} || 2   || 16|| 2.5
+| {{hp|4}} || 3.5 || 14|| 3.5
+| {{hp|6}} || 2.5 || 15|| 2.5
+| {{hp|5}} || 2   || 10|| 2.5
+| {{hp|7}} || 3   || 21|| 3
+|}
+
+=== Non-mob entities ===
+; Projectiles
+* No longer trigger a [[player]] or [[mob]] [[Damage#Immunity|invulnerability timer,]] which means that [[Multishot]] can hit and deal damage to the same mob with all three arrows.
+
+; [[Arrow]]s
+* Arrow uncertainty value has been decreased from 1.0 to 0.25, increasing accuracy.
+* Instantaneous [[effect]]s on [[tipped arrow]]s are now scaled by ⅛, just like the duration of other effects. For example, [[Instant Harming]] I arrow will deal additional {{hp|0.75}} magical damage.
+
+; [[Player]]s
+* Are now knocked back by < 1 damage hits, including 0 damage hits such as snowballs and eggs.
+
+=== Gameplay ===
+; [[Combat]]
+* The attack cooldown is now only 4 ticks (200ms) when an attack is missed.
+* Attacking is no longer possible until the weapon is recharged.
+* There is a longer "charged" attack that gives a bonus reach of +1 meters.
+* Weapons with shorter cooldowns give victims a shorter [[Damage#Immunity|attack invulnerability time]] (invincibility frames).
+* The {{ctrl|attack}} key can be held down to automatically attack at the next available moment.
+** Has a +1 tick (50ms) penalty, making it less effective than optimal timing or clicking.
+* Entities with bounding boxes smaller than 0.9 blocks (such as [[rabbit]]s and [[bat]]s, for example) now have them inflated to that value.
+**This means that they still have smaller hitboxes than 0.9 blocks, but now can be attacked outside of their hitbox within a range of 0.9 blocks.
+* The attack timer is now unaffected by switching items, only resetting when the player performs an attack.
+* Entities can now be hit through transparent blocks like grass or vines, without destroying said block.
+* Changed the swing animation to "emphasize the rhythm of the attacks".
+
+; [[Eating]]
+* The eating and drinking animations are interrupted and reset when being hit by a player/mob or a projectile throw from one.
+* Liquids (such as stews, honey, milk, and potions) are consumed faster (20 ticks, was 32 or 40 ticks).
+
+; [[Hunger]]
+* High saturation no longer gives a fast regeneration boost.
+** Saturation is not used when healing damage, and is only relevant as a "pause" until food drains because of other factors (sprinting, jumping, etc).
+**Hunger no longer decreases along with saturation. Once the player is down to 0 saturation, the hunger bar begins depleting as normal.
+* The player now naturally regenerates health down until a hunger level of {{hunger|7|total=20}} instead of the previous 18 ({{hungerbar|18|total=20|9px}}).
+* The player now naturally heals every {{convert|40|ticks|seconds}} instead of every {{convert|80|ticks|seconds}}.
+* Natural healing drains food points half as fast.
+
+; Critical hits
+* Can now be performed with sprint-knockback hits (the first hit dealt by a sprinting player), as it was in older versions and [[Bedrock Edition]].
+
+; [[Sweep attack]]
+* Is now only performed by a weapon enchanted with [[Sweeping Edge]].
+** Requires a fully charged attack to activate.
+* Is now activated regardless of whether or not an entity is hit.
+* The [[Sweeping Edge]] enchantment itself has been nerfed. It now does 25%/33%/37.5% percent of sweeping damage per level instead of the previous 50%/66%/75%.
+* All tools can now perform the sweep attack if they have the Sweeping Edge enchantment.
+** Sweeping Edge cannot be applied to non-sword tools in survival, except for axes and pickaxes.
+
+; [[Enchantments]]
+*Weapon enchantments are now included in the base damage when calculating critical hits and potion effects.
+
+=== General ===
+; Attacking
+* Increased the attack damage of unarmed attacks from {{hp|1}} to {{hp|2}}.<ref group=note>This change was made before Bedrock Edition's unarmed attack damage was lowered from {{hp|2}} to {{hp|1}} in [[1.18.30]], which cited parity with Java Edition as a reason.</ref>
+
+;[[Effect|Status effects]]
+
+* [[Healing]] now heals {{hp|6}} per level, up from {{hp|4}}, similar to before 1.6.1.
+* [[Strength]] was changed, it increases at levels I/II +20%/+40% of the total damage (was {{hp|3}} / {{hp|6}} damage).
+
+== History ==
+
+{| class="article-table"
+! Major Update!!Minor/Developmental Update!!Combat Test
+|-
+|1.14||1.14.3||[[Java Edition 1.14.3 - Combat Test]]
+|-
+|1.14||1.14.4||[[Java Edition Combat Test 2]]
+|-
+|1.14||1.14.4||[[Java Edition Combat Test 3]]
+|-
+|1.15||1.15 Pre-release 3||[[Java Edition Combat Test 4]]
+|-
+|1.15||1.15.2 Pre-release 2||[[Java Edition Combat Test 5]]
+|-
+|1.16||1.16.2 Pre-release 2||[[Java Edition Combat Test 6]]
+|-
+|1.16||1.16.2||[[Java Edition Combat Test 7]]
+|-
+|1.16||1.16.2||[[Java Edition Combat Test 7b]]
+|-
+|1.16||1.16.2||[[Java Edition Combat Test 7c]]
+|-
+|1.16||1.16.2||[[Java Edition Combat Test 8]]
+|-
+|1.16||1.16.2||[[Java Edition Combat Test 8b]]
+|-
+|1.16||1.16.2||[[Java Edition Combat Test 8c]]
+|}
+
+==Trivia ==
+
+*Knockback as a scale instead of a probability was actually added first on these snapshots, and then added on [[Java Edition 1.16|1.16]].
+*In the image for the combat tests, [[stone]] can be seen with a [[snow]] overlay, even though this is not possible in game.
+**This is similar to the snowy snow showed in the biome vote at [[MINECON Live 2019]] in the mountain preview, even though it was not added in the [[Caves & Cliffs]] update.
+
+==Gallery==
+
+<gallery>
+Combatlogo.png|Promotional artwork released by Mojang alongside [[Combat Test 5]].
+</gallery>
+
+==Notes==
+
+{{notelist}}
+
+== References==
+{{reflist|refs=
+
+<ref name="Test1">{{reddit|c5mqwv||A custom Java Edition snapshot to test new combat mechanics|jeb_|June 26, 2019}}</ref>
+
+<ref name="Test2">{{reddit|cqnp5b||Update: Custom Java Edition snapshot to test new combat mechanics (version 2)|jeb_|August 15, 2019}}</ref>
+
+<ref name="Test3">{{reddit|dq2v7o||Updated Combat Test Snapshot (number 3) and a custom map for combat testing|jeb_|November 1, 2019}}</ref>
+
+<ref name="Test4">{{reddit|e3gt34||Since doing something this the last minute on a Friday is a great idea: Combat Test Snapshot Number 4|jeb_|November 30, 2019}}</ref>
+
+<ref name="Test5">{{reddit|epy4hv||Experimental Combat Snapshot - version 5|jeb_|January 17, 2020}}</ref>
+
+<ref name="Test6">{{reddit|i5cvlh||Combat Test version 6|jeb_|August 7, 2020}}</ref>
+
+<ref name="Test7">{{reddit|i9kdfh||Combat test snapshot version 7c|jeb_|August 14, 2020}}</ref>
+
+<ref name="Test8">{{reddit|idvujw||Here we go again... Combat test snapshot 8b|jeb_|August 21, 2020}}</ref>
+}}
+
+==External links==
+* [https://piston-data.mojang.com/experiments/combat/5b0f9b66f0ece20b0a0305db7729c6b0a66ee3d3/Combat%20Test%20Map.zip Combat Test Map] made by Mojang.
+
+{{Java Edition versions|1.0}}
+
+[[de:Versionen/Combat Tests/Entwicklung]]
+[[es:Java Edition Combat Tests]]
+[[ja:Java Edition Combat Tests]]
+[[ko:Java Edition 전투 테스트]]
+[[pl:Combat Tests]]
+[[pt:Edição Java Combat Tests]]
+[[ru:Combat Test (Java Edition)]]
+[[zh:Java版Combat Test]]

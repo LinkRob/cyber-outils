@@ -1,0 +1,244 @@
+{{Lost server exe}}
+{{for|a guide about all content in this release and the other releases of Beta 1.6|Java Edition guides/Beta 1.6 releases}}
+{{version nav
+|title=Minecraft Beta 1.6
+|image=Beta 1.6 Shown tallgrass.png
+|image2=Beta 1.6 menu.png
+|edition=java
+|date=May 26, 2011
+|clienthash=ecc0288d218fd7479027a17c150cbf283fa950a1
+|jsonhash=8a62339d69ede6781646dacff76ad09bc90cd918 |jsonfile=b1.6
+|serverdl=[http://files.betacraft.uk/server-archive/beta/b1.6.jar Server (release)]<br>[http://files.betacraft.uk/server-archive/beta/prerelease/b1.6-pre-trailer.jar Server (pre-release)]
+|prevparent=Beta 1.5
+|prevlink=Beta 1.5_02
+|prev=Beta 1.5_02
+|next=Beta 1.6.1
+|nextparent=Beta 1.7
+}}
+'''Beta 1.6''' is a version of [[Java Edition Beta]] released on May 26, 2011,<ref>{{Word of Notch|5861083562|Minecraft Beta 1.6}}</ref> which adds [[map]]s, [[trapdoor]]s, [[the Nether]] in multiplayer as well as other changes and many bug fixes.
+
+==Additions==
+===Blocks===
+; [[File:Dead Bush JE1 BE1.png|32px]] [[Dead bush]]
+* Found in [[desert]]s.
+
+; [[File:Grass JE1.png|32px]] [[Grass]]
+* Found in certain [[biome]]s.
+* [[Seed]]s are now found in grass, using a [[hoe]] on the ground no longer yields seeds.
+
+; [[File:Fern JE1.png|32px]] [[Grass|Fern]]
+* Has the same characteristics as grass.
+
+; [[File:Oak Trapdoor JE1 BE1.png|32px]] [[Trapdoor]]
+
+===Items===
+; [[File:Map (item) JE1 BE1.png|32px]] [[Map]]s
+* Lets the player scope out different biomes.
+
+===Command format===
+; [[Server.properties]]
+* Added new settings:
+** <code>view-distance</code>.
+** <code>allow-nether</code>.
+
+===Gameplay=== 
+; [[Multiplayer]]
+* Added [[Nether]] support.
+
+==Changes==
+===Blocks===
+; General
+* Blocks destroyed by other players in multiplayer now show the breaking block particle effect.
+* It's no longer possible to build solid blocks on the top layer of the map.
+* Blocks that don't change appearance when the data changes don't send block updates when their data changes now.
+
+; [[File:Red Bed JE1 BE1.png|32px]] [[Bed]]s
+* Trying to sleep in the Nether causes the bed to explode.
+
+; [[File:Dispenser (S) JE1.png|32px]] [[Dispenser]]s
+* When activated, it will make sounds and trigger particles in multiplayer.
+
+; [[File:Oak Door (Right) JE4 BE1.png|32px]] [[Door]]s
+* Now make sound for other players in multiplayer.
+
+; [[File:Fire JE1.png|32px]] [[Fire]]
+* Has been severely nerfed so it spreads slower, and doesn't spread infinitely.
+
+; [[File:Ice (item) JE1 BE1.png|32px]] [[Ice]]
+* Now regenerates regardless of whether it's snowing or not.
+
+; [[File:Jukebox JE1 BE1.png|32px]] [[Jukebox]]
+* Now ''supports'' more than 15 different music discs. 
+** No additional music discs were added until [[Java Edition 1.0.0]]. The fifteenth music disc was only added in [[Java Edition 1.19]] and the sixteenth in [[Java Edition 1.20]], well over a decade later.
+
+; {{Animate|Red Mushroom JE2.png;Brown Mushroom JE2.png|32px}} [[Mushroom]]s
+* Now spread, although slowly.
+
+; {{Animate|Powered Rail (NS) JE2 BE2.png; Powered Powered Rail (NS) JE2 BE2.png|32px}} [[Powered rail]]s
+* Now speedier to offset the loss of glitch-boosters.
+
+; [[File:Water JE11.gif|32px]] [[Water]]
+* Below a layer of source blocks no longer behaves like source blocks.
+
+===Items===
+; [[File:Arrow JE2 BE1.png|32px]] [[Arrow]]s
+* When shot by one player, can now be picked up by other players.
+
+===Non-mob entities===
+; [[File:Oak Boat JE1.png|32px]] [[Boat]]s & [[File:Minecart_JE2_BE1.png|32px]] [[minecart]]s
+* Can't go through [[nether portal|portals]] that are empty or occupied.
+
+===Gameplay===
+; [[Lighting]]
+* The lighting on block icons in the inventory has been changed to appear brighter.
+
+; [[Player]]s
+* When stuck in walls, will slide towards the nearest gap if there is one.
+
+; [[Combat]]
+* Removed the 10 tick cooldown when missing a hit (hitting the air).
+
+===General===
+; [[Control]]s
+* {{key|Shift}}+clicking while crafting makes as much as possible and moves it straight to player's inventory.
+* {{key|Shift}}+clicking something in player's inventory will push it directly in player's hot bar and vice-versa.
+
+; Network traffic
+* Compressed network traffic more aggressively.
+
+; Options
+* Temporarily disabled Advanced OpenGL due to bugs until 1.6.5.
+
+; [[Texture pack]]s
+* Added support for <code>misc\grasscolor.png</code> and <code>misc\foliagecolor.png</code> images.
+
+== Fixes ==
+;97 bugs fixed
+* Fixed saving while sneaking dropping the player through the ground.
+* Fixed player rotation not being loaded correctly when loading a saved game.
+* Fixed the player not being able to sneak off lowered blocks like cacti.
+* Fixed a game crash when riding a vehicle or animal into the Nether.
+* Fixed falling while riding not dealing damage to the rider.
+* Fixed buttons and levers too close to the player being impossible to use.
+* Fixed furnaces and dispensers not dropping their contents when destroyed.
+* Fixed fire and lava dealing damage through wall corners.
+* Fixed entities reaching water through wall corners.
+* Fixed placing doors next to cacti creating half-doors.
+* Fixed farmland taking too long to dig.
+* Fixed tilling below some blocks being possible.
+* Fixed tilling the underside of blocks somehow working.
+* Fixed fences and stairs sometimes becoming invisible.
+* Fixed fences and signs preventing grass from growing.
+* Fixed walking on top of fences not producing step sounds.
+* Fixed grass staying alive below stair blocks.
+* Fixed the achievement screen not pausing the game.
+* Fixed some screens breaking the sky tint color.
+* Fixed fullscreen mode switching causing mouse issues and screen closes.
+* Fixed chat messages surviving through game switches.
+* Fixed levers being placeable on weird locations.
+* Fixed floor levers sometimes not delivering a signal downwards.
+* Fixed floor levers sometimes not being removed when the floor is removed.
+* Fixed dying in the nether spawning new portals.
+* Fixed ore density varying per quadrant from the center of the world.
+* Fixed saplings being plantable through snow onto non-grass blocks.
+* Fixed wooden pressure plates being mined with pickaxes.
+* Fixed creepers retaining charge level when they can't see their target.
+* Fixed inventory acting weird when portaling by making the portal close all screens.
+* Fixed dispenser graphics being one pixel off.
+* Fixed mushrooms spawning everywhere during nights.
+* Fixed animals only spawning near light during the night.
+* Fixed the multiplayer join screen input field being too short.
+* Fixed entities above the map height limit becoming invisible.
+* Fixed loads of exploding TNT generating way too many particles, which usually crashed the game.
+* Fixed grasscolor.png and foliagecolor.png not being read from texture packs.
+* Fixed receiving more items than the maximum stack size sometimes causing an oversized stack in the inventory.
+* Fixed rain sounds not playing with fast graphics enabled.
+* Fixed glass not blocking rain sound.
+* Fixed rain falling through liquids.
+* Fixed rain falling too slowly.
+* Fixed rain and snow being incorrectly lit.
+* Fixed arrow physics, making them not get stuck midair when opening a door.
+* Fixed arrows colliding with reeds, portals, and other non-solid blocks.
+* Fixed arrows being animated really strangely in multiplayer.
+* Fixed arrows triggering too many entity move updates in multiplayer.
+* Fixed submerged boats rising very very fast.
+* Fixed boats placed on snow being placed too far up.
+* Fixed sand dropping onto boats getting stuck in a falling animation.
+* Fixed dispensers shooting through walls.
+* Fixed dispensers biasing later slots.
+* Fixed fire effect on burning entities sometimes getting rendered in the wrong location.
+* Fixed fences and wooden stairs not being flammable.
+* Fixed fire sometimes existing mid-air as an invisible block of pain.
+* Fixed fire displacing water.
+* Fixed fires being impossible to put out in multiplayer.
+* Fixed fishing rod rendering being a bit lacking.
+* Fixed fishing rods being stackable.
+* Fixed water interacting strangely with glass.
+* Fixed items in glass blocks not getting ejected properly.
+* Fixed mining glass hiding the clouds behind the glass.
+* Fixed minecarts next to each other causing extreme velocities.
+* Fixed rail tiles sometimes not properly connecting to a new neighbor.
+* When breaking a minecart the player is currently riding in, the player no longer falls through the block the track is placed on.
+* Fixed the cracking texture being dark on the sides of grass blocks.
+* Fixed anaglyph 3D rendering mode having severe visual bugs.
+* Fixed the achievements screen messing up the sky color.
+* Fixed hair and cloaks being rendered in the wrong locations on sneaking players.
+* Fixed a bug where the player could mine without visually swinging their arm.
+* Fixed the attack/swing animation not being applied to the armor layer.
+* Fixed redstone repeaters using pumpkin particles.
+* Glowstone and Jack-o-lanterns recessed into a wall or other surface no longer have shadows cast on them by surrounding blocks when smooth lighting is enabled.
+* Fixed running out of memory corrupting the current level.
+* Fixed the crash screen vanishing immediately.
+* Fixed not being able to target blocks when at x=1000 or z=1000.
+* Fixed a system clock change messing up the game speed.
+* Fixed keybindings not getting saved properly under certain conditions.
+* Fixed stats getting saved to different files in offline mode if the caps in the player name differ from the true spelling.
+
+;Multiplayer only
+* Fixed IPv6 addresses being parsed wrong.
+* Fixed network packets being sent unbuffered, causing huge amounts of packets being sent.
+* Fixed entity positions going out of synch sometimes. They get re-synched every 20 seconds now.
+* Fixed inventory icons not animating after being picked up in multiplayer.
+* Fixed mushroom soup not leaving a bowl.
+* Fixed wolves not following their owner if the name has different caps.
+* Fixed healing not flashing the health bar
+* Fixed the compass not pointing at the spawn location.
+* Fixed record players spawning client-side fake records.
+* Fixed records not playing for other players.
+* Fixed players spawning in the wrong location and quickly leaping to the correct location.
+* Fixed monsters not being visible for players with their difficulty set to peaceful.
+* Fixed pigs getting hit by lightning spawning client-side zombie pigmen.
+* Fixed bonemeal use sometimes spawning fake client-side trees.
+* Fixed saplings sometimes spawning trees client-side.
+* Fixed weather sometimes changing client-side.
+* Fixed fireballs not being visible in multiplayer.
+* Fixed ghasts' firing animation not being visible.</onlyinclude>
+
+== Trailer ==
+An official video documenting some of the Beta 1.6's major features was released on Mojang's official YouTube channel on May 24, 2011. The video was made by Hat Films. Published before the game's official release, the trailer omits "Beta" from the version name.
+{{yt|oTxrGZGfNJs}}
+
+== Gallery ==
+<gallery>
+Beta 1.6.png|A Beta 1.6 world.
+Create world menu (Beta 1.6).png|The create world menu in this version.
+File:Map Beta 1.5.png|The map item in this version.
+</gallery>
+
+== Trivia ==
+* Beta 1.6 is the only version with test builds.
+
+== References ==
+{{Reflist}}
+
+{{Java Edition versions|Beta}}
+
+
+[[de:Versionen/Beta#1.6]]
+[[es:Java Edition Beta 1.6]]
+[[fr:Historique des versions Java/Bêta#1.6]]
+[[nl:Beta 1.6]]
+[[pt:Edição Java Beta 1.6]]
+[[ru:Beta 1.6 (Java Edition)]]
+[[uk:Beta 1.6 (Java Edition)]]
+[[zh:Java版Beta 1.6]]

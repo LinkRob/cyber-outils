@@ -1,0 +1,215 @@
+{{About|the regular form of ice|the variant that does not melt|Packed Ice|other uses}}
+{{Block
+|image=Ice.png
+|transparent='''[[JE]]''': Partial <small>(-1 to light)</small><br>'''[[BE]]''': Partial (-3 to light)
+|light=No
+|tool=pickaxe
+|renewable=Yes
+|stackable=Yes (64)
+|flammable=No
+|lavasusceptible=No
+}}
+
+'''Ice''' is a translucent [[solid block]]. It can slide [[Entity|entities]] using [[Transportation|all methods of transportation]] (excluding [[Minecart|minecarts]]).
+
+== Obtaining ==
+Ice can be easily destroyed without [[tools]], but the use of a [[pickaxe]] speeds up the process. It can be broken instantly with [[Efficiency]] III on a diamond pickaxe. However, the block drops only when using a tool enchanted with [[Silk Touch]]. If mined without Silk Touch, the block drops nothing, and instead is replaced with [[water]] if there is a block under the ice block.
+{{breaking row|horizontal=1|Ice|Pickaxe|drop=0}}
+
+=== Natural generation ===
+Ice can be found naturally as part of the landscape in [[Biome#Snowy Biomes|snowy biomes]] from [[River#Frozen River|rivers]], and [[Ocean#Frozen Ocean|oceans]]. It can also be found in [[igloo]]s{{only|JE}}, [[Snowy Plains#Ice Spikes|ice spikes]], [[iceberg]]s, [[snowy slopes]], also on landscape of [[frozen peaks]] biomes. They also generate in [[ancient city|ancient cities]].
+
+=== Post-generation ===
+==== Snowy biomes ====
+{{see also|Tutorials/Ice farming|title1=Ice farming}}
+[[Water]] source blocks in a snowy [[biome]] eventually freeze into ice if exposed to the sky from directly above, the [[Light Level|light level]] inside the water block is less than 10, and there is at least one horizontally adjacent non-water (and non-[[waterlogging|waterlogged]]) block. This can happen at any [[daylight cycle|time of day]], and in any [[weather]] condition.
+
+[[Water]] also freezes into ice in cold biomes, as long as the [[altitude]] is high enough for [[snowfall]].
+
+Ice formation occurs as part of [[Tick#Chunk tick|chunk ticking]], so it requires that a player is nearby similar to crop growth or grass spreading. The speed of ice formation is affected by the [[game rule]] {{cd|randomTickSpeed}}.
+
+==== Ice bomb ====
+{{exclusive|bedrock|education|section=1}}
+
+When an [[ice bomb]] is thrown into water, it transforms the water in a 3×3×3 cube centered around the projectile into ice. This works for source water or flowing water upon hit.
+
+== Usage ==
+=== Crafting ingredient ===
+{{crafting usage}}
+Despite being created by a 3×3 recipe, packed ice is not a storage block, because it cannot be crafted back into ice. The same applies to the next tier of compression, [[blue ice]].
+
+=== Speed ===
+Ice is slightly slippery, causing entities (excluding [[minecart]]s<ref>{{bug|MC-8265}}</ref>) to slide, including [[Item (entity)|items]]. This allows for increased speed of items in water currents, by placing ice blocks under the water current. Items already travel at high speeds in water currents because they float, so ice block water streams are less necessary for item transportation.
+
+A player who [[Sprinting|sprint]]s and [[Jumping|jump]]s repeatedly on ice travels faster than on any other block type. The player can travel even faster if they sprint and spam {{control|jump}} in a 2-block-high corridor with ice on the floor, allowing the player to accelerate to extremely high speeds, although this will cost them a lot of [[hunger]].
+
+{{IN|java}}, when a non-full block is placed on top of ice, the block has the same "slipperiness" as the ice below it.<ref>{{bug|MC-1127|||WAI}}</ref>
+
+==== Boat highway ====
+Like other entities, [[boat]]s travel extremely quickly on ice/blue ice, where it can reach a speed of 40-72 m/s, much faster than the 8 m/s speed on [[water]].<ref>{{bug|MC-97803||Boats going faster on ice than in water|WAI}}</ref> More beneficially, unlike water, ice can be placed in [[the Nether]], allowing players to construct boat highways made of ice/blue ice in the dimension, to make use of the 1:8 distance travel ratio, and travel at an equivalent speed up to 320-580 m/s (720-1300 mph) between locations in the [[Overworld]].
+
+=== Creating water ===
+Ice can be used to create water either by its melting or being broken. If there is a non-[[air]] block directly underneath the ice block, the ice becomes a water source block when broken. 
+
+Ice also melts into [[water]] if the [[Light#Block light|block light]] level immediately next to it on any side is higher than 11. [[Light#Sky light|Sky light]] level is ignored, therefore ice does ''not'' melt from [[sun]]light. {{IN|education|bedrock}}, ice also melts when near a [[heat block]], though heat blocks do not produce light. 
+
+Compared to [[water bucket]]s, ice has the benefit of being able to stack in the inventory. Therefore, carrying ice instead of water buckets can be much more convenient, if the player wants to create a lot of water sources.
+
+If ice melts or is broken in [[the Nether]], no water is produced (it sublimates).
+
+== Sounds ==
+{{Sound table/Block/Glass}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Ice
+|spritetype=block
+|nameid=ice
+|blocktags=ice, mineable/pickaxe, geode_invalid_blocks
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Ice
+|spritetype=block
+|nameid=ice
+|id=79
+|foot=1}}
+
+== History ==
+{{History|java classic}}
+{{History||May 20, 2009|link=wordofnotch:110762705|[[Notch]] briefly mentioned, "Winter is an awesome idea. I can see [[snow]] and tiles slowly getting covered in a layer of snow.  Also, ice on [[lake]]s. :D"}}
+{{History||May 21, 2009|link=wordofnotch:110762705|Notch shows interest in adding ice as a slippery [[block]].}}
+{{History|java alpha}}
+{{History||v1.0.4|[[File:Ice JE1 BE1.png|32px]] Added ice.
+|[[File:Ice (item) JE1 BE1.png|32px]] The model of ice in item form is opaque.
+|Ice replaces surface [[water]] in Winter Mode worlds.}}
+{{History||v1.0.5|The hardness of ice has been increased from 0.1 to 0.5.
+|Ice no longer turns into water when broken if the ice block has air beneath.}}
+{{History||v1.0.5_01|Water exposed to [[snowfall]] now freezes to ice.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 4|[[Breaking|Mining]] ice with a [[tool]] [[enchanted]] with [[Silk Touch]] now causes ice to [[drops|drop]], which can then be brought to [[the Nether]] as a source of [[water]].}}
+{{History|||snap=Beta 1.9 Prerelease 6|Ice blocks can no longer be collected with the Silk Touch enchantment because of the water loophole above.}}
+{{History||1.3.1|snap=12w17a|Ice blocks can now be legitimately obtained in [[survival]] mode by harvesting them with a [[Silk Touch]] [[enchanted]] [[tool]].
+|Ice no longer produces [[water]] in [[the Nether]].}}
+{{History||1.7.2|snap=?|[[File:Ice JE1 BE1.png|32px]] The model of ice in item form is now transparent.}}
+{{History|||snap=13w41a|Ice, [[water]] and [[portal]]s are now visible through each other.
+|[[File:Ice 13w41a.png|32px]] The outwards appearance of ice has effectively changed due to translucent block handling changes. These internal faces of ice were indeed always rendered, but could not actually be seen from outside due to the closest translucent texture always occluding any further translucent planes, and as such could only be seen from inside.}}
+{{History|||snap=13w42a|[[File:Ice JE1 BE1.png|32px]] The appearance of ice has been changed back to its previous form.<ref>{{bug|MC-34649}}</ref>}}
+{{History||1.8|snap=14w05b|Mobs now suffocate inside of ice.}}
+{{History||1.9|snap=15w43a|Ice blocks now generate as a part of [[igloo]]s.}}
+{{History|||snap=15w51a|[[Water]] produced by melting ice blocks now flows.}}
+{{History|||snap=16w05a|[[Boat]]s now travel extremely fast on ice and packed ice.}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], this [[block]]'s numeral ID was 79.}}
+{{History|||snap=18w15a|[[Mob]]s can now spawn on top of ice.}}
+{{History|||snap=18w19a|Only [[polar bear]]s can now spawn on top of ice.}}
+{{History|||snap=pre2|Ice can now be used to craft [[packed ice]].}}
+{{History||1.14|snap=18w43a|[[File:Ice.png|32px]] The texture of ice has been changed.}}
+{{History|||snap=19w13a|Ice is no longer fully transparent.}}
+{{History||1.19|snap=22w13a|Ice now generates as part of [[ancient city|ancient cities]].}}
+{{History||1.20.2|snap=23w31a|The speed of ice formation is now controlled by the [[game rule]] {{cd|randomTickSpeed}}.<ref name="MC-93320">{{bug|MC-93320||Water freezes even if randomTickSpeed is 0|Fixed}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||Pre-release|[[File:Ice JE1 BE1.png|32px]] Added ice.}}
+{{History||v0.1.0|[[File:Ice JE1 BE1.png|32px]] Ice has an item form.
+|[[File:Ice (inventory) BE1.png|32px]] Ice in inventory has an icon.}}
+{{History||v0.2.0|[[File:Ice BE2.png|32px]] The texture and model{{verify|type=change|edition=bedrock|what changed about the model?}} of ice have been changed.}}
+{{History||v0.8.0|snap=build 1|[[File:Ice (item) JE1 BE1.png|32px]] [[File:Ice JE1 BE1.png|32px]] The texture of ice has been changed. The model of ice in item form is transparent.}}
+{{History|||snap=build 7|[[File:Ice BE2.png|32px]] The texture of ice has been changed to before build 1.}}
+{{History||v0.12.1|snap=build 1|Ice blocks can now be legitimately obtained in [[survival]] mode by harvesting them with a [[Silk Touch]] [[enchanted]] [[tool]].}}
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|[[File:Ice JE1 BE1.png|32px]] Ice blocks are now fully transparent.}}
+{{History||1.4.0|snap=beta 1.2.14.2|Ice blocks now generate naturally in the new [[iceberg]]s and [[deep frozen ocean]]s.}}
+{{History|||snap=beta 1.2.20.1|When a thrown [[ice bomb]] hits [[water]], it now transforms water into ice in 3&times;3 area.}}
+{{History||1.8.0|snap=beta 1.8.0.10|Ice can now be used to craft [[packed ice]].}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Ice.png|32px]] The texture of ice has been changed.}}
+{{History||1.16.220|snap=beta 1.16.220.50|Ice now generate in [[snowy slopes]], [[lofty peaks]]{{verify|this is true?}}, and [[snow capped peaks]] biomes.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Ice JE1 BE1.png|32px]] Added ice.}}
+{{History||xbox=TU14|ps=1.04|Ice blocks can now be obtained in [[survival]] mode by harvesting them with a [[Silk Touch]] [[enchanted]] [[pickaxe]]. 
+|The ability for ice to create [[water]] in [[the Nether]] has been removed.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Ice.png|32px]] The texture of ice has been changed.}}
+
+{{History|New 3DS}}
+{{History||0.1.0|[[File:Ice BE2.png|32px]] Added ice.}}
+{{History|foot}}
+
+<gallery>
+File:Floating water source.png|Melting ice was once a common way to form floating water sources.
+</gallery>
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* By [[sprinting]] and jumping while on ice and inside a 2-block tall tunnel, it is possible to move 16 blocks a second, twice as fast as a full-speed [[minecart]]. By replacing the 2-block ceiling with [[trapdoor]]s, it's possible to travel 1000 blocks in 54 seconds, or 18.518 blocks per second. However, this drains the player's [[hunger]] bar extremely quickly at roughly 1 unit per second.
+* [[Sugar cane]] can be generated next to the ice, though they drop as items if updated. This can be observed at random when running through a snowy biome.
+* Attempting to set ice on fire with a [[flint and steel]] causes no flames to appear, but the flint and steel's durability still decreases by 1.{{only|bedrock}} The same thing happens with [[glass]] and the sides of non-flammable blocks.
+* Ice is classified as a transparent block and therefore does not conduct [[redstone]].
+* [[Snow]] layers are the only transparent block that cannot be placed on ice.
+* When a player holds an ice block, the normals of the smaller model are flipped inside out, giving a strange effect.
+
+== Gallery ==
+<gallery>
+File:Frozen Ocean.png|Naturally generated ice on a frozen ocean. 
+File:Icebergs biome.jpg|Another view of naturally generating at a [[frozen ocean]].
+File:Deep Frozen Ocean.png|Naturally generated ice on a deep-frozen ocean. 
+File:Ice chunks.png|[[Chunk]] borders as seen in a patch of ice.<ref>{{bug|MC-38022||Semi-transparent blocks render striped / like water from certain angles / elevations}}</ref>
+File:Torch and Ice.png|The effect of a [[torch]] on ice exposed to the sky. Note that some [[block]]s are at a [[light]] level that lets them alternately melt and freeze.
+File:Ice-torch.png|The melting pattern of a torch to ice. 
+File:Lava Melting Pattern.png|The melting pattern of lava to ice.
+File:Ice-water-light-anim.gif|Ice melting because of the nearby torch animation.
+</gallery>
+
+=== Java Edition ===
+<gallery>
+File:Old Frozen Ocean.png|Naturally generated ice in an older revision of a frozen ocean. 
+</gallery>
+
+=== Bedrock Edition ===
+<gallery>
+File:Legacy Frozen Ocean.png|Naturally generated ice in a legacy frozen ocean. 
+</gallery>
+
+== See also ==
+* [[Packed Ice]]
+* [[Frosted Ice]]
+* [[Blue Ice]]
+
+== References ==
+{{reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/block-week-ice Block of the Week: Ice] – Minecraft.net on March 17, 2017
+
+{{Blocks|natural}}
+
+[[Category:Natural blocks]]
+[[Category:Generated structure blocks]]
+
+[[cs:Led]]
+[[de:Eis]]
+[[es:Hielo]]
+[[fr:Glace]]
+[[hu:Jég]]
+[[it:Ghiaccio]]
+[[ja:氷]]
+[[ko:얼음]]
+[[nl:IJs]]
+[[pl:Lód]]
+[[pt:Gelo]]
+[[ru:Лёд]]
+[[th:น้ำแข็ง]]
+[[uk:Лід]]
+[[zh:冰]]

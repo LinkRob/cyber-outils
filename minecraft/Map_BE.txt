@@ -1,0 +1,65 @@
+{{
+#vardefine: head
+ | {{{!}} class="wikitable" data-description="{{
+   #switch: {{{1|}}}
+    | zoom = "Zoom out a map"
+    | clone = "Cloning a map"
+    | position = "Adding position marker"
+    | = "Zooming, cloning, or adding position marker"
+   }}
+! scope="col" style="width:64px;" {{!}} Name
+! Ingredients
+! [[Anvil]] usage
+! Description
+}}{{
+#vardefine: zoom
+ | {{!}}-
+! scope="row" style="text-align: center;" {{!}} '''Map or Locator Map (zoomed out)'''
+{{!}} [[Map]] or Locator Map +<br>[[Paper]]
+{{!}} style="width: 260px; padding: 1px;" {{!}} {{Anvil|Input1=Map;Locator Map|Input2=Paper|Output=Map;Locator Map}}
+{{!}} {{el|be}} only.
+Supplying 8 sheets of paper results in a zoomed-out version of the input map.
+}}{{
+#vardefine: clone
+ | {{!}}-
+! scope="row" style="text-align: center;" {{!}} '''Map or Locator Map (cloned)'''
+{{!}} [[Map]] or Locator Map +<br>[[Empty Map]]
+{{!}} style="width: 260px; padding: 1px;" {{!}} {{Anvil|Input1=Map;Locator Map|Input2=Empty Map|Output=Map,2;Locator Map,2}}
+{{!}} {{el|be}} only.
+Only one copy can be made at a time.
+
+The input map must be a locator map for the output to be a locator map; an empty map has no effect.
+}}{{
+#vardefine: position
+ | {{!}}-
+! scope="row" style="text-align: center;" {{!}} '''Locator Map'''
+{{!}} [[Map]] +<br>[[Compass]]
+{{!}} style="width: 266px; padding: 1px;" {{!}} {{Anvil|Input1=Map|Input2=Compass|Output=Locator Map}}
+{{!}} {{el|be}} only.
+Maps crafted with only paper do not show the location marker; to add it, a compass must be added to the map.
+}}{{
+#vardefine: foot
+ | {{!}}}
+}}{{
+#switch: {{{1|}}}
+ | zoom =
+{{#var: head}}
+{{#var: zoom}}
+{{#var: foot}}
+ | clone =
+{{#var: head}}
+{{#var: clone}}
+{{#var: foot}}
+ | position =
+{{#var: head}}
+{{#var: position}}
+{{#var: foot}}
+ | all | =
+{{#var: head}}
+{{#var: zoom}}
+{{#var: clone}}
+{{#var: position}}
+{{#var: foot}}
+}}
+
+[[Category:Bedrock Edition]]

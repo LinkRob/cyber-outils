@@ -1,0 +1,645 @@
+{{wip}}
+{{Guide nav
+|edition=java
+|name=Pretty Scary Update
+|vers=
+* {{vl|je 1.4.2|}}
+* {{vl|je 1.4.4|}}
+* {{vl|je 1.4.5|}}
+* {{vl|je 1.4.6|}}
+* {{vl|je 1.4.7|}}
+|prev= 1.3 releases
+|next= Redstone Update
+}}
+This guide is a simplified overview of all the changes in the [[Pretty Scary Update]] ({{edition|java}} 1.4.x releases), which assumes at least some knowledge of the Java Edition 1.3.x releases.
+
+== Mobs ==
+=== New ===
+{|{{Simple Guide table|New Mobs}} 
+|-
+|[[Wither]] 
+| [[File:Wither JE1 BE1.png|128px]] 
+|
+* Can only be spawned by placing 4 blocks of [[soul sand]] in a T shape, and putting 3 [[wither skeleton skull]]s on top of the three upper blocks (see image below).
+{{FakeImage|align=left|{{BlockGrid|scale=3|w=Wither Skeleton Skull|s=Soul Sand|www|sss| s }} }}
+|
+{{Drop|Item|Nether Star|1}}
+*{{xp|50}} (when killed by a [[player]] or tamed [[wolf]])
+|
+* Three-headed flying player-created [[boss mob]] shooting [[projectile]]s at any [[mob]] (that isn't [[undead]]) and [[player]]s
+* After spawning, it flashes blue, builds up [[health]], grows slightly and is invincible for a few seconds - Then it [[Explosion|explodes]] and starts attacking players and mobs
+* Each head can fire projectiles, so-called [[wither skull]]s, at different targets
+** Shoots two kinds of projectiles - a blue one from the little heads, targeting mobs and a dark one from the big head targeting players
+** When hit by projectiles, players get the [[Wither (status effect)|wither II]] effect, which acts like a slower [[Poison]] effect that can kill and turns affected players' [[health bar]]s' hearts black
+* Constantly [[regenerate]]s health
+* Gains 'wither armor' when taken down to half health, making it immune to [[arrows]]
+* Darkens the [[sky]] when spawned in [[the Overworld]]
+|-
+|[[Wither Skeleton]] 
+| [[File:Wither Skeleton Revision 1.png|128px]] 
+|
+* [[Nether Fortress]]
+|
+{{Drop|Item|Coal|0|1}}
+{{Drop|Item|Bone|0|2}}
+{{xp|5}}, plus {{xp|1|3}} per equipment piece (when killed by a [[player]] or tamed [[wolf]])
+
+'''Rare Drops'''
+{{Drop|Block|Wither Skeleton Skull}}
+'''Spawned Equipment'''
+{{Drop|Item|Stone Sword}}
+|
+* Give [[player]]s [[wither]] effect when hitting them
+* Will rarely, depending on [[difficulty]], spawn with the ability to pick up [[armor]], head wear, [[item]]s, [[block]]s, [[weapon]]s and [[tool]]s
+** Items that are picked up will have a 100% chance of [[drop]]ping after dying
+* More advanced [[gear]] is more likely to spawn with [[mob]]s when playing on harder difficulties and rarely drops when the mob is killed by players
+|-
+|[[Zombie Villager]] 
+| [[File:Zombie Villager.png|128px]] 
+|
+* Anywhere in the overworld where the light level is 7 or less
+|
+* {{ItemLink|Rotten Flesh}} (100% chance)
+* {{ItemLink|Iron Ingot}} (2.5% chance)
+* {{ItemLink|Carrot}} (2.5% chance)
+* {{ItemLink|Potato}} (2.5% chance)
+* {{xp|5}}, plus {{xp|1|3}} per equipment piece (when killed by a [[player]] or tamed [[wolf]])
+|
+* Have a 5% chance of spawning instead of a normal [[zombie]].
+* Have a chance of spawning when a [[villager]] is killed by a zombie (0% chance in easy, 50% chance in normal, 100% chance in hard).
+* Can be cured into a villager using a [[golden apple]] and a [[splash potion of weakness]].
+* Have the same bodies as normal zombies, only the head is different.
+|-
+|[[Baby Zombie]] and [[Baby Zombie Villager]]
+|{{Animate|Baby Zombie Revision 1.png; Baby Zombie Villager.png|128px}}
+|
+* Anywhere in the overworld where the light level is 7 or less
+|
+* {{ItemLink|Rotten Flesh}} (100% chance)
+* {{ItemLink|Iron Ingot}} (2.5% chance)
+* {{ItemLink|Carrot}} (2.5% chance)
+* {{ItemLink|Potato}} (2.5% chance)
+* {{xp|12}}, plus {{xp|1|3}} per equipment piece (when killed by a [[player]] or tamed [[wolf]])
+|
+* Smaller and faster than normal zombies.
+|-
+|[[Witch]] 
+| [[File:Witch Revision 2.png|128px]] 
+|
+* [[Swamp]]
+* [[Witch Hut]]
+|
+* {{ItemLink|Glass Bottle}} (12.5% chance)
+* {{ItemLink|Glowstone Dust}} (12.5% chance)
+* {{ItemLink|Gunpowder}} (12.5% chance)
+* {{ItemLink|Redstone}} (12.5% chance)
+* {{ItemLink|Spider Eye}} (12.5% chance)
+* {{ItemLink|Sugar}} (12.5% chance)
+* {{ItemLink|Stick}} (25% chance)
+* {{xp|5}} (when killed by a [[player]] or tamed [[wolf]])
+
+They make 1–3 drops of 0–2 items each, for a maximum of 6 items total.
+|
+* Throws [[splash potion]]s of [[poison]], [[slowness]], [[weakness]], and [[instant damage]] at [[player]]s
+|-
+|[[Bat]] 
+| [[File:Bat Revision 1.png|128px]] 
+|
+* [[Spawn]] in groups of two in [[the Overworld]] at a light level of 3 or less on [[opaque]] [[block]]s below layer 63.
+** Between October 20 and November 3, they only require a light level of 6 or less to spawn.
+** On [[Superflat]] worlds, bats spawn below the top non-air layer, ignoring the usual layer-63 limitation.
+|None
+
+|
+* Hang on the ceiling when idle, starts flying when [[player]]s come near
+* Sleep during the [[day]]
+* Don't trigger [[pressure plate]]s or [[tripwire]]
+|}
+
+== Blocks ==
+=== New ===
+{|{{Simple Guide table|New Blocks}}
+|-
+|[[Command Block]]
+|[[File:Impulse Command Block JE1.png|84px]]
+|
+* Only obtainable using {{cmd|give|<''playername''> 137}}
+|
+* Cannot be broken in [[Survival]] mode nor without [[operator]] permissions
+|
+* Runs editable commands when triggered by [[Redstone (disambiguation)|redstone]]
+* Intended for [[adventure]] maps
+* Can only be edited by [[operator]]s in [[Creative]] mode, as long as <code>enable-command-block</code> in [[server.properties]] is enabled
+|-
+|[[Beacon]]
+|[[File:Beacon JE4 BE1.png|84px]]
+|
+{{Crafting
+|A1= Glass
+|B1= Glass
+|C1= Glass
+|A2= Glass
+|B2= Nether Star
+|C2= Glass
+|A3= Obsidian
+|B3= Obsidian
+|C3= Obsidian
+|Output= Beacon 
+|type= Miscellaneous
+}}
+|
+* Any
+** It will always take exactly 4.5 seconds to break it, regardless of tool used
+|
+* Continuously glows and gives a selected [[status effect]] to [[player]]s within a set amount of [[block]]s while beaming a beacon of light directly upwards
+* Activated by building a solid pyramid of [[Block of Iron|iron]]/[[Block of Gold|gold]]/[[Block of Emerald|emerald]]/[[Block of Diamond|diamond]] blocks underneath (can be used interchangeably) and selecting an effect
+** The cheapest configuration requires 9 blocks (one layer), while the best configuration requires 164 blocks (four layers)
+* Unlockable effects, with increasing amounts of required layers of blocks
+* When all 4 layers of blocks underneath are built correctly, a second status effect can be chosen
+|-
+|[[Anvil]]
+|{{Animate|Anvil JE1 BE1.png; Chipped Anvil JE1 BE1.png; Damaged Anvil JE1 BE1.png|84px}}
+|
+{{Crafting
+|A1 = Block of Iron
+|B1 = Block of Iron
+|C1 = Block of Iron
+|B2 = Iron Ingot 
+|A3 = Iron Ingot 
+|B3 =Iron Ingot 
+|C3 =Iron Ingot 
+|Output = Anvil
+}} 
+|
+* Pickaxe
+|
+* Used for [[repairing]] and combining [[Enchanting|enchanted]] items as well as for renaming any [[block]] or [[item]] at the cost of [[experience]] levels
+** [[Tools]] can also be repaired using one piece of their material
+** [[Enchantment]]s that are the same are upgraded by one level as long as they are both the same level and the higher level exists
+*** Conflicting enchantments will be removed and only the first one will be kept
+* Becomes damaged from using and dropping it
+** Damage persists in the [[inventory]] and splits up into 3 categories: Anvil, Slightly Damaged Anvil & Very Damaged Anvil
+|-
+|[[Flower Pot]]
+|[[File:Flower Pot JE1.png|84px]]
+|
+{{Crafting
+|A2 = Brick
+|B3 = Brick
+|C2 = Brick
+|Output = Flower Pot
+}} 
+|
+* Any
+|
+* Lets players plant all kinds of [[sapling]]s, [[mushroom]]s, [[flower]]s, [[cacti]], [[dead shrub]]s and [[fern]]s
+** Right-click it with something to plant it, hit it to get both back
+|-
+|[[Cobblestone Wall]] and [[Mossy Cobblestone Wall]]
+|{{animate|Cobblestone Wall JE1 BE1.png; Mossy Cobblestone Wall JE1 BE1.png|84px}}
+|
+{{Crafting
+|A2 = Cobblestone; Mossy Cobblestone
+|A3 = Cobblestone; Mossy Cobblestone
+|B2 = Cobblestone; Mossy Cobblestone
+|B3 = Cobblestone; Mossy Cobblestone
+|C2 = Cobblestone; Mossy Cobblestone
+|C3 = Cobblestone; Mossy Cobblestone
+|Output = Cobblestone Wall; Mossy Cobblestone Wall
+}} 
+|
+* Pickaxe
+|
+* Available in [[cobblestone]] and [[mossy cobblestone]] variants
+* Behave like [[fence]]s - Connect to each other, to other [[block]]s and to [[fence gate]]s & have a 1.5 blocks high collision box
+* Have a different, higher shape in corners and when blocks are placed on them
+|-
+|[[Mob Head]]
+|{{animate|Skeleton Skull.png;Wither Skeleton Skull.png;Zombie Head.png;Player Head.png;Creeper Head.png|84px}}
+|
+* [[Wither skeleton]]s have a 2.5% chance of dropping a [[wither skeleton skull]] when killed by a [[player]] or [[tamed wolf]]
+** All other heads are only obtainable from the [[creative]] [[inventory]]
+|
+* Any
+** If a player head has a custom [[skin]], the skin will be preserved when broken.
+|
+* Can be put on the ground in 16 orientations and hung on walls
+* Can be worn
+|-
+|[[Wooden Button]]
+|[[File:Oak Button (S) JE1 BE1.png|84px]]
+|
+{{Crafting
+|B2 = Oak Planks
+|Output = Wooden Button
+}}
+|
+* Axe
+|
+* Unlike [[stone button]]s, can be activated by [[arrow]]s
+* When pressed, will stay activated longer that stone buttons
+|-
+|[[Carrot]] and [[Potato]] Crops
+|{{Animate|Carrots Age 0-1 JE1.png;Carrots Age 2-3 JE1.png;Carrots Age 4-6 JE1.png;Carrots Age 7 JE1.png|84px}}
+{{Animate|Potatoes Age 0-1 JE1.png;Potatoes Age 2-3 JE1.png;Potatoes Age 4-6 JE1.png;Potatoes Age 7 JE1.png|84px}}
+|
+*Created by planting carrots and potatoes on farmland.
+|
+*Any
+|
+*Drop multiple carrots or potatoes when fully grown.
+|-
+|[[Nether Brick Slab]]
+|[[File:Nether Brick Slab JE1 BE1.png|84px]]
+|
+{{Crafting
+|A3= Nether Bricks
+|B3= Nether Bricks
+|C3= Nether Bricks
+|Output= Nether Brick Slab,6
+|type= Building block
+}}
+|
+*Pickaxe
+|
+*Can be used as a building block
+*Added in [[Java Edition 1.4.6|1.4.6]]
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Blocks}}
+|-
+|[[Chest]] / [[Ender Chest]]
+|[[File:Xmas Chest.png|112px]][[File:Xmas Large Chest.png|168px]]
+|
+* When the computer's clock is set to a date between December 24 and 26, Chests and Ender Chests{{verify|was this not 17w50a?}} become retextured to look like presents.
+* Added in [[Java Edition 1.4.6|1.4.6]].
+|}
+
+== Items ==
+=== New ===
+{|{{Simple Guide table|New Items}}
+|-
+|[[Potato]], [[Poisonous Potato]], and [[Baked Potato]]
+|{{animate|Potato JE1 BE1.png;Poisonous Potato JE1 BE1.png;Baked Potato JE2 BE1.png|84px}}
+|
+* [[Potato]]es can be obtained by [[farming]], as [[drop]]s (from [[zombie]]s and [[zombie villager]]s), or from [[chest loot]]{{verify|what such loot existed in 1.4?}}
+* [[Poisonous potato]]es rarely drop when [[farming]] potatoes
+{{Smelting
+|showname=1
+|Potato
+|Baked Potato
+}}
+|
+* [[Potato]]es can be planted on [[hydrated soil]] and drop 1-4 potatoes when fully grown
+** Can be grown instantly using [[bone meal]]
+* Poisonous potatoes have a 60% chance to [[poison]] the [[player]] when eaten
+* Potatoes restore {{hunger|1}} [[hunger]] and 0.6 [[saturation]]
+* Poisonous potatoes restore {{hunger|2}} hunger and 1.2 saturation
+* Baked potatoes restore {{hunger|6}} hunger and 6 saturation
+|-
+|[[Carrot]] and [[Golden Carrot]]
+|{{animate|Carrot JE2 BE1.png;Golden Carrot JE3 BE1.png|84px}}
+|
+* [[Carrot]]s can be obtained by [[farming]], as [[drop]]s (from [[zombie]]s, [[husk]]s, and [[zombie villager]]s), or from [[chest loot]]
+{{Crafting
+|showname=1
+|A1 = Gold Nugget
+|A2 = Gold Nugget
+|A3 = Gold Nugget
+|B1 = Gold Nugget
+|B2 = Carrot
+|B3 = Gold Nugget
+|C1 = Gold Nugget
+|C2 = Gold Nugget
+|C3 = Gold Nugget
+|Output = Golden Carrot
+}}
+|
+* Carrots can be planted on [[hydrated soil]] and drop 2-4 carrots when fully grown
+** Can be grown instantly using [[bone meal]]
+* Carrots restore {{hunger|4}} [[hunger]] and 3.6 [[saturation]]
+* Golden carrots restore {{hunger|6}} hunger and 14.4 saturation
+|-
+|[[Carrot on a Stick]]
+|[[File:Carrot on a Stick JE1 BE1.png|84px]]
+|
+{{Crafting
+|head=1
+|showname=0
+|A2= Fishing Rod; Damaged Fishing Rod
+|B3= Carrot
+|Output= Carrot on a Stick
+}}
+{{crafting
+|foot=1
+|Damaged Carrot on a Stick
+|Damaged Carrot on a Stick
+|Output= Carrot on a Stick
+}}
+|
+* Used to control [[pig]]s
+** When held, it dictates the direction pigs [[player]]s are riding will head in
+* Nearby pigs flock towards players holding it
+* Pigs start slow but end up going about 5 [[block]]s per second
+* Slowly loses [[durability]] when riding pigs
+* The pigs 'eat' the [[carrot]] eventually, leaving the player a [[fishing rod]] and will require another carrot to continue riding
+* Can be {{control|use|text=used}} to give the pig a short speed boost
+** This takes up a chunk of the durability
+|-
+|[[Pumpkin Pie]]
+|[[File:Pumpkin Pie JE1 BE1.png|84px]]
+|
+{{Crafting
+|Pumpkin
+|Sugar
+|Egg
+|Output= Pumpkin Pie
+}}
+|
+* Restores {{hunger|8}} [[hunger]] and 4.8 [[saturation]]
+|-
+|[[Nether Star]]
+|[[File:Nether Star JE2 BE1.png|84px]]
+|
+* Drops from the new [[wither]]
+|
+* Used to craft the new [[beacon]]
+* Glows like an enchanted item
+* When dropped, it cannot be destroyed by [[explosion]]s and will take more than twice as long to despawn than other [[item]]s
+** However, it can still be destroyed by [[fire]], [[lava]], and [[cacti]]
+|-
+|[[Music Disc|Music Disc (Wait)]]
+|[[File: Music Disc Wait JE1 BE1.png|84px]]
+|
+*Has a chance to drop when a skeleton kills a creeper.
+|
+*Plays the song "Wait" by [[C418]].
+*Added in [[Java Edition 1.4.4|1.4.4]].
+|-
+|[[Enchanted Book]]
+|[[File: Enchanted Book.gif|84px]]
+|
+*Created by enchanting a [[book]] using an [[Enchanting Table]].
+|
+*Used to apply enchantments to items using an Anvil.
+*Added in [[Java Edition 1.4.6|1.4.6]].
+|-
+|[[Firework Rocket]]
+|[[File:Firework Rocket JE1 BE1.png|84px]]
+|
+{{Crafting
+|head=1
+|showname=0
+|showdescription=1
+|Paper
+|; ; Gunpowder
+|; Gunpowder; Gunpowder
+|Gunpowder
+|Output=Firework Rocket,3
+|description=When crafted this way (without a firework star), the rocket does not have explosion effects. More or less Gunpowder affects the [[Firework_Rocket#Duration_and_direction|Flight Duration]]
+|type=Miscellaneous
+}}
+{{Crafting
+|Any Firework Star
+|Paper
+|; ; Gunpowder
+|; Gunpowder; Gunpowder
+|Gunpowder
+|Output= Firework Rocket,3
+|description=Adding more gunpowder increases the duration of the rocket. Up to three gunpowder can be used. Up to five firework stars can also be used with three gunpowder. Up to seven firework stars can be used by using firework stars instead of additional gunpowder. All firework stars explode almost simultaneously when the rocket detonates.
+|type=Miscellaneous
+|foot=1
+}}
+|
+*Projectiles which can be launched into the air and explode.
+*added in 1.4.6.
+|-
+|[[Firework Star]]
+|[[File:Firework Star JE1 BE1.png|84px]]
+|
+{{Crafting
+  |head=1
+  |showname=0
+  |showdescription=1
+  |ingredients=[[Gunpowder]]&nbsp;+<br>Matching [[Dye]]&nbsp;+<br>Extra ingredients (optional)
+  |Gunpowder
+  |Matching Dye
+  |Head; Gold Nugget; Feather;Fire Charge;
+  |Glowstone Dust;
+  |Diamond;
+  |Output=Matching Firework Star
+  |arggroups=1;2,Output;3;4;5
+  |description=Up to eight dyes can be added.<br>One head, gold nugget, feather, or fire charge can be added.<br>Both the diamond and the glowstone dust can be added with any of the other ingredients.
+  |type=Miscellaneous
+}}
+{{Crafting
+  |ignoreusage=1
+  |Matching Firework Star
+  |Any Dye
+  |Output=Matching Firework Star
+  |type=Miscellaneous
+  |description=Adds a "fade to color" effect to the firework star, overwriting any existing fades.<br>Up to eight dyes can be added.
+  |foot=1
+  |arggroups=1,Output
+}}
+<div style="display:none">
+<!--
+    This is so the pre-Village & Pillage dyes can have dye-related crafting recipes show on their respective pages.
+    They don't need to be displayed on this page because they already intuitively list "Any Matching/Colored Dye".
+-->
+{{Crafting
+  |head=1
+  |showname=0
+  |showdescription=1
+  |Gunpowder
+  |Bone Meal; Lapis Lazuli; Cocoa Beans; Ink Sac
+  |Head; Gold Nugget; Feather;Fire Charge;
+  |Glowstone Dust;
+  |Diamond;
+  |Output=White Firework Star; Blue Firework Star; Brown Firework Star; Black Firework Star
+  |arggroups=1;2,Output;3;4;5
+  |description={{only|bedrock|education}}<br>Up to eight dyes can be added.<br>One head, gold nugget, feather, or fire charge can be added.<br>Both the diamond and the glowstone dust can be added with any of the other ingredients.
+  |type=Miscellaneous
+}}
+{{Crafting
+ |showdescription=1
+ |White Firework Star; Blue Firework Star; Brown Firework Star; Black Firework Star
+ |Bone Meal; Lapis Lazuli; Cocoa Beans; Ink Sac
+ |Output=White Firework Star; Blue Firework Star; Brown Firework Star; Black Firework Star
+ |type=Decoration block
+ |description={{only|bedrock|education}}<br>Adds a "fade to color" effect to the firework star, overwriting any existing fades.<br>Up to eight dyes can be added.
+ |foot=1
+}}
+</div>
+|
+*Used to determine the color and shape of firework explosions.
+*Added in 1.4.6.
+|-
+|[[Bat Spawn Egg|Bat]] and [[Witch Spawn Egg]]s
+|{{Animate|Bat Spawn Egg JE1 BE1.png;Witch Spawn Egg JE1 BE1.png|84px}}
+|
+*Available in the creative inventory.
+|
+*Can be used to spawn the respective mob.
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Items}}
+|-
+|[[Music Disc|Music Disc (11)]]
+|[[File:Music Disc 11 JE1 BE1.png|84px]]
+|
+*Can now drop from creepers killed by skeletons like other music discs.
+|}
+
+== Potions ==
+=== New ===
+{|{{Simple Guide table|New Potions}}
+|-
+|{{ItemLink|Potion of Night Vision}}
+|
+{{Brewing
+|Golden Carrot
+|Potion of Night Vision
+}}
+|
+* [[Night Vision]]
+|-
+|{{ItemLink|Potion of Invisibility}}
+|
+{{Brewing
+|Fermented Spider Eye
+|Potion of Invisibility
+|base=Potion of Night Vision
+}}
+|
+* [[Invisibility]]
+|}
+== Non-mob entities ==
+=== New ===
+{|{{Simple Guide table|New Non-mob entities}}
+|-
+| [[Item Frame]]
+| [[File:Item Frame Revision 1.png|128px]]
+|
+{{Crafting
+|A1 = Stick
+|A2 = Stick
+|A3 = Stick
+|B1 = Stick
+|B2 = Leather
+|B3 = Stick
+|C1 = Stick
+|C2 = Stick
+|C3 = Stick
+|Output = Item Frame
+}}
+| {{Drop|Item|Item Frame|and any item in it}}
+|
+* All [[item]]s and [[block]]s can be framed
+* [[Clock]]s, [[compass]]es and [[map]]s function
+** Maps show only one marker, the frame itself
+** Mounted maps are marked on copies of the map
+|}
+=== Changed ===
+{|{{Simple Guide table|Changed Non-mob entities}}
+
+|-
+| [[Painting]]
+| [[File:Wither (painting texture) JE1 BE1.png|128px]]
+|
+*Added a new painting depicting the creation of the [[Wither]].
+*This is the only painting not based on a real painting by [[Kristoffer Zetterstrand]], and is also the only painting to have been added in a post-release version so far.
+|-
+|}
+
+== Structures ==
+=== New ===
+{|{{Simple Guide table|New Structures}}
+|-
+| [[Witch Hut]]
+| [[File:Swamp hut JE1 BE1.png|278px]]
+|
+* Generates in [[Swamp]] biomes
+|
+* None
+|
+* [[Witch]]
+|
+* The witch hut is a structure, which is the only place where [[witch]]es spawn naturally. The structure consists mainly of [[spruce planks]] and [[oak logs]], and has a [[cauldron]] and a [[crafting table]] inside it
+|}
+
+== Enchantments ==
+=== New ===
+{|class="wikitable"
+|-
+![[Enchantment]]
+!Max Level
+!Applicable Items
+!Notes
+|-
+|[[Thorns]]
+|III
+|{{ItemSprite|Diamond Helmet|link=Helmet}}{{ItemSprite|Diamond Chestplate|link=Chestplate}}{{ItemSprite|Diamond Leggings|link=Leggings}}{{ItemSprite|Diamond Boots|link=Boots}}
+|
+*Damages attackers.
+|}
+== Effects ==
+=== New ===
+{|{{Simple Guide table|New Effects}}
+|-
+|[[Wither (effect)|Wither]]
+|[[File:Wither (effect) JE1 BE1.png|84px]]
+|Withers and Wither Skeletons
+|Inflicts damage over time. Unlike Poison, it has the potential to be fatal on its own.
+|}
+
+== Sounds ==
+=== New ===
+{|{{Simple Guide table|New Sounds}}
+|-
+| [[Zombie]], [[Skeleton]], [[Cow]], [[Pig]], [[Spider]], [[Enderman]], [[Ghast]], [[Silverfish]], [[Magma Cube]], [[Wolf]], [[Ender Dragon]], [[Bat]], and [[Anvil]]
+|
+* Added sounds
+|-
+| [[Log|Wood]], [[Stone]], [[Sand]], [[Gravel]], [[Plants]]
+|
+* Added sounds for placing blocks
+|-
+| [[Sand]], [[Gravel]], [[Soul Sand]], [[Grass Block]], and [[Stone]]
+|
+* Added sounds for walking on the block
+|-
+| [[Zombie Villager]]
+|
+* Added sounds for curing, infecting, and a remedy sound
+|-
+| [[Fire]]
+|
+* Added sounds for setting things on fire
+|-
+| [[Sheep]]
+|
+* Added sounds for [[shearing]] sheep
+|-
+| [[Ladder]]
+|
+* Added sounds for climbing ladders
+|-
+| [[Minecart]]
+|
+* Added sounds for riding minecarts
+|-
+| [[Experience]]
+|
+* Added a sound for leveling up, which is played every five levels
+|-
+| [[Liquids]]
+|
+* Added constant noise to liquids
+|}
+
+[[ja:ガイド/Java Edition/プリティー・スケアリー・アップデート]]
+[[ru:Руководства по Java Edition/Pretty Scary Update]]
+[[zh:Java版指南/骇人更新]]

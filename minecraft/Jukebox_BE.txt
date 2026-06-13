@@ -1,0 +1,11 @@
+<div class="treeview">
+*{{nbt|compound}} Block entity data
+** {{nbt inherit/blockentity}}
+** {{nbt|boolean|IsPlaying}}: Whether the record is currently playing.
+** {{nbt|compound|RecordItem}}: The item, without the Slot tag.
+**** {{nbt inherit/itemnoslot|indent=****}}
+** {{nbt|long|RecordStartTick}}: Value of TickCount when the record started playing.
+** {{nbt|long|TickCount}}: Count of the number of record-playing ticks this jukebox has processed. Increments only while a record is loaded, whether playing or not.
+</div><noinclude>
+[[Category:Block entity pages]]
+</noinclude>

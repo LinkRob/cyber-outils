@@ -1,0 +1,86 @@
+{{Wip}}
+
+The history of the '''Far Lands in Java Edition''' can be split into three main sections:
+
+* [[Java Edition Far Lands/Up to Infdev 20100325|Before Infdev 2010-03-25]]
+* [[Java Edition Far Lands/Infdev 20100327 to Beta 1.7.3|From Infdev 2010-03-27 to Beta 1.7.3]]
+* [[Java Edition Far Lands/After Beta 1.8|Beta 1.8 and onwards]]
+
+== Types of Far Lands ==
+
+=== Combination types ===
+A world with far lands can be divided into multiple parts depending on how many axes one given noise generator is overflowing on at a given time at that position. In the diagrams below, normal terrain where nothing is overflowing is marked in gray, one overflow in light blue, two overflows in magenta and three overflows in lime. This can be extended to an arbitrary whole number of dimensions, although there are currently no modifications that allow for 4D or above terrain generation.
+<gallery>
+2D world diagram.png|A 2D diagram of the world, for 2D noise maps or 2D slices of 3D noise.
+3D world diagram.png|A 3D diagram of the world, for 3D noise maps.
+</gallery>
+
+==== Facial / "Edge" / "The Loop" ====
+The most commonly depicted form, this is the result of an overflow on only one axis. On a 2D plane, there are four different overflows possible, corresponding to the four edges of a rectangle. In 3D space, there are six different overflows possible, corresponding to the faces of a cuboid.
+<gallery>
+Combination type face.png
+2D edges diagram.png
+3D faces diagram.png
+</gallery>
+
+==== Edge / "Corner" / "The Stack" ====
+These are the result of an overflow on two axes. On a 2D plane, four cases of this are possible, corresponding to the vertices of a rectangle. In 3D space, there are twelve such possible intersections, corresponding to the edges of a cuboid.
+<gallery>
+Combination type edge.png
+2D corners diagram.png
+3D edges diagram.png
+</gallery>
+
+==== Vertex / "The Abyss" ====
+A rarely encountered type, this can only be encountered with three axes overflowing at once, which is effectively impossible in any version without mods. There are eight possible regions for this case, corresponding to the vertices of a cuboid.
+<gallery>
+Combination type vertex.png
+3D corners diagram.png
+</gallery>
+
+
+=== Noise generator overflows ===
+''Java Edition'' employs a variety of different [[noise generator]]s for shaping several aspects of terrain. These noise generators experiencing an integer overflow is what results in a set of "Far Lands".
+
+==== Low noise and high noise overflows ====
+"Low noise" and "high noise" are two extremely similar noise generators used for generating the fundamental shape of terrain itself. As a result, if either of these overflows, the fundamental shape of terrain sees drastic changes. The simultaneous overflowing of these is what results in the conventional Far Lands generating.
+<gallery>
+Low and high noise overflow.png
+High noise overflow first.png|World generation set such that high noise overflows before low noise does. Note the clearly Far Lands terrain correpsonding to the overflowed high noise, but also the presence of normal terrain within this overflowed region, corresponding to low noise, which is not overflowing.
+</gallery>
+
+Whether low noise or high noise is used for generating terrain at a given position is determined by a third noise generator, referred to as selector noise.
+<gallery>
+Low and high noise overflow after selector.png|Low and high noise overflowing after selector noise had. Note the more chaotic part in the middle, which directly corresponds to the closer grouping of overflowed stripes in pre-low/high overflowed terrain.
+High noise overflow after selector.png|High noise overflowing after selector noise has. Note the much more blocky appearance of the Far Lands, with clear, abrupt alternation between normal terrain and overflowed terrain.
+</gallery>
+
+==== Selector noise overflows ====
+Selector noise is a noise generator used to determine whether low noise or high noise is used to generate terrain at a given point. Once overflowed, where low and high noise are used becomes quite visually obvious, due to its now abrupt changes.
+<gallery>
+Selector noise overflow.png|Selector noise overflowing in otherwise normal terrain, with the normal terrain at the bottom. Note how the lower terrain uses low noise and the higher terrain uses high noise. After overflowing, the low terrain stays constant where low noise is selected, and the same can roughly be said for the higher area on the right.
+Selector noise overflow after low and high.png|Selector noise overflowing in the Stal-lands (corner Far Lands). Note how some of the stripes correspond to the higher areas in the Stal-lands, and the other stripes correspond directly to the lower areas.
+</gallery>
+
+==== Depth noise overflows ====
+{{section needed}}
+
+==== Scale noise overflows ====
+{{section needed}}
+
+==== Biome fill noise overflows ====
+The depth of the surface block corresponding to each biome is determined by a noise generator known as biome fill noise. Biome fill noise increments by 0.0625 units each block, or 1 unit every chunk, and thus will overflow at or around X/Z ±34,359,738,368. Overflowing is not visible without either extensive modding or manipulating the noise scale, as the overflow occurs well beyond the block render limit (±2,147,483,647) and coincides almost exactly with the chunk overwrite limit.
+<gallery>
+Biome fill noise overflow.png
+</gallery>
+
+==== Sand/gravel noise overflows ====
+{{section needed}}
+
+==== Old heightmap noise overflows ====
+{{section needed}}
+
+==== Island carver noise overflows ====
+{{section needed}}
+
+[[pt:Far Lands (Edição Java)]]

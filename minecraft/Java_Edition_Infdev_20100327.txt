@@ -1,0 +1,78 @@
+{{version nav
+|title=Minecraft Infdev
+|image=Infdev 20100327.png
+|edition=java
+|date=March 27, 2010
+|clientdl=[https://archive.org/download/Minecraft-JE-Infdev/inf-20100327/inf-20100327.jar Client] ([https://archive.org/download/Minecraft-JE-Infdev/inf-20100327/inf-20100327.json .json])
+|prev=Infdev 20100325
+|next=Infdev 20100330-1
+}}<onlyinclude>
+
+A version of '''[[Minecraft Infdev]]''' was released on '''March 27, 2010'''.<ref>[[wordofnotch:477553920|"Infdev's been updated with saving and new terrain"]] – [[The Word of Notch]], March 27, 2010</ref>
+
+With its introduction of the Alpha level format and the reintroduction of level saving, this is the first version where worlds created in it can be opened in any subsequent version (except for snapshots [[Java Edition 21w06a|21w06a]] through [[Java Edition 21w14a|21w14a]] of [[Java Edition 1.17]], and [[Java Edition 21w37a|21w37a]] through [[Java Edition 21w38a|21w38a]] of [[Java Edition 1.18]], which was due to a lack of a system to convert worlds rather than being fundamentally incompatible) without the need for external editors.
+
+== Additions ==
+* The game now automatically saves while playing.
+*The world generation is now responsible of new [[Noise generator|noise generators]] that replace the Classic World Noise generator. These are: Low Noise, High Noise, and Selector Noise. The first two are responsible of generating the [[Far Lands]] (see details below on the Bugs section).
+
+== Changes ==
+* The level format has been updated from the [[Java Edition Indev level format|Indev level format]] to the [[Java Edition Alpha level format|Alpha level format]].
+* The world saving interface has been revamped. It is now identical to the system seen in [[Java Edition Alpha|Alpha]] through early [[Java Edition Beta|Beta]].
+** The "generate new level..." button has been replaced with a "single player" button which opens a world selection screen, in which worlds can be loaded, created, and deleted. The "load level.." button has been replaced with a "multi player" button, although it is always grayed out.
+* The [[player]] dying causes the contents of their [[inventory]] to drop, and respawns the player at the world spawn, rather than forcing the player to reload the last save.
+* The player no longer starts with any [[item]]s in new worlds.
+* The player always spawns at 0,64,0, then gets shot up to the nearest available space.
+
+== Removals ==
+* The Classic World Noise terrain generator has been removed of the game's code, revamping the terrain generation.
+*[[Cave]]s and [[flower]]s no longer generate, as they are not yet implemented in the new terrain generator.
+* The defunct [[map theme]], [[map shape]], and [[map type]] buttons have been removed from the interface.
+* Debug [[tools]] are removed from the player's [[inventory]].
+* [[Brick pyramid]]s removed. 
+
+== Bugs ==
+* The [[Far Lands]] are not an addition itself. Instead, they are the overflow of the new Low and High [[Noise generator|noise generators]], that overflow at 12,550,824 blocks away on the X and Z axes, where the [[Far Lands]] generate.
+*Naturally-generated places that do not have direct exposure to the sky (e.g. cliff overhangs) are completely dark until given a sky light update.
+** Note that block updates on their own have no effect.
+* The world above the height limit is always fully lit and can cause blocks near the height limit to be lit up at nighttime with block light if a block update happens. This can temporarily hang the game while it processes the insane amounts of lighting updates, and may crash on older computers.{{verify|edition=java|type=change|I couldn't reproduce any crashes after playing around at the top for a while, though I didn't wait until night to see if it was fully lit either. The crashes might be related to the lighting too, so that might be why I didn't run into any crashes.}}
+* After dying, the player's body remains lying where they died. The body can be pushed around and still has the idle animation, as if it were still alive.
+* After loading an existing world, ores and trees regenerate if the conditions are correct (e.g. the place where ore would generate is filled with [[stone]]).
+* [[Wheat]] crops, fire, farmland, torches and saplings preserve their data values in the occupied space, resulting in newly-placed blocks to take on the data value of the block previously occupying that space allowing for any block from this version to obtain a damage value between 0-15. (Though the item form has to be obtained with silk touch in a later version.)
+* Containers (i.e. [[chest]]s and [[furnace]]s) sometimes do not save.
+** They require a chunk update in their chunk to update.
+* When generating a new world, the game may stop responding on some laptops.
+* [[Slab]]s have broken lighting.
+* Pressing the respawn button multiple times creates clones of the player, and when the player touches/attacks any clone, the player's hand goes crazy. (this is the only known way to spawn the [[human]] mob in this era of the game without modding).
+===Furnace bugs===
+{{wip}}
+* Having a furnace run out of fuel but is still smelting, then saving and exiting, then opening that burning furnace crashes the game. 
+* Furnace smelting time can sometimes be cut in half, or doubled, after saving and exiting.{{Info needed}}
+* On very rare occasions taking items out of a furnace output slot crashes the game.{{Info needed}}
+
+== Fixes ==
+; 1 bug fixed
+* The game's performance no longer drastically degrades progressively.</onlyinclude>
+
+== Gallery ==
+<gallery>
+Infdev0327SlabGlitch.png|A lighting glitch with slabs.
+Early Infdev Corner Far Lands.png|The Far Lands in Infdev 20100327.
+Player's body bug.png|Player's body remaining there after dying.
+Select world (Beta 1.2).png|The new 'Select World' screen.
+NotchInfdevTerrain1.png|An image posted by Notch accompanying this version's release.
+NotchInfdevTerrain2.png|An image posted on Notch's blog teasing the new worldgen.
+Inf327steve.png|Spamming "Respawn" after dying creates Steve mobs at the spawnpoint.
+</gallery>
+
+== References ==
+{{Reflist}}
+
+{{Java Edition versions|Infdev}}
+
+[[es:Java Edition Infdev 20100327]]
+[[fr:Infdev 20100327]]
+[[ja:Java Edition Infdev 20100327]]
+[[pt:Edição Java Infdev 20100327]]
+[[ru:Infdev 20100327]]
+[[zh:Java版Infdev 20100327]]

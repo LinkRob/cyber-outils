@@ -1,0 +1,823 @@
+{{Guide nav
+|edition=java
+|name=Combat Update
+|vers=
+* {{vl|je 1.9|}}
+* {{vl|je 1.9.1|}}
+* {{vl|je 1.9.2|}}
+* {{vl|je 1.9.3|}}
+* {{vl|je 1.9.4|}}
+|prev=Bountiful Update
+|next=Frostburn Update
+}}
+This guide is a simplified overview of all the changes in the [[Combat Update]] ({{edition|java}} 1.9.x releases), which assumes at least some familiarity with the [[Bountiful Update]] (Java Edition 1.8.x releases).
+
+== Mobs ==
+
+=== New ===
+{| {{Simple Guide table|New Mobs}} 
+|-
+| [[Shulker]] || {{Animate|Shulker.png; Shulker Box.png|84px}} ||
+* Shulkers spawn during generation of end cities.
+||
+*{{xp|5}} (when killed by a [[player]] or tamed [[wolf]])<!-- Do not insert the shulker shell drop, since they didn't exist in this update -->
+||
+* Shulkers can be stood on like a [[block]].
+* When attacking, shulkers open their shell and will shoot projectiles with the appearance of white sea urchins.
+* Shulkers do not despawn in Peaceful, but will not attack or target players.
+|-
+| [[Skeleton trap]] horse ||[[File:Skeleton Trap Revision 1.png|128px|center]] ||
+* Skeleton trap horses spawned from a fraction of lightning strikes during a [[thunderstorm]].
+|| 
+[[Skeleton horse]]:
+{{Drop|Item|Bone|1}}
+*{{xp|1|3}} (when killed by a [[player]] or tamed [[wolf]])
+[[Skeleton]]:
+{{Drop|Item|Arrow|0|2}}
+{{Drop|Item|Bone|0|2}}
+*{{xp|5}}, plus {{xp|1|3}} per equipment piece (when killed by a [[player]] or tamed [[wolf]])
+'''Spawned Equipment'''
+{{drop|item|iron helmet|text=Enchanted Iron Helmet}}
+{{drop|item|bow|text=Enchanted Bow}}
+||
+* When a player comes within 10 blocks of the skeleton trap horse, [[lightning]] strikes it.
+** When struck, the skeleton trap horse transforms into a [[skeleton]] horseman.
+** It will also spawn 3 additional skeleton horsemen in the vicinity.
+* Each skeleton is equipped with an enchanted iron helmet and an enchanted bow, and have [[damage immunity]] for 3 seconds after spawning. 
+* Skeleton trap horse despawns after 15 minutes if not triggered.
+|}
+
+=== Changed ===
+
+{|{{Simple Guide table|Changed Mobs}} 
+|-
+| All [[mob]]s 
+|
+|
+* Improved AI.
+* Mobs now can be pushed by other mobs.
+* Added/Changed sounds for some mobs.
+* To have chance to spawn left-handed mobs.
+|-
+| [[Creeper]]s, [[Skeleton]]s and [[Zombie]]s 
+|{{Animate|Creeper.png; Skeleton JE5 BE3.png; Zombie JE2 BE1.png|128px}}
+|
+* They must be closer to notice players wearing the corresponding mob [[head]].
+* Skeletons now hold their bows at their sides when not aiming.
+|-
+| Tamed [[Wolf|Wolves]] and [[Cat]]s 
+| {{animate|Tamed Wolf with Red Collar JE1 BE1.png|128px}}<br>{{animate|Red Cat JE1 BE1.png; Tuxedo Cat JE1 BE1.png; Siamese Cat JE1 BE1.png|128px}}
+| 
+* Their deaths are now announced to their owners in chat, even if unnamed.
+|-
+| [[Ender Dragon]] 
+| [[File:Ender Dragon.gif|128px]]
+|
+* The ender dragon can be respawned by placing one [[end crystal]] on each side of the exit portal at any one of the three blocks of that side.
+** While respawning, beams shoot out of these crystals, that will reset all the pillars and when done they blow up and spawn the dragon.
+** Subsequent dragons will spawn new gateways up to a total of 20, but won't create new [[dragon egg]]s and will only drop 500 [[experience]] instead of the usual 12,000.
+** When the dragon is respawned, the circle of pillars and the crystals reappear.
+*** Explosion particles appear on the tops of the pillars as they are being rebuilt.
+* The fight has been changed to be more similar to the one on the [[console edition]].
+* They can no longer take damage from [[snowball]]s, [[egg]]s or [[fishing rod]]s.
+* Its attacks have been changed:
+** The "charge" attack has been given a great amount of knockback.
+** Breathes fire/purple particles (called "dragon breath") while on top of the portal.
+*** During the attack, it knockbacks and damages all players on all angles in the vicinity (as if hitting with other body parts).
+**** Immediately charges the player right after.
+*** Right-clicking the dragon's breath cloud with an empty [[bottle]] will turn in into [[dragon breath]].
+**** It is used to transform [[splash potion]]s into [[lingering potion]]s.
+** Shoots special projectiles at the player called "ender acid".
+*** These produce a dragon breath cloud on impact and light the ground on [[fire]].
+** While on top of the portal arrows will bounce back and be set on fire.
+* NBT tags can determine the dragon's phase.
+* Its AI was changed:
+** It sometimes returns to the center of the island to "perch" on top of the portal and shoot dragon breath.
+*** It charges right after.
+** Defends the obsidian pillars more, the further the fight progresses.
+** Flies back to the portal once it gets killed, to complete its animation.
+* No longer teleports through Nether portals or End portals.
+* Can no longer ride anything.
+* Can no longer have status effects.
+* Summoning it with {{cmd|summon}} will now stay in the same position no matter what.
+** Unlike summoning a dragon with <code>{NoAI:1b}</code>, it will still flap its wings.
+** These dragons do not show their boss health bar, nor do they take damage from any attack other than {{cmd|/kill}}.
+
+|-
+| [[Iron Golem]] 
+| [[File:Iron Golem JE1 BE1.png|128px]]
+|
+* Iron golems all have 100% knockback resistance.
+|-
+| [[Pig]]s
+| [[File:Pig JE2 BE1.png|128px]]
+|
+* Pigs can be led and bred with [[potato]]es and beetroots, in addition to [[carrot]]s.
+|-
+| [[Rabbit]] 
+| {{Animate|Brown Rabbit Revision 1.png;Albino Rabbit Revision 1.png;Black Rabbit Revision 1.png;Gold Rabbit Revision 1.png;Salt & Pepper Rabbit Revision 1.png;Black & White Rabbit Actual Revision 1.png;Toast Rabbit Revision 1.png|128px}}
+|
+* Rabbits now only spawn in {{tooltip|specific biomes|Deserts, flower forests, taiga, mega taiga, cold taiga, ice plains, ice mountains, ice plains spikes, and hills and M variants of these biomes}}. Even in these biomes, spawn chance is somewhat reduced.
+* When rabbits are destroying [[carrot]] crops, now reduces the growth stage by 1 level, only removing the crop block entirely if the growth stage was 0.
+* Rabbits are much smaller.
+* Killer bunnies no longer naturally spawn.
+|-
+| [[Snow Golem]]
+| {{Animate|Snow Golem JE1 BE1.png; Sheared Snow Golem JE1 BE1.png|128px}}
+|
+* Snow golems' [[pumpkin]] now can be removed with shears.
+** Will not drop pumpkin.
+|-
+| [[Zombie Villager]] 
+| {{animate|Zombie Farmer.png;Zombie Librarian.png;Zombie Priest.png;Zombie Blacksmith.png;Zombie Butcher.png;Zombie Nitwit.png|128px}}
+|
+* Zombie villagers now have different textures based on the profession and career of the original villager.
+** The profession is restored once cured but not its trades.
+|}
+
+== Blocks ==
+
+=== New ===
+
+{| class = "wikitable"
+! Name !! Image !! Obtaining !! Tool Required !! Uses
+|-
+| {{BlockLink|Chorus Flower}} || {{Animate|Chorus Flower JE1 BE1.png; Chorus Flower Dead JE1 BE1.png|84px}} ||
+* Chorus flowers can be found on the top of the chorus trees.
+|| Axe  ||
+* Chorus flowers will break if the supporting block below is broken.
+** It only drops when mined directly.
+* Chorus flowers can only be planted on [[end stone]] in any dimension.
+* Chorus flowers will show a dead texture when it stops growing.
+|-
+| {{BlockLink|Chorus Plant}} || [[File:Chorus Plant JE1 BE1.png|84px|center]] ||
+* Chorus plants can be found in the part of the chorus trees.
+|| Axe ||
+* Chorus plants will break in quick succession if the supporting chorus plant below is broken.
+|-
+| {{BlockLink|Dragon Head}} || [[File:Dragon Head.png|84px|center]] ||
+* Dragon heads generate on the bows of end ships.
+|| Any ||
+* While a player wears the dragon head and moves, the head's mouth opens and closes repeatedly.
+* When powered with [[redstone]] while dragon heads are placed on a solid block, the jaw starts to open and close.
+** They will keep the mouth position of the exact moment it was unpowered.
+|-
+| {{BlockLink|End Rod}} || [[File:End Rod JE1 BE1.png|84px|center]] || 
+{{Crafting|B2=Blaze Rod|B3=Popped Chorus Fruit|Output=End Rod,4}}
+* End rods generate in the end cities.
+|| Any. || 
+* End rods are placeable horizontally and vertically.
+* End rods used as a lighting source with the same brightness as [[torch]]es.
+* Unlike torches, end rods have the hitbox.
+|-
+| {{BlockLink|End Stone Bricks}} || [[File:End Stone Bricks JE1 BE1.png|84px|center]] ||
+{{Crafting|A1=End Stone|B1=End Stone|A2=End Stone|B2=End Stone|Output=End Stone Bricks,4}}
+* End stone bricks generate in the end cities.
+|| Pickaxe ||
+* End stone bricks can be used as a decorative block.
+|-
+| {{BlockLink|Purpur Block}} || [[File:Purpur Block JE1 BE1.png|84px|center]] ||
+{{Crafting|A1=Popped Chorus Fruit|B1=Popped Chorus Fruit|A2=Popped Chorus Fruit|B2=Popped Chorus Fruit|Output=Purpur Block}}
+* Purpur blocks generate in the end cities. 
+|| Pickaxe ||
+* Purpur blocks can be used as a decorative block.
+|-
+| {{BlockLink|Purpur Pillar}} || [[File:Purpur Pillar Axis Y JE1 BE1.png|84px|center]] ||
+{{Crafting|B1=Purpur Slab|B2=Purpur Slab|Output=Purpur Pillar}}
+* Purpur pillars generate in the end cities. 
+|| Pickaxe ||
+* Purpur pillars can be used as a decorative block.
+|-
+| {{BlockLink|Purpur Slab}}<br>and<br>{{BlockLink|Purpur Stairs}} || [[File:Purpur Slab JE1 BE1.png|84px|center]]<br>[[File:Purpur Stairs JE1 BE1.png|84px|center]] ||
+{{Crafting|A2=Purpur Block|B2=Purpur Block|C2=Purpur Block|Output=Purpur Slab,6}}
+{{Crafting|A1=Purpur Block|A2=Purpur Block|B2=Purpur Block|A3=Purpur Block|B3=Purpur Block|C3=Purpur Block|Output=Purpur Stairs,4}}
+* Purpur slabs and stairs generate in the end cities. 
+|| Pickaxe ||
+* Purpur slabs and purpur stairs can be used as decorative blocks.
+|-
+| {{BlockLink|End Gateway}} || [[File:End Gateway.gif|84px|center]] || Generates in End Gateway structures. || N/A ||
+*Teleports entities to corresponding gateways elsewhere in the End.
+|-
+| {{BlockLink|Grass Path}} || [[File:Grass Path JE1 BE1.png|84px|center]] ||
+* Can be obtained by right-clicking [[grass block]] with any tier of [[shovel]], this will consume one durability on the shovel. 
+|| Shovel (drops dirt) ||
+* Grass paths can be used as a decorative block.
+|-
+|[[Beetroot]] Crops
+|{{Animate|Beetroots Age 0 JE1.png;Beetroots Age 1 JE1.png;Beetroots Age 2 JE1.png;Beetroots Age 3 JE1.png|84px}}
+|
+*Created by planting beetroot seeds on farmland.
+|Any
+|
+*Drops multiple beetroots and beetroot seeds when fully grown.
+|-
+|{{BlockLink|Frosted Ice}}
+|{{Animate|Frosted Ice.png;Frosted Ice 1.png;Frosted Ice 2.png;Frosted Ice 3.png|84px}}
+|
+* Created by walking on water using frost walker boots.
+|Any
+|
+* Breaks after a few seconds, allowing players to create temporarily bridges across water.
+|-
+|{{BlockLink|Chain Command Block}} and {{BlockLink|Repeating Command Block}}
+|[[File:Chain Command Block JE2 BE1.png|84px]]<br><br>[[File:Repeating Command Block JE2 BE1.png|84px]]
+|
+* Obtainable through commands.
+|N/A
+|
+* While activated, chain command blocks run a command when an adjacent command block runs a command.
+* While activated, repeating command blocks run a command every tick.
+|-
+|{{BlockLink|Structure Block}}
+|{{Animate|Structure Block JE1.png;Structure Block Save JE1.png;Structure Block Load JE1.png;Structure Block Corner JE1.png;Structure Block Data JE1.png|84px}}
+|
+* Obtainable through commands.
+|N/A
+|
+* Can be used to save and load structures.
+|}
+
+=== Changed ===
+
+{| class = "wikitable"
+! Name !! Changes
+|-
+| All [[block]]s ||
+* Added/Changed sounds for some blocks.
+|-
+| {{BlockLink|Anvil}} ||
+* Renaming an item does not increase the repair cost for a future repair/rename anymore.
+|-
+| {{BlockLink|Beacon}} ||
+* Beacons will now drop the items placed in them and will keep the item in the beacon after reloading the world.
+* Beacons will drop any contained item when exiting the GUI.
+* Effect duration depends on pyramid levels, 9 seconds plus 2 seconds per level (formerly a constant 9 seconds).
+* Beacons now immediately activate when placed on valid pyramids.
+|-
+| {{BlockLink|Brewing Stand}} ||
+* Brewing stands now require [[blaze powder]] to be able to use.
+** One piece of blaze powder can add 20 fuels in the brewing stand.
+** It removes 1 from fuel every time the player puts an ingredient in.
+|-
+| {{BlockLink|Cactus}} ||
+* Cactus will break if [[lava]] is adjacent.
+* Cactus will break if [[water]] or lava is in the block above.
+|-
+| {{BlockLink|Cauldron}} ||
+* [[Bucket]]s now can be filled from a full cauldron.
+|-
+| {{BlockLink|Cobweb}} ||
+* Cobweb will now drop itself when cut with [[shear]]s.
+|-
+| {{BlockLink|Daylight Sensor}} ||
+* Daylight sensors no longer emit a signal at night when sufficiently shaded.
+|-
+| {{BlockLink|Dead Bush}} ||
+* Dead bushes now drop 0–2 [[stick]]s when broken.
+|-
+| {{BlockLink|Dispenser}} ||
+* Dispensers now equip [[pumpkin]]s on the heads of [[player]]s, [[mob]]s and [[armor stand]]s.
+|-
+| {{BlockLink|id=oak-door|Door}} ||
+* Doors are now placed facing left/right depending on which half of the block the player clicks on unless neighboring doors cause them to place a certain way.
+|-
+| {{BlockLink|id=glass|Glass Pane}} and {{BlockLink|Iron Bars}} ||
+* Glass panes or iron bars without any connecting blocks are now 2x2 pixels in footprint.
+|-
+| {{BlockLink|Hay Bale}} ||
+* Falling onto a hay bale does only 20% of normal fall damage.
+|-
+| {{BlockLink|id=oak-trapdoor|Trapdoor}} ||
+* Trapdoors no longer require supporting blocks.
+* An open trapdoor may be climbed like a ladder if it is directly above a ladder and on the same side of the block.
+|}
+
+== Items ==
+
+=== New ===
+
+{| class = "wikitable"
+! Name !! Image !! Obtaining !! Uses
+|-
+| {{ItemLink|Beetroot}} || [[File:Beetroot JE1 BE1.png|84px|center]] ||
+Beetroots can be harvested from beetroot crops.
+||
+* Beetroots give {{hunger|1}} hunger points when eaten.
+* Beetroots can be used to craft beetroot soup.
+* Beetroots can also be used to craft [[rose red]] dye.
+|-
+| {{ItemLink|Beetroot Soup}} || [[File:Beetroot Soup JE1 BE1.png|84px|center]] ||
+{{Crafting|A1=Beetroot|B1=Beetroot|C1=Beetroot|A2=Beetroot|B2=Beetroot|C2=Beetroot|B3=Bowl|Output=Beetroot Soup|shapeless=true}}
+||
+* Beetroot soup give {{hunger|6}} hunger points when eaten.
+|-
+| {{ItemLink|Beetroot Seeds}} || [[File:Beetroot Seeds JE1 BE1.png|84px|center]] ||
+Beetroot seeds can be harvested from beetroot crops. Additionally beetroot seeds can be found in villages or loot chests.
+||
+* Beetroot seeds are used to grow beetroots.
+|-
+| {{ItemLink|Chorus Fruit}} || [[File:Chorus Fruit JE1 BE1.png|84px|center]] ||
+Chorus fruits can be obtained by breaking chorus plants.
+||
+* Chorus fruits give {{hunger|4}} hunger points when eaten.
+* Chorus fruits will teleport entity to a random nearby location when eaten, like an [[enderman]].
+* Chorus fruits can be eaten even if the player's hunger bar is full, similar to [[golden apple]]s.
+* Chorus fruits can be cooked in the furnace to obtain popped chorus fruits.
+|-
+| {{ItemLink|Dragon's Breath}} || [[File:Dragon's Breath JE1 BE1.png|84px|center]] ||
+The dragon's breath can be obtained by scooping up the ender dragon's breath attack or dragon fireball clouds in an empty [[bottle]].
+||
+* The dragon's breath can be used to brew lingering potions with a [[splash potion]].
+|-
+| {{ItemLink|Elytra}} || [[File:Elytra (item) JE1 BE1.png|84px|center]][[File:Broken Elytra (item) JE1 BE1.png|84px|center]] ||
+Elytra can be found on end ships within an [[item frame]].
+||
+* Players can enter to glide when equipped in the "chestplate" slot.
+* Elytra take damage at a rate of 1/s when working.
+* When durability reaches 1, the elytra stop working until they are repaired. Elytra will never fully break.
+** Using [[leather]]s to repair elytra.
+* The elytra texture defaults to the cape texture if the player owns a [[cape]].
+|-
+| {{ItemLink|End Crystal}} || [[File:End Crystal (item) JE1 BE1.png|84px|center]] ||
+{{Crafting|A1=Glass|B1=Glass|C1=Glass|A2=Glass|B2=Eye of Ender|C2=Glass|A3=Glass|B3=Ghast Tear|C3=Glass|Output= End Crystal
+}}
+||
+* The item form of [[end crystal]].
+* It will summon an end crystal when using it on [[bedrock]] or [[obsidian]].
+** Summoned end crystals have no bottom plate, unlike normal end crystals.
+|-
+| {{ItemLink|Popped Chorus Fruit}} || [[File:Popped Chorus Fruit JE1 BE1.png|84px|center]] ||
+{{Smelting|Chorus Fruit|Popped Chorus Fruit}}
+||
+* Popped chorus fruits are no longer be edible.
+* Popped chorus fruits can be used to craft purpur blocks.
+|-
+| {{ItemLink|Shield}} || [[File:Shield JE1.png|84px|center]] ||
+{{Crafting|A1=Any Planks|B1=Iron Ingot|C1=Any Planks|A2=Any Planks|B2=Any Planks|C2=Any Planks|B3=Any Planks|Output=Shield}}
+||
+* New tool used for blocking incoming attacks.
+** If the player holds right click while being attacked, the damage inflicted is reduced, and the shield loses durability.
+* Hitting a shield with an [[axe]] has a chance to disable the shield for 5 seconds.
+* Shields can be combined with [[banner]]s to transfer its pattern to it.
+* Using [[plank]]s to repair shields.
+|-
+| {{ItemLink|Tipped Arrow}}<br>and<br>{{ItemLink|Spectral Arrow}} || [[File:Arrow of Luck JE1 BE1.png|84px|center]][[File:Spectral Arrow (item) JE1.png|84px|center]] ||
+{{Crafting|A1= Arrow|A2= Arrow|A3= Arrow|B1= Arrow|B2= Matching Lingering Potion|B3= Arrow|C1= Arrow|C2= Arrow|C3= Arrow|Output = Matching Tipped Arrow,8
+}}
+{{Crafting|A2= Glowstone Dust|B1= Glowstone Dust|B2= Arrow|B3= Glowstone Dust|C2= Glowstone Dust|Output = Spectral Arrow,2
+}}
+||
+* New types of [[arrow]].
+* Will imbue a [[potion effect]] when a tipped arrow hitting a mob or player.
+** Spectral arrow imbues the [[Glowing]] effect for 10 seconds.
+* For effects with duration, the duration is {{frac|1|8}} that of the corresponding potion.
+|-
+| {{ItemLink|Shulker Spawn Egg}} || [[File:Shulker Spawn Egg JE1 BE2.png|84px|center]] ||
+*Available in the creative inventory.
+|
+*Can be used to spawn Shulkers.
+|}
+
+=== Changed ===
+
+{| class = "wikitable"
+! Name !! Changes
+|-
+| All [[item]]s ||
+* Added sounds for some items.
+* Now shows animation for variant states in the hotbar/inventory for some items. 
+|-
+| {{ItemLink|id=iron-chestplate|Armor}} ||
+* Armor points count for less as the attack strength increases: each {{health|2}} done by the attack reduces the effective defense points by {{armor|1}}, but not below 20% of the armor points.
+|-
+| {{ItemLink|Axe}} ||
+* Hitting a player who is blocking with a shield using an axe has a chance to disable the player's shield for 5 seconds.
+|-
+| {{ItemLink|Boat}} ||
+* Added spruce, birch, jungle, acacia and dark oak variants.
+** Crafted from 5 same variant planks, with the shape just as it was before.
+** The previous "Boat" is now called "Oak Boat".
+* Boats have a new model, with a pair of paddles on it.
+|-
+| {{ItemLink|Enchanted Golden Apple}} ||
+* Enchanted golden apples are now uncraftable.
+* Now have {{EffectLink|Regeneration}} II for 20 seconds (heal {{health|16}} in total) and {{EffectLink|Absorption}} IV for 2 minutes (providing {{hp|16|absorption=1}} points of absorption health).
+|-
+| {{ItemLink|Ender Pearl}} ||
+* Ender pearls now can be thrown in [[creative]] mode.
+* Ender pearls have a cool down time every time they are used.
+|-
+| {{ItemLink|Glowstone Dust}} and {{ItemLink|Redstone}} ||
+* They can no longer be added to extended or tier-II potions respectively.
+|-
+| {{ItemLink|Shears}} ||
+* Shears are no longer be able to be enchanted with [[Silk Touch]].
+* Shears now lose durability when used to break any block.
+* Cobweb will now drop itself when cut with shears.
+|-
+| {{ItemLink|Sword}} ||
+* Swords can no longer be used for blocking.
+* New defensive sword "sweep" attack when swinging the sword while crouching or standing.
+** Mobs near the attacker are knocked back and receive {{hp|1}} damage.
+|-
+| {{ItemLink|id=splash-potion|link=splash potion|Splash Water Bottle}} ||
+* Splash water potion extinguishes any [[fire]] block that it's thrown at, as well as a maximum of five of them in the vicinity.
+|}
+
+== Non-mob entities ==
+
+=== Changed ===
+{| {{Simple Guide table|Changed Non-mob entities}} 
+|-
+| All [[entities]] 
+|
+|
+* Added sounds for some entities.
+|-
+| [[Arrow]] 
+|[[File:Arrow.png|128px]]
+|
+* Arrows now bounce off of creative mode players, where as before they would pass straight through.
+* Arrows now take the thrower's motion into account.
+|-
+| [[Boat]] 
+| {{Animate|Oak Boat JE2 BE1.png; Spruce Boat JE1 BE1.png; Birch Boat JE1 BE1.png; Jungle Boat JE1 BE1.png; Acacia Boat JE1 BE1.png;Dark Oak Boat JE1 BE1.png|128px}}
+|
+* Boats are faster, and no longer will crash and break on the shore.
+* Using the {{control|left}} and {{control|right}} keys will now turn the boat.
+** Using the mouse will no longer turn the boat.
+** Using the mouse, the player can look fully 90 degrees to the left or the right, but not behind.
+** Holding the {{control|sprint}} keys no longer have any effect.
+* Boats now sink when there's water above it, instead of floating upwards.
+* The player cannot use or attack while the boat is in motion.
+* Mobs and armor stands can go into boats, with a maximum of two.
+* Riding a boat no longer subjects water-sensitive mobs to being damaged by water, and no longer protects sunlight-sensitive mobs from being damaged by sunlight.
+* Boats now come in 6 different wood type variants.
+|-
+| [[Projectile]]s
+|
+|
+* Projectiles now take the thrower's motion into account.
+|}
+
+== Effects ==
+
+=== New ===
+{|{{Simple Guide table|New Effects}} 
+|-
+| [[Glowing]] || [[File:Glowing JE1.png|84px|center]] ||
+The Glowing received when hit by spectral arrows.
+||
+Makes entity's outline glow, even through non-transparent blocks.
+|-
+| [[Levitation]] || [[File:Levitation JE1 BE1.png|84px|center]]
+||
+The Levitation received when hit by shulker projectiles.
+||
+Makes entity involuntarily float high into the air.
+|-
+| [[Luck]] || [[File:Luck JE1.png|84px|center]] ||
+The Luck received by the potion of Luck.
+||
+Increases the luck attribute by 1 per level.
+|-
+| [[Bad Luck]] || [[File:Bad Luck JE1.png|84px|center]] ||
+The Bad Luck cannot be obtained in normal.
+||
+Decreases the luck attribute by 1 per level.
+|}
+
+== Potions ==
+
+=== New ===
+{|{{Simple Guide table|New Potions}} 
+|-
+| {{ItemLink|Lingering Potion}} ||
+{{brewing|Dragon's Breath|Any Lingering Potion|ingredients=[[Dragon's Breath]] + <br>Any [[Splash Potion]]}}
+||
+* The effect is the same as the original [[splash potion]].
+* Thrown like a splash potion.
+** Leaves a patch of the potion particle effect on impact.
+*** Entities that walk into it get the effect.
+|-
+| {{ItemLink|Potion of Luck}} ||
+Can only be obtained in creative inventory.
+||
+* [[Luck]] (5:00)
+|-
+| {{ItemLink|Uncraftable Potion}} ||
+Cannot be obtained in normal.
+||
+* No effects.
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Potions}} 
+|-
+| Extended {{ItemLink|Potion of Poison}} and extended {{ItemLink|Potion of Regeneration}}
+||
+* Decreased duration for these potions.
+** It has been changed to 1:30, was 2:00.
+|-
+| {{ItemLink|Potion of Harming}}
+||
+* Potions of Harming can no longer be made using a [[potion of Fire Resistance]].
+|-
+| {{ItemLink|Potion of Slowness}}
+||
+* Potions of Slowness can no longer be made using a [[potion of Water Breathing]].
+|-
+| {{ItemLink|Potion of Strength}}
+||
+* Potion of Strength has been changed to {{health|3}} increase, was 130% increase.
+|-
+| {{ItemLink|Potion of Weakness}}
+||
+* All recipes for the potion of Weakness were removed except using a [[water bottle]].
+* Potion of Weakness has been changed to {{health|4}} decrease, was 0.5 ({{hp|2|notag=1}} × {{frac|1|4}}) decrease.
+|}
+
+
+== Structures ==
+
+=== New ===
+{|{{Simple Guide table|New Structures}} 
+|-
+| {{BiomeLink|id=end-barrens|link=The End#Outer Islands|Outer end island}} 
+|[[File:Small End Islands.png|278x278px|center]] 
+| Outer end islands can generate in every direction from the main island, separated by a gap of about 1,000 blocks.
+|No
+|
+* {{EntityLink|Enderman}}
+|
+* Chorus trees and end cities generate here.
+|-
+| {{EnvLink|End gateway}}
+| [[File:End gateway JE2 BE1.png|278x278px|center]]
+|A new end gateway generates near the edge of the main island each time the [[ender dragon]] is defeated. 
+|None
+|None 
+|
+* The way to the outer islands.
+* Up to 20 gateways can be generated.
+|-
+| {{EnvLink|Chorus tree}} 
+|[[File:Chorus Tree JE1 BE1.png|278x278px|center]]
+|Chorus trees generate on the outer islands of the end.
+|None 
+|None
+|
+* They consist of chorus plants and chorus flowers; A chorus flower will generate at the top of each branch.
+* The player can grow a new chorus tree by planting a flower on a block of endstone.
+|-
+| {{EnvLink|End city}} 
+| [[File:EndCityEntrance JE1 BE1.png|278x278px|center]]
+|End cities generate on the outer islands of the end.
+|Yes
+|
+* {{EntityLink|Shulker}}
+|
+* End cities are dungeon-type structure fashioned like a branching tower.
+|-
+| [[End ship]] 
+| [[File:End Ship JE1 BE1.png|278x278px|center]]
+| End ship has an 80% chance of being generated with an end city.
+|Yes
+|
+* {{EntityLink|Shulker}}
+|
+* End ships appear to sail away from what appears to be a pier.
+|-
+| {{EnvLink|Igloo}} 
+| [[File:Igloo top Revision 1.png|278x278px|center]]<br>[[File:Igloo bottom JE1 BE1.png|278x278px|center]]
+|Igloos spawn randomly in [[Ice Plains]] and [[Cold Taiga]] (but not the Hills variant).
+|Yes
+|
+* {{EntityLink|Villager}}
+* {{EntityLink|Zombie Villager}}
+|
+* Igloos can be a shelter for the player.
+* Some igloos have a stone brick basement.
+** A cleric villager and a cleric zombie villager always spawn in the iron bars.
+** Always spawns a splash [[potion of Weakness]] and a [[golden apple]]. It hinting the player to use these on the zombie to turn him into the villager.
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Structures}} 
+|-
+| All [[structure]]s
+|
+|
+* Rebalanced [[chest loot]].
+|-
+| {{EnvLink|Obsidian pillar}}
+| [[File:Obsidian Pillar JE1 BE1.png|128px]]
+|
+* Obsidian pillars now generate in a circle around the exit portal.
+* Some of the shorter pillars now generate with iron bars.
+|-
+| {{EnvLink|Exit portal}} 
+| [[File:Exit portal (empty).png|128px]]
+|
+* The exit portal is pre-generated, but without the [[dragon egg]] and portal blocks.
+|-
+| {{EnvLink|Village}}
+| [[File:OakHouse.png|128px]]
+|
+* Farms now include beetroot crops.
+|-
+| {{EnvLink|Witch hut}}
+| [[File:Swamp hut JE1 BE1.png|128px]]
+|
+* Witch huts now always spawn with a [[witch]].
+|}
+
+== Gameplay ==
+
+=== New ===
+{|{{Simple Guide table|New Gameplay}} 
+|-
+| {{EffectLink|id=weakness|Attack cooldown}} ||
+* A meter shows up after switching items or attacking.
+* Damage done now depends on the fullness of the meter, and attack does 20%–100% of normal damage as the meter fills.
+* {{EffectLink|Haste}} and {{EffectLink|Mining Fatigue}} will cause the meter to fill faster or slower.
+|-
+| {{EnvLink|id=items|Dual wielding}} ||
+* Players now can use both hands to perform different actions using the left and right mouse buttons.
+** For example, if a player has a pickaxe in their main hand and a torch in their other hand, right clicking will place the torch.
+* Added an extra inventory slot called the offhand slot.
+* Pressing {{key|F}} will switch whatever item is selected in the hotbar with the item in the offhand (including no item).
+* The offhand slot is displayed next to the hotbar when it's not empty (left for right-hand players and vice versa).
+* Only the main hand can be used for breaks blocks or attacks.
+|-
+| {{ItemLink|id=elytra|Gliding}} ||
+* Players now can glide when equipped elytra.
+* To glide, the player must press the {{ctrl|jump}} key when in mid-air, then the elytra spread apart like insect wings and the player enters a glide.
+* Player can aim their view around to turn or adjust the pitch. Losing altitude increases speed, and gaining altitude decreases speed.
+** Trying for too high a pitch reduces the player's lift.
+* Directly hitting any surface while gliding causes damage proportional to flight speed.
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Gameplay}} 
+|-
+| {{ItemLink|id=book|Achievements}} ||
+* ''Overpowered''
+** Description changed from "Build" to "Eat" an enchanted golden apple.
+|-
+| {{EffectLink|id=strength|Damage}} ||
+* Damage done by [[tool]]s has been rebalanced:
+{| class="wikitable" style="text-align:center"
+|-
+! Tool 
+!colspan=5| Attack speed !!colspan=5| Attack damage !!colspan=5| Damage/Second (DPS)
+|-
+! [[Sword]]
+|colspan=5| 1.6
+| {{ItemSprite|Wooden Sword}} {{hp|4}}
+| {{ItemSprite|Stone Sword}} {{hp|5}}
+| {{ItemSprite|Iron Sword}} {{hp|6}}
+| {{ItemSprite|Diamond Sword}} {{hp|7}}
+| {{ItemSprite|Golden Sword}} {{hp|4}}
+| {{ItemSprite|Wooden Sword}} 6.4
+| {{ItemSprite|Stone Sword}} 8
+| {{ItemSprite|Iron Sword}} 9.6
+| {{ItemSprite|Diamond Sword}} 11.2
+| {{ItemSprite|Golden Sword}} 6.4
+|-
+! [[Shovel]]
+|colspan=5| 1
+| {{ItemSprite|Wooden Shovel}} {{hp|2.5}}
+| {{ItemSprite|Stone Shovel}} {{hp|3.5}}
+| {{ItemSprite|Iron Shovel}} {{hp|4.5}}
+| {{ItemSprite|Diamond Shovel}} {{hp|5.5}}
+| {{ItemSprite|Golden Shovel}} {{hp|2.5}}
+| {{ItemSprite|Wooden Shovel}} 2.5
+| {{ItemSprite|Stone Shovel}} 3.5
+| {{ItemSprite|Iron Shovel}} 4.5
+| {{ItemSprite|Diamond Shovel}} 5.5
+| {{ItemSprite|Golden Shovel}} 2.5
+|-
+! [[Pickaxe]]
+|colspan=5| 1.2
+| {{ItemSprite|Wooden Pickaxe}} {{hp|2}}
+| {{ItemSprite|Stone Pickaxe}} {{hp|3}}
+| {{ItemSprite|Iron Pickaxe}} {{hp|4}}
+| {{ItemSprite|Diamond Pickaxe}} {{hp|5}}
+| {{ItemSprite|Golden Pickaxe}} {{hp|2}}
+| {{ItemSprite|Wooden Pickaxe}} 2.4
+| {{ItemSprite|Stone Pickaxe}} 3.6
+| {{ItemSprite|Iron Pickaxe}} 4.8
+| {{ItemSprite|Diamond Pickaxe}} 6
+| {{ItemSprite|Golden Pickaxe}} 2.4
+|-
+! [[Axe]]
+| {{ItemSprite|Wooden Axe}} 0.8
+| {{ItemSprite|Stone Axe}} 0.8
+| {{ItemSprite|Iron Axe}} 0.9
+| {{ItemSprite|Diamond Axe}} 1
+| {{ItemSprite|Golden Axe}} 1
+| {{ItemSprite|Wooden Axe}} {{hp|7}}
+| {{ItemSprite|Stone Axe}} {{hp|9}}
+| {{ItemSprite|Iron Axe}} {{hp|9}}
+| {{ItemSprite|Diamond Axe}} {{hp|9}}
+| {{ItemSprite|Golden Axe}} {{hp|7}}
+| {{ItemSprite|Wooden Axe}} 5.6
+| {{ItemSprite|Stone Axe}} 7.2
+| {{ItemSprite|Iron Axe}} 8.1
+| {{ItemSprite|Diamond Axe}} 9
+| {{ItemSprite|Golden Axe}} 7
+|-
+! [[Hoe]]
+| {{ItemSprite|Wooden Hoe}} 1
+| {{ItemSprite|Stone Hoe}} 2
+| {{ItemSprite|Iron Hoe}} 3
+| {{ItemSprite|Diamond Hoe}} 4
+| {{ItemSprite|Golden Hoe}} 1
+|colspan=5| {{hp|1}}
+| {{ItemSprite|Wooden Hoe}} 1
+| {{ItemSprite|Stone Hoe}} 2
+| {{ItemSprite|Iron Hoe}} 3<ref group="note" name="dpsLimit2">Against a single target, DPS is effectively limited to 2 due to [[Damage#Immunity|damage immunity]].</ref>
+| {{ItemSprite|Diamond Hoe}} 4<ref group="note" name="dpsLimit2">Against a single target, DPS is effectively limited to 2 due to [[Damage#Immunity|damage immunity]].</ref>
+| {{ItemSprite|Golden Hoe}} 1
+|-
+! Other
+|colspan=5| 4
+|colspan=5| {{hp|1}}
+|colspan=5| 4<ref group="note" name="dpsLimit2">Against a single target, DPS is effectively limited to 2 due to [[Damage#Immunity|damage immunity]].</ref>
+|}
+{{notelist|dummy=1}}
+|-
+| {{ItemLink|id=fishing-rod|Fishing}} ||
+* [[Luck of the Sea]] and the Luck effect affect fishing again, and effects stack. Each point increases the weight of treasure by 2, decreases the weight of fish by 1, and decreases the weight of junk by 2.
+|-
+| {{healthbar|2|18px|hardcore=1}} [[Hardcore]] ||
+* Upon death the player now can choose to respawn in [[spectator]] mode rather than the world being deleted.
+|-
+| [[Heads-up display]] ||
+* [[Status effect]] icons are now displayed on the HUD on the right hand corner.
+** They are ordered by the time of infliction from right to left.
+** Positive effects are on the top row and negative effects on the bottom row.
+** Effects that are about to run out blink.
+|-
+| {{EffectLink|Hunger|linkprefix=}} ||
+* Health regenerates faster when saturation is non-zero and the hunger bar is at 20.
+* Health regeneration increases exhaustion more.
+|}
+
+== Enchantments ==
+
+=== New ===
+{|class="wikitable"
+|-
+![[Enchantment]]
+!Max Level
+!Applicable Items
+!Notes
+|-
+|[[Mending]]
+|I
+|{{ItemSprite|Diamond Helmet|link=Helmet}}{{ItemSprite|Diamond Chestplate|link=Chestplate}}{{ItemSprite|Diamond Leggings|link=Leggings}}{{ItemSprite|Diamond Boots|link=Boots}}{{ItemSprite|Diamond Pickaxe|link=Pickaxe}}{{ItemSprite|Diamond Shovel|link=Shovel}}{{ItemSprite|Diamond Axe|link=Axe}}{{ItemSprite|Fishing Rod|link=Fishing Rod}}{{ItemSprite|Diamond Sword|link=Sword}}{{ItemSprite|Bow|link=Bow}}{{ItemSprite|Diamond Hoe|link=Hoe}}{{ItemSprite|Shears|link=Shears}}{{ItemSprite|Flint and Steel|link=Flint and Steel}}{{ItemSprite|Carrot on a Stick|link=Carrot on a Stick}}{{ItemSprite|Shield|link=Shield}}{{ItemSprite|Elytra|link=Elytra}} 
+|
+*When an item with the enchantment is held or equipped (in the main hand, offhand, or armor slots), collected [[experience orb]]s repair the item at a rate of 2 durabilities per XP instead of adding the XP to the player's total experience.
+|-
+|[[Frost Walker]]
+|II
+|{{ItemSprite|Diamond Boots|link=Boots}}
+|
+*If moving on ground (not falling, jumping, or flying), any still [[water]] blocks with air above within a radius of 2 + level around the block being moved to will be turned into [[frosted ice]]. 
+**Frosted ices cannot be obtained in normal.
+**Frosted ices naturally melt fairly quickly with light and show the breaking texture.
+*Incompatible with [[Depth Strider]].
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Enchantments}} 
+|-
+| [[Lure]] ||
+* Lure is no longer affects the chances of catching things, only the delay.
+|-
+| [[Protection]] ||
+* Protection bonuses are now linear instead of quadratic.
+|-
+| [[Sharpness]] ||
+* Each Sharpness level now adds {{Health|1}} damage to the base damage at level I and an additional 0.5 ({{health|2|notag=1}} × 0.25) for each additional level, down from a flat 1.25 ({{health|2|notag=1}} × 0.625) per level.
+|-
+| [[Silk Touch]] ||
+* Silk Touch can no longer be added to [[shears]].
+|}
+
+== Others ==
+
+=== New ===
+{|{{Simple Guide table|New Others}} 
+|-
+| [[Subtitle]] ||
+* Subtitles are mainly intended for players who are hard of hearing, deaf or play with sounds off. They can also be used for hearing quieter sounds.
+** [[Mob]]s have individualizing subtitles, for example "Creeper hisses".
+** "<" or ">" points in the direction in which the sound is coming from if the sounds are offscreen.
+|}
+
+[[es:Guías de Java Edition/Combat Update]]
+[[ja:ガイド/Java Edition/コンバット・アップデート]]
+[[zh:Java版指南/战斗更新]]

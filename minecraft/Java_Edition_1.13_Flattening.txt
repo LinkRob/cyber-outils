@@ -1,0 +1,5540 @@
+{{exclusive|java}}
+[[Java Edition 1.13|1.13]] modified the IDs ​​of many blocks, items, [[biome]]s, [[particles]], [[painting]]s, [[entities]], [[statistics]] and sound events, removed numeric IDs, added and removed some [[Java Edition data values|block states]], and changed [[NBT format|NBT tags]] and display names.<ref>https://bugs.mojang.com/secure/attachment/151784/the_flattening.txt of {{bug|MC-121742}}</ref> This change is known as "'''The Flattening'''".
+The contents of this page serve as a comparison between the identifiers of versions [[Java Edition 1.12.2|1.12.2]] and [[Java Edition 1.13|1.13]]. This was not done to Bedrock Edition, keeping most Bedrock item IDs the same.
+
+== Block and item IDs ==
+
+[[Block]]s and [[item]]s that change their ID in any way also affect their [[statistics]].
+{|class="wikitable stikitable"
+! rowspan="2" | Change
+! colspan="2" | [[Java Edition 1.12.2|1.12.2]]
+! colspan="2" | [[Java Edition 1.13|1.13]]
+|-
+! Block
+! [[ID]]
+! Block
+! [[Resource location]]
+|-
+| rowspan="7" | Separate
+| rowspan="7" | [[File:Stone.png|16px]] [[Stone]]
+| rowspan="7" | {{code|stone}}
+| [[File:Stone.png|16px]] [[Stone]]
+| {{code|stone}}
+|-
+| [[File:Granite.png|16px]] [[Granite]]
+| {{code|granite}}
+|-
+| [[File:Polished Granite.png|16px]] [[Polished Granite]]
+| {{code|polished_granite}}
+|-
+| [[File:Diorite.png|16px]] [[Diorite]]
+| {{code|diorite}}
+|-
+| [[File:Polished Diorite.png|16px]] [[Polished Diorite]]
+| {{code|polished_diorite}}
+|-
+| [[File:Andesite.png|16px]] [[Andesite]]
+| {{code|andesite}}
+|-
+| [[File:Polished Andesite.png|16px]] [[Polished Andesite]]
+| {{code|polished_andesite}}
+|-
+| Rename
+| [[File:Grass Block.png|16px]] [[Grass Block]]
+| {{code|grass}}
+| [[File:Grass Block.png|16px]] [[Grass Block]]
+| {{code|grass_block}}
+|-
+| rowspan="3" | Separate
+| rowspan="3" | [[File:Dirt.png|16px]] [[Dirt]]
+| rowspan="3" | {{code|dirt}}
+| [[File:Dirt.png|16px]] [[Dirt]]
+| {{code|dirt}}
+|-
+| [[File:Coarse Dirt.png|16px]] [[Coarse Dirt]]
+| {{code|coarse_dirt}}
+|-
+| [[File:Podzol.png|16px]] [[Podzol]]
+| {{code|podzol}}
+|-
+| rowspan="6" | Separate
+| rowspan="6" | [[File:Oak Planks.png|16px]] [[Planks]]
+| rowspan="6" | {{code|planks}}
+| [[File:Oak Planks.png|16px]] [[Oak Planks]]
+| {{code|oak_planks}}
+|-
+| [[File:Spruce Planks.png|16px]] [[Spruce Planks]]
+| {{code|spruce_planks}}
+|-
+| [[File:Birch Planks.png|16px]] [[Birch Planks]]
+| {{code|birch_planks}}
+|-
+| [[File:Jungle Planks.png|16px]] [[Jungle Planks]]
+| {{code|jungle_planks}}
+|-
+| [[File:Acacia Planks.png|16px]] [[Acacia Planks]]
+| {{code|acacia_planks}}
+|-
+| [[File:Dark Oak Planks.png|16px]] [[Dark Oak Planks]]
+| {{code|dark_oak_planks}}
+|-
+| rowspan="6" | Separate
+| rowspan="6" | [[File:Oak Sapling.png|16px]] [[Sapling]]
+| rowspan="6" | {{code|sapling}}
+| [[File:Oak Sapling.png|16px]] [[Oak Sapling]]
+| {{code|oak_sapling}}
+|-
+| [[File:Spruce Sapling.png|16px]] [[Spruce Sapling]]
+| {{code|spruce_sapling}}
+|-
+| [[File:Birch Sapling.png|16px]] [[Birch Sapling]]
+| {{code|birch_sapling}}
+|-
+| [[File:Jungle Sapling.png|16px]] [[Jungle Sapling]]
+| {{code|jungle_sapling}}
+|-
+| [[File:Acacia Sapling.png|16px]] [[Acacia Sapling]]
+| {{code|acacia_sapling}}
+|-
+| [[File:Dark Oak Sapling.png|16px]] [[Dark Oak Sapling]]
+| {{code|dark_oak_sapling}}
+|-
+| rowspan="2" | Separate
+| rowspan="2" | [[File:Sand.png|16px]] [[Sand]]
+| rowspan="2" | {{code|sand}}
+| [[File:Sand.png|16px]] [[Sand]]
+| {{code|sand}}
+|-
+| [[File:Red Sand.png|16px]] [[Red Sand]]
+| {{code|red_sand}}
+|-
+| rowspan="8" | Separate
+| rowspan="8" | [[File:Oak Log (UD) JE5 BE3.png|16px]] [[Log]]
+| rowspan="8" | {{code|log}}
+| [[File:Oak Log (UD) JE5 BE3.png|16px]] [[Oak Log]]
+| {{code|oak_log}}
+|-
+| [[File:Spruce Log.png|16px]] [[Spruce Log]]
+| {{code|spruce_log}}
+|-
+| [[File:Birch Log.png|16px]] [[Birch Log]]
+| {{code|birch_log}}
+|-
+| [[File:Jungle Log.png|16px]] [[Jungle Log]]
+| {{code|jungle_log}}
+|-
+| [[File:Oak Wood.png|16px]] [[Oak Wood]]
+| {{code|oak_wood}}
+|-
+| [[File:Spruce Wood.png|16px]] [[Spruce Wood]]
+| {{code|spruce_wood}}
+|-
+| [[File:Birch Wood.png|16px]] [[Birch Wood]]
+| {{code|birch_wood}}
+|-
+| [[File:Jungle Wood.png|16px]] [[Jungle Wood]]
+| {{code|jungle_wood}}
+|-
+| rowspan="4" | Separate
+| rowspan="4" | [[File:Acacia Log.png|16px]] [[Log]] (2)
+| rowspan="4" | {{code|log2}}
+| [[File:Acacia Log.png|16px]] [[Acacia Log]]
+| {{code|acacia_log}}
+|-
+| [[File:Dark Oak Log.png|16px]] [[Dark Oak Log]]
+| {{code|dark_oak_log}}
+|-
+| [[File:Acacia Wood.png|16px]] [[Acacia Wood]]
+| {{code|acacia_wood}}
+|-
+| [[File:Dark Oak Wood.png|16px]] [[Dark Oak Wood]]
+| {{code|dark_oak_wood}}
+|-
+| rowspan="4" | Separate
+| rowspan="4" | [[File:Oak Leaves.png|16px]] [[Leaves]]
+| rowspan="4" | {{code|leaves}}
+| [[File:Oak Leaves.png|16px]] [[Oak Leaves]]
+| {{code|oak_leaves}}
+|-
+| [[File:Spruce Leaves.png|16px]] [[Spruce Leaves]]
+| {{code|spruce_leaves}}
+|-
+| [[File:Birch Leaves.png|16px]] [[Birch Leaves]]
+| {{code|birch_leaves}}
+|-
+| [[File:Jungle Leaves.png|16px]] [[Jungle Leaves]]
+| {{code|jungle_leaves}}
+|-
+| rowspan="2" | Separate
+| rowspan="2" | [[File:Acacia Leaves.png|16px]] [[Leaves]] (2)
+| rowspan="2" | {{code|leaves2}}
+| [[File:Acacia Leaves.png|16px]] [[Acacia Leaves]]
+| {{code|acacia_leaves}}
+|-
+| [[File:Dark Oak Leaves.png|16px]] [[Dark Oak Leaves]]
+| {{code|dark_oak_leaves}}
+|-
+| rowspan="2" | Separate
+| rowspan="2" | [[File:Sponge.png|16px]] [[Sponge]]
+| rowspan="2" | {{code|sponge}}
+| [[File:Sponge.png|16px]] [[Sponge]]
+| {{code|sponge}}
+|-
+| [[File:Wet Sponge.png|16px]] [[Wet Sponge]]
+| {{code|wet_sponge}}
+|-
+| rowspan="3" | Separate
+| rowspan="3" | [[File:Sandstone.png|16px]] [[Sandstone]]
+| rowspan="3" | {{code|sandstone}}
+| [[File:Sandstone.png|16px]] [[Sandstone]]
+| {{code|sandstone}}
+|-
+| [[File:Chiseled Sandstone.png|16px]] [[Chiseled Sandstone]]
+| {{code|chiseled_sandstone}}
+|-
+| [[File:Cut Sandstone.png|16px]] [[Cut Sandstone]]
+| {{code|cut_sandstone}}
+|-
+| Rename
+| [[File:Note Block.png|16px]] [[Note Block]]
+| {{code|noteblock}}
+| [[File:Note Block.png|16px]] [[Note Block]]
+| {{code|note_block}}
+|-
+| Rename
+| [[File:Powered Rail.png|16px]] [[Powered Rail]]
+| {{code|golden_rail}}
+| [[File:Powered Rail.png|16px]] [[Powered Rail]]
+| {{code|powered_rail}}
+|-
+| Rename
+| [[File:Cobweb.png|16px]] [[Cobweb]]
+| {{code|web}}
+| [[File:Cobweb.png|16px]] [[Cobweb]]
+| {{code|cobweb}}
+|-
+| rowspan="3" | Separate
+| rowspan="3" | [[File:Grass.png|16px]] [[Grass]]
+| rowspan="3" | {{code|tallgrass}}
+| [[File:Dead Bush.png|16px]] [[Dead Bush]]
+| {{code|dead_bush}}
+|-
+| [[File:Grass.png|16px]] [[Grass]]
+| {{code|grass}}
+|-
+| [[File:Fern.png|16px]] [[Fern]]
+| {{code|fern}}
+|-
+| Rename
+| [[File:Dead Bush.png|16px]] [[Dead Bush]]
+| {{code|deadbush}}
+| [[File:Dead Bush.png|16px]] [[Dead Bush]]
+| {{code|dead_bush}}
+|-
+| Rename
+| [[File:Piston.png|16px]] [[Moving Piston]]<ref group="ids note" name="noitemform">This block has no item form.</ref>
+| {{code|piston_extension}}
+| [[File:Piston.png|16px]] [[Moving Piston]]<ref group="ids note" name="noitemform" />
+| {{code|moving_piston}}
+|-
+| rowspan="16" | Separate
+| rowspan="16" | [[File:White Wool.png|16px]] [[Wool]]
+| rowspan="16" | {{code|wool}}
+| [[File:White Wool.png|16px]] [[White Wool]]
+| {{code|white_wool}}
+|-
+| [[File:Orange Wool.png|16px]] [[Orange Wool]]
+| {{code|orange_wool}}
+|-
+| [[File:Magenta Wool.png|16px]] [[Magenta Wool]]
+| {{code|magenta_wool}}
+|-
+| [[File:Light Blue Wool.png|16px]] [[Light Blue Wool]]
+| {{code|light_blue_wool}}
+|-
+| [[File:Yellow Wool.png|16px]] [[Yellow Wool]]
+| {{code|yellow_wool}}
+|-
+| [[File:Lime Wool.png|16px]] [[Lime Wool]]
+| {{code|lime_wool}}
+|-
+| [[File:Pink Wool.png|16px]] [[Pink Wool]]
+| {{code|pink_wool}}
+|-
+| [[File:Gray Wool.png|16px]] [[Gray Wool]]
+| {{code|gray_wool}}
+|-
+| [[File:Light Gray Wool.png|16px]] [[Light Gray Wool]]
+| {{code|light_gray_wool}}
+|-
+| [[File:Cyan Wool.png|16px]] [[Cyan Wool]]
+| {{code|cyan_wool}}
+|-
+| [[File:Purple Wool.png|16px]] [[Purple Wool]]
+| {{code|purple_wool}}
+|-
+| [[File:Blue Wool.png|16px]] [[Blue Wool]]
+| {{code|blue_wool}}
+|-
+| [[File:Brown Wool.png|16px]] [[Brown Wool]]
+| {{code|brown_wool}}
+|-
+| [[File:Green Wool.png|16px]] [[Green Wool]]
+| {{code|green_wool}}
+|-
+| [[File:Red Wool.png|16px]] [[Red Wool]]
+| {{code|red_wool}}
+|-
+| [[File:Black Wool.png|16px]] [[Black Wool]]
+| {{code|black_wool}}
+|-
+| Rename
+| [[File:Dandelion.png|16px]] [[Dandelion]]
+| {{code|yellow_flower}}
+| [[File:Dandelion.png|16px]] [[Dandelion]]
+| {{code|dandelion}}
+|-
+| rowspan="9" | Separate
+| rowspan="9" | [[File:Poppy.png|16px]] [[Flower]]
+| rowspan="9" | {{code|red_flower}}
+| [[File:Poppy.png|16px]] [[Poppy]]
+| {{code|poppy}}
+|-
+| [[File:Blue Orchid.png|16px]] [[Blue Orchid]]
+| {{code|blue_orchid}}
+|-
+| [[File:Allium.png|16px]] [[Allium]]
+| {{code|allium}}
+|-
+| [[File:Azure Bluet.png|16px]] [[Azure Bluet]]
+| {{code|azure_bluet}}
+|-
+| [[File:Red Tulip.png|16px]] [[Red Tulip]]
+| {{code|red_tulip}}
+|-
+| [[File:Orange Tulip.png|16px]] [[Orange Tulip]]
+| {{code|orange_tulip}}
+|-
+| [[File:White Tulip.png|16px]] [[White Tulip]]
+| {{code|white_tulip}}
+|-
+| [[File:Pink Tulip.png|16px]] [[Pink Tulip]]
+| {{code|pink_tulip}}
+|-
+| [[File:Oxeye Daisy.png|16px]] [[Oxeye Daisy]]
+| {{code|oxeye_daisy}}
+|-
+| rowspan="6" | Separate and merge
+| rowspan="3" | [[File:Oak Planks.png|16px]] [[Slab|Double Wooden Slab]]<ref group="ids note" name="noitemform" />
+| rowspan="3" | {{code|double_wooden_slab}}
+| [[File:Oak Slab.png|16px]] [[Oak Slab]]
+| {{code|oak_slab}}
+|-
+| [[File:Spruce Slab.png|16px]] [[Spruce Slab]]
+| {{code|spruce_slab}}
+|-
+| [[File:Birch Slab.png|16px]] [[Birch Slab]]
+| {{code|birch_slab}}
+|-
+| rowspan="3" | [[File:Oak Slab.png|16px]] [[Wooden Slab]]
+| rowspan="3" | {{code|wooden_slab}}
+| [[File:Jungle Slab.png|16px]] [[Jungle Slab]]
+| {{code|jungle_slab}}
+|-
+| [[File:Acacia Slab.png|16px]] [[Acacia Slab]]
+| {{code|acacia_slab}}
+|-
+| [[File:Dark Oak Slab.png|16px]] [[Dark Oak Slab]]
+| {{code|dark_oak_slab}}
+|-
+| rowspan="11" | Separate and merge
+| rowspan="5" | [[File:Double Smooth Stone Slab.png|16px]] [[Double Stone Slab]]<ref group="ids note" name="noitemform" />
+| rowspan="5" | {{code|double_stone_slab}}
+| [[File:Smooth Stone Slab.png|16px]] [[Stone Slab]]
+| {{code|stone_slab}}
+|-
+| [[File:Sandstone Slab.png|16px]] [[Sandstone Slab]]
+| {{code|sandstone_slab}}
+|-
+| [[File:Petrified Oak Slab.png|16px]] [[Petrified Oak Slab]]
+| {{code|petrified_oak_slab}}
+|-
+| [[File:Cobblestone Slab.png|16px]] [[Cobblestone Slab]]
+| {{code|cobblestone_slab}}
+|-
+| [[File:Brick Slab.png|16px]] [[Brick Slab]]
+| {{code|brick_slab}}
+|-
+| rowspan="6" | [[File:Smooth Stone Slab.png|16px]] [[Stone Slab]]
+| rowspan="6" | {{code|stone_slab}}
+| [[File:Stone Brick Slab.png|16px]] [[Stone Brick Slab]]
+| {{code|stone_brick_slab}}
+|-
+| [[File:Nether Brick Slab.png|16px]] [[Nether Brick Slab]]
+| {{code|nether_brick_slab}}
+|-
+| [[File:Quartz Slab.png|16px]] [[Quartz Slab]]
+| {{code|quartz_slab}}
+|-
+| [[File:Smooth Stone.png|16px]] [[Smooth Stone]]
+| {{code|smooth_stone}}
+|-
+| [[File:Smooth Sandstone.png|16px]] [[Smooth Sandstone]]
+| {{code|smooth_sandstone}}
+|-
+| [[File:Smooth Quartz.png|16px]] [[Smooth Quartz]]
+| {{code|smooth_quartz}}
+|-
+| rowspan="2" | Separate and merge
+| [[File:Red Sandstone.png|16px]] [[Double Red Sandstone Slab]]<ref group="ids note" name="noitemform" />
+| {{code|double_stone_slab2}}
+| [[File:Red Sandstone Slab.png|16px]] [[Red Sandstone Slab]]
+| {{code|red_sandstone_slab}}
+|-
+| [[File:Red Sandstone Slab.png|16px]] [[Red Sandstone Slab]]
+| {{code|stone_slab2}}
+| [[File:Smooth Red Sandstone.png|16px]] [[Smooth Red Sandstone]]
+| {{code|smooth_red_sandstone}}
+|-
+| rowspan="2" | Merge
+| [[File:Purpur Block.png|16px]] [[Double Purpur Slab]]<ref group="ids note" name="noitemform" />
+| {{code|double_purpur_slab}}
+| rowspan="2" | [[File:Purpur Slab.png|16px]] [[Purpur Slab]]
+| rowspan="2" | {{code|purpur_slab}}
+|-
+| [[File:Purpur Slab.png|16px]] [[Purpur Slab]]
+| {{code|purpur_slab}}
+|-
+| Rename
+| [[File:Bricks.png|16px]] [[Bricks]]
+| {{code|brick_block}}
+| [[File:Bricks.png|16px]] [[Bricks]]
+| {{code|bricks}}
+|-
+| Rename
+| [[File:Spawner.png|16px]] [[Spawner]]
+| {{code|mob_spawner}}
+| [[File:Spawner.png|16px]] [[Spawner]]
+| {{code|spawner}}
+|-
+| Rename
+| [[File:Nether Portal.png|16px]] [[Nether Portal]]
+| {{code|portal}}
+| [[File:Nether Portal.png|16px]] [[Nether Portal]]
+| {{code|nether_portal}}
+|-
+| rowspan="2" | Separate
+| rowspan="2" | [[File:Torch.png|16px]] [[Torch]]
+| rowspan="2" | {{code|torch}}
+| [[File:Wall Torch.png|16px]] [[Wall Torch]]<ref group="ids note" name="noitemform" />
+| {{code|wall_torch}}
+|-
+| [[File:Torch.png|16px]] [[Torch]]
+| {{code|torch}}
+|-
+| rowspan="2" | Merge
+| [[File:Furnace.png|16px]] [[Furnace]]
+| {{code|furnace}}
+| rowspan="2" | [[File:Furnace.png|16px]] [[Furnace]]
+| rowspan="2" | {{code|furnace}}
+|-
+| [[File:Lit Furnace.png|16px]] [[Furnace|Lit Furnace]]<ref group="ids note" name="noitemform" />
+| {{code|lit_furnace}}
+|-
+| Rename
+| [[File:Cobblestone Stairs.png|16px]] [[Cobblestone Stairs]]
+| {{code|stone_stairs}}
+| [[File:Cobblestone Stairs.png|16px]] [[Cobblestone Stairs]]
+| {{code|cobblestone_stairs}}
+|-
+| Rename
+| [[File:Oak Pressure Plate.png|16px]] [[Oak Pressure Plate]]
+| {{code|wooden_pressure_plate}}
+| [[File:Oak Pressure Plate.png|16px]] [[Oak Pressure Plate]]
+| {{code|oak_pressure_plate}}
+|-
+| rowspan="2" | Merge
+| [[File:Redstone Ore.png|16px]] [[Redstone Ore]]
+| {{code|redstone_ore}}
+| rowspan="2" | [[File:Redstone Ore.png|16px]] [[Redstone Ore]]
+| rowspan="2" | {{code|redstone_ore}}
+|-
+| [[File:Lit Redstone Ore.png|16px]] [[Redstone Ore|Lit Redstone Ore]]<ref group="ids note" name="noitemform" />
+| {{code|lit_redstone_ore}}
+|-
+| rowspan="2" | Separate and merge
+| [[File:Unlit Redstone Torch.png|16px]] [[Redstone Torch|Unlit Redstone Torch]]<ref group="ids note" name="noitemform" />
+| {{code|unlit_redstone_torch}}
+| [[File:Redstone Wall Torch.png|16px]] [[Redstone Wall Torch]]<ref group="ids note" name="noitemform" />
+| {{code|redstone_wall_torch}}
+|-
+| [[File:Redstone Torch.png|16px]] [[Redstone Torch]]
+| {{code|redstone_torch}}
+| [[File:Redstone Torch.png|16px]] [[Redstone Torch]]
+| {{code|redstone_torch}}
+|-
+| Rename
+| [[File:Snow.png|16px]] [[Snow]]
+| {{code|snow_layer}}
+| [[File:Snow.png|16px]] [[Snow]]
+| {{code|snow}}
+|-
+| Rename
+| [[File:Snow Block.png|16px]] [[Snow Block]]
+| {{code|snow}}
+| [[File:Snow Block.png|16px]] [[Snow Block]]
+| {{code|snow_block}}
+|-
+| Rename
+| [[File:Oak Fence.png|16px]] [[Oak Fence]]
+| {{code|fence}}
+| [[File:Oak Fence.png|16px]] [[Oak Fence]]
+| {{code|oak_fence}}
+|-
+| Rename
+| [[File:Carved Pumpkin.png|16px]] [[Carved Pumpkin]]
+| {{code|pumpkin}}
+| [[File:Carved Pumpkin.png|16px]] [[Carved Pumpkin]]
+| {{code|carved_pumpkin}}
+|-
+| Rename
+| [[File:Jack o'Lantern.png|16px]] [[Jack o'Lantern]]
+| {{code|lit_pumpkin}}
+| [[File:Jack o'Lantern.png|16px]] [[Jack o'Lantern]]
+| {{code|jack_o_lantern}}
+|-
+| Rename
+| [[File:Oak Trapdoor.png|16px]] [[Oak Trapdoor]]
+| {{code|trapdoor}}
+| [[File:Oak Trapdoor.png|16px]] [[Oak Trapdoor]]
+| {{code|oak_trapdoor}}
+|-
+| rowspan="6" | Separate
+| rowspan="6" | [[File:Stone.png|16px]] [[Infested Block]]
+| rowspan="6" | {{code|monster_egg}}
+| [[File:Stone.png|16px]] [[Infested Stone]]
+| {{code|infested_stone}}
+|-
+| [[File:Cobblestone.png|16px]] [[Infested Cobblestone]]
+| {{code|infested_cobblestone}}
+|-
+| [[File:Stone Bricks.png|16px]] [[Infested Stone Bricks]]
+| {{code|infested_stone_bricks}}
+|-
+| [[File:Mossy Stone Bricks.png|16px]] [[Infested Mossy Stone Bricks]]
+| {{code|infested_mossy_stone_bricks}}
+|-
+| [[File:Cracked Stone Bricks.png|16px]] [[Infested Cracked Stone Bricks]]
+| {{code|infested_cracked_stone_bricks}}
+|-
+| [[File:Chiseled Stone Bricks.png|16px]] [[Infested Chiseled Stone Bricks]]
+| {{code|infested_chiseled_stone_bricks}}
+|-
+| rowspan="4" | Separate
+| rowspan="4" | [[File:Stone Bricks.png|16px]] [[Stone Bricks]]
+| rowspan="4" | {{code|stonebrick}}
+| [[File:Stone Bricks.png|16px]] [[Stone Bricks]]
+| {{code|stone_bricks}}
+|-
+| [[File:Mossy Stone Bricks.png|16px]] [[Mossy Stone Bricks]]
+| {{code|mossy_stone_bricks}}
+|-
+| [[File:Cracked Stone Bricks.png|16px]] [[Cracked Stone Bricks]]
+| {{code|cracked_stone_bricks}}
+|-
+| [[File:Chiseled Stone Bricks.png|16px]] [[Chiseled Stone Bricks]]
+| {{code|chiseled_stone_bricks}}
+|-
+| rowspan="4" | Separate and merge
+| rowspan="2" | [[File:Brown Mushroom Block.png|16px]] [[Brown Mushroom Block]]
+| rowspan="2" | {{code|brown_mushroom_block}}
+| [[File:Brown Mushroom Block.png|16px]] [[Brown Mushroom Block]]
+| {{code|brown_mushroom_block}}
+|-
+| rowspan="2" | [[File:Mushroom Stem.png|16px]] [[Mushroom Stem]]
+| rowspan="2" | {{code|mushroom_stem}}
+|-
+| rowspan="2" | [[File:Red Mushroom Block.png|16px]] [[Red Mushroom Block]]
+| rowspan="2" | {{code|red_mushroom_block}}
+|-
+| [[File:Red Mushroom Block.png|16px]] [[Red Mushroom Block]]
+| {{code|red_mushroom_block}}
+|-
+| Rename
+| [[File:Melon.png|16px]] [[Melon]]
+| {{code|melon_block}}
+| [[File:Melon.png|16px]] [[Melon]]
+| {{code|melon}}
+|-
+| Rename
+| [[File:Oak Fence Gate.png|16px]] [[Oak Fence Gate]]
+| {{code|fence_gate}}
+| [[File:Oak Fence Gate.png|16px]] [[Oak Fence Gate]]
+| {{code|oak_fence_gate}}
+|-
+| Rename
+| [[File:Lily Pad.png|16px]] [[Lily Pad]]
+| {{code|waterlily}}
+| [[File:Lily Pad.png|16px]] [[Lily Pad]]
+| {{code|lily_pad}}
+|-
+| Rename
+| [[File:Nether Bricks.png|16px]] [[Nether Bricks]]
+| {{code|nether_brick}}
+| [[File:Nether Bricks.png|16px]] [[Nether Bricks]]
+| {{code|nether_bricks}}
+|-
+| Rename
+| [[File:End Stone Bricks.png|16px]] [[End Stone Bricks]]
+| {{code|end_bricks}}
+| [[File:End Stone Bricks.png|16px]] [[End Stone Bricks]]
+| {{code|end_stone_bricks}}
+|-
+| rowspan="2" | Merge
+| [[File:Redstone Lamp.png|16px]] [[Redstone Lamp]]
+| {{code|redstone_lamp}}
+| rowspan="2" | [[File:Redstone Lamp.png|16px]] [[Redstone Lamp]]
+| rowspan="2" | {{code|redstone_lamp}}
+|-
+| [[File:Lit Redstone Lamp.png|16px]] [[Lit Redstone Lamp]]<ref group="ids note" name="noitemform" />
+| {{code|lit_redstone_lamp}}
+|-
+| rowspan="2" | Separate
+| rowspan="2" | [[File:Cobblestone Wall.png|16px]] [[Cobblestone Wall]]
+| rowspan="2" | {{code|cobblestone_wall}}
+| [[File:Cobblestone Wall.png|16px]] [[Cobblestone Wall]]
+| {{code|cobblestone_wall}}
+|-
+| [[File:Mossy Cobblestone Wall.png|16px]] [[Mossy Cobblestone Wall]]
+| {{code|mossy_cobblestone_wall}}
+|-
+| Rename
+| [[File:Oak Button.png|16px]] [[Oak Button]]
+| {{code|wooden_button}}
+| [[File:Oak Button.png|16px]] [[Oak Button]]
+| {{code|oak_button}}
+|-
+| rowspan="3" | Separate
+| rowspan="3" | [[File:Anvil.png|16px]] [[Anvil]]
+| rowspan="3" | {{code|anvil}}
+| [[File:Anvil.png|16px]] [[Anvil]]
+| {{code|anvil}}
+|-
+| [[File:Chipped Anvil.png|16px]] [[Chipped Anvil]]
+| {{code|chipped_anvil}}
+|-
+| [[File:Damaged Anvil.png|16px]] [[Damaged Anvil]]
+| {{code|damaged_anvil}}
+|-
+| rowspan="2" | Merge
+| [[File:Daylight Detector.png|16px]] [[Daylight Detector]]
+| {{code|daylight_detector}}
+| rowspan="2" | [[File:Daylight Detector.png|16px]] [[Daylight Detector]]
+| rowspan="2" | {{code|daylight_detector}}
+|-
+| [[File:Inverted Daylight Detector.png|16px]] [[Daylight Detector|Inverted Daylight Detector]]<ref group="ids note" name="noitemform" />
+| {{code|daylight_detector_inverted}}
+|-
+| Rename
+| [[File:Nether Quartz Ore.png|16px]] [[Nether Quartz Ore]]
+| {{code|quartz_ore}}
+| [[File:Nether Quartz Ore.png|16px]] [[Nether Quartz Ore]]
+| {{code|nether_quartz_ore}}
+|-
+| rowspan="3" | Separate
+| rowspan="3" | [[File:Block of Quartz.png|16px]] [[Block of Quartz]]
+| rowspan="3" | {{code|quartz_block}}
+| [[File:Block of Quartz.png|16px]] [[Block of Quartz]]
+| {{code|quartz_block}}
+|-
+| [[File:Chiseled Quartz Block.png|16px]] [[Chiseled Quartz Block]]
+| {{code|chiseled_quartz_block}}
+|-
+| [[File:Quartz Pillar.png|16px]] [[Quartz Pillar]]
+| {{code|quartz_pillar}}
+|-
+| rowspan="16" | Separate
+| rowspan="16" | [[File:White Terracotta.png|16px]] [[Colored Terracotta]]
+| rowspan="16" | {{code|stained_hardened_clay}}
+| [[File:White Terracotta.png|16px]] [[White Terracotta]]
+| {{code|white_terracotta}}
+|-
+| [[File:Orange Terracotta.png|16px]] [[Orange Terracotta]]
+| {{code|orange_terracotta}}
+|-
+| [[File:Magenta Terracotta.png|16px]] [[Magenta Terracotta]]
+| {{code|magenta_terracotta}}
+|-
+| [[File:Light Blue Terracotta.png|16px]] [[Light Blue Terracotta]]
+| {{code|light_blue_terracotta}}
+|-
+| [[File:Yellow Terracotta.png|16px]] [[Yellow Terracotta]]
+| {{code|yellow_terracotta}}
+|-
+| [[File:Lime Terracotta.png|16px]] [[Lime Terracotta]]
+| {{code|lime_terracotta}}
+|-
+| [[File:Pink Terracotta.png|16px]] [[Pink Terracotta]]
+| {{code|pink_terracotta}}
+|-
+| [[File:Gray Terracotta.png|16px]] [[Gray Terracotta]]
+| {{code|gray_terracotta}}
+|-
+| [[File:Light Gray Terracotta.png|16px]] [[Light Gray Terracotta]]
+| {{code|light_gray_terracotta}}
+|-
+| [[File:Cyan Terracotta.png|16px]] [[Cyan Terracotta]]
+| {{code|cyan_terracotta}}
+|-
+| [[File:Purple Terracotta.png|16px]] [[Purple Terracotta]]
+| {{code|purple_terracotta}}
+|-
+| [[File:Blue Terracotta.png|16px]] [[Blue Terracotta]]
+| {{code|blue_terracotta}}
+|-
+| [[File:Brown Terracotta.png|16px]] [[Brown Terracotta]]
+| {{code|brown_terracotta}}
+|-
+| [[File:Green Terracotta.png|16px]] [[Green Terracotta]]
+| {{code|green_terracotta}}
+|-
+| [[File:Red Terracotta.png|16px]] [[Red Terracotta]]
+| {{code|red_terracotta}}
+|-
+| [[File:Black Terracotta.png|16px]] [[Black Terracotta]]
+| {{code|black_terracotta}}
+|-
+| rowspan="16" | Separate
+| rowspan="16" | [[File:White Carpet.png|16px]] [[Carpet]]
+| rowspan="16" | {{code|carpet}}
+| [[File:White Carpet.png|16px]] [[White Carpet]]
+| {{code|white_carpet}}
+|-
+| [[File:Orange Carpet.png|16px]] [[Orange Carpet]]
+| {{code|orange_carpet}}
+|-
+| [[File:Magenta Carpet.png|16px]] [[Magenta Carpet]]
+| {{code|magenta_carpet}}
+|-
+| [[File:Light Blue Carpet.png|16px]] [[Light Blue Carpet]]
+| {{code|light_blue_carpet}}
+|-
+| [[File:Yellow Carpet.png|16px]] [[Yellow Carpet]]
+| {{code|yellow_carpet}}
+|-
+| [[File:Lime Carpet.png|16px]] [[Lime Carpet]]
+| {{code|lime_carpet}}
+|-
+| [[File:Pink Carpet.png|16px]] [[Pink Carpet]]
+| {{code|pink_carpet}}
+|-
+| [[File:Gray Carpet.png|16px]] [[Gray Carpet]]
+| {{code|gray_carpet}}
+|-
+| [[File:Light Gray Carpet.png|16px]] [[Light Gray Carpet]]
+| {{code|light_gray_carpet}}
+|-
+| [[File:Cyan Carpet.png|16px]] [[Cyan Carpet]]
+| {{code|cyan_carpet}}
+|-
+| [[File:Purple Carpet.png|16px]] [[Purple Carpet]]
+| {{code|purple_carpet}}
+|-
+| [[File:Blue Carpet.png|16px]] [[Blue Carpet]]
+| {{code|blue_carpet}}
+|-
+| [[File:Brown Carpet.png|16px]] [[Brown Carpet]]
+| {{code|brown_carpet}}
+|-
+| [[File:Green Carpet.png|16px]] [[Green Carpet]]
+| {{code|green_carpet}}
+|-
+| [[File:Red Carpet.png|16px]] [[Red Carpet]]
+| {{code|red_carpet}}
+|-
+| [[File:Black Carpet.png|16px]] [[Black Carpet]]
+| {{code|black_carpet}}
+|-
+| Rename
+| [[File:Terracotta.png|16px]] [[Terracotta]]
+| {{code|hardened_clay}}
+| [[File:Terracotta.png|16px]] [[Terracotta]]
+| {{code|terracotta}}
+|-
+| Rename
+| [[File:Slime Block.png|16px]] [[Slime Block]]
+| {{code|slime}}
+| [[File:Slime Block.png|16px]] [[Slime Block]]
+| {{code|slime_block}}
+|-
+| rowspan="6" | Separate
+| rowspan="6" | [[File:Sunflower.png|16px]] [[Flower|Double Plant]]
+| rowspan="6" | {{code|double_plant}}
+| [[File:Sunflower.png|16px]] [[Sunflower]]
+| {{code|sunflower}}
+|-
+| [[File:Lilac.png|16px]] [[Lilac]]
+| {{code|lilac}}
+|-
+| [[File:Tall Grass.png|16px]] [[Tall Grass]]
+| {{code|tall_grass}}
+|-
+| [[File:Large Fern.png|16px]] [[Large Fern]]
+| {{code|large_fern}}
+|-
+| [[File:Rose Bush.png|16px]] [[Rose Bush]]
+| {{code|rose_bush}}
+|-
+| [[File:Peony.png|16px]] [[Peony]]
+| {{code|peony}}
+|-
+| rowspan="16" | Separate
+| rowspan="16" | [[File:White Stained Glass.png|16px]] [[Stained Glass]]
+| rowspan="16" | {{code|stained_glass}}
+| [[File:White Stained Glass.png|16px]] [[White Stained Glass]]
+| {{code|white_stained_glass}}
+|-
+| [[File:Orange Stained Glass.png|16px]] [[Orange Stained Glass]]
+| {{code|orange_stained_glass}}
+|-
+| [[File:Magenta Stained Glass.png|16px]] [[Magenta Stained Glass]]
+| {{code|magenta_stained_glass}}
+|-
+| [[File:Light Blue Stained Glass.png|16px]] [[Light Blue Stained Glass]]
+| {{code|light_blue_stained_glass}}
+|-
+| [[File:Yellow Stained Glass.png|16px]] [[Yellow Stained Glass]]
+| {{code|yellow_stained_glass}}
+|-
+| [[File:Lime Stained Glass.png|16px]] [[Lime Stained Glass]]
+| {{code|lime_stained_glass}}
+|-
+| [[File:Pink Stained Glass.png|16px]] [[Pink Stained Glass]]
+| {{code|pink_stained_glass}}
+|-
+| [[File:Gray Stained Glass.png|16px]] [[Gray Stained Glass]]
+| {{code|gray_stained_glass}}
+|-
+| [[File:Light Gray Stained Glass.png|16px]] [[Light Gray Stained Glass]]
+| {{code|light_gray_stained_glass}}
+|-
+| [[File:Cyan Stained Glass.png|16px]] [[Cyan Stained Glass]]
+| {{code|cyan_stained_glass}}
+|-
+| [[File:Purple Stained Glass.png|16px]] [[Purple Stained Glass]]
+| {{code|purple_stained_glass}}
+|-
+| [[File:Blue Stained Glass.png|16px]] [[Blue Stained Glass]]
+| {{code|blue_stained_glass}}
+|-
+| [[File:Brown Stained Glass.png|16px]] [[Brown Stained Glass]]
+| {{code|brown_stained_glass}}
+|-
+| [[File:Green Stained Glass.png|16px]] [[Green Stained Glass]]
+| {{code|green_stained_glass}}
+|-
+| [[File:Red Stained Glass.png|16px]] [[Red Stained Glass]]
+| {{code|red_stained_glass}}
+|-
+| [[File:Black Stained Glass.png|16px]] [[Black Stained Glass]]
+| {{code|black_stained_glass}}
+|-
+| rowspan="16" | Separate
+| rowspan="16" | [[File:White Stained Glass Pane.png|16px]] [[Stained Glass Pane]]
+| rowspan="16" | {{code|stained_glass_pane}}
+| [[File:White Stained Glass Pane.png|16px]] [[White Stained Glass Pane]]
+| {{code|white_stained_glass_pane}}
+|-
+| [[File:Orange Stained Glass Pane.png|16px]] [[Orange Stained Glass Pane]]
+| {{code|orange_stained_glass_pane}}
+|-
+| [[File:Magenta Stained Glass Pane.png|16px]] [[Magenta Stained Glass Pane]]
+| {{code|magenta_stained_glass_pane}}
+|-
+| [[File:Light Blue Stained Glass Pane.png|16px]] [[Light Blue Stained Glass Pane]]
+| {{code|light_blue_stained_glass_pane}}
+|-
+| [[File:Yellow Stained Glass Pane.png|16px]] [[Yellow Stained Glass Pane]]
+| {{code|yellow_stained_glass_pane}}
+|-
+| [[File:Lime Stained Glass Pane.png|16px]] [[Lime Stained Glass Pane]]
+| {{code|lime_stained_glass_pane}}
+|-
+| [[File:Pink Stained Glass Pane.png|16px]] [[Pink Stained Glass Pane]]
+| {{code|pink_stained_glass_pane}}
+|-
+| [[File:Gray Stained Glass Pane.png|16px]] [[Gray Stained Glass Pane]]
+| {{code|gray_stained_glass_pane}}
+|-
+| [[File:Light Gray Stained Glass Pane.png|16px]] [[Light Gray Stained Glass Pane]]
+| {{code|light_gray_stained_glass_pane}}
+|-
+| [[File:Cyan Stained Glass Pane.png|16px]] [[Cyan Stained Glass Pane]]
+| {{code|cyan_stained_glass_pane}}
+|-
+| [[File:Purple Stained Glass Pane.png|16px]] [[Purple Stained Glass Pane]]
+| {{code|purple_stained_glass_pane}}
+|-
+| [[File:Blue Stained Glass Pane.png|16px]] [[Blue Stained Glass Pane]]
+| {{code|blue_stained_glass_pane}}
+|-
+| [[File:Brown Stained Glass Pane.png|16px]] [[Brown Stained Glass Pane]]
+| {{code|brown_stained_glass_pane}}
+|-
+| [[File:Green Stained Glass Pane.png|16px]] [[Green Stained Glass Pane]]
+| {{code|green_stained_glass_pane}}
+|-
+| [[File:Red Stained Glass Pane.png|16px]] [[Red Stained Glass Pane]]
+| {{code|red_stained_glass_pane}}
+|-
+| [[File:Black Stained Glass Pane.png|16px]] [[Black Stained Glass Pane]]
+| {{code|black_stained_glass_pane}}
+|-
+| rowspan="3" | Separate
+| rowspan="3" | [[File:Prismarine.png|16px]] [[Prismarine]]
+| rowspan="3" | {{code|prismarine}}
+| [[File:Prismarine.png|16px]] [[Prismarine]]
+| {{code|prismarine}}
+|-
+| [[File:Prismarine Bricks.png|16px]] [[Prismarine Bricks]]
+| {{code|prismarine_bricks}}
+|-
+| [[File:Dark Prismarine.png|16px]] [[Dark Prismarine]]
+| {{code|dark_prismarine}}
+|-
+| rowspan="3" | Separate
+| rowspan="3" | [[File:Red Sandstone.png|16px]] [[Red Sandstone]]
+| rowspan="3" | {{code|red_sandstone}}
+| [[File:Red Sandstone.png|16px]] [[Red Sandstone]]
+| {{code|red_sandstone}}
+|-
+| [[File:Chiseled Red Sandstone.png|16px]] [[Chiseled Red Sandstone]]
+| {{code|chiseled_red_sandstone}}
+|-
+| [[File:Cut Red Sandstone.png|16px]] [[Cut Red Sandstone]]
+| {{code|cut_red_sandstone}}
+|-
+| Rename
+| [[File:Magma Block.png|16px]] [[Magma Block]]
+| {{code|magma}}
+| [[File:Magma Block.png|16px]] [[Magma Block]]
+| {{code|magma_block}}
+|-
+| Rename
+| [[File:Red Nether Bricks.png|16px]] [[Red Nether Bricks]]
+| {{code|red_nether_brick}}
+| [[File:Red Nether Bricks.png|16px]] [[Red Nether Bricks]]
+| {{code|red_nether_bricks}}
+|-
+| Rename
+| [[File:Light Gray Shulker Box.png|16px]] [[Light Gray Shulker Box]]
+| {{code|silver_shulker_box}}
+| [[File:Light Gray Shulker Box.png|16px]] [[Light Gray Shulker Box]]
+| {{code|light_gray_shulker_box}}
+|-
+| Rename
+| [[File:Light Gray Glazed Terracotta.png|16px]] [[Light Gray Glazed Terracotta]]
+| {{code|silver_glazed_terracotta}}
+| [[File:Light Gray Glazed Terracotta.png|16px]] [[Light Gray Glazed Terracotta]]
+| {{code|light_gray_glazed_terracotta}}
+|-
+| rowspan="16" | Separate
+| rowspan="16" | [[File:White Concrete.png|16px]] [[Concrete]]
+| rowspan="16" | {{code|concrete}}
+| [[File:White Concrete.png|16px]] [[White Concrete]]
+| {{code|white_concrete}}
+|-
+| [[File:Orange Concrete.png|16px]] [[Orange Concrete]]
+| {{code|orange_concrete}}
+|-
+| [[File:Magenta Concrete.png|16px]] [[Magenta Concrete]]
+| {{code|magenta_concrete}}
+|-
+| [[File:Light Blue Concrete.png|16px]] [[Light Blue Concrete]]
+| {{code|light_blue_concrete}}
+|-
+| [[File:Yellow Concrete.png|16px]] [[Yellow Concrete]]
+| {{code|yellow_concrete}}
+|-
+| [[File:Lime Concrete.png|16px]] [[Lime Concrete]]
+| {{code|lime_concrete}}
+|-
+| [[File:Pink Concrete.png|16px]] [[Pink Concrete]]
+| {{code|pink_concrete}}
+|-
+| [[File:Gray Concrete.png|16px]] [[Gray Concrete]]
+| {{code|gray_concrete}}
+|-
+| [[File:Light Gray Concrete.png|16px]] [[Light Gray Concrete]]
+| {{code|light_gray_concrete}}
+|-
+| [[File:Cyan Concrete.png|16px]] [[Cyan Concrete]]
+| {{code|cyan_concrete}}
+|-
+| [[File:Purple Concrete.png|16px]] [[Purple Concrete]]
+| {{code|purple_concrete}}
+|-
+| [[File:Blue Concrete.png|16px]] [[Blue Concrete]]
+| {{code|blue_concrete}}
+|-
+| [[File:Brown Concrete.png|16px]] [[Brown Concrete]]
+| {{code|brown_concrete}}
+|-
+| [[File:Green Concrete.png|16px]] [[Green Concrete]]
+| {{code|green_concrete}}
+|-
+| [[File:Red Concrete.png|16px]] [[Red Concrete]]
+| {{code|red_concrete}}
+|-
+| [[File:Black Concrete.png|16px]] [[Black Concrete]]
+| {{code|black_concrete}}
+|-
+| rowspan="16" | Separate
+| rowspan="16" | [[File:White Concrete Powder.png|16px]] [[Concrete Powder]]
+| rowspan="16" | {{code|concrete_powder}}
+| [[File:White Concrete Powder.png|16px]] [[White Concrete Powder]]
+| {{code|white_concrete_powder}}
+|-
+| [[File:Orange Concrete Powder.png|16px]] [[Orange Concrete Powder]]
+| {{code|orange_concrete_powder}}
+|-
+| [[File:Magenta Concrete Powder.png|16px]] [[Magenta Concrete Powder]]
+| {{code|magenta_concrete_powder}}
+|-
+| [[File:Light Blue Concrete Powder.png|16px]] [[Light Blue Concrete Powder]]
+| {{code|light_blue_concrete_powder}}
+|-
+| [[File:Yellow Concrete Powder.png|16px]] [[Yellow Concrete Powder]]
+| {{code|yellow_concrete_powder}}
+|-
+| [[File:Lime Concrete Powder.png|16px]] [[Lime Concrete Powder]]
+| {{code|lime_concrete_powder}}
+|-
+| [[File:Pink Concrete Powder.png|16px]] [[Pink Concrete Powder]]
+| {{code|pink_concrete_powder}}
+|-
+| [[File:Gray Concrete Powder.png|16px]] [[Gray Concrete Powder]]
+| {{code|gray_concrete_powder}}
+|-
+| [[File:Light Gray Concrete Powder.png|16px]] [[Light Gray Concrete Powder]]
+| {{code|light_gray_concrete_powder}}
+|-
+| [[File:Cyan Concrete Powder.png|16px]] [[Cyan Concrete Powder]]
+| {{code|cyan_concrete_powder}}
+|-
+| [[File:Purple Concrete Powder.png|16px]] [[Purple Concrete Powder]]
+| {{code|purple_concrete_powder}}
+|-
+| [[File:Blue Concrete Powder.png|16px]] [[Blue Concrete Powder]]
+| {{code|blue_concrete_powder}}
+|-
+| [[File:Brown Concrete Powder.png|16px]] [[Brown Concrete Powder]]
+| {{code|brown_concrete_powder}}
+|-
+| [[File:Green Concrete Powder.png|16px]] [[Green Concrete Powder]]
+| {{code|green_concrete_powder}}
+|-
+| [[File:Red Concrete Powder.png|16px]] [[Red Concrete Powder]]
+| {{code|red_concrete_powder}}
+|-
+| [[File:Black Concrete Powder.png|16px]] [[Black Concrete Powder]]
+| {{code|black_concrete_powder}}
+|-
+| Rename
+| [[File:Oak Door.png|16px]] [[Oak Door]]
+| {{code|wooden_door}}
+| [[File:Oak Door.png|16px]] [[Oak Door]]
+| {{code|oak_door}}
+|-
+| rowspan="3" | Merge
+| [[File:Redstone Repeater (S) JE4.png|16px]] [[Repeater|Unpowered Redstone Repeater]]<ref group="ids note" name="noitemform" />
+| {{code|unpowered_repeater}}
+| rowspan="3" | [[File:Redstone Repeater (item).png|16px]] [[Redstone Repeater]]
+| rowspan="3" | {{code|repeater}}
+|-
+| [[File:Powered Redstone Repeater (S) JE7.png|16px]] [[Repeater|Powered Redstone Repeater]]<ref group="ids note" name="noitemform" />
+| {{code|powered_repeater}}
+|-
+| [[File:Redstone Repeater (item).png|16px]] [[Redstone Repeater]]
+| {{code|repeater}}
+|-
+| rowspan="3" | Merge
+| [[File:Redstone Comparator.png|16px]] [[Redstone Comparator|Unpowered Redstone Comparator]]<ref group="ids note" name="noitemform" />
+| {{code|unpowered_comparator}}
+| rowspan="3" | [[File:Redstone Comparator (item).png|16px]] [[Redstone Comparator]]
+| rowspan="3" | {{code|comparator}}
+|-
+| [[File:Powered Redstone Comparator.png|16px]] [[Redstone Comparator|Powered Redstone Comparator]]<ref group="ids note" name="noitemform" />
+| {{code|powered_comparator}}
+|-
+| [[File:Redstone Comparator (item).png|16px]] [[Redstone Comparator]]
+| {{code|comparator}}
+|-
+| rowspan="2" | Separate
+| rowspan="2" | [[File:Coal.png|16px]] [[Coal]]
+| rowspan="2" | {{code|coal}}
+| [[File:Coal.png|16px]] [[Coal]]
+| {{code|coal}}
+|-
+| [[File:Charcoal.png|16px]] [[Charcoal]]
+| {{code|charcoal}}
+|-
+| rowspan="2" | Separate
+| rowspan="2" | [[File:Golden Apple.png|16px]] [[Golden Apple]]
+| rowspan="2" | {{code|golden_apple}}
+| [[File:Golden Apple.png|16px]] [[Golden Apple]]
+| {{code|golden_apple}}
+|-
+| [[File:Enchanted Golden Apple.gif|16px]] [[Enchanted Golden Apple]]
+| {{code|enchanted_golden_apple}}
+|-
+| rowspan="2" | Merge
+| [[File:Oak Standing Sign.png|16px]] [[Sign|Standing Sign]]<ref group="ids note" name="noitemform" />
+| {{code|standing_sign}}
+| rowspan="2" | [[File:Oak Sign.png|16px]] [[Sign]]
+| rowspan="2" | {{code|sign}}
+|-
+| [[File:Oak Wall Sign.png|16px]] [[Sign]]
+| {{code|sign}}
+|-
+| rowspan="2" | Merge
+| [[File:Water.png|16px]] [[Water]]<ref group="ids note" name="noitemform" />
+| {{code|water}}
+| rowspan="2" | [[File:Water.png|16px]] [[Water]]<ref group="ids note" name="noitemform" />
+| rowspan="2" | {{code|water}}
+|-
+| [[File:Water.png|16px]] [[Flowing Water]]<ref group="ids note" name="noitemform" />
+| {{code|flowing_water}}
+|-
+| rowspan="2" | Merge
+| [[File:Lava.png|16px]] [[Lava]]<ref group="ids note" name="noitemform" />
+| {{code|lava}}
+| rowspan="2" | [[File:Lava.png|16px]] [[Lava]]<ref group="ids note" name="noitemform" />
+| rowspan="2" | {{code|lava}}
+|-
+| [[File:Lava.png|16px]] [[Flowing Lava]]<ref group="ids note" name="noitemform" />
+| {{code|flowing_lava}}
+|-
+| Rename
+| [[File:Oak Boat (item).png|16px]] [[Oak Boat]]
+| {{code|boat}}
+| [[File:Oak Boat (item).png|16px]] [[Oak Boat]]
+| {{code|oak_boat}}
+|-
+| Rename
+| [[File:Sugar Cane.png|16px]] [[Sugar Cane]]
+| {{code|reeds}}
+| [[File:Sugar Cane.png|16px]] [[Sugar Cane]]
+| {{code|sugar_cane}}
+|-
+| rowspan="4" | Separate
+| rowspan="4" | [[File:Raw Cod.png|16px]] [[Raw Fish]]
+| rowspan="4" | {{code|fish}}
+| [[File:Raw Cod.png|16px]] [[Raw Cod]]
+| {{code|cod}}
+|-
+| [[File:Raw Salmon.png|16px]] [[Raw Salmon]]
+| {{code|salmon}}
+|-
+| [[File:Tropical Fish.png|16px]] [[Tropical Fish]]
+| {{code|tropical_fish}}
+|-
+| [[File:Pufferfish.png|16px]] [[Pufferfish]]
+| {{code|pufferfish}}
+|-
+| rowspan="2" | Separate
+| rowspan="2" | [[File:Cooked Cod.png|16px]] [[Cooked Fish]]
+| rowspan="2" | {{code|cooked_fish}}
+| [[File:Cooked Cod.png|16px]] [[Cooked Cod]]
+| {{code|cooked_cod}}
+|-
+| [[File:Cooked Salmon.png|16px]] [[Cooked Salmon]]
+| {{code|cooked_salmon}}
+|-
+| rowspan="16" | Separate
+| rowspan="16" | [[File:Bone Meal.png|16px]] [[Dye]]
+| rowspan="16" | {{code|dye}}
+| [[File:Bone Meal.png|16px]] [[Bone Meal]]
+| {{code|bone_meal}}
+|-
+| [[File:Orange Dye.png|16px]] [[Orange Dye]]
+| {{code|orange_dye}}
+|-
+| [[File:Magenta Dye.png|16px]] [[Magenta Dye]]
+| {{code|magenta_dye}}
+|-
+| [[File:Light Blue Dye.png|16px]] [[Light Blue Dye]]
+| {{code|light_blue_dye}}
+|-
+| [[File:Yellow Dye.png|16px]] [[Dandelion Yellow]]
+| {{code|dandelion_yellow}}
+|-
+| [[File:Lime Dye.png|16px]] [[Lime Dye]]
+| {{code|lime_dye}}
+|-
+| [[File:Pink Dye.png|16px]] [[Pink Dye]]
+| {{code|pink_dye}}
+|-
+| [[File:Gray Dye.png|16px]] [[Gray Dye]]
+| {{code|gray_dye}}
+|-
+| [[File:Light Gray Dye.png|16px]] [[Light Gray Dye]]
+| {{code|light_gray_dye}}
+|-
+| [[File:Cyan Dye.png|16px]] [[Cyan Dye]]
+| {{code|cyan_dye}}
+|-
+| [[File:Purple Dye.png|16px]] [[Purple Dye]]
+| {{code|purple_dye}}
+|-
+| [[File:Lapis Lazuli.png|16px]] [[Lapis Lazuli]]
+| {{code|lapis_lazuli}}
+|-
+| [[File:Cocoa Beans.png|16px]] [[Cocoa Beans]]
+| {{code|cocoa_beans}}
+|-
+| [[File:Green Dye.png|16px]] [[Cactus Green]]
+| {{code|cactus_green}}
+|-
+| [[File:Red Dye.png|16px]] [[Rose Red]]
+| {{code|rose_red}}
+|-
+| [[File:Ink Sac.png|16px]] [[Ink Sac]]
+| {{code|ink_sac}}
+|-
+| rowspan="16" | Separate
+| rowspan="16" | [[File:White Bed.png|16px]] [[Bed]]
+| rowspan="16" | {{code|bed}}
+| [[File:White Bed.png|16px]] [[White Bed]]
+| {{code|white_bed}}
+|-
+| [[File:Orange Bed.png|16px]] [[Orange Bed]]
+| {{code|orange_bed}}
+|-
+| [[File:Magenta Bed.png|16px]] [[Magenta Bed]]
+| {{code|magenta_bed}}
+|-
+| [[File:Light Blue Bed.png|16px]] [[Light Blue Bed]]
+| {{code|light_blue_bed}}
+|-
+| [[File:Yellow Bed.png|16px]] [[Yellow Bed]]
+| {{code|yellow_bed}}
+|-
+| [[File:Lime Bed.png|16px]] [[Lime Bed]]
+| {{code|lime_bed}}
+|-
+| [[File:Pink Bed.png|16px]] [[Pink Bed]]
+| {{code|pink_bed}}
+|-
+| [[File:Gray Bed.png|16px]] [[Gray Bed]]
+| {{code|gray_bed}}
+|-
+| [[File:Light Gray Bed.png|16px]] [[Light Gray Bed]]
+| {{code|light_gray_bed}}
+|-
+| [[File:Cyan Bed.png|16px]] [[Cyan Bed]]
+| {{code|cyan_bed}}
+|-
+| [[File:Purple Bed.png|16px]] [[Purple Bed]]
+| {{code|purple_bed}}
+|-
+| [[File:Blue Bed.png|16px]] [[Blue Bed]]
+| {{code|blue_bed}}
+|-
+| [[File:Brown Bed.png|16px]] [[Brown Bed]]
+| {{code|brown_bed}}
+|-
+| [[File:Green Bed.png|16px]] [[Green Bed]]
+| {{code|green_bed}}
+|-
+| [[File:Red Bed.png|16px]] [[Red Bed]]
+| {{code|red_bed}}
+|-
+| [[File:Black Bed.png|16px]] [[Black Bed]]
+| {{code|black_bed}}
+|-
+| Rename
+| [[File:Melon Slice.png|16px]] [[Melon Slice]]
+| {{code|melon}}
+| [[File:Melon Slice.png|16px]] [[Melon Slice]]
+| {{code|melon_slice}}
+|-
+| rowspan="2" | Separate
+| rowspan="2" | [[File:Pumpkin Stem.png|16px]] [[Pumpkin Stem]]<ref group="ids note" name="noitemform" />
+| rowspan="2" | {{code|pumpkin_stem}}
+| [[File:Pumpkin Stem.png|16px]] [[Pumpkin Stem]]<ref group="ids note" name="noitemform" />
+| {{code|pumpkin_stem}}
+|-
+| [[File:Attached Pumpkin Stem.png|16px]] [[Attached Pumpkin Stem]]<ref group="ids note" name="noitemform" />
+| {{code|attached_pumpkin_stem}}
+|-
+| rowspan="2" | Separate
+| rowspan="2" | [[File:Melon Stem.png|16px]] [[Melon Stem]]<ref group="ids note" name="noitemform" />
+| rowspan="2" | {{code|melon_stem}}
+| [[File:Melon Stem.png|16px]] [[Melon Stem]]<ref group="ids note" name="noitemform" />
+| {{code|melon_stem}}
+|-
+| [[File:Attached Melon Stem.png|16px]] [[Attached Melon Stem]]<ref group="ids note" name="noitemform" />
+| {{code|attached_melon_stem}}
+|-
+| Rename
+| [[File:Glistering Melon Slice.png|16px]] [[Glistering Melon Slice]]
+| {{code|speckled_melon}}
+| [[File:Glistering Melon Slice.png|16px]] [[Glistering Melon Slice]]
+| {{code|glistering_melon_slice}}
+|-
+| rowspan="43" | Separate
+| rowspan="43" | [[File:Spawn Egg.png|16px]] [[Spawn Egg]]
+| rowspan="43" | {{code|spawn_egg}}
+| [[File:Bat Spawn Egg.png|16px]] [[Bat Spawn Egg]]
+| {{code|bat_spawn_egg}}
+|-
+| [[File:Blaze Spawn Egg.png|16px]] [[Blaze Spawn Egg]]
+| {{code|blaze_spawn_egg}}
+|-
+| [[File:Cave Spider Spawn Egg.png|16px]] [[Cave Spider Spawn Egg]]
+| {{code|cave_spider_spawn_egg}}
+|-
+| [[File:Chicken Spawn Egg.png|16px]] [[Chicken Spawn Egg]]
+| {{code|chicken_spawn_egg}}
+|-
+| [[File:Cow Spawn Egg.png|16px]] [[Cow Spawn Egg]]
+| {{code|cow_spawn_egg}}
+|-
+| [[File:Creeper Spawn Egg.png|16px]] [[Creeper Spawn Egg]]
+| {{code|creeper_spawn_egg}}
+|-
+| [[File:Donkey Spawn Egg.png|16px]] [[Donkey Spawn Egg]]
+| {{code|donkey_spawn_egg}}
+|-
+| [[File:Elder Guardian Spawn Egg.png|16px]] [[Elder Guardian Spawn Egg]]
+| {{code|elder_guardian_spawn_egg}}
+|-
+| [[File:Enderman Spawn Egg.png|16px]] [[Enderman Spawn Egg]]
+| {{code|enderman_spawn_egg}}
+|-
+| [[File:Endermite Spawn Egg.png|16px]] [[Endermite Spawn Egg]]
+| {{code|endermite_spawn_egg}}
+|-
+| [[File:Evoker Spawn Egg.png|16px]] [[Evoker Spawn Egg]]
+| {{code|evoker_spawn_egg}}
+|-
+| [[File:Ghast Spawn Egg.png|16px]] [[Ghast Spawn Egg]]
+| {{code|ghast_spawn_egg}}
+|-
+| [[File:Guardian Spawn Egg.png|16px]] [[Guardian Spawn Egg]]
+| {{code|guardian_spawn_egg}}
+|-
+| [[File:Horse Spawn Egg.png|16px]] [[Horse Spawn Egg]]
+| {{code|horse_spawn_egg}}
+|-
+| [[File:Husk Spawn Egg.png|16px]] [[Husk Spawn Egg]]
+| {{code|husk_spawn_egg}}
+|-
+| [[File:Llama Spawn Egg.png|16px]] [[Llama Spawn Egg]]
+| {{code|llama_spawn_egg}}
+|-
+| [[File:Magma Cube Spawn Egg.png|16px]] [[Magma Cube Spawn Egg]]
+| {{code|magma_cube_spawn_egg}}
+|-
+| [[File:Mooshroom Spawn Egg.png|16px]] [[Mooshroom Spawn Egg]]
+| {{code|mooshroom_spawn_egg}}
+|-
+| [[File:Mule Spawn Egg.png|16px]] [[Mule Spawn Egg]]
+| {{code|mule_spawn_egg}}
+|-
+| [[File:Ocelot Spawn Egg.png|16px]] [[Ocelot Spawn Egg]]
+| {{code|ocelot_spawn_egg}}
+|-
+| [[File:Parrot Spawn Egg.png|16px]] [[Parrot Spawn Egg]]
+| {{code|parrot_spawn_egg}}
+|-
+| [[File:Pig Spawn Egg.png|16px]] [[Pig Spawn Egg]]
+| {{code|pig_spawn_egg}}
+|-
+| [[File:Polar Bear Spawn Egg JE1 BE1.png|16px]] [[Polar Bear Spawn Egg]]
+| {{code|polar_bear_spawn_egg}}
+|-
+| [[File:Rabbit Spawn Egg.png|16px]] [[Rabbit Spawn Egg]]
+| {{code|rabbit_spawn_egg}}
+|-
+| [[File:Sheep Spawn Egg.png|16px]] [[Sheep Spawn Egg]]
+| {{code|sheep_spawn_egg}}
+|-
+| [[File:Shulker Spawn Egg.png|16px]] [[Shulker Spawn Egg]]
+| {{code|shulker_spawn_egg}}
+|-
+| [[File:Silverfish Spawn Egg.png|16px]] [[Silverfish Spawn Egg]]
+| {{code|silverfish_spawn_egg}}
+|-
+| [[File:Skeleton Spawn Egg.png|16px]] [[Skeleton Spawn Egg]]
+| {{code|skeleton_spawn_egg}}
+|-
+| [[File:Skeleton Horse Spawn Egg.png|16px]] [[Skeleton Horse Spawn Egg]]
+| {{code|skeleton_horse_spawn_egg}}
+|-
+| [[File:Slime Spawn Egg.png|16px]] [[Slime Spawn Egg]]
+| {{code|slime_spawn_egg}}
+|-
+| [[File:Spider Spawn Egg.png|16px]] [[Spider Spawn Egg]]
+| {{code|spider_spawn_egg}}
+|-
+| [[File:Squid Spawn Egg.png|16px]] [[Squid Spawn Egg]]
+| {{code|squid_spawn_egg}}
+|-
+| [[File:Stray Spawn Egg.png|16px]] [[Stray Spawn Egg]]
+| {{code|stray_spawn_egg}}
+|-
+| [[File:Vex Spawn Egg.png|16px]] [[Vex Spawn Egg]]
+| {{code|vex_spawn_egg}}
+|-
+| [[File:Villager Spawn Egg.png|16px]] [[Villager Spawn Egg]]
+| {{code|villager_spawn_egg}}
+|-
+| [[File:Vindicator Spawn Egg.png|16px]] [[Vindicator Spawn Egg]]
+| {{code|vindicator_spawn_egg}}
+|-
+| [[File:Witch Spawn Egg.png|16px]] [[Witch Spawn Egg]]
+| {{code|witch_spawn_egg}}
+|-
+| [[File:Wither Skeleton Spawn Egg.png|16px]] [[Wither Skeleton Spawn Egg]]
+| {{code|wither_skeleton_spawn_egg}}
+|-
+| [[File:Wolf Spawn Egg.png|16px]] [[Wolf Spawn Egg]]
+| {{code|wolf_spawn_egg}}
+|-
+| [[File:Zombie Spawn Egg.png|16px]] [[Zombie Spawn Egg]]
+| {{code|zombie_spawn_egg}}
+|-
+| [[File:Zombie Horse Spawn Egg.png|16px]] [[Zombie Horse Spawn Egg]]
+| {{code|zombie_horse_spawn_egg}}
+|-
+| [[File:Zombie Pigman Spawn Egg.png|16px]] [[Zombie Pigman Spawn Egg]]
+| {{code|zombie_pigman_spawn_egg}}
+|-
+| [[File:Zombie Villager Spawn Egg.png|16px]] [[Zombie Villager Spawn Egg]]
+| {{code|zombie_villager_spawn_egg}}
+|-
+| rowspan="22" | Separate
+| rowspan="22" | [[File:Flower Pot.png|16px]] [[Flower Pot]]
+| rowspan="22" | {{code|flower_pot}}
+| [[File:Flower Pot.png|16px]] [[Flower Pot]]
+| {{code|flower_pot}}
+|-
+| [[File:Potted Poppy.png|16px]] [[Potted Poppy]]<ref group="ids note" name="noitemform" />
+| {{code|potted_poppy}}
+|-
+| [[File:Potted Dandelion.png|16px]] [[Potted Dandelion]]<ref group="ids note" name="noitemform" />
+| {{code|potted_dandelion}}
+|-
+| [[File:Potted Oak Sapling.png|16px]] [[Potted Oak Sapling]]<ref group="ids note" name="noitemform" />
+| {{code|potted_oak_sapling}}
+|-
+| [[File:Potted Spruce Sapling.png|16px]] [[Potted Spruce Sapling]]<ref group="ids note" name="noitemform" />
+| {{code|potted_spruce_sapling}}
+|-
+| [[File:Potted Birch Sapling.png|16px]] [[Potted Birch Sapling]]<ref group="ids note" name="noitemform" />
+| {{code|potted_birch_sapling}}
+|-
+| [[File:Potted Jungle Sapling.png|16px]] [[Potted Jungle Sapling]]<ref group="ids note" name="noitemform" />
+| {{code|potted_jungle_sapling}}
+|-
+| [[File:Potted Red Mushroom.png|16px]] [[Potted Red Mushroom]]<ref group="ids note" name="noitemform" />
+| {{code|potted_red_mushroom}}
+|-
+| [[File:Potted Brown Mushroom.png|16px]] [[Potted Brown Mushroom]]<ref group="ids note" name="noitemform" />
+| {{code|potted_brown_mushroom}}
+|-
+| [[File:Potted Cactus.png|16px]] [[Potted Cactus]]<ref group="ids note" name="noitemform" />
+| {{code|potted_cactus}}
+|-
+| [[File:Potted Dead Bush.png|16px]] [[Potted Dead Bush]]<ref group="ids note" name="noitemform" />
+| {{code|potted_dead_bush}}
+|-
+| [[File:Potted Fern.png|16px]] [[Potted Fern]]<ref group="ids note" name="noitemform" />
+| {{code|potted_fern}}
+|-
+| [[File:Potted Acacia Sapling.png|16px]] [[Potted Acacia Sapling]]<ref group="ids note" name="noitemform" />
+| {{code|potted_acacia_sapling}}
+|-
+| [[File:Potted Dark Oak Sapling.png|16px]] [[Potted Dark Oak Sapling]]<ref group="ids note" name="noitemform" />
+| {{code|potted_dark_oak_sapling}}
+|-
+| [[File:Potted Blue Orchid.png|16px]] [[Potted Blue Orchid]]<ref group="ids note" name="noitemform" />
+| {{code|potted_blue_orchid}}
+|-
+| [[File:Potted Allium.png|16px]] [[Potted Allium]]<ref group="ids note" name="noitemform" />
+| {{code|potted_allium}}
+|-
+| [[File:Potted Azure Bluet.png|16px]] [[Potted Azure Bluet]]<ref group="ids note" name="noitemform" />
+| {{code|potted_azure_bluet}}
+|-
+| [[File:Potted Red Tulip.png|16px]] [[Potted Red Tulip]]<ref group="ids note" name="noitemform" />
+| {{code|potted_red_tulip}}
+|-
+| [[File:Potted Orange Tulip.png|16px]] [[Potted Orange Tulip]]<ref group="ids note" name="noitemform" />
+| {{code|potted_orange_tulip}}
+|-
+| [[File:Potted White Tulip.png|16px]] [[Potted White Tulip]]<ref group="ids note" name="noitemform" />
+| {{code|potted_white_tulip}}
+|-
+| [[File:Potted Pink Tulip.png|16px]] [[Potted Pink Tulip]]<ref group="ids note" name="noitemform" />
+| {{code|potted_pink_tulip}}
+|-
+| [[File:Potted Oxeye Daisy.png|16px]] [[Potted Oxeye Daisy]]<ref group="ids note" name="noitemform" />
+| {{code|potted_oxeye_daisy}}
+|-
+| rowspan="12" | Separate
+| rowspan="12" | [[File:Head.png|16px]] [[Head]]
+| rowspan="12" | {{code|skull}}
+| [[File:Skeleton Skull.png|16px]] [[Skeleton Skull]]
+| {{code|skeleton_skull}}
+|-
+| [[File:Skeleton Skull.png|16px]] [[Skeleton Wall Skull]]<ref group="ids note" name="noitemform" />
+| {{code|skeleton_wall_skull}}
+|-
+| [[File:Wither Skeleton Skull.png|16px]] [[Wither Skeleton Skull]]
+| {{code|wither_skeleton_skull}}
+|-
+| [[File:Wither Skeleton Skull.png|16px]] [[Wither Skeleton Wall Skull]]<ref group="ids note" name="noitemform" />
+| {{code|wither_skeleton_wall_skull}}
+|-
+| [[File:Zombie Head.png|16px]] [[Zombie Head]]
+| {{code|zombie_head}}
+|-
+| [[File:Zombie Head.png|16px]] [[Zombie Wall Head]]<ref group="ids note" name="noitemform" />
+| {{code|zombie_wall_head}}
+|-
+| [[File:Player Head.png|16px]] [[Player Head]]
+| {{code|player_head}}
+|-
+| [[File:Player Head.png|16px]] [[Player Wall Head]]<ref group="ids note" name="noitemform" />
+| {{code|player_wall_head}}
+|-
+| [[File:Creeper Head.png|16px]] [[Creeper Head]]
+| {{code|creeper_head}}
+|-
+| [[File:Creeper Head.png|16px]] [[Creeper Wall Head]]<ref group="ids note" name="noitemform" />
+| {{code|creeper_wall_head}}
+|-
+| [[File:Dragon Head.png|16px]] [[Dragon Head]]
+| {{code|dragon_head}}
+|-
+| [[File:Dragon Head.png|16px]] [[Dragon Wall Head]]<ref group="ids note" name="noitemform" />
+| {{code|dragon_wall_head}}
+|-
+| Rename
+| [[File:Firework Rocket.png|16px]] [[Firework Rocket]]
+| {{code|fireworks}}
+| [[File:Firework Rocket.png|16px]] [[Firework Rocket]]
+| {{code|firework_rocket}}
+|-
+| Rename
+| [[File:Firework Star.png|16px]] [[Firework Star]]
+| {{code|firework_charge}}
+| [[File:Firework Star.png|16px]] [[Firework Star]]
+| {{code|firework_star}}
+|-
+| Rename
+| [[File:Nether Brick.png|16px]] [[Nether Brick]]
+| {{code|netherbrick}}
+| [[File:Nether Brick.png|16px]] [[Nether Brick]]
+| {{code|nether_brick}}
+|-
+| rowspan="16" | Separate and merge
+| rowspan="8" | [[File:White Banner.png|16px]] [[Banner]]<ref group="ids note" name="noitemform" />
+| rowspan="8" | {{code|standing_banner}}
+| [[File:White Banner.png|16px]] [[White Banner]]
+| {{code|white_banner}}
+|-
+| [[File:Orange Banner.png|16px]] [[Orange Banner]]
+| {{code|orange_banner}}
+|-
+| [[File:Magenta Banner.png|16px]] [[Magenta Banner]]
+| {{code|magenta_banner}}
+|-
+| [[File:Light Blue Banner.png|16px]] [[Light Blue Banner]]
+| {{code|light_blue_banner}}
+|-
+| [[File:Yellow Banner.png|16px]] [[Yellow Banner]]
+| {{code|yellow_banner}}
+|-
+| [[File:Lime Banner.png|16px]] [[Lime Banner]]
+| {{code|lime_banner}}
+|-
+| [[File:Pink Banner.png|16px]] [[Pink Banner]]
+| {{code|pink_banner}}
+|-
+| [[File:Gray Banner.png|16px]] [[Gray Banner]]
+| {{code|gray_banner}}
+|-
+| rowspan="8" | [[File:White Banner.png|16px]] [[Banner]]
+| rowspan="8" | {{code|banner}}
+| [[File:Light Gray Banner.png|16px]] [[Light Gray Banner]]
+| {{code|light_gray_banner}}
+|-
+| [[File:Cyan Banner.png|16px]] [[Cyan Banner]]
+| {{code|cyan_banner}}
+|-
+| [[File:Purple Banner.png|16px]] [[Purple Banner]]
+| {{code|purple_banner}}
+|-
+| [[File:Blue Banner.png|16px]] [[Blue Banner]]
+| {{code|blue_banner}}
+|-
+| [[File:Brown Banner.png|16px]] [[Brown Banner]]
+| {{code|brown_banner}}
+|-
+| [[File:Green Banner.png|16px]] [[Green Banner]]
+| {{code|green_banner}}
+|-
+| [[File:Red Banner.png|16px]] [[Red Banner]]
+| {{code|red_banner}}
+|-
+| [[File:Black Banner.png|16px]] [[Black Banner]]
+| {{code|black_banner}}
+|-
+| rowspan="16" | Separate
+| rowspan="16" | [[File:White Wall Banner.png|16px]] [[Wall Banner]]<ref group="ids note" name="noitemform" />
+| rowspan="16" | {{code|wall_banner}}
+| [[File:White Wall Banner.png|16px]] [[White Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|white_wall_banner}}
+|-
+| [[File:Orange Wall Banner.png|16px]] [[Orange Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|orange_wall_banner}}
+|-
+| [[File:Magenta Wall Banner.png|16px]] [[Magenta Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|magenta_wall_banner}}
+|-
+| [[File:Light Blue Wall Banner.png|16px]] [[Light Blue Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|light_blue_wall_banner}}
+|-
+| [[File:Yellow Wall Banner.png|16px]] [[Yellow Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|yellow_wall_banner}}
+|-
+| [[File:Lime Wall Banner.png|16px]] [[Lime Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|lime_wall_banner}}
+|-
+| [[File:Pink Wall Banner.png|16px]] [[Pink Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|pink_wall_banner}}
+|-
+| [[File:Gray Wall Banner.png|16px]] [[Gray Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|gray_wall_banner}}
+|-
+| [[File:Light Gray Wall Banner.png|16px]] [[Light Gray Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|light_gray_wall_banner}}
+|-
+| [[File:Cyan Wall Banner.png|16px]] [[Cyan Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|cyan_wall_banner}}
+|-
+| [[File:Purple Wall Banner.png|16px]] [[Purple Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|purple_wall_banner}}
+|-
+| [[File:Blue Wall Banner.png|16px]] [[Blue Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|blue_wall_banner}}
+|-
+| [[File:Brown Wall Banner.png|16px]] [[Brown Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|brown_wall_banner}}
+|-
+| [[File:Green Wall Banner.png|16px]] [[Green Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|green_wall_banner}}
+|-
+| [[File:Red Wall Banner.png|16px]] [[Red Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|red_wall_banner}}
+|-
+| [[File:Black Wall Banner.png|16px]] [[Black Wall Banner]]<ref group="ids note" name="noitemform" />
+| {{code|black_wall_banner}}
+|-
+| Rename
+| [[File:Popped Chorus Fruit.png|16px]] [[Popped Chorus Fruit]]
+| {{code|chorus_fruit_popped}}
+| [[File:Popped Chorus Fruit.png|16px]] [[Popped Chorus Fruit]]
+| {{code|popped_chorus_fruit}}
+|-
+| Rename
+| [[File:Music Disc 13.png|16px]] [[Music Disc]]
+| {{code|record_13}}
+| [[File:Music Disc 13.png|16px]] [[Music Disc]]
+| {{code|music_disc_13}}
+|-
+| Rename
+| [[File:Music Disc Cat.png|16px]] [[Music Disc]]
+| {{code|record_cat}}
+| [[File:Music Disc Cat.png|16px]] [[Music Disc]]
+| {{code|music_disc_cat}}
+|-
+| Rename
+| [[File:Music Disc Blocks.png|16px]] [[Music Disc]]
+| {{code|record_blocks}}
+| [[File:Music Disc Blocks.png|16px]] [[Music Disc]]
+| {{code|music_disc_blocks}}
+|-
+| Rename
+| [[File:Music Disc Chirp.png|16px]] [[Music Disc]]
+| {{code|record_chirp}}
+| [[File:Music Disc Chirp.png|16px]] [[Music Disc]]
+| {{code|music_disc_chirp}}
+|-
+| Rename
+| [[File:Music Disc Far.png|16px]] [[Music Disc]]
+| {{code|record_far}}
+| [[File:Music Disc Far.png|16px]] [[Music Disc]]
+| {{code|music_disc_far}}
+|-
+| Rename
+| [[File:Music Disc Mall.png|16px]] [[Music Disc]]
+| {{code|record_mall}}
+| [[File:Music Disc Mall.png|16px]] [[Music Disc]]
+| {{code|music_disc_mall}}
+|-
+| Rename
+| [[File:Music Disc Mellohi.png|16px]] [[Music Disc]]
+| {{code|record_mellohi}}
+| [[File:Music Disc Mellohi.png|16px]] [[Music Disc]]
+| {{code|music_disc_mellohi}}
+|-
+| Rename
+| [[File:Music Disc Stal.png|16px]] [[Music Disc]]
+| {{code|record_stal}}
+| [[File:Music Disc Stal.png|16px]] [[Music Disc]]
+| {{code|music_disc_stal}}
+|-
+| Rename
+| [[File:Music Disc Strad.png|16px]] [[Music Disc]]
+| {{code|record_strad}}
+| [[File:Music Disc Strad.png|16px]] [[Music Disc]]
+| {{code|music_disc_strad}}
+|-
+| Rename
+| [[File:Music Disc Ward.png|16px]] [[Music Disc]]
+| {{code|record_ward}}
+| [[File:Music Disc Ward.png|16px]] [[Music Disc]]
+| {{code|music_disc_ward}}
+|-
+| Rename
+| [[File:Music Disc 11.png|16px]] [[Music Disc]]
+| {{code|record_11}}
+| [[File:Music Disc 11.png|16px]] [[Music Disc]]
+| {{code|music_disc_11}}
+|-
+| Rename
+| [[File:Music Disc Wait.png|16px]] [[Music Disc]]
+| {{code|record_wait}}
+| [[File:Music Disc Wait.png|16px]] [[Music Disc]]
+| {{code|music_disc_wait}}
+|}
+
+{{notelist|ids note}}
+
+== Entity IDs ==
+[[Entities]] that change their ID in any way also affect their statistics.
+{|class="wikitable"
+! Entity
+! [[Java Edition 1.12.2|1.12.2]]
+! [[Java Edition 1.13|1.13]]
+|-
+| [[File:Experience Orb.gif|16px]] [[Experience Orb]]
+| {{code|xp_orb}}
+| {{code|experience_orb}}
+|-
+| {{EntitySprite|bottle-o'-enchanting}} [[Bottle o' Enchanting]]
+| {{code|xp_bottle}}
+| {{code|experience_bottle}}
+|-
+| [[File:Eye of Ender.png|16px]] [[Eye of Ender]]
+| {{code|eye_of_ender_signal}}
+| {{code|eye_of_ender}}
+|-
+| [[File:End Crystal.png|16px]] [[End Crystal]]
+| {{code|ender_crystal}}
+| {{code|end_crystal}}
+|-
+| [[File:Firework Rocket.png|16px]] [[Firework Rocket]]
+| {{code|fireworks_rocket}}
+| {{code|firework_rocket}}
+|-
+| [[File:Minecart with Command Block.png|16px]] [[Minecart with Command Block]]
+| {{code|commandblock_minecart}}
+| {{code|command_block_minecart}}
+|-
+| [[File:Snow Golem.png|16px]] [[Snow Golem]]
+| {{code|snowman}}
+| {{code|snow_golem}}
+|-
+| [[File:Iron Golem.png|16px]] [[Iron Golem]]
+| {{code|villager_golem}}
+| {{code|iron_golem}}
+|-
+| [[File:Evoker Fangs.png|16px]] [[Evoker Fangs]]
+| {{code|evocation_fangs}}
+| {{code|evoker_fangs}}
+|-
+| [[File:Evoker.png|16px]] [[Evoker]]
+| {{code|evocation_illager}}
+| {{code|evoker}}
+|-
+| [[File:Vindicator.png|16px]] [[Vindicator]]
+| {{code|vindication_illager}}
+| {{code|vindicator}}
+|-
+| [[File:Illusioner.png|16px]] [[Illusioner]]
+| {{code|illusion_illager}}
+| {{code|illusioner}}
+|}
+
+== Biome IDs ==
+
+{|class="wikitable stikitable"
+! [[Biome]]
+! [[Java Edition 1.12.2|1.12.2]]
+! [[Java Edition 1.13|1.13]]
+|-
+| {{BiomeSprite|mountains}} [[Mountains]]
+| {{code|extreme_hills}}
+| {{code|mountains}}
+|-
+| {{BiomeSprite|swamp}} [[Swamp]]
+| {{code|swampland}}
+| {{code|swamp}}
+|-
+| {{BiomeSprite|nether}} [[Nether]]
+| {{code|hell}}
+| {{code|nether}}
+|-
+| {{BiomeSprite|the-end}} [[The End]]
+| {{code|sky}}
+| {{code|the_end}}
+|-
+| {{BiomeSprite|snowy-tundra}} [[Snowy Tundra]]
+| {{code|ice_flats}}
+| {{code|snowy_tundra}}
+|-
+| {{BiomeSprite|snowy-mountains}} [[Snowy Mountains]]
+| {{code|ice_mountains}}
+| {{code|snowy_mountains}}
+|-
+| {{BiomeSprite|mushroom-fields}} [[Mushroom Fields]]
+| {{code|mushroom_island}}
+| {{code|mushroom_fields}}
+|-
+| {{BiomeSprite|mushroom-field-shore}} [[Mushroom Field Shore]]
+| {{code|mushroom_island_shore}}
+| {{code|mushroom_field_shore}}
+|-
+| {{BiomeSprite|beach}} [[Beach]]
+| {{code|beaches}}
+| {{code|beach}}
+|-
+| {{BiomeSprite|wooded-hills}} [[Wooded Hills]]
+| {{code|forest_hills}}
+| {{code|wooded_hills}}
+|-
+| {{BiomeSprite|mountain-edge}} [[Mountain Edge]]
+| {{code|smaller_extreme_hills}}
+| {{code|mountain_edge}}
+|-
+| {{BiomeSprite|stone-shore}} [[Stone Shore]]
+| {{code|stone_beach}}
+| {{code|stone_shore}}
+|-
+| {{BiomeSprite|snowy-beach}} [[Snowy Beach]]
+| {{code|cold_beach}}
+| {{code|snowy_beach}}
+|-
+| {{BiomeSprite|dark-forest}} [[Dark Forest]]
+| {{code|roofed_forest}}
+| {{code|dark_forest}}
+|-
+| {{BiomeSprite|snowy-taiga}} [[Snowy Taiga]]
+| {{code|taiga_cold}}
+| {{code|snowy_taiga}}
+|-
+| {{BiomeSprite|snowy-taiga-hills}} [[Snowy Taiga Hills]]
+| {{code|taiga_cold_hills}}
+| {{code|snowy_taiga_hills}}
+|-
+| {{BiomeSprite|giant-tree-taiga}} [[Giant Tree Taiga]]
+| {{code|redwood_taiga}}
+| {{code|giant_tree_taiga}}
+|-
+| {{BiomeSprite|giant-tree-taiga-hills}} [[Giant Tree Taiga Hills]]
+| {{code|redwood_taiga_hills}}
+| {{code|giant_tree_taiga_hills}}
+|-
+| {{BiomeSprite|wooded-mountains}} [[Wooded Mountains]]
+| {{code|extreme_hills_with_trees}}
+| {{code|wooded_mountains}}
+|-
+| {{BiomeSprite|savanna-plateau}} [[Savanna Plateau]]
+| {{code|savanna_rock}}
+| {{code|savanna_plateau}}
+|-
+| {{BiomeSprite|badlands}} [[Badlands]]
+| {{code|mesa}}
+| {{code|badlands}}
+|-
+| {{BiomeSprite|wooded-badlands-plateau}} [[Wooded Badlands Plateau]]
+| {{code|mesa_rock}}
+| {{code|wooded_badlands_plateau}}
+|-
+| {{BiomeSprite|badlands-plateau}} [[Badlands Plateau]]
+| {{code|mesa_clear_rock}}
+| {{code|badlands_plateau}}
+|-
+| {{BiomeSprite|the-void}} [[The Void]]
+| {{code|void}}
+| {{code|the_void}}
+|-
+| {{BiomeSprite|sunflower-plains}} [[Sunflower Plains]]
+| {{code|mutated_plains}}
+| {{code|sunflower_plains}}
+|-
+| {{BiomeSprite|desert-lakes}} [[Desert Lakes]]
+| {{code|mutated_desert}}
+| {{code|desert_lakes}}
+|-
+| {{BiomeSprite|gravelly-mountains}} [[Gravelly Mountains]]
+| {{code|mutated_extreme_hills}}
+| {{code|gravelly_mountains}}
+|-
+| {{BiomeSprite|flower-forest}} [[Flower Forest]]
+| {{code|mutated_forest}}
+| {{code|flower_forest}}
+|-
+| {{BiomeSprite|taiga-mountains}} [[Taiga Mountains]]
+| {{code|mutated_taiga}}
+| {{code|taiga_mountains}}
+|-
+| {{BiomeSprite|swamp-hills}} [[Swamp Hills]]
+| {{code|mutated_swampland}}
+| {{code|swamp_hills}}
+|-
+| {{BiomeSprite|ice-spikes}} [[Ice Spikes]]
+| {{code|mutated_ice_flats}}
+| {{code|ice_spikes}}
+|-
+| {{BiomeSprite|modified-jungle}} [[Modified Jungle]]
+| {{code|mutated_jungle}}
+| {{code|modified_jungle}}
+|-
+| {{BiomeSprite|modified-jungle-edge}} [[Modified Jungle Edge]]
+| {{code|mutated_jungle_edge}}
+| {{code|modified_jungle_edge}}
+|-
+| {{BiomeSprite|tall-birch-forest}} [[Tall Birch Forest]]
+| {{code|mutated_birch_forest}}
+| {{code|tall_birch_forest}}
+|-
+| {{BiomeSprite|tall-birch-hills}} [[Tall Birch Hills]]
+| {{code|mutated_birch_forest_hills}}
+| {{code|tall_birch_hills}}
+|-
+| {{BiomeSprite|dark-forest-hills}} [[Dark Forest Hills]]
+| {{code|mutated_roofed_forest}}
+| {{code|dark_forest_hills}}
+|-
+| {{BiomeSprite|snowy-taiga-mountains}} [[Snowy Taiga Mountains]]
+| {{code|mutated_taiga_cold}}
+| {{code|snowy_taiga_mountains}}
+|-
+| {{BiomeSprite|giant-spruce-taiga}} [[Giant Spruce Taiga]]
+| {{code|mutated_redwood_taiga}}
+| {{code|giant_spruce_taiga}}
+|-
+| {{BiomeSprite|giant-spruce-taiga-hills}} [[Giant Spruce Taiga Hills]]
+| {{code|mutated_redwood_taiga_hills}}
+| {{code|giant_spruce_taiga_hills}}
+|-
+| {{BiomeSprite|modified-gravelly-mountains}} [[Gravelly Mountains+]]
+| {{code|mutated_extreme_hills_with_trees}}
+| {{code|modified_gravelly_mountains}}
+|-
+| {{BiomeSprite|shattered-savanna}} [[Shattered Savanna]]
+| {{code|mutated_savanna}}
+| {{code|shattered_savanna}}
+|-
+| {{BiomeSprite|shattered-savanna-plateau}} [[Shattered Savanna Plateau]]
+| {{code|mutated_savanna_rock}}
+| {{code|shattered_savanna_plateau}}
+|-
+| {{BiomeSprite|eroded-badlands}} [[Eroded Badlands]]
+| {{code|mutated_mesa}}
+| {{code|eroded_badlands}}
+|-
+| {{BiomeSprite|modified-wooded-badlands-plateau}} [[Modified Wooded Badlands Plateau]]
+| {{code|mutated_mesa_rock}}
+| {{code|modified_wooded_badlands_plateau}}
+|-
+| {{BiomeSprite|modified-badlands-plateau}} [[Modified Badlands Plateau]]
+| {{code|mutated_mesa_clear_rock}}
+| {{code|modified_badlands_plateau}}
+|}
+
+== Particle IDs ==
+
+[[Particle]] IDs started using resource locations ({{code|minecraft:}} in front) as well as changed the ID.
+{|class="wikitable stikitable"
+! Change
+! [[Java Edition 1.12.2|1.12.2]]
+! [[Java Edition 1.13|1.13]]
+|-
+| Rename
+| {{code|angryVillager}}
+| {{code|angry_villager}}
+|-
+| rowspan="2"| Merge
+| {{code|blockdust}}
+| rowspan="2"| {{code|block}}
+|-
+| {{code|blockcrack}}
+|-
+| Rename
+| {{code|damageIndicator}}
+| {{code|damage_indicator}}
+|-
+| Remove
+| {{code|depthsuspend}}
+| —
+|-
+| Rename
+| {{code|dragonbreath}}
+| {{code|dragon_breath}}
+|-
+| Rename
+| {{code|dripLava}}
+| {{code|dripping_lava}}
+|-
+| Rename
+| {{code|dripWater}}
+| {{code|dripping_water}}
+|-
+| Rename
+| {{code|droplet}}
+| {{code|rain}}
+|-
+| Rename
+| {{code|enchantmenttable}}
+| {{code|enchant}}
+|-
+| Rename
+| {{code|endRod}}
+| {{code|end_rod}}
+|-
+| rowspan="2"| Merge
+| {{code|explode}}
+| rowspan="2"| {{code|poof}}
+|-
+| {{code|snowshovel}}
+|-
+| Rename
+| {{code|fallingdust}}
+| {{code|falling_dust}}
+|-
+| Rename
+| {{code|fireworksSpark}}
+| {{code|firework}}
+|-
+| Remove
+| {{code|footstep}}
+| —
+|-
+| Rename
+| {{code|happyVillager}}
+| {{code|happy_villager}}
+|-
+| Rename
+| {{code|hugeexplosion}}
+| {{code|explosion_emitter}}
+|-
+| Rename
+| {{code|iconcrack}}
+| {{code|item}}
+|-
+| Rename
+| {{code|instantSpell}}
+| {{code|instant_effect}}
+|-
+| Rename
+| {{code|largeexplosion}}
+| {{code|explosion}}
+|-
+| Rename
+| {{code|largesmoke}}
+| {{code|large_smoke}}
+|-
+| Rename
+| {{code|magicCrit}}
+| {{code|enchanted_hit}}
+|-
+| Rename
+| {{code|mobappearance}}
+| {{code|elder_guardian}}
+|-
+| Rename
+| {{code|mobSpell}}
+| {{code|entity_effect}}
+|-
+| Rename
+| {{code|mobSpellAmbient}}
+| {{code|ambient_entity_effect}}
+|-
+| Rename
+| {{code|reddust}}
+| {{code|dust}}
+|-
+| Rename
+| {{code|slime}}
+| {{code|item_slime}}
+|-
+| Rename
+| {{code|snowballpoof}}
+| {{code|item_snowball}}
+|-
+| Rename
+| {{code|spell}}
+| {{code|effect}}
+|-
+| Rename
+| {{code|suspended}}
+| {{code|underwater}}
+|-
+| Rename
+| {{code|sweepAttack}}
+| {{code|sweep_attack}}
+|-
+| Remove
+| {{code|take}}
+| —
+|-
+| Rename
+| {{code|totem}}
+| {{code|totem_of_undying}}
+|-
+| Rename
+| {{code|townaura}}
+| {{code|mycelium}}
+|-
+| Rename
+| {{code|wake}}
+| {{code|fishing}}
+|-
+| Rename
+| {{code|witchMagic}}
+| {{code|witch}}
+|}
+
+== Sound events ==
+
+Some [[Sounds.json#Sound events|sound events]] were modified.
+
+{|class="wikitable stikitable"
+! [[Java Edition 1.12.2|1.12.2]]
+! [[Java Edition 1.13|1.13]]
+|-
+| {{code|block.cloth.break}}
+| {{code|block.wool.break}}
+|-
+| {{code|block.cloth.fall}}
+| {{code|block.wool.fall}}
+|-
+| {{code|block.cloth.hit}}
+| {{code|block.wool.hit}}
+|-
+| {{code|block.cloth.place}}
+| {{code|block.wool.place}}
+|-
+| {{code|block.cloth.step}}
+| {{code|block.wool.step}}
+|-
+| {{code|block.enderchest.close}}
+| {{code|block.ender_chest.close}}
+|-
+| {{code|block.enderchest.open}}
+| {{code|block.ender_chest.open}}
+|-
+| {{code|block.metal_pressureplate.click_off}}(fr*nch only)
+| {{code|block.metal_pressure_plate.click_off}}
+|-
+| {{code|block.metal_pressureplate.click_on}}
+| {{code|block.metal_pressure_plate.click_on}}
+|-
+| {{code|block.note.basedrum}}
+| {{code|block.note_block.basedrum}}
+|-
+| {{code|block.note.bass}}
+| {{code|block.note_block.bass}}
+|-
+| {{code|block.note.bell}}
+| {{code|block.note_block.bell}}
+|-
+| {{code|block.note.chime}}
+| {{code|block.note_block.chime}}
+|-
+| {{code|block.note.flute}}
+| {{code|block.note_block.flute}}
+|-
+| {{code|block.note.guitar}}
+| {{code|block.note_block.guitar}}
+|-
+| {{code|block.note.harp}}
+| {{code|block.note_block.harp}}
+|-
+| {{code|block.note.hat}}
+| {{code|block.note_block.hat}}
+|-
+| {{code|block.note.pling}}
+| {{code|block.note_block.pling}}
+|-
+| {{code|block.note.snare}}
+| {{code|block.note_block.snare}}
+|-
+| {{code|block.note.xylophone}}
+| {{code|block.note_block.xylophone}}
+|-
+| {{code|block.slime.break}}
+| {{code|block.slime_block.break}}
+|-
+| {{code|block.slime.fall}}
+| {{code|block.slime_block.fall}}
+|-
+| {{code|block.slime.hit}}
+| {{code|block.slime_block.hit}}
+|-
+| {{code|block.slime.place}}
+| {{code|block.slime_block.place}}
+|-
+| {{code|block.slime.step}}
+| {{code|block.slime_block.step}}
+|-
+| {{code|block.stone_pressureplate.click_off}}
+| {{code|block.stone_pressure_plate.click_off}}
+|-
+| {{code|block.stone_pressureplate.click_on}}
+| {{code|block.stone_pressure_plate.click_on}}
+|-
+| {{code|block.waterlily.place}}
+| {{code|block.lily_pad.place}}
+|-
+| {{code|block.wood_pressureplate.click_off}}
+| {{code|block.wooden_pressure_plate.click_off}}
+|-
+| {{code|block.wood_button.click_on}}
+| {{code|block.wooden_button.click_on}}
+|-
+| {{code|block.wood_button.click_off}}
+| {{code|block.wooden_button.click_off}}
+|-
+| {{code|block.wood_pressureplate.click_on}}
+| {{code|block.wooden_pressure_plate.click_on}}
+|-
+| {{code|entity.armorstand.break}}
+| {{code|entity.armor_stand.break}}
+|-
+| {{code|entity.armorstand.fall}}
+| {{code|entity.armor_stand.fall}}
+|-
+| {{code|entity.armorstand.hit}}
+| {{code|entity.armor_stand.hit}}
+|-
+| {{code|entity.armorstand.place}}
+| {{code|entity.armor_stand.place}}
+|-
+| {{code|entity.bobber.retrieve}}
+| {{code|entity.fishing_bobber.retrieve}}
+|-
+| {{code|entity.bobber.splash}}
+| {{code|entity.fishing_bobber.splash}}
+|-
+| {{code|entity.bobber.throw}}
+| {{code|entity.fishing_bobber.throw}}
+|-
+| {{code|entity.enderdragon.ambient}}
+| {{code|entity.ender_dragon.ambient}}
+|-
+| {{code|entity.enderdragon.death}}
+| {{code|entity.ender_dragon.death}}
+|-
+| {{code|entity.enderdragon.flap}}
+| {{code|entity.ender_dragon.flap}}
+|-
+| {{code|entity.enderdragon.growl}}
+| {{code|entity.ender_dragon.growl}}
+|-
+| {{code|entity.enderdragon.hurt}}
+| {{code|entity.ender_dragon.hurt}}
+|-
+| {{code|entity.enderdragon.shoot}}
+| {{code|entity.ender_dragon.shoot}}
+|-
+| {{code|entity.enderdragon_fireball.explode}}
+| {{code|entity.dragon_fireball.explode}}
+|-
+| {{code|entity.endereye.death}}
+| {{code|entity.ender_eye.death}}
+|-
+| {{code|entity.endereye.launch}}
+| {{code|entity.ender_eye.launch}}
+|-
+| {{code|entity.endermen.ambient}}
+| {{code|entity.enderman.ambient}}
+|-
+| {{code|entity.endermen.death}}
+| {{code|entity.enderman.death}}
+|-
+| {{code|entity.endermen.hurt}}
+| {{code|entity.enderman.hurt}}
+|-
+| {{code|entity.endermen.scream}}
+| {{code|entity.enderman.scream}}
+|-
+| {{code|entity.endermen.stare}}
+| {{code|entity.enderman.stare}}
+|-
+| {{code|entity.endermen.teleport}}
+| {{code|entity.enderman.teleport}}
+|-
+| {{code|entity.enderpearl.throw}}
+| {{code|entity.ender_pearl.throw}}
+|-
+| {{code|entity.evocation_fangs.attack}}
+| {{code|entity.evoker_fangs.attack}}
+|-
+| {{code|entity.evocation_illager.ambient}}
+| {{code|entity.evoker.ambient}}
+|-
+| {{code|entity.evocation_illager.cast_spell}}
+| {{code|entity.evoker.cast_spell}}
+|-
+| {{code|entity.evocation_illager.death}}
+| {{code|entity.evoker.death}}
+|-
+| {{code|entity.evocation_illager.hurt}}
+| {{code|entity.evoker.hurt}}
+|-
+| {{code|entity.evocation_illager.prepare_attack}}
+| {{code|entity.evoker.prepare_attack}}
+|-
+| {{code|entity.evocation_illager.prepare_summon}}
+| {{code|entity.evoker.prepare_summon}}
+|-
+| {{code|entity.evocation_illager.prepare_wololo}}
+| {{code|entity.evoker.prepare_wololo}}
+|-
+| {{code|entity.firework.blast}}
+| {{code|entity.firework_rocket.blast}}
+|-
+| {{code|entity.firework.blast_far}}
+| {{code|entity.firework_rocket.blast_far}}
+|-
+| {{code|entity.firework.large_blast}}
+| {{code|entity.firework_rocket.large_blast}}
+|-
+| {{code|entity.firework.large_blast_far}}
+| {{code|entity.firework_rocket.large_blast_far}}
+|-
+| {{code|entity.firework.launch}}
+| {{code|entity.firework_rocket.launch}}
+|-
+| {{code|entity.firework.shoot}}
+| {{code|entity.firework_rocket.shoot}}
+|-
+| {{code|entity.firework.twinkle}}
+| {{code|entity.firework_rocket.twinkle}}
+|-
+| {{code|entity.firework.twinkle_far}}
+| {{code|entity.firework_rocket.twinkle_far}}
+|-
+| {{code|entity.illusion_illager.ambient}}
+| {{code|entity.illusioner.ambient}}
+|-
+| {{code|entity.illusion_illager.cast_spell}}
+| {{code|entity.illusioner.cast_spell}}
+|-
+| {{code|entity.illusion_illager.death}}
+| {{code|entity.illusioner.death}}
+|-
+| {{code|entity.illusion_illager.hurt}}
+| {{code|entity.illusioner.hurt}}
+|-
+| {{code|entity.illusion_illager.mirror_move}}
+| {{code|entity.illusioner.mirror_move}}
+|-
+| {{code|entity.illusion_illager.prepare_blindness}}
+| {{code|entity.illusioner.prepare_blindness}}
+|-
+| {{code|entity.illusion_illager.prepare_mirror}}
+| {{code|entity.illusioner.prepare_mirror}}
+|-
+| {{code|entity.irongolem.attack}}
+| {{code|entity.iron_golem.attack}}
+|-
+| {{code|entity.irongolem.death}}
+| {{code|entity.iron_golem.death}}
+|-
+| {{code|entity.irongolem.hurt}}
+| {{code|entity.iron_golem.hurt}}
+|-
+| {{code|entity.irongolem.step}}
+| {{code|entity.iron_golem.step}}
+|-
+| {{code|entity.itemframe.add_item}}
+| {{code|entity.item_frame.add_item}}
+|-
+| {{code|entity.itemframe.break}}
+| {{code|entity.item_frame.break}}
+|-
+| {{code|entity.itemframe.place}}
+| {{code|entity.item_frame.place}}
+|-
+| {{code|entity.itemframe.remove_item}}
+| {{code|entity.item_frame.remove_item}}
+|-
+| {{code|entity.itemframe.rotate_item}}
+| {{code|entity.item_frame.rotate_item}}
+|-
+| {{code|entity.leashknot.break}}
+| {{code|entity.leash_knot.break}}
+|-
+| {{code|entity.leashknot.place}}
+| {{code|entity.leash_knot.place}}
+|-
+| {{code|entity.lightning.impact}}
+| {{code|entity.lightning_bolt.impact}}
+|-
+| {{code|entity.lightning.thunder}}
+| {{code|entity.lightning_bolt.thunder}}
+|-
+| {{code|entity.lingeringpotion.throw}}
+| {{code|entity.lingering_potion.throw}}
+|-
+| {{code|entity.magmacube.death}}
+| {{code|entity.magma_cube.death}}
+|-
+| {{code|entity.magmacube.hurt}}
+| {{code|entity.magma_cube.hurt}}
+|-
+| {{code|entity.magmacube.jump}}
+| {{code|entity.magma_cube.jump}}
+|-
+| {{code|entity.magmacube.squish}}
+| {{code|entity.magma_cube.squish}}
+|-
+| {{code|entity.parrot.imitate.enderdragon}}
+| {{code|entity.parrot.imitate.ender_dragon}}
+|-
+| {{code|entity.parrot.imitate.evocation_illager}}
+| {{code|entity.parrot.imitate.evoker}}
+|-
+| {{code|entity.parrot.imitate.illusion_illager}}
+| {{code|entity.parrot.imitate.illusioner}}
+|-
+| {{code|entity.parrot.imitate.magmacube}}
+| {{code|entity.parrot.imitate.magma_cube}}
+|-
+| {{code|entity.parrot.imitate.vindication_illager}}
+| {{code|entity.parrot.imitate.vindicator}}
+|-
+| {{code|entity.player.splash.highspeed}}
+| {{code|entity.player.splash.high_speed}}
+|-
+| {{code|entity.polar_bear.baby_ambient}}
+| {{code|entity.polar_bear.ambient_baby}}
+|-
+| {{code|entity.small_magmacube.death}}
+| {{code|entity.magma_cube.death_small}}
+|-
+| {{code|entity.small_magmacube.hurt}}
+| {{code|entity.magma_cube.hurt_small}}
+|-
+| {{code|entity.small_magmacube.squish}}
+| {{code|entity.magma_cube.squish_small}}
+|-
+| {{code|entity.small_slime.death}}
+| {{code|entity.slime.death_small}}
+|-
+| {{code|entity.small_slime.hurt}}
+| {{code|entity.slime.hurt_small}}
+|-
+| {{code|entity.small_slime.jump}}
+| {{code|entity.slime.jump_small}}
+|-
+| {{code|entity.small_slime.squish}}
+| {{code|entity.slime.squish_small}}
+|-
+| {{code|entity.snowman.ambient}}
+| {{code|entity.snow_golem.ambient}}
+|-
+| {{code|entity.snowman.death}}
+| {{code|entity.snow_golem.death}}
+|-
+| {{code|entity.snowman.hurt}}
+| {{code|entity.snow_golem.hurt}}
+|-
+| {{code|entity.snowman.shoot}}
+| {{code|entity.snow_golem.shoot}}
+|-
+| {{code|entity.vindication_illager.ambient}}
+| {{code|entity.vindicator.ambient}}
+|-
+| {{code|entity.vindication_illager.death}}
+| {{code|entity.vindicator.death}}
+|-
+| {{code|entity.vindication_illager.hurt}}
+| {{code|entity.vindicator.hurt}}
+|-
+| {{code|entity.zombie.attack_door_wood}}
+| {{code|entity.zombie.attack_wooden_door}}
+|-
+| {{code|entity.zombie.break_door_wood}}
+| {{code|entity.zombie.break_wooden_door}}
+|-
+| {{code|entity.zombie_pig.ambient}}
+| {{code|entity.zombie_pigman.ambient}}
+|-
+| {{code|entity.zombie_pig.angry}}
+| {{code|entity.zombie_pigman.angry}}
+|-
+| {{code|entity.zombie_pig.death}}
+| {{code|entity.zombie_pigman.death}}
+|-
+| {{code|entity.zombie_pig.hurt}}
+| {{code|entity.zombie_pigman.hurt}}
+|-
+| {{code|record.11}}
+| {{code|music_disc.11}}
+|-
+| {{code|record.13}}
+| {{code|music_disc.13}}
+|-
+| {{code|record.blocks}}
+| {{code|music_disc.blocks}}
+|-
+| {{code|record.cat}}
+| {{code|music_disc.cat}}
+|-
+| {{code|record.chirp}}
+| {{code|music_disc.chirp}}
+|-
+| {{code|record.far}}
+| {{code|music_disc.far}}
+|-
+| {{code|record.mall}}
+| {{code|music_disc.mall}}
+|-
+| {{code|record.mellohi}}
+| {{code|music_disc.mellohi}}
+|-
+| {{code|record.stal}}
+| {{code|music_disc.stal}}
+|-
+| {{code|record.strad}}
+| {{code|music_disc.strad}}
+|-
+| {{code|record.wait}}
+| {{code|music_disc.wait}}
+|-
+| {{code|record.ward}}
+| {{code|music_disc.ward}}
+|}
+
+== Block states ==
+
+Some [[block state]]s were modified.
+
+{|class="wikitable stikitable"
+! colspan="2" | [[Java Edition 1.12.2|1.12.2]]
+! colspan="2" | [[Java Edition 1.13|1.13]]
+|-
+! Block
+! States
+! Block
+! States
+|-
+| [[File:Stone.png|16px]] [[Stone]]
+| {{code|variant}}
+| [[File:Stone.png|16px]] [[Stone]]
+| —
+|-
+| rowspan="2" | [[File:Dirt.png|16px]] [[Dirt]]
+| rowspan="2" | {{code|variant}}<br>{{code|snowy}}
+| [[File:Dirt.png|16px]] [[Dirt]]
+[[File:Coarse Dirt.png|16px]] [[Coarse Dirt]]
+| —
+|-
+| [[File:Podzol.png|16px]] [[Podzol]]
+| {{code|snowy}}
+|-
+| [[File:Oak Planks.png|16px]] [[Planks]]
+| {{code|variant}}
+| [[File:Oak Planks.png|16px]] [[Planks]]
+| —
+|-
+| [[File:Oak Sapling.png|16px]] [[Sapling]]
+| {{code|type}}
+| [[File:Oak Sapling.png|16px]] [[Sapling]]
+| —
+|-
+| [[File:Sand.png|16px]] [[Sand]]
+| {{code|variant}}
+| [[File:Sand.png|16px]] [[Sand]]
+| —
+|-
+| [[File:Oak Log (UD) JE5 BE3.png|16px]] [[Log]]
+| rowspan="2" | {{code|variant}}<br>{{code|<nowiki>axis=none|x|y|z</nowiki>}}
+| rowspan="2" | [[File:Oak Log (UD) JE5 BE3.png|16px]] [[Log]]
+[[File:Oak Wood.png|16px]] [[Wood]]
+| rowspan="2" | {{code|<nowiki>axis=x|y|z</nowiki>}}
+|-
+| [[File:Acacia Log.png|16px]] [[Log]] (2)
+|-
+| [[File:Oak Leaves.png|16px]] [[Leaves]]
+| rowspan="2" | {{code|variant}}<br>{{code|decayable}}
+
+{{code|check_decay}}
+| rowspan="2" | [[File:Oak Leaves.png|16px]] [[Leaves]]
+| rowspan="2" | {{code|<nowiki>distance=1-7</nowiki>}}<br>{{code|<nowiki>persistent=true|false</nowiki>}}
+|-
+|[[File:Acacia Leaves.png|16px]] [[Leaves]] (2)
+|-
+| [[File:Sponge.png|16px]] [[Sponge]]
+| {{code|wet}}
+| [[File:Sponge.png|16px]] [[Sponge]]
+| —
+|-
+| [[File:Sandstone.png|16px]] [[Sandstone]]
+| {{code|type}}
+| [[File:Sandstone.png|16px]] [[Sandstone]]
+| —
+|-
+| [[File:Note Block.png|16px]] [[Note Block]]
+| —
+| [[File:Note Block.png|16px]] [[Note Block]]
+| {{code|<nowiki>note=0-24</nowiki>}}<br>{{code|<nowiki>powered=true|false</nowiki>}}<br>{{code|<nowiki>instrument=xylophone|chime|guitar|bell|flute|bass|hat|snare|basedrum|harp</nowiki>}}
+|-
+| [[File:Grass.png|16px]] [[Grass]]
+| {{code|type}}
+| [[File:Grass.png|16px]] [[Grass]]
+| —
+|-
+| [[File:Piston.png|16px]] [[Moving Piston]]
+| {{code|extended}}
+| [[File:Piston.png|16px]] [[Moving Piston]]
+| {{code|<nowiki>type=normal|sticky</nowiki>}}
+|-
+| [[File:White Wool.png|16px]] [[Wool]]
+| {{code|color}}
+| [[File:White Wool.png|16px]] [[Wool]] 
+| —
+|-
+| [[File:Dandelion.png|16px]] [[Dandelion]]
+| rowspan="2" | {{code|type}}
+| rowspan="2" | [[File:Poppy.png|16px]] [[Flower]]
+| rowspan="2" | —
+|-
+| [[File:Poppy.png|16px]] [[Flower]]
+|-
+| [[File:Oak Planks.png|16px]] [[slab|Double Wooden Slab]]
+| {{code|variant}}
+| rowspan="2" | [[File:Oak Slab.png|16px]] [[Wooden Slab]]
+| rowspan="2" | {{code|<nowiki>type=top|bottom|double</nowiki>}}
+|-
+| [[File:Oak Slab.png|16px]] [[Wooden Slab]]
+| {{code|variant}}<br>{{code|half}}
+|-
+| [[File:Double Smooth Stone Slab.png|16px]] [[Double Stone Slab]]
+| {{code|variant}}<br>{{code|seamless}}
+| rowspan="2" | [[File:Smooth Stone Slab.png|16px]] [[Stone Slab]]
+| rowspan="2" | {{code|<nowiki>type=top|bottom|double</nowiki>}}
+|-
+| [[File:Smooth Stone Slab.png|16px]] [[Stone Slab]]
+| {{code|variant}}<br>{{code|half}}
+|-
+| [[File:Red Sandstone.png|16px]] [[Double Red Sandstone Slab]]
+| {{code|variant}}<br>{{code|seamless}}
+| rowspan="2" | [[File:Red Sandstone Slab.png|16px]] [[Red Sandstone Slab]]
+| rowspan="2" | {{code|<nowiki>type=top|bottom|double</nowiki>}}
+|-
+| [[File:Red Sandstone Slab.png|16px]] [[Red Sandstone Slab]]
+| {{code|variant}}<br>{{code|half}}
+|-
+| [[File:Purpur Block.png|16px]] [[Double Purpur Slab]]
+| {{code|variant}}
+| rowspan="2" |[[File:Purpur Slab.png|16px]] [[Purpur Slab]]
+| rowspan="2" | {{code|<nowiki>type=top|bottom|double</nowiki>}}
+|-
+| [[File:Purpur Slab.png|16px]] [[Purpur Slab]]
+| {{code|variant}}<br>{{code|half}}
+|-
+| [[File:TNT.png|16px]] [[TNT]]
+| {{code|<nowiki>explode</nowiki>}}
+| [[File:TNT.png|16px]] [[TNT]]
+| —
+|-
+| rowspan="2" | [[File:Torch.png|16px]] [[Torch]]
+| rowspan="2" | {{code|<nowiki>facing=north|east|south|west|up</nowiki>}}
+| [[File:Wall Torch.png|16px]] [[Wall Torch]]
+| {{code|<nowiki>facing=north|south|east|west</nowiki>}}
+|-
+| [[File:Torch.png|16px]] [[Torch]]
+| —
+|-
+| [[File:Chest.png|16px]] [[Chest]]
+| —
+| [[File:Chest.png|16px]] [[Chest]]
+| {{code|<nowiki>type=single|left|right</nowiki>}}
+|-
+| [[File:Furnace.png|16px]] [[Furnace]]
+| rowspan="2" | —
+| rowspan="2" | [[File:Furnace.png|16px]] [[Furnace]]
+| rowspan="2" | {{code|<nowiki>lit=true|false</nowiki>}}
+|-
+| [[File:Lit Furnace.png|16px]] [[Lit Furnace]]
+|-
+| [[File:Lever.png|16px]] [[Lever]]
+| {{code|<nowiki>facing=north|east|south|west|</nowiki>}}<br>{{code|<nowiki>|up_x|down_x|up_z|down_z</nowiki>}}
+| [[File:Lever.png|16px]] [[Lever]]
+| {{code|<nowiki>face=ceiling|wall|floor</nowiki>}}<br>{{code|<nowiki>facing=north|east|south|west</nowiki>}}
+|-
+| [[File:Redstone Ore.png|16px]] [[Redstone Ore]]
+| rowspan="2" | —
+| rowspan="2" | [[File:Redstone Ore.png|16px]] [[Redstone Ore]]
+| rowspan="2" | {{code|<nowiki>lit=true|false</nowiki>}}
+|-
+| [[File:Lit Redstone Ore.png|16px]] [[Lit Redstone Ore]]
+|-
+| [[File:Unlit Redstone Torch.png|16px]] [[Redstone Torch|Unlit Redstone Torch]]
+| rowspan="2" | {{code|<nowiki>facing=north|east|south|west|up</nowiki>}}
+| [[File:Redstone Wall Torch.png|16px]] [[Redstone Wall Torch]]
+| {{code|<nowiki>lit=true|false</nowiki>}}<br>{{code|<nowiki>facing=north|east|south|west</nowiki>}}
+|-
+| [[File:Redstone Torch.png|16px]] [[Redstone Torch]]
+| [[File:Redstone Torch.png|16px]] [[Redstone Torch]]
+| {{code|<nowiki>lit=true|false</nowiki>}}
+|-
+| [[File:Stone Button.png|16px]] [[Stone Button]]
+| {{code|<nowiki>facing=north|east|south|west|up|down</nowiki>}}
+| [[File:Stone Button.png|16px]] [[Stone Button]]
+| {{code|<nowiki>face=ceiling|wall|floor</nowiki>}}<br>{{code|<nowiki>facing=north|east|south|west</nowiki>}}
+|-
+| [[File:Oak Trapdoor.png|16px]] [[Oak Trapdoor]]
+| —
+| [[File:Oak Trapdoor.png|16px]] [[Oak Trapdoor]]
+| {{code|<nowiki>powered=true|false</nowiki>}}
+|-
+| [[File:Stone.png|16px]] [[Infested Block]]
+| {{code|variant}}
+| [[File:Stone.png|16px]] [[Infested Block]]
+| —
+|-
+| [[File:Stone Bricks.png|16px]] [[Stone Bricks]]
+| {{code|variant}}
+| [[File:Stone Bricks.png|16px]] [[Stone Bricks]]
+| —
+|-
+| rowspan="2" | [[File:Brown Mushroom Block.png|16px]] [[Brown Mushroom Block]]
+| rowspan="2" | {{code|variant}}
+| [[File:Brown Mushroom Block.png|16px]] [[Brown Mushroom Block]]
+| {{code|<nowiki>up=true|false</nowiki>}}<br>{{code|<nowiki>down=true|false</nowiki>}}<br>{{code|<nowiki>north=true|false</nowiki>}}<br>{{code|<nowiki>south=true|false</nowiki>}}<br>{{code|<nowiki>east=true|false</nowiki>}}<br>{{code|<nowiki>west=true|false</nowiki>}}
+|-
+| rowspan="2" | [[File:Mushroom Stem.png|16px]] [[Mushroom Stem]]
+| rowspan="2" |
+{{code|<nowiki>up=true|false</nowiki>}}<br>{{code|<nowiki>down=true|false</nowiki>}}<br>{{code|<nowiki>north=true|false</nowiki>}}<br>{{code|<nowiki>south=true|false</nowiki>}}<br>{{code|<nowiki>east=true|false</nowiki>}}<br>{{code|<nowiki>west=true|false</nowiki>}}
+|-
+| rowspan="2" | [[File:Red Mushroom Block.png|16px]] [[Red Mushroom Block]]
+| rowspan="2" | {{code|variant}}
+|-
+| [[File:Red Mushroom Block.png|16px]] [[Red Mushroom Block]]
+| {{code|<nowiki>up=true|false</nowiki>}}<br>{{code|<nowiki>down=true|false</nowiki>}}<br>{{code|<nowiki>north=true|false</nowiki>}}<br>{{code|<nowiki>south=true|false</nowiki>}}<br>{{code|<nowiki>east=true|false</nowiki>}}<br>{{code|<nowiki>west=true|false</nowiki>}}
+|-
+| [[File:Redstone Lamp.png|16px]] [[Redstone Lamp]]
+| rowspan="2" | —
+| rowspan="2" | [[File:Redstone Lamp.png|16px]] [[Redstone Lamp]]
+| rowspan="2" | {{code|<nowiki>lit=true|false</nowiki>}}
+|-
+| [[File:Lit Redstone Lamp.png|16px]] [[Lit Redstone Lamp]]
+|-
+| [[File:Cobblestone Wall.png|16px]] [[Cobblestone Wall]]
+| {{code|variant}}
+| [[File:Cobblestone Wall.png|16px]] [[Cobblestone Wall]]
+| —
+|-
+| [[File:Oak Button.png|16px]] [[Oak Button]]
+| {{code|<nowiki>facing=north|east|south|west|up|down</nowiki>}}
+| [[File:Oak Button.png|16px]] [[Oak Button]]
+| {{code|<nowiki>face=ceiling|wall|floor</nowiki>}}<br>{{code|<nowiki>facing=north|east|south|west</nowiki>}}
+|-
+| [[File:Anvil.png|16px]] [[Anvil]]
+| {{code|damage}}
+| [[File:Anvil.png|16px]] [[Anvil]]
+| {{Code|<nowiki>facing=north|east|south|west</nowiki>}}
+|-
+| [[File:Trapped Chest.png|16px]] [[Trapped Chest]]
+| —
+| [[File:Trapped Chest.png|16px]] [[Trapped Chest]]
+| {{code|<nowiki>type=single|left|right</nowiki>}}
+|-
+| [[File:Daylight Detector.png|16px]] [[Daylight Detector]]
+| —
+| [[File:Daylight Detector.png|16px]] [[Daylight Detector]]
+| {{code|<nowiki>inverted=true|false</nowiki>}}
+|-
+| rowspan="3" | [[File:Block of Quartz.png|16px]] [[Block of Quartz]]
+| rowspan="3" | {{code|variant}}
+| [[File:Block of Quartz.png|16px]] [[Block of Quartz]]
+| —
+|-
+| [[File:Chiseled Quartz Block.png|16px]] [[Chiseled Quartz Block]]
+| —
+|-
+| [[File:Quartz Pillar.png|16px]] [[Quartz Pillar]]
+| {{code|<nowiki>axis=x|y|z</nowiki>}}
+|-
+| [[File:White Terracotta.png|16px]] [[Colored Terracotta]]
+| {{code|color}}
+| [[File:White Terracotta.png|16px]] [[Colored Terracotta]]
+| —
+|-
+| [[File:Iron Trapdoor.png|16px]] [[Iron Trapdoor]]
+| —
+| [[File:Iron Trapdoor.png|16px]] [[Iron Trapdoor]]
+| {{code|<nowiki>powered=true|false</nowiki>}}
+|-
+| [[File:White Carpet.png|16px]] [[Carpet]]
+| {{code|color}}
+| [[File:White Carpet.png|16px]] [[Carpet]]
+| —
+|-
+| {{BlockSprite|sunflower}} [[Flower|Double Plant]]
+| {{code|facing}}<br>{{code|variant}}
+| {{BlockSprite|sunflower}} [[Flower|Double Plant]]
+| —
+|-
+| [[File:White Stained Glass.png|16px]] [[Stained Glass]]
+| {{code|color}}
+| [[File:White Stained Glass.png|16px]] [[Stained Glass]]
+| —
+|-
+| [[File:White Stained Glass Pane.png|16px]] [[Stained Glass Pane]]
+| {{code|color}}
+| [[File:White Stained Glass Pane.png|16px]] [[Stained Glass Pane]]
+| —
+|-
+| [[File:Prismarine.png|16px]] [[Prismarine]]
+| {{code|variant}}
+| [[File:Prismarine.png|16px]] [[Prismarine]]
+| —
+|-
+| [[File:Red Sandstone.png|16px]] [[Red Sandstone]]
+| {{code|variant}}
+| [[File:Red Sandstone.png|16px]] [[Red Sandstone]]
+| —
+|-
+| [[File:White Concrete.png|16px]] [[Concrete]]
+| {{code|color}}
+| [[File:White Concrete.png|16px]] [[Concrete]]
+| —
+|-
+| [[File:White Concrete Powder.png|16px]] [[Concrete Powder]]
+| {{code|color}}
+| [[File:White Concrete Powder.png|16px]] [[Concrete Powder]]
+| —
+|-
+| [[File:Redstone Repeater (S) JE4.png|16px]] [[Repeater|Unpowered Redstone Repeater]]
+| rowspan="2" | —
+| rowspan="2" | [[File:Redstone Repeater.png|16px]] [[Redstone Repeater]]
+| rowspan="2" | {{code|<nowiki>powered=true|false</nowiki>}}
+|-
+| [[File:Powered Redstone Repeater (S) JE7.png|16px]] [[Repeater|Powered Redstone Repeater]]
+|-
+| rowspan="2" | [[File:Pumpkin Stem.png|16px]] [[Pumpkin Stem]]
+| rowspan="2" | {{code|age}}<br>{{code|<nowiki>facing=north|south|east|west|up</nowiki>}}
+| [[File:Pumpkin Stem.png|16px]] [[Pumpkin Stem]]
+| {{code|age}}
+|-
+| [[File:Attached Pumpkin Stem.png|16px]] [[Attached Pumpkin Stem]]
+| {{code|<nowiki>facing=north|south|east|west</nowiki>}}
+|-
+| rowspan="2" | [[File:Melon Stem.png|16px]] [[Melon Stem]]
+| rowspan="2" | {{code|age}}<br>{{code|<nowiki>facing=north|south|east|west|up</nowiki>}}
+| [[File:Melon Stem.png|16px]] [[Melon Stem]]
+| {{code|age}}
+|-
+| [[File:Attached Melon Stem.png|16px]] [[Attached Melon Stem]]
+| {{code|<nowiki>facing=north|south|east|west</nowiki>}}
+|-
+| [[File:Flower Pot.png|16px]] [[Flower Pot]]
+| {{code|legacy_data}}<br>{{code|contents}}
+| [[File:Flower Pot.png|16px]] [[Flower Pot]]
+| —
+|-
+| rowspan="2" | [[File:Head.png|16px]] [[Head]]
+| rowspan="2" | {{code|<nowiki>facing=north|east|south|west|up|down</nowiki>}}<br>{{code|<nowiki>nodrop</nowiki>}}
+| [[File:Skeleton Skull.png|16px]] [[Skeleton Skull]]
+[[File:Wither Skeleton Skull.png|16px]] [[Wither Skeleton Skull]]
+
+[[File:Zombie Head.png|16px]] [[Zombie Head]]
+
+[[File:Player Head.png|16px]] [[Player Head]]
+
+[[File:Creeper Head.png|16px]] [[Creeper Head]]
+
+[[File:Dragon Head.png|16px]] [[Dragon Head]]
+| {{code|<nowiki>rotation=0-15</nowiki>}}
+|-
+| [[File:Skeleton Skull.png|16px]] [[Skeleton Wall Skull]]
+[[File:Wither Skeleton Skull.png|16px]] [[Wither Skeleton Wall Skull]]
+
+[[File:Zombie Head.png|16px]] [[Zombie Wall Head]]
+
+[[File:Player Head.png|16px]] [[Player Wall Head]]
+
+[[File:Creeper Head.png|16px]] [[Creeper Wall Head]]
+
+[[File:Dragon Head.png|16px]] [[Dragon Wall Head]]
+| {{code|<nowiki>facing=north|east|south|west</nowiki>}}
+|}
+
+{{notelist|state note}}
+
+== Painting motifs ==
+
+[[Painting#Canvases|Painting motifs]] started using resource locations ({{code|minecraft:}} in front) as well as changed the ID to follow the snake case naming convention (uncapitalised and separated with underscores).
+{|class="wikitable stikitable"
+! Painting
+! [[Java Edition 1.12.2|1.12.2]]
+! [[Java Edition 1.13|1.13]]
+|-
+| [[File:Kebab (texture).png|128px]]
+| {{code|Kebab}}
+| {{code|kebab}}
+|-
+| [[File:Aztec (texture).png|128px]]
+| {{code|Aztec}}
+| {{code|aztec}}
+|-
+| [[File:Alban (texture).png|128px]]
+| {{code|Alban}}
+| {{code|alban}}
+|-
+| [[File:Aztec2 (texture).png|128px]]
+| {{code|Aztec2}}
+| {{code|aztec2}}
+|-
+| [[File:Bomb (texture).png|128px]]
+| {{code|Bomb}}
+| {{code|bomb}}
+|-
+| [[File:Plant (texture).png|128px]]
+| {{code|Plant}}
+| {{code|plant}}
+|-
+| [[File:Wasteland (texture).png|128px]]
+| {{code|Wasteland}}
+| {{code|wasteland}}
+|-
+| [[File:Wanderer (texture).png|128px]]
+| {{code|Wanderer}}
+| {{code|wanderer}}
+|-
+| [[File:Graham (texture).png|128px]]
+| {{code|Graham}}
+| {{code|graham}}
+|-
+| [[File:Pool (texture).png|128px]]
+| {{code|Pool}}
+| {{code|pool}}
+|-
+| [[File:Courbet (texture).png|128px]]
+| {{code|Courbet}}
+| {{code|courbet}}
+|-
+| [[File:Sunset (texture).png|128px]]
+| {{code|Sunset}}
+| {{code|sunset}}
+|-
+| [[File:Sea (texture).png|128px]]
+| {{code|Sea}}
+| {{code|sea}}
+|-
+| [[File:Creebet (texture).png|128px]]
+| {{code|Creebet}}
+| {{code|creebet}}
+|-
+| [[File:Match (texture).png|128px]]
+| {{code|Match}}
+| {{code|match}}
+|-
+| [[File:Bust (texture).png|128px]]
+| {{code|Bust}}
+| {{code|bust}}
+|-
+| [[File:Stage (texture).png|128px]]
+| {{code|Stage}}
+| {{code|stage}}
+|-
+| [[File:Void (texture).png|128px]]
+| {{code|Void}}
+| {{code|void}}
+|-
+| [[File:Skull and Roses (texture).png|128px]]
+| {{code|SkullAndRoses}}
+| {{code|skull_and_roses}}
+|-
+| [[File:Wither (painting texture).png|128px]]
+| {{code|Wither}}
+| {{code|wither}}
+|-
+| [[File:Fighters (texture).png|128px]]
+| {{code|Fighters}}
+| {{code|fighters}}
+|-
+| [[File:Skeleton (painting texture).png|128px]]
+| {{code|Skeleton}}
+| {{code|skeleton}}
+|-
+| [[File:Donkey Kong (texture).png|128px]]
+| {{code|DonkeyKong}}
+| {{code|donkey_kong}}
+|-
+| [[File:Pointer (texture).png|128px]]
+| {{code|Pointer}}
+| {{code|pointer}}
+|-
+| [[File:Pigscene (texture).png|128px]]
+| {{code|Pigscene}}
+| {{code|pigscene}}
+|-
+| [[File:Burning Skull (texture).png|128px]]
+| {{code|BurningSkull}}
+| {{code|burning_skull}}
+|}
+
+== Names ==
+
+The [[Java Edition data values|names]] of some blocks and items were changed.
+
+{|class="wikitable stikitable"
+! [[Java Edition 1.12.2|1.12.2]]
+! [[Java Edition 1.13|1.13]]
+|-
+| [[File:Oak Planks.png|16px]] Oak Wood Planks
+| [[Oak Planks]]
+|-
+| [[File:Spruce Planks.png|16px]] Spruce Wood Planks
+| [[Spruce Planks]]
+|-
+| [[File:Birch Planks.png|16px]] Birch Wood Planks
+| [[Birch Planks]]
+|-
+| [[File:Jungle Planks.png|16px]] Jungle Wood Planks
+| [[Jungle Planks]]
+|-
+| [[File:Acacia Planks.png|16px]] Acacia Wood Planks
+| [[Acacia Planks]]
+|-
+| [[File:Dark Oak Planks.png|16px]] Dark Oak Wood Planks
+| [[Dark Oak Planks]]
+|-
+| [[File:Oak Log (UD) JE5 BE3.png|16px]] Oak Wood
+| [[Oak Log]]
+|-
+| [[File:Spruce Log.png|16px]] Spruce Wood
+| [[Spruce Log]]
+|-
+| [[File:Birch Log.png|16px]] Birch Wood
+| [[Birch Log]]
+|-
+| [[File:Jungle Log.png|16px]] Jungle Wood
+| [[Jungle Log]]
+|-
+| [[File:Acacia Log.png|16px]] Acacia Wood
+| [[Acacia Log]]
+|-
+| [[File:Dark Oak Log.png|16px]] Dark Oak Wood
+| [[Dark Oak Log]]
+|-
+| [[File:Cut Sandstone.png|16px]] Smooth Sandstone
+| [[Cut Sandstone]]
+|-
+| [[File:Piston Head.png|16px]] Piston
+| [[Piston Head]]
+|-
+| [[File:Piston.png|16px]] tile.null.name
+| [[Moving Piston]]
+|-
+| [[File:Brown Mushroom.png|16px]] Mushroom
+| [[Brown Mushroom]]
+|-
+| [[File:Red Mushroom.png|16px]] Mushroom
+| [[Red Mushroom]]
+|-
+| [[File:Oak Slab.png|16px]] Oak Wood Slab
+| [[Oak Slab]]
+|-
+| [[File:Spruce Slab.png|16px]] Spruce Wood Slab
+| [[Spruce Slab]]
+|-
+| [[File:Birch Slab.png|16px]] Birch Wood Slab
+| [[Birch Slab]]
+|-
+| [[File:Jungle Slab.png|16px]] Jungle Wood Slab
+| [[Jungle Slab]]
+|-
+| [[File:Acacia Slab.png|16px]] Acacia Wood Slab
+| [[Acacia Slab]]
+|-
+| [[File:Dark Oak Slab.png|16px]] Dark Oak Wood Slab
+| [[Dark Oak Slab]]
+|-
+| [[File:Petrified Oak Slab.png|16px]] Wooden Slab
+| [[Petrified Oak Slab]]
+|-
+| [[File:Brick Slab.png|16px]] Bricks Slab
+| [[Brick Slab]]
+|-
+| [[File:Stone Brick Slab.png|16px]] Stone Bricks Slab
+| [[Stone Brick Slab]]
+|-
+| [[File:Smooth Stone.png|16px]] Stone Slab
+| [[Smooth Stone]]
+|-
+| [[File:Smooth Sandstone.png|16px]] Stone Slab
+| [[Smooth Sandstone]]
+|-
+| [[File:Smooth Quartz.png|16px]] Stone Slab
+| [[Smooth Quartz]]
+|-
+| [[File:Smooth Red Sandstone.png|16px]] Stone Slab
+| [[Smooth Red Sandstone]]
+|-
+| [[File:Mossy Cobblestone.png|16px]] Moss Stone
+| [[Mossy Cobblestone]]
+|-
+| [[File:Spawner.png|16px]] Monster Spawner
+| [[Spawner]]
+|-
+| [[File:Nether Portal.png|16px]] Portal
+| [[Nether Portal]]
+|-
+| [[File:Wall Torch.png|16px]] Torch (on a wall)
+| [[Wall Torch]]
+|-
+| [[File:Oak Stairs.png|16px]] Oak Wood Stairs
+| [[Oak Stairs]]
+|-
+| [[File:Oak Pressure Plate.png|16px]] Wooden Pressure Plate
+| [[Oak Pressure Plate]]
+|-
+| [[File:Redstone Wall Torch.png|16px]] Redstone Torch (on a wall)
+| [[Redstone Wall Torch]]
+|-
+| [[File:Stone Button.png|16px]] Button
+| [[Stone Button]]
+|-
+| [[File:Snow Block.png|16px]] Snow
+| [[Snow Block]]
+|-
+| [[File:Carved Pumpkin.png|16px]] Pumpkin
+| [[Carved Pumpkin]]
+|-
+| [[File:Oak Trapdoor.png|16px]] Wooden Trapdoor
+| [[Oak Trapdoor]]
+|-
+| [[File:Stone.png|16px]] Stone Monster Egg
+| [[Infested Stone]]
+|-
+| [[File:Cobblestone.png|16px]] Cobblestone Monster Egg
+| [[Infested Cobblestone]]
+|-
+| [[File:Stone Bricks.png|16px]] Stone Bricks Monster Egg
+| [[Infested Stone Bricks]]
+|-
+| [[File:Mossy Stone Bricks.png|16px]] Mossy Stone Brick Monster Egg
+| [[Infested Mossy Stone Bricks]]
+|-
+| [[File:Cracked Stone Bricks.png|16px]] Cracked Stone Brick Monster Egg
+| [[Infested Cracked Stone Bricks]]
+|-
+| [[File:Chiseled Stone Bricks.png|16px]] Chiseled Stone Brick Monster Egg
+| [[Infested Chiseled Stone Bricks]]
+|-
+| [[File:Brown Mushroom Block.png|16px]] Mushroom
+| [[Brown Mushroom Block]]
+|-
+| [[File:Red Mushroom Block.png|16px]] Mushroom
+| [[Red Mushroom Block]]
+|-
+| [[File:Nether Bricks.png|16px]] Nether Brick
+| [[Nether Bricks]]
+|-
+| [[File:Enchanting Table.png|16px]] Enchantment Table
+| [[Enchanting Table]]
+|-
+| [[File:End Portal Frame.png|16px]] End Portal
+| [[End Portal Frame]]
+|-
+| [[File:End Portal.png|16px]] tile.null.name
+| [[End Portal]]
+|-
+| [[File:End Gateway.png|16px]] tile.null.name
+| [[End Gateway]]
+|-
+| [[File:Spruce Stairs.png|16px]] Spruce Wood Stairs
+| [[Spruce Stairs]]
+|-
+| [[File:Birch Stairs.png|16px]] Birch Wood Stairs
+| [[Birch Stairs]]
+|-
+| [[File:Jungle Stairs.png|16px]] Jungle Wood Stairs
+| [[Jungle Stairs]]
+|-
+| [[File:Oak Button.png|16px]] Button
+| [[Oak Button]]
+|-
+| [[File:Chipped Anvil.png|16px]] Slightly Damaged Anvil
+| [[Chipped Anvil]]
+|-
+| [[File:Damaged Anvil.png|16px]] Very Damaged Anvil
+| [[Damaged Anvil]]
+|-
+| [[File:Light Weighted Pressure Plate.png|16px]] Weighted Pressure Plate (Light)
+| [[Light Weighted Pressure Plate]]
+|-
+| [[File:Heavy Weighted Pressure Plate.png|16px]] Weighted Pressure Plate (Heavy)
+| [[Heavy Weighted Pressure Plate]]
+|-
+| [[File:Daylight Detector.png|16px]] Daylight Sensor
+| [[Daylight Detector]]
+|-
+| [[File:Quartz Pillar.png|16px]] Pillar Quartz Block
+| [[Quartz Pillar]]
+|-
+| [[File:Acacia Stairs.png|16px]] Acacia Wood Stairs
+| [[Acacia Stairs]]
+|-
+| [[File:Dark Oak Stairs.png|16px]] Dark Oak Wood Stairs
+| [[Dark Oak Stairs]]
+|-
+| [[File:Tall Grass.png|16px]] Double Tallgrass
+| [[Tall Grass]]
+|-
+| [[File:Cut Red Sandstone.png|16px]] Smooth Red Sandstone
+| [[Cut Red Sandstone]]
+|-
+| [[File:Red Nether Bricks.png|16px]] Red Nether Brick
+| [[Red Nether Bricks]]
+|-
+| [[File:Wheat Seeds.png|16px]] Seeds
+| [[Wheat Seeds]]
+|-
+| [[File:Wheat Crops.png|16px]] Crops
+| [[Wheat Crops]]
+|-
+| [[File:Chainmail Helmet (item).png|16px]] Chain Helmet
+| [[Chainmail Helmet]]
+|-
+| [[File:Chainmail Chestplate (item).png|16px]] Chain Chestplate
+| [[Chainmail Chestplate]]
+|-
+| [[File:Chainmail Leggings (item).png|16px]] Chain Leggings
+| [[Chainmail Leggings]]
+|-
+| [[File:Chainmail Boots (item).png|16px]] Chain Boots
+| [[Chainmail Boots]]
+|-
+| [[File:Enchanted Golden Apple.gif|16px]] Golden Apple
+| [[Enchanted Golden Apple]]
+|-
+| [[File:Oak Wall Sign.png|16px]] Sign (on a wall)
+| [[Wall Sign]]
+|-
+| [[File:Redstone Dust.png|16px]] Redstone
+| [[Redstone Dust]]
+|-
+| [[File:Milk Bucket.png|16px]] Milk
+| [[Milk Bucket]]
+|-
+| [[File:Sugar Cane.png|16px]] Sugar Canes
+| [[Sugar Cane]]
+|-
+| [[File:Raw Cod.png|16px]] Raw Fish
+| [[Raw Cod]]
+|-
+| [[File:Tropical Fish.png|16px]] Clownfish
+| [[Tropical Fish]]
+|-
+| [[File:Cooked Cod.png|16px]] Cooked Fish
+| [[Cooked Cod]]
+|-
+| [[File:Melon Slice.png|16px]] Melon
+| [[Melon Slice]]
+|-
+| [[File:Attached Pumpkin Stem.png|16px]] Pumpkin Stem
+| [[Attached Pumpkin Stem]]
+|-
+| [[File:Melon Stem.png|16px]] Pumpkin Stem<ref group="names note" name="string">This is actually the melon stem, it used the same translation string as pumpkin stems.</ref>
+| [[Melon Stem]]
+|-
+| [[File:Attached Melon Stem.png|16px]] Pumpkin Stem <ref group="names note" name="string"/>
+| [[Melon Stem|Attached Melon Stem]]
+|-
+| [[File:Glistering Melon Slice.png|16px]] Glistering Melon
+| [[Glistering Melon Slice]]
+|-
+| [[File:Bat Spawn Egg.png|16px]] Spawn Bat
+| [[Bat Spawn Egg]]
+|-
+| [[File:Blaze Spawn Egg.png|16px]] Spawn Blaze
+| [[Blaze Spawn Egg]]
+|-
+| [[File:Cave Spider Spawn Egg.png|16px]] Spawn Cave Spider
+| [[Cave Spider Spawn Egg]]
+|-
+| [[File:Chicken Spawn Egg.png|16px]] Spawn Chicken
+| [[Chicken Spawn Egg]]
+|-
+| [[File:Cow Spawn Egg.png|16px]] Spawn Cow
+| [[Cow Spawn Egg]]
+|-
+| [[File:Creeper Spawn Egg.png|16px]] Spawn Creeper
+| [[Creeper Spawn Egg]]
+|-
+| [[File:Donkey Spawn Egg.png|16px]] Spawn Donkey
+| [[Donkey Spawn Egg]]
+|-
+| [[File:Elder Guardian Spawn Egg.png|16px]] Spawn Elder Guardian
+| [[Elder Guardian Spawn Egg]]
+|-
+| [[File:Enderman Spawn Egg.png|16px]] Spawn Enderman
+| [[Enderman Spawn Egg]]
+|-
+| [[File:Endermite Spawn Egg.png|16px]] Spawn Endermite
+| [[Endermite Spawn Egg]]
+|-
+| [[File:Evoker Spawn Egg.png|16px]] Spawn Evoker
+| [[Evoker Spawn Egg]]
+|-
+| [[File:Ghast Spawn Egg.png|16px]] Spawn Ghast
+| [[Ghast Spawn Egg]]
+|-
+| [[File:Guardian Spawn Egg.png|16px]] Spawn Guardian
+| [[Guardian Spawn Egg]]
+|-
+| [[File:Horse Spawn Egg.png|16px]] Spawn Horse
+| [[Horse Spawn Egg]]
+|-
+| [[File:Husk Spawn Egg.png|16px]] Spawn Husk
+| [[Husk Spawn Egg]]
+|-
+| [[File:Llama Spawn Egg.png|16px]] Spawn Llama
+| [[Llama Spawn Egg]]
+|-
+| [[File:Magma Cube Spawn Egg.png|16px]] Spawn Magma Cube
+| [[Magma Cube Spawn Egg]]
+|-
+| [[File:Mooshroom Spawn Egg.png|16px]] Spawn Mooshroom
+| [[Mooshroom Spawn Egg]]
+|-
+| [[File:Mule Spawn Egg.png|16px]] Spawn Mule
+| [[Mule Spawn Egg]]
+|-
+| [[File:Ocelot Spawn Egg.png|16px]] Spawn Ocelot
+| [[Ocelot Spawn Egg]]
+|-
+| [[File:Parrot Spawn Egg.png|16px]] Spawn Parrot
+| [[Parrot Spawn Egg]]
+|-
+| [[File:Pig Spawn Egg.png|16px]] Spawn Pig
+| [[Pig Spawn Egg]]
+|-
+| [[File:Polar Bear Spawn Egg JE1 BE1.png|16px]] Spawn Polar Bear
+| [[Polar Bear Spawn Egg]]
+|-
+| [[File:Rabbit Spawn Egg.png|16px]] Spawn Rabbit
+| [[Rabbit Spawn Egg]]
+|-
+| [[File:Sheep Spawn Egg.png|16px]] Spawn Sheep
+| [[Sheep Spawn Egg]]
+|-
+| [[File:Shulker Spawn Egg.png|16px]] Spawn Shulker
+| [[Shulker Spawn Egg]]
+|-
+| [[File:Silverfish Spawn Egg.png|16px]] Spawn Silverfish
+| [[Silverfish Spawn Egg]]
+|-
+| [[File:Skeleton Spawn Egg.png|16px]] Spawn Skeleton
+| [[Skeleton Spawn Egg]]
+|-
+| [[File:Skeleton Horse Spawn Egg.png|16px]] Spawn Skeleton Horse
+| [[Skeleton Horse Spawn Egg]]
+|-
+| [[File:Slime Spawn Egg.png|16px]] Spawn Slime
+| [[Slime Spawn Egg]]
+|-
+| [[File:Spider Spawn Egg.png|16px]] Spawn Spider
+| [[Spider Spawn Egg]]
+|-
+| [[File:Squid Spawn Egg.png|16px]] Spawn Squid
+| [[Squid Spawn Egg]]
+|-
+| [[File:Stray Spawn Egg.png|16px]] Spawn Stray
+| [[Stray Spawn Egg]]
+|-
+| [[File:Vex Spawn Egg.png|16px]] Spawn Vex
+| [[Vex Spawn Egg]]
+|-
+| [[File:Villager Spawn Egg.png|16px]] Spawn Villager
+| [[Villager Spawn Egg]]
+|-
+| [[File:Vindicator Spawn Egg.png|16px]] Spawn Vindicator
+| [[Vindicator Spawn Egg]]
+|-
+| [[File:Witch Spawn Egg.png|16px]] Spawn Witch
+| [[Witch Spawn Egg]]
+|-
+| [[File:Wither Skeleton Spawn Egg.png|16px]] Spawn Wither Skeleton
+| [[Wither Skeleton Spawn Egg]]
+|-
+| [[File:Wolf Spawn Egg.png|16px]] Spawn Wolf
+| [[Wolf Spawn Egg]]
+|-
+| [[File:Zombie Spawn Egg.png|16px]] Spawn Zombie
+| [[Zombie Spawn Egg]]
+|-
+| [[File:Zombie Horse Spawn Egg.png|16px]] Spawn Zombie Horse
+| [[Zombie Horse Spawn Egg]]
+|-
+| [[File:Zombie Pigman Spawn Egg.png|16px]] Spawn Zombie Pigman
+| [[Zombie Pigman Spawn Egg]]
+|-
+| [[File:Zombie Villager Spawn Egg.png|16px]] Spawn Zombie Villager
+| [[Zombie Villager Spawn Egg]]
+|-
+| [[File:Potted Poppy.png|16px]] Flower Pot
+| [[Potted Poppy]]
+|-
+| [[File:Potted Dandelion.png|16px]] Flower Pot
+| [[Potted Dandelion]]
+|-
+| [[File:Potted Oak Sapling.png|16px]] Flower Pot
+| [[Potted Oak Sapling]]
+|-
+| [[File:Potted Spruce Sapling.png|16px]] Flower Pot
+| [[Potted Spruce Sapling]]
+|-
+| [[File:Potted Birch Sapling.png|16px]] Flower Pot
+| [[Potted Birch Sapling]]
+|-
+| [[File:Potted Jungle Sapling.png|16px]] Flower Pot
+| [[Potted Jungle Sapling]]
+|-
+| [[File:Potted Red Mushroom.png|16px]] Flower Pot
+| [[Potted Red Mushroom]]
+|-
+| [[File:Potted Brown Mushroom.png|16px]] Flower Pot
+| [[Potted Brown Mushroom]]
+|-
+| [[File:Potted Cactus.png|16px]] Flower Pot
+| [[Potted Cactus]]
+|-
+| [[File:Potted Dead Bush.png|16px]] Flower Pot
+| [[Potted Dead Bush]]
+|-
+| [[File:Potted Fern.png|16px]] Flower Pot
+| [[Potted Fern]]
+|-
+| [[File:Potted Acacia Sapling.png|16px]] Flower Pot
+| [[Potted Acacia Sapling]]
+|-
+| [[File:Potted Dark Oak Sapling.png|16px]] Flower Pot
+| [[Potted Dark Oak Sapling]]
+|-
+| [[File:Potted Blue Orchid.png|16px]] Flower Pot
+| [[Potted Blue Orchid]]
+|-
+| [[File:Potted Allium.png|16px]] Flower Pot
+| [[Potted Allium]]
+|-
+| [[File:Potted Azure Bluet.png|16px]] Flower Pot
+| [[Potted Azure Bluet]]
+|-
+| [[File:Potted Red Tulip.png|16px]] Flower Pot
+| [[Potted Red Tulip]]
+|-
+| [[File:Potted Orange Tulip.png|16px]] Flower Pot
+| [[Potted Orange Tulip]]
+|-
+| [[File:Potted White Tulip.png|16px]] Flower Pot
+| [[Potted White Tulip]]
+|-
+| [[File:Potted Pink Tulip.png|16px]] Flower Pot
+| [[Potted Pink Tulip]]
+|-
+| [[File:Potted Oxeye Daisy.png|16px]] Flower Pot
+| [[Potted Oxeye Daisy]]
+|-
+| [[File:Player Head.png|16px]] Head (item)
+| [[Player Head]]
+|-
+| [[File:Skeleton Skull.png|16px]] tile.skull.skeleton.name (block, on the ground)
+| [[Skeleton Skull]]
+|-
+| [[File:Skeleton Skull.png|16px]] tile.skull.skeleton.name (block, on a wall)
+| [[Skeleton Wall Skull]]
+|-
+| [[File:Wither Skeleton Skull.png|16px]] tile.skull.skeleton.name (block, on the ground)
+| [[Wither Skeleton Skull]]
+|-
+| [[File:Wither Skeleton Skull.png|16px]] tile.skull.skeleton.name (block, on a wall)
+| [[Wither Skeleton Wall Skull]]
+|-
+| [[File:Zombie Head.png|16px]] tile.skull.skeleton.name (block, on the ground)
+| [[Zombie Head]]
+|-
+| [[File:Zombie Head.png|16px]] tile.skull.skeleton.name (block, on a wall)
+| [[Zombie Wall Head]]
+|-
+| [[File:Player Head.png|16px]] tile.skull.skeleton.name (block, on the ground)
+| [[Player Head]]
+|-
+| [[File:Player Head.png|16px]] tile.skull.skeleton.name (block, on a wall)
+| [[Player Wall Head]]
+|-
+| [[File:Creeper Head.png|16px]] tile.skull.skeleton.name (block, on the ground)
+| [[Creeper Head]]
+|-
+| [[File:Creeper Head.png|16px]] tile.skull.skeleton.name (block, on a wall)
+| [[Creeper Wall Head]]
+|-
+| [[File:Dragon Head.png|16px]] tile.skull.skeleton.name (block, on the ground)
+| [[Dragon Head]]
+|-
+| [[File:Dragon Head.png|16px]] tile.skull.skeleton.name (block, on a wall)
+| [[Dragon Wall Head]]
+|-
+| [[File:Golden Horse Armor.png|16px]] Gold Horse Armor
+| [[Golden Horse Armor]]
+|-
+| [[File:Orange Banner.png|16px]] White Banner (block, on the ground)
+| [[Orange Banner]]
+|-
+| [[File:Magenta Banner.png|16px]] White Banner (block, on the ground)
+| [[Magenta Banner]]
+|-
+| [[File:Light Blue Banner.png|16px]] White Banner (block, on the ground)
+| [[Light Blue Banner]]
+|-
+| [[File:Yellow Banner.png|16px]] White Banner (block, on the ground)
+| [[Yellow Banner]]
+|-
+| [[File:Lime Banner.png|16px]] White Banner (block, on the ground)
+| [[Lime Banner]]
+|-
+| [[File:Pink Banner.png|16px]] White Banner (block, on the ground)
+| [[Pink Banner]]
+|-
+| [[File:Gray Banner.png|16px]] White Banner (block, on the ground)
+| [[Gray Banner]]
+|-
+| [[File:Light Gray Banner.png|16px]] White Banner (block, on the ground)
+| [[Light Gray Banner]]
+|-
+| [[File:Cyan Banner.png|16px]] White Banner (block, on the ground)
+| [[Cyan Banner]]
+|-
+| [[File:Purple Banner.png|16px]] White Banner (block, on the ground)
+| [[Purple Banner]]
+|-
+| [[File:Blue Banner.png|16px]] White Banner (block, on the ground)
+| [[Blue Banner]]
+|-
+| [[File:Brown Banner.png|16px]] White Banner (block, on the ground)
+| [[Brown Banner]]
+|-
+| [[File:Green Banner.png|16px]] White Banner (block, on the ground)
+| [[Green Banner]]
+|-
+| [[File:Red Banner.png|16px]] White Banner (block, on the ground)
+| [[Red Banner]]
+|-
+| [[File:Black Banner.png|16px]] White Banner (block, on the ground)
+| [[Black Banner]]
+|-
+| [[File:White Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[White Banner]]<ref group="names note" name="bug">These translation strings were originally missing, see {{bug|MC-122579}}; now they use the same translation strings as standing banners (rather than their own), see {{bug|MC-124142}}</ref>
+|-
+| [[File:Orange Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Orange Banner]]<ref group="names note" name="bug"/>
+|-
+| [[File:Magenta Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Magenta Banner]]<ref group="names note" name="bug"/>
+|-
+| [[File:Light Blue Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Light Blue Banner]]<ref group="names note" name="bug"/>
+|-
+| [[File:Yellow Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Yellow Banner]]<ref group="names note" name="bug"/>
+|-
+| [[File:Lime Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Lime Banner]]<ref group="names note" name="bug"/>
+|-
+| [[File:Pink Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Pink Banner]]<ref group="names note" name="bug"/>
+|-
+| [[File:Gray Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Gray Banner]]<ref group="names note" name="bug"/>
+|-
+| [[File:Light Gray Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Light Gray Banner]]<ref group="names note" name="bug"/>
+|-
+| [[File:Cyan Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Cyan Banner]]<ref group="names note" name="bug"/>
+|-
+| [[File:Purple Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Purple Banner]]<ref group="names note" name="bug"/>
+|-
+| [[File:Blue Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Blue Banner]]<ref group="names note" name="bug"/>
+|-
+| [[File:Brown Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Brown Banner]]<ref group="names note" name="bug"/>
+|-
+| [[File:Green Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Green Banner]]<ref group="names note" name="bug"/>
+|-
+| [[File:Red Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Red Banner]]<ref group="names note" name="bug"/>
+|-
+| [[File:Black Wall Banner.png|16px]] White Banner (block, on a wall)
+| [[Black Banner]]<ref group="names note" name="bug"/>
+|-
+| {{BiomeSprite|mountains}} Extreme Hills
+| [[Mountains]]
+|-
+| {{BiomeSprite|swamp}} Swampland
+| [[Swamp]]
+|-
+| {{BiomeSprite|desert-hills}} DesertHills
+| [[Desert Hills]]
+|-
+| {{BiomeSprite|wooded-hills}} ForestHills
+| [[Wooded Hills]]
+|-
+| {{BiomeSprite|frozen-ocean}} FrozenOcean
+| [[Frozen Ocean]]
+|-
+| {{BiomeSprite|frozen-river}} FrozenRiver
+| [[Frozen River]]
+|-
+| {{BiomeSprite|snowy-tundra}} Ice Plains
+| [[Snowy Tundra]]
+|-
+| {{BiomeSprite|snowy-mountains}} Ice Mountains
+| [[Snowy Mountains]]
+|-
+| {{BiomeSprite|mushroom-fields}} MushroomIsland
+| [[Mushroom Fields]]
+|-
+| {{BiomeSprite|mushroom-field-shore}} MushroomIslandShore
+| [[Mushroom Field Shore]]
+|-
+| {{BiomeSprite|taiga-hills}} TaigaHills
+| [[Taiga Hills]]
+|-
+| {{BiomeSprite|mountain-edge}} Extreme Hills Edge
+| [[Mountain Edge]]
+|-
+| {{BiomeSprite|nether}} Hell
+| [[Nether]]
+|-
+| {{BiomeSprite|jungle-edge}} JungleEdge
+| [[Jungle Edge]]
+|-
+| {{BiomeSprite|jungle-hills}} JungleHills
+| [[Jungle Hills]]
+|-
+| {{BiomeSprite|stone-shore}} Stone Beach
+| [[Stone Shore]]
+|-
+| {{BiomeSprite|snowy-beach}} Cold Beach
+| [[Snowy Beach]]
+|-
+| {{BiomeSprite|dark-forest}} Roofed Forest
+| [[Dark Forest]]
+|-
+| {{BiomeSprite|snowy-taiga}} Cold Taiga
+| [[Snowy Taiga]]
+|-
+| {{BiomeSprite|snowy-taiga-hills}} Cold Taiga Hills
+| [[Snowy Taiga Hills]]
+|-
+| {{BiomeSprite|giant-tree-taiga}} Mega Taiga
+| [[Giant Tree Taiga]]
+|-
+| {{BiomeSprite|giant-tree-taiga-hills}} Mega Taiga Hills
+| [[Giant Tree Taiga Hills]]
+|-
+| {{BiomeSprite|wooded-mountains}} Extreme Hills+
+| [[Wooded Mountains]]
+|-
+| {{BiomeSprite|badlands}} Mesa
+| [[Badlands]]
+|-
+| {{BiomeSprite|wooded-badlands-plateau}} Mesa Plateau F
+| [[Wooded Badlands Plateau]]
+|-
+| {{BiomeSprite|badlands-plateau}} Mesa Plateau
+| [[Badlands Plateau]]
+|-
+| {{BiomeSprite|desert-lakes}} Desert M
+| [[Desert Lakes]]
+|-
+| {{BiomeSprite|gravelly-mountains}} Extreme Hills M
+| [[Gravelly Mountains]]
+|-
+| {{BiomeSprite|taiga-mountains}} Taiga M
+| [[Taiga Mountains]]
+|-
+| {{BiomeSprite|swamp-hills}} Swampland M
+| [[Swamp Hills]]
+|-
+| {{BiomeSprite|ice-spikes}} Ice Plains Spikes
+| [[Ice Spikes]]
+|-
+| {{BiomeSprite|modified-jungle}} Jungle M
+| [[Modified Jungle]]
+|-
+| {{BiomeSprite|modified-jungle-edge}} JungleEdge M
+| [[Modified Jungle Edge]]
+|-
+| {{BiomeSprite|tall-birch-forest}} Birch Forest M
+| [[Tall Birch Forest]]
+|-
+| {{BiomeSprite|tall-birch-hills}} Birch Forest Hills M
+| [[Tall Birch Hills]]
+|-
+| {{BiomeSprite|dark-forest-hills}} Roofed Forest M
+| [[Dark Forest Hills]]
+|-
+| {{BiomeSprite|snowy-taiga-mountains}} Cold Taiga M
+| [[Snowy Taiga Mountains]]
+|-
+| {{BiomeSprite|giant-spruce-taiga}} Mega Spruce Taiga
+| [[Giant Spruce Taiga]]
+|-
+| {{BiomeSprite|giant-spruce-taiga-hills}} Redwood Taiga Hills
+| [[Giant Spruce Taiga Hills]]
+|-
+| {{BiomeSprite|modified-gravelly-mountains}} Extreme Hills+ M
+| [[Gravelly Mountains+]]
+|-
+| {{BiomeSprite|shattered-savanna}} Savanna M
+| [[Shattered Savanna]]
+|-
+| {{BiomeSprite|shattered-savanna-plateau}} Savanna Plateau M
+| [[Shattered Savanna Plateau]]
+|-
+| {{BiomeSprite|eroded-badlands}} Mesa (Bryce)
+| [[Eroded Badlands]]
+|-
+| {{BiomeSprite|modified-wooded-badlands-plateau}} Mesa Plateau F M
+| [[Modified Wooded Badlands Plateau]]
+|-
+| {{BiomeSprite|modified-badlands-plateau}} Mesa Plateau M
+| [[Modified Badlands Plateau]]
+|}
+
+
+{{notelist|names note}}
+
+== Statistics ==
+
+[[Statistics]] received the following changes:
+* Merged the blocks and items tabs.
+* Changed to use resource locations.
+**
+{| class="wikitable"
+|-
+! Statistics type !! [[Java Edition 1.12|1.12]] syntax !! [[Java Edition 1.13|1.13]] syntax !! Remarks
+|-
+| Everything under the "General" tab || {{code|stat.<argument>}}                || {{code|minecraft.custom:minecraft.<argument>}}   || <argument> became lowercased and separated with underscores
+|-
+| Mined [[block]]s                   || {{code|stat.mineBlock.<argument>}}      || {{code|minecraft.mined:<namespace>.<block_id>}}      || <argument> was before either the numeral ID or namespace.block_id
+|-
+| Broken [[item]]s                   || {{code|stat.breakItem.<argument>}}      || {{code|minecraft.broken:<namespace>.<item_id>}}      || <argument> was before either the numeral ID or namespace.block_id
+|-
+| Dropped [[item]]s                  || {{code|stat.drop.<argument>}}           || {{code|minecraft.dropped:<namespace>.<item_id>}}     || <argument> was before either the numeral ID or namespace.block_id
+|-
+| Used [[item]]s                     || {{code|stat.useItem.<argument>}}        || {{code|minecraft.used:<namespace>.<item_id>}}        || <argument> was before either the numeral ID or namespace.block_id
+|-
+| Killed [[entity|entities]]         || {{code|stat.killEntity.<argument>}}     || {{code|minecraft.killed:<namespace>.<entity_id>}}    || <argument> was the pre-1.11 [[entity]] ID
+*Now exists for all [[entity|entities]], not just [[entity|entities]] with [[spawn egg]]s
+|-
+| Killed by [[entity|entities]]      || {{code|stat.entityKilledBy.<argument>}} || {{code|minecraft.killed_by:<namespace>.<entity_id>}} || <argument> was the pre-1.11 [[entity]] ID
+*Now exists for all [[entity|entities]], not just [[entity|entities]] with [[spawn egg]]s
+|}
+
+== NBT data ==
+
+[[Chunk format]] was modified.
+
+=== Items ===
+
+Changes to [[Player.dat format#Item structure|item structure]]:
+* {{code|Damage}} in the root of the item data removed.
+* {{code|Damage}} added in the {{code|tag}} tag, only used for durability.
+* {{code|map}} integer added in the {{code|tag}} tag, for [[map]]s.
+* {{code|Base}} of [[Shield]]s has the colors in the opposite order for consistency.
+* {{code|ench}} for [[enchantment]]s got renamed to {{code|Enchantments}}.
+* [[Enchantment]] Ids in {{code|Enchantments}} and {{code|StoredEnchantments}} now use the string ids.
+
+=== Entities ===
+
+Changes to [[Chunk format#Entity format|entity format]]:
+* {{code|CollarColor}} of [[Wolves]] has the colors in the opposite order for consistency.
+* {{code|carried}} and {{code|carriedData}} of [[Endermen]] merged into {{code|carriedBlockState}}.<ref group="NBT note" name="tag">This tag will change to a compound format with {{code|{Name:"block_id",Properties:{state:"value"}}}}</ref>
+* {{code|inTile}} and {{code|inData}} of [[Arrow]]s and [[Spectral Arrow]]s merged into {{code|inBlockState}}.<ref group="NBT note" name="tag" />
+* {{code|DisplayTile}} and {{code|DisplayData}} of [[Minecart]]s merged into {{code|DisplayState}}.<ref group="NBT note" name="tag" />
+* {{code|Block}} and {{code|Data}} of [[Tutorials/Falling blocks|Falling Block]]s merged into {{code|BlockState}}.<ref group="NBT note" name="tag" />
+* {{code|ParticleParams1}} and {{code|ParticleParams2}}  from [[Area Effect Cloud]]s removed, merged with Particle (same formatting as in the command).
+
+=== Blocks ===
+
+Changes to [[Chunk format#Block entity format|block entity format]]:
+* [[Flower pot]] block entity removed.
+* [[Note block]] block entity removed.
+* {{code|BlockId}} and {{code|BlockData}} of [[Piston|moving piston]]s merged into {{code|blockState}}.<ref group="NBT note" name="tag" />
+* {{code|Base}} from [[banner]]s removed.
+* {{code|Rot}} from [[skull]]s and [[Head]]s removed.
+* {{code|Color}} of [[banner]]s' and [[Shield]]s' {{code|Patterns}} has the colors in the opposite order for consistency.
+* {{code|Record}} of [[jukebox]]es removed.
+
+==== Prior specifications ====
+
+; Note Block
+<div class="treeview">
+* {{nbt|compound}} Block entity data
+** {{nbt inherit/blockentity}}
+** {{nbt|byte|note}}: Pitch (number of {{Control|use|text=uses}}).
+** {{nbt|byte|powered}}: 1 or 0 (true/false) - if true, the noteblock is being provided a redstone signal.
+</div>
+
+; Flower Pot
+<div class="treeview">
+* {{nbt|compound}} Block entity data
+** {{nbt inherit/blockentity}}
+** {{nbt|string|Item}}: The Block ID of the plant in the pot. Known valid blocks are ''minecraft:sapling'' (6), ''minecraft:tallgrass'' (31), ''minecraft:deadbush'' (32), ''minecraft:yellow_flower'' (37), ''minecraft:red_flower'' (38), ''minecraft:brown_mushroom'' (39), ''minecraft:red_mushroom'' (40), ''minecraft:cactus'' (81). Other block and item IDs may be used, but not all will render. Together with '''Data''', this determines the item dropped by the pot when destroyed.
+** {{nbt|int|Data}}: The data value to use in conjunction with the above Block ID. For example if Item is 6 (a sapling block), the Data is used to indicate the type of sapling.
+</div>
+
+{{notelist|NBT note}}
+
+== Commands ==
+
+Some [[command]]s were changed.
+
+* {{cmd|clear}} {{code|<nowiki>[<data>]</nowiki>}} argument removed.<ref group="command note" name="items">See [[Java Edition 1.13/Flattening#NBT Data|nbt section]] for what happens to other data values. See also 1.13's [[Java Edition 1.13#Commands 2|Items]] section</ref>
+* {{cmd|clone}} {{code|<nowiki>[<data>]</nowiki>}} argument merged with ID and no longer allows metadata.<ref group="command note" name="blocks">See also 1.13's [[Java Edition 1.13#Commands 2|Blocks]] section</ref>
+* {{cmd|execute detect}} (now {{cmd|execute if{{!}}unless block}}) {{code|<nowiki>[<data>]</nowiki>}} argument merged with ID and no longer allows metadata.<ref group="command note" name="blocks"/>
+* {{cmd|fill}} {{code|<nowiki>[<data>]</nowiki>}} and {{code|[<replaceData>]}} arguments merged with ID and no longer allow metadata.<ref group="command note" name="blocks"/>
+* {{cmd|give}} {{code|<nowiki>[<data>]</nowiki>}} argument removed.<ref group="command note" name="items"/>
+* {{cmd|replaceitem}} {{code|<nowiki>[<data>]</nowiki>}} argument removed.<ref group="command note" name="items"/>
+* {{cmd|setblock}} {{code|<nowiki>[<data>]</nowiki>}} argument merged with ID and no longer allows metadata.<ref group="command note" name="blocks"/>
+* {{cmd|particle}} {{code|[<params>]}} arguments merged with {{code|name}} and formatted as {{code|block_id[states]}} and {{code|item_id}}.
+
+{{notelist|command note}}
+
+== Advancements ==
+
+Two changes were made to [[advancement]]s:
+
+* {{code|icon}}'s {{code|data}} removed.
+* {{code|item}} condition's {{code|data}} removed.
+
+== Loot tables ==
+
+The {{code|set_data}} function was removed from [[loot table]]s.
+
+== Game assets ==
+* [[Model]]s
+** Renamed to use the new IDs.
+* [[Block state]] files
+** Renamed to use the new IDs.
+** {{code|"normal"}} for blocks without block states changed to an empty string ({{code|""}}).
+** Item frames now have {{code|"map{{=}}false"}} instead of {{code|"normal"}} and {{code|"map{{=}}true"}} instead of {{code|"map"}}.
+** Model references no longer start at the {{code|models/block/}} folder, but instead at {{code|models/}}.
+* Textures
+** Renamed to use the new IDs. See [[Java Edition 1.13/Resource pack changes]] for the list of file names changed.
+** Renamed the {{code|blocks}} folder to {{code|block}}.
+** Renamed the {{code|items}} folder to {{code|item}}.
+* [[Recipe]]s
+** Renamed to use the new IDs.
+* [[Advancement]]s
+** Recipe advancements renamed to use the new IDs.
+* [[Language]] files
+**
+{| class="wikitable"
+|-
+! Translation key            !! [[Java Edition 1.12|1.12]] syntax !! [[Java Edition 1.13|1.13]] syntax !! Remarks !! Exmaple
+|-
+| [[Block]]s                 || {{code|tile.<argument>.name}}   || {{code|block.<namespace>.<block_id>}}             || <argument> was an arbitrary name;
+''e.g. "lightgem" for [[glowstone]]''                                
+|| {{code|"tile.lightgem.name": "Glowstone"}}
+has been replaced with<br>
+
+{{code|"block.minecraft.glowstone": "Glowstone"}}
+|-
+| [[Item]]s                  || {{code|item.<argument>.name}}   || {{code|item.<namespace>.<item_id>}}               || <argument> was an arbitrary name;
+''e.g. "yellowDust" for [[glowstone dust]]''                        
+|| {{code|"item.yellowDust.name": "Glowstone Dust"}}
+has been replaced with<br>
+
+{{code|"item.minecraft.glowstone_dust": "Glowstone Dust"}}
+|-
+| [[Entity|Entities]]        || {{code|entity.<argument>.name}} || {{code|entity.<namespace>.<entity_id>}}           || <argument> was an arbitrary name;
+''e.g. "MinecartRideable" for the pre-[[1.11]] ID of [[minecart]]'' 
+|| {{code|"entity.MinecartRideable.name": "Minecart"}}
+has been replaced with<br>
+
+{{code|"entity.minecraft.minecart": "Minecart"}}
+|-
+| [[Enchantment]]s           || {{code|enchantment.<argument>}} || {{code|enchantment.<namespace>.<enchantment_id>}} || <argument> was an arbitrary name;
+''e.g. "waterWorker" for [[Aqua Affinity]]''                        
+|| {{code|"enchant.waterWorker": "Aqua Affinity"}}
+has been replaced with<br>
+
+{{code|"enchantment.minecraft.aqua_affinity": "Aqua Affinity"}}
+|-
+| [[Effect]]s                || {{code|effect.<argument>}}      || {{code|effect.<namespace>.<effect_id>}}           || <argument> was an arbitrary name;
+''e.g. "digSlowDown" for [[Mining Fatigue]]''                       
+|| {{code|"effect.digSlowDown": "Mining Fatigue"}}
+has been replaced with<br>
+
+{{code|"effect.minecraft.mining_fatigue": "Mining Fatigue"}}
+|-
+| General [[statistics]]     || {{code|stat.<statisticId>}}     || {{code|stat.<namespace>.<statistic_id>}}          || <statisticId> was the statistic name with capitalization;
+''e.g. "playOneMinute" for Time Played''      
+|| {{code|"stat.playOneMinute": "Time Played"}}
+has been replaced with<br>
+
+{{code|"stat.minecraft.play_one_minute": "Time Played"}}
+|-
+| [[Statistics]] information || {{code|stat.<statisticType>}}   || {{code|stat_type.<namespace>.<statistic_type>}}   || <statisticType> was the statistic type with capitalization;
+''e.g. "entityKills" for killed [[mob]]s''
+|| {{code|"stat.entityKills": "You killed %s %s"}}
+has been replaced with<br>
+
+{{code|"stat_type.minecraft.killed": "You killed %s %s"}}
+|}
+
+=== Block translation strings ===
+{{info needed section|A raw list of names copied directly from en_US.lang can be found commented out below; these will need rearranged into a table like those above}}
+<!-- 17w46a:
+tile.air.name=Air
+tile.barrier.name=Barrier
+tile.stone.stone.name=Stone
+tile.stone.granite.name=Granite
+tile.stone.graniteSmooth.name=Polished Granite
+tile.stone.diorite.name=Diorite
+tile.stone.dioriteSmooth.name=Polished Diorite
+tile.stone.andesite.name=Andesite
+tile.stone.andesiteSmooth.name=Polished Andesite
+tile.hayBlock.name=Hay Bale
+tile.grass.name=Grass Block
+tile.dirt.name=Dirt
+tile.dirt.default.name=Dirt
+tile.dirt.coarse.name=Coarse Dirt
+tile.dirt.podzol.name=Podzol
+tile.stonebrick.name=Cobblestone
+tile.wood.name=Wooden Planks
+tile.wood.oak.name=Oak Wood Planks
+tile.wood.spruce.name=Spruce Wood Planks
+tile.wood.birch.name=Birch Wood Planks
+tile.wood.jungle.name=Jungle Wood Planks
+tile.wood.acacia.name=Acacia Wood Planks
+tile.wood.big_oak.name=Dark Oak Wood Planks
+tile.sapling.oak.name=Oak Sapling
+tile.sapling.spruce.name=Spruce Sapling
+tile.sapling.birch.name=Birch Sapling
+tile.sapling.jungle.name=Jungle Sapling
+tile.sapling.acacia.name=Acacia Sapling
+tile.sapling.big_oak.name=Dark Oak Sapling
+tile.deadbush.name=Dead Bush
+tile.bedrock.name=Bedrock
+tile.water.name=Water
+tile.lava.name=Lava
+tile.sand.name=Sand
+tile.sand.default.name=Sand
+tile.sand.red.name=Red Sand
+tile.sandStone.name=Sandstone
+tile.sandStone.default.name=Sandstone
+tile.sandStone.chiseled.name=Chiseled Sandstone
+tile.sandStone.smooth.name=Smooth Sandstone
+tile.redSandStone.name=Red Sandstone
+tile.redSandStone.default.name=Red Sandstone
+tile.redSandStone.chiseled.name=Chiseled Red Sandstone
+tile.redSandStone.smooth.name=Smooth Red Sandstone
+tile.gravel.name=Gravel
+tile.oreGold.name=Gold Ore
+tile.oreIron.name=Iron Ore
+tile.oreCoal.name=Coal Ore
+tile.log.name=Wood
+tile.log.oak.name=Oak Wood
+tile.log.spruce.name=Spruce Wood
+tile.log.birch.name=Birch Wood
+tile.log.jungle.name=Jungle Wood
+tile.log.acacia.name=Acacia Wood
+tile.log.big_oak.name=Dark Oak Wood
+tile.leaves.name=Leaves
+tile.leaves.oak.name=Oak Leaves
+tile.leaves.spruce.name=Spruce Leaves
+tile.leaves.birch.name=Birch Leaves
+tile.leaves.jungle.name=Jungle Leaves
+tile.leaves.acacia.name=Acacia Leaves
+tile.leaves.big_oak.name=Dark Oak Leaves
+tile.tallgrass.name=Grass
+tile.tallgrass.shrub.name=Shrub
+tile.tallgrass.grass.name=Grass
+tile.tallgrass.fern.name=Fern
+tile.sponge.dry.name=Sponge
+tile.sponge.wet.name=Wet Sponge
+tile.glass.name=Glass
+tile.stainedGlass.name=Stained Glass
+tile.stainedGlass.black.name=Black Stained Glass
+tile.stainedGlass.red.name=Red Stained Glass
+tile.stainedGlass.green.name=Green Stained Glass
+tile.stainedGlass.brown.name=Brown Stained Glass
+tile.stainedGlass.blue.name=Blue Stained Glass
+tile.stainedGlass.purple.name=Purple Stained Glass
+tile.stainedGlass.cyan.name=Cyan Stained Glass
+tile.stainedGlass.silver.name=Light Gray Stained Glass
+tile.stainedGlass.gray.name=Gray Stained Glass
+tile.stainedGlass.pink.name=Pink Stained Glass
+tile.stainedGlass.lime.name=Lime Stained Glass
+tile.stainedGlass.yellow.name=Yellow Stained Glass
+tile.stainedGlass.lightBlue.name=Light Blue Stained Glass
+tile.stainedGlass.magenta.name=Magenta Stained Glass
+tile.stainedGlass.orange.name=Orange Stained Glass
+tile.stainedGlass.white.name=White Stained Glass
+tile.thinStainedGlass.name=Stained Glass Pane
+tile.thinStainedGlass.black.name=Black Stained Glass Pane
+tile.thinStainedGlass.red.name=Red Stained Glass Pane
+tile.thinStainedGlass.green.name=Green Stained Glass Pane
+tile.thinStainedGlass.brown.name=Brown Stained Glass Pane
+tile.thinStainedGlass.blue.name=Blue Stained Glass Pane
+tile.thinStainedGlass.purple.name=Purple Stained Glass Pane
+tile.thinStainedGlass.cyan.name=Cyan Stained Glass Pane
+tile.thinStainedGlass.silver.name=Light Gray Stained Glass Pane
+tile.thinStainedGlass.gray.name=Gray Stained Glass Pane
+tile.thinStainedGlass.pink.name=Pink Stained Glass Pane
+tile.thinStainedGlass.lime.name=Lime Stained Glass Pane
+tile.thinStainedGlass.yellow.name=Yellow Stained Glass Pane
+tile.thinStainedGlass.lightBlue.name=Light Blue Stained Glass Pane
+tile.thinStainedGlass.magenta.name=Magenta Stained Glass Pane
+tile.thinStainedGlass.orange.name=Orange Stained Glass Pane
+tile.thinStainedGlass.white.name=White Stained Glass Pane
+tile.thinGlass.name=Glass Pane
+tile.cloth.name=Wool
+tile.flower1.name=Flower
+tile.flower1.dandelion.name=Dandelion
+tile.flower2.name=Flower
+tile.flower2.poppy.name=Poppy
+tile.flower2.blueOrchid.name=Blue Orchid
+tile.flower2.allium.name=Allium
+tile.flower2.houstonia.name=Azure Bluet
+tile.flower2.tulipRed.name=Red Tulip
+tile.flower2.tulipOrange.name=Orange Tulip
+tile.flower2.tulipWhite.name=White Tulip
+tile.flower2.tulipPink.name=Pink Tulip
+tile.flower2.oxeyeDaisy.name=Oxeye Daisy
+tile.doublePlant.name=Plant
+tile.doublePlant.sunflower.name=Sunflower
+tile.doublePlant.syringa.name=Lilac
+tile.doublePlant.grass.name=Double Tallgrass
+tile.doublePlant.fern.name=Large Fern
+tile.doublePlant.rose.name=Rose Bush
+tile.doublePlant.paeonia.name=Peony
+tile.mushroom.name=Mushroom
+tile.blockGold.name=Block of Gold
+tile.blockIron.name=Block of Iron
+tile.stoneSlab.name=Stone Slab
+tile.stoneSlab.stone.name=Stone Slab
+tile.stoneSlab.sand.name=Sandstone Slab
+tile.stoneSlab.wood.name=Wooden Slab
+tile.stoneSlab.cobble.name=Cobblestone Slab
+tile.stoneSlab.brick.name=Bricks Slab
+tile.stoneSlab.smoothStoneBrick.name=Stone Bricks Slab
+tile.stoneSlab.netherBrick.name=Nether Brick Slab
+tile.stoneSlab.quartz.name=Quartz Slab
+tile.stoneSlab2.red_sandstone.name=Red Sandstone Slab
+tile.woodSlab.name=Wood Slab
+tile.woodSlab.oak.name=Oak Wood Slab
+tile.woodSlab.spruce.name=Spruce Wood Slab
+tile.woodSlab.birch.name=Birch Wood Slab
+tile.woodSlab.jungle.name=Jungle Wood Slab
+tile.woodSlab.acacia.name=Acacia Wood Slab
+tile.woodSlab.big_oak.name=Dark Oak Wood Slab
+tile.brick.name=Bricks
+tile.tnt.name=TNT
+tile.bookshelf.name=Bookshelf
+tile.stoneMoss.name=Moss Stone
+tile.obsidian.name=Obsidian
+tile.torch.name=Torch
+tile.fire.name=Fire
+tile.mobSpawner.name=Monster Spawner
+tile.stairsWood.name=Oak Wood Stairs
+tile.stairsWoodSpruce.name=Spruce Wood Stairs
+tile.stairsWoodBirch.name=Birch Wood Stairs
+tile.stairsWoodJungle.name=Jungle Wood Stairs
+tile.stairsWoodAcacia.name=Acacia Wood Stairs
+tile.stairsWoodDarkOak.name=Dark Oak Wood Stairs
+tile.chest.name=Chest
+tile.chestTrap.name=Trapped Chest
+tile.redstoneDust.name=Redstone Dust
+tile.oreDiamond.name=Diamond Ore
+tile.blockCoal.name=Block of Coal
+tile.blockDiamond.name=Block of Diamond
+tile.workbench.name=Crafting Table
+tile.crops.name=Crops
+tile.farmland.name=Farmland
+tile.furnace.name=Furnace
+tile.sign.name=Sign
+tile.doorWood.name=Wooden Door
+tile.ladder.name=Ladder
+tile.rail.name=Rail
+tile.goldenRail.name=Powered Rail
+tile.activatorRail.name=Activator Rail
+tile.detectorRail.name=Detector Rail
+tile.stairsStone.name=Cobblestone Stairs
+tile.stairsSandStone.name=Sandstone Stairs
+tile.stairsRedSandStone.name=Red Sandstone Stairs
+tile.lever.name=Lever
+tile.pressurePlateStone.name=Stone Pressure Plate
+tile.pressurePlateWood.name=Wooden Pressure Plate
+tile.weightedPlate_light.name=Weighted Pressure Plate (Light)
+tile.weightedPlate_heavy.name=Weighted Pressure Plate (Heavy)
+tile.doorIron.name=Iron Door
+tile.oreRedstone.name=Redstone Ore
+tile.notGate.name=Redstone Torch
+tile.button.name=Button
+tile.snow.name=Snow
+tile.woolCarpet.name=Carpet
+tile.woolCarpet.black.name=Black Carpet
+tile.woolCarpet.red.name=Red Carpet
+tile.woolCarpet.green.name=Green Carpet
+tile.woolCarpet.brown.name=Brown Carpet
+tile.woolCarpet.blue.name=Blue Carpet
+tile.woolCarpet.purple.name=Purple Carpet
+tile.woolCarpet.cyan.name=Cyan Carpet
+tile.woolCarpet.silver.name=Light Gray Carpet
+tile.woolCarpet.gray.name=Gray Carpet
+tile.woolCarpet.pink.name=Pink Carpet
+tile.woolCarpet.lime.name=Lime Carpet
+tile.woolCarpet.yellow.name=Yellow Carpet
+tile.woolCarpet.lightBlue.name=Light Blue Carpet
+tile.woolCarpet.magenta.name=Magenta Carpet
+tile.woolCarpet.orange.name=Orange Carpet
+tile.woolCarpet.white.name=White Carpet
+tile.ice.name=Ice
+tile.frostedIce.name=Frosted Ice
+tile.icePacked.name=Packed Ice
+tile.cactus.name=Cactus
+tile.clay.name=Clay
+tile.clayHardenedStained.name=Stained Terracotta
+tile.clayHardenedStained.black.name=Black Terracotta
+tile.clayHardenedStained.red.name=Red Terracotta
+tile.clayHardenedStained.green.name=Green Terracotta
+tile.clayHardenedStained.brown.name=Brown Terracotta
+tile.clayHardenedStained.blue.name=Blue Terracotta
+tile.clayHardenedStained.purple.name=Purple Terracotta
+tile.clayHardenedStained.cyan.name=Cyan Terracotta
+tile.clayHardenedStained.silver.name=Light Gray Terracotta
+tile.clayHardenedStained.gray.name=Gray Terracotta
+tile.clayHardenedStained.pink.name=Pink Terracotta
+tile.clayHardenedStained.lime.name=Lime Terracotta
+tile.clayHardenedStained.yellow.name=Yellow Terracotta
+tile.clayHardenedStained.lightBlue.name=Light Blue Terracotta
+tile.clayHardenedStained.magenta.name=Magenta Terracotta
+tile.clayHardenedStained.orange.name=Orange Terracotta
+tile.clayHardenedStained.white.name=White Terracotta
+tile.clayHardened.name=Terracotta
+tile.reeds.name=Sugar cane
+tile.jukebox.name=Jukebox
+tile.fence.name=Oak Fence
+tile.spruceFence.name=Spruce Fence
+tile.birchFence.name=Birch Fence
+tile.jungleFence.name=Jungle Fence
+tile.darkOakFence.name=Dark Oak Fence
+tile.acaciaFence.name=Acacia Fence
+tile.fenceGate.name=Oak Fence Gate
+tile.spruceFenceGate.name=Spruce Fence Gate
+tile.birchFenceGate.name=Birch Fence Gate
+tile.jungleFenceGate.name=Jungle Fence Gate
+tile.darkOakFenceGate.name=Dark Oak Fence Gate
+tile.acaciaFenceGate.name=Acacia Fence Gate
+tile.pumpkinStem.name=Pumpkin Stem
+tile.pumpkin.name=Pumpkin
+tile.litpumpkin.name=Jack o'Lantern
+tile.hellrock.name=Netherrack
+tile.hellsand.name=Soul Sand
+tile.lightgem.name=Glowstone
+tile.portal.name=Portal
+tile.cloth.black.name=Black Wool
+tile.cloth.red.name=Red Wool
+tile.cloth.green.name=Green Wool
+tile.cloth.brown.name=Brown Wool
+tile.cloth.blue.name=Blue Wool
+tile.cloth.purple.name=Purple Wool
+tile.cloth.cyan.name=Cyan Wool
+tile.cloth.silver.name=Light Gray Wool
+tile.cloth.gray.name=Gray Wool
+tile.cloth.pink.name=Pink Wool
+tile.cloth.lime.name=Lime Wool
+tile.cloth.yellow.name=Yellow Wool
+tile.cloth.lightBlue.name=Light Blue Wool
+tile.cloth.magenta.name=Magenta Wool
+tile.cloth.orange.name=Orange Wool
+tile.cloth.white.name=White Wool
+tile.oreLapis.name=Lapis Lazuli Ore
+tile.blockLapis.name=Lapis Lazuli Block
+tile.dispenser.name=Dispenser
+tile.dropper.name=Dropper
+tile.musicBlock.name=Note Block
+tile.cake.name=Cake
+tile.bed.occupied=This bed is occupied
+tile.bed.noSleep=You can only sleep at night
+tile.bed.tooFarAway=You may not rest now, the bed is too far away
+tile.bed.notSafe=You may not rest now, there are monsters nearby
+tile.bed.notValid=Your home bed was missing or obstructed
+tile.lockedchest.name=Locked chest
+tile.trapdoor.name=Wooden Trapdoor
+tile.ironTrapdoor.name=Iron Trapdoor
+tile.web.name=Cobweb
+tile.stonebricksmooth.name=Stone Bricks
+tile.stonebricksmooth.default.name=Stone Bricks
+tile.stonebricksmooth.mossy.name=Mossy Stone Bricks
+tile.stonebricksmooth.cracked.name=Cracked Stone Bricks
+tile.stonebricksmooth.chiseled.name=Chiseled Stone Bricks
+tile.monsterStoneEgg.name=Stone Monster Egg
+tile.monsterStoneEgg.stone.name=Stone Monster Egg
+tile.monsterStoneEgg.cobble.name=Cobblestone Monster Egg
+tile.monsterStoneEgg.brick.name=Stone Brick Monster Egg
+tile.monsterStoneEgg.mossybrick.name=Mossy Stone Brick Monster Egg
+tile.monsterStoneEgg.crackedbrick.name=Cracked Stone Brick Monster Egg
+tile.monsterStoneEgg.chiseledbrick.name=Chiseled Stone Brick Monster Egg
+tile.pistonBase.name=Piston
+tile.pistonStickyBase.name=Sticky Piston
+tile.fenceIron.name=Iron Bars
+tile.melon.name=Melon
+tile.stairsBrick.name=Brick Stairs
+tile.stairsStoneBrickSmooth.name=Stone Brick Stairs
+tile.vine.name=Vines
+tile.netherBrick.name=Nether Brick
+tile.netherFence.name=Nether Brick Fence
+tile.stairsNetherBrick.name=Nether Brick Stairs
+tile.netherStalk.name=Nether Wart
+tile.cauldron.name=Cauldron
+tile.enchantmentTable.name=Enchantment Table
+tile.anvil.name=Anvil
+tile.anvil.intact.name=Anvil
+tile.anvil.slightlyDamaged.name=Slightly Damaged Anvil
+tile.anvil.veryDamaged.name=Very Damaged Anvil
+tile.whiteStone.name=End Stone
+tile.endPortalFrame.name=End Portal
+tile.mycel.name=Mycelium
+tile.waterlily.name=Lily Pad
+tile.dragonEgg.name=Dragon Egg
+tile.redstoneLight.name=Redstone Lamp
+tile.cocoa.name=Cocoa
+tile.enderChest.name=Ender Chest
+tile.oreEmerald.name=Emerald Ore
+tile.blockEmerald.name=Block of Emerald
+tile.blockRedstone.name=Block of Redstone
+tile.tripWire.name=Tripwire
+tile.tripWireSource.name=Tripwire Hook
+tile.commandBlock.name=Command Block
+tile.repeatingCommandBlock.name=Repeating Command Block
+tile.chainCommandBlock.name=Chain Command Block
+tile.beacon.name=Beacon
+tile.beacon.primary=Primary Power
+tile.beacon.secondary=Secondary Power
+tile.cobbleWall.normal.name=Cobblestone Wall
+tile.cobbleWall.mossy.name=Mossy Cobblestone Wall
+tile.carrots.name=Carrots
+tile.potatoes.name=Potatoes
+tile.daylightDetector.name=Daylight Sensor
+tile.netherquartz.name=Nether Quartz Ore
+tile.hopper.name=Hopper
+tile.quartzBlock.name=Block of Quartz
+tile.quartzBlock.default.name=Block of Quartz
+tile.quartzBlock.chiseled.name=Chiseled Quartz Block
+tile.quartzBlock.lines.name=Pillar Quartz Block
+tile.stairsQuartz.name=Quartz Stairs
+tile.slime.name=Slime Block
+tile.prismarine.rough.name=Prismarine
+tile.prismarine.bricks.name=Prismarine Bricks
+tile.prismarine.dark.name=Dark Prismarine
+tile.seaLantern.name=Sea Lantern
+tile.endRod.name=End Rod
+tile.chorusPlant.name=Chorus Plant
+tile.chorusFlower.name=Chorus Flower
+tile.purpurBlock.name=Purpur Block
+tile.purpurPillar.name=Purpur Pillar
+tile.stairsPurpur.name=Purpur Stairs
+tile.purpurSlab.name=Purpur Slab
+tile.endBricks.name=End Stone Bricks
+tile.beetroots.name=Beetroots
+tile.grassPath.name=Grass Path
+tile.magma.name=Magma Block
+tile.netherWartBlock.name=Nether Wart Block
+tile.redNetherBrick.name=Red Nether Brick
+tile.boneBlock.name=Bone Block
+tile.observer.name=Observer
+tile.shulkerBoxWhite.name=White Shulker Box
+tile.shulkerBoxOrange.name=Orange Shulker Box
+tile.shulkerBoxMagenta.name=Magenta Shulker Box
+tile.shulkerBoxLightBlue.name=Light Blue Shulker Box
+tile.shulkerBoxYellow.name=Yellow Shulker Box
+tile.shulkerBoxLime.name=Lime Shulker Box
+tile.shulkerBoxPink.name=Pink Shulker Box
+tile.shulkerBoxGray.name=Gray Shulker Box
+tile.shulkerBoxSilver.name=Light Gray Shulker Box
+tile.shulkerBoxCyan.name=Cyan Shulker Box
+tile.shulkerBoxPurple.name=Purple Shulker Box
+tile.shulkerBoxBlue.name=Blue Shulker Box
+tile.shulkerBoxBrown.name=Brown Shulker Box
+tile.shulkerBoxGreen.name=Green Shulker Box
+tile.shulkerBoxRed.name=Red Shulker Box
+tile.shulkerBoxBlack.name=Black Shulker Box
+tile.glazedTerracottaWhite.name=White Glazed Terracotta
+tile.glazedTerracottaOrange.name=Orange Glazed Terracotta
+tile.glazedTerracottaMagenta.name=Magenta Glazed Terracotta
+tile.glazedTerracottaLightBlue.name=Light Blue Glazed Terracotta
+tile.glazedTerracottaYellow.name=Yellow Glazed Terracotta
+tile.glazedTerracottaLime.name=Lime Glazed Terracotta
+tile.glazedTerracottaPink.name=Pink Glazed Terracotta
+tile.glazedTerracottaGray.name=Gray Glazed Terracotta
+tile.glazedTerracottaSilver.name=Light Gray Glazed Terracotta
+tile.glazedTerracottaCyan.name=Cyan Glazed Terracotta
+tile.glazedTerracottaPurple.name=Purple Glazed Terracotta
+tile.glazedTerracottaBlue.name=Blue Glazed Terracotta
+tile.glazedTerracottaBrown.name=Brown Glazed Terracotta
+tile.glazedTerracottaGreen.name=Green Glazed Terracotta
+tile.glazedTerracottaRed.name=Red Glazed Terracotta
+tile.glazedTerracottaBlack.name=Black Glazed Terracotta
+tile.concrete.black.name=Black Concrete
+tile.concrete.red.name=Red Concrete
+tile.concrete.green.name=Green Concrete
+tile.concrete.brown.name=Brown Concrete
+tile.concrete.blue.name=Blue Concrete
+tile.concrete.purple.name=Purple Concrete
+tile.concrete.cyan.name=Cyan Concrete
+tile.concrete.silver.name=Light Gray Concrete
+tile.concrete.gray.name=Gray Concrete
+tile.concrete.pink.name=Pink Concrete
+tile.concrete.lime.name=Lime Concrete
+tile.concrete.yellow.name=Yellow Concrete
+tile.concrete.lightBlue.name=Light Blue Concrete
+tile.concrete.magenta.name=Magenta Concrete
+tile.concrete.orange.name=Orange Concrete
+tile.concrete.white.name=White Concrete
+tile.concretePowder.black.name=Black Concrete Powder
+tile.concretePowder.red.name=Red Concrete Powder
+tile.concretePowder.green.name=Green Concrete Powder
+tile.concretePowder.brown.name=Brown Concrete Powder
+tile.concretePowder.blue.name=Blue Concrete Powder
+tile.concretePowder.purple.name=Purple Concrete Powder
+tile.concretePowder.cyan.name=Cyan Concrete Powder
+tile.concretePowder.silver.name=Light Gray Concrete Powder
+tile.concretePowder.gray.name=Gray Concrete Powder
+tile.concretePowder.pink.name=Pink Concrete Powder
+tile.concretePowder.lime.name=Lime Concrete Powder
+tile.concretePowder.yellow.name=Yellow Concrete Powder
+tile.concretePowder.lightBlue.name=Light Blue Concrete Powder
+tile.concretePowder.magenta.name=Magenta Concrete Powder
+tile.concretePowder.orange.name=Orange Concrete Powder
+tile.concretePowder.white.name=White Concrete Powder
+
+tile.structureVoid.name=Structure Void
+tile.structureBlock.name=Structure Block
+
+17w47a:
+block.minecraft.air=Air
+block.minecraft.barrier=Barrier
+block.minecraft.stone=Stone
+block.minecraft.granite=Granite
+block.minecraft.polished_granite=Polished Granite
+block.minecraft.diorite=Diorite
+block.minecraft.polished_diorite=Polished Diorite
+block.minecraft.andesite=Andesite
+block.minecraft.polished_andesite=Polished Andesite
+block.minecraft.hay_block=Hay Bale
+block.minecraft.grass_block=Grass Block
+block.minecraft.dirt=Dirt
+block.minecraft.coarse_dirt=Coarse Dirt
+block.minecraft.podzol=Podzol
+block.minecraft.cobblestone=Cobblestone
+block.minecraft.oak_planks=Oak Planks
+block.minecraft.spruce_planks=Spruce Planks
+block.minecraft.birch_planks=Birch Planks
+block.minecraft.jungle_planks=Jungle Planks
+block.minecraft.acacia_planks=Acacia Planks
+block.minecraft.dark_oak_planks=Dark Oak Planks
+block.minecraft.oak_sapling=Oak Sapling
+block.minecraft.spruce_sapling=Spruce Sapling
+block.minecraft.birch_sapling=Birch Sapling
+block.minecraft.jungle_sapling=Jungle Sapling
+block.minecraft.acacia_sapling=Acacia Sapling
+block.minecraft.dark_oak_sapling=Dark Oak Sapling
+block.minecraft.oak_door=Oak Door
+block.minecraft.spruce_door=Spruce Door
+block.minecraft.birch_door=Birch Door
+block.minecraft.jungle_door=Jungle Door
+block.minecraft.acacia_door=Acacia Door
+block.minecraft.dark_oak_door=Dark Oak Door
+block.minecraft.bedrock=Bedrock
+block.minecraft.water=Water
+block.minecraft.lava=Lava
+block.minecraft.flowing_water=Flowing Water
+block.minecraft.flowing_lava=Flowing Lava
+block.minecraft.sand=Sand
+block.minecraft.red_sand=Red Sand
+block.minecraft.sandstone=Sandstone
+block.minecraft.chiseled_sandstone=Chiseled Sandstone
+block.minecraft.cut_sandstone=Cut Sandstone
+block.minecraft.red_sandstone=Red Sandstone
+block.minecraft.chiseled_red_sandstone=Chiseled Red Sandstone
+block.minecraft.cut_red_sandstone=Cut Red Sandstone
+block.minecraft.gravel=Gravel
+block.minecraft.gold_ore=Gold Ore
+block.minecraft.iron_ore=Iron Ore
+block.minecraft.coal_ore=Coal Ore
+block.minecraft.oak_bark=Oak Bark
+block.minecraft.spruce_bark=Spruce Bark
+block.minecraft.birch_bark=Birch Bark
+block.minecraft.jungle_bark=Jungle Bark
+block.minecraft.acacia_bark=Acacia Bark
+block.minecraft.dark_oak_bark=Dark Oak Bark
+block.minecraft.oak_log=Oak Log
+block.minecraft.spruce_log=Spruce Log
+block.minecraft.birch_log=Birch Log
+block.minecraft.jungle_log=Jungle Log
+block.minecraft.acacia_log=Acacia Log
+block.minecraft.dark_oak_log=Dark Oak Log
+block.minecraft.oak_leaves=Oak Leaves
+block.minecraft.spruce_leaves=Spruce Leaves
+block.minecraft.birch_leaves=Birch Leaves
+block.minecraft.jungle_leaves=Jungle Leaves
+block.minecraft.acacia_leaves=Acacia Leaves
+block.minecraft.dark_oak_leaves=Dark Oak Leaves
+block.minecraft.dead_bush=Dead Bush
+block.minecraft.grass=Grass
+block.minecraft.fern=Fern
+block.minecraft.sponge=Sponge
+block.minecraft.wet_sponge=Wet Sponge
+block.minecraft.glass=Glass
+block.minecraft.white_stained_glass=White Stained Glass
+block.minecraft.orange_stained_glass=Orange Stained Glass
+block.minecraft.magenta_stained_glass=Magenta Stained Glass
+block.minecraft.light_blue_stained_glass=Light Blue Stained Glass
+block.minecraft.yellow_stained_glass=Yellow Stained Glass
+block.minecraft.lime_stained_glass=Lime Stained Glass
+block.minecraft.pink_stained_glass=Pink Stained Glass
+block.minecraft.gray_stained_glass=Gray Stained Glass
+block.minecraft.light_gray_stained_glass=Light Gray Stained Glass
+block.minecraft.cyan_stained_glass=Cyan Stained Glass
+block.minecraft.purple_stained_glass=Purple Stained Glass
+block.minecraft.blue_stained_glass=Blue Stained Glass
+block.minecraft.brown_stained_glass=Brown Stained Glass
+block.minecraft.green_stained_glass=Green Stained Glass
+block.minecraft.red_stained_glass=Red Stained Glass
+block.minecraft.black_stained_glass=Black Stained Glass
+block.minecraft.white_stained_glass_pane=White Stained Glass Pane
+block.minecraft.orange_stained_glass_pane=Orange Stained Glass Pane
+block.minecraft.magenta_stained_glass_pane=Magenta Stained Glass Pane
+block.minecraft.light_blue_stained_glass_pane=Light Blue Stained Glass Pane
+block.minecraft.yellow_stained_glass_pane=Yellow Stained Glass Pane
+block.minecraft.lime_stained_glass_pane=Lime Stained Glass Pane
+block.minecraft.pink_stained_glass_pane=Pink Stained Glass Pane
+block.minecraft.gray_stained_glass_pane=Gray Stained Glass Pane
+block.minecraft.light_gray_stained_glass_pane=Light Gray Stained Glass Pane
+block.minecraft.cyan_stained_glass_pane=Cyan Stained Glass Pane
+block.minecraft.purple_stained_glass_pane=Purple Stained Glass Pane
+block.minecraft.blue_stained_glass_pane=Blue Stained Glass Pane
+block.minecraft.brown_stained_glass_pane=Brown Stained Glass Pane
+block.minecraft.green_stained_glass_pane=Green Stained Glass Pane
+block.minecraft.red_stained_glass_pane=Red Stained Glass Pane
+block.minecraft.black_stained_glass_pane=Black Stained Glass Pane
+block.minecraft.glass_pane=Glass Pane
+block.minecraft.dandelion=Dandelion
+block.minecraft.poppy=Poppy
+block.minecraft.blue_orchid=Blue Orchid
+block.minecraft.allium=Allium
+block.minecraft.azure_bluet=Azure Bluet
+block.minecraft.red_tulip=Red Tulip
+block.minecraft.orange_tulip=Orange Tulip
+block.minecraft.white_tulip=White Tulip
+block.minecraft.pink_tulip=Pink Tulip
+block.minecraft.oxeye_daisy=Oxeye Daisy
+block.minecraft.sunflower=Sunflower
+block.minecraft.lilac=Lilac
+block.minecraft.tall_grass=Tall Grass
+block.minecraft.large_fern=Large Fern
+block.minecraft.rose_bush=Rose Bush
+block.minecraft.peony=Peony
+block.minecraft.brown_mushroom=Brown Mushroom
+block.minecraft.red_mushroom_block=Red Mushroom Block
+block.minecraft.brown_mushroom_block=Brown Mushroom Block
+block.minecraft.mushroom_stem=Mushroom Stem
+block.minecraft.gold_block=Block of Gold
+block.minecraft.iron_block=Block of Iron
+block.minecraft.smooth_stone=Smooth Stone
+block.minecraft.smooth_sandstone=Smooth Sandstone
+block.minecraft.smooth_red_sandstone=Smooth Red Sandstone
+block.minecraft.smooth_quartz=Smooth Quartz
+block.minecraft.stone_slab=Stone Slab
+block.minecraft.sandstone_slab=Sandstone Slab
+block.minecraft.red_sandstone_slab=Red Sandstone Slab
+block.minecraft.petrified_oak_slab=Petrified Oak Slab
+block.minecraft.cobblestone_slab=Cobblestone Slab
+block.minecraft.brick_slab=Brick Slab
+block.minecraft.stone_brick_slab=Stone Brick Slab
+block.minecraft.nether_brick_slab=Nether Brick Slab
+block.minecraft.quartz_slab=Quartz Slab
+block.minecraft.sandstone_slab=Sandstone Slab
+block.minecraft.oak_slab=Oak Slab
+block.minecraft.spruce_slab=Spruce Slab
+block.minecraft.birch_slab=Birch Slab
+block.minecraft.jungle_slab=Jungle Slab
+block.minecraft.acacia_slab=Acacia Slab
+block.minecraft.dark_oak_slab=Dark Oak Slab
+block.minecraft.bricks=Bricks
+block.minecraft.tnt=TNT
+block.minecraft.bookshelf=Bookshelf
+block.minecraft.mossy_cobblestone=Mossy Cobblestone
+block.minecraft.obsidian=Obsidian
+block.minecraft.torch=Torch
+block.minecraft.wall_torch=Wall Torch
+block.minecraft.fire=Fire
+block.minecraft.mob_spawner=Spawner
+block.minecraft.oak_stairs=Oak Stairs
+block.minecraft.spruce_stairs=Spruce Stairs
+block.minecraft.birch_stairs=Birch Stairs
+block.minecraft.jungle_stairs=Jungle Stairs
+block.minecraft.acacia_stairs=Acacia Stairs
+block.minecraft.dark_oak_stairs=Dark Oak Stairs
+block.minecraft.chest=Chest
+block.minecraft.trapped_chest=Trapped Chest
+block.minecraft.redstone_wire=Redstone Wire
+block.minecraft.diamond_ore=Diamond Ore
+block.minecraft.coal_block=Block of Coal
+block.minecraft.diamond_block=Block of Diamond
+block.minecraft.crafting_table=Crafting Table
+block.minecraft.wheat=Wheat Crops
+block.minecraft.farmland=Farmland
+block.minecraft.furnace=Furnace
+block.minecraft.sign=Sign
+block.minecraft.wall_sign=Wall Sign
+block.minecraft.ladder=Ladder
+block.minecraft.rail=Rail
+block.minecraft.powered_rail=Powered Rail
+block.minecraft.activator_rail=Activator Rail
+block.minecraft.detector_rail=Detector Rail
+block.minecraft.cobblestone_stairs=Cobblestone Stairs
+block.minecraft.sandstone_stairs=Sandstone Stairs
+block.minecraft.red_sandstone_stairs=Red Sandstone Stairs
+block.minecraft.lever=Lever
+block.minecraft.stone_pressure_plate=Stone Pressure Plate
+block.minecraft.oak_pressure_plate=Oak Pressure Plate
+block.minecraft.spruce_pressure_plate=Spruce Pressure Plate
+block.minecraft.birch_pressure_plate=Birch Pressure Plate
+block.minecraft.jungle_pressure_plate=Jungle Pressure Plate
+block.minecraft.acacia_pressure_plate=Acacia Pressure Plate
+block.minecraft.dark_oak_pressure_plate=Dark Oak Pressure Plate
+block.minecraft.light_weighted_pressure_plate=Weighted Pressure Plate (Light)
+block.minecraft.heavy_weighted_pressure_plate=Weighted Pressure Plate (Heavy)
+block.minecraft.iron_door=Iron Door
+block.minecraft.redstone_ore=Redstone Ore
+block.minecraft.redstone_torch=Redstone Torch
+block.minecraft.redstone_wall_torch=Redstone Wall Torch
+block.minecraft.stone_button=Stone Button
+block.minecraft.oak_button=Oak Button
+block.minecraft.spruce_button=Spruce Button
+block.minecraft.birch_button=Birch Button
+block.minecraft.jungle_button=Jungle Button
+block.minecraft.acacia_button=Acacia Button
+block.minecraft.dark_oak_button=Dark Oak Button
+block.minecraft.snow=Snow
+block.minecraft.white_carpet=White Carpet
+block.minecraft.orange_carpet=Orange Carpet
+block.minecraft.magenta_carpet=Magenta Carpet
+block.minecraft.light_blue_carpet=Light Blue Carpet
+block.minecraft.yellow_carpet=Yellow Carpet
+block.minecraft.lime_carpet=Lime Carpet
+block.minecraft.pink_carpet=Pink Carpet
+block.minecraft.gray_carpet=Gray Carpet
+block.minecraft.light_gray_carpet=Light Gray Carpet
+block.minecraft.cyan_carpet=Cyan Carpet
+block.minecraft.purple_carpet=Purple Carpet
+block.minecraft.blue_carpet=Blue Carpet
+block.minecraft.brown_carpet=Brown Carpet
+block.minecraft.green_carpet=Green Carpet
+block.minecraft.red_carpet=Red Carpet
+block.minecraft.black_carpet=Black Carpet
+block.minecraft.ice=Ice
+block.minecraft.frosted_ice=Frosted Ice
+block.minecraft.packed_ice=Packed Ice
+block.minecraft.cactus=Cactus
+block.minecraft.clay=Clay
+block.minecraft.white_terracotta=White Terracotta
+block.minecraft.orange_terracotta=Orange Terracotta
+block.minecraft.magenta_terracotta=Magenta Terracotta
+block.minecraft.light_blue_terracotta=Light Blue Terracotta
+block.minecraft.yellow_terracotta=Yellow Terracotta
+block.minecraft.lime_terracotta=Lime Terracotta
+block.minecraft.pink_terracotta=Pink Terracotta
+block.minecraft.gray_terracotta=Gray Terracotta
+block.minecraft.light_gray_terracotta=Light Gray Terracotta
+block.minecraft.cyan_terracotta=Cyan Terracotta
+block.minecraft.purple_terracotta=Purple Terracotta
+block.minecraft.blue_terracotta=Blue Terracotta
+block.minecraft.brown_terracotta=Brown Terracotta
+block.minecraft.green_terracotta=Green Terracotta
+block.minecraft.red_terracotta=Red Terracotta
+block.minecraft.black_terracotta=Black Terracotta
+block.minecraft.hardened_clay=Terracotta
+block.minecraft.sugar_cane=Sugar Cane
+block.minecraft.jukebox=Jukebox
+block.minecraft.oak_fence=Oak Fence
+block.minecraft.spruce_fence=Spruce Fence
+block.minecraft.birch_fence=Birch Fence
+block.minecraft.jungle_fence=Jungle Fence
+block.minecraft.dark_oak_fence=Dark Oak Fence
+block.minecraft.acacia_fence=Acacia Fence
+block.minecraft.oak_fence_gate=Oak Fence Gate
+block.minecraft.spruce_fence_gate=Spruce Fence Gate
+block.minecraft.birch_fence_gate=Birch Fence Gate
+block.minecraft.jungle_fence_gate=Jungle Fence Gate
+block.minecraft.dark_oak_fence_gate=Dark Oak Fence Gate
+block.minecraft.acacia_fence_gate=Acacia Fence Gate
+block.minecraft.pumpkin_stem=Pumpkin Stem
+block.minecraft.attached_pumpkin_stem=Attached Pumpkin Stem
+block.minecraft.pumpkin=Pumpkin
+block.minecraft.carved_pumpkin=Carved Pumpkin
+block.minecraft.jack_o_lantern=Jack o'Lantern
+block.minecraft.netherrack=Netherrack
+block.minecraft.soul_sand=Soul Sand
+block.minecraft.glowstone=Glowstone
+block.minecraft.portal=Portal
+block.minecraft.white_wool=White Wool
+block.minecraft.orange_wool=Orange Wool
+block.minecraft.magenta_wool=Magenta Wool
+block.minecraft.light_blue_wool=Light Blue Wool
+block.minecraft.yellow_wool=Yellow Wool
+block.minecraft.lime_wool=Lime Wool
+block.minecraft.pink_wool=Pink Wool
+block.minecraft.gray_wool=Gray Wool
+block.minecraft.light_gray_wool=Light Gray Wool
+block.minecraft.cyan_wool=Cyan Wool
+block.minecraft.purple_wool=Purple Wool
+block.minecraft.blue_wool=Blue Wool
+block.minecraft.brown_wool=Brown Wool
+block.minecraft.green_wool=Green Wool
+block.minecraft.red_wool=Red Wool
+block.minecraft.black_wool=Black Wool
+block.minecraft.lapis_ore=Lapis Lazuli Ore
+block.minecraft.lapis_block=Lapis Lazuli Block
+block.minecraft.dispenser=Dispenser
+block.minecraft.dropper=Dropper
+block.minecraft.note_block=Note Block
+block.minecraft.cake=Cake
+block.minecraft.bed=Bed
+block.minecraft.bed.occupied=This bed is occupied
+block.minecraft.bed.no_sleep=You can only sleep at night
+block.minecraft.bed.too_far_away=You may not rest now, the bed is too far away
+block.minecraft.bed.not_safe=You may not rest now, there are monsters nearby
+block.minecraft.bed.not_valid=Your home bed was missing or obstructed
+block.minecraft.oak_trapdoor=Oak Trapdoor
+block.minecraft.spruce_trapdoor=Spruce Trapdoor
+block.minecraft.birch_trapdoor=Birch Trapdoor
+block.minecraft.jungle_trapdoor=Jungle Trapdoor
+block.minecraft.acacia_trapdoor=Acacia Trapdoor
+block.minecraft.dark_oak_trapdoor=Dark Oak Trapdoor
+block.minecraft.iron_trapdoor=Iron Trapdoor
+block.minecraft.cobweb=Cobweb
+block.minecraft.stone_bricks=Stone Bricks
+block.minecraft.mossy_stone_bricks=Mossy Stone Bricks
+block.minecraft.cracked_stone_bricks=Cracked Stone Bricks
+block.minecraft.chiseled_stone_bricks=Chiseled Stone Bricks
+block.minecraft.infested_stone=Infested Stone
+block.minecraft.infested_cobblestone=Infested Cobblestone
+block.minecraft.infested_stone_bricks=Infested Stone Bricks
+block.minecraft.infested_mossy_stone_bricks=Infested Mossy Stone Bricks
+block.minecraft.infested_cracked_stone_bricks=Infested Cracked Stone Bricks
+block.minecraft.infested_chiseled_stone_bricks=Infested Chiseled Stone Bricks
+block.minecraft.piston=Piston
+block.minecraft.sticky_piston=Sticky Piston
+block.minecraft.iron_bars=Iron Bars
+block.minecraft.melon_block=Melon
+block.minecraft.brick_stairs=Brick Stairs
+block.minecraft.stone_brick_stairs=Stone Brick Stairs
+block.minecraft.vine=Vines
+block.minecraft.nether_bricks=Nether Bricks
+block.minecraft.nether_brick_fence=Nether Brick Fence
+block.minecraft.nether_brick_stairs=Nether Brick Stairs
+block.minecraft.nether_wart=Nether Wart
+block.minecraft.cauldron=Cauldron
+block.minecraft.enchanting_table=Enchanting Table
+block.minecraft.anvil=Anvil
+block.minecraft.chipped_anvil=Chipped Anvil
+block.minecraft.damaged_anvil=Damaged Anvil
+block.minecraft.end_stone=End Stone
+block.minecraft.end_portal_frame=End Portal Frame
+block.minecraft.mycelium=Mycelium
+block.minecraft.lily_pad=Lily Pad
+block.minecraft.dragon_egg=Dragon Egg
+block.minecraft.redstone_lamp=Redstone Lamp
+block.minecraft.cocoa=Cocoa
+block.minecraft.ender_chest=Ender Chest
+block.minecraft.emerald_ore=Emerald Ore
+block.minecraft.emerald_block=Block of Emerald
+block.minecraft.redstone_block=Block of Redstone
+block.minecraft.tripwire=Tripwire
+block.minecraft.tripwire_hook=Tripwire Hook
+block.minecraft.command_block=Command Block
+block.minecraft.repeating_command_block=Repeating Command Block
+block.minecraft.chain_command_block=Chain Command Block
+block.minecraft.beacon=Beacon
+block.minecraft.beacon.primary=Primary Power
+block.minecraft.beacon.secondary=Secondary Power
+block.minecraft.cobblestone_wall=Cobblestone Wall
+block.minecraft.mossy_cobblestone_wall=Mossy Cobblestone Wall
+block.minecraft.carrots=Carrots
+block.minecraft.potatoes=Potatoes
+block.minecraft.daylight_detector=Daylight Detector
+block.minecraft.nether_quartz_ore=Nether Quartz Ore
+block.minecraft.hopper=Hopper
+block.minecraft.quartz_block=Block of Quartz
+block.minecraft.chiseled_quartz_block=Chiseled Quartz Block
+block.minecraft.quartz_pillar=Quartz Pillar
+block.minecraft.quartz_stairs=Quartz Stairs
+block.minecraft.slime_block=Slime Block
+block.minecraft.prismarine=Prismarine
+block.minecraft.prismarine_bricks=Prismarine Bricks
+block.minecraft.dark_prismarine=Dark Prismarine
+block.minecraft.sea_lantern=Sea Lantern
+block.minecraft.end_rod=End Rod
+block.minecraft.chorus_plant=Chorus Plant
+block.minecraft.chorus_flower=Chorus Flower
+block.minecraft.purpur_block=Purpur Block
+block.minecraft.purpur_pillar=Purpur Pillar
+block.minecraft.purpur_stairs=Purpur Stairs
+block.minecraft.purpur_slab=Purpur Slab
+block.minecraft.end_stone_bricks=End Stone Bricks
+block.minecraft.beetroots=Beetroots
+block.minecraft.grass_path=Grass Path
+block.minecraft.magma_block=Magma Block
+block.minecraft.nether_wart_block=Nether Wart Block
+block.minecraft.red_nether_bricks=Red Nether Bricks
+block.minecraft.bone_block=Bone Block
+block.minecraft.observer=Observer
+block.minecraft.white_shulker_box=White Shulker Box
+block.minecraft.orange_shulker_box=Orange Shulker Box
+block.minecraft.magenta_shulker_box=Magenta Shulker Box
+block.minecraft.light_blue_shulker_box=Light Blue Shulker Box
+block.minecraft.yellow_shulker_box=Yellow Shulker Box
+block.minecraft.lime_shulker_box=Lime Shulker Box
+block.minecraft.pink_shulker_box=Pink Shulker Box
+block.minecraft.gray_shulker_box=Gray Shulker Box
+block.minecraft.light_gray_shulker_box=Light Gray Shulker Box
+block.minecraft.cyan_shulker_box=Cyan Shulker Box
+block.minecraft.purple_shulker_box=Purple Shulker Box
+block.minecraft.blue_shulker_box=Blue Shulker Box
+block.minecraft.brown_shulker_box=Brown Shulker Box
+block.minecraft.green_shulker_box=Green Shulker Box
+block.minecraft.red_shulker_box=Red Shulker Box
+block.minecraft.black_shulker_box=Black Shulker Box
+block.minecraft.white_glazed_terracotta=White Glazed Terracotta
+block.minecraft.orange_glazed_terracotta=Orange Glazed Terracotta
+block.minecraft.magenta_glazed_terracotta=Magenta Glazed Terracotta
+block.minecraft.light_blue_glazed_terracotta=Light Blue Glazed Terracotta
+block.minecraft.yellow_glazed_terracotta=Yellow Glazed Terracotta
+block.minecraft.lime_glazed_terracotta=Lime Glazed Terracotta
+block.minecraft.pink_glazed_terracotta=Pink Glazed Terracotta
+block.minecraft.gray_glazed_terracotta=Gray Glazed Terracotta
+block.minecraft.light_gray_glazed_terracotta=Light Gray Glazed Terracotta
+block.minecraft.cyan_glazed_terracotta=Cyan Glazed Terracotta
+block.minecraft.purple_glazed_terracotta=Purple Glazed Terracotta
+block.minecraft.blue_glazed_terracotta=Blue Glazed Terracotta
+block.minecraft.brown_glazed_terracotta=Brown Glazed Terracotta
+block.minecraft.green_glazed_terracotta=Green Glazed Terracotta
+block.minecraft.red_glazed_terracotta=Red Glazed Terracotta
+block.minecraft.black_glazed_terracotta=Black Glazed Terracotta
+block.minecraft.black_concrete=Black Concrete
+block.minecraft.red_concrete=Red Concrete
+block.minecraft.green_concrete=Green Concrete
+block.minecraft.brown_concrete=Brown Concrete
+block.minecraft.blue_concrete=Blue Concrete
+block.minecraft.purple_concrete=Purple Concrete
+block.minecraft.cyan_concrete=Cyan Concrete
+block.minecraft.light_gray_concrete=Light Gray Concrete
+block.minecraft.gray_concrete=Gray Concrete
+block.minecraft.pink_concrete=Pink Concrete
+block.minecraft.lime_concrete=Lime Concrete
+block.minecraft.yellow_concrete=Yellow Concrete
+block.minecraft.light_blue_concrete=Light Blue Concrete
+block.minecraft.magenta_concrete=Magenta Concrete
+block.minecraft.orange_concrete=Orange Concrete
+block.minecraft.white_concrete=White Concrete
+block.minecraft.black_concrete_powder=Black Concrete Powder
+block.minecraft.red_concrete_powder=Red Concrete Powder
+block.minecraft.green_concrete_powder=Green Concrete Powder
+block.minecraft.brown_concrete_powder=Brown Concrete Powder
+block.minecraft.blue_concrete_powder=Blue Concrete Powder
+block.minecraft.purple_concrete_powder=Purple Concrete Powder
+block.minecraft.cyan_concrete_powder=Cyan Concrete Powder
+block.minecraft.light_gray_concrete_powder=Light Gray Concrete Powder
+block.minecraft.gray_concrete_powder=Gray Concrete Powder
+block.minecraft.pink_concrete_powder=Pink Concrete Powder
+block.minecraft.lime_concrete_powder=Lime Concrete Powder
+block.minecraft.yellow_concrete_powder=Yellow Concrete Powder
+block.minecraft.light_blue_concrete_powder=Light Blue Concrete Powder
+block.minecraft.magenta_concrete_powder=Magenta Concrete Powder
+block.minecraft.orange_concrete_powder=Orange Concrete Powder
+block.minecraft.white_concrete_powder=White Concrete Powder
+
+block.minecraft.banner=Banner
+block.minecraft.wall_banner=Wall Banner
+block.minecraft.piston_head=Piston Head
+block.minecraft.moving_piston=Moving Piston
+block.minecraft.red_mushroom=Red Mushroom
+block.minecraft.snow_block=Snow Block
+block.minecraft.attached_melon_stem=Attached Melon Stem
+block.minecraft.melon_stem=Melon Stem
+block.minecraft.brewing_stand=Brewing Stand
+block.minecraft.end_portal=End Portal
+block.minecraft.flower_pot=Flower Pot
+block.minecraft.skeleton_wall_skull=Skeleton Wall Skull
+block.minecraft.skeleton_skull=Skeleton Skull
+block.minecraft.wither_skeleton_wall_skull=Wither Skeleton Wall Skull
+block.minecraft.wither_skeleton_skull=Wither Skeleton Skull
+block.minecraft.zombie_wall_head=Zombie Wall Head
+block.minecraft.zombie_head=Zombie Head
+block.minecraft.player_wall_head=Player Wall Head
+block.minecraft.player_head=Player Head
+block.minecraft.creeper_wall_head=Creeper Wall Head
+block.minecraft.creeper_head=Creeper Head
+block.minecraft.dragon_wall_head=Dragon Wall Head
+block.minecraft.dragon_head=Dragon Head
+block.minecraft.end_gateway=End Gateway
+
+block.minecraft.structure_void=Structure Void
+block.minecraft.structure_block=Structure Block
+
+block.minecraft.black_bed=Black Bed
+block.minecraft.red_bed=Red Bed
+block.minecraft.green_bed=Green Bed
+block.minecraft.brown_bed=Brown Bed
+block.minecraft.blue_bed=Blue Bed
+block.minecraft.purple_bed=Purple Bed
+block.minecraft.cyan_bed=Cyan Bed
+block.minecraft.light_gray_bed=Light Gray Bed
+block.minecraft.gray_bed=Gray Bed
+block.minecraft.pink_bed=Pink Bed
+block.minecraft.lime_bed=Lime Bed
+block.minecraft.yellow_bed=Yellow Bed
+block.minecraft.light_blue_bed=Light Blue Bed
+block.minecraft.magenta_bed=Magenta Bed
+block.minecraft.orange_bed=Orange Bed
+block.minecraft.white_bed=White Bed
+block.minecraft.repeater=Redstone Repeater
+block.minecraft.comparator=Redstone Comparator
+-->
+=== Item translation strings ===
+{{info needed section|A raw list of names copied directly from en_US.lang can be found commented out below; these will need rearranged into a table like those above}}
+<!-- 17w46a:
+item.nameTag.name=Name Tag
+item.leash.name=Lead
+item.shovelIron.name=Iron Shovel
+item.pickaxeIron.name=Iron Pickaxe
+item.hatchetIron.name=Iron Axe
+item.flintAndSteel.name=Flint and Steel
+item.apple.name=Apple
+item.cookie.name=Cookie
+item.bow.name=Bow
+item.arrow.name=Arrow
+item.spectral_arrow.name=Spectral Arrow
+item.tipped_arrow.name=Tipped Arrow
+item.coal.name=Coal
+item.charcoal.name=Charcoal
+item.diamond.name=Diamond
+item.emerald.name=Emerald
+item.ingotIron.name=Iron Ingot
+item.ingotGold.name=Gold Ingot
+item.swordIron.name=Iron Sword
+item.swordWood.name=Wooden Sword
+item.shovelWood.name=Wooden Shovel
+item.pickaxeWood.name=Wooden Pickaxe
+item.hatchetWood.name=Wooden Axe
+item.swordStone.name=Stone Sword
+item.shovelStone.name=Stone Shovel
+item.pickaxeStone.name=Stone Pickaxe
+item.hatchetStone.name=Stone Axe
+item.swordDiamond.name=Diamond Sword
+item.shovelDiamond.name=Diamond Shovel
+item.pickaxeDiamond.name=Diamond Pickaxe
+item.hatchetDiamond.name=Diamond Axe
+item.stick.name=Stick
+item.bowl.name=Bowl
+item.mushroomStew.name=Mushroom Stew
+item.swordGold.name=Golden Sword
+item.shovelGold.name=Golden Shovel
+item.pickaxeGold.name=Golden Pickaxe
+item.hatchetGold.name=Golden Axe
+item.string.name=String
+item.feather.name=Feather
+item.sulphur.name=Gunpowder
+item.hoeWood.name=Wooden Hoe
+item.hoeStone.name=Stone Hoe
+item.hoeIron.name=Iron Hoe
+item.hoeDiamond.name=Diamond Hoe
+item.hoeGold.name=Golden Hoe
+item.seeds.name=Seeds
+item.seeds_pumpkin.name=Pumpkin Seeds
+item.seeds_melon.name=Melon Seeds
+item.melon.name=Melon
+item.wheat.name=Wheat
+item.bread.name=Bread
+item.helmetCloth.name=Leather Cap
+item.chestplateCloth.name=Leather Tunic
+item.leggingsCloth.name=Leather Pants
+item.bootsCloth.name=Leather Boots
+item.helmetChain.name=Chain Helmet
+item.chestplateChain.name=Chain Chestplate
+item.leggingsChain.name=Chain Leggings
+item.bootsChain.name=Chain Boots
+item.helmetIron.name=Iron Helmet
+item.chestplateIron.name=Iron Chestplate
+item.leggingsIron.name=Iron Leggings
+item.bootsIron.name=Iron Boots
+item.helmetDiamond.name=Diamond Helmet
+item.chestplateDiamond.name=Diamond Chestplate
+item.leggingsDiamond.name=Diamond Leggings
+item.bootsDiamond.name=Diamond Boots
+item.helmetGold.name=Golden Helmet
+item.chestplateGold.name=Golden Chestplate
+item.leggingsGold.name=Golden Leggings
+item.bootsGold.name=Golden Boots
+item.flint.name=Flint
+item.porkchopRaw.name=Raw Porkchop
+item.porkchopCooked.name=Cooked Porkchop
+item.chickenRaw.name=Raw Chicken
+item.chickenCooked.name=Cooked Chicken
+item.muttonRaw.name=Raw Mutton
+item.muttonCooked.name=Cooked Mutton
+item.rabbitRaw.name=Raw Rabbit
+item.rabbitCooked.name=Cooked Rabbit
+item.rabbitStew.name=Rabbit Stew
+item.rabbitFoot.name=Rabbit's Foot
+item.rabbitHide.name=Rabbit Hide
+item.beefRaw.name=Raw Beef
+item.beefCooked.name=Steak
+item.painting.name=Painting
+item.frame.name=Item Frame
+item.appleGold.name=Golden Apple
+item.sign.name=Sign
+item.doorOak.name=Oak Door
+item.doorSpruce.name=Spruce Door
+item.doorBirch.name=Birch Door
+item.doorJungle.name=Jungle Door
+item.doorAcacia.name=Acacia Door
+item.doorDarkOak.name=Dark Oak Door
+item.bucket.name=Bucket
+item.bucketWater.name=Water Bucket
+item.bucketLava.name=Lava Bucket
+item.minecart.name=Minecart
+item.saddle.name=Saddle
+item.doorIron.name=Iron Door
+item.redstone.name=Redstone
+item.snowball.name=Snowball
+item.boat.oak.name=Oak Boat
+item.boat.spruce.name=Spruce Boat
+item.boat.birch.name=Birch Boat
+item.boat.jungle.name=Jungle Boat
+item.boat.acacia.name=Acacia Boat
+item.boat.dark_oak.name=Dark Oak Boat
+item.leather.name=Leather
+item.milk.name=Milk
+item.brick.name=Brick
+item.clay.name=Clay
+item.reeds.name=Sugar Canes
+item.paper.name=Paper
+item.book.name=Book
+item.slimeball.name=Slimeball
+item.minecartChest.name=Minecart with Chest
+item.minecartFurnace.name=Minecart with Furnace
+item.minecartTnt.name=Minecart with TNT
+item.minecartHopper.name=Minecart with Hopper
+item.minecartCommandBlock.name=Minecart with Command Block
+item.egg.name=Egg
+item.compass.name=Compass
+item.fishingRod.name=Fishing Rod
+item.clock.name=Clock
+item.yellowDust.name=Glowstone Dust
+item.fish.cod.raw.name=Raw Fish
+item.fish.salmon.raw.name=Raw Salmon
+item.fish.pufferfish.raw.name=Pufferfish
+item.fish.clownfish.raw.name=Clownfish
+item.fish.cod.cooked.name=Cooked Fish
+item.fish.salmon.cooked.name=Cooked Salmon
+item.record.name=Music Disc
+item.record.13.desc=C418 - 13
+item.record.cat.desc=C418 - cat
+item.record.blocks.desc=C418 - blocks
+item.record.chirp.desc=C418 - chirp
+item.record.far.desc=C418 - far
+item.record.mall.desc=C418 - mall
+item.record.mellohi.desc=C418 - mellohi
+item.record.stal.desc=C418 - stal
+item.record.strad.desc=C418 - strad
+item.record.ward.desc=C418 - ward
+item.record.11.desc=C418 - 11
+item.record.wait.desc=C418 - wait
+item.bone.name=Bone
+item.dyePowder.black.name=Ink Sac
+item.dyePowder.red.name=Rose Red
+item.dyePowder.green.name=Cactus Green
+item.dyePowder.brown.name=Cocoa Beans
+item.dyePowder.blue.name=Lapis Lazuli
+item.dyePowder.purple.name=Purple Dye
+item.dyePowder.cyan.name=Cyan Dye
+item.dyePowder.silver.name=Light Gray Dye
+item.dyePowder.gray.name=Gray Dye
+item.dyePowder.pink.name=Pink Dye
+item.dyePowder.lime.name=Lime Dye
+item.dyePowder.yellow.name=Dandelion Yellow
+item.dyePowder.lightBlue.name=Light Blue Dye
+item.dyePowder.magenta.name=Magenta Dye
+item.dyePowder.orange.name=Orange Dye
+item.dyePowder.white.name=Bone Meal
+item.sugar.name=Sugar
+item.cake.name=Cake
+item.bed.black.name=Black Bed
+item.bed.red.name=Red Bed
+item.bed.green.name=Green Bed
+item.bed.brown.name=Brown Bed
+item.bed.blue.name=Blue Bed
+item.bed.purple.name=Purple Bed
+item.bed.cyan.name=Cyan Bed
+item.bed.silver.name=Light Gray Bed
+item.bed.gray.name=Gray Bed
+item.bed.pink.name=Pink Bed
+item.bed.lime.name=Lime Bed
+item.bed.yellow.name=Yellow Bed
+item.bed.lightBlue.name=Light Blue Bed
+item.bed.magenta.name=Magenta Bed
+item.bed.orange.name=Orange Bed
+item.bed.white.name=White Bed
+item.diode.name=Redstone Repeater
+item.comparator.name=Redstone Comparator
+item.map.name=Map
+item.leaves.name=Leaves
+item.shears.name=Shears
+item.rottenFlesh.name=Rotten Flesh
+item.enderPearl.name=Ender Pearl
+item.blazeRod.name=Blaze Rod
+item.ghastTear.name=Ghast Tear
+item.netherStalkSeeds.name=Nether Wart
+item.potion.name=Potion
+item.splash_potion.name=Splash Potion
+item.lingering_potion.name=Lingering Potion
+item.end_crystal.name=End Crystal
+item.goldNugget.name=Gold Nugget
+item.glassBottle.name=Glass Bottle
+item.spiderEye.name=Spider Eye
+item.fermentedSpiderEye.name=Fermented Spider Eye
+item.blazePowder.name=Blaze Powder
+item.magmaCream.name=Magma Cream
+item.cauldron.name=Cauldron
+item.brewingStand.name=Brewing Stand
+item.eyeOfEnder.name=Eye of Ender
+item.speckledMelon.name=Glistering Melon
+item.monsterPlacer.name=Spawn
+item.expBottle.name=Bottle o' Enchanting
+item.fireball.name=Fire Charge
+item.writingBook.name=Book and Quill
+item.writtenBook.name=Written Book
+item.flowerPot.name=Flower Pot
+item.emptyMap.name=Empty Map
+item.carrots.name=Carrot
+item.carrotGolden.name=Golden Carrot
+item.potato.name=Potato
+item.potatoBaked.name=Baked Potato
+item.potatoPoisonous.name=Poisonous Potato
+item.skull.skeleton.name=Skeleton Skull
+item.skull.wither.name=Wither Skeleton Skull
+item.skull.zombie.name=Zombie Head
+item.skull.char.name=Head
+item.skull.player.name=%s's Head
+item.skull.creeper.name=Creeper Head
+item.skull.dragon.name=Dragon Head
+item.carrotOnAStick.name=Carrot on a Stick
+item.netherStar.name=Nether Star
+item.pumpkinPie.name=Pumpkin Pie
+item.enchantedBook.name=Enchanted Book
+item.fireworks.name=Firework Rocket
+item.fireworks.flight=Flight Duration:
+item.fireworksCharge.name=Firework Star
+item.fireworksCharge.black=Black
+item.fireworksCharge.red=Red
+item.fireworksCharge.green=Green
+item.fireworksCharge.brown=Brown
+item.fireworksCharge.blue=Blue
+item.fireworksCharge.purple=Purple
+item.fireworksCharge.cyan=Cyan
+item.fireworksCharge.silver=Light Gray
+item.fireworksCharge.gray=Gray
+item.fireworksCharge.pink=Pink
+item.fireworksCharge.lime=Lime
+item.fireworksCharge.yellow=Yellow
+item.fireworksCharge.lightBlue=Light Blue
+item.fireworksCharge.magenta=Magenta
+item.fireworksCharge.orange=Orange
+item.fireworksCharge.white=White
+item.fireworksCharge.customColor=Custom
+item.fireworksCharge.fadeTo=Fade to
+item.fireworksCharge.flicker=Twinkle
+item.fireworksCharge.trail=Trail
+item.fireworksCharge.type.0=Small Ball
+item.fireworksCharge.type.1=Large Ball
+item.fireworksCharge.type.2=Star-shaped
+item.fireworksCharge.type.3=Creeper-shaped
+item.fireworksCharge.type.4=Burst
+item.fireworksCharge.type=Unknown Shape
+item.netherbrick.name=Nether Brick
+item.netherquartz.name=Nether Quartz
+item.armorStand.name=Armor Stand
+item.horsearmormetal.name=Iron Horse Armor
+item.horsearmorgold.name=Gold Horse Armor
+item.horsearmordiamond.name=Diamond Horse Armor
+item.prismarineShard.name=Prismarine Shard
+item.prismarineCrystals.name=Prismarine Crystals
+item.chorusFruit.name=Chorus Fruit
+item.chorusFruitPopped.name=Popped Chorus Fruit
+item.beetroot.name=Beetroot
+item.beetroot_seeds.name=Beetroot Seeds
+item.beetroot_soup.name=Beetroot Soup
+item.dragon_breath.name=Dragon's Breath
+item.elytra.name=Elytra
+item.totem.name=Totem of Undying
+item.shulkerShell.name=Shulker Shell
+item.ironNugget.name=Iron Nugget
+item.knowledgeBook.name=Knowledge Book
+
+17w47a:
+
+item.minecraft.name_tag=Name Tag
+item.minecraft.lead=Lead
+item.minecraft.iron_shovel=Iron Shovel
+item.minecraft.iron_pickaxe=Iron Pickaxe
+item.minecraft.iron_axe=Iron Axe
+item.minecraft.flint_and_steel=Flint and Steel
+item.minecraft.apple=Apple
+item.minecraft.cookie=Cookie
+item.minecraft.bow=Bow
+item.minecraft.arrow=Arrow
+item.minecraft.spectral_arrow=Spectral Arrow
+item.minecraft.tipped_arrow=Tipped Arrow
+item.minecraft.coal=Coal
+item.minecraft.charcoal=Charcoal
+item.minecraft.diamond=Diamond
+item.minecraft.emerald=Emerald
+item.minecraft.iron_ingot=Iron Ingot
+item.minecraft.gold_ingot=Gold Ingot
+item.minecraft.iron_sword=Iron Sword
+item.minecraft.wooden_sword=Wooden Sword
+item.minecraft.wooden_shovel=Wooden Shovel
+item.minecraft.wooden_pickaxe=Wooden Pickaxe
+item.minecraft.wooden_axe=Wooden Axe
+item.minecraft.stone_sword=Stone Sword
+item.minecraft.stone_shovel=Stone Shovel
+item.minecraft.stone_pickaxe=Stone Pickaxe
+item.minecraft.stone_axe=Stone Axe
+item.minecraft.diamond_sword=Diamond Sword
+item.minecraft.diamond_shovel=Diamond Shovel
+item.minecraft.diamond_pickaxe=Diamond Pickaxe
+item.minecraft.diamond_axe=Diamond Axe
+item.minecraft.stick=Stick
+item.minecraft.bowl=Bowl
+item.minecraft.mushroom_stew=Mushroom Stew
+item.minecraft.golden_sword=Golden Sword
+item.minecraft.golden_shovel=Golden Shovel
+item.minecraft.golden_pickaxe=Golden Pickaxe
+item.minecraft.golden_axe=Golden Axe
+item.minecraft.string=String
+item.minecraft.feather=Feather
+item.minecraft.gunpowder=Gunpowder
+item.minecraft.wooden_hoe=Wooden Hoe
+item.minecraft.stone_hoe=Stone Hoe
+item.minecraft.iron_hoe=Iron Hoe
+item.minecraft.diamond_hoe=Diamond Hoe
+item.minecraft.golden_hoe=Golden Hoe
+item.minecraft.wheat_seeds=Seeds
+item.minecraft.pumpkin_seeds=Pumpkin Seeds
+item.minecraft.melon_seeds=Melon Seeds
+item.minecraft.melon=Melon Slice
+item.minecraft.wheat=Wheat
+item.minecraft.bread=Bread
+item.minecraft.leather_helmet=Leather Cap
+item.minecraft.leather_chestplate=Leather Tunic
+item.minecraft.leather_leggings=Leather Pants
+item.minecraft.leather_boots=Leather Boots
+item.minecraft.chainmail_helmet=Chain Helmet
+item.minecraft.chainmail_chestplate=Chain Chestplate
+item.minecraft.chainmail_leggings=Chain Leggings
+item.minecraft.chainmail_boots=Chain Boots
+item.minecraft.iron_helmet=Iron Helmet
+item.minecraft.iron_chestplate=Iron Chestplate
+item.minecraft.iron_leggings=Iron Leggings
+item.minecraft.iron_boots=Iron Boots
+item.minecraft.diamond_helmet=Diamond Helmet
+item.minecraft.diamond_chestplate=Diamond Chestplate
+item.minecraft.diamond_leggings=Diamond Leggings
+item.minecraft.diamond_boots=Diamond Boots
+item.minecraft.golden_helmet=Golden Helmet
+item.minecraft.golden_chestplate=Golden Chestplate
+item.minecraft.golden_leggings=Golden Leggings
+item.minecraft.golden_boots=Golden Boots
+item.minecraft.flint=Flint
+item.minecraft.porkchop=Raw Porkchop
+item.minecraft.cooked_porkchop=Cooked Porkchop
+item.minecraft.chicken=Raw Chicken
+item.minecraft.cooked_chicken=Cooked Chicken
+item.minecraft.mutton=Raw Mutton
+item.minecraft.cooked_mutton=Cooked Mutton
+item.minecraft.rabbit=Raw Rabbit
+item.minecraft.cooked_rabbit=Cooked Rabbit
+item.minecraft.rabbit_stew=Rabbit Stew
+item.minecraft.rabbit_foot=Rabbit's Foot
+item.minecraft.rabbit_hide=Rabbit Hide
+item.minecraft.beef=Raw Beef
+item.minecraft.cooked_beef=Steak
+item.minecraft.painting=Painting
+item.minecraft.item_frame=Item Frame
+item.minecraft.golden_apple=Golden Apple
+item.minecraft.enchanted_golden_apple=Enchanted Golden Apple
+item.minecraft.sign=Sign
+item.minecraft.bucket=Bucket
+item.minecraft.water_bucket=Water Bucket
+item.minecraft.lava_bucket=Lava Bucket
+item.minecraft.minecart=Minecart
+item.minecraft.saddle=Saddle
+item.minecraft.redstone=Redstone
+item.minecraft.snowball=Snowball
+item.minecraft.oak_boat=Oak Boat
+item.minecraft.spruce_boat=Spruce Boat
+item.minecraft.birch_boat=Birch Boat
+item.minecraft.jungle_boat=Jungle Boat
+item.minecraft.acacia_boat=Acacia Boat
+item.minecraft.dark_oak_boat=Dark Oak Boat
+item.minecraft.leather=Leather
+item.minecraft.milk_bucket=Milk
+item.minecraft.brick=Brick
+item.minecraft.clay_ball=Clay
+item.minecraft.sugar_cane=Sugar Canes
+item.minecraft.paper=Paper
+item.minecraft.book=Book
+item.minecraft.slime_ball=Slimeball
+item.minecraft.chest_minecart=Minecart with Chest
+item.minecraft.furnace_minecart=Minecart with Furnace
+item.minecraft.tnt_minecart=Minecart with TNT
+item.minecraft.hopper_minecart=Minecart with Hopper
+item.minecraft.command_block_minecart=Minecart with Command Block
+item.minecraft.egg=Egg
+item.minecraft.compass=Compass
+item.minecraft.fishing_rod=Fishing Rod
+item.minecraft.clock=Clock
+item.minecraft.glowstone_dust=Glowstone Dust
+item.minecraft.cod=Raw Cod
+item.minecraft.salmon=Raw Salmon
+item.minecraft.pufferfish=Pufferfish
+item.minecraft.clownfish=Clownfish
+item.minecraft.cooked_cod=Cooked Cod
+item.minecraft.cooked_salmon=Cooked Salmon
+item.minecraft.music_disc_13=Music Disc
+item.minecraft.music_disc_cat=Music Disc
+item.minecraft.music_disc_blocks=Music Disc
+item.minecraft.music_disc_chirp=Music Disc
+item.minecraft.music_disc_far=Music Disc
+item.minecraft.music_disc_mall=Music Disc
+item.minecraft.music_disc_mellohi=Music Disc
+item.minecraft.music_disc_stal=Music Disc
+item.minecraft.music_disc_strad=Music Disc
+item.minecraft.music_disc_ward=Music Disc
+item.minecraft.music_disc_11=Music Disc
+item.minecraft.music_disc_wait=Music Disc
+item.minecraft.music_disc_13.desc=C418 - 13
+item.minecraft.music_disc_cat.desc=C418 - cat
+item.minecraft.music_disc_blocks.desc=C418 - blocks
+item.minecraft.music_disc_chirp.desc=C418 - chirp
+item.minecraft.music_disc_far.desc=C418 - far
+item.minecraft.music_disc_mall.desc=C418 - mall
+item.minecraft.music_disc_mellohi.desc=C418 - mellohi
+item.minecraft.music_disc_stal.desc=C418 - stal
+item.minecraft.music_disc_strad.desc=C418 - strad
+item.minecraft.music_disc_ward.desc=C418 - ward
+item.minecraft.music_disc_11.desc=C418 - 11
+item.minecraft.music_disc_wait.desc=C418 - wait
+item.minecraft.bone=Bone
+item.minecraft.ink_sac=Ink Sac
+item.minecraft.rose_red=Rose Red
+item.minecraft.cactus_green=Cactus Green
+item.minecraft.cocoa_beans=Cocoa Beans
+item.minecraft.lapis_lazuli=Lapis Lazuli
+item.minecraft.purple_dye=Purple Dye
+item.minecraft.cyan_dye=Cyan Dye
+item.minecraft.light_gray_dye=Light Gray Dye
+item.minecraft.gray_dye=Gray Dye
+item.minecraft.pink_dye=Pink Dye
+item.minecraft.lime_dye=Lime Dye
+item.minecraft.dandelion_yellow=Dandelion Yellow
+item.minecraft.light_blue_dye=Light Blue Dye
+item.minecraft.magenta_dye=Magenta Dye
+item.minecraft.orange_dye=Orange Dye
+item.minecraft.bone_meal=Bone Meal
+item.minecraft.sugar=Sugar
+item.minecraft.filled_map=Map
+item.leaves.name=Leaves
+item.minecraft.shears=Shears
+item.minecraft.rotten_flesh=Rotten Flesh
+item.minecraft.ender_pearl=Ender Pearl
+item.minecraft.blaze_rod=Blaze Rod
+item.minecraft.ghast_tear=Ghast Tear
+item.minecraft.nether_wart=Nether Wart
+item.minecraft.potion=Potion
+item.minecraft.splash_potion=Splash Potion
+item.minecraft.lingering_potion=Lingering Potion
+item.minecraft.end_crystal=End Crystal
+item.minecraft.gold_nugget=Gold Nugget
+item.minecraft.glass_bottle=Glass Bottle
+item.minecraft.spider_eye=Spider Eye
+item.minecraft.fermented_spider_eye=Fermented Spider Eye
+item.minecraft.blaze_powder=Blaze Powder
+item.minecraft.magma_cream=Magma Cream
+item.minecraft.cauldron=Cauldron
+item.minecraft.brewing_stand=Brewing Stand
+item.minecraft.ender_eye=Eye of Ender
+item.minecraft.speckled_melon=Glistering Melon
+
+item.minecraft.bat_spawn_egg=Spawn Bat
+item.minecraft.blaze_spawn_egg=Spawn Blaze
+item.minecraft.cave_spider_spawn_egg=Spawn Cave Spider
+item.minecraft.chicken_spawn_egg=Spawn Chicken
+item.minecraft.cow_spawn_egg=Spawn Cow
+item.minecraft.creeper_spawn_egg=Spawn Creeper
+item.minecraft.donkey_spawn_egg=Spawn Donkey
+item.minecraft.elder_guardian_spawn_egg=Spawn Elder Guardian
+item.minecraft.enderman_spawn_egg=Spawn Enderman
+item.minecraft.endermite_spawn_egg=Spawn Endermite
+item.minecraft.evocation_illager_spawn_egg=Spawn Evoker
+item.minecraft.ghast_spawn_egg=Spawn Ghast
+item.minecraft.guardian_spawn_egg=Spawn Guardian
+item.minecraft.horse_spawn_egg=Spawn Horse
+item.minecraft.husk_spawn_egg=Spawn Husk
+item.minecraft.llama_spawn_egg=Spawn Llama
+item.minecraft.magma_cube_spawn_egg=Spawn Magma Cube
+item.minecraft.mooshroom_spawn_egg=Spawn Mooshroom
+item.minecraft.mule_spawn_egg=Spawn Mule
+item.minecraft.ocelot_spawn_egg=Spawn Ocelot
+item.minecraft.parrot_spawn_egg=Spawn Parrot
+item.minecraft.pig_spawn_egg=Spawn Pig
+item.minecraft.polar_bear_spawn_egg=Spawn Polar Bear
+item.minecraft.rabbit_spawn_egg=Spawn Rabbit
+item.minecraft.sheep_spawn_egg=Spawn Sheep
+item.minecraft.shulker_spawn_egg=Spawn Shulker
+item.minecraft.silverfish_spawn_egg=Spawn Silverfish
+item.minecraft.skeleton_spawn_egg=Spawn Skeleton
+item.minecraft.skeleton_horse_spawn_egg=Spawn Skeleton Horse
+item.minecraft.slime_spawn_egg=Spawn Slime
+item.minecraft.spider_spawn_egg=Spawn Spider
+item.minecraft.squid_spawn_egg=Spawn Squid
+item.minecraft.stray_spawn_egg=Spawn Stray
+item.minecraft.vex_spawn_egg=Spawn Vex
+item.minecraft.villager_spawn_egg=Spawn Villager
+item.minecraft.vindication_illager_spawn_egg=Spawn Vindicator
+item.minecraft.witch_spawn_egg=Spawn Witch
+item.minecraft.wither_skeleton_spawn_egg=Spawn Wither Skeleton
+item.minecraft.wolf_spawn_egg=Spawn Wolf
+item.minecraft.zombie_spawn_egg=Spawn Zombie
+item.minecraft.zombie_horse_spawn_egg=Spawn Zombie Horse
+item.minecraft.zombie_pigman_spawn_egg=Spawn Zombie Pigman
+item.minecraft.zombie_villager_spawn_egg=Spawn Zombie Villager
+
+item.minecraft.experience_bottle=Bottle o' Enchanting
+item.minecraft.fire_charge=Fire Charge
+item.minecraft.writable_book=Book and Quill
+item.minecraft.written_book=Written Book
+item.minecraft.flower_pot=Flower Pot
+item.minecraft.map=Empty Map
+item.minecraft.carrot=Carrot
+item.minecraft.golden_carrot=Golden Carrot
+item.minecraft.potato=Potato
+item.minecraft.baked_potato=Baked Potato
+item.minecraft.poisonous_potato=Poisonous Potato
+item.minecraft.skeleton_skull=Skeleton Skull
+item.minecraft.wither_skeleton_skull=Wither Skeleton Skull
+item.minecraft.zombie_head=Zombie Head
+item.minecraft.player_head=Head
+item.minecraft.player_head.named=%s's Head
+item.minecraft.creeper_head=Creeper Head
+item.minecraft.dragon_head=Dragon Head
+item.minecraft.carrot_on_a_stick=Carrot on a Stick
+item.minecraft.nether_star=Nether Star
+item.minecraft.pumpkin_pie=Pumpkin Pie
+item.minecraft.enchanted_book=Enchanted Book
+item.minecraft.firework_rocket=Firework Rocket
+item.minecraft.firework_rocket.flight=Flight Duration:
+item.minecraft.firework_star=Firework Star
+item.minecraft.firework_star.black=Black
+item.minecraft.firework_star.red=Red
+item.minecraft.firework_star.green=Green
+item.minecraft.firework_star.brown=Brown
+item.minecraft.firework_star.blue=Blue
+item.minecraft.firework_star.purple=Purple
+item.minecraft.firework_star.cyan=Cyan
+item.minecraft.firework_star.light_gray=Light Gray
+item.minecraft.firework_star.gray=Gray
+item.minecraft.firework_star.pink=Pink
+item.minecraft.firework_star.lime=Lime
+item.minecraft.firework_star.yellow=Yellow
+item.minecraft.firework_star.light_blue=Light Blue
+item.minecraft.firework_star.magenta=Magenta
+item.minecraft.firework_star.orange=Orange
+item.minecraft.firework_star.white=White
+item.minecraft.firework_star.custom_color=Custom
+item.minecraft.firework_star.fade_to=Fade to
+item.minecraft.firework_star.flicker=Twinkle
+item.minecraft.firework_star.trail=Trail
+item.minecraft.firework_star.shape.small_ball=Small Ball
+item.minecraft.firework_star.shape.large_ball=Large Ball
+item.minecraft.firework_star.shape.star=Star-shaped
+item.minecraft.firework_star.shape.creeper=Creeper-shaped
+item.minecraft.firework_star.shape.burst=Burst
+item.minecraft.firework_star.shape=Unknown Shape
+item.minecraft.nether_brick=Nether Brick
+item.minecraft.quartz=Nether Quartz
+item.minecraft.armor_stand=Armor Stand
+item.minecraft.iron_horse_armor=Iron Horse Armor
+item.minecraft.golden_horse_armor=Gold Horse Armor
+item.minecraft.diamond_horse_armor=Diamond Horse Armor
+item.minecraft.prismarine_shard=Prismarine Shard
+item.minecraft.prismarine_crystals=Prismarine Crystals
+item.minecraft.chorus_fruit=Chorus Fruit
+item.minecraft.chorus_fruit_popped=Popped Chorus Fruit
+item.minecraft.beetroot=Beetroot
+item.minecraft.beetroot_seeds=Beetroot Seeds
+item.minecraft.beetroot_soup=Beetroot Soup
+item.minecraft.dragon_breath=Dragon's Breath
+item.minecraft.elytra=Elytra
+item.minecraft.totem_of_undying=Totem of Undying
+item.minecraft.shulker_shell=Shulker Shell
+item.minecraft.iron_nugget=Iron Nugget
+item.minecraft.knowledge_book=Knowledge Book
+item.minecraft.debug_stick=Debug Stick
+-->
+
+== History ==
+
+{{History|java}}
+{{History||1.13|snap=17w45a|Command format changed to no longer use meta data and damage values; making the items differing by damage not possible to be given with commands.}}
+{{History|||snap=17w47a|The item and block IDs got merged, deleted, separated and renamed.
+|The block state changes got applied.
+|Removed damage from items, added damage in the {{code|tag}} tag for tools and armor and added {{code|map}} for maps.
+|[[Trapped Chest]]s now got their own block entity id {{code|trapped_chest}}.
+|Metadata completely removed.
+|Particle IDs now use resource locations and got renamed.
+|Statistics now use resource locations, and entity statistics got removed.
+|Translation strings now follow the ID for items, blocks and statistics.}}
+{{History|||snap=17w47b|[[Trapped Chest]]s now use the {{code|chest}} block entity id again.}}
+{{History|||snap=17w48a|Entity statistics re-added and now apply to all entities.}}
+{{History|||snap=18w02a|Painting motives now use resource locations and got and renamed.
+|Wall banners now use the same translation key as their standing variant banners.
+|The translation keys for entities are now {{code|entity.<''namespace''>.<''id''>}} instead of {{code|entity.<''title''>.name}}.}}
+{{History|||snap=18w07b|Renamed {{code|turtle_shell_piece}} to {{code|scute}}.}}
+{{History|||snap=18w10b|Separated {{code|dead_coral}} into one for each color.}}
+{{History|||snap=18w10c|Merged {{code|water}} and {{code|flowing_water}}.
+|Merged {{code|lava}} and {{code|flowing_lava}}.}}
+{{History|||snap=18w14b|Renamed {{code|<''color''>_dead_coral}} to {{code|dead_<''variant''>_coral_block}}.
+|Renamed {{code|<''color''>_coral}} to {{code|<''variant''>_coral_block}}.
+|Renamed {{code|<''color''>_coral_plant}} to {{code|<''variant''>_coral}}.
+|Renamed {{code|<''color''>_coral_fan}} to {{code|<''variant''>_coral_fan}}.}}
+{{History|||snap=18w19a|Renamed {{code|(tall_)sea_grass}} to {{code|(tall_)seagrass}}.
+|Renamed the entity {{code|puffer_fish}} to {{code|pufferfish}}.
+|Changed the name of [[Clownfish]] to [[Tropical Fish]].}}
+{{History|||snap=18w20a|Renamed {{code|kelp_top}} to {{code|kelp}}.
+|Renamed {{code|kelp}} to {{code|kelp_plant}}.
+|Renamed {{code|prismarine_bricks_slab}} to {{code|prismarine_brick_slab}}.
+|Renamed {{code|prismarine_bricks_stairs}} to {{code|prismarine_brick_stairs}}.
+|Renamed {{code|cod_mob_spawn_egg}} to {{code|cod_spawn_egg}}.
+|Renamed {{code|salmon_mob_spawn_egg}} to {{code|salmon_spawn_egg}}.
+|Renamed {{code|cod_mob}} to {{code|cod}}.
+|Renamed {{code|salmon_mob}} to {{code|salmon}}.
+|Changed the name of [[Weighted Pressure Plate (Heavy)]] to [[Heavy Weighted Pressure Plate]].
+|Changed the name of [[Weighted Pressure Plate (Light)]] to [[Light Weighted Pressure Plate]].
+|Changed the name of [[Gold Horse Armor]] to [[Golden Horse Armor]].
+|Changed the name of [[Chain Armor]] to [[Chainmail Armor]].
+|Changed the name of [[Milk]] to [[Milk Bucket]].
+|Changed the name of [[Seeds]] to [[Wheat Seeds]].
+|Changed the name of [[Spawn Egg|Spawn <''mob''>]] to [[Spawn Egg|<''mob''> Spawn Egg]].
+|Renamed several block textures.
+|Renamed several structure files.}}
+{{History|||snap=18w20b|Renamed {{code|melon_block}} to {{code|melon}}.
+|Renamed {{code|melon}} to {{code|melon_slice}}.
+|Renamed {{code|speckled_melon}} to {{code|glistering_melon_slice}}.
+|Changed the entity name [[Ender Crystal]] to [[End Crystal]].
+|Changed the entity name [[TNT|Block of TNT]] to [[Primed TNT]].}}
+{{History|||snap=18w21a|The {{code|ench}} NBT tag is now called {{code|Enchantments}}, and no longer has number IDs in each compound.}}
+{{History|||snap=18w22a|The block state for [[Leaves]] changed from {{code|check_decay}} and {{code|decayable}} Booleans to {{code|distance}} (ranging from 1 to 7) and a {{code|persistent}} Boolean.}}
+{{History|||snap=18w22b|[[Bark]] now has {{code|<nowiki>axis=x|y|z</nowiki>}} block states.}}
+{{History|||snap=pre3|{{code|textures/blocks/}} changed to {{code|textures/block/}}.
+|{{code|textures/items/}} changed to {{code|textures/item/}}.
+|Block state files now use {{code|""}} rather than {{code|"normal"}} to specify no block states.
+|Block state files now reference models starting in {{code|models/}} rather than {{code|models/block/}}.}}
+{{History|||snap=pre5|Renamed {{code|xp_orb}} to {{code|experience_orb}}.
+|Renamed {{code|xp_bottle}} to {{code|experience_bottle}}.
+|Renamed {{code|eye_of_ender_signal}} to {{code|eye_of_ender}}.
+|Renamed {{code|ender_crystal}} to {{code|end_crystal}}.
+|Renamed the entity {{code|fireworks_rocket}} to {{code|firework_rocket}}.
+|Renamed {{code|commandblock_minecart}} to {{code|command_block_minecart}}.
+|Renamed {{code|villager_golem}} to {{code|iron_golem}}.
+|Renamed {{code|evocation_fangs}} to {{code|evoker_fangs}}.
+|Renamed {{code|evocation_illager}} to {{code|evoker}}.
+|Renamed {{code|vindication_illager}} to {{code|vindicator}}.
+|Renamed {{code|illusion_illager}} to {{code|illusioner}}.
+|Renamed {{code|evocation_illager_spawn_egg}} to {{code|evoker_spawn_egg}}.
+|Renamed {{code|vindication_illager_spawn_egg}} to {{code|vindicator_spawn_egg}}.
+|Renamed {{code|mob_spawner}} to {{code|spawner}}.
+|Renamed {{code|portal}} to {{code|nether_portal}}.
+|Renamed {{code|clownfish}} to {{code|tropical_fish}}.
+|Renamed {{code|clownfish_bucket}} to {{code|tropical_fish_bucket}}.
+|Renamed {{code|chorus_fruit_popped}} to {{code|popped_chorus_fruit}}.
+|Renamed {{code|<''type''>_bark}} to {{code|<''type''>_wood}}.
+|The sound event changes got applied.
+|The biome ID changes got applied.
+|The translation keys for enchantments are now {{code|enchantment.<''namespace''>.<''id''>}} instead of {{code|enchantment.<''name''>}}
+|The translation keys for effects are now {{code|effect.<''namespace''>.<''id''>}} instead of {{code|effect.<''name''>}}}}
+{{History|foot}}
+
+== References ==
+
+{{reflist}}
+
+{{DEFAULTSORT:Flattening}}
+
+[[cs:1.13/Zploštění]]
+[[es:Java Edition 1.13/Reestructuración]]
+[[de:Versionen/Vollversion 1.13/Metadaten-Entfernung]]
+[[fr:1.13/Aplanissement]]
+[[ja:Java Edition 1.13/平坦化]]
+[[pt:1.13/Achatamento]]
+[[zh:Java版1.13/扁平化]]

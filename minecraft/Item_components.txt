@@ -1,0 +1,47 @@
+{{exclusive|bedrock}}
+[[JSON]] formatted.
+Like [[NBT format|NBT tags]] but supports only {{cd|minecraft:can_place_on}},{{cd|minecraft:can_destroy}},{{cd|minecraft:item_lock}} and {{cd|minecraft:keep_on_death}} functions.
+
+== Component Types ==
+=== {{cd|can_place_on}} ===
+Controls what block types this block may be placed on.
+
+=== {{cd|can_destroy}} ===
+Controls what block types this item can destroy.
+
+=== {{cd|item_lock}} ===
+
+Locks the item in the player's inventory. Has a parameter {{cd|mode}} that specifies the type of lock. It must be one of {{cd|lock_in_inventory}} or {{cd|lock_in_slot}}.<ref>{{cite|url=https://feedback.minecraft.net/hc/en-us/articles/360052592091-Minecraft-1-16-100-Bedrock-|title=Minecraft - 1.16.100 (Bedrock)|website=Minecraft Feedback|date=November 16, 2020}}</ref>
+
+==== {{cd|lock_in_inventory}} ====
+
+Prevents the item from being removed from the player's inventory, dropped, or crafted with.
+
+==== {{cd|lock_in_slot}} ====
+
+Prevents the item from being moved or removed from its slot in the player's inventory, dropped, and by extension, crafted with.
+
+=== {{cd|keep_on_death}} ===
+
+Prevents the item from being dropped when the player dies.
+
+== Examples ==
+{{cmd|give @p netherite_shovel 2 0 {"minecraft:can_destroy":{"blocks":["grass"]},"minecraft:item_lock":{"mode":"lock_in_slot"<nowiki>}}</nowiki>}}
+
+{{cmd|give @p netherite_pickaxe 1 0 {"minecraft:keep_on_death":{<nowiki>}}</nowiki>}}
+
+{{cmd|replaceitem entity @s slot.hotbar 0 concrete 1 0 {"minecraft:can_place_on":{"blocks":["grass"]<nowiki>}}</nowiki>}}
+
+{{cmd|replaceitem entity @s slot.weapon.mainhand 0 [[spawn_egg]] [[stack|64]] [[drowned|110]] {"minecraft:item_lock":{"mode":"lock_in_inventory"<nowiki>}}</nowiki>}}
+
+== Issues ==
+*Can only be applied to blocks.
+*Can not differentiate blocks by Data ID.
+*Can only be used with {{cmd|give}} and {{cmd|replaceitem}}.
+
+== References ==
+{{Reflist}}
+
+[[ja:アイテムコンポーネント]]
+[[zh:物品组件]]
+[[Category:Development]]

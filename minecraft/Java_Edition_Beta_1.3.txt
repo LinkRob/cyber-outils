@@ -1,0 +1,167 @@
+{{Version nav
+| title = Minecraft Beta 1.3
+| image = b13-1.png
+| image2 = Beta 1.3.png
+| image3 = Beta 1.3 menu.png
+| edition = java
+| date = February 22, 2011
+| clientdl = 
+[https://archive.org/download/Minecraft-JE-Beta/b1.3-1/b1.3-1.jar Original client]
+([https://archive.org/download/Minecraft-JE-Beta/b1.3-1/b1.3-1.json .json])<br>
+[https://vault.omniarchive.uk/archive/java/client-beta/b1.3/b1.3-1733.jar First reupload client]<br>
+{{dl|e19cfb3a2043f185c44237ef05eac80e8ad2d8e7|client|title=Final client}}
+({{dl|4bb25e224116e7e06e08f0edaea49320b5ecf591|json|name=b1.3b}})
+| serverdl = 
+[http://files.betacraft.uk/server-archive/beta/b1.3-1647.jar Original server]<br>
+[http://files.betacraft.uk/server-archive/beta/b1.3-1731.jar Final server]
+([http://files.betacraft.uk/server-archive/beta/b1.3-1731.exe .exe])
+| prevparent=Beta 1.2
+| prev = Beta 1.2_02
+| next = Beta 1.3_01
+| nextparent = Beta 1.4
+}}
+
+{{for|a guide about all content in this release and the other releases of Beta 1.3|Java Edition guides/Beta 1.3 releases}}
+
+'''Beta 1.3'''<ref>[[wordofnotch:3446675806|Minecraft Beta 1.3]] – The Word of Notch, February 22, 2011</ref> is a version of [[Java Edition Beta]] released on February 22, 2011, which added [[redstone repeater]]s, [[bed]]s, three types of [[slab]]s, and a new [[splash]] screen, notably among other changes and fixes, the world save format was changed from [[Java Edition Alpha level format|Alpha level format]] to [[Region file format|McRegion]].
+
+Beta 1.3 was reuploaded at 17:31 UTC<ref>Timestamp of server.jar</ref>{{info needed|What time was the original build uploaded at?}} to remove debug code that spawns the player with 64 [[torch]]es, a [[diamond pickaxe]], a [[diamond shovel]], a [[diamond axe]], and 64 [[bed]]s upon creating a new world.<ref>{{tweet|notch|40102558051733504|Err, yes... as USUAL, we managed to release it with debug item spawning code in it. Re-download. :D}}</ref> Beta 1.3 was then reuploaded again{{when}}, and this last version is listed in the launcher as '''Beta 1.3b''' (''old_beta b1.3b'').
+
+==Additions==
+===Blocks===
+; [[File:Red Bed JE1 BE1.png|32px]] [[Bed]]s
+* Crafted from wood planks and wool.
+
+; [[File:Redstone Repeater JE1.png|32px]] [[Redstone Repeater]]
+* Crafted from stone and redstone.
+
+; [[Slab]]s
+* [[File:Cobblestone Slab JE1 BE1.png|32px]] [[Cobblestone Slab]]
+** Crafted from cobblestone.
+* [[File:Oak Slab (centered) JE1.png|32px]] [[Wooden Slab]]
+** Have to be mined with a pickaxe to collect, were not affected by fire, and had stronger blast resistance than wood planks, like cobblestone slabs.
+** Crafted from wood planks.
+* [[File:Sandstone Slab (centered) JE1.png|32px]] [[Sandstone Slab]]
+** Crafted from sandstone.
+
+===Non-mob entities===
+; New [[Painting]]
+* [[File:Burning Skull Painting JE2 BE1.png|128px]] "Burning Skull"
+** Code to make this painting display was added in [[Beta 1.2_01]], but the texture itself was not added until this version, resulting in [[Java Edition placeholder texture uses|the use]] of the [[Placeholder texture#Texture atlas blank spaces|painting placeholder texture]].
+
+===Command format===
+; {{cmd|whitelist}}
+* Added whitelisting to multiplayer servers.
+** Can turn on/off the whitelist.
+** Can add/remove players from the whitelist.
+** Can give a list of whitelisted players and reload that list.
+
+===Textures===
+; [[File:Crying Obsidian (texture) JE0 BE0.png|32px]] [[Crying Obsidian]]
+* Added a texture for crying obsidian to {{mono|[[terrain.png]]}}.
+** Texture went unused and removed in [[Beta 1.5]], but re-added in [[20w10a]] via the [[Programmer Art]] [[Resource Pack]].
+
+===General===
+; [[Lighting]]
+* Smooth lighting engine added with the help of MrMessiah.
+
+; [[Option]]s
+* New graphics setting screen.
+** Added "Smooth Lighting" option.
+
+; [[Splash screen]]
+* New Mojang logo.
+
+==Changes==
+===Blocks===
+
+; [[Redstone Dust]] 
+* Will get darker the farther away it is from a source of power.
+* Unpowered redstone is purely black now.
+* For these changes they now use a dedicated tint system and new textures
+** [[File:Inactive Redstone Wire (NS) JE2.png|32px]] [[File:Inactive Redstone Wire (EW) JE2.png|32px]] [[File:Inactive Redstone Wire (NE) JE2.png|32px]] [[File:Inactive Redstone Wire (ES) JE2.png|32px]] [[File:Inactive Redstone Wire (SW) JE2.png|32px]] [[File:Inactive Redstone Wire (NW) JE2.png|32px]] [[File:Inactive Redstone Wire (NEW) JE2.png|32px]] [[File:Inactive Redstone Wire (NES) JE2.png|32px]] [[File:Inactive Redstone Wire (ESW) JE2.png|32px]] [[File:Inactive Redstone Wire (NSW) JE2.png|32px]] [[File:Inactive Redstone Wire (NESW) JE2.png|32px]]
+** [[File:Active Redstone Wire (NS) JE2.png|32px]] [[File:Active Redstone Wire (EW) JE2.png|32px]] [[File:Active Redstone Wire (NE) JE2.png|32px]] [[File:Active Redstone Wire (ES) JE2.png|32px]] [[File:Active Redstone Wire (SW) JE2.png|32px]] [[File:Active Redstone Wire (NW) JE2.png|32px]] [[File:Active Redstone Wire (NEW) JE2.png|32px]] [[File:Active Redstone Wire (NES) JE2.png|32px]] [[File:Active Redstone Wire (ESW) JE2.png|32px]] [[File:Active Redstone Wire (NSW) JE2.png|32px]] [[File:Active Redstone Wire (NESW) JE2.png|32px|32px]]
+
+; [[Sandstone]] 
+* Now found at the bottom of naturally generated [[sand]].
+* Mine time for [[sandstone]] has been decreased.
+
+; [[Slab]]s
+* Breaking a block made of two slabs now drops 2 slabs.
+* [[Slab|Stone slab]]s are now created by using 3 of the materials.
+
+; [[Stone pressure plate]] & [[Wooden pressure plate]]
+* Now require two of its materials, instead of 3.
+
+===Items===
+; [[Gunpowder]]
+* Renamed "Sulphur" to Gunpowder.
+
+===Mobs===
+; General
+* Fewer passive mobs spawn when on harder difficulties.
+
+; [[Slime]]s
+* Now have a higher spawn rate.
+
+===World generation===
+; [[Overworld]]
+* Players can now choose the name of the world. 
+
+; [[Seed (level generation)|Seed]]
+* Players can now choose the seed for world generation.
+* More than 5 worlds can now be created.
+* Deleting world confirmation changed slightly.
+
+===Gameplay===
+; [[Third person mode|3rd person mode]]
+* View bobbing now applies while in third person, if enabled.
+
+===General===
+; [[Control]]s
+* {{key|F1}} and {{key|F3}} are now toggled when pressed.
+* When {{key|F3}} is toggled on, mobs display their unique entity ID numbers over their heads.
+* {{key|F8}} toggles mouse smoothing.
+
+; [[Option]]s
+* Ability to toggle between classic lighting and "[[Light#Smooth lighting|smooth]]" lighting.
+* Scrollbars added in the world selection screen.
+* Players can now choose the name of the world when creating a new one.
+
+; [[Region file format|McRegion]]
+* Worlds now use a generic McRegion chunk save format, with a built-in auto conversion.
+
+; [[Texture pack]]s
+* Scrollbars added in the texture pack list.
+
+== Fixes ==
+
+; 10 bugs fixed
+* When breaking double slabs (one slab placed on another) it will now drop two slabs instead of one.
+* Wood doesn't burn forever anymore.
+* Grassland/Sand related biome border fixed (Boundaries line up, rather than obviously show chunk borders)
+* No longer receiving Java Log error .txt file spam in the minecraft.exe folder when closing the Minecraft client program.
+* Players can no longer use the click-release to quickly mine blocks (referred to as "click mining") in multiplayer.
+* Players no longer glitch when standing on [[fence]]s in multiplayer.
+* Players can no longer milk [[squid]]s.
+* When right-clicking on a wooden door while holding a bow or fishing rod, arrows will no longer be fired into the door, nor will the fishing hook be cast into the door.
+* Hostile mobs can now be attacked properly in multiplayer.
+* [[Lapis lazuli ore]] now drops 4-8 [[Lapis Lazuli]] in multiplayer.
+
+== Gallery ==
+<gallery>
+Beta 1.3-1731.png|A screenshot from the first reupload.
+</gallery></onlyinclude>
+
+== References ==
+{{Reflist}}
+
+{{Java Edition versions|Beta}}
+
+[[de:Versionen/Beta#1.3]]
+[[es:Java Edition Beta 1.3]]
+[[ja:Java Edition Beta 1.3]]
+[[nl:Beta 1.3]]
+[[pt:Edição Java Beta 1.3]]
+[[ru:Beta 1.3]]
+[[zh:Java版Beta 1.3]]

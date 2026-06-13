@@ -1,0 +1,238 @@
+{{Dungeons hatnote|type=powerful mob}}
+{{exclusive|java}}
+{{Entity
+| image = <gallery>
+Illusioner.png | Illusioner
+Illusioner Casting.png | Casting
+Illusioner Aiming.png | Aiming
+</gallery>
+| health = {{hp|32}}
+| behavior = Hostile<br>"Passive" (Only if summoned without its bow)
+| classification = [[Illager]] hostile mob
+| damage = Easy and normal: {{hp|2}} – {{hp|5}}<br>Hard: {{hp|3}} – {{hp|5}}
+}}The '''illusioner''' is an unused [[illager]] armed with a [[bow]]. It attacks using illusions and can also fire [[Arrow|arrows]].
+
+== Spawning ==
+An illusioner has no [[spawn egg]] in the [[Creative]] mode [[inventory]]. An illusioner can be [[spawning|spawned]] only using [[data pack]]s or the {{cmd|summon illusioner}} in-game [[command]]. Illusioners do not spawn in [[woodland mansions]] or [[pillager outpost]]s, nor at [[raid]]s or [[patrol]]s. Similarly to the other unused [[giant]] mob, illusioners do not spawn in any [[biome]], [[monster spawner]] or [[world]]-generated [[structure]].
+
+== Drops ==
+When an illusioner is killed by a [[player]] or a tamed [[wolf]], any [[Drops#Equipped items|naturally spawned equipment]], including its unenchanted [[bow]], has an 8.5% chance of dropping (or 9.5% with [[Looting]] I, 10.5% with Looting II and 11.5% with Looting III) and drops with a random item [[durability]]. In addition, {{xp|5}} [[experience]] orbs are dropped on player or tamed wolf kills.
+[[File:Leader.png|thumb|An invisible illusioner captain and its four copies strafing. The real banner is invisible.]]
+The illusioner also drops one [[File:Illager Banner.png|x20px]] illager [[ominous banner]] if it is a [[raid captain]].
+
+== Behavior ==
+Although they do not naturally spawn in raids, illusioners spawned by the player attack [[player]]s, adult [[villager]]s, [[iron golem]]s and [[wandering trader]]s within a 16*4*16 cubic area. 
+
+An illusioner joins a nearby raid if it occurs or joins a patrol if sufficiently near a [[patrol captain]]. 
+
+The illusioner attacks with its spells and its bow, firing an arrow every second. Unless the illusioner is summoned using [[command]]s, it cannot attack with a non-bow item in its hand, cannot use [[tipped arrow]]s in its offhand slot (but can use [[spectral arrow]]s) and cannot use enchanted bows. Also, it is the only illager that can see its target through walls. if it's summoned without its bow, if it spots a player or mob that it attacks, it would give it the blindness effect and duplicate itself, but it won't chase or attack them, nor hit them with its hands. 
+
+The Illusioner moves quickly on a semi-circular fashion and always tries to maintain a consistent distance between itself and the player, strafing from left to right and vice-versa, retreating if the player gets too close or advancing if the player retreats. 
+
+Finally, the illusioner has two spells: a spell that blinds its opponent and a spell that summons visual pseudo-duplicates and makes the illusioner invisible.
+
+=== Casting blindness ===
+The illusioner casts its blindness spell only if the [[regional difficulty]] is greater than 2. As result, the world difficulty [[options|setting]], the inhabited time of a [[chunk]], the total daytime in the world and the phase of the moon from the day-night cycle affects its ability.
+[[File:IllusionerDuplicates.png|thumb|left|An illusioner's four false duplicates. The real illusioner is invisible.]]
+
+An illusioner casts a {{EffectLink|Blindness}} effect that lasts for 20 seconds upon first engaging a new player opponent. It signals this attack by raising its arms during a short-timed animation, making a low pitched sound and producing a black mist of [[particles]] ({{EffectSprite|particle-illusioner-blindness}}). Other entities (typically a wolf, a [[snow golem]] or an iron golem) do not trigger this magic. The illusioner does not cast this spell more than once on the same player opponent, unless it has first shifted its attention to another opponent and then back to that original opponent. 
+
+This spell resets the illusioner's spell cooldown to <abbr title="20 ticks">1 second</abbr> and resets the cooldown for the blinding spell to <abbr title="180 ticks">9 seconds</abbr>.
+
+=== Summoning duplicates ===
+As long as an illusioner is engaged in [[combat]], it casts an {{EffectLink|Invisibility}} status effect on itself that lasts 60 seconds and refreshes the effect whenever the Invisibility's time runs out. The illusioner signals this spell by raising its arms, making a strange high pitched sound and producing a blue mist of particles called "mirror" ({{EffectSprite|particle-illusioner-mirror}}).
+
+When an illusioner becomes invisible through this or another method, it creates four false duplicates of itself. These hover and waver at short distances from the actually invisible illusioner, though they do not space themselves out until the first time the illusioner is attacked. They face in exactly the same direction as the illusioner and move somewhat in step with the original, appearing to no-clip through [[block]]s like a [[vex]] does. Despite using the shooting animation whenever the original uses its bow, only the real illusioner can shoot and be damaged.
+
+The clones move to new positions if they were not triggered and are still bunched together. The Illusioner can also do this once in a while to "refresh" the clones' positions.
+
+When the real illusioner is damaged, its duplicates all snap back to where the real illusioner is, then quickly snap back out to new positions, making a teleporting sound, signaling the hit.
+
+If an invisible illusioner receives the {{EffectLink|Glowing}} effect, all of the duplicates glow, while the true illusioner remains invisible. Moreover, only the invisible illusioner burns when catching [[fire]].
+
+The duplicates dissipate once the illusioner's Invisibility effect ends.
+
+This spell resets the illusioner's spell cooldown to <abbr title="20 ticks">1 second</abbr> and resets the cooldown for the invisibility spell to <abbr title="340 ticks">17 seconds</abbr>.
+
+== Sounds ==
+Illusioners use the Hostile Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Illusioner idle1.ogg
+|sound2=Illusioner idle2.ogg
+|sound3=Illusioner idle3.ogg
+|sound4=Illusioner idle4.ogg
+|subtitle=Illusioner murmurs
+|source=hostile
+|description=Randomly
+|id=entity.illusioner.ambient
+|translationkey=subtitles.entity.illusioner.ambient
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Evoker cast1.ogg
+|sound2=Evoker cast2.ogg
+|subtitle=Illusioner casts spell
+|source=hostile
+|description=When a spell is completed
+|id=entity.illusioner.cast_spell
+|translationkey=subtitles.entity.illusioner.cast_spell
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table 
+|sound=Illusioner death1.ogg
+|sound2=Illusioner death2.ogg
+|subtitle=Illusioner dies
+|source=hostile
+|description=When an illusioner dies
+|id=entity.illusioner.death
+|translationkey=subtitles.entity.illusioner.death
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Illusioner hurt1.ogg
+|sound2=Illusioner hurt2.ogg
+|sound3=Illusioner hurt3.ogg
+|subtitle=Illusioner hurts
+|source=hostile
+|description=When an illusioner is damaged
+|id=entity.illusioner.hurt
+|translationkey=subtitles.entity.illusioner.hurt
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Illusioner mirror move1.ogg
+|sound2=Illusioner mirror move2.ogg
+|subtitle=Illusioner displaces
+|source=hostile
+|description=When an illusioner's clones change position
+|id=entity.illusioner.mirror_move
+|translationkey=subtitles.entity.illusioner.mirror_move
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Illusioner prepare blind.ogg
+|subtitle=Illusioner prepares blindness
+|source=hostile
+|description=When an illusioner is about to cast blindness on its target
+|id=entity.illusioner.prepare_blindness
+|translationkey=subtitles.entity.illusioner.prepare_blindness
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Illusioner prepare mirror.ogg
+|subtitle=Illusioner prepares mirror image
+|source=hostile
+|description=When an illusioner is about to summon duplicates
+|id=entity.illusioner.prepare_mirror
+|translationkey=subtitles.entity.illusioner.prepare_mirror
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Bow shoot.ogg
+|subtitle=Skeleton shoots <ref group=sound name=illusionershoot>{{bug|MC-98316}}</ref>
+|source=hostile
+|description=When an illusioner shoots an arrow
+|id=entity.skeleton.shoot|idnote=<ref group=sound name=illusionershoot/>
+|translationkey=subtitles.entity.skeleton.shoot|translationkeynote=<ref group=sound name=illusionershoot/>
+|volume=1.0
+|pitch={{frac|5|6}}-1.25
+|distance=16
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{ID table
+|showentitytags=y
+|generatetranslationkeys=java
+|displayname=Illusioner
+|spritetype=entity
+|nameid=illusioner
+|entitytags=raiders
+|foot=1}}
+
+=== Entity data ===
+{{see also|Entity format}}
+Illusioners have entity data associated with them that contain various properties.
+
+{{/ED}}
+
+== History ==
+{{History|java}}
+{{History||1.12|snap=17w16a|[[File:Illusioner Revision 1.png|32px]] Added illusioners.}}
+{{History|||snap=17w17a|The illusioner's [[blindness]] spell is now cast only if the [[regional difficulty]] is 3 or above.
+|Illusioners now have new [[sound]] effects.}}
+{{History|||snap=17w17b|The illusioner's blindness spell is now cast only if the regional difficulty is 2 or above.}}
+{{History||1.13|snap=pre5|The [[entity]] ID for illusioners has been changed from <code>illusion_illager</code> to <code>illusioner</code>.<ref>{{bug|MC-123540}}</ref>}}
+{{History||1.14|snap=18w43a|[[File:Illusioner.png|32px]] The texture of illusioners has been changed. Illusioners now have green eyes.}}
+{{History|||snap=18w46a|A [[loot table]] has been added to illusioners.}}
+{{History|||snap=19w13a|[[File:Illusioner celebrating.gif|32px]] If [[raid]]ing illusioners killed all the [[villager]]s in the [[village]] or the [[bed]]s were destroyed, illusioners celebrate their victory by laughing and jumping.}}
+{{History||September 29, 2019|link=MINECON Live 2019|Illusioners were mentioned as potential candidates for addition to [[raid]]s, in analogy to the implementation of brown [[mooshroom]]s as announced a year earlier.}}
+{{History||1.18|snap=21w37a|Illusioners no longer attack baby [[villagers]].}}
+{{History|||snap=Pre-release 5|Illusioner texture was slightly changed, removed a few misplaced pixels.}}
+{{History||1.19|snap=22w17a|[[File:Illusioner Revision 3.png|32px]] Changed its models, now the last two rows of pixels on its robes can render.}}
+{{History|foot}}
+
+{| class="sortable fandom-table"
+|+
+! colspan="3" |[[Legacy Console Edition]]
+|-
+|?
+|As of now, the illusioner can only be summoned by world editing, etc.
+|Added illusioner
+|}
+
+== Issues ==
+{{Issue list}}
+
+== Trivia ==
+*The illusioner displace sound is almost the same as the traditional teleport sound displaced by teleportation via an [[ender pearl]] or [[chorus fruit]], [[endermen]] or [[shulker]]s, albeit with a slight distortion at the end.
+*Illusioners shoot backward when they are in a [[boat]].<ref>{{bug|MC-137793}}</ref>
+*Illusioners hold bows in a different direction compared to [[skeleton]]s or players, a little more diagonally.
+*The illusioner's second death sound is the same as the evoker's second death sound.
+*In a video titled '''Easter'' ''Eggs'' ''behind'' ''the...'' Sick ''villagers???''<nowiki/>' that was recently posted on the official Minecraft YouTube channel, not only do they mention the Illusioner, but Jens also says 'You will definitely be seeing more of them in the future', which indicates that the Illusioner may be officially be implemented into the game in the near future.<ref><nowiki>https://m.youtube.com/watch?v=BkbE7jf--2s&pp=ygUISWxsYWdlcnM%3D</nowiki></ref>
+
+== Gallery ==
+<gallery>
+Illusioner duplicates die.png|Illusioner illusions duplicates dying when the original illlusioner is killed.
+Illusioner with Ominous Banner.png|An illusioner that is a [[raid captain]].
+IllusionerVsVillager.png|An illusioner shooting an [[arrow]] at a [[villager]] with it's [[bow]].
+Illusioner attacking villagers.png|An illusioner attacking villagers.
+IllusionerPreparingSpell.png|An illusioner preparing to cast its [[Blindness]] spell.
+IllusionerAttackBow.png|An illusioner killing a villager with its bow.
+Leader.png|A few illusioner captains of illager patrol summoned using commands.
+Illusioner (Dungeons).png|An illusioner from ''[[Minecraft Dungeons]]'' with the different outfit and eye color.
+Sitting Illusioner.png|A sitting illusioner.
+Wrong subs (image from MC-137793).png|Illusioners using the wrong subtitles.<ref>{{bug|MC-98316}}</ref>
+</gallery>
+
+== References ==
+{{Reflist}}
+
+{{Entities}}
+{{Unused Features}}
+
+[[Category:Hostile mobs]]
+[[Category:Unused mobs]]
+[[Category:Illagers]]
+[[Category:Monster mobs]]
+[[Category:Humanoid mobs]]
+[[cs:Iluzionista]]
+[[de:Illusionist]]
+[[fr:Illusionniste]]
+[[ja:イリュージョナー]]
+[[ko:환술사]]
+[[nl:Illusionist]]
+[[pl:Iluzjoner]]
+[[pt:Ilusionista]]
+[[ru:Иллюзор]]
+[[th:Illusioner]]
+[[zh:幻术师]]
+[[Category:Retaliating mobs]]
+[[Category:Ranged-attack mobs]]

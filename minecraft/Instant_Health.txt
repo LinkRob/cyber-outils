@@ -1,0 +1,174 @@
+{{cleanup}}
+{{Effect
+|title=Instant Health
+|image=Instant Health.png
+|sources=See [[#Causes]]
+|particle= {{EffectSprite|particle-healing}} #F82423 (red){{only|java}}
+|type=Positive (negative for undead mobs)
+|group=Potion
+|group2=Splash Potion
+|group3=Lingering Potion
+|group4=Arrow
+|1-1=Potion of Healing.png
+|2-1=Splash Potion of Healing.png
+|3-1=Lingering Potion of Healing.png
+|4-1=Arrow of Healing.png
+}}
+
+'''Instant Health''' is an instant [[status effect]] that increases [[health]] for living [[mob]]s and damages the [[undead]].
+
+== Effect ==
+Instantly heals {{hp|2}} × 2<sup>''level''</sup> ({{hp|3}} × 2<sup>''level''</sup>{{upcoming|JE Combat Tests}}).
+[[Undead]] mobs (including the [[wither]]) are [[damage]]d as if with [[Instant Damage]], instead. When applied using a [[lingering potion]], the entity is healed every second. Levels 30–32 (amplifiers 29–31) provide no healing<!-- due to overflow in the calculation-->. Levels outside the range 1–32 (corresponding to amplifiers 0–31) are used [[wikipedia:Modulo operation|modulo]] 32, making level 33 the same as level 1, etc.
+
+== Causes ==
+{| class="wikitable" data-description="Causes"
+ ! Cause
+ ! Potency
+ ! Heals
+ ! Harms Undead
+ ! Length
+ ! Notes
+ |-
+ | {{ItemLink|Potion of Healing}}
+ | I
+ | {{hp|4}}
+ |
+ | Instant
+ | {{EntityLink|Witch}}es drink this potion when damaged.
+ |-
+ | {{ItemLink|Potion of Healing}} II
+ | II
+ | {{hp|8}}
+ |
+ | Instant
+ | Two of these potions can be found on a brewing stand in [[end ship]]s.
+ |-
+ | {{ItemLink|Splash Potion of Healing}}
+ | I
+ | {{hp|4}}
+ | {{hp|6}}
+ | Instant
+ | rowspan="2" | {{EntityLink|Witch}}es throw one of these two during [[raid]]s.
+ |-
+ | {{ItemLink|Splash Potion of Healing}} II
+ | II
+ | {{hp|8}}
+ | {{hp|12}}
+ | Instant
+ |-
+ | {{ItemLink|Lingering Potion of Healing}}
+ | I
+ | {{hp|2}} per second<br>{{hp|10}} total
+ | {{hp|3}} per second<br>{{hp|15}} total
+ | 0:05
+ | 
+ |-
+ | {{ItemLink|Lingering Potion of Healing}} II
+ | II
+ | {{hp|4}} per second<br>{{hp|20}} total
+ | {{hp|6}} per second<br>{{hp|30}} total
+ | 0:05
+ |
+ |-
+ | {{ItemLink|Arrow of Healing}}
+ | I
+ | {{hp|4}}
+ | {{hp|6}}
+ | Instant
+ |
+ |-
+ | {{ItemLink|Arrow of Healing}} II
+ | II
+ | {{hp|8}}
+ | {{hp|12}}
+ | Instant
+ |
+ |}
+
+== Brewing ==
+{| class="wikitable" style="text-align: center;" data-description="Positive effect potions"
+!width="90px"| Potion
+! Reagent, Base
+!width="90px"| {{ItemSprite|Redstone Dust}} Extended
+!width="90px"| {{ItemSprite|Glowstone Dust}} Enhanced
+! Effects
+|-
+! {{Slot|Potion of Healing[&9Instant Health]}}<br>Potion of Healing
+| {{Brewing Stand
+ |Input= Glistering Melon Slice
+ |Output2= Awkward Potion
+ }}
+| -
+| {{Slot|Potion of Healing[&9Instant Health II]}}<br>Potion of Healing
+| [[Instant Health]]<br>Restores {{hp|4|9px}} per potion.
+'''Enhanced:'''<br>[[Instant Health]] II<br>Restores {{hp|8|9px}} per potion.
+|}
+
+== Immune mobs ==
+
+Only the [[ender dragon]] is immune. However, [[undead]] mobs are harmed by this effect.
+
+== Data values ==
+=== ID ===
+{{EffectIDLink}}
+{{edition|java}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=java
+|displayname=Instant Health
+|spritetype=effect
+|nameid=instant_health
+|id=6
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Instant Health
+|nameid=instant_health
+|id=6
+|translationkey=potion.heal
+|foot=1}}
+
+== History ==
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|Added Instant Health, which is unobtainable.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|[[Potion]]s have been added, but are unobtainable without inventory editing. All effects can appear on potions.
+|Drinking [[milk]] now clears all status effects.}}
+{{History|||snap=Beta 1.9 Prerelease 3|All [[potion]]s have been revamped and made obtainable.}}
+{{History||1.4.2|snap=12w38a|Added [[witch]]es, which can drink potions of instant health when damaged.}}
+{{History||1.6.1|snap=13w23a|Nerfed Instant health to heal 2×2<sup>''level''</sup> instead of 3×2<sup>''level''</sup>.}}
+{{History||1.9|snap=15w31a|Added tipped arrows.}}
+{{History|||snap=15w33a|Added Lingering Potions.}}
+{{History||1.14|snap=18w47a|[[Witch]]es may now throw Splash Potions of Healing at [[illager]]s during [[raid]]s.}}
+{{History||1.15|snap=19w41a|[[File:Instant Health JE1.png|18px]] Added an effect icon texture for Instant Health.}}
+{{History|Upcoming java}}
+{{History||Combat Tests|snap=Combat Test 8b|Healing potions now heal 3×2<sup>''level''</sup> instead of 2×2<sup>''level''</sup>, similar to [[Instant Damage]] and how it was before 1.6.1.}}
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=build 1|Added Instant Health, which is unobtainable.}}
+{{History|||snap=build 4|Milk now cures all status effects.}}
+{{History||v0.12.1|snap=build 1|Instant Health can now obtained from [[Potion of Healing]] and splash potions of healing.}}
+{{History||v0.14.0|snap=build 1|Added [[witch]]es, which can be granted Instant Health by drinking [[potion]]s.}}
+{{History||v0.15.0|snap=build 1|Added [[Arrow of Healing]] that inflict Instant Health.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Instant Health can now be obtained from [[lingering potion]]s of healing.}}
+
+{{History|console}}
+{{History||xbox=TU7|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|Added Instant Health, which can be obtained by a [[Potion of Healing]] or [[Splash Potion of Healing]].}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|switch=1.0.1|Added the [[Lingering Potion of Healing]].
+|Added the [[Arrow of Healing]].}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+
+{{Effects}}
+
+[[ja:即時回復]]
+[[pt:Cura Instantânea]]
+[[zh:瞬间治疗]]
