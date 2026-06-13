@@ -1,0 +1,993 @@
+This article pertains to the beta elements of ''[[New Super Mario Bros. Wii]]''.
+
+== Unused objects ==
+=== Unused level actors ===
+{| class="fandom-table"
+|+
+!Image
+!Name
+!Sprite Number(s)
+!Description
+|-
+|[[File:Movingstoneblocknsmbw.png|center|thumb]]
+|Moving Stone Blocks (DS)
+|27, 28, and 29
+|A port of an object, being ripped from the DS version (with the same low-res textures), this little stone block is a simple moving platform/blockade. '''Sprite 27''' moves vertically, with '''Sprite 28''' moving horizontally. It comes with lots of different options, such as being flag-triggered, making it slow down gradually, can change its direction, speed, and moving distance, can even edit its height and width (by the player). The last one produces a rendering error though where as the middle part ends up being empty as if it's set to do anything other than '''0'''.
+|-
+|[[File:StonespikedNSMBW.png|center|thumb]]
+|Moving Stone Blocks
+|30, 81, 82, 83, 84, 85, and 86
+|Just like with the stone blocks from the DS game, the Wii's has the same thing. However, these objects are now squared with spikes on them. They're flag-triggerable and speed, movement direction, width, height, movement distance and delays before movement and return can all be defined. This time, though, no rendering bugs are involved.
+|-
+|N/A
+|Random Flag Controller
+|36
+|Allows a flag (like a switch being pressed) to activate a random one of up to four flag IDs specified.
+|-
+|[[File:NSMBW RedSwitch.png|center|thumb]]
+|Red "!" Switch
+|42 and 45
+|An object which turns on the red outline blocks, just like its counterpart from the DS game, even having all the basic functionality of the other switches. Despite the name (''EN_QSWITCH'' and ''EN_BLQSWICH''), it shows an exclamation mark (sprite 42) and is a separate actor from the other types of switches (being the orange "?" switch is ''EN_HNSWITCH'', and the P-switch is ''EN_PSWITCH''). There is also another sprite number ('''45''') brick which contains this object. This was probably removed due to World 3's overworld switch being implemented.
+|-
+|[[File:NSMBW-seesaw-platform.png|center|thumb]]
+|See-Saw Platform
+|49
+|This platform used to test the seesaw and is a port of the ''New Super Mario Bros.'' from World 1-2. It bobs to the left/right slightly by itself and dips sharply when the player stands on it and can also be flag-triggered. Unlike the one in the DS game, the player can change the tilt limit and its length compared to the final game where that he/she has to tilt the Wii Remote meaning this object (along with it's filename "''test_lift.arc''") was used in testing development
+|-
+|[[File:NSMBW-four-rotating-platforms.png|center|thumb]]
+|Four Self-Rotating Platforms
+|52
+|The 2-Tower platforms from ''New Super Mario Bros.'' where the player can change the direction of the object but the rotating speed of the platform cannot.
+|-
+|[[File:NSMBW-rising-platform.png|center|thumb]]
+|Rising Player Platform
+|55
+|Yet another platform that was ported from ''New Super Mario Bros.'' for in World 7-2. It's just like to the game's "7-Tower" Wiimote-controlled Girder, but the tilt of the object is controlled by where the player is standing on it. It has all the options it had in the DS game, (including the unused ones) as it can be made to disappear after a while if a player isn't on it and when it starts to rise is definable (on level start or when the player steps onto it) as is whether it's to move horizontally or vertically.
+|-
+|[[File:NSMBWDoomshipkey.png|center|thumb]]
+|Key
+|77
+|There are no locked doors throughout the game, suggesting they were planned at one point. When the object is collected, it spins and flies toward the player's Star Coin counter. No sound plays however nor nothing gets triggered by it.
+|-
+|[[File:NSMBW-trampoline-wall.png|center|thumb]]
+|Trampoline Wall
+|87
+|Bounces the player in the opposite direction when touched. The object is pretty glitchy  as it can shoot the player so high into the air if it is messed with it enough times. The height can also be changed.
+|-
+|[[File:NSMBWarrowblock.png|center|thumb]]
+|Autoscroll Block
+|321
+|Appears to be a simple blue block with an arrow (in all directions). It has an option which causes it to rotate when hit. It turns on autoscrolling if an Autoscroll Controller sprite is present in the level, where it sets its nybble from 7 to 3 which causes it to start.
+|-
+|N/A
+|Rotation-Controlled Platforms
+|97 and 107
+|Two rotation-controlled platforms (both using '''''test_lift.arc'''''), one solid and the other semi-solid. The "full" (solid) one only spawns if its width and height are set to nonzero values with both of them requiring valid rotation IDs.
+|-
+|N/A
+|Amp Generator
+|108
+|Generates a stream of Amps that will follow an on-screen line path. It has lots of options: movement speed, delay between spawning, number of amps spawned, and a Z-order option.
+|-
+|N/A
+|Cheep-Cheep (DS)
+|116
+|An early version of the Cheep-Cheep enemy, most likely an unfinished version of the coin-dragging Cheep=Cheep from ''New Super Mario Bros.''. It has speed and direction options, both directly reflecting the aforementioned DS sprite's settings.
+|-
+|N/A
+|Layer Warp
+|121
+|This actor normally crashes because it tries to load a nonexistent texture file. If user decides to add the file themself, however, it does work.
+
+
+It's a wobbly object displaying the texture the user added. If the player presses the physical "right" button on the D-Pad (while standing in front of it), it changes Mario's layer from the first to the second, which is the tile layer normally used for background decorations. Regular tiles can be drawn on layer 2 and collision works there. So if the level is set up properly, Mario can then walk behind enemies and objects similar to the white blocks in ''[[Super Mario Bros. 3]]''.
+<br />Mario switches back to the first layer if the player presses the D-Pad Right while standing in front of the object again.
+|-
+|[[:File:NSMBW-swing-platform.png|File:NSMBW-swing-platform.png]]
+|Swinging Pendulum Lift
+|123
+|Ported from the DS game, along with it's model and textures. They work  just as they should from that game in World 6-Castle. The Swing arc, speed, and size are all adjustable.
+|-
+|[[:File:NSMBW-loose-arrow.png|File:NSMBW-loose-arrow.png]]
+|Loose Arrow
+|143
+|A simple arrow that can point in all eight directions. It was not directly ported from the DS iteration as its graphics were updated. The direction settings are slightly different, and the Z order settings were not ported.
+|-
+|N/A
+|Jumping Cheep-Cheep
+|150
+|The final game uses a generator for this variant of Cheep-Cheeps. However, there is a setting which makes them wait after they land in the water.
+|-
+|N/A
+|Duplicate ? Switch
+|153
+|A simple duplicate of the used ? Switch. Its internal name ('''EN_BIG_HNSWICH''') suggests it was meant to be a large version of the ? Switch that's used in the game. It crashes if the user has a level with this sprite unless they also put a normal ? Switch along with it.
+|-
+|[[:File:NSMBWgiantbrick.png|File:NSMBWgiantbrick.png]]
+|Giant Brick Block
+|157
+|A shading-less block that can contain just about any item in the game (including the unused key mentioned earlier). Hitting it produces the same sound as hitting a normal brick with either Small or Mini Mario.
+
+
+It has a nybble which sets the number of times it can be hit before it breaks. The graphics for the stages of destruction aren't finished, however, and using the nybble will just show a giant number on the block which indicates how many hits it has left. The maximum hits it can take is four and setting the nybble above that will cause the game to crash due to the missing graphics.
+|-
+|N/A
+|Path-Controlled Platforms
+|160 and 287
+|Sprite '''160''' uses the grabbable ice block model, while sprite '''287''' uses '''test_lift.arc'''. They're complete and have lots of options: width, height, movement ID, starting node, and an option which decides what the platforms do at the final node of the path.
+|-
+|N/A
+|Balloon Power-Up
+|171
+|Appears during the Coin Battle/Free For All modes, but it's never used as a sprite as its only nybble makes it show up. The power-up cannot be changed either and is always a Mushroom.
+|-
+|[[:File:NSMBW-arrow-gate.png|File:NSMBW-arrow-gate.png]]
+|One-Way Gate
+|174
+|Another object that's ported from ''New Super Mario Bros.'' This gate allows the player to cross only from one direction and it's very glitchy as the only usable ones are "enter from the right" and "enter from the left" ones. The player can go right through the "enter from the bottom" one, and "enter from the above" can only be used once.
+|-
+|[[:File:NSMBWconveyorspike.png|File:NSMBWconveyorspike.png]]
+|Conveyor Belt Spike
+|222
+|Attaches itself to a conveyor belt and moves alongside it.
+|-
+|[[:File:FloatingcoinNSMBW.png|File:FloatingcoinNSMBW.png]]
+|Floating Coin
+|225
+|When placed underwater, it creates a coin which bobs left and right on the surface. In the final game, coins can be floating around in the water if the player has an Ice power-up or Penguin Suit and uses an Ice ball on the enemy. However, the enemy only turns into a coin if hit by a solid surface.
+|-
+|N/A
+|Giant Wiggler Generator
+|241
+|A sprite that automatically spawns an endless supply of the giant Wigglers, which were seen in World 5-2.
+
+
+The sprite first waits for the player to move past its X position so that the beginning of the level can be Wiggler-free. After that, it periodically spawns giant Wigglers within the bottommost "3-tile-or-taller" gap between tiles along the right edge of the screen. Each Wiggler is spawned once the previous one has moved a particular distance from the screen edge. That distance (and the settings for the spawned wigglers) can vary throughout the level as the sprite reads them from the path node metadata. However, the code for selecting which path node to read it from is missing, so the sprite doesn't work without changes having a specific hardcoded path node. It's likely that Nintendo's intent was to choose the closest path node to Mario's position, or something similar.
+|-
+|N/A
+|River Controller
+|243
+|This sprite will create a current in all water objects in the level, without any graphical representation, allowing the user to set the current force and the direction it wants. Some objects have been coded to use this, (such as the Floating Barrel and the Lily Piranha), but they always go to the left even, if the current is set to the right, with a much higher speed than the set on the sprite.
+
+
+More of these objects were likely planned, as several reference to it.
+|-
+|N/A
+|River Controller 2
+|244
+|Meant for another River controller ('''''RIVER_MGR''')''. However, it does nothing.
+|-
+|N/A
+|Cheep-Cheep Formation Generator
+|247
+|Generates Cheep-Cheeps in many formations. There are also different settings for the number of rows with it's width and direction.
+|-
+|N/A
+|Rotation-Controlled Deactivation Button
+|252
+|Looking like a normal ? Block, but can be attached to a rotation controller. When hit, it deactivates the set flag. The user can also choose how many times the block can be hit before it turns used.
+|-
+|N/A
+|Rotation-Controlled Pipes
+|254
+|A very buggy sprite that requires a Spinning Rotation Controller. But even then, it's quite random when it appears and when it doesn't. The length and direction of it will face at the start of the level is adjustable. This object was then properly completed to be used in ''[[New Super Mario Bros. U]].''
+|-
+|N/A
+|Rolling Barrel
+|288
+|Starts rolling as soon as it appears on-screen AND Breaks if it hits a wall. It Will only knock back the player rather than hurting them.
+|-
+|[[File:NSMBWUnusedspriteicecube.png|center|thumb]]
+|Melting Ice Cube
+|294
+|A simple ice cube that melts upon standing on top, with steam coming out of it. It was most likely scrapped in favor of the ice cubes containing coins inside of them.
+|-
+|[[File:NSMBW-giant-buzzy.png|center|thumb]]
+|Giant Buzzy Beetle
+|296
+|A scaled-up version of the Buzzy Beetle, complete with a speed setting. It can bounce off walls, but does not get affected by gravity as it will walk in mid-air if placed. The player can stand on top of it and ride safely on it. The Penguin Suit's slide and Fire Flower's Fireballs go right through it and can only be defeated with a POW Block. Giant Buzzy Beetles later appeared in ''New Super Mario Bros. U'', though not quite as big as this one.
+|-
+|N/A
+|Mountain Ledge Koopa
+|302
+|A Koopa that hangs from mountain ledges, similar to the fence Koopas in World 4-Castle. Its setup function was deleted so it normally does nothing if spawned. However, if the function is rewritten, the setup function will work. It has support for both red and green varieties with red ones changing direction upon reaching the edge of a ledge while green ones fall off onto the ledge below them. It's still rather buggy as the model is too low compared to the height of the ledge and it doesn't detect walls correctly.
+|-
+|N/A
+|Wiimote-Controlled Doors
+|319 and 320
+|A giant door allowing Mario to always goes behind them even if the object is on Layer 2. The player can open the doors by tilting the Wiimote to the right. Sprite '''319''' opens like any normal door, while '''320''' slides to the right.
+|-
+|[[File:NewSuperMarioBrosWii-WatterBubbleBodyTemporaryImage.png|center|thumb]][[File:NSMBWunusedbubbles.png|center|thumb]]
+|Bubbles with Controllers
+|328 and 329
+|Spawns bubble objects that push Mario through the water. There are options for size, spawn delay, bubble move speed, and direction. The bubble cannon ID lets the user to assign it to sprite '''329''', also having the same options, with bubble size replaced with starting spawn delay. The kanji on the bubble says "temporary".
+|-
+|[[File:NSMBW EN TESTMAN.png|center|thumb]]
+|Test Enemy
+|415
+|A non-moving test enemy that spawns in [[Larry Koopa]].
+
+
+It uses the same model as the final Larry Koopa boss, but it is rendered at a smaller scale. Instead of using Larry's normal idle animation, it just loops the ending of his appearance animation. It damages the player if they step on it, but a ground-pound or a fire-flower fireball will kill it instantly. It can also be frozen, but the ice cube is not nearly big enough to fit the model inside.
+
+
+Unlike the final Larry Koopa boss, this one cannot connect to a boss controller actor, which would be necessary to set up a proper boss battle.
+|-
+|N/A
+|Invisible Spin Jump Coin
+|417
+|Spawns a coin when the player performs a spin jump nearby. It's never used, but the behavior is the same as that of the decorative flowers that are used.
+|-
+|N/A
+|Homing Banzai Bill Spawner
+|418
+|Spawns an unused homing Banzai Bill actor (no sprite). It has a setting that allows the user to change the delay between spawns. Homing Banzai Bills act differently to homing Bullet Bills where they float up or down until they reach the player's height and then they start moving towards the player like normal. Unlike the homing Bullet Bills, these don't rotate to face the player, and they use a Color Animation instead of a Texture Animation to flash red.
+|-
+|N/A
+|Final Boss Brick
+|481
+|While this technically appears in the game (the falling golden bricks that are displayed upon Giant Bowser defeated at the end of the game), it's not used as a sprite as it instead has a nybble that sets its size. However, the game will crash if the said nybble is set too high.
+|-
+|N/A
+|Early Micro Goomba
+|N/A
+|Actor spawns a miniature Goomba, about half in size. The enemy can be defeated and flies offscreen when touched, just like they do in the DS game aside of being unable to kill Mini Mario when touched from the side. Instead, if Mini Mario touches it, he gets sent up as if he jumped on it.
+
+
+It seems that it was likely that this was intended to be sprite '''22''' as the Goomba that's used in the final game is assigned to actor '''51''' and sprite '''20''', the Para-Goomba assigning to actor '''52''' and sprite '''21''', and this enemy assigned to actor '''53''' but no sprite as sprite 22 assigned to a placeholder null actor.
+
+
+They were scrapped in favor of ones that look similar to ''Super Mario Bros. 3's'' Micro Goombas.
+|-
+|N/A
+|Smashed/Broken Pipes
+|N/A
+|Originally created for Mega Mario in the DS game. They're functional (apart from some awkward lighting), but impossible to spawn through normal gameplay.
+|-
+|N/A
+|Big Coins
+|N/A
+|Has an internal type which, when spawned, creates a gigantic coin that hops up then exploding into a bunch of smaller ones. The player is awarded ten coins, but this will not award the player a 1UP if their coins exceed one hundred.
+|-
+|N/A
+|Floating Platform
+|N/A
+|A simple wooden platform that floats on the surface of water.
+|}
+
+=== Unused World Map Actors ===
+{| class="fandom-table"
+|+
+!Image
+!Filename
+!Description
+|-
+|N/A
+|WM_NOTE
+|World maps in this game use a scripting system to control all cutscenes and menus. Script 17 (unused) controls a music note, if one has been spawned. It causes the actor to snap to Mario's position, wait briefly, and then move to a random map node while the camera follows it. The camera moves too slowly, though, and doesn't return back to Mario once the script ends.
+
+
+The actor however tries to read "'''model.brres'''" from a "'''note.arc'''", which would have been loaded along with the rest of the world map graphics. However, the game crashes instantly since nothing actually loads a file by that name. If the actor or model is edited to make the filenames match, then the actor will spawn correctly.
+|-
+|N/A
+|WM_TREASURESHIP
+|At one point in development, the ship would've moved to a different location on the map just like it did in Super Mario Bros. 3. However, this actor tries to load "'''WorldMap/cobTreasureShip.arc'''", which doesn't exist. If the user fixes that, it spawns at a random map node every time Mario dies or clears a level.
+|-
+|[[File:NSMBW WM MANTA.png|center|thumb]]
+|WM_MANTA
+|Loads and displays the model for a Spiny (not a Manta). However, it is in poor condition as it doesn't render with the game's usual lightmaps. They can be loaded into the game in World 5, replacing the Wigglers.
+|-
+|N/A
+|WM_TOWER
+|The actual tower actor which uses "'''WorldMap/cobToride.arc'''". It tries to load and display "'''WorldMap/cobTower.arc'''", which doesn't exist.
+|-
+|N/A
+|WM_SINKSHIP
+|This tries to load and display "WorldMap/cobSunkenShip.arc", which doesn't exist. A shipwreck level did appear in ''New Super Mario Bros U''.
+|}
+
+=== Empty World and Level Actors ===
+{| class="fandom-table"
+|+
+!Filename
+!Actor
+!Description
+|-
+|DUMMY_ACTOR
+|Level
+|Used as a placeholder to fill empty sprite IDs and it mapped to sprite IDs, 1'''0, 11, 12, 13, 14, 15, 16, 17, 18, 19, 22, 167, 168,''' and '''273'''.
+|-
+|EN_GHOST_JUGEM
+|Level
+|Possibly related to Fishin' Boo from ''[[Super Mario World]].''
+|-
+|HANA_MOUNTAIN
+|Level
+|Likely be a Wiggler meant for Mountain levels in World 6.
+|-
+|TAG_THUNDER
+|Level
+|Named in the same way as the object that creates the wind effect.
+|-
+|KAWANAGARE
+|Level
+|Located right next to '''''RIVER_MGR''''', possibly were going to be related. Kawanagare translates "to drown".
+|-
+|EN_SLIP_PENGUIN
+|Level
+|Likely an early version of the Cooligan as '''''EN_SLIP_PENGUIN2''''' is used instead.
+|-
+|EN_ROT_PAKKUN
+|Level
+|Likely be a Piranha Plant attached to a rotation controller, which the feature did make it into ''[[New Super Mario Bros. U]].''
+|-
+|DTEST
+|Level
+|Supposed to display a model with a model animation, a texture pattern, and texture movement animations. However, it doesn't initialize or display anything as it's execute function calculates a matrix and sets its scale and rotation then doing nothing afterwards.
+|-
+|WM_GRID
+|World
+|Possibly related to the unused '''cobGrid''' file in the '''WorldMap''' folder. Unfortunately, the code has been completely removed.
+|}
+
+=== Unused Settings ===
+{| class="fandom-table"
+|+
+!Image
+!Name
+!Sprite IDs
+!Description
+|-
+|N/A
+|Doors
+|182, 259, 276, 277, 278, and 452
+|Doors at one point could be attached to a rotation controller and sway or spin. However, they can't be entered correctly when this option is enabled.
+|-
+|N/A
+|Rolling Object Generator
+|204
+|The sprite, which generates rolling spike balls, has an option to spawn the unused rolling barrels instead.
+|-
+|N/A
+|Banzai Bill Blaster
+|93
+|The Banzai Bill Blaster has an unused setting, having the same nybble as the "enable homing" setting used in Bill Blasters (nybble 10), that makes it spawn the unused Homing Banzai Bills. However, this doesn't function properly as they just float north-west after being spawned.
+|-
+|N/A
+|Clouds
+|234
+|The drifting death clouds from 8-1 can be put into a sprite location. They're instant-death no matter which powerup the player have, but it can be blown away with a spin jump. There's also an option which will make the clouds fall behind the scenery.
+|-
+|[[File:NSMBWParaSSetting3.png|center|thumb]][[File:NSMBWParaSSetting2.png|center|thumb]][[File:NSMBWParaSSetting1.png|center|thumb]][[File:NSMBWParaLSetting3.png|center|thumb]][[File:NSMBWParaLSetting2.png|center|thumb]][[File:NSMBWParaLSetting1.png|center|thumb]]
+|Parabeetle Flying Right
+|291 and 292
+|There's an option for the flying Parabeetles that makes them fly to the right side, as well as an option that makes them stand still and face the player or the background.
+|-
+|[[File:NSMBWUnusedGiantCheeps.png|center|thumb]]
+|Mega Cheep-Cheep
+|334
+|An unused setting found for the Mega Cheep-Cheep which lets the player spawn big aggressive green or shy yellow variations of Cheep-Cheeps. The green one is used once in the entire game (World 1-4), and the yellow one later appeared in were never used in the game. However, they did get used in ''New Super Luigi U.''
+|-
+|[[File:NSMBWyoshicookie.png|center|thumb]]
+|Yoshi's Cookie
+|357
+|Spawn a cookie if one of the parameters is changed, having the exact same function as the Yoshi Fruit. These were most likely planned to an Easter Egg to the actual game ''[[Yoshi's Cookie]]''.
+|-
+|N/A
+|Treasure Chest
+|203
+|The Treasure Chest has a "triggering flag" setting. When used, it will spawn when the flag is activated and will not despawn when the flag is deactivated. This setting is in fact used in all the Enemy Courses apart from stuff for World 1, but those Treasure Chests are set to be spawned by the Enemy Course Controller when all the Toad Balloons are collected, so the setting is ignored.
+|-
+|N/A
+|Star Coin
+|32
+|The Star Coin has a "target flag" setting. When used, it can activate a flag when collected. There is a related setting that lets the user choose if the flag is activated permanently or on a timer. The target flag setting was used in ''New Super Mario Bros.''
+|-
+|N/A
+|Checkpoint Flag
+|188
+|The Checkpoint Flag has a setting to mark it as the second checkpoint in a single level. The game will respawn Mario at the correct checkpoint if he dies.
+
+
+There's a small bug in the logic which is caused by the game keeping track of only one player who collected a checkpoint: if one player collects the first checkpoint, a second player collects the other and then the party dies and the second player decides to stop playing, losing both checkpoints rather than just the second one.
+
+
+This feature was eventually used in ''[[New Super Mario Bros. 2]]'' in World 3-B, World 6-Castle and World Star-Castle along with ''New Super Mario Bros. U's'' "Boarding the Airship" stage.
+|}
+
+=== Unused Features ===
+
+* Banzai Bills have an unused setting that increases their size. However, their collision isn't resized. This could most likely be an early test for the King Bills.
+* King Bills have an unused animation for being killed, which obviously isn't used since they're invincible. This was later used in ''New Super Mario Bros. U'', where they ''can'' be killed with a Star powerup.
+
+== Unused Graphics ==
+
+=== Unused Tilesets ===
+{| class="fandom-table"
+|+
+!Image
+!Level Tileset (Name)
+!Description
+|-
+|[[File:NSMBWAlphatext.png|center|thumb]]
+|Japanese Text
+|There are sometimes stuff drawn or written on the tileset images that are seen invisible due to the alpha channel. They can be found on many invisible tiles used only for collision and indicate the type of each one of them. They may have been used in Nintendo's level editor.
+|-
+|[[File:NSMBW-Pa1 sabaku.png|center|thumb]]
+|Desert Tileset
+|Has a simple collision-less palm tree object (like in ''New Super Mario Bros.'') that goes unused in the game as it was replaced with animated 3D sprite palms that the player can stand on. This tileset also has graphics for upside-down slopes, but none of the tiles are assigned to the objects in the tileset.
+|-
+|[[File:NSMBWPa1toridepinkblock.png|center|thumb]]
+|Tower Tileset
+|A pink block that was originally assigned to a lot of objects, but none of them get used. The block itself bears a resemblance to the ones that appeared in early screenshots of E3 2009, but was most likely was 'dummied out' via recoloring.
+|-
+|[[File:NSMBWPa1setsugengray.png|center|thumb]]
+|Snow Tileset
+|Seen in pre-release screenshots of the game, the snow levels were meant to use a gray variation of the basic block tileset (almost like a resemblance to ''[[Super Mario Land]]''). They have then went unused in the final game, but the file is still present.
+|-
+|[[File:NSMBW-Pa0 jyotyu.png|center|thumb]][[File:NSMBW-Pa0 jyotyu staffRoll.png|center|thumb]]
+|Credits Tilesets
+|Two tilesets meant for the credits sequence, with the top one (standard) being used just for invisible solid blocks and leaving the rest go unused. It appears to be a version of the main standard tileset rendered with an early alpha mask that no longer matches the texture. Most notably, the silhouettes of two arrow signboards and a climbable pole can be seen (in the image below), indicating that these were once part of the standard tilesets as they are both have 3D models in the final game. There is also some sort of vine or stony ladder.
+
+
+The donut block is also depicted in-tileset instead of having a blank space, where in the final game, a 3D model is drawn over the tile to then making it any in-tileset graphic pointless.
+|}
+
+=== Unused Backgrounds ===
+{| class="fandom-table"
+|+
+!Image
+!Description
+|-
+|[[File:NSMBWUnusedbg.png|center|thumb]]
+|A background looking to a resemblance of the sky levels and was later replaced with the more realistic ones.. This was seen in E3 2009 footage.
+|-
+|[[File:NSMBW 3D Background boss hikousen bg Render.png|center|thumb]]
+|Looking to a resemblance to the castle/fort levels, aside from the color as the filename ('''boss_airship_background''') doesn't look anything like the interior of the airship levels.
+|}
+
+=== Other Unused Graphics ===
+{| class="fandom-table"
+|+
+!Image
+!Description
+|-
+|[[File:NSMBW-hanaB body.1.png|center|thumb]]
+|The Big Wiggler "body" model file contains a red variation, for when they're angry, of the main texture. However, the Big Wigglers never turn red as jumping on them just bounces the player.
+|-
+|[[File:NSMBWNote.png|center|thumb]]
+|A music note, which was seen in pre-release screenshots, is still present in the game's files.
+|}
+
+=== Early and Test Graphics ===
+{| class="fandom-table"
+|+
+!Image
+!Description
+|-
+|[[File:NSMBWUnusedLarryIcon.png|center|thumb]]
+|An early icon graphic showing Larry being battled by Mario from World 1-F, which contains textures for the stage icons in the Coin Battle and Free-for-all multiplayer modes ('''''im_W1_toride_00.tpl'''''). It's never displayed by the game, as it uses '''''im_W1_toride.tpl''''' for the World 1 Fort icon. The most interesting thing about this image is that it shows how the early Larry boss platform looked. The unique thing here is that Mario is in the image, which doesn't happen in any other Coin Battle icon.
+|-
+|[[File:Nsmbw lift kinoko yoko kasa.png|center|thumb]]
+|An early texture for the end stem of the pink extending mushroom. The one below here is used in the final game.[[File:Nsmbw M kinoko yoko kasa.png|center|thumb|Image shows the used texture of the pink extending mushroom]]
+|-
+|[[File:NSMBW-items menu 2D Super Mushroom.png|center|thumb]][[File:NSMBW-items menu 2D Fire Flower.png|center|thumb]][[File:NSMBW-items menu 2D Propeller Mushroom.png|center|thumb]][[File:NSMBW-items menu 2D Ice Flower.png|center|thumb]][[File:NSMBW-items menu 2D Penguin Suit.png|center|thumb]][[File:NSMBW-items menu 2D Mini Mushroom.png|center|thumb]][[File:NSMBW-items menu 2D Super Star.png|center|thumb]]
+|2D item graphics and appropriate layout data for the items used throughout the game. In the final game, they were replace with 3D models.
+|-
+|[[File:NSMBWblockjump.png|center|thumb]]
+|An old texture file for the [[White-Green Checkered Block|checkered spring block]], which was seen in early screenshots of E3 2009.
+|-
+|[[File:NSMBWwindmix.png|center|thumb]]
+|Contains some cloudy textures similar to those used for the usual cloud/mist effects. These textures, however, have writing all over them. According to the text, the first three are meant for the regular stages, while the last three are meant for the desert stages. In the final game, it only uses one type of wind effect with its textures being stored as '''''wmy_bgsnow.3''''' (along with 4 and 5) inside '''''env_snow.arc'''''. It's also handled by the same sprite as the falling snowflakes effect and uses most of the same code. It is only used in World 2-4, which is desert level.
+|}
+
+=== ''New Super Mario Bros.'' Leftovers ===
+{| class="fandom-table"
+|+
+!Image (Early)
+!Image (Final)
+!Description
+|-
+|[[File:NSMBWEarlyrouletteobj.png|center|thumb]]
+|N/A
+|Contains an early design for the block roulette.
+|-
+|[[File:NSMBWUnusedblock.png|center|thumb]][[File:NSMBWUnusedFlyingBlock.png|center|thumb]]
+|N/A
+|Contains a placeholder winged ? block, along with a normal ? block.
+|-
+|[[File:NSMBWunusedcoin.png|center|thumb]]
+|N/A
+|An early version of the coin.
+|-
+|[[File:NSMBW-OldPathGraphic.png|center|thumb]]
+|N/A
+|Though it is used to mark the course spots on the world map models, it's invisible in-game.
+|-
+|[[File:NSMBWBrokenPipeGraphics.png|center|thumb]]
+|N/A
+|Contains broken pipe models that would've been used by the unused Mega-Mario flying pipe actors. However, it's texture is a bit lacking.
+|-
+|[[File:NSMBWearlyroulette.png|center|thumb]]
+|[[File:NSMBWfinalroulette.png|center|thumb]]
+|Just like with the Mushroom, these graphics (excluding the Ice Flower, Mini Mushroom, and 1-Up Mushroom) are all an early designs for the block roulette.
+|-
+|[[File:NSMBW Purple Pole Unused.png|center|thumb]]
+|[[File:NSMBW Purple Pole.png|center|thumb]]
+|An unused 2D version of the climable poles in World 3-Ghost House, having somewhat of a different coloring and shading. It was replaced in favor of the 3D model ones. However, it is fully functional if placed in a level.
+|}
+
+== Unused Models ==
+
+=== Test Objects ===
+{| class="fandom-table"
+|+
+!Image
+!Description
+|-
+|[[File:NSMBW World 1 Node Diamonds.png|center|thumb]]
+|The world maps have 3D diamonds that mark the path spots, but they aren't visible in-game making them most likely that it was used during testing.
+|-
+|[[File:NSMBW BGMAnimDummyExample.png|center|thumb]]
+|An unused black cube, which was originally used to implement the coins and question/brick blocks in some levels (most especially in World 7) which hops back and forth in time with the music. The hopping/dancing movement is an animation on the model and the in-game object changes position alongside the cube. The cube object itself is normally invisible, but it can be made visible by setting a specific global variable to a non-zero value.
+|-
+|[[File:NSMBW cobGrid.png|center|thumb]]
+|A grid that was most likely used to create the world maps.
+|}
+
+=== Early Models ===
+{| class="fandom-table"
+|+
+!Image (Early)
+!Image (Final)
+!Description
+|-
+|N/A
+|N/A
+|An early version of the Prickly Goomba enemy, which are found in World 9-7.  It lacks the frames for the Goomba's eyes and has different animations. The enemy loads both models, though only one of them is used.
+|-
+|[[File:NSMBW Unused 3D Model search light-light double Render.png|center|thumb]][[File:NSMBW Unused 3D Model search light-light search Render.png|center|thumb]]
+|N/A
+|Two early versions of the light models for the dark cavern levels, such as in World 6.
+|-
+|[[File:NSMBW-Early Big Thwomp.png|center|thumb]]
+|[[File:NSMBW-Final Big Thwomp.png|center|thumb]]
+|The Thwomp enemy, with the early one being more lighter compared to the one used in the final game.
+|}
+
+=== Other Unused Models ===
+{| class="fandom-table"
+|+
+!Image
+!Model Name
+!Description
+|-
+|[[File:NSMBW Hatena balloon Texture.png|center|thumb]]
+|Question Mark Bubble
+|Has a similar name to the Balloon actor used in the game that contains Super Mushrooms and revived players. This model is probably an early version of that.
+|-
+|[[File:NSMBW-objGreenCoin.png|center|thumb]]
+|Green Coin
+|The Green Coin was originally going to be used as the "collect 8" object in the enemy world map ambush courses, but it was later replaced by Toad Balloons (even the filename for the balloons has "Green Coin" in it). They did get used in ''New Super Mario Bros. U'', but has changed it's functionality.
+|-
+|[[File:NSMBWunusedtex.png|center|thumb]]
+|Green Snake Block
+|The third variation of the Snake Blocks. It's use would've been the same as ones used in the final game.
+|-
+|[[File:NSMBW-World3Palms.png|thumb]][[File:NSMBWw3palmtex.png|center|thumb]]
+|World 3 Palm Trees (for World 4)
+|An arrangement of palm trees that were meant for the island-themed world for World 4. This indicates that the map was originally going to be to World 3, just like in ''New Super Mario Bros.'', instead of being World 4. The name of the tree texture in both models (for both games) is named '''''W3_YashiA''''' as texture for World 3 in the image is twice as wide as the final version, adding more ridges to the tree leaves.
+
+
+The tree arrangement barely matches with the terrain of World 4 at all, with two of the trees being higher up than the ground and none of them being at beach height. It also only has eight trees, with all of them the same size, rather than the eighteen trees of two sizes used in the final version.
+
+
+Other World Map texture names also suggest that World 3 was once the island-themed world. In addition, the actor responsible for displaying the palm trees on the World 2 and World 4 maps is internally called '''''WM_CS_W3_PALM'''''.
+|}
+
+== Unused Animations ==
+{| class="fandom-table"
+|+
+!Animation
+!Name
+!Description
+|-
+|[[File:NSMBW-BigMedium Goomba flattened.gif|center|thumb]]
+|Stomped Giant/Medium Goomba
+|In the final game, the Giant/Medium Goombas split into the smaller Goombas once stomped and fly off the stage when ground pounded, which leaves this animation unused.
+|-
+|N/A
+
+* swing_L
+* swing_R
+|Checkpoint Flag
+|These were likely used with the early versions of the model as they don't fit with the current bone structure of the model and look wrong when these animations are used through hacking.
+|-
+|N/A
+|Yoshi fight preparation
+|Since no Yoshi is loaded in with the levels, nor they can be brought after beating a level, this animation never gets unused. However, by hacking into the game, Yoshi can be playable in the Fort/Castle Levels showing him (in a cutscene) preparing to fight. However, the player itself is then in an odd position as the animation shows the character standing upright.
+
+
+Judging by this, it originally suggests that either the Yoshis were planned to be in a tower level, or players were able to carry Yoshi across levels during development (like in ''Super Mario World'')
+|}
+
+== Unused Stages/Areas ==
+{| class="fandom-table"
+|+
+!Image
+!Description
+|-
+|[[File:NSMBW 7-Tower Indoors Early.png|center|thumb]]
+|Found in Coin-1 is an unfinished version of the final area of the World 7-Tower. It's missing many objects and coins along with several layout changes.
+
+
+Some notable changes include:
+
+* The absence of the Super Guide Block, an arrow sign, two blue platforms at the bottom of the level, a Fire Flower at the top, and a set a platforms.
+* The pipe with the Star Coin changed from being vertical to horizontal.
+** The Star Coin itself was also moved moved underneath the blue platform where the Vertical would've dropped the player off.
+* The Star Coin at the top wasn't blocked by anything at one point of development, allowing the player to easily obtain the Star Coin.
+
+About halfway through the area, the background gets cut off into a dark void and entering the secret area will reload the section again but with the player not being shown on screen. They still have full control over it so possibly the player is located at the very bottom of the map.
+|-
+|[[File:NSMBWunusedlevel.png|center|thumb]]
+|An underground bonus room of the level for the Battle Mode (Coin-2), the stage that makes a resemblance of World 1-1 for ''[[Super Mario Bros.]]''
+
+
+It's location was originally in the pipe hiding a Star Coin and was most likely taken out because of it. There are even coins that spin around in the area too.
+|}
+
+== Unused/unseen level features ==
+{| class="fandom-table"
+|+
+!Image
+!Level
+!Description
+|-
+|N/A
+|Title Screen
+|In the final game, a horizontal-flag is set into the game where it then tells the game to show either the intro cutscene or some gameplay. If the user decides to hack the code to let it scroll indefinitely, it will cause the characters to glitch out of smooth line. Along with this shows six extra seconds of unseen content that is never seen before the fade out appears (as seventeen seconds is all that's seen of it).
+
+* The full half of the hill cliff-like object in the background.
+* Another bush of flowers in the background.
+* Two sets of bushes and flowers in the foreground.
+|-
+|[[File:NSMBW Unused 1-Ambush Features.png|center|thumb]]
+|World 1-Ambush
+|Tow unseen red pipes on each side. In the final game, the player can only seen three.
+|-
+|[[File:NSMBW Unused 1-1 Features.png|center|thumb]]
+|World 1-1
+|Originally, the secret area for one of the Star Coins (located at the spinning circle near the end) was gonna be much larger with a P-Switch and blocks (even with no Star Coin in sight). In the final game, it became smaller to become a Wall-Jumping section with tons of coins. The oddest change however was the Yellow and Green Pipe being switched (along with them being from only vertical to somewhat horizontal)
+|-
+|[[File:NSMBW1-TowerUnusedFeatures.png|center|thumb]]
+|World 1-F
+|A single tile located to the left of the playing area.
+|-
+|[[File:NSMBW2-2UnusedFeatures.png|center|thumb]][[File:NSMBW2-2UnusedFeatures2.png|center|thumb]][[File:NSMBW2-2UnusedFeatures4.png|center|thumb]]
+|World 2-2
+|Several unused entrances were possibly planned and can be found in editing page spreading around the level.
+|-
+|[[File:NSMBW2-2UnusedFeatures3.png|center|thumb]]
+|World 2-2
+|The sky bonus rooms contains three unused locations that were likely used in the past for cloud effects. However, nothing seems to be attached to them.
+|-
+|[[File:NSMBW2-3UnusedFeatures.png|center|thumb]]
+|World 2-3
+|Another unused entrance exists in the final area of the level.
+|-
+|[[File:NSMBW2-TowerUnusedFeatures.png|center|thumb]]
+|World 2-F
+|Yet more unused entrances are found in the Blue Coin room far below the playing area.
+|-
+|[[File:NSMBW2-4UnusedFeatures.png|center|thumb]]
+|World 2-4
+|Another unused entrance is present just above the Star Coin.
+|-
+|[[File:NSMBW3-1UnusedFeatures.png|center|thumb]]
+|World 3-1
+|The first two pipes have unused locations present inside the objects.
+|-
+|[[File:NSMBW3-1UnusedFeatures2.png|center|thumb]]
+|World 3-1
+|Another unused entrance in the second section of the level, beneath the last red coin.
+|-
+|[[File:NSMBWiiUnused4-1features.png|center|thumb]]
+|World 4-1
+|A load of coins underneath the playing area. It is possible to glitch under the level, but it's not enough as the coins are too far down past the kill plain.
+|-
+|[[File:NSMBW Unused 4-Castle Features.png|center|thumb]]
+|World 4-C
+|The bonus room (with the 3rd Star Coin) has an unused rotation controller present on top of the Star Coin, configured to slowly spin 90 degrees clockwise when flag ID 1 is enabled. There are no rotation-controllable sprites in the zone as the only thing there capable of activating flags is the Star Coin itself (as well as not being configured).
+
+
+There's a rotation controller used in the other bonus zone to the left of this one, but it's unlikely that this is an accidental copy-paste of that as the two have completely different settings.
+|-
+|[[File:NSMBWiiUnused5-1features.png|center|thumb]]
+|World 5-1
+|A Red Koopa Troopa can be found located underneath the playing area, close by the giant green shell as it falls to it's demise.
+|-
+|[[File:NSMBW Unused 5-Tower Features.png|center|thumb]]
+|World 5-F
+|In the boss battle room, there has some unreachable platforms above the player's view. Not even with a high enough Wall-Jump and Propeller Suit will make it. Juding by the blue platforms at the top, it's possible that this section was planned to be used too.
+|-
+|[[File:NSMBW Unused 5-Castle Features Part1.png|center|thumb]][[File:NSMBW Unused 5-Castle Features Part2.png|center|thumb]][[File:NSMBW Unused 5-Castle Features Part3.png|center|thumb]][[File:NSMBW Unused 5-Castle Features Part4.png|center|thumb]][[File:NSMBW Unused 5-Castle Features Part5.png|center|thumb]]
+|World 5-C
+|Four pairs of unused paths with lots of nodes bunched up in vertical lines. The path controller actors that are still attached to some of them are configured to loop. It seems that these were most likely originally to be used for controlling the level's vertically moving chain-link fences, which in the final game move on their own instead.
+
+
+The first two sets of paths aren't near any of the fences, but the third and fourth are, suggesting that some of the fences that used to exist near the beginning of the level and were then replaced with the rotating fence wheels seen in the final version.
+|-
+|[[File:NSMBW Unused 5-Castle Features Part6.png|center|thumb]]
+|World 5-C
+|Another unused feature in this level is that 6 out of the 9 giant rotating chain-link wheels have rotation controllers at their centers, even though the actor rotates on its own in the final game. Two of them are used to rotate the giant metal bars near the end of the level, but the other 4 are unused. This could either mean that the wheels were originally used for rotation controllers or that there were originally more of the giant bars, which would've made the level much more difficult.
+|-
+|[[File:NSMBW6-1Unusedfeatures.png|center|thumb]]
+|World 6-1
+|Seven coins can be found located underneath the goal.
+|-
+|[[File:NSMBW Unused 6-2 Features Part1.png|center|thumb]][[File:NSMBW Unused 6-2 Features Part2.png|center|thumb]]
+|World 6-2
+|Two unused entrances at the start and the end both leading to the goal upon entering (and enabling) them.
+|-
+|[[File:NSMBW7-6Unusedfeatures.png|center|thumb]]
+|World 7-6
+|A small unused sprite can be found located underneath the the playing area below a row of Giant Parabeetles. There is no sprite is assigned to it.
+|-
+|[[File:NSMBWiiUnused8-7features.png|center|thumb]]
+|World 8-7
+|An unused autoscroll path for both zones. It mostly seems to follow the level design, but it's way too fast in certain spots for the bonecoaster to catch up and is completely wrong just before the end of the first zone, indicating that the level was different during development. The autoscroll sprite and event activation sprites are still in the level, but the events don't match so the autoscroller never starts.
+|-
+|[[File:NSMBWUnusedLastCastleFeature2.png|center|thumb]]
+|World 8-C
+|A bunch of tiles can be found outside of the first area of the level, with a red platform being the most obvious thing popping out.
+|-
+|[[File:NSMBWiiUnusedFinalCastleFeatures.png|center|thumb]]
+|World 8-C
+|And a whole bunch more can be found outside of the playing area in the boss door/checkpoint room (including a stair-like slope)
+|-
+|[[File:NSMBWii9-8UnusedEntrance.png|center|thumb]]
+|World 9-8
+|Another unused entrance located underneath the Mini Mushroom.
+|-
+|N/A
+|World 12 (12-66)
+|(Note: There are no level files for any worlds beyond 9, so this level doesn't actually exist) If a level with specific name were to be loaded in the multiplayer mode, the camera would zoom out as far as possible as soon as the players spread out instead of the usual gradual zoom-out as the players move away from each other at all.
+|}
+
+== Unused behaviors ==
+=== Characters and objects ===
+* Spiked Tops and Chain Chomps can be bounced off if a player had a Yoshi, which did get used in ''[[Super Mario Maker]]''. It also went unused in ''[[New Super Mario Bros. U]]''.
+* Chain Chomps, Thwomps, and Prickly Goombas originally had hitboxes that were impenetrable by Yoshi's tongue.
+* Switches can be pressed with a Yoshi, even if the player is not riding on him.
+* Yoshi can detach from the player if they enter any water.
+* Dry Bones have a standard behavior for the overworld enemies of being in water (splashing when entering and moving slowly when in).
+
+=== Switching layers ===
+As explained in the unused layer warping (in the unused objects), it's function was well worked on. With these unused features to it, it's possible that the developers were really wanting to use this.
+
+* Entrances have an unused setting to spawn Mario on any layer.
+* Every sprite can be placed on any layer, but is the only configurable setting in the game that applies to all types of sprites. This feature is only used in World 1-3 to move three types of sprites (coin, invisible 1UP, and special exit controller) to the background layer.
+
+== Unused settings ==
+
+=== Camera Settings ===
+
+==== Camera Modes ====
+There are a total of eight settings for the camera, where numbers 2, 5 and 7 go unused.
+
+===== Mode 2 =====
+Causes the camera to only zoom out in multiplayer mode if the players are far apart vertically, instead of in any direction. Even then, it won't zoom out the entire way unless the player who's moving away vertically is flying with a Propeller Suit or Block. Interestingly, this mode has its own unique list of zoom-level options.
+
+===== Mode 5 =====
+Enables an unused feature that allows the user to switch the camera in the level designer to different settings (mode, zoom, bounds, and "ZoomChange") based on the activated flag IDs. The configuration for this is stored in its own section of the level data, which is empty in all levels in the final game.
+
+Unfortunately, there is no transition when the settings change, making this feature jarring and unusable unless zoom sprites (206) are used to hide the change. It's also buggy as the first set of camera settings in the level data cannot be the first one to activate due to an incorrectly initialized variable. Any changes to the camera bounds are immediately reverted onto the next frame.
+
+===== Mode 7 =====
+This mode has a horizontal equivalent of '''Mode 2''', but without the unique zoom levels.
+
+==== Zoom Levels ====
+[[File:NSMBW 7 Tile Tall Camera.png|left|thumb|Image shows one of the unused zoom levels]]
+A few unused zoom level options exist in the game's files, but most aren't anything special. One fixes the camera's size at just 7 tiles tall. Another is similar, but also allows the camera to expand (in the multiplayer mode) up to the absolute maximum of '''28''', which is the size used in the giant bonus room of World 9-3.
+
+==== Flying-Only Upward Scrolling ====
+This unused camera setting is a direct equivalent of one used in both ''[[New Super Mario Bros.]]'' and ''[[New Super Mario Bros. 2]]''. In those games, it prevents the camera from scrolling upward more than a certain, adjustable number of tiles unless the player is climbing a vine (''New'' ''Super'' ''Mario Bros.'') or flying as Raccoon Mario (''New'' ''Super'' ''Mario Bros. 2''), and is used for hiding secret areas. In ''New Super Mario Bros. Wii'', it prevents the camera from scrolling upward at all unless the player is flying using a Propeller Suit or [[Propeller Block]]. However, instead of adjusting the scroll distance as in the other games, the attached numeric value adjusts the camera's size in multiplayer mode.
+
+This is enabled in a few areas, but only ones where the camera can't scroll at all anyway. The value "'''0'''" enables it and "'''15'''" can disable it.  The feature was probably scrapped in this game because of it's glitches and probably wouldn't work well in multiplayer mode.
+
+=== Darkness Setting ===
+[[File:NSMBW-UnusedLightingSettingScreenshot.png|left|thumb]]
+An unused darkness setting exists in the game's files, which causes a triangular beam of light to be generated by each player. The beam's faces the same way as the players and each one can be rotated between 0 and 180 degrees by tilting the relevant Wii Remote.
+
+=== Other/Miscellaneous Settings ===
+* '''Bounds''': Allows the camera to specify how close the players need to be to the top/bottom edges of the screen for the camera to scroll vertically throughout levels. Though it is used in-game, the values can also be different between single-player and multiplayer modes, which isn't possible in the final game.
+* '''ZoomChange''': Judging by the name, it would've most likely change the image of zooming in and out of the character's see of view on screen. However, this setting does nothing.
+* '''Extra Camera Configuration''': In the final game, the camera can be configured to consider any cardinal direction, such as "forward", through the area. There is also one for leftward, which is never used.
+
+== Unused Text ==
+
+=== E3 Demo Leftovers ===
+{| class="fandom-table"
+|+
+!Text/Image
+!Description
+|-
+|You can play for 10 minutes. After 10 minutes, the session will automatically end.
+|This was shown when on the title screen.
+|-
+|EVENT VERSION
+|This was shown on both the level selection screen and the time up screen.
+|-
+|Thank you for playing! You can continue your adventure in the retail version!
+[[:File:NSMBWEventVersionTimeUp.png|File:NSMBWEventVersionTimeUp.png]]
+|This was shown when the session ended. The graphics still exist in the game's files too.
+|-
+|SCORE
+COINS
+
+ENEMIES
+
+LIVES LEFT
+|This was shown when in the results screen for the Free for All Mode.
+|}
+
+=== Unused text ===
+{| class="fandom-table"
+|+
+!Text
+!Description
+|-
+|test1
+|As said, it's a text for testing purposes.
+|-
+|Story Mode
+|An early label for the Main Mode on the menu screen.
+|-
+|VS Mode
+As you make progress in Story mode, you'll unlock more courses to play in VS mode.
+|At one point in development, it seems the player would've have to do a good chunk of the Main Mode to unlock newer multiplayer levels in VS Mode.
+|-
+|Select a Mode
+|This never gets used as VS Mode is on the screen before even starting a new game. Judging by this text, along with the previous two, it's possible that the Main Mode and VS Mode were all going to be on one save file.
+|}
+
+=== Tournament Mode (Shield TV Version only) ===
+In the Korean, Taiwanese, and NVIDIA Shield TV versions of the game, there are text files relating to the Tournament Mode that was hosted of 2010 from February to March. These are leftover in the game's files as it was built from that version.
+
+* MultiCourseSelect_tournament
+* MultiCourseSelect_tournamentButton
+* MULTI_COURSE_SELECT_TOURNAMENT
+* MULTI_COURSE_SELECT_TOURNAMENT_BUTTON
+
+== Unused audio content ==
+=== Music ===
+{| class="fandom-table"
+|+
+!Clip
+!Description
+|-
+|[[:File:NSMBunusedsongCheepfanfare lr.ry.ogg.mp3|File:NSMBunusedsongCheepfanfare_lr.ry.ogg.mp3]]
+|An unused fanfare, which was possibly used in the demo version of the game.
+|}
+
+== Unused Hint Movies ==
+In the final game, there are a total of 62 Hint Movies that get used. However, there are 20 more that go unused within the game's files.
+
+=== World 1 ===
+{| class="fandom-table"
+|+
+!Level
+!Video Clip Details
+!Video Clip Description
+|-
+|World 1-3
+|Super Skill
+|Starts at the beginning of the level with four players, having only both Toads being controlled. As the players continue, both Mario and Luigi lose a life due to the camera with the pipe in the path. The Blue Toad then loses a life from a Goomba and is then seen in a bubble, along with Mario and Luigi. Both Luigi and the Blue Toad get saved, but the Yellow Toad is then hit by a Goomba. The Blue Toad progresses, having the camera make Luigi lose yet another life from a ground tile. Both Toads then progress forward onto the level, only to then lose the level by some Goombas.
+|-
+|World 1-3
+|Super Skill
+|Starts at the beginning of the level with four players, having all characters being controlled except Luigi. Encountering a Hammer Bro., the Yellow Toad gets hit along with Luigi losing a life from the camera. Progressing forward, Mario is then hit by a Goomba twice, along with saving Yellow Toad, which then loses his fire ability. The Blue Toad then gets hit by a Goomba, with both Mario and the Yellow Toad following soon after.
+|-
+|World 1-3
+|Super Skill
+|Starts at the beginning of the level with four players, having all characters being controlled except Luigi which he loses a life immediately (along with Mario losing his fire ability) by a Goomba, Encountering a Hammer Bro., all the characters then lose the level after getting hit by it.
+|-
+|World 1-3
+|Super Skill
+|N/A
+|}
+
+=== World 2 ===
+{| class="fandom-table"
+|+
+!Level
+!Video Clip Details
+!Video Clip Description
+|-
+|2-2
+|Infinite 1-Ups (Titled as Super Skill)
+|Starts at the sand fall cave area with four players, having all characters being controlled in Penguin Suits (except Mario with his fire ability). All the blue coins in this video are invisible but can still be collected. However, the game allows the player to use the sand to reach back to the previous room which was changed in the final game.
+|-
+|2-2
+|Super Skill
+|N/A
+|-
+|2-2
+|Super Skill
+|N/A
+|-
+|2-2
+|Super Skill
+|N/A
+|-
+|2-5
+|Super Skill
+|Starts at the checkpoint with three players all being controlled, starting with a Super Ground Pound at the start. Mario then falls into the sand, later losing a life due to the camera. Both Luigi and Toad then follow soon after as they slowly descend from inside the sand.
+|-
+|2-5
+|Super Skill
+|Is mostly an exact replica to the previous one.
+|-
+|2-5
+|Super Skill
+|N/A
+|}
+
+=== World 3 ===
+{| class="fandom-table"
+|+
+!Level
+!Video Clip Details
+!Video Clip Description
+|-
+|World 3-2
+|Infinite 1-Ups
+|Starts at the beginning of the level with two players both being controlled. Upon Mario losing his fire ability, Luigi grabs both a Mushroom and an Ice Flower immediately afterward. Not long before that, both players lose of a life (Mario from a Goomba and Luigi from a Green Koopa Troopa).
+|-
+|World 3-5
+|Super Skill
+|Starts at the beginning of the level with four players both being controlled, having all characters with a Propeller Suit except for Mario in his fire power-up. With the Yellow Toad holding the Blue one, Luigi grabs a Propeller Block (making Mario lose a life due to the camera). After ten seconds of nothing, Luigi flies in the air two times with the other characters being free afterwards. However, while Mario and the Blue Toad survive, the Yellow Toad plunges to his doom immediately after being saved. Luigi then flies again but to the other side, letting both Mario and the Blue Toad lose yet another life, losing his Propeller Suit from a Red Partroopa upon making it. Nearly another ten seconds pass to then save both Mario and the Yellow Toad from their bubbles then landing on the moving platform afterwards, with Mario falling into the pit below. As the camera scrolls up for the moving platform, both Luigi and the Yellow Toad lose a life causing them to lose the level.
+|-
+|World 3-5
+|Super Skill
+|Is typically the same perspective as the previous one. However, Luigi grabs the Propeller Block (after saving Mario) yet slowly descends (dropping it afterwards) to fall into a pit below him. After a while, Mario proceeds to use the Propeller block saving Luigi along the way to make him land on the moving platform but is yet to fall into the same bottomless pit yet again. Mario then throw the Propeller Block off the screen view, with nothing else happening after that for nearly a minute (aside of asking the characters saying to help them time to time again) until the Blue Toad is rescued to then repeatedly jump on Mario's head for neatly the next two minutes before the video decides to cut off. 
+|-
+|World 3-2
+|Super Skill
+|Is typically the same thing as the one clip from a couple previous clips ago, however Mario is now not controllable character and Luigi falls into the pit below immediately after the both the Toads lose a life from the camera.
+|}
+
+=== World 6, World 7, and World 9 ===
+{| class="fandom-table"
+|+
+!Level
+!Video Clip Details
+!Video Clip Description
+|-
+|World 6-C
+|Super Skill
+|Starts at the room with the spikeballs with two players both being controlled, having Mario with a fire power-up. After hitting a ? block, both players then fall into the lava immediately after.
+|-
+|World 7-F
+|Star Coin
+|Starts the player (alone) at the beginning of the level (jumping onto the Conveyor Belt) and grabs a Mushroom as the level progresses upwards with a Fire Flower immediately after that (upon some platforming on top of some Bullet Bills and grabbing the Red Coins to get some 1-Ups). Mario then collects the first star coin above the Banzai Bill and then proceeds onwards to break the hidden block and jumping onto the roof to collect the second star coin. The player then jumps onto the moving platform to then lose a life from some Bob-Ombs.
+|-
+|World 7-F
+|Secret (Titled as Super Skill)
+|Starts the player (alone) at the beginning of the level (jumping onto the Conveyor Belt) with a Propeller Suit. The player gets hurt once from the Banzai Bill before heading into the pipe to get onto the other conveyor belt, touching the checkpoint along the way. Along the way up, Mario then collects an Ice Flower only to then get hit by a Bob-omb above after a short bit. Afterwards, the player than shows the secret exit (completing the level before ending it off)
+|-
+|World 9-8
+|Super Skill
+|N/A
+|-
+|World 9-8
+|Super Skill
+|N/A
+|}
+
+== External links ==
+[https://tcrf.net/New_Super_Mario_Bros._Wii New Super Mario Bros. Wii] on The Cutting Room Floor.
+
+{{NSMBWNav}}
+[[Category:Beta elements]]

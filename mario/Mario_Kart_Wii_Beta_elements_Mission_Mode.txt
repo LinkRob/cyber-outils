@@ -1,0 +1,172 @@
+{{Icons|mariokart}}
+At one point of development, there was originally going to be a Mission Mode planned for this game. However, all of the missions that were originally created for the mode have been wiped from the game disc and are now unable to be obtained. It is very similar to tournament mode on WiiConnect24 where you can port tournaments to Mission Mode and it will work almost exactly the same. This means that it is possible the missions were originally created for Mission Mode would've been ported over to be tournaments.
+
+The menus for Mission Mode have no available text as they were erased from the game's files, yet the game is trying to load them. The only surviving piece of text is "Choose a Mission" after one user would finish a mission. Similarly, a massive file that would've contained mission parameters is not present and without the user simulating it's existence, the mode cannot start without it. However, the sub-routine still exists and attempts to load files out of the '''/Race/MissionRun''' folder on the disc. However, that folder is empty and thus cannot be accessed. The files would've contained things like where to place objects, the objective, the score required, the time limit, the engine class, which character and kart the player is restricted to, etc. Because this content is missing, it is impossible to know what the original missions were going to be during it's development.
+
+Some of the surviving content is drift restrictions on some levels, and/or a video (but since the videos are missing, the game just displays a still image of the last loaded video). The last level with a video is 2-4, which is most likely where they decided that they weren't going through in adding the mode. The game doesn't even attempt to load any mission that is 3-4 or later. Interestingly, the code for trying to load the videos still has the original video names. There is also no penalty for losing as the win music plays and the results screen is bugged.
+
+This list below provides the files of what each mission would've possibly been associated to.
+{| class="wikitable"
+!Filename
+!Possible Conclusions
+|-
+|00_curve.thp
+|Possibly steering without drifting around the curves
+|-
+|01_drift.thp
+|Manual Drifting
+|-
+|02_miniturbo.thp
+|Obtaining miniturbos from Manual Drift
+|-
+|03_autodrift.thp
+|Automatic Drifting
+|-
+|04_jumpaction.thp
+|Performing tricks on ramps
+|-
+|05_halfpipejump.thp
+|Performing tricks on halfpipe ramps
+|-
+|06_wheelie.thp
+|Performing wheelies
+|-
+|07_spinturn.thp
+|Turning on the spot (using the A and B buttons)
+|-
+|08_back.thp
+|Possibly playing a certain course in reverse
+|-
+|09_startdush.thp
+|Getting a boost start in the countdown
+|-
+|10_jugemdush.thp
+|Getting a boost start after respawning
+|-
+|11_slipstream.thp
+|Getting a slipstream from another racer
+|-
+|12_itemthrow.thp
+|Throwing/using items
+|-
+|13_itemequip.thp
+|Dragging items behind the player
+|}
+Upon some mods and hacks to the game, there is a total of 14 that were planned before the whole idea was dropped.
+{| class="wikitable"
+!ID Number
+!Code Name
+!Objective
+!Notes
+|-
+|0x00
+|MiniTurbo
+|Release miniturbos to score points.
+|
+|-
+|0x01
+|LapRun01
+|VS Mode. Complete three laps before time runs out.
+|
+|-
+|0x02
+|LapRun02
+|VS Mode. Complete three laps before time runs out.
+|
+|-
+|0x03
+|Drift
+|Perform any drift to score.
+|This mission is faulty as increments score too quickly (Manual only).
+|-
+|0x04
+|ItemBox
+|Break item boxes to score points.
+|
+|-
+|0x05
+|EnemyDown01
+|Hit enemies with items to score points.
+|
+|-
+|0x06
+|EnemyDown02
+|Attack a boss to score points.
+|Examples are Spiky Topmen and Big Pokey.
+|-
+|0x07
+|EnemyDown03
+|Unknown enemy/boss mission
+|It was most likely unused or deleted. A piece of text in '''StaticR.rel''' may indicate that it used to be related to modes '''0x05''' and '''0x06''', along with the code name suggesting that.
+|-
+|0x08
+|CoinGet01
+|Gather coins to score points.
+|
+|-
+|0x09
+|ToGate01
+|Drive through gates to score points.
+|
+|-
+|0x0A
+|RocketStart
+|Perform any level of boost start to immediately win the mission.
+|If the player misses the boost start, they can no longer win at all.
+|-
+|0x0B
+|ItemHit
+|Hit CPU opponents with certain items to score points.
+|Stars, Mushrooms, Mega Mushrooms, and Bullet Bills do not score the player any points
+|-
+|0x0C
+|Wheelie
+|Perform wheelies to score.
+|This mission is faulty as increments score too quickly (Manual only).
+|-
+|0x0D
+|Slipstream
+|Get slipstreams from CPU opponents to score points.
+|The score also increases if they too slipstream someone else.
+|}
+There is also 12 extra text strings found within the game's files too. These include: '''BalloonBattle, CoinBattle, Jump+Halfpipe01, Jump+Halfpipe02, Star3, Star2, Star1, A, B, C, D, E.'''
+
+== BRLYT Text ==
+There are also a few strings of text relating to the mission mode found in the BRLYT files.
+{| class="wikitable"
+!Location
+!Text
+!Translation
+|-
+|MenuSingle.szs/..
+/common_w088_mission_movie.brlyt/text
+|ジャンプアクション
+|Jump Action
+|-
+|MenuSingle.szs/..
+/common_w088_mission_movie.brlyt/mission_number
+|1-1
+|
+|-
+|MenuSingle.szs/..
+/common_w092_mission_level_label.brlyt
+|レベル１
+|Level 1
+|}
+
+== Unused Mission Mode Button ==
+Though the button for Mission Mode is still intact, it's switched off on the Single Player and Multiplayer Menus. Since it lacks the THPs, the movie clips that appear on the button don't fit well inside it. It also lacks text and a description of the mode. The only available evidence that is related to the Mission Mode is that it takes the player to the unused Mission Mode screens and its code name, '''ButtonMR''' (Which stands for Button Mission Run, which is also the Japanese and Korean name for Mission Mode/Missions). The button is located behind the Battle Mode button, so if the user switches the action on for it to appear in-game, it will not fit with the other buttons.
+
+The version on the Multiplayer Menu is also located behind the Battle button. And for some odd reason, it loads the "Controller Registration" screen (despite it being code named '''ButtonMR'''). It could possibly be that the game doesn't have a screen for it to load, so it just acts as the next button in the table, which is usually the back button. However, that's not the case as (unlike the Single Player screen) each button's linked screen is defined by its own unique code. The code for '''ButtonMR''' is different than the code for the back button. So even when changing the screen, the button that it links to will not change the screen that the back button is linked to. It couldn't have been initially intended to link there by the developers as the code name is '''ButtonMR''' (MR being short for Mission Run). So it either was a placeholder or that's where the Mission Mode screens were initially placed. The Mission Mode screens cannot load onto the Multiplayer Menu since its main archive, '''MenuMulti.szs''', is missing necessary files.
+{| class="wikitable"
+!Image
+!Description
+|-
+|[[File:MKWiiButtonMR.png|center|thumb]]
+|Image shows the Battle Mode right on top of Mission Mode (Single Player Mode).
+|-
+|[[File:MKWiiButtonMRMultiplayer.png|center|thumb]]
+|Image shows the Battle Mode right on top of Mission Mode (Multiplayer Screen)
+|}
+[[Category:Beta elements]]
+[[Category:Mario Kart Wii]]

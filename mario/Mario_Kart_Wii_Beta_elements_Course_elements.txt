@@ -1,0 +1,318 @@
+
+== General ==
+=== Item Box Color Pattern ===
+{| class="wikitable"
+|+
+!Image (Early)
+!Image (Final)
+!Description
+|-
+|[[File:MKWii Itembox Color Pattern UNUSED.png|center|thumb]]
+|[[File:MKWii Itembox Color Pattern USED.png|center|thumb]]
+|An unused texture, (named '''ef_itemBoxMipLow.tex0''') can be found within the textures for the item boxes. Judging by its filename and similarities, it's possibly an early version of the filename '''itemBoxMipColor6.tex0''', which depicts the coloring pattern that's used for the low poly versions of the item boxes.
+|}
+
+==== Course Selection Screen Cameras ====
+All of the game's courses contain two additional cameras that were used in development to record the small video clips, which the player sees when selecting a track. The '''CAME''' (camera) section of the '''course.kmp''' file contains a byte ('''CAME's section offset + 0x07''') that points to the first camera used in this sequence, with each track containing two of this kind of cameras defined. It's possible to see these cameras in-game by (for example) replacing the course's intro cameras with these ones. This can be done by changing the byte at the '''CAME's''' section '''offset + 0x06''' to be the same as the byte that is right after it.
+
+==== Unused Battle Mode Coins ====
+In Battle mode, each arena has a maximum limit of how many coins will appear at the start of a Coin Runners round. A starting coin refers to those coins that have their second setting set to a value equal or higher than '''0''' and not equal to '''0xFFFF'''.
+
+At the start of a round, the game will only place those starting coins to of whose second setting value is lower than the maximum limit defined for the arena. However, there are coins that set this value to an equal or higher number and are ignored by the game to not load them in, which in turn make them go unused.
+
+The unused coins, shown below, are highlighted in red and viewing the unused coins (alongside the rest of the starting coins) can show that the distribution of starting coins was originally much more symmetrical.<gallery>
+File:MKWii unused coins chain chomp wheel.png|Chain Chomp Wheel
+File:MKWii unused coins SNES Battle 4.png|SNES Battle Course 4
+File:MKWii unused coins GBA Battle 3.png|GBA Battle Course 3
+File:MKWii unused coins N64 Skyscraper.png|N64 Skyscraper
+File:MKWii unused coins GCN Cookieland.png|GCN Cookie Land
+File:MKWii unused coins DS TwilightHouse.png|DS Twilight House
+</gallery>
+
+=== Moo Moo Meadows ===
+
+==== Unused Animation ====
+[[File:MKWii unused cow run animation.gif|left|frameless]]
+The [[Moo Moo]]s have an unused running animation, which can be seen in the E3 2007 footage for the game. In the final game, all they do is walk around to get in the player's way to be a unexpected obstacle for the player to dodge before the idea was dropped altogether.
+
+=== Mushroom Gorge ===
+
+==== Unused Parameters ====
+{| class="wikitable"
+|+
+!Image
+!Element
+!Description
+|-
+|[[File:MKWii-MG-Items.png|center|thumb]]
+|Disabled Item Boxes
+|Five item boxes, meant to appear on top of the mushroom platforms near the end of the track, are disabled in the final game and was present in some prerelease footage (along in the true ending credits video). They are also mentioned in the official Prima guide for the game.
+|-
+|N/A
+|Unused Bouncy Mushroom Parameters
+|Each of the two variants of the bouncy mushrooms have a set of parameters that can manipulate their position and rotation in several ways ('''kinoko_bend''' and '''kinoko_ud'''). However, these values are always set to '''0''' making their effects unseen and thus having both kinds of mushrooms behave identically to each other.
+'''kinoko_ud''' (for two mushrooms that make the shortcut at the beginning of the course) can be moved up and down, while '''kinoko_bend''' (the rest of the bouncy mushrooms throughout the map) can be rotated left and right. These behaviours explain the names of these objects as "'''bend'''" (in '''kinoko_bend''') refers to its ability to rotate while "'''ud'''" (in '''kinoko_ud''') could possibly stand for "'''up-down'''".
+|}
+
+=== Toad's Factory ===
+
+==== Unused Steam Effect Designs ====
+The file '''rk_steam.breff''' contains several designs for the steam effect that's used when in the tunnel of the red lights. The file stores 5 unique designs, but only one of them is used ('''rk_steam'''). The rest of them appear to be unused copies and backups, as their names suggest otherwise.
+
+* '''rk_steamBAK''': The shape of the steam is different, being thinner on the back.
+* '''rk_steam0''': The effect overall looks more opaque.
+* '''rk_steam_Copy_1''': This design looks similar to '''rk_steamBAK''', aside having a thinner shape. In addition, the design is not centered properly.
+* '''rk_steam0_Copy''': This design looks similar to '''rk_steam0''', aside looking even more opaque compared counterpart.
+
+=== Mario Curcuit ===
+
+==== Unused Textures ====
+An early version of the flags, seen at the top of [[Princess Peach's Castle|Peach's Castle]], can be found in the texture for the finish line's "MARIO KART" logo and the castle's main front window ('''p_unionE17.tex0'''). While the texture itself is not unused, the part that has a red texture with an "'''M'''" (located in front of the star graphic) is not assigned anywhere in the model's geometry. In comparison, aside of being larger than the used texture, the "'''M'''" is stylized differently (as the final version looks more like the "M" in Mario's cap), which can be seen in a prerelease screenshot for the game. This is in fact the same flag design seen on top of Peach's Castle in Mario Circuit from [[Mario Kart: Double Dash!!|''Mario Kart:'' ''Double Dash!!'']].
+{| class="wikitable"
+|+
+!Image (Full)
+!Image (Early)
+!Image (Fina)
+!Prerelease image
+|-
+|[[File:MKWii Mario Circuit Unused Flag Full Texture.png|center|thumb]]
+|[[File:MKWii Mario Circuit Unused Flag Texture.png|center|thumb]]
+|[[File:MKWii Mario Circuit Used Flag Texture.png|center|thumb]]
+|[[File:MKWii Fall 2007 MarioCircuit.jpg|center|thumb]]
+|}
+
+=== Coconut Mall ===
+
+==== Unused Parameters ====
+{| class="wikitable"
+|+
+!Image
+!Name
+!Description
+|-
+|[[File:MKWii-CM-Tables-1.png|center|thumb]][[File:MKWii-CM-Tables-2.png|center|thumb]]
+|Disabled Decorative Benches
+|There are some extra decorative picnic benches that have been disabled, with one of them found in a beta screenshot for the game.
+|-
+|[[File:MKWii Coconut Mall Disabled Piantas.png|center|thumb]]
+|Disabled Piantas
+|Before the bifurcation, which leads to the exit of the building, there are various stands to the right hand side. Normally, there's only one Pianta sitting in the background in the stand on the center. However, there are actually two extra Piantas defined, sitting in the left and rightmost stands. They never appear in-game however as they have been disabled in the final game.
+|}
+
+=== DK Summit ===
+
+==== Unused Parameters ====
+[[File:DKSCunuseditems.png|left|frameless|61x61px]]
+Highlighted above in red, there are three item boxes that located under the map. They are a bit after the S curve, but very far away in the bottom of the level.
+
+=== Wario's Gold Mine ===
+
+==== Unused Textures ====
+{| class="wikitable"
+|+
+!Image (Unused)
+!Image (Final)
+!Element Name
+!Description
+|-
+|[[File:MKWii MiiDummy icon placeholder.png|center|thumb]]
+|N/A
+|Dummy Mii Icon
+|A faceless dummy Mii icon ('''MiiDummy.tex0'''). Normally this image is completely transparent, due to it being encoded in the IA4 format.
+|-
+|[[File:MKWii unused Wario decoration.png|center|thumb]]
+|[[File:MKWii used Wario decoration.png|center|thumb]]
+|Wario Banner
+|Contains many of the billboards and signs used in the course with one of them being a banner of Wario looking down. However, this graphic is actually loaded from a separate object file ('''MiiSignWario.brres''') as the one in the aforementioned texture goes unused. In comparison, the early texture (aside of being much darker) has very slightly longer fingertips.
+|}
+
+=== Daisy Curcuit ===
+
+==== Unused Skybox Texture ====
+{| class="wikitable"
+|+
+!Image (Early)
+!Image (Final)
+!Description
+|-
+|[[File:MKWii Unused Daisy Circuit Skybox Texture.png|center|thumb]]
+|[[File:MKWii Used Daisy Circuit Skybox Texture.png|center|thumb]]
+|An unused skybox texture ('''senior_VR.tex0'''). In the final game, the skybox that is used is called '''senior_VR2.tex0'''. They both have a similar design, but the final version uses vertex colors to paint the skybox instead of the colors being in the texture itself. The design of the clouds is less cartoon-ish as well.
+|}
+
+=== Koopa Cape ===
+{| class="wikitable"
+|+
+!Image
+!Element
+!Object
+!Description
+|-
+|[[File:MKWii MiiDummy icon placeholder.png|center|thumb]]
+|Texture
+|Dummy Mii Icon
+|The texture that's found in [[Wario's Gold Mine]] can also be found in this course too.
+|-
+|[[File:MKWii-KC-Unused-Flags.png|center|thumb]]
+|Parameters
+|Disabled Flag Objects
+|There are 3 disabled flags on top of the green giant Koopa shell. These flags can be seen in the course selection screen video for this track.  They do appear in the Gates on Koopa Cape competition/tournament.
+|}
+
+=== Maple Treeway ===
+
+==== Unused Parameter ====
+
+* Respawn 0 is unused, which is possibly meant for the starting area of the course.
+
+=== Grumble Volcano ===
+
+==== Unused Graphics ====
+{| class="wikitable"
+|+
+!Image (Early)
+!Image (Final)
+!Name
+!Filename
+!Description
+|-
+|[[File:MKWii Fire Geisser UNUSED.png|center|thumb]]
+|[[File:MKWii Fire Geisser USED.png|center|thumb]]
+|Dirt
+|FlamePole.tex0
+|A dirt graphic that's [[Lava Plume]]'s models, which are seen near the finish line. It was ripped from [[Mario Kart: Double Dash!!|''Mario Kart: Double Dash!!'']] where it was used as the road texture for Bowser's Castle. It seems that it was rotated 90 degrees to the right in comparison.
+Given how the final texture is based on the regular ground texture found in the course, it's possible that the early texture represents an early rendition of the ground texture as well.
+|}
+
+=== Rainbow Road ===
+
+==== Unused Textures ====
+[[File:MKWii Unused Cloud Env Texture.png|left|frameless|66x66px]]
+An unused cloud texture ('''cloud02_d.tex0'''), that consists of an opaque, is a smaller version of the one that is used in the final game ('''cloud02.tex0'''). A blurrier version of it is also present in the game's files for the main course model ('''cloud03.tex0''').
+
+=== N64 Sherbet Island ===
+
+==== Unused Textures ====
+There unused eye textures meant for the large and medium sized penguins. '''penguin_eye.1.tex0''' and '''penguin_eye.2.tex0''' seem they were meant for blinking, while '''penguin_eye.3.tex0''' features an angry eye expression. In the final game, the penguins don't change their expression at all, which leaves these textures go unused. These extra textures seem to be leftovers from ''[[Super Mario 64 DS]]'' as the penguin model in this game uses the same textures as in the files.
+{| class="wikitable"
+|+
+!penguin_eye.1.tex0
+!penguin_eye.2.tex0
+!penguin_eye.3.tex0
+|-
+|[[File:MKWii Unused Penguin Tex1.png|center|thumb]]
+|[[File:MKWii Unused Penguin Tex2.png|center|thumb]]
+|[[File:MKWii Unused Penguin Tex3.png|center|thumb]]
+|}
+
+==== Unused Parameters ====
+
+* Respawn 0 is unused, which is possibly meant for the starting area of the course.
+
+=== GBA Shy Guy Beach ===
+
+==== Unused Textures ====
+An early version of the palm tree's shadow texture ('''hey_kage.tex0'''). In the final version, the shadow texture is present and used only as part of the main course model. The early version of the texture lacks one leaf and also seems to be less blurry compared to the final design. The unused version also features 4 additional mipmaps, which is saved in the '''CMPR''' format (Note: The final version uses '''IA8''').
+{| class="wikitable"
+|+
+!Image (Early)
+!Image (Final)
+|-
+|[[File:MKWii Unused Palm Tree Shadow Texture.png|center|thumb]]
+|[[File:MKWii Used Palm Tree Shadow Texture.png|center|thumb]]
+|}
+
+=== GCN Waluigi Stadium ===
+
+==== Unused Parameters ====
+There total of 5 cameras are unused within this course.
+
+===== Replay/Result Screen =====
+
+* '''OxOC''': Is almost similar to the one used in the final game, having more of a zoom in compared to the final game.
+* '''0x07''': With the unused camera, there was a wide zoom out of the player from the Piranha Plant to the turning curve. In the final game, it zooms in on the player.
+* '''0x12''' (#1):  It's basically similar compared to the final game. However, the jumping ramps are not seen in the replay.
+* '''0x11''': The early version shows the player viewing the character from the front side (not showing the jump ramps) while the final version shows the player viewing the character from the back side (seeing the jump ramps in the replay).
+* '''0x12''' (#2): Almost the same as the final one. The most noticeable thing is the bridge's underside being seen in the early version.
+
+===== Opening Camera =====
+This camera was used for one of the opening cameras in ''Mario Kart: Double Dash!!'', with it's code properly transitioned into the rest of the opening cameras as well. In the final game, only 3 opening cameras are used ('''0x19''', '''0x1B''' and '''0x1C'''), leaving camera '''0x1A''' unused.
+
+=== DS Desert Hills ===
+
+==== Unused Parameters ====
+
+* Respawn 5 is unused.
+
+=== GBA Bowser's Castle 3 ===
+
+=== Unused Parameters ===
+
+* Respawn 0 is unused.
+
+=== SNES Mario Circuit 3 ===
+
+==== Unused Textures ====
+[[File:MKWii Unused Road texture SNES MC3.png|left|frameless|16x16px]]
+An unused road texture ('''D_road5_00.tex0'''). It uses the RGB565 format (which is the used textures for the CMPR).
+
+=== N64 Bowser's Castle ===
+
+==== Unused Textures ====
+{| class="wikitable"
+|+
+!Image
+!Texture Name
+!Filename
+!Description
+|-
+|[[File:MKWii N64 Bowser Castle Unused Arrows.png|center|thumb]]
+|Red and White Arrows
+|lc_kabe2b.tex0
+|While the texture is used in many of the course's walls, the part with the red and white arrows is not mapped anywhere in the model as these arrows came from ''Mario Kart: Double Dash!!'', where it was used in many courses (such as [[Luigi Circuit]]).
+|-
+|[[File:MKWii N64 Bowser Castle unused Yellow Line.png|center|thumb]]
+|Yellow Stripe
+|s64_kanban.tex0
+|The texture is used for some of the walls as well as the "MARIOKART" logo. However, the yellow stripe under the logo is not mapped in the model, thus making it go unused.
+|}
+
+=== Funky Stadium ===
+
+==== Unseen Skybox ====
+[[File:MKW Funky Stadium Hidden Skybox.png|left|frameless|120x120px]]
+Funky Stadium has a skybox that can only be seen by hacking the game as the track takes place in the interior. This skybox is fact the same one that is used in [[DK Summit]].
+
+=== Chain Chomp Roulette ===
+
+==== Disabled Item Boxes ====
+[[File:MKWii-CCW-Item-Boxes.png|left|frameless|91x91px]]
+There are 4 disabled item boxes in the star ring (arrows shows the exact spots). These item boxes have the same settings as the ones used in the final game.
+
+=== DS Twilight House ===
+
+==== Unused Textures ====
+{| class="wikitable"
+|+
+!Image
+!Filename
+!Description
+|-
+|[[File:MKWii Unused DS Twilight House Trees.png|center|thumb]]
+|'''yh_ki.tex0'''
+|Four realistic tree textures. Trees are only placed in the bottomless pit and the the stage the player is driving on. There is also no grass around the pillars, which would've been an great place to put them in.
+|}
+
+=== Luigi Circuit (Ending) ===
+
+==== Inaccessible Item Box ====
+Highlighted in the red, on the map to the left, there is a single item box located far away under the map. This was obviously left here by mistake from the developers. 
+{| class="wikitable"
+|+
+!Image
+|-
+|[[File:MKWii ending luigi circuit map itembox red.png|center|thumb]]
+|}
+{{MKWNav}}
+[[Category:Beta elements]]
+[[Category:Mario Kart Wii]]

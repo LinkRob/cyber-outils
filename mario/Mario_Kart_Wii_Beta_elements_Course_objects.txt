@@ -1,0 +1,299 @@
+{{Icons|mariokart}}
+== Models ==
+{| class="fandom-table"
+|+
+!Image (Early)
+!Image (Final)
+!Filename(s)
+!Description
+|-
+|[[File:MKWii-Castle tree1.png|center|thumb]][[File:MKWii early Mario Circuit 3D tree texture.png|center|thumb]]
+|[[File:MKWii final Mario Circuit 3D tree texture.png|center|thumb]]
+|castle_tree1.brres
+|An earlier version of the 3D trees, which are used in Mario Circuit and Moo Moo Meadows. It's almost identical to the final version, except with the texture having a bit of a different design. Some other changes include: 
+
+* The final version adding a low-poly version of the model, with its own texture.
+* The model, animation, bone and file names are all the same compared to the final game.
+|-
+|[[File:MKWii-Castle tree2.png|center|thumb]]
+|[[File:MKWii final Mario Circuit 2D Tree.png|center|thumb]]
+|castle_tree2.brres
+|An earlier version of the 2D trees, which are used in Mario Circuit and Moo Moo Meadows. Just like with the 3D Model above, it is almost identical to the final version, except with this version having a bit of a different design. Some other changes include:
+
+* The early version lacks an animation.
+* The model, animation, bone and file names are all the same compared to the final game.
+|-
+|[[File:MKWii unused choropu model.png|center|thumb|Model]][[File:MKWii unused choropu animation.gif|center|thumb|Animation]]
+|[[File:MKWii Final choropu animation.gif|center|thumb|Final]]
+|choropu.brres
+|An earlier version of the Monty Moles, which were used in Moo Moo Meadows, with the model being ported from ''[[Super Mario 64 DS]]''. This is apparent as not only the model and texture from both games look the same, but the texture is named the same across both games too ('''choropu_cmp4''').
+
+
+The early version only has the animation for jumping ('''jump.chr0''') while the other one, where it looks above the hole (known as '''start.chr0''' in the final game), is missing. It's noticeably smaller in size and looks more primitive than the final model.
+|-
+|[[File:MKWii-Kinoko lift1.brres.png|center|thumb|kinoko_lift1.brres]][[File:MKWii kinoko lift1 texture.png|center|thumb|katachi_g_10.tex0]]
+|N/A
+|kinoko_lift1.brres
+katachi_g_10.tex0
+|Seems to have been a test version of the bouncy mushrooms from [[Mushroom Gorge|Mushroom Gorge.]] Its only texture resembles several test textures that are found in other Nintendo games, such as ''Wii Sports Resort'' amd [[Mario Kart 8|''Mario Kart 8'']].
+|-
+|[[File:Mario Kart Wii-Kuribo.png|center|thumb|Model]][[File:MKWii early Goomba texture.png|center|thumb|Texture Files]]
+|[[File:MKWii Final Goomba model.png|center|thumb|Model]][[File:MKWii Final Goomba texture.png|center|thumb|Texture Files]]
+|kuribo.brres
+|An earlier version of the Goombas found throughout various courses.
+|-
+|[[File:MKWii npc mii a Model.png|center|thumb|Model]][[File:Npc mii a Animation.gif|center|thumb|Animation]][[File:MKWii npc mii a texture.png|center|thumb|Texture Files]]
+|N/A
+|npc_mii_a.brres
+|Believed to be the model for the unused Mii Outfit C during the time, it appears that (according to the file name), it was originally going to be an outfit that only NPC Miis would wear (which seen in courses like [[Luigi Circuit]] and [[Coconut Mall]]) and is very unlikely that it has anything to do with the actual Mii Outfit C in the first place. It has also one animation ('''wait.chr0''').
+
+
+When comparing it to the unused model textures with the original Toad textures, there are no differences between the two other than the clothes, which are red instead of blue. The texture mapping is also slightly different, as the clothing covers the belly.
+
+
+The model has a '''face_1''' bone located in the neck, which is much like every model in the game that is supposed to have a Mii head attached to it. Upon hacks, it can be placed in game.
+
+However, the object entity ('''npc_mii_a''') does not seem to support loading Mii head models since restoring the model, and placing the object entity in-game, will not make a Mii head appear (not even when playing as a Mii, or when the object entity is placed in courses that have Mii statues).
+|-
+|[[File:MKWii unused piranha plant model.png|center|thumb]]
+|N/A
+|pakkun_f.brres
+|An earlier version of the Piranha Plants, which are used in GCN Mario Circuit. The model is pretty much identical to the final version, with the exception being that the pipe model being present alongside the Piranha Plant model. In the final game, both the Piranha Plant and the pipe models are split into two separate models as both are controlled by two separate object entities ('''pakkun_f''' and '''pakkun_dokan'''). Some minor changes include:
+
+* The model looking a bit darker.
+* The material that controls the model makes the leafs of the plant look opaque around its edges instead of transparent.
+* The culling of the model is set to '''Inside''', when in the final game, it's set to '''None'''. This means that (for example) looking at the leafs of the plant from below will make them look invisible.
+
+This model also contains the three animations for idling, attacking and getting hurt. They all seem to be identical to the final versions, with the only exception being that the attacking animation is set to a constant loop (whereas in the final version, it only plays once when attacking).
+|-
+|[[File:MKWii-Pendulum.brres.png|center|thumb|pendulum.brres
+
+]][[File:MKWii pendulum texture.png|center|thumb|katachi_e_01.tex0]]
+|N/A
+|pendulum.brres
+katachi_e_01.tex0
+|An unused pendulum object. Just like the '''kinoko_lift1.brres''', its only texture resembles several test textures found in other Nintendo games, such as ''Wii Sports Resort'' and ''Mario Kart 8''. It has one material ('''test01_lambert3''') and a bone ('''pCube8''').
+|}
+
+== Object entities ==
+{| class="fandom-table"
+|+
+!Image
+!Filename
+!ID Number
+!Description
+|-
+|N/A
+|sound_sand_fall
+|0x00F
+|Generates a sand fall sound effect. The range where the sound comes from is controlled by it's route.
+It may have originally been used for the rising sand piles in [[Dry Dry Ruins (Mario Kart Wii)|Dry Dry Ruins]] before being replaced.
+|-
+|N/A
+|gnd_sphere
+gnd_trapezoid
+
+gnd_wave1
+
+gnd_wave2
+
+gnd_wave3
+
+gnd_wave4
+|0x069
+0x06A
+
+0x06B
+
+0x06C
+
+0x06D
+
+0x06E
+|These object, as their name imply, form into a shape of the following filename that's labeled and were likely used for testing purposes. The objects doesn't need any external files to work properly as both its model and collision are culled from any side it has associated to it. However, if an item is dropped on it (such as a Banana or a Fake Item Box), it will stay in place in whatever position the extruded object was when the said item was dropped.
+
+* gnd_sphere: A small light green object that can be culled from both sides on it's model and collision.
+* gnd_trapezoid: A small red object that can be culled from the upper side only on it's model and collision.
+* gnd_wave1: A blue waving object that can be culled from it's model on the upper side only, while its collision is culled from both sides. The object looks similar to the wavy section of Rainbow Road.
+* gnd_wave2: A green waving object that can be culled from both sides on it's model and collision..
+* gnd_wave3: A brown waving object that can be culled from both sides on it's model and collision. It's waves resembles sloshing water
+* gnd_wave4: A blue waving object that can be culled from both sides on it's model and collision.  from it's model on the upper side only, while its collision is culled from both sides. The waves also follow in a ripple effect.
+|-
+|N/A
+|dossunc_soko
+|0x0DC
+|Possibly some type of Thwomp (possibly an early version of the Thowmp as "dossunc"  is it's Japanese name)
+|-
+|N/A
+|pile_coin
+|0x077
+|It's a normal coin model that the player can pass through, creating a wall bonk effect along with it.
+|-
+|N/A
+|K_bomb_car_dummy
+car_body_dummy
+
+kart_truck_dummy
+|0x0DF
+0x0E0
+
+0x0E1
+|Possibly a dummy version of the following vehicles (associated to the filename) for [[Moonview Highway]].
+|-
+|N/A
+|basabasa_dummy
+|0x0EF
+|Possibly a dummy version of the [[Swooper]]s in Wario's Gold Mine.
+|-
+|N/A
+|Twanwan_ue
+|0x0E6
+|Possibly an alternate version of the [[Chain Chomp]] in [[Chain Chomp Wheel|Chain Chomp Roulette]].
+|-
+|N/A
+|Kdossunc
+|0x0F1
+|Presumably some sort of [[Thwomp]]. Has data in the "GeoHit" tables.
+|-
+|N/A
+|dummy
+|0x12D
+|A dummy object.
+|-
+|N/A
+|npc_mii_a
+npc_mii_b
+
+npc_mii_c
+|0x139
+
+0x13A
+
+0x13B
+|Three scrapped NPCs for the Mii. "'''npc_mii_a'''" relates to the unused costume ('''npc_mii_a.brres''')
+|-
+|N/A
+|kinokoT2
+|0x143
+|Likely was meant to be a moving bouncy mushroom decoration variant for Mushroom Gorge, considering another similarly named object ('''kinokoT1''') corresponds to the moving bouncy mushroom decoration used in the course.
+|-
+|N/A
+|DKmarutaGCc
+|0x15E
+|Supposed to be used in GCN DK Mountain. [Note: '''Maruta''' (丸太) translates to Log]
+|-
+|N/A
+|DKropeGCc
+|0x15F
+|Another object that was supposed to be used in GCN DK Mountain. Judging by the filename, it's possibly a rope object.
+|-
+|N/A
+|v_stand1 (Solo)
+v_stand2 (Team)
+|0x173
+0x174
+|This is the solo/team match podium (where one contains the 1, 2 and 3 placements), which are seen in Mario Circuit when winning a Grand Prix/VS Race/Battle. Although the model is technically used (being stored in '''/Demo/Award.szs/v_stand1.brres/v_stand1.mdl0'''), it never appears in the game as a object entity that can be placed in courses. When loaded in, its respective model will be automatically placed much higher and farther than the position it was originally placed in the parameters file.
+|-
+|N/A
+|BlackHole
+|0x179
+|Possibly was meant to appear on Rainbow Road, considering its ID number is placed together with other decorative objects used in the course.
+|-
+|N/A
+|MiiSphinxY1
+|0x17E
+|A carbon copy of MiiSphinxY2, except without the head and is also unsolid unsolid.
+|-
+|N/A
+|FlagA4
+|0x182
+|This object was probably meant to be for the starting line flag of a track, considering other similarly named objects are starting line flags (for example, "'''FlagA3'''" is the starting line flag used for [[Delfino Square|DS Delfino Square]]).
+|-
+|N/A
+|MiiStatueDK1
+|0x18D
+|As the name implies, it was originally meant to be a statue for Donkey Kong that would've had its head replaced with a Mii instead.
+|-
+|N/A
+|Press_soko
+|0x19E
+|Though it's unknown what object this would represent, it's possible that may have been related to the used object ('''Press''') for the press button of [[Toad's Factory]] (over the belts).
+|-
+|N/A
+|choropu_ground
+|0x1A0
+|Choropu is Japanese for [[Monty Mole]]. Judging by it's file name, it's possible that it would've been an early build for a Monty Moles digging.
+|-
+|N/A
+|dc_pillar_c
+|0x1A7
+|Though it's unknown what the object would represent, a similar named object ('''dc_pillar''') corresponds to the falling pillars for [[Dry Dry Ruins]].
+|-
+|[[File:MKWii sanbo big.2 minimap.png|center|thumb]]
+|sanbo_big.2
+|0x1AC
+|Appears to be identical to '''sanbo_big''' (the Giant Pokey boss used in the [[Thwomp Desert]] competition/tournament) and also has identical information in the GeoHit tables to it's respectful counterpart.
+
+
+However, when loaded in-game, the minimap icon shown won't be the Pokey's head, but rather one of its own body parts. This implies that the object would've originally intended the player to handle one of the body parts against the Big Pokey. In the final game, all of it's body parts (including the head) are handled by the same object ('''sanbo_big''').
+|-
+|N/A
+|kinoko_kuki
+|0x201
+|An object that was most likely meant to appear in Mushroom Gorge as "'''kinoko'''" is the Japanese name for "'''Mushroom'''".
+|-
+|N/A
+|FlamePoleEff
+|0x203
+|An unused version of the [[Lava Plume]], which are seen in some courses of the game with lava in the level. Despite the game not having a '''.brres''' model file (named '''FlamePoleEff'''), most of the '''.brres''' files corresponding to the Lava Plume (such as '''FlamePole_v.brres''') have most of their subfiles named '''FlamePoleEff'''. This means that it's possible to load this object in Bowser's Castle or N64 Bowser's Castle by placing the object entity in the parameters file ('''KMP''') for those courses, making a copy of '''FlamePole_v.brres''', and renaming it to '''''FlamePoleEff.brres'''''
+
+
+This version of the [[Lava Plume]] is much smaller than others that are used throughout the game. It will also always stay in place, whereas the Plume found in the game often rise and hide from the floor/lava. This version of the Plume also doesn't seem to load any additional effect files, which explains why the top of it doesn't have lava sparkles.
+|-
+|N/A
+|venice_gondola
+|0x20B
+|This object is a gondola ship that would have traversed around the Delfino Pier arena, with a Pianta waving in the stern of the ship. None of the graphical files needed for this object to work are in the game anymore.
+When placing the object in the game (and creating the necessary files to make it work), it will appear floating in the sea (no matter if the object was placed above or below it), following the route assigned to it in the course parameters (the traversing speed can be changed in one of its settings).
+
+When players crash into the gondola, it does not produce any sound. In addition, stepping on it from above will repel the player with a slight boost, much like what happens when stepping through a truck's roof in Moonview Highway.
+
+
+This objects seems to appear in the course preview video in the arena selection screen having it's design matching with the red static, unsolid gondolas that appear farther away in the distance in the final course, and a Pianta can be seen waving there as well. The object seems to be traversing across one of the unused routes in the course ('''route 0''') believing this object was scrapped in favor of the static gondolas that appear farther away in the distance than in the final course (which are part of the object that controls the sea, named '''venice_nami'''), in an attempt to make the course be less resource-intensive.
+|-
+|N/A
+|HP_pipe
+|0x218
+|As the name implies, it's most likely a pipe. It's unknown if the "HP" would be used for Balloon Mode is it abbreviates to "Health"
+|-
+|N/A
+|BeltCurveB
+|0x25D
+|Possibly an unused set of conveyor belts on Toads Factory.
+|-
+|N/A
+|Mstand
+|0x2C1
+|Though it's unknown what the object would represent, a similar named object ('''Mdush''') corresponds to the small boost ramp in Mario Circuit.
+|-
+|N/A
+|group_enemy_d
+|0x2C6
+|An unused set of NPCs, which can found on Mario Circuit and its winning cutscene variant. When enabling the object, Toad sounds can be heard, implying that this was meant to be another group of Toads (much like the '''group_enemy_c''' object, which is used in the final game).
+|-
+|[[File:MKWii FallBsC.mp4.180p.vp9.webm|center|thumb]]
+|FallBsC
+|0x2CD
+|An unused waterfall splash effect (which was meant to be used in [[Koopa Cape]]). Since it's name is similar to the other waterfall splash effect entities used in the course (such as "'''FallBsA'''" and "'''FallBsB'''"), this object would've also required the same external resources.
+|-
+|N/A
+|volfall
+|0x2DE
+|Though it's unknown what the object would represent, a similar named object ('''volsmk''') is used for the smoke effect by the trembling rocks in [[Grumble Volcano]].
+
+
+The codename for the effect it uses is placed together with the names of other effects that are used for waterfall splash effects in other courses, implying that this object was originally meant to be a waterfall splash effect. In fact, the material that controls the lava waterfalls in the course model is called '''ef_volFall'''.
+|}
+
+[[Category:Beta elements]]
+[[Category:Mario Kart Wii]]

@@ -1,0 +1,116 @@
+{{italic title}}
+{{Infobox Game
+|image=PC Entrance.png
+|developer=[[Nintendo Entertainment Analysis and Development|Nintendo EAD]]
+|publisher=[[Nintendo]]
+|release=2001
+|genre=[[Genre#Platform games|Platformer]]
+|modes=Single player
+|ratings=Not rated
+|platforms=[[Nintendo GameCube]]
+|media={{media|gcn=1}}
+|input={{input|gcn=1}}
+}}
+'''''NDDEMO'''''<ref>[https://imgur.com/a/QJ9HMUR Nintendo GameCube SDK documentation]</ref> (short for "Nintendo Developer Demo"; referred to in-game as '''''Welcome to GameCube World!!''''') is a 2001 interactive [[tech demo]]<ref>[http://www.unseen64.net/2009/03/01/peachs-castle-gamecube-tech-demo/ Unseen64 NDDEMO Information]</ref> included in the software development kit for the [[Nintendo GameCube]], created to show developers the system's graphical capabilities. 
+
+In the demo, the player controls a red arrow that can navigate various rooms in [[Peach's Castle]] from ''[[Super Mario 64]]'', with each room demonstrating a different graphical effect, such as bump mapping, anti-aliasing, or environment mapping.
+
+==Rooms==
+===#0 Peach Castel - ENTRANCE===
+The main hub area featuring 6 doors, 5 of which lead to other rooms. This room features several animated objects throughout, as well as a map of the Castle at the center of the bottom floor.
+
+===#1 Huge Texture - DOME===
+A small room with floral and mountain-themed murals on the walls. The floor has a [[Super Star]] with a flower in the background, which is revealed to be made of a small, repeating texture of three stars when looked at closely. 
+
+This room demonstrates the GameCube's support for large, high-resolution textures, as well as {{wp|Mipmap|mipmapping}}.
+
+===#2 Bump & Shadow - SPIRAL STAIRCASE===
+A dimly-lit area with a colored stone pillar and spiral staircase in the center. Once the player reaches the stairs, the red arrow begins bouncing, and the player can lead it to the bottom of the room, where a door leading to the Hangar can be found. 
+
+This room features {{wp|Bump mapping|bump mapping}}, a method of simulating bumps and wrinkles on an object's surface.
+
+===#3 Antialiasing - HANGAR===
+An indoor hangar with a biplane. Next to it, the player can find a metal [[Warp Pipe]] which leads to the Cave. This room demonstrates the GameCube's {{wp|Anti-aliasing filter|anti-aliasing}} functionality, most prominently with the wire-mesh fences.
+
+===#4 Local Lighting - CAVE===
+A cave featuring a wooden bridge which leads to a [[Goomba]] statue, with some bulbs and colored projector lights illuminating the path. This room demonstrates the GameCube's real-time lighting capabilities, with lights and casted shadows updating to reflect their source's position. 
+
+Entering the green Warp Pipe at the beginning of the area takes the player to the top floor of the Entrance.
+
+===#5 Projection Texture - CINEMA THEATER===
+A small screening room where a short looping video (featuring prototype GameCube consoles of various colors), along with a blue star and pink heart, are projected and moved around the room. 
+
+This area demonstrates {{wp|Projective texture mapping|projected textures}}, which can be animated, overlayed on top of each other, and projected over many objects in real-time.
+
+===#6 Environment Mapping - METAL MARIO !!===
+A small room featuring a large [[Metal Mario]] statue that reflects its surroundings, meant to demonstrate {{wp|Reflection mapping|environment mapping}}.
+
+===#7 Maximum POLYGONS - How Many COINS?===
+A white room with a [[? Block]] at the center. Pressing {{button|gcn|A}} while underneath will release a large amount of differently-colored [[Coin|Coins]] and stars. This room demonstrates the large amount of polygons, models, and objects that the GameCube can process and display at once.
+
+The player can use {{button|gcn|Pad}} to adjust how many coins appear when the ? Block is hit, up to 1024 at once; {{button|wii|Padup}} and {{button|wii|Paddown}} increase and decrease the amount by 20, while {{button|wii|Padright}} and {{button|wii|Padleft}} increase and decrease by 1. The exact amount can be viewed by enabling "System Info" in the pause menu.
+
+Pressing {{button|gcn|B}} exits the room; as such, camera control mode is activated by pressing {{button|gcn|X}} instead.
+
+==Features==
+===Camera Control Mode===
+By pressing {{button|gcn|B}}, the player can freely control the camera's angle and position. {{button|gcn|Stick}} adjusts the camera's position, and {{button|gcn|C}} controls its angle; pressing {{button|gcn|L}} or {{button|gcn|R}} raises and lowers it respectively. Pressing {{button|gcn|B}} again returns to the arrow.
+
+===Wireframe Mode===
+Pressing {{button|gcn|Y}} enables a {{wp|Wire-frame model|wireframe}} display mode, hiding textures and making the edges of polygons more distinct.
+
+The wireframe mode causes reduced performance (as shown on the resource usage meter), most noticeably in the Entrance and How Many Coins? rooms.
+
+===Pause Menu===
+Pressing {{button|gcn|Start}} opens the pause menu; here, the player can toggle mipmap levels, the GameCube's output resolution, system debug information, a resource usage meter, {{wp|Gamma correction|gamma levels}}, background music, and sound effects.
+
+The player may also access the main menu, where two modes are selectable: Normal Demo (default; the player controls the red arrow to explore the castle), or Auto Demo (the camera is controlled automatically, cycling through the different rooms). Additionally, individual rooms can be selected for either mode.
+
+===Doors===
+When the player reaches a door, the arrow will "knock" on the door until the corresponding room is finished loading. To reduce load times, the room the player is meant to enter next is loaded ahead of time, indicated by the star on the door being yellow instead of stone-gray.
+
+==Controls==
+*{{button|gcn|A}} - Jump in How Many Coins?, pause/resume in Auto Demo
+*{{button|gcn|B}} - Enter camera control mode, exit room in How Many Coins?
+*{{button|gcn|X}} - Enter camera control mode in How Many Coins?, slowly advance scene when paused in Auto Demo
+*{{button|gcn|Y}} - Enter wireframe mode, slowly rewind scene when paused in Auto Demo
+*{{button|gcn|L}} - Raise the camera in camera control mode, rewind in Auto Demo
+*{{button|gcn|R}} - Reset the camera behind the player, lower the camera in camera control mode, fast-forward in Auto Demo
+*{{button|gcn|Start}} - Enter pause menu
+*{{button|gcn|Stick}} - Move the arrow, adjust the camera's position in camera control mode
+*{{button|gcn|C}} - Rotate the camera around the player, adjust the camera's angle in camera control mode
+*{{button|gcn|Pad}} - Adjust how many coins appear when the ? Block is hit in How Many Coins?
+
+==Gallery==
+===Screenshots===
+<gallery>
+PC Room1.png|Dome
+PC Room2.png|Spiral Staircase
+PC Room3.png|Hangar
+PC Room4.png|Cave
+PC Room5.png|Cinema Theater
+PC Room6.png|Metal Mario
+PC Room7.png|How Many Coins?
+PC Map.png|Castle map
+</gallery>
+
+===Sprites and Models===
+<gallery>
+PCTDStarsModel.png|[[Star]]s
+PCTDCoinsModel.png|[[Coin]]s
+PCTDQuestionBlockModel.png|[[? Block]]
+PCTDGoombaRockFormationModel.png|[[Goomba]] rock formation
+PCTDGoombaStatueModel.png|Goomba statue
+</gallery>
+
+==References==
+<references/>
+
+==External links==
+*[https://www.youtube.com/watch?v=nQLauxlFYwg Gameplay footage]
+
+{{SMW}}
+[[Category:Games]]
+[[Category:Nintendo GameCube games]]
+[[Category:Tech demos]]
+[[Category:Platforming games]]
