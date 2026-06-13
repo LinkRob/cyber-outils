@@ -1,0 +1,270 @@
+{{Block
+|image=Ender Chest.gif
+|imagesize=x150px
+|invimage2=----
+|invimage3=Ender Chest BE
+|transparent=Yes
+|light=Yes (7)
+|tool=wooden pickaxe
+|renewable=Yes
+|stackable=Yes (64)
+|flammable=No
+|lavasusceptible=No
+}}
+
+'''Ender chests''' are a type of [[chest]] whose contents are exclusive to each [[player]], and can be accessed from anywhere in the world.
+
+== Obtaining ==
+
+=== Breaking ===
+
+Ender chests require a [[pickaxe]] to be mined. Otherwise, they drop nothing. Unless the pickaxe is enchanted with [[Silk Touch]], the ender chest drops only 8 {{BlockLink|obsidian}} with no [[eye of ender|eyes of ender]]. Any pickaxe allows the ender chest to drop either itself or 8 obsidian, despite obsidian itself only being obtainable with a diamond or netherite pickaxe.<ref>{{bug|MC-177516}} resolved as Works as Intended</ref>
+{{breaking row|horizontal=1|Ender Chest|Pickaxe|wood|foot=1}}
+
+=== Natural generation ===
+
+Ender chests naturally generate alongside a [[chest]] in certain [[End city]] treasure rooms.
+
+=== Crafting ===
+
+{{Crafting
+|A1= Obsidian
+|B1= Obsidian  
+|C1= Obsidian
+|A2= Obsidian
+|B2= Eye of Ender
+|C2= Obsidian
+|A3= Obsidian
+|B3= Obsidian  
+|C3= Obsidian
+|Output= Ender Chest
+|type= Decoration block
+}}
+
+== Usage ==
+[[File:Ender Chest GUI.png|thumb|right|176px|GUI of the ender chest.]]
+
+Ender chests can be opened by pressing the {{control|use}} control. If a solid block is placed above an ender chest, it cannot open.
+
+Ender chests can be used like normal [[chest]]s, except all ender chests in the world are interconnected, including in different dimensions. The ender chest's inventory is also separate for each player; consequently, items stored in an ender chest cannot be seen or taken by other players. Also, items stored inside of an ender chest can be retained even if the player dies. Even if every single ender chest is destroyed in the world, the items inside the ender chest are still secure, and can be retrieved by placing another ender chest. Because of this player-specific property, ender chests are extremely useful on [[multiplayer]] servers to secure a player's most valuable items.
+
+Donkeys, mules, and llamas cannot be equipped with ender chests; they support only normal chests.
+
+Ender chests contain 27 slots for storage and can be placed next to other ender chests without joining; they cannot be combined into double chests.
+
+Ender chests do not interact with [[hopper]]s, [[dropper]]s, or [[comparator]]s.
+
+Despite being comprised largely of [[obsidian]], they are not immune to destruction by the [[ender dragon]].<ref>{{bug|MC-177521|||WAI}}</ref>
+
+It is possible to greatly increase the space of an ender chest by pairing it with [[shulker box]]es (i.e. filling the shulker boxes with desired items, then placing them inside the ender chest).
+
+=== Light source ===
+Ender chests emit a [[light level]] of 7.
+
+=== Note Blocks ===
+Ender chests can be placed under [[note block]]s to produce "bass drum" sounds.
+
+=== Piglins ===
+[[Piglin]]s become hostile toward players who open or mine an ender chest.<ref>{{bug|MC-172239|||WAI}}</ref>
+
+=== Piston interactivity ===
+
+Ender chests cannot be pushed by [[piston]]s. They also cannot be pushed nor pulled by [[sticky piston]]s.
+
+== Sounds ==
+=== Generic ===
+{{Sound table/Block/Normal}}
+
+=== Unique ===
+{{edition|java}}:
+{{Sound table
+|sound=Ender Chest close.ogg
+|subtitle=Chest closes
+|source=block
+|description=When an ender chest closes
+|id=block.ender_chest.close
+|translationkey=subtitles.block.chest.close
+|volume=0.5
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|sound=Ender Chest open.ogg
+|subtitle=Chest opens
+|source=block
+|description=When an ender chest opens
+|id=block.ender_chest.open
+|translationkey=subtitles.block.chest.open
+|volume=0.5
+|pitch=0.9-1.0
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Ender Chest close.ogg
+|source=block
+|description=When an ender chest closes
+|id=random.enderchestclosed
+|volume=0.5
+|pitch=0.9-1.0}}
+{{Sound table
+|sound=Ender Chest open.ogg
+|source=block
+|description=When an ender chest opens
+|id=random.enderchestopen
+|volume=0.5
+|pitch=0.9-1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Ender Chest
+|spritetype=block
+|nameid=ender_chest
+|blocktags=guarded_by_piglins
+|foot=1}}
+{{ID table
+|displayname=Block entity
+|spritename=ender-chest
+|spritetype=block
+|nameid=ender_chest
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Ender Chest
+|spritetype=block
+|nameid=ender_chest
+|id=130
+|foot=1}}
+{{ID table
+|notnamespaced=y
+|displayname=Block entity
+|spritename=ender-chest
+|spritetype=block
+|nameid=EnderChest
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+
+{{/BS}}
+
+=== Block data ===
+
+An ender chest has a block entity associated with it that holds additional data about the block.
+
+{{el|java}}:
+{{see also|Block entity format}}
+{{/BE}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Block entity format]].
+
+=== Inventory ===
+
+The contents of an ender chest are not stored in the block, but in the player-NBT under the tag {{code|EnderItems}}{{only|java}}/{{code|EnderChestInventory}}{{only|bedrock}}. Thus ender chests can be viewed as "portals" to a player's 27 additional slots of secure and exclusive inventory.
+
+== History ==
+''For a more in-depth breakdown of changes to textures and models, including a set of renders for each state combination, see [[/Asset history]]''
+{{History|java}}
+{{History||1.3.1|snap=12w21a|[[File:Ender Chest (S) JE1 BE1.png|32px]] Added ender chests.
+|Ender chests currently share the same [[inventory]] for all [[player]]s on a server. [[Jeb]] stated that this would be changed to a separate inventory for every player in snapshot [[Java Edition 12w24a|12w24a]].<ref>{{Tweet|jeb|212939797868707844}}</ref>
+|Ender chests are based on a suggestion thread on [[wikipedia:Reddit|Reddit]].<ref>{{Tweet|jeb|205307552941088768}}</ref><ref>http://www.reddit.com/r/Minecraft/comments/ku8oc/another_use_for_ender_pearls_the_ender_chest/</ref> This idea was previously made into a mod by Ecu and ChickenBones.<ref>http://www.minecraftforum.net/topic/1160665-125mods-quiddity-modding/</ref>
+|In response to some users' feelings on the functionality of ender chests, [[Jeb]] plans to test a feature he has yet to specify in relation to them.<ref>http://www.reddit.com/r/Minecraft/comments/u2rwt/suggestion_make_a_private_dimension_ender_chest/</ref>}}
+{{History|||snap=12w24a|Ender chests now work per-[[player]] in [[multiplayer]] (holds an [[inventory]] per player instead of shared across the world).
+|Ender chests now drop 8 [[obsidian]] when destroyed, except when [[breaking|mined]] with a [[pickaxe]] enchanted with [[Silk Touch]].}}
+{{History||1.8|snap=14w29a|Ender chests now show the cracking animation.}}
+{{History||1.9|snap=15w31a|Ender chests now naturally generate in [[end city|End cities]].
+|The [[item]] [[model]] of ender chests has been rotated, to have the front face in view of the [[player]].}}
+{{History||1.10|snap=pre2|Ender chests now have unique [[sound]] effects.}}
+{{History||1.11|snap=16w32a|The tile [[entity]] ID has been changed from <code>EnderChest</code> to <code>ender_chest</code>.}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], this [[block]]'s numeral ID was 130.}}
+{{History|||snap=17w50a|[[File:Xmas Chest.png|32px]] Ender chests now look like presents between December 24th and 26th to suit [[wikipedia:Christmas|Christmas]].}}
+{{History|||snap=18w10d|[[Water]] can now be placed on the same [[block]] as an ender chest.}}
+{{History||1.14|snap=18w43a|[[File:Ender Chest.png|32px]] The texture of ender chests has been changed.}}
+{{History||1.15|snap=19w39a|The ender chest texture layout has been changed.}}
+{{History||1.18.2|snap=22w03a|Ender chests no longer look like presents between December 24th and 26th.}}
+
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|[[File:Ender Chest JE1 BE1.png|32px]] Added ender chests.}}
+{{History|bedrock}}
+{{History||1.2.13|snap=beta 1.2.13.5|Ender chests now have unique [[sound]] effects.}}
+{{History||1.4.0|snap=beta 1.2.20.1|[[Water]] can now be placed on the same [[block]] as an ender chest.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Ender Chest JE2 BE2.png|32px]] The texture of ender chests has been changed.}}
+{{History|bedrock upcoming}}
+{{History||1.20.40|snap=beta 1.20.40.20|Ender chests now use the <code>minecraft:cardinal_direction</code> [[block state]] instead of <code>facing_direction</code>.}}
+
+{{History|console}}
+{{History||xbox=TU14|xbone=CU1|ps=1.04|wiiu=Patch 1|[[File:Ender Chest JE1 BE1.png|32px]] Added ender chests.}}
+{{History|Ps4}}
+{{History||1.90|[[File:Ender Chest JE2 BE2.png|32px]] The texture of ender chests has been changed.}}
+
+{{History|New 3ds}}
+{{History||1.7.10|[[File:Ender Chest JE1 BE1.png|32px]] Added ender chests.}}
+{{History|foot}}
+
+<gallery>
+EnderChestSuggestion.png|The original suggestion for the ender chest.
+</gallery>
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+*Because an ender chest's particles exist in a 1 block radius around the chest, the particles from a chest placed next to a wall are not seen on the other side.	
+*Unlike chests, changes to an ender chest's name are not reflected in its inventory GUI.
+*Unlike chests, when broken, it does not drop the items inside it, due to the fact that the items aren't only in that chest.
+*Ender chests render as a full block when in the inventory, but not when held or placed.{{only|bedrock}}<ref>{{bug|MCPE-7990}}</ref>
+*Ender chests cannot be locked by NBT tags.
+*The texture of ender chests does not change during [[Easter eggs#Christmas|Christmas]] in contrast to [[trapped chest]]s and normal [[chest]]s.{{only|java}}
+*Mining an ender chest with a wooden pickaxe takes the longest time in the game (16.9 seconds) to mine a block with the correct tool, without the effect of [[Mining Fatigue]] and other mining speed reduction events.
+
+== Gallery ==
+<gallery>
+EnderChestexample.png|An ender chest in the Nether.
+EnderchestLight.png|Light from an ender chest.
+Open Ender Chest.png|An open ender chest.
+EndCityChests.png|An ender chest and regular chest in the [[End city]].
+Ender Chest Artwork.jpg|Artwork of an ender chest.
+File:Minecoins 4.png|An Ender Chest as depicted on [[Minecraft Marketplace|Minecoin]] gift cards.
+</gallery>
+
+== References ==
+{{reflist}}
+
+{{Blocks|Utility}}
+
+[[Category:Manufactured blocks]]
+[[Category:Generated structure blocks]]
+[[Category:Block entities]]
+[[Category:Utility blocks]]
+[[Category:End blocks]]
+[[Category:Storage]]
+[[Category:Light sources]]
+
+[[uk:Ендер-скриня]]
+[[cs:Enderitová truhla]]
+[[de:Endertruhe]]
+[[es:Cofre de ender]]
+[[fr:Coffre de l'Ender]]
+[[hu:Végzetláda]]
+[[it:Baule di ender]]
+[[ja:エンダーチェスト]]
+[[ko:엔더 상자]]
+[[nl:Enderkist]]
+[[pl:Skrzynia Endu]]
+[[pt:Baú de ender]]
+[[ru:Сундук Края]]
+[[zh:末影箱]]

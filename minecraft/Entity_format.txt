@@ -1,0 +1,600 @@
+Entities are stored in the entities folder of respective dimension folders. It is stored like regional Minecraft Anvil files, which are named in the form r.x.z.mca.
+
+== Folder structure ==
+
+{| data-description="List"
+|-
+|<div class="toccolours treeview">
+*''(world save directory)''
+**entities
+***r.x.z.mca
+**DIM-1
+***entities
+****r.x.z.mca
+**DIM1
+***entities
+****r.x.z.mca
+</div>
+|}
+
+== NBT structure ==
+Every [[entity]] is an unnamed {{nbt|compound|TAG_Compound}} contained in the Entities list of a chunk file. The sole exception is the Player entity, stored in [[level.dat]], or in [[Player.dat format|<player>.dat]] files on servers.
+
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+** {{nbt|int|DataVersion}}: Version of the chunk data.
+** {{nbt|int array|Position}}: Position of this chunk.
+*** {{nbt|int}}: X coordinate.
+*** {{nbt|int}}: Z coordinate.
+** {{nbt|list|Entities}}: All the entities. Each TAG_Compound in this list defines an entity in this chunk.
+*** {{nbt|compound}}: An entity. See [[#Entity format]] below.
+</div>
+
+== Entity format ==
+All entities are with the following structure:
+<div class="treeview">
+* {{nbt|compound}} Entity data
+{{:Chunk format/Entity}}
+</div>
+
+=== Mobs ===
+{| class="wikitable" style="position:relative; z-index:1; float:right; margin-right:0" data-description="Mob entity IDs"
+|-
+! colspan="2" | Mob entities
+|-
+! Entity ID
+! Name
+|-
+| allay
+| [[Allay]]
+|-
+| axolotl
+| [[Axolotl]]
+|-
+| bat
+| [[Bat]]
+|-
+| bee
+| [[Bee]]
+|-
+| blaze
+| [[Blaze]]
+|-
+| cat
+| [[Cat]]
+|-
+| cave_spider
+| [[Cave Spider]]
+|-
+| chicken
+| [[Chicken]]
+|-
+| cod
+| [[Cod]]
+|-
+| cow
+| [[Cow]]
+|-
+| creeper
+| [[Creeper]]
+|-
+| dolphin
+| [[Dolphin]]
+|-
+| donkey
+| [[Horse|Donkey]]
+|-
+| drowned
+| [[Drowned]]
+|-
+| elder_guardian
+| [[Elder Guardian]]
+|-
+| ender_dragon
+| [[Ender Dragon]]
+|-
+| enderman
+| [[Enderman]]
+|-
+| endermite
+| [[Endermite]]
+|-
+| evoker
+| [[Evoker]]
+|-
+| fox
+| [[Fox]]
+|-
+| frog
+| [[Frog]]
+|-
+| ghast
+| [[Ghast]]
+|-
+| giant
+| [[Giant]]
+|-
+| glow_squid
+| [[Glow Squid]]
+|-
+| goat
+| [[Goat]]
+|-
+| guardian
+| [[Guardian]]
+|-
+| hoglin
+| [[Hoglin]]
+|-
+| horse
+| [[Horse]]
+|-
+| husk
+| [[Husk]]
+|-
+| illusioner
+| [[Illusioner]]
+|-
+| iron_golem
+| [[Iron Golem]]
+|-
+| llama
+| [[Llama]]
+|-
+| magma_cube
+| [[Magma Cube]]
+|-
+| mooshroom
+| [[Mooshroom]]
+|-
+| mule
+| [[Horse|Mule]]
+|-
+| ocelot
+| [[Ocelot]]
+|-
+| panda
+| [[Panda]]
+|-
+| parrot
+| [[Parrot]]
+|-
+| phantom
+| [[Phantom]]
+|-
+| pig
+| [[Pig]]
+|-
+| piglin
+| [[Piglin]]
+|-
+| piglin_brute
+| [[Piglin Brute]]
+|-
+| pillager
+| [[Pillager]]
+|-
+| polar_bear
+| [[Polar Bear]]
+|-
+| pufferfish
+| [[Pufferfish]]
+|-
+| rabbit
+| [[Rabbit]]
+|-
+| ravager
+| [[Ravager]]
+|-
+| salmon
+| [[Salmon]]
+|-
+| sheep
+| [[Sheep]]
+|-
+| shulker
+| [[Shulker]]
+|-
+| silverfish
+| [[Silverfish]]
+|-
+| skeleton
+| [[Skeleton]]
+|-
+| skeleton_horse
+| [[Horse|Skeleton Horse]]
+|-
+| slime
+| [[Slime]]
+|-
+| snow_golem
+| [[Snow Golem]]
+|-
+| spider
+| [[Spider]]
+|-
+| strider
+| [[Strider]]
+|-
+| squid
+| [[Squid]]
+|-
+| stray
+| [[Stray]]
+|-
+| tadpole
+| [[Tadpole]]
+|-
+| trader_llama
+| [[Trader Llama]]{{only|java}}
+|-
+| tropical_fish
+| [[Tropical Fish]]
+|-
+| turtle
+| [[Turtle]]
+|-
+| vex
+| [[Vex]]
+|-
+| villager
+| [[Villager]]
+|-
+| villager_v2
+| [[Villager]]{{only|bedrock}}
+|-
+| vindicator
+| [[Vindicator]]
+|-
+| wandering_trader
+| [[Wandering Trader]]
+|-
+| warden
+| [[Warden]]
+|-
+| witch
+| [[Witch]]
+|-
+| wither
+| [[Wither]]
+|-
+| wither_skeleton
+| [[Wither Skeleton]]
+|-
+| wolf
+| [[Wolf]]
+|-
+| zoglin
+| [[Zoglin]]
+|-
+| zombie
+| [[Zombie]]
+|-
+| zombie_horse
+| [[Horse|Zombie Horse]]
+|-
+| zombie_villager
+| [[Zombie Villager]]
+|-
+| zombie_villager_v2
+| [[Zombie Villager]]{{only|bedrock}}
+|-
+| zombified_piglin
+| [[Zombified Piglin]]
+|}
+Mobs are a subclass of Entity with additional tags to store their health, attacking/damaged state, potion effects, and more depending on the mob. [[Player.dat format#NBT structure|Player]]s are a subclass of Mob.
+
+{{Data transclude|entity|Allay/ED|title=allay}}
+{{Data transclude|entity|Axolotl/ED|title=axolotl}}
+{{Data transclude|entity|Bat/ED|title=bat}}
+{{Data transclude|entity|Bee/ED|title=bee}}
+{{Data transclude|entity|Blaze/ED|title=blaze}}
+{{Data transclude|entity|Cat/ED|title=cat}}
+{{Data transclude|entity|Cave Spider/ED|title=cave_spider|link=Cave Spider}}
+{{Data transclude|entity|Chicken/ED|title=chicken}}
+{{Data transclude|entity|Cod/ED|title=cod}}
+{{Data transclude|entity|Cow/ED|title=cow}}
+{{Data transclude|entity|Creeper/ED|title=creeper}}
+{{Data transclude|entity|Dolphin/ED|title=dolphin}}
+{{Data transclude|entity|Donkey/ED|title=donkey|link=Donkey}}
+{{Data transclude|entity|Drowned/ED|title=drowned}}
+{{Data transclude|entity|Elder Guardian/ED|title=elder_guardian|link=Elder Guardian}}
+{{Data transclude|entity|Ender Dragon/ED|title=ender_dragon|link=Ender Dragon}}
+{{Data transclude|entity|Enderman/ED|title=enderman}}
+{{Data transclude|entity|Endermite/ED|title=endermite}}
+{{Data transclude|entity|Evoker/ED|title=evoker|link=evoker}}
+{{Data transclude|entity|Fox/ED|title=fox|link=fox}}
+{{Data transclude|entity|Frog/ED|title=frog|link=frog}}
+{{Data transclude|entity|Ghast/ED|title=ghast}}
+{{Data transclude|entity|Giant/ED|title=giant}}
+{{Data transclude|entity|Glow Squid/ED|title=glow_squid|link=Glow Squid}}
+{{Data transclude|entity|Goat/ED|title=goat}}
+{{Data transclude|entity|Guardian/ED|title=guardian}}
+{{Data transclude|entity|Hoglin/ED|title=hoglin}}
+{{Data transclude|entity|Horse/ED|title=horse}}
+{{Data transclude|entity|Husk/ED|title=husk|link=Husk|icon=husk}}
+{{Data transclude|entity|Illusioner/ED|title=illusioner|link=Illusioner}}
+{{Data transclude|entity|Iron Golem/ED|title=iron_golem|link=Iron Golem}}
+{{Data transclude|entity|Llama/ED|title=llama}}
+{{Data transclude|entity|Magma Cube/ED|title=magma_cube|link=Magma Cube}}
+{{Data transclude|entity|Mooshroom/ED|title=mooshroom}}
+{{Data transclude|entity|Mule/ED|title=mule|link=Mule}}
+{{Data transclude|entity|Ocelot/ED|title=ocelot}}
+{{Data transclude|entity|Panda/ED|title=panda}}
+{{Data transclude|entity|Parrot/ED|title=parrot}}
+{{Data transclude|entity|Phantom/ED|title=phantom}}
+{{Data transclude|entity|Pig/ED|title=pig}}
+{{Data transclude|entity|Piglin/ED|title=piglin}}
+{{Data transclude|entity|Piglin Brute/ED|title=piglin_brute|link=Piglin Brute}}
+{{Data transclude|entity|Pillager/ED|title=pillager}}
+{{Data transclude|entity|Polar Bear/ED|title=polar_bear|link=Polar Bear}}
+{{Data transclude|entity|Pufferfish/ED|title=pufferfish}}
+{{Data transclude|entity|Rabbit/ED|title=rabbit}}
+{{Data transclude|entity|Ravager/ED|title=ravager|link=Ravager}}
+{{Data transclude|entity|Salmon/ED|title=salmon}}
+{{Data transclude|entity|Sheep/ED|title=sheep}}
+{{Data transclude|entity|Shulker/ED|title=shulker}}
+{{Data transclude|entity|Silverfish/ED|title=silverfish}}
+{{Data transclude|entity|Skeleton/ED|title=skeleton}}
+{{Data transclude|entity|Skeleton Horse/ED|title=skeleton_horse|link=Skeleton Horse}}
+{{Data transclude|entity|Slime/ED|title=slime}}
+{{Data transclude|entity|Snow Golem/ED|title=snow_golem|link=Snow Golem}}
+{{Data transclude|entity|Spider/ED|title=spider}}
+{{Data transclude|entity|Strider/ED|title=strider}}
+{{Data transclude|entity|Squid/ED|title=squid}}
+{{Data transclude|entity|Stray/ED|title=stray}}
+{{Data transclude|entity|Tadpole/ED|title=tadpole}}
+{{Data transclude|entity|Llama/ED|title=trader_llama|link=Llama}}
+{{Data transclude|entity|Tropical Fish/ED|title=tropical_fish|link=Tropical Fish}}
+{{Data transclude|entity|Turtle/ED|title=turtle}}
+{{Data transclude|entity|Vex/ED|title=vex}}
+{{Data transclude|entity|Villager/ED|title=villager}}
+{{Data transclude|entity|Vindicator/ED|title=vindicator|link=Vindicator}}
+{{Data transclude|entity|Wandering Trader/ED|title=wandering_trader|link=Wandering Trader}}
+{{Data transclude|entity|Warden/ED|title=warden}}
+{{Data transclude|entity|Witch/ED|title=witch}}
+{{Data transclude|entity|Wither/ED|title=wither}}
+{{Data transclude|entity|Wither Skeleton/ED|title=wither_skeleton|link=Wither Skeleton}}
+{{Data transclude|entity|Wolf/ED|title=wolf}}
+{{Data transclude|entity|Zoglin/ED|title=zoglin}}
+{{Data transclude|entity|Zombie/ED|title=zombie}}
+{{Data transclude|entity|Zombie Horse/ED|title=zombie_horse|link=Zombie Horse}}
+{{Data transclude|entity|Zombie Villager/ED|title=zombie_villager|link=Zombie Villager}}
+{{Data transclude|entity|Zombified Piglin/ED|title=zombified_piglin|link=Zombified Piglin}}
+{{-}}
+
+=== Projectiles ===
+{| class="wikitable" style="position:relative; z-index:1; float:right; margin-right:0" data-description="Projectile entity IDs"
+|-
+! colspan="2" | Projectile entities
+|-
+! Entity ID
+! Name
+|-
+| arrow
+| [[Arrow]]
+|-
+| dragon_fireball
+| [[Ender Dragon]] Fireball
+|-
+| egg
+| [[Egg]]
+|-
+| ender_pearl
+| [[Ender Pearl]]
+|-
+| experience_bottle
+| [[Bottle o' Enchanting]]
+|-
+| fireball
+| [[Fireball]]
+|-
+| firework_rocket
+| [[Firework Rocket]]
+|-
+| llama_spit
+| [[Llama#Spit|Llama spit]]
+|-
+| potion
+| [[Splash Potion]]
+|-
+| small_fireball
+| [[Small Fireball]]
+|-
+| shulker_bullet
+| Shulker Bullet
+|-
+| snowball
+| [[Snowball]]
+|-
+| spectral_arrow
+| [[Spectral Arrow]]{{only|java}}
+|-
+| trident
+| [[Trident]]
+|-
+| wither_skull
+| [[Wither#Wither Skull|Wither Skull]]
+|}
+Projectiles are a subclass of Entity.
+
+{{Data transclude|entity|Arrow/ED|title=arrow}}
+{{Data transclude|entity|Ender Dragon/ED1|title=dragon_fireball|link=Ender Dragon|icon=dragon-fireball}}
+{{Data transclude|entity|Egg/ED|title=egg}}
+{{Data transclude|entity|Ender Pearl/ED|title=ender_pearl|link=Ender Pearl}}
+{{Data transclude|entity|Bottle o' Enchanting/ED|title=experience_bottle|link=Bottle o' Enchanting}}
+{{Data transclude|entity|Fireball/ED|title=fireball}}
+{{data transclude|item|Firework Rocket/ED|title=firework_rocket|link=Firework Rocket}}
+{{data transclude|entity|Llama/ED1|title=llama_spit|link=Llama#Spit|icon=llama-spit}}
+{{Data transclude|entity|Splash Potion/ED|title=potion|link=Splash Potion}}
+{{data transclude|entity|Shulker/ED1|title=shulker_bullet|link=Shulker|icon=shulker-bullet}}
+{{Data transclude|entity|Small Fireball/ED|title=small_fireball|icon=small-fireball}}
+{{Data transclude|entity|Snowball/ED|title=snowball}}
+{{Data transclude|entity|Arrow/ED1|title=spectral_arrow|link=Arrow}}
+{{data transclude|entity|Trident/ED|title=trident}}
+{{Data transclude|entity|Wither/ED1|title=wither_skull|link=Wither|icon=wither-skull}}
+{{-}}
+
+=== Items and XP orbs ===
+{| class="wikitable" style="position:relative; z-index:1; float:right; margin-right:0" data-description="Entity IDs"
+|-
+! colspan="2" | Item entities
+|-
+! Entity ID
+! Name
+|-
+| experience_orb
+| [[Experience|Experience Orb]]
+|-
+| item
+| [[Item (entity)|Item]]
+|}
+Items and XP orbs are a subclass of Entity.
+{{data transclude|entity|Experience/ED|title=experience_orb|link=Experience|icon=experience-orb}}
+{{data transclude|env|Item (entity)/ED|title=item|link=Item (entity)|icon=items}}
+{{-}}
+
+=== Vehicles ===
+{| class="wikitable" style="position:relative; z-index:1; float:right; margin-right:0" data-description="Vehicle entity IDs"
+|-
+! colspan="2" | Vehicle entities
+|-
+! Entity ID
+! Name
+|-
+| boat
+| [[Boat]]
+|-
+| chest_boat
+| [[Boat with Chest]]
+|-
+| minecart
+| [[Minecart]]
+|-
+| chest_minecart
+| [[Minecart with Chest]]
+|-
+| command_block_minecart
+| [[Minecart with Command Block]]
+|-
+| furnace_minecart
+| [[Minecart with Furnace]]
+|-
+| hopper_minecart
+| [[Minecart with Hopper]]
+|-
+| spawner_minecart
+| [[Minecart with Spawner]]
+|-
+| tnt_minecart
+| [[Minecart with TNT]]
+|}
+Vehicles are subclasses of Entity.
+
+{{Data transclude|entity|Boat/ED|link=Boat|icon=boats|title=boat}}
+{{Data transclude|entity|Boat with Chest/ED|link=Boat with Chest|icon=boat-with-chest|title=chest_boat}}
+{{Data transclude|entity|Minecart/ED|link=Minecart|title=minecart}}
+{{Data transclude|entity|Minecart with Chest/ED|link=Minecart with Chest|title=chest_minecart}}
+{{Data transclude|entity|Minecart with Command Block/ED|link=Minecart with Command Block|title=command_block_minecart}}
+{{Data transclude|entity|Minecart with Furnace/ED|link=Minecart with Furnace|title=furnace_minecart}}
+{{Data transclude|entity|Minecart with Hopper/ED|link=Minecart with Hopper|title=hopper_minecart}}
+{{Data transclude|entity|Minecart with Spawner/ED|link=Minecart with Spawner|title=spawner_minecart}}
+{{Data transclude|entity|Minecart with TNT/ED|link=Minecart with TNT|title=tnt_minecart}}
+{{-}}
+
+=== Dynamic tiles ===
+{| class="wikitable" style="position:relative; z-index:1; float:right; margin-right:0" data-description="Dynamic tiles entity IDs"
+|-
+! colspan="2" | Dynamic block entities
+|-
+! Entity ID
+! Name
+|-
+| falling_block
+| Dynamic Tile
+|-
+| tnt
+| [[TNT]]
+|}
+Dynamic tiles are a subclass of Entity and are used to simulate realistically moving blocks.
+
+{{Data transclude|entity|Falling Block/ED|rawtitle={{EntitySprite|falling-sand}} {{EntitySprite|falling-gravel}} {{BlockSprite|gray-concrete-powder}} {{EntitySprite|falling-dragon-egg}} {{EntitySprite|falling-anvil}} {{EntitySprite|scaffolding}} [[Falling Block|falling_block]]}}
+{{Data transclude|entity|TNT/ED|link=TNT|title=tnt}}
+{{-}}
+
+=== Other ===
+{| class="wikitable" style="position:relative; z-index:1; float:right; margin-right:0" data-description="Entity IDs"
+|-
+! colspan="2" | Other e
+ntities
+|-
+! Entity ID
+! Name
+|-
+| area_effect_cloud
+| [[Area Effect Cloud]]
+|-
+| armor_stand
+| [[Armor Stand]]
+|-
+| end_crystal
+| [[End Crystal]]
+|-
+| evoker_fangs
+| [[Evoker Fangs]]
+|-
+| eye_of_ender
+| [[Eye of Ender]]
+|-
+| fishing_bobber
+| [[Fishing Bobber]]
+|-
+| item_frame
+| [[Item Frame]]
+|-
+| leash_knot
+| [[Lead]] Knot
+|-
+| lightning_bolt
+| [[Lightning Bolt]]
+|-
+| marker
+| [[Marker]]
+|-
+| painting
+| [[Painting]]
+|}
+Other entity types that are a subclass of Entity but do not fit into any of the above categories.
+
+{{data transclude|effect|Lingering Potion/ED|title=area_effect_cloud|link=Lingering Potion|icon=particle-absorption}}
+{{data transclude|item|Armor Stand/ED|title=armor_stand|link=Armor Stand}}
+{{data transclude|entity|End Crystal/ED|title=end_crystal|link=End Crystal}}
+{{data transclude|entity|Evoker/ED1|title=evoker_fangs|link=Evoker Fangs|icon=evoker-fangs}}
+{{data transclude|entity|Eye of Ender/ED|title=eye_of_ender|link=Eye of Ender}}
+{{data transclude|entity|Fishing Rod/ED|title=fishing_bobber|link=Fishing Bobber|icon=fishing-bobber}}
+{{data transclude|entity|Item Frame/ED|title=item_frame|link=Item Frame}}
+{{data transclude|entity|Lead/ED|title=leash_knot|link=Lead|icon=leash-knot}}
+{{data transclude|entity|Thunderstorm/ED|title=lightning_bolt|link=Thunderstorm#Lightning|icon=lightning-bolt}}
+{{data transclude|entity|Marker/ED|title=marker|link=Marker|icon=marker}}
+{{data transclude|entity|Painting/ED|title=painting}}
+{{-}}
+
+== History ==
+{{History|java}}
+{{History||1.17|snap=20w45a|Entities have been extracted from main (terrain) chunks and are now stored in separate entities directory (similar to POI storage). Those new files are still region files with NBT.}}
+{{History||1.19|snap=22w11a|The <code>Id</code> tag for each effect in a mob's <code>ActiveEffects</code> tag is now a {{nbt|int|TAG_Integer}} instead of a {{nbt|byte|TAG_Byte}}.}}
+{{History|java upcoming}}
+{{History||1.20.2|snap=23w32a|In NBT format for entity type {{cd|mooshroom}}, removed {{cd|d=and|EffectId|EffectDuration}}, and added {{cd|stew_effects}}, with the same format as {{cd|effects}} field in {{cd|suspicious_stew}} item format.
+|In NBT format for entity type {{cd|area_effect_cloud}}, renamed {{cd|Effects}} to {{cd|effects}}.
+|In NBT format for entity type {{cd|arrow}}, renamed {{cd|CustomPotionEffects}} to {{cd|custom_potion_effects}}.
+|In NBT format for living entities (players, armor stands, and all mobs), renamed {{cd|ActiveEffects}} to {{cd|active_effects}}.}}
+{{History|foot}}
+
+{{Java Edition}}
+
+[[Category:Development]]
+
+[[de:Objektdaten]]
+[[ja:エンティティフォーマット]]
+[[pt:Formato de entidade]]
+[[zh:实体格式]]

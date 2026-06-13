@@ -1,0 +1,216 @@
+{{cleanup}}
+{{Effect
+|title={{EffectSprite|invisibility}} Invisibility
+|image=Invisibility.png
+|sources=See {{slink||Causes}}
+|particle= {{EffectSprite|particle-invisibility}} #7F8392 (light gray)
+|type=Positive
+|group=Potion
+|group2=Splash Potion
+|group3=Lingering Potion
+|group4=Arrow
+|1-1=Potion of Invisibility.png
+|2-1=Splash Potion of Invisibility.png
+|3-1=Lingering Potion of Invisibility.png
+|4-1=Arrow of Invisibility.png
+}}
+
+'''Invisibility''' is a [[Effect|status effect]] that turns [[Entity|entities]] invisible. It has one potency level (active), but its duration can be extended.
+
+== Mechanics ==
+[[File:Invisible Mobs.png|thumb|right|The visible parts of a decorated [[llama]], an [[enderman]], a [[saddle]]d [[pig]], a [[shulker]], a [[charged creeper]], and a [[spider]].]]
+[[File:Invisible Jeb.png|thumb|right|The visible parts of an armored [[player]].]]
+Invisibility, like its name suggests, causes the affected [[mob]] or player to disappear from view.
+
+===Certain features of entities not affected by Invisibility:===
+
+====Universal====
+The following features are displayed on all mobs. The only exceptions are mobs without the capability to naturally display equipped items even without invisibility (e.g. [[villager]]s):
+* Distinct [[armor]] worn by various entities ([[wolf armor]] worn by [[wolves]], [[harness]]es worn by [[happy ghast]]s, [[horse armor]] worn by [[Horse (disambiguation)|horses]], and [[Nautilus Armor|nautilus armor]] worn by [[nautilus]]es and [[Zombie Nautilus|zombie nautilus]]es).
+* [[Item]]s held by entities.
+* [[Armor]] worn by [[player]]s, [[undead]] mobs, [[piglin]]s, [[armor stand]]s and [[The Copper Age|mannequins]](possible via commands).
+* [[Saddle]]s worn by [[Riding|rideable]] entities
+* The fire sprites of entities that were set on [[fire]].
+* Stuck [[arrow]]s on [[players]]. {{Only|JE}}
+* Emitted [[particle]]s of effects.
+
+====Mob-specified====
+The following features are uniquely displayed on certain mobs or groups of mobs, and thus cannot be applied universally:
+* [[Shulker]] heads.
+* [[Llama]]'s [[carpet]] decorations.
+* [[Charged creeper]]'s auras.
+* The eyes of [[cave spider]]s, [[spider]]s, [[endermen]], [[creaking]] and [[phantom]]s.
+* The eyebrows of [[breeze]]s
+
+[[Wither]]s and [[ender dragon]]s are immune to Invisibility.
+
+==Causes==
+{| class="wikitable" data-description="Causes"
+ ! Cause
+ !Potency
+ ! Length
+ !Notes
+ |-
+ |{{ItemLink|Potion of Invisibility}}
+ |I
+ |3:00
+ |{{EntityLink|Wandering Trader}}s drink this potion when attacked by hostile mobs or when avoiding zombies and [[illager]]s.{{only|bedrock}}
+ |-
+ |{{ItemLink|Potion of Invisibility}} (extended)
+ |I
+ |8:00
+ |{{EntityLink|Wandering Trader}}s drink this potion if the time is between 12000 and 18000.
+ |-
+ |{{ItemLink|Splash Potion of Invisibility}}
+ |I
+ |3:00{{only|je|short=1}}<br>4:00{{only|be|short=1}}
+ |
+ |-
+ |{{ItemLink|Splash Potion of Invisibility}} (extended)
+ |I
+ |8:00{{only|je|short=1}}<br>9:00{{only|be|short=1}}
+ |
+ |-
+ |{{ItemLink|Lingering Potion of Invisibility}}
+ |I
+ | 0:45
+ |
+ |-
+ |{{ItemLink|Lingering Potion of Invisibility}} (extended)
+ |I
+ |2:00
+ |
+ |-
+ |{{ItemLink|Arrow of Invisibility}}
+ |I
+ |0:22
+ |
+ |-
+ |{{ItemLink|Arrow of Invisibility}} (extended)
+ |I
+ |1:00
+ |
+ |-
+ |[[Lingering Potion|Lingering Cloud of Invisibility]]
+ |I
+ |0:12
+ |A [[creeper]] or charged creeper affected by Invisibility upon explosion leaves behind a lingering cloud of Invisibility.
+ |-
+ |{{EntityLink|Illusioner}}
+ |I
+ |1:00
+ |Applies only to {{EntityLink|illusioner}}s when casting the invisibility spell.
+ |-
+ |Spawning within the world
+ |I
+ |∞
+ |Applies only to {{EntityLink|spider}}s on Hard difficulty.{{only|java|short=1}}
+ |}
+
+==Brewing==
+{| class="wikitable" style="text-align: center;" data-description="Positive effect potions"
+! width="90px" |Potion
+!Reagent, Base
+! width="90px" |{{ItemSprite|Redstone Dust}} Extended
+! width="90px" | {{ItemSprite|Glowstone Dust}} Enhanced
+!Effects
+|-
+!{{Slot|Potion of Invisibility[&9Invisibility (<nowiki>3:00</nowiki>)]}}<br>Potion of Invisibility
+|{{Brewing Stand
+ |Input= Fermented Spider Eye
+ |Output2= Potion of Night Vision[&9Night Vision (<nowiki>3:00</nowiki>)]
+ }}
+| {{Slot|Potion of Invisibility[&9Invisibility (<nowiki>8:00</nowiki>)]}}<br>Potion of Invisibility (extended) 
+| -
+|[[Invisibility]]<br>Grants invisibility (except for equipped or held items).
+|}
+
+==Notes==
+* [[Mob]]s do not attack or sense the [[player]] until the player is a lot closer than normal.  
+** A player with no [[armor]] can be detected at 7% of the usual detection distance.
+** Each piece of armor increases this by another 17.5% of the usual distance. Full armor thus results in a 70% detection range.
+** After detecting the player, a mob continues to follow as if the player is visible.
+* [[Cat]]s behave as though the entity affected is visible.
+* Additional methods of reducing detection by mobs include: 
+** [[Sneaking]] reduces the detection range to 80% of usual, and stacks with Invisibility.
+** Wearing the corresponding [[mob head]] reduces the detection range of [[skeleton]]s, [[zombie]]s, and [[creeper]]s to 50% of usual, and stacks with Invisibility.
+* Players in [[Spectator]] mode see invisible [[entity|entities]] as translucent instead. The same applies to invisible players within a team{{only|je|short=1}} against other players in all game modes. Their names are displayed as if without invisibility in both cases.
+* Invisibility prevents players from getting the [[Dolphin's Grace]] effect naturally.
+* [[Endermen]] have a reduced provocation range if the player looking at them is invisible.
+*In [[multiplayer]] and in [[third-person view]], an invisible player's name and model become invisible, although their armor and held items do not.
+* Attacking any hostile or neutral mob while under the Invisibility effect causes it to attack the player as though the player is not under the Invisibility effect. Pillagers point their crossbows and look at invisible players instead of shooting them.
+* Invisibility also prevents the rendering of entity hitboxes{{only|je|short=1}} by pressing {{key|F3+B}}.
+* Players with Invisibility can still be detected by [[sculk sensor]]s and [[warden]]s, as they rely on vibration instead of sight.
+* The attack indicator{{only|je|short=1}} still shows up when facing an invisible entity.<ref>{{bug|MC-261797|||WAI}}</ref>
+* Players inflicted with invisibility do not appear on the [[Locator Bar|locator bar]].
+
+==Data values==
+===ID===
+{{EffectIDLink}}
+{{edition|java}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=java
+|displayname=Invisibility
+|spritetype=effect
+|nameid=invisibility
+|id=14
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Invisibility
+|spritetype=effect
+|nameid=invisibility
+|id=14
+|foot=1}}
+
+==Advancements==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load advancements|A Furious Cocktail;How Did We Get Here?}}
+</table-progress-tracking>
+
+==History==
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|Invisibility is added along with 18 other status effects but is currently unobtainable in regular gameplay.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|[[File:Invisibility JE1 BE1.png|18px]] The effect sprite for Invisibility has been added to <samp>[[inventory.png]]</samp>.
+|[[Java Edition removed features#Potions|Potion]]s which grant the Invisibility effect are added.
+|[[Milk]] now clears the Invisibility effect.}}
+{{History|||snap=Beta 1.9 Prerelease 3|Invisibility no longer has any associated potions.}}
+{{History||1.4.2|snap=12w34a|Invisiblity now functions, and turns [[mob]]s invisible. 
+|[[Player]]s under Invisiblity's effect now cannot be detected by other players. 
+|A [[potion]] and [[splash potion]] of Invisibility have been implemented and added to [[Creative mode]].}}
+{{History||1.6.1|snap=13w24a|[[Spider]]s now have a rare chance to spawn with Invisibility on hard [[difficulty]].}}
+{{History||1.14|snap=18w43a|[[File:Invisibility JE2 BE2.png|18px]] The effect icon texture of Invisiblity has been changed.}}
+{{History|||snap=19w08a|The Invisibility status effect has been improved to allow it to correctly work in many cases where it did not.
+|[[Guardian]]s no longer see [[player]]s that are invisible from the Invisibility effect.
+|[[Zombies]] and [[illager]]s no longer see invisible villagers and wandering traders.
+|[[Wither]]s no longer see invisible players.|[[Iron Golem]]s no longer sees invisible hostile-neutral mobs.}}
+
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=build 1|[[File:Invisibility JE1 BE1.png|18px]] Added Invisibility.
+|Invisibility is currently unobtainable.}}
+{{History||v0.12.1|snap=build 1|Invisibility can now be obtained from [[potion]]s and [[splash potion]]s of Invisibility.}}
+{{History||v0.15.0|snap=build 1|Added [[Arrow of Invisibility]], which inflicts any [[mob]] it hits with Invisibility.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Invisibility can now be obtained from a [[lingering potion]]s of Invisibility.}}
+{{History|bedrock}}
+{{History||1.11.0|snap=beta 1.11.0.3|[[Wandering trader]]s now hide by drinking [[potion]]s of Invisibility during [[Daylight cycle#Night|nightfall]], when [[damage|hurt]] by projectiles and magic, or when avoiding zombies and illagers.
+|The Invisibility status effect has been improved to allow it to correctly work in many cases where it did not.
+|[[Zombie]]s and [[illager]]s no longer see invisible villagers and wandering traders.}}
+{{History|||snap=beta 1.11.0.5|[[File:Invisibility JE2 BE2.png|18px]] The effect icon texture of Invisibility has been changed.}} 
+{{History|foot}}
+
+==Issues==
+{{issue list}}
+
+{{Effects}}
+
+[[ja:透明化]]
+[[pt:Invisibilidade]]
+[[zh:隐身]]
+
+<references />

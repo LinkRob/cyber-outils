@@ -1,0 +1,226 @@
+{{Block
+| image=Decorated Pot.png
+| extratext = View [[#Renders|all renders]]
+| renewable = Only bricks: Yes<br> With pottery sherd(s): No
+| stackable = Yes (64)
+| tool = any
+| light = No
+| flammable = No
+| lavasusceptible = No
+| transparent = Yes
+}}
+
+A '''decorated pot''' is an ornamental [[block]] crafted from [[pottery sherd]]s or [[brick]]s.
+
+== Obtaining ==
+Decorated pots can be broken with any tool and are [[instant mining|mined instantly]]. A decorated pot drops the four [[pottery sherd]]s or [[brick]]s used to craft it when mined with a [[pickaxe]], [[axe]], [[shovel]], [[hoe]] or [[sword]] '''''not''''' enchanted with [[Silk Touch]]. It drops itself when mined with anything else, including tools listed above enchanted with Silk Touch.
+
+A decorated pot drops itself if pushed by a [[piston]]. It also ''always'' drops itself when destroyed by an [[explosion]], similar to other precious blocks such as [[beacon]]s and [[shulker box]]es.<ref>{{bug|MC-263554|||WAI}}</ref>
+
+=== Crafting ===
+{{Crafting
+|ingredients=Any [[Pottery Sherd]] or [[Brick]]
+|B1= Any Pottery Sherd;Brick
+|A2= Any Pottery Sherd;Brick|C2= Any Pottery Sherd;Brick
+|B3= Any Pottery Sherd;Brick
+|Output= Decorated Pot
+|type= Decoration block
+}}
+
+The decorated pot's side textures will correspond to what item is used in the crafting. If a pottery sherd is used, that side will have the texture of that pottery sherd, if a brick is used, that side will have the default texture. The pottery sherd or brick within the 8th slot (bottom most) of the crafting grid determines the texture that faces against the player upon placement; the 2nd, 4th, 6th slots will determine the textures of the back/left/right facings in accordance to the player's POV.
+
+== Usage ==
+Decorated pots are used for decoration. Due to the top part of the decorated pot having no collision, other blocks can be placed on top of them, including other decorated pots and regular flower pots, which are required to place a flower in the decorated pot.
+
+In the 1.20.3 snapshots and pre-releases, decorated pots can hold a single stack of any one item type. {{control|Using}} an item on a decorated pot puts it in the pot. The pot shakes if the player uses the pot with an empty hand or an item that can't be placed in the pot. Punching or shattering a decorated pot drops any items that were held inside.
+
+== Sounds ==
+=== Generic ===
+Decorated pots will switch to the shattered sounds immediately before breaking when destroyed by a non-Silk Touch tool.
+==== Popped ====
+{{Sound table/Block/Decorated pot}}
+==== Shattered ====
+{{Sound table/Block/Decorated pot cracked}}
+=== Unique ===
+{{Edition|Java}}: ''None''
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Decorated pot shatter1.ogg
+|sound2=Decorated pot shatter2.ogg
+|sound3=Decorated pot shatter3.ogg
+|sound4=Decorated pot shatter4.ogg
+|sound5=Decorated pot shatter5.ogg
+|sound6=Decorated pot shatter6.ogg
+|source=block
+|description=When a decorated pot is shattered using a tool in Survival or Adventure mode
+|id=shatter.decorated_pot
+|volume=1.0
+|pitch=1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Decorated Pot
+|spritetype=block
+|nameid=decorated_pot
+|foot=1}}
+{{ID table
+|displayname=Block entity
+|spritename=decorated-pot
+|spritetype=block
+|nameid=decorated_pot
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Decorated Pot
+|spritetype=block
+|nameid=decorated_pot
+|id=-551
+|foot=1}}
+{{ID table
+|notnamespaced=y
+|displayname=Block entity
+|spritename=decorated-pot
+|spritetype=block
+|nameid=DecoratedPot
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+
+{{/BS}}
+
+=== Block data ===
+A decorated pot has a block entity associated with it that holds additional data about the block.
+
+{{el|java}}:
+{{see also|Block entity format}}
+{{/BE}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Block entity format]].
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{Load achievements|Careful Restoration}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|Careful Restoration}}
+</table-progress-tracking>
+
+== History ==
+{{history||October 3, 2020|link=https://www.youtube.com/watch?v=DBvZ2Iqmm3M&t=2366s|[[File:Clay Pot.png|32px]] [[File:Hardened Clay Pot.png|32px]] [[File:Clay Pot with Ceramic Shards (pre-release).png|32px]] [[File:Decorated Pot (pre-release).png|32px]] A clay pot and a painted clay pot were demonstrated at [[Minecraft Live 2020]] as part of a gameplay mechanic that would include archeology.}}
+{{history||February 7, 2023|link=https://twitter.com/RogerBadgerman/status/1622708905821327361|The future announcement of decorated pots is hinted at by Roger Badgerman.}}
+{{history||February 10, 2023|[[Sofia Dankis]] posts an article about upcoming archaeology features that announces decorated pots.|link=https://www.minecraft.net/en-us/article/archeology-coming-minecraft-120}}
+{{history|java}}
+{{history||1.20<br>(Experimental)|link=1.19.4|snap=23w07a|[[File:Decorated Pot (N) JE1 BE1.png|32px]] Added decorated pots behind the [[Java Edition 1.20|Update 1.20 experimental datapack]].}}
+{{History|||snap=1.19.4 Pre-release 1|The recipe for the decorated pot made of all bricks can now be found in the recipe book.}}
+{{history|||snap=1.19.4 Pre-release 2|[[File:Decorated Pot (N) JE2 BE2.png|32px]] Changed the model and texture of decorated pots.}} 
+{{h||1.20|snap=23w12a|Decorated pots are now out of the [[Java Edition 1.20|Update 1.20 experimental datapack]].|Added 16 new side textures corresponding to the 16 new pottery shards.|<code>cracked</code> property has been added, serving as an internal block state that determines the sound upon breaking of this block.}}
+{{h|||snap=23w14a|Decorated pots can now be waterlogged "normally".}}
+{{h|||snap=23w16a|NBT tag for pot decorations renamed from <code>shards</code> to <code>sherds</code> (to match items).}}
+{{h|||snap=23w17a|The materials used when crafting a decorated pot are now listed on its [[tooltip]].
+|The player now gets the [[advancement]] "Careful Restoration" when they craft a decorated pot using 4 pottery sherds.}}
+{{h||1.20.2|snap=23w31a|Decorated pots now have Creative mode tooltips that show what pottery sherds they are made of.<ref>{{bug|MC-260096||Decorated pots don't have creative mode tooltips|Fixed}}</ref>}}
+
+{{history|bedrock}}
+{{history||Next Major Update<br>(Experimental)|link=Bedrock Edition 1.19.70|snap=beta 1.19.70.23|[[File:Decorated Pot (N) JE1 BE1.png|32px]] Added decorated pots behind the [[Bedrock Edition 1.20|Next Major Update experimental toggle]].}}
+{{h||Next Major Update<br>(Experimental)|link=Bedrock Edition 1.19.80|snap=beta 1.19.80.20|[[File:Decorated Pot (N) JE2 BE2.png|32px]] Changed the model of decorated pots.
+|Decorated pots can no longer be stacked.
+|The recipe for a decorated pot made of only [[brick]]s can now be found in the recipe book.}}
+{{h|||snap=beta 1.19.80.22|Added 16 new side textures corresponding to the 16 new pottery sherds.}}
+{{history||1.20.0|snap=beta 1.20.0.21|Decorated pots are now available without using the "Next Major Update" experimental toggle.}}
+{{history|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* Decorated pots were considered to spawn in [[Ancient City|Ancient Cities]] but was scrapped. 
+* If an item that is not a [[brick]] or [[pottery sherd]] is applied to the side of a decorated pot using commands, it renders the same pattern as a brick.
+* There are a total of 21<sup>4</sup> (194,481) unique decorated pots that can be crafted, as each of the 4 slots used to craft a decorated pot can consist of any one of the twenty pottery sherds in addition to the brick.
+* Up to 1.20.2, Decorated Pot is one of the two blocks (the other being [[Sign|standing signs]]) and the only full block with textures extending outside of their intended block space.
+
+==Gallery ==
+===General===
+<gallery>
+File:Tooltip5.png|An example of a decorated pot tooltip.
+File:DecoratedPotInGame4.png|A decorated pot made with the skull and heartbreak pottery sherds.
+File:DecoratedPotInGame2.png|Another use of decorated pots.
+File:DecoratedPotInGame3.png|Two decorated pots holding [[soul lantern]]s at the entrance to a building.
+File:Decorated pot fountain.png|A fountain created with [[waterlogged]] decorated pot.
+</gallery>
+
+
+===Renders===
+<gallery>
+Decorated Pot.png|Brick Decorated Pot
+Angler Decorated Pot.png|Angler Decorated Pot
+Archer Decorated Pot.png|Archer Decorated Pot
+Arms Up Decorated Pot.png|Arms Up Decorated Pot
+Blade Decorated Pot.png|Blade Decorated Pot
+Brewer Decorated Pot.png|Brewer Decorated Pot
+Burn Decorated Pot.png|Burn Decorated Pot
+Danger Decorated Pot.png|Danger Decorated Pot
+Explorer Decorated Pot.png|Explorer Decorated Pot
+Friend Decorated Pot.png|Friend Decorated Pot
+Heart Decorated Pot.png|Heart Decorated Pot
+Heartbreak Decorated Pot.png|Heartbreak Decorated Pot
+Howl Decorated Pot.png|Howl Decorated Pot
+Miner Decorated Pot.png|Miner Decorated Pot
+Mourner Decorated Pot.png|Mourner Decorated Pot
+Plenty Decorated Pot.png|Plenty Decorated Pot
+Prize Decorated Pot.png|Prize Decorated Pot
+Sheaf Decorated Pot.png|Sheaf Decorated Pot
+Shelter Decorated Pot.png|Shelter Decorated Pot
+Skull Decorated Pot.png|Skull Decorated Pot
+Snort Decorated Pot.png|Snort Decorated Pot
+</gallery>
+
+===Concept Art===
+<gallery>
+Ancient city concept art 3.png|Pots, vases, and stone chests concept art for the ancient cities.
+Ancient city concept art 4.png|Ditto.
+Ancient city concept art 7.png|Ancient city gameplay concept art.
+Ancient city concept art 8.png|More ancient city gameplay of player breaking pots concept art.
+Ancient city concept art 10.png|Ancient city wall with pot concept art.
+</gallery>
+
+===In other media===
+<gallery>
+Decorated Pot Valentines Art.png|Decorated pot valentines artwork.
+Ari Admiring Decorated Pots Pixel Art.png|[[Ari]] admiring a group of decorated pots.
+File:Pot Wallpaper.png|Cellphone wallpaper showing an expanded version of the pixel art.
+File:Pots Galore.jpg|[[Efe]] showing Ari a collection of pots.<ref> https://www.instagram.com/p/CtWrJzhgIYa/</ref>
+</gallery>
+
+==References==
+{{reflist}}
+
+{{Blocks|building}}
+
+[[Category:Manufactured blocks]]
+[[Category:Block entities]]
+
+[[de:Verzierter Krug]]
+[[es:Vasija decorada]]
+[[fr:Vase décoré]]
+[[ja:飾り壺]]
+[[pt:Vaso decorado]]
+[[ru:Узорчатая ваза]]
+[[uk:Оздоблений горщик]]
+[[zh:饰纹陶罐]]

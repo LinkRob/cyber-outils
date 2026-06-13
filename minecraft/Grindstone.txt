@@ -1,0 +1,299 @@
+{{Block
+|image=Grindstone.png
+|invimage=Grindstone
+|transparent=Yes
+|light=No
+|tool=Wooden Pickaxe
+|renewable=Yes
+|stackable=Yes (64)
+|flammable=No
+|lavasusceptible=No
+}}
+A '''grindstone''' is a [[block]] that repairs [[item]]s and [[tool]]s as well as removing [[enchantment]]s from them, except for [[Curse|curses]]. It also serves as a [[weaponsmith]]'s [[job site block]].
+
+== Obtaining ==
+
+=== Breaking ===
+
+Grindstones can be obtained using any [[pickaxe]]. If mined without a pickaxe, it drops nothing.
+
+{{breaking row|horizontal=1|Grindstone|pickaxe|wood}}
+
+=== Natural generation ===
+[[File:Weaponsmith shelter.jpg|thumb|right|A grindstone generated inside a weaponsmith shelter structure.]]
+Grindstones naturally generate at [[village]] [[Trading#Weaponsmith|weaponsmiths]].
+
+=== Crafting ===
+{{Crafting
+|A1= Stick
+|B1=Stone Slab
+|C1=Stick
+|A2= Any Planks
+|C2= Any Planks
+|Output= Grindstone
+|type= Decoration block
+|showdescription=1
+|description=In Bedrock Edition, grindstone recipes built with crimson, warped, or mangrove planks can use a slab of almost any of the stone types including sandstone, quartz, and bricks.
+}}
+
+== Usage ==
+
+A grindstone can be oriented in different directions. In [[Java Edition]] it doesn't need a supporting block. In [[Bedrock Edition]] it breaks if unsupported.
+
+=== Repairing and disenchanting ===
+[[File:Grindstone GUI.png|thumb|right|176px|Interface for the grindstone]]
+
+When {{control|used}}, an interface is displayed with two input slots and one output slot.
+
+Placing one [[Enchanting|enchanted]] [[item]] in an input slot forms a new ''non-enchanted'' item of the same type and durability in the output slot. Removing the item from the output slot consumes the input item and drops some [[experience]].
+
+Placing two [[item]]s (enchanted or not) of the same type in the input slots forms a new non-enchanted item of that type and with a durability equal to the sum of the durabilities of the two input items, plus 5% of the maximum durability of that item (rounded down), up to its maximum durability. Both input items are consumed in the process. If either input item was enchanted, then removing the output item drops some [[experience]].
+
+The amount of experience dropped depends on the number of enchantments and levels of each, but it is partially random. For example, [[Fire Protection]] I gives 5-9 experience.{{info needed|Is it an even distribution or a triangular distribution?}}
+
+As with all non-enchanted items, the new item has no [[Anvil mechanics#Anvil uses|prior work penalty]]. A grindstone cannot remove a [[curse]]. Grindstones also do not remove an item's custom name.
+
+If the action is not applicable (e.g. only one non-enchanted item, or the two inputs are different items), the arrow displays a red cross like that of an [[anvil]] and no item appears in the output slot.
+
+The following tables show the durability bonuses of various items:
+{| class="wikitable"
+! Armor
+! Leather
+! Gold
+! Chainmail
+! Iron
+! Diamond
+! Netherite
+|-
+! Helmet
+| 2
+| 3
+| 8
+| 8
+| 18
+| 20
+|-
+! Chestplate
+| 4
+| 5
+| 12
+| 12
+| 26
+| 29
+|-
+! Leggings
+| 3
+| 5
+| 11
+| 11
+| 24
+| 27
+|-
+! Boots
+| 3
+| 4
+| 9
+| 9
+| 21
+| 24
+|}
+
+{| class="wikitable"
+! colspan = 6|Tools
+|-
+! Wood
+! Gold
+! Stone
+! Iron
+! Diamond
+! Netherite
+|-
+| 3
+| 1
+| 6
+| 12
+| 78
+| 101
+|}
+
+{| class="wikitable"
+! colspan = 11 | Miscellaneous Tools
+|-
+! Bow
+! Crossbow
+! Trident
+! Shield
+! Turtle Shell
+! Elytra
+! Carrot on a Stick
+! Warped Fungus on a Stick
+! Fishing Rod
+! Shears
+! Flint and Steel
+|-
+| 19
+| 23
+| 12
+| 16
+| 13
+| 21
+| 1
+| 5
+| 3{{only|je|short=1}}<br>19{{only|be|short=1}}
+| 11
+| 3
+|}
+
+=== Changing profession ===
+If a [[village]] has a grindstone that has not been claimed by a [[villager]], any villager who did not already pick a [[job site]] block has a chance to change their profession into [[Trading#Weaponsmith|weaponsmith]].
+
+=== Experience ===
+When removing enchantments from items, the player gains experience equal to the minimum [[Enchanting/Levels|modified enchantment level]] of that enchantment. The final amount is a uniformly-distributed random amount between half the resulting sum (rounded up) and the sum itself.
+
+=== Piston interactivity ===
+Grindstones cannot be pushed by [[piston]]s or pulled by [[sticky piston]]s.
+
+== Sounds ==
+=== Generic ===
+{{Sound table/Block/Stone}}
+=== Unique ===
+{{edition|java}}:
+{{Sound table
+|rowspan=2
+|sound=Grindstone use1.ogg
+|sound2=Grindstone use2.ogg
+|sound3=Grindstone use3.ogg
+|subtitle=Grindstone used
+|source=block
+|description=When a grindstone is used
+|id=block.grindstone.use
+|translationkey=subtitles.block.grindstone.use
+|volume=0.5
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|subtitle=Weaponsmith works
+|source=neutral
+|description=Randomly while a weaponsmith is working
+|id=entity.villager.work_weaponsmith
+|translationkey=subtitles.entity.villager.work_weaponsmith
+|volume=0.5
+|pitch=0.8-1.2
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|rowspan=2
+|sound=Grindstone use1.ogg
+|sound2=Grindstone use2.ogg
+|sound3=Grindstone use3.ogg
+|source=block
+|description=When a grindstone is used
+|id=block.grindstone.use
+|volume=0.5
+|pitch=1.0}}
+{{Sound table
+|source=block
+|description=Randomly while a weaponsmith is working
+|id=block.grindstone.use
+|volume=0.5
+|pitch=1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Grindstone
+|spritetype=block
+|nameid=grindstone
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Grindstone
+|spritetype=block
+|nameid=grindstone
+|id=450
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+
+{{/BS}}
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Disenchanted}}
+</table-progress-tracking>
+
+== History ==
+''For a more in-depth breakdown of changes to textures and models, including a set of renders for each state combination, see [[/Asset history]]''
+{{History|java}}
+{{History||1.14|snap=18w44a|[[File:Grindstone JE1 BE1.png|32px]] Added grindstones.
+|Grindstones are currently obtainable only from the [[creative]] [[inventory]] and do not have any functionality.}}
+{{History|||snap=18w45a|Added cullface argument to the feet of the grindstone.}}
+{{History|||snap=18w48a|[[File:Grindstone JE2 BE2.png|32px]] The texture of grindstones has been changed.|Added a [[crafting]] recipe for grindstones.|Grindstones are now functional and used to repair [[item]]s and [[tool]]s.
+|Grindstones can now remove all non-curse [[enchantment]]s from an item, in which [[experience]] is reimbursed to the [[player]].|Grindstones now generate in the updated [[plains]] [[village]]s.}}
+{{History|||snap=18w49a|Grindstones now generate in the updated [[savanna]] villages and the new [[snowy tundra]] villages.}}
+{{History|||snap=18w50a|Grindstones now generate in the updated [[desert]] and [[taiga]] villages.}}
+{{History|||snap=19w03a|Added [[sound]]s for grindstones.}}
+{{History|||snap=19w11a|Grindstones now serve as weaponsmith [[villager]]s' job site block.}}
+{{History||1.16|snap=20w06a|[[Crimson planks]] and [[warped planks]] can now be used to craft grindstones.}}
+{{History||1.19|snap=22w11a|[[Mangrove planks]] can now be used to craft grindstones.}}
+
+{{History|bedrock}}
+{{History||1.9.0|snap=beta 1.9.0.2|[[File:Grindstone JE1 BE1.png|32px]] Added grindstones, but they have no functionality.}}
+{{History||1.10.0|snap=beta 1.10.0.3|Grindstones can now generate in village weaponsmith houses.
+|[[File:Grindstone JE2 BE2.png|32px]] The texture of grindstones has been changed.|Added a [[crafting]] recipe for grindstones.}}
+{{History||1.11.0|snap=beta 1.11.0.1|Grindstones are now functional.
+|Grindstones are no longer immune from explosions.}}
+
+{{History|console}}
+{{History||ps=1.91|[[File:Grindstone JE1 BE1.png|32px]] Added grindstones.}}
+{{History||ps=1.92|[[File:Grindstone JE2 BE2.png|32px]] The texture of grindstones has been changed.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* Before the grindstone was added, a different method to remove enchantments was floated for [[Update Aquatic]], which would have been by means of feeding items to a mob known as "[[MINECON Earth 2017#Mob C|the Great Hunger]]", but the mob lost the [[MINECON Earth 2017]] mob vote to the [[phantom]].
+
+== Gallery ==
+<gallery>
+File:PlacedGrindstones.png|Grindstones on a wall, floor and ceiling.
+File:Grindstone at blacksmith.png|A grindstone at a blacksmith.
+</gallery>
+
+==References==
+{{Reflist}}
+
+{{Blocks|Utility}}
+
+[[Category:Job blocks]]
+[[Category:Utility blocks]]
+[[Category:Manufactured blocks]]
+[[Category:Generated structure blocks]]
+
+[[cs:Brusný kámen]]
+[[de:Schleifstein]]
+[[es:Afiladora]]
+[[fr:Meule]]
+[[it:Mola]]
+[[ja:砥石]]
+[[ko:숫돌]]
+[[pl:Kamień szlifierski]]
+[[pt:Rebolo]]
+[[ru:Точило]]
+[[th:หินลับมีด]]
+[[zh:砂轮]]

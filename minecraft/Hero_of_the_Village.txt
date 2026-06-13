@@ -1,0 +1,209 @@
+{{about|the status effect|the advancement|Advancement#Hero of the Village|the board game|Minecraft: Heroes of the Village}}
+{{Effect
+|title=Hero of the Village
+|image=Hero of the Village.png
+|sources=Defeating a [[raid]]
+|particle={{EffectSprite|particle-hero-of-the-village}} #44FF44 (light green){{only|java}}<br>
+none{{only|bedrock}}
+|type=Positive
+}}
+
+'''Hero of the Village''' (or '''village hero''') is a [[status effect]] granted to the [[player]] upon defeating a [[raid]].
+
+== Effect ==
+Players receive gifts{{only|java|short=1}} and discounts from villager [[trade]]s while under the effect, which lasts 40 minutes. It does not affect the [[wandering trader]]'s trades in Java Edition.
+
+=== Animation ===
+[[File:Hero of the Village Bedrock Animation.gif|The {{BE}} animation for the Hero of the Village effect activating.|alt=|thumb|280x280px]]
+{{IN|bedrock}}, upon the effect being given a short animation of the effect icon appearing on the screen plays, similar to a [[totem of undying]].
+
+=== Price decrement ===
+Level I Hero of the Village decreases the cost of the first item in a trade by 30%; each additional level decreases the price by an additional {{frac|1|16}} (6.25%). In Survival, the maximum level is V{{only|java|short=1}} or I{{only|bedrock|short=1}}, giving discounts of 55% and 30%, respectively. Nevertheless, one can use commands to give higher levels of the effect. Hero of the Village XII gives a discount of 98.75%, decreasing all prices to 1. No matter how large the discount is, the final item count in the trade is always at least one, never zero. In other cases, the decrement is the discount ratio multiplied by the original count rounded down or rounded up if the decrement is less than 1.
+
+Example: Level III would give a 42.5% discount. For trade with 14 [[emerald]]s as the cost, the discount would be 5 emeralds (rounded down from 5.95 emeralds), for a final price of 9 emeralds.
+
+The formula can be written as <code>Discounted price = Initial price  - max[1, floor(Initial Price × (0.0625 × (Level  - 1) + 0.3))]</code>.
+
+Hero of the Village is a [[status effect]] and can be removed through all conventional methods, such as drinking [[milk]], using totem of undying, or dying.‌{{only|java}}
+
+=== Gifts === 
+{{exclusive|java}}
+Upon obtaining the effect, villagers randomly throw items from a certain pool at the player as rewards, listed below. In order for a player to have gifts thrown to them, they must have Hero of the Village, the villager must be able to see them, and they must be within 5 blocks of the villager. After throwing a gift, a villager enters a cooldown lasting between 30 seconds and 5 minutes 30 seconds. Villagers give gifts only while idle, working, or meeting at the town center (bell). They do not give gifts during the night when they should be sleeping.
+{| class="wikitable sortable"
+!Type of villager
+!Gift pool
+|-
+| Baby
+|
+*{{BlockLink|Poppy}}
+|-
+|Armorer
+|
+*{{ItemLink|Chainmail Helmet}}
+*{{ItemLink|Chainmail Chestplate}}
+*{{ItemLink|Chainmail Leggings}}
+*{{ItemLink|Chainmail Boots}}
+|-
+|Butcher
+|
+*{{ItemLink|Cooked Chicken}}
+*{{ItemLink|Cooked Mutton}}
+*{{ItemLink|Cooked Porkchop}}
+*{{ItemLink|Cooked Rabbit}}
+*{{ItemLink|Steak}}
+|-
+|Cartographer
+|
+*{{ItemLink|Empty Map}}
+*{{ItemLink|Paper}}
+|-
+|Cleric
+|
+*{{ItemLink|Lapis Lazuli}}
+*{{ItemLink|Redstone}}
+|-
+|Farmer
+|
+*{{ItemLink|Bread}}
+*{{ItemLink|Cookie}}
+*{{ItemLink|Pumpkin Pie}}
+|-
+|Fisherman
+|
+*{{ItemLink|Raw Cod}}
+*{{ItemLink|Raw Salmon}}
+|-
+|Fletcher
+|
+*{{ItemLink|Arrow}}
+*{{ItemLink|Arrow of Fire Resistance}}
+*{{ItemLink|Arrow of Harming}}
+*{{ItemLink|Arrow of Healing}}
+*{{ItemLink|Arrow of Invisibility}}
+*{{ItemLink|Arrow of Leaping}}
+*{{ItemLink|Arrow of Night Vision}}
+*{{ItemLink|Arrow of Poison}}
+*{{ItemLink|Arrow of Regeneration}}
+*{{ItemLink|Arrow of Slowness}}
+*{{ItemLink|Arrow of Strength}}
+*{{ItemLink|Arrow of Swiftness}}
+*{{ItemLink|Arrow of Water Breathing}}
+*{{ItemLink|Arrow of Weakness}}
+|-
+|Leatherworker
+|
+*{{ItemLink|Leather}}
+|-
+|Librarian
+|
+*{{ItemLink|Book}}
+|-
+|Mason
+|
+*{{BlockLink|Clay}}
+|-
+|Shepherd
+|
+*{{BlockLink|Wool}}
+|-
+|Toolsmith
+|
+*{{ItemLink|Stone Axe}}
+*{{ItemLink|Stone Hoe}}
+*{{ItemLink|Stone Pickaxe}}
+*{{ItemLink|Stone Shovel}}
+|-
+|Weaponsmith
+|
+*{{ItemLink|Stone Axe}}
+*{{ItemLink|Golden Axe}}
+*{{ItemLink|Iron Axe}}
+|-
+| Nitwit, Unemployed
+|
+*{{ItemLink|Wheat Seeds}}
+|}
+If {{cmd|gamerule|mobGriefing}} is set to {{cd|true}}, villagers might pick up seeds and bread that were thrown as gifts if the player doesn't get to them first.
+
+== Causes ==
+{| class="wikitable" data-description="Causes"
+! Cause
+! Potency
+! Length
+! Notes
+|-
+| rowspan="2" | All [[illager]]s in the final wave of a [[raid]] are killed.
+| I–V {{only|java|short=yes}}
+| 40:00
+| The player must have killed at least one raider. The level is the same as the level of [[Bad Omen]] the raid was started with.
+|-
+| I {{only|bedrock|short=yes}}
+| 40:00
+| The player must have killed at least one raider.
+|}
+Even using the {{cmd|effect}} command can give the player the Hero of the Village effect and cause the villagers to decrease prices, give gifts, and increase the player's popularity.
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=java
+|displayname=Hero of the Village
+|spritetype=effect
+|nameid=hero_of_the_village
+|id=32
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Hero of the Village
+|spritetype=effect
+|nameid=village_hero
+|id=29
+|translationkey=effect.villageHero
+|foot=1}}
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Buy Low}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|How Did We Get Here?;Hero of the Village}}
+</table-progress-tracking>
+
+== History ==
+{{History|java}}
+{{History||1.14|snap=19w13a|[[File:Hero of the Village JE1 BE2.png|18px]] Added Hero of the Village.}}
+{{History||1.19.3|snap=22w46a|The inventory now correctly shows the remaining time on the Hero of the Village effect, instead of {{code|**:**}}.<ref>{{bug|MC-121865}}</ref>}}
+
+{{History|bedrock}}
+{{History||1.11.0|snap=beta 1.11.0.1|[[File:Hero of the Village BE1.png|18px]] Added Hero of the Village, which currently has no effect.}}
+{{History|||snap=beta 1.11.0.3|[[File:Hero of the Village JE1 BE2.png|18px]] Changed Hero of the Village icon.}}
+{{History|||snap=beta 1.11.0.4|Hero of the Village now grants a villager trading discount.
+|Hero of the Village can be obtained by defeating a [[raid]].}}
+{{History|||snap=beta 1.11.0.7|An animation now plays on-screen when a player gets Hero of the Village.}}
+
+{{history|Ps4}}
+{{History||1.91|[[File:Hero of the Village JE1 BE2.png|18px]] Added Hero of the Village.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+== References ==
+{{reflist}}
+
+{{Effects}}
+
+[[de:Held des Dorfes]]
+[[it:Eroe del villaggio]]
+[[ja:村の英雄]]
+[[pt:Herói da vila]]
+[[ru:Герой деревни]]
+[[zh:村庄英雄]]

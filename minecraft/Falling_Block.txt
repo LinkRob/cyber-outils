@@ -1,0 +1,223 @@
+{{needs update|The behavior is incomplete, as it also depends on what the falling block lands on. Also, there are differences between versions.}}
+{{/Infobox}}
+
+A '''falling block''' is the [[entity]] form of a block that appears when a gravity-affected block loses its support.
+
+== Spawning ==
+Falling blocks naturally spawn where gravity-affected [[Block|blocks]] lose their base of support. These blocks include:
+* {{BlockLink|Anvil}}
+* {{BlockLink|Concrete Powder}}
+* {{BlockLink|Dragon Egg}}
+* {{BlockLink|Gravel}}
+* {{BlockLink|Pointed Dripstone}}
+* {{BlockLink|link=sand|Red Sand}}
+* {{BlockLink|Sand}}
+* {{BlockLink|Scaffolding}}
+* {{BlockLink|Snow|Snow layer}}{{only|bedrock}}
+* {{BlockLink|Suspicious Sand}}
+* {{BlockLink|Suspicious Gravel}}
+
+Although it has the same appearance as its corresponding block and is also affected by gravity, the [[TNT#Behavior|primed TNT entity]] is a different kind of [[entity]] than the falling block entity.
+
+If [[Commands|cheats]] are enabled, falling block entities can be spawned using the [[Commands|command]] {{cmd|summon}}. By tweaking the <code>BlockState</code> NBT tag, it is possible to summon a falling block entity that normally does not fall as a block, such as [[dirt]] or [[stone]], although it has the same behavior as a naturally spawned falling block.
+
+== Behavior ==
+A falling block continues falling until it lands on another block with a solid top surface. If it lands with the bottom center of its [[Hitbox#Entity|hitbox]] in a replaceable block ([[grass]], [[water]], [[vines]], [[air]], etc.), and the block below can support it (i.e. not a replaceable block), then the falling block returns to its block state. Otherwise, it breaks and drops as an [[Item (entity)|item]].
+
+Like most other [[Entity|entities]], falling blocks are affected by [[explosion]]s and [[Bubble Column|bubble column]]s, can be launched by a moving [[Slime Block|slime block]], can be pushed by [[piston]]s, can be slowed down by [[cobweb]]s, and can slide down the side of a [[Honey Block|honey block]]. However, they do not bounce on a stationary slime block and can neither be pushed nor slowed down by [[water]] or [[lava]].
+
+Falling blocks pass through most entities without colliding with them, although projectiles such as [[arrow]]s bounce off them. They do not have [[health]], cannot be attacked and do not take [[damage]]. They are also immune to all [[Effect|status effect]]s.
+
+By default, a falling block that has existed for more than 600 ticks (30 seconds) destroys itself and drops as an item. This can be changed by modifying the entity's {{cd|Time}} NBT value. [[Suspicious block]]s also drop themselves after falling for more than 30 seconds,<ref>{{bug|MC-260073||Suspicious sand/gravel drops as an item after 30 seconds of existing as falling block|WF}}</ref> making this the only way to obtain suspicious blocks in Survival.
+
+Commands such as {{cmd|data}}{{only|java}} can change the moving and facing directions of a falling block, although there are no in-game mechanics that can alter a falling block's facing direction. They can be removed with the {{cmd|kill}} command.
+
+Some falling blocks, like anvils and pointed dripstone, deal damage to players and mobs in the same block space where they land. The damage is dealt only on landing, and is not dealt to players and mobs that collide with them in mid-air. A falling block that deals damage can be [[summon]]ed if its {{cd|HurtEntities}} tag is set to {{cd|true}}. The amount of damage dealt per block fallen can be customized via the {{cd|FallHurtAmount}} tag, and the maximum damage dealt can be customized via the {{cd|FallHurtMax}} tag.
+
+== Sounds ==
+Some falling blocks produce sounds when they land.<br>
+{{Edition|Java}}:
+{{Sound table
+|sound=Anvil land.ogg
+|subtitle=Anvil landed
+|source=block
+|description=When an anvil lands and survives
+|id=block.anvil.land
+|translationkey=subtitles.block.anvil.land
+|volume=0.3
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|sound=Pointed Dripstone land1.ogg
+|sound2=Pointed Dripstone land2.ogg
+|sound3=Pointed Dripstone land3.ogg
+|sound4=Pointed Dripstone land4.ogg
+|sound5=Pointed Dripstone land5.ogg
+|subtitle=MC-213647
+|source=block
+|description=When a pointed dripstone lands from falling
+|id=block.pointed_dripstone.land
+|translationkey=-
+|volume=2.0
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|sound=Suspicious sand break1.ogg
+|sound2=Suspicious sand break2.ogg
+|sound3=Suspicious sand break3.ogg
+|sound4=Suspicious sand break4.ogg
+|sound5=Suspicious sand break5.ogg
+|sound6=Suspicious sand break6.ogg
+|subtitle=Block broken
+|source=block
+|description=When a suspicious sand block lands from falling
+|id=block.suspicious_sand.break
+|translationkey=subtitles.block.generic.break
+|volume=1.0
+|pitch=0.8
+|distance=16}}
+{{Sound table
+|sound=Suspicious gravel break1.ogg
+|sound2=Suspicious gravel break2.ogg
+|sound3=Suspicious gravel break3.ogg
+|sound4=Suspicious gravel break4.ogg
+|sound5=Suspicious gravel break5.ogg
+|sound6=Suspicious gravel break6.ogg
+|subtitle=Block broken
+|source=block
+|description=When a suspicious gravel block lands from falling
+|id=block.suspicious_gravel.break
+|translationkey=subtitles.block.generic.break
+|volume=1.0
+|pitch=0.8
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Anvil land.ogg
+|source=block
+|description=When an anvil lands and survives
+|id=random.anvil_land
+|volume=0.5
+|pitch=0.8-1.0}}
+{{Sound table
+|sound=Pointed Dripstone land1.ogg
+|sound2=Pointed Dripstone land2.ogg
+|sound3=Pointed Dripstone land3.ogg
+|sound4=Pointed Dripstone land4.ogg
+|sound5=Pointed Dripstone land5.ogg
+|source=player
+|description=When a pointed dripstone lands from falling
+|id=land.pointed_dripstone}}
+{{Sound table
+|sound=Suspicious sand break1.ogg
+|sound2=Suspicious sand break2.ogg
+|sound3=Suspicious sand break3.ogg
+|sound4=Suspicious sand break4.ogg
+|sound5=Suspicious sand break5.ogg
+|sound6=Suspicious sand break6.ogg
+|source=block
+|description=When a suspicious sand block lands from falling
+|id=block.suspicious_sand.break}}
+{{Sound table
+|sound=Suspicious gravel break1.ogg
+|sound2=Suspicious gravel break2.ogg
+|sound3=Suspicious gravel break3.ogg
+|sound4=Suspicious gravel break4.ogg
+|sound5=Suspicious gravel break5.ogg
+|sound6=Suspicious gravel break6.ogg
+|source=block
+|description=When a suspicious gravel block lands from falling
+|id=break.suspicious_gravel
+|volume=1.0
+|pitch=0.8-1.0
+|foot=1}}
+
+== Data values ==
+
+=== ID ===
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|displayname=Falling Block
+|spritetype=entity
+|nameid=falling_block
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=1
+|generatetranslationkeys=bedrock
+|displayname=Falling Block
+|spritetype=entity
+|nameid=falling_block
+|id=66
+|foot=1}}
+
+=== Entity data ===
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+== History ==
+{{History|java infdev}}
+{{History||20100618|Added falling block entity with the ID {{cd|FallingBlock}}.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 6|Added dragon eggs, which create falling blocks.}}
+{{History||1.4.2|snap=12w41a|Added anvils, which create falling blocks.}}
+{{History||1.7.2|snap=13w39a|Added red sand, which creates falling blocks.}}
+{{History||1.11|snap=16w32a|The entity ID has been changed from {{cd|FallingBlock}} to {{cd|falling_block}}.}}
+{{History||1.12|snap=17w06a|Added concrete powder, which creates falling blocks.}}
+{{History||1.14|snap=18w45a|Added scaffolding, which creates falling blocks.}}
+{{History||1.17|snap=20w48a|Added pointed dripstone, which creates falling blocks if the block above it gets destroyed while the pointed dripstone is a stalactite.}}
+{{History||1.20<br>(Experimental)|link=1.19.4|snap=23w07a|Added suspicious sand, which creates falling blocks.}}
+{{History||1.20|snap=23w12a|Added suspicious gravel, which creates falling blocks.}}
+{{History||1.20|snap=23w14a|Added the {{cd|CancelDrop}} tag.}}
+
+{{History|pocket alpha}}
+{{History||v0.6.0|Sand and gravel are now affected by gravity with the addition of falling blocks.}}
+{{History||v0.8.0|snap=build 8|Falling blocks now drop their item form when falling onto blocks they cannot replace.}}
+{{History||v0.9.0|snap=build 1|Added red sand, which creates falling blocks.}}
+{{History||v0.12.1|snap=build 1|Added anvils, which create falling blocks.
+|Snow now creates falling blocks.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Added dragon eggs, which create falling blocks.}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Added concrete powder, which creates falling blocks.}}
+{{History|bedrock}}
+{{History||1.8.0|snap=beta 1.8.0.8|Added scaffolding, which creates falling blocks.}}
+{{History||1.17.0|snap=beta 1.16.210.56|Added pointed dripstone, which creates falling blocks if the block above it gets destroyed while the pointed dripstone is a stalactite.}}
+{{History||Next Major Update<br>(Experimental)|link=Bedrock Edition 1.20.0|snap=beta 1.19.70.23|Added suspicious sand, which creates falling blocks.}}
+{{History||||snap=beta 1.19.80.20|Added suspicious gravel, which creates falling blocks.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.00|wiiu=Patch 1|switch=1.0.1|Added sand and gravel along with falling blocks.}}
+{{History||xbox=TU9|Added dragon eggs, which create falling blocks.}}
+{{History||xbox=TU14|xbone=CU1|ps=1.05|wiiu=Patch 1|Added anvils, which create falling blocks.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|Added red sand.}}
+{{History||xbox=TU53|xbone=CU43|ps=1.49|wiiu=Patch 23|switch=1.0.3|Added concrete powder, which creates falling blocks.}}
+{{History||xbox=none|xbone=none|ps=1.83|wiiu=none|switch=none|Added scaffolding, which creates falling blocks.}}
+
+{{History|3ds}}
+{{History||0.1.0|Added falling blocks along with sand, red sand, gravel, and anvils.}}
+{{History||1.7.10|Added dragon eggs, which create falling blocks.}}
+{{History||1.9.19|Added concrete powder, which creates falling blocks.}}
+{{History|foot}}
+
+== See also ==
+* [[Tutorials/Falling blocks]]
+* [[Entity]]
+
+{{Entities}}
+
+[[de:Fallender Block]]
+[[es:Bloque en caída]]
+[[ja:落下中のブロック]]
+[[pt:Bloco em queda]]
+[[ru:Падающий блок]]
+[[zh:下落的方块]]

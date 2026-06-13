@@ -1,0 +1,1119 @@
+{{Version nav
+|title=Minecraft 1.21.6
+|image=1.21.6 banner.jpg
+|image2=Java Edition 1.21.6 Title Screen.png
+|edition=Java
+|type=Minor update
+|name=Chase the Skies
+|date=June 17, 2025<ref>[https://www.youtube.com/watch?v=zPWdMDZWM4Y VIBRANT VISUALS & CHASE THE SKIES]</ref>
+|jsonhash=ac29333211286b32d68ca4a16d2026a834ac1430
+|clienthash=740a125b83dd3447feaa3c5e891ead7fbb21ae28
+|clientmap=848855615bc81e3db1c85e69b6afb150807a1261
+|serverhash=6e64dcabba3c01a7271b4fa6bd898483b794c59b
+|servermap=94d453080a58875d3acc1a9a249809767c91ed40
+|prevparent=1.21.5
+|prev=
+|next=1.21.7
+|nextparent=1.21.9}}
+'''1.21.6''', the first release of '''[[Chase the Skies]]''', is a game drop to {{JE}}, released on June 17, 2025. The update was originally announced at Minecraft Live 2025 on March 22, 2025.<ref name=recap/><ref name=date/><ref name=snapshots/><ref name=name/>
+
+== Additions ==
+* Added Old Spelling Indonesian (Indonesian pre-reform) and Cantabrian language support
+
+=== [[Advancements]] ===
+; Heart Transplanter
+* [[Adventure Advancement]] that is unlocked when a [[player]] places a [[Creaking Heart]] with the correct alignment between two [[Pale Oak Log]] blocks
+; Stay Hydrated!
+* [[Husbandry Advancement]] when a [[Dried Ghast]] block is placed into [[water]]
+
+=== [[Blocks]] ===
+; [[Dried Ghast]] block
+* The Dried Ghast block is found in [[Nether Fossil structure]]s and is the first stage of the [[Happy Ghast]] mob
+* Can be crafted with 1 [[Soul Sand]] block and 8 [[Ghast Tear]]s:
+{{Crafting
+|A1= Ghast Tear	|B1= Ghast Tear	|C1= Ghast Tear
+|A2= Ghast Tear	|B2= Soul Sand	|C2= Ghast Tear
+|A3= Ghast Tear	|B3= Ghast Tear	|C3= Ghast Tear
+|Output= Dried Ghast
+|nocat=1
+}}
+* When [[waterlogged]], it undergoes 3 hydration level changes over approximately 20 minutes, until it spawns a [[Ghastling]] mob
+* The hydration level decreases when it is no longer waterlogged, using the same timescale
+* The hydration level is not preserved when mined
+* Makes sounds and shows particles depending on its hydration level
+* The Dried Ghast block emits a [[vibration frequency]] of 11 when its [[block state]] changes
+* [[Piglin]]s can now give Dried Ghast blocks when bartered with
+
+=== [[Item]]s ===
+; [[Harness]]
+* Harness is a new item that can be equipped on a [[Happy Ghast]] to allow [[player]]s to ride it
+* The Harness comes in 16 different colors
+* Crafted from 3 [[Leather]], 2 [[Glass block]]s and 1 [[Wool]] block
+** The Harness will have the same color as the Wool block used when crafting:
+{{Crafting
+|A1= Leather	|B1= Leather	|C1= Leather
+|A2= Glass		|B2= Matching Wool	|C2= Glass
+|Output= Harness
+|nocat=1
+}}
+* Can be re-[[dye]]d in the [[crafting grid]]
+* Can only be equipped on a[Happy Ghast
+* Allows up to 4 players to [[mount]] the Happy Ghast
+* Can be removed from the Happy Ghast using [[Shears]] when no players are mounted
+
+; [[Music Disc]]
+* Add new [[music disc]] "Tears" by Amos Roddy
+** Can be obtained by killing a [[Ghast]] with a [[fireball]] deflected by a [[player]]
+** Has a [[comparator]] output of 10 when played in a [[Jukebox]]
+
+=== [[Locator Bar]] ===
+The Locator Bar is a new [[UI]] element that displays the direction of other [[player]]s in the world in [[multiplayer]].
+* If another player is in the world (and that player is not hiding), the Locator Bar will display in the same area as the experience bar
+** When [[experience]] is gained, the experience bar will appear
+** If there are no other players in the world, the experience bar will display as normal
+* Facing other players within a 120 degree range will display those players as colored indicators on the Locator Bar
+** Other players that are above/below the screen will also display an up/down arrow, together with their indicator
+** The indicator will change to different sized icons depending on how far away the other player is
+** Colored indicators are randomized for each player
+*** Operators can modify the colors of indicators with the {{cmd|waypoint}} command
+**** e.g.: {{cmd|waypoint modify [[@s]] color red}} to set an indicator to red
+*** Players on a [[team]] will override their default indicator color with their team color
+* Players can hide by crouching, wearing a [[mob head]] or a [[Carved Pumpkin]], or using a [[Potion of Invisibility]]
+** The following items will hide players when worn in the [[Inventory#Slots|head slot]]:
+*** [[Carved Pumpkin]]
+*** [[Skeleton Skull]]
+*** [[Wither Skeleton Skull]]
+*** [[Player Head]]
+*** [[Zombie Head]]
+*** [[Creeper Head]]
+*** [[Dragon Head]]
+*** [[Piglin Head]]
+* Players in [[Spectator mode]] are not visible on the Locator Bar
+** However, spectators are visible to each other
+* The Locator Bar can be toggled off by setting the {{cd|locatorBar}} [[game rule]] to {{cd|false}}
+
+=== [[Mob]]s ===
+; [[Ghastling]]
+* The Ghastling is a young version of the [[Happy Ghast]] mob
+* Spawns from a [[Dried Ghast]] block that has continuously been waterlogged for about 20 minutes
+* After spawning, the Ghastling will try and follow:
+** Players within a 16-block radius or
+** An adult, non-aquatic [[passive mob]] or some of the [[neutral mob]]s within a 16-block radius
+* If no player or suitable mob is close around, the Ghastling will idle around within 32 blocks from its home position where it spawned or was last interacted with
+** It will reset its home position if it is moved more than 16 blocks away from the border of its home position
+* Can be tempted and fed using [[Snowball]]s
+* Will grow up into a Happy Ghast after about 20 minutes, or faster if fed Snowballs
+
+; [[Happy Ghast]]
+* Grows up from a [[Ghastling]]
+* Can be equipped with a [[Harness]] and then be [[mount]]ed by up to four [[player]]s
+* Tempted by [[Snowball]]s and Harness
+** The Happy Ghast can only be tempted with a harness when it has no harness equipped
+* Slowly [[regenerate]]s health, with regeneration speeding up during [[rain]], [[snow]] or when [[fly]]ing at the same height as [[cloud]]s
+* The first player that mounts the Happy Ghast will control it, sitting above it in the front seat
+** When controlled, the goggles of the Happy Ghast flip down to cover its eyes
+** Press {{control|forward}} and {{control|back}} — move in the direction the player is looking
+** Press {{control|left}} and {{control|right}} — strafe in the respective direction
+** Press {{control|jump}} — fly directly up
+** Press {{control|sneak}} — dismount the Happy Ghast
+* Players mounting after the first player are placed in slots on each side of it, starting clockwise from the first player
+* If the Happy Ghast detects players standing on top of it, it ceases all movement and rotates to the closest cardinal direction
+** This happens regardless of whether it has a Harness equipped or not
+* When mounted on the Happy Ghast, the [[third-person]] camera is further away from the player
+* When there are no players mounted or walking on the Happy Ghast, it starts its roaming behavior
+** If players dismount midair, the Happy Ghast will descend towards the ground before it starts roaming
+** The roaming behavior is similar to the Ghastling, except for the radius being 64 blocks
+** When wearing a Harness, the Happy Ghast roams closer to the home position, within a 32 block radius
+** When [[leash]]ed, the Happy Ghast has a roaming distance of 10 blocks
+** The Happy Ghast will try to stay close to [[block]]s when roaming
+* Cannot be [[bred]]
+* Cannot enter [[boats]]
+* Has no panic behavior when taking damage
+
+=== Music and Sound ===
+* Added 5 new background [[music]] tracks by Amos Roddy:
+** "Below and Above"
+** "Broken Clocks"
+** "Fireflies"
+** "Lilypad"
+** "O's Piano"
+** These new tracks will play in a variety of [[biome]]s in both [[survival]] and [[creative]], as well as in the [[main menu]]
+* Added a new sound for when a [[Lead]] snaps
+* Added new custom sounds for [[shearing]] [[Saddle]]s, [[Horse Armor]], and [[Carpet]]s from [[Llama]]s
+* Added new sound volume category called "UI" for sounds played by UI elements, like button clicks
+
+; [[Options#Music_&_Sounds|Music & Sound]] settings
+* Added an option that allows [[player]]s to change how frequently music plays while in a game [[world]]
+* Added an option that enables a music [[toasts|toast]] to be shown whenever a song starts playing
+** With this option enabled, the song that is currently playing will always be seen in the top left corner of the in-game [[pause menu]]
+
+== [[Vibrant Visuals]] ==
+Vibrant Visuals, first released on [[Bedrock_Edition_1.21.90|BE Minecraft Beta & Preview - 1.21.90.20]] (April 2025), is taking its first steps to {{JE}}.
+
+;[[Clouds]]
+* Clouds now exist all the way to the horizon, with an [[Options#Video_Settings|option]] to reduce them
+* Updated the pattern of clouds in the sky
+
+;[[Fog]]
+* Fog was tweaked for improved atmospheric perspective
+* It now becomes foggier when it [[rain]]s
+* Fog is now applied to 3D [[HUD]] elements such as [[first-person]] player hands and items in hands
+
+== Changes ==
+* The test framework will no longer try to restart running tests after a server restart
+* Updated the main screen panorama
+
+=== Items ===
+;[[Elytra]]
+* While gliding, using a [[Firework Rocket]] will only be used as a boost even if it could be placed on a block
+
+;[[Lead]]
+* The [[Slime Ball]] in the Lead recipe has been replaced with a [[String]]:
+{{crafting
+|A1=String |B1=String
+|A2=String |B2=String
+|C3=String
+|Output=Lead,2
+|ignoreusage = 1
+}}
+* Improved leash mechanics, with reworked leash physics, allowing for a more stable leash connection, especially when leashed [[entities]] are not on the ground
+** When dragged on the leash, leashed objects will now orient themselves towards the entity holding the leash
+** Using a [[Firework Rocket]] when [[fly]]ing with leashed entities will now break the leash connections
+* Leashes are now rendered twice as thick, matching [[Minecraft: Bedrock Edition]]
+* Leashes can now be used to leash two [[mob]]s together
+** {{control|Sneak}}-{{control|interact}} on any mob while holding leashed mobs will leash these mobs to the entity interacted with
+** Re-leashing an entity is prevented if the re-leashing would result in immediate leash snapping due to distance
+* Leashes can be snipped from an entity when interacting with them using [[Shears]]
+** This applies to its own leash connection as well as all entities attached to it
+** [[Dispenser]]s can now snip leashes from entities in front of them when they are equipped with Shears
+* When leashing an already leashed mob, their previous leash snaps
+* You cannot steal leashed entities from other [[player]]s
+* Interactions with a [[Leash knot]]/[[Fence]]:
+** Fails for entities that are not in range of the Leash knot/Fence
+** All entities leashed to the player will be leashed to the Leash knot/Fence
+** Transfers all its leashed entities to the player if the player has no entities leashed
+** {{control|Sneak}}-{{control|interact}} only ever attaches leashes
+** Shearing or [[punching]] the Leash knot will break all current leash connections
+* A Leash knot requires at least one connection to exist
+* [[Boat]]s and large mobs that can be leashed but cannot fit in a boat ([[Horse]]s, [[Donkey]], [[Mule]], [[Camel]] and [[Sniffer]]) can be leashed in a special quad connection to the [[Happy Ghast]]
+** Happy Ghast will also show a custom layer when it is leashing something using a quad connection
+** Entities leashed in quad connection are now rendered without slack
+* Leash snapping distance has been changed from 10 to 12 blocks
+** Happy Ghast has a leash snapping distance of 16 blocks
+** The distance between two leashed entities is determined based on the center of their [[bounding box]]es, rather than their feet
+
+; [[Saddle]]s
+* Saddles can now be crafted with 3 [[Leather]] and 1 [[Iron Ingot]]
+* Recipe unlocks when a player picks up their first Leather
+{{crafting
+|B1=Leather
+|A2=Leather |B2=Iron Ingot |C2=Leather
+|Output=Saddle
+|ignoreusage = 1
+}}
+* Some loot tables have had saddles removed from them (see [[#Loot table|Loot table]] below)
+
+; [[Shears]]
+* Shears can be used to remove [[Saddle]]s, [[Horse Armor]], [[Harness]]es and [[Carpet]]s from the [[mob]]s they are equipped on.
+** This does not work if the mob has a [[rider]], or if the [[player]] is {{control|crouching}}
+** Saddles cannot be removed from [[Ravager]]s using Shears
+** [[Dispenser]]s with Shears cannot remove Saddles, Horse Armor, Harnesses or Carpets equipped on mobs
+** Shearing Saddles, Horse Armor, and Carpets will emit a [[vibration frequency]] of 6, along with the Unequip frequency of 4
+
+; [[Splash potion]]s
+* Splash Potions distance to affected [[entities]] now depends on the closest distance between the entity [[hitbox]] and the splash potion hitbox where it landed
+** This means that if an entity is hit directly by the splash potion, it will receive the full effect of the potion
+** If the entities are grouped together, they will receive the same effect strength
+
+=== [[Loot table]] ===
+The following loot tables have had [[Saddle]]s removed from them and replaced with 1-5 [[Leather]]:
+* [[Monster_Room#Loot|Monster Room chests]]
+* [[Ancient_City#Loot|Ancient City chests]]
+* [[Desert_pyramid#Chest_Loot|Desert Pyramid chests]]
+* [[Jungle_pyramid#Loot|Jungle Pyramid chests]]
+* [[Stronghold#Altars|Stronghold altar chests]]
+
+=== [[Mob]]s ===
+* The old 16x pixel textures of the [[Ghast]] is now changed to 32x pixel textures, to look more similar to its passive counterpart.
+* Increased the [[third-person]] camera distance when [[spectator|spectating]] or [[riding]] [[Ghast]]s, [[Ender Dragon]]s, and [[Giant]]s
+* [[Wolves]], [[Sheep]] and [[Pig]]s now have their legs mirrored
+* [[Spectator]]s will now [[portal|teleport]] together with, but stop spectating, entities that move to other [[dimension]]s
+* [[Horse]]s, [[Donkey]]s, and [[Mule]]s can now be fed [[carrot]]s to heal, grow, and improve their temper
+
+=== [[Music]] and [[Sound]] ===
+* {{anchor|music}}Music now plays even when the game is [[pause]]d
+* The following sound categories have been renamed:
+** Friendly Creatures -> Friendly Mobs
+** Hostile Creatures -> Hostile Mobs
+* Rules for when ambient desert blocks sounds play have been tweaked
+
+==== Ambient Desert Block Sounds Changes ====
+* Ambient [[sand]] sounds no longer require sky access to play
+* Ambient sand sounds now have a slightly decreased chance to play
+* [[Terracotta]] blocks no longer trigger ambient sand sounds
+* Sand blocks no longer trigger ambient wind sounds
+* Terracotta blocks no longer trigger ambient wind sounds
+* [[Short Dry Grass]] and [[Tall Dry Grass]] can now trigger ambient wind sounds when above 2 [[Sand]], [[Red Sand]] or [[Terracotta]] blocks
+* [[Dead Bush]] ambient sounds now have a slightly increased chance of playing
+
+=== [[Projectiles]] ===
+* The target tolerance margin of projectiles now changes over time
+** Previously, all projectiles had a target tolerance margin of 0.3 blocks
+** Now, all projectiles start with no margin for the first two ticks of their flight
+** After that, the target margin will expand by 0.05 blocks per tick until it reaches the previous 0.3 blocks margin
+** This allows for better precision close to the shooting player or entity, while still allowing for some collision leeway when the projectile is further away
+
+=== [[Realms]] ===
+* Changed the layout of the Realms configuration screen to use tabs
+* The Worlds tab allows changes to any of the world slots, creating new worlds and changing their settings
+* The Players tab allows management of the players that have access and their level of access to the Realm
+* The Subscription tab allows management of the Realms subscription
+* The Settings tab allows changing the settings of the Realm
+* Introduced a Region Preference setting that allows for more granular control over what region a Realm is hosted in
+* Changed wording for {{cd|Close|Open|delimiter=/}} Realm to {{cd|Temporarily close|Reopen|delimiter=/}} Realm
+* Added the Realms logo to the Realms loading screens
+* Added region information when connecting to a Realm
+
+== Technical Changes ==
+* The [[Data Pack]] version is now {{cd|80}}
+* The [[Resource Pack]] version is now {{cd|63}}
+* Pressing {{cd|F3}} + {{cd|V}} now prints client-side version information
+* All JSON files (in worlds, packs, configuration, etc.) are now parsed in strict mode
+* "Command Syntax" report now contains information about required [[permission level]]
+* {{cd|--quickPlaySingleplayer}} command line argument can now be used without an identifier to launch into the last played world
+
+=== Data Pack versions 72 through 80 ===
+* [[Custom_dimension/dimension_type|Dimension Type definitions]] have a new optional field {{cd|cloud_height}}, that indicates on what y-level the clouds start in the dimension
+* The {{cd|minecraft:custom}} click event has been expanded to carry a full [[NBT tag]]
+
+==== [[Advancements]] ====
+; Added {{cd|minecraft:player_sheared_equipment}} [[trigger]]
+* Can Trigger when a [[player]] [[shear]]s off a shearable equipment from an [[Entity]]
+* Conditions:
+** {{cd|item}}: [[item]] that was sheared
+** {{cd|entity}}: entity that was sheared
+
+==== [[Attribute]]s ====
+
+; Added {{cd|camera_distance}}
+* Default value: {{cd|4.0}}
+* Modifies the distance at which the camera is placed away from the [[player]] or spectated [[entity]] when in a [[third-person view]]
+* If the entity being [[ridden]] has a larger {{cd|camera_distance}} attribute, that distance will be used
+* This distance is multiplied by the {{cd|scale}} attribute to get a final target camera distance
+
+; Changed {{cd|flying_speed}}
+* The {{cd|flying_speed}} attribute now also applies to [[Ghast]]s and [[Happy Ghast]]s
+
+; {{anchor|waypoint_atr}}Added {{cd|waypoint_transmit_range}} and {{cd|waypoint_receive_range}}
+* Default: {{cd|0.0}}, Minimum: {{cd|0.0}}, Maximum: {{cd|60000000.0}}
+* [[Player]]s have a default transmission and reception range of {{cd|60,000,000}}
+* [[Mob]]s with a transmission range above zero will send [[waypoint]] packets to nearby receivers that are within that range
+* Similarly, receivers only receive [[waypoint]]s that are inside their reception range (and receive nothing if that range is zero)
+* Examples:
+** {{cmd|attribute @s minecraft:waypoint_transmit_range base set 0}} will prevent a player from transmitting (hiding them)
+** {{cmd|attribute @s minecraft:waypoint_transmit_range base set 80}} will only let a player transmit up to 80 blocks (hiding them from players further away than that)
+** {{cmd|attribute @s minecraft:waypoint_receive_range base set 0}} will prevent a player from receiving (turns off their [[Locator Bar]])
+** {{cmd|attribute @s minecraft:waypoint_receive_range base set 120}} will only let a player see Locator Bar dots that are within 120 blocks (hiding all players further away than that)
+
+==== [[Commands]] ====
+; Added {{cmd|datapack create}}
+* Creates a new empty directory [[data pack]] for the current [[world]]
+* The supported pack version is always equal to one supported by the game
+* Available only to [[server]] owners
+* Syntax: {{cmd|datapack create <id> <name>}}
+** {{cd|id}}: new pack name, must be a valid directory name
+** {{cd|name}}: text component to be placed in {{cd|description}} in {{cd|pack.mcmeta}}
+
+; Added {{cmd|dialog}}
+* Used to show [[dialog]] to clients
+* Syntax:
+** {{cmd|dialog show <targets> <dialog>}}: show dialog to player(s)
+*** {{cd|<targets>}}: player name, [[UUID]] or a player selector
+*** {{cd|<dialog>}}: [[namespaced ID]] from the {{cd|minecraft:dialog}} registry or an inline dialog value as described [[#Dialogs|below]]
+*** Returns the number of players in the {{cd|targets}} argument
+** {{cmd|dialog clear <targets>}}: clear the dialog for player(s), if they have any visible
+*** {{cd|<targets>}}: player name, UUID or a player selector
+*** Returns the number of players in the {{cd|targets}} argument
+
+; Modified {{cmd|playsound}}
+* Added new category {{cd|ui}}
+* [[Sounds]] in this category will continue playing when [[pause]]d, similarly to [[#music|{{cd|music}}]]
+
+; Added {{cmd|version}}
+* Prints the current version information on the [[server]] side
+* Available in [[singleplayer]] or for server operators
+* No arguments
+
+; Added {{cmd|waypoint}}
+* For querying and modifying [[waypoint]]s
+** {{cmd|waypoint list}}
+** {{cmd|waypoint modify <entity-selector> color <color>}}
+** {{cmd|waypoint modify <entity-selector> color hex <hex-color>}}
+** {{cmd|waypoint modify <entity-selector> color reset}}
+** {{cmd|waypoint modify <entity-selector> style <waypoint_style/resource>}}
+** {{cmd|waypoint modify <entity-selector> style reset}}
+* Arguments:
+** {{cd|entity-selector}}: for selecting [[entities]] that are transmitting as waypoints (see [[#waypoint_atr|{{cd|waypoint_transmit_range}}]] attribute)
+** {{cd|color}}: overrides the [[Locator Bar]] icon color for this waypoint
+** {{cd|hex <hex-color>}} arguments are in web format (RRGGBB)
+*** Red is either {{cd|hex F00}} or {{cd|hex FF0000}}
+*** Cornflower blue is {{cd|hex 6495ED}}
+** {{cmd|style}}: for changing the icon spriteset and selection distances
+*** {{cmd|set <waypoint_style/resource>}} changes the style to a specific asset under {{cmd|waypoint_style/}} (see [[#waypoint_styles|Waypoint Styles]] section below)
+** {{cd|reset}} will restore the default icon behavior of the Locator Bar
+* {{anchor|waypoint_styles}}Waypoint Styles
+** These define custom icons to be displayed on the [[Locator Bar]] and are within the {{cd|waypoint_style/}} asset directory.
+** The default implementation is as such:
+<pre style="margin:-16px 0 8px 90px; padding:8px; width:20em">{
+  "near_distance": 128,
+  "far_distance": 332,
+  "sprites": [
+    "minecraft:default_0",
+    "minecraft:default_1",
+    "minecraft:default_2",
+    "minecraft:default_3"
+  ]
+}</pre>
+*** {{cd|near_distance}} and {{cd|far_distance}} are optional and default to the values {{cd|128}} and {{cd|332}} respectively.
+**** {{cd|far_distance}} distance must be greater than {{cd|near_distance}}
+*** Each sprite is searched within the prefix of {{cd|hud/locator_bar_dot/}} (the directory {{cd|textures/gui/sprites/hud/locator_bar_dot}}).
+
+==== Data components ====
+; {{cd|attribute_modifiers}} Item Component
+* Added an optional {{cd|display}} field to {{cd|attributes_modifiers}} entries
+* There are 3 {{cd|display}} types:
+** {{cd|default}}: current behavior of showing the calculated attribute modifier values on the [[tooltip]]
+** {{cd|hidden}}: does not show the attribute modifier entry
+** {{cd|override}}: replaces the shown attribute modifier text
+*** Contains a single field {{cd|value}} for the text contents to show for this attribute modifier entry
+
+; {{cd|equippable}} Item Component
+* Added a new optional field: {{cd|can_be_sheared}} (boolean)
+** If {{cd|true}}, players can use [[Shears]] to remove this equippable [[item]] from a target [[mob]] by {{control|right-clicking}}, provided all other shearing conditions are satisfied
+** If not specified, it defaults to {{cd|false}}
+* Added a new optional field: {{cd|shearing_sound}} ([[sound event]])
+** It is a sound event that plays when the equippable item is sheared
+** If not specified, it defaults to the {{cd|item.shears.snip}} sound event
+
+; {{cd|painting/variant}} Item Component
+* No longer accepts inline variants
+
+==== [[Entity data]] ====
+* Added the {{cd|home_pos}} and {{cd|home_radius}} fields to all [[Mob/ED|mobs]]
+** Mobs with a set home position will limit their pathfinding to stay within the indicated area
+** Some mobs, such as [[Bat]]s, [[Slime]]s, [[Magma Cube]]s, [[Phantom]]s, and [[Ender Dragon]]s may ignore it
+** Interacting with [[leash]]es or [[riding]] may change the home position of the mob
+
+; {{cd|area_effect_cloud}}
+* The {{cd|Particle}} field has been renamed to {{cd|custom_particle}}, and now always functions as an exact override for the default colored {{cd|entity_effect}} particle
+** The field will not be written if no override is specified
+** The color will no longer be inherited from the [[potion]] contents when specifying the {{cd|entity_effect}} or {{cd|tinted_leaves}} particle types
+
+; {{cd|tnt}}
+* The [[entity]] that primed the [[TNT]] is now stored in an optional {{cd|owner}} field ([[UUID]] of the Living entity)
+
+; {{cd|vex}}
+* The owner of a [[Vex]] is now stored in an optional {{cd|owner}} field (UUID of the mob)
+
+==== [[Dialog]]s ====
+* Added a way to display simple modal dialogs to a user
+* Dialogs are stored in a {{cd|minecraft:dialog}} registry, but can also be defined inline
+* Dialogs are an experimental feature
+* To avoid user confusion, dialog screens are marked with a warning sign next to the title
+** Clicking on this warning leads to a screen that explains to the user that this screen is provided by custom content
+** It also gives the user an option to leave the current world to avoid them being locked in an infinite loop of dialogs
+** If a new dialog is received by the client while a warning screen is visible, it will not replace it, but when the user clicks the "Back" button, the new dialog will be restored instead
+* Dialogs can be displayed by the server in {{cd|play}} and {{cd|configuration}} connection phases
+** However, only ''inline'' registries are allowed in {{cd|configuration}}, since registries are not yet available in that phase
+** Additionally, {{cd|run_command}} click event is not available in the {{cd|configuration}} phase
+* Dialogs by default will close after the {{control|Escape}} is pressed
+** When this happens, the dialog will run the action specific to the dialog type described as "exit action" below
+** This behavior is configurable
+* When the dialog screen is closed, the game goes back to the previously displayed non-dialog screen or back to gameplay
+** That means that new dialogs always replace already opened ones, if any
+* Dialogs can be configured to be accessible from the [[Pause menu]]
+** This replaces and expands the "Server Links" button added in previous versions
+* A new [[key bind]] called "Quick Actions" has been added to allow accessing content-configured dialogs
+
+* Most dialogs follow a common layout, however exact contents depend on type:
+** Header with title and warning button
+** Body elements, scrollable if needed:
+*** messages and items
+*** inputs
+*** actions buttons
+** Optional footer, contains main buttons and submit actions
+* Developer's Note: Dialogs are not supposed to fully describe any in-game UI, but just to allow custom content to display simple messages and get input from users. This feature is intentionally limited to match that use case.
+
+===== Dialog Description Format =====
+* Dialogs are stored in the {{cd|minecraft:dialog}} registry that can be provided by a datapack
+* Fields:
+** {{cd|type}}: one of dialog types from the {{cd|minecraft:dialog_type}} registry
+** {{cd|<type-specific>}}: see [[#dialog_tyoes|below]]
+
+====== Common dialog fields ======
+* Most dialog types share some fields. To avoid duplication, they are listed in this section
+* {{anchor|common}}Fields:
+** {{cd|title}}: screen title, text component
+*** Should be always visible on screen, no matter the specific type
+** {{cd|external_title}}: name to be used for a button leading to this dialog (for example from the [[Pause screen]]), optional text component
+*** If not present, {{cd|title}} will be used instead
+** {{cd|body}}: optional list of body elements or a single element, see [[#Dialog body types|below]]
+** {{cd|inputs}}: optional list of inputs, see [[#Input control types|below]]
+** {{cd|can_close_with_escape}}: can dialog be dismissed with the {{control|Escape}}, default {{cd|true}}
+** {{cd|pause}}: should the dialog screen pause the game in [[single-player]] mode, default: {{cd|true}}
+** {{cd|after_action}}: additional operation performed on the dialog after click or submit actions, default: {{cd|close}}
+*** After every action the dialog will always evaluate the contents of the {{cd|after_action}} field
+*** {{cd|close}}: close the dialog and return to the previous non-dialog screen (if any)
+*** {{cd|none}}: do nothing, i.e. keep the current screen open
+**** only available if {{cd|pause}} is {{cd|false}} to avoid locking the game in single-player mode
+*** {{cd|wait_for_response}}: replace the current dialog with a "Waiting for Response" screen
+**** this option is intended to prevent users from sending multiple actions on laggy connections
+***** servers are expected to eventually replace this screen with a new dialog
+**** to avoid accidental locking, a "Back" button will become active after 5 seconds
+***** clicking this button will continue as if the dialog was closed (i.e. the game returns to the previous non-dialog screen, if any)
+**** the "Waiting for Response" screen will unpause the game in single-player mode to avoid locking the game
+
+====== Dialog types ======
+; {{cd|minecraft:confirmation}}
+* A simple screen with two actions in the footer
+* Exit action: same as {{cd|no}} action
+* Fields:
+** Common dialog fields (see [[#common|above]])
+** {{cd|yes}}: action (see [[#Actions|below]]) for positive outcome
+** {{cd|no}}: action (see [[#Actions|below]]) for negative outcome
+
+; {{cd|minecraft:dialog_list}}
+* A scrollable list of buttons leading directly to other dialogs, arranged in columns
+* Titles of those buttons will be taken from {{cd|external_title}} fields of targeted dialogs
+* Exit action: same as {{cd|exit_action}}, if present
+* Fields:
+** Common dialog fields (see [[#common|above]])
+** {{cd|dialogs}}: dialog, a list of dialogs, or a dialog tag
+** {{cd|exit_action}}:  optional action (see [[#Actions|below]]) in footer
+** {{cd|columns}}: number of columns, positive integer, default: {{cd|2}}
+** {{cd|button_width}}: width of buttons in the list, integer from {{cd|1}} to {{cd|1024}} (inclusive), default: {{cd|150}}
+
+; {{cd|minecraft:multi_action}}
+* A scrollable list of actions arranged in columns
+* Screen can have an optional exit action that will appear in footer
+* Exit action: same as {{cd|exit_action}}, if present
+* Fields:
+** Common dialog fields (see [[#common|above]])
+** {{cd|actions}}: non-empty list of actions (see [[#Actions|below]])
+** {{cd|exit_action}}: optional action (see [[#Actions|below]]) in the footer
+** {{cd|columns}}: number of columns, positive integer, default: {{cd|2}}
+
+; {{cd|minecraft:notice}}
+* A simple screen with one action in the footer
+* Exit action: same as {{cd|action}}
+* Fields:
+** Common dialog fields (see [[#common|above]])
+** {{cd|action}}: main action (see [[#Actions|below]]), defaults to a button with {{cd|gui.ok}} label and no action or tooltip
+
+; {{cd|minecraft:server_links}}
+* A scrollable list of links received from the server in the {{cd|minecraft:server_links}} packet, arranged in columns
+* Note: this is a replacement for the previous "Server Links" screen, but now with an additional body
+* Exit action: same as {{cd|exit_action}}, if present
+* Fields:
+** Common dialog fields (see [[#common|above]])
+** {{cd|exit_action}}: optional action (see [[#Actions|below]]) in the footer
+** {{cd|columns}}: number of columns, positive integer, default: {{cd|2}}
+** {{cd|button_width}}: width of buttons in the list, integer from {{cd|1}} to {{cd|1024}} (inclusive), default: {{cd|150}}
+
+====== Dialog body types ======
+* All dialogs have a list of body elements describing contents between title and actions or inputs
+* Hover and click events on text components within bodies function as expected
+* Click events are handled by the dialog screen like any other action — that means it will also run the {{cd|after_action}}
+* Fields:
+** {{cd|type}}: one of the dialog body types from the {{cd|minecraft:dialog_body_type}} registry
+** {{cd|<type-specific>}}: see below
+
+; {{cd|minecraft:item}}
+* Item with an optional description
+* If Description is present, it will be rendered to the right of the item
+* The Item will be rendered as if it was in an inventory slot
+* The Item is not scaled even if {{cd|width}} and {{cd|height}} are set to values other than default
+* Fields:
+** {{cd|item}}: item stack with count
+** {{cd|description}}: optional object with fields:
+*** {{cd|contents}}: text component
+*** {{cd|width}}: maximum width of contents, integer from {{cd|1}} to {{cd|1024}}, default: {{cd|200}}
+*** Can also just be text component
+** {{cd|show_decorations}}: if {{cd|true}}, the count and damage bar will be rendered over the item, default: {{cd|true}}
+** {{cd|show_tooltip}}: if {{cd|true}}, the item tooltip will show up when the item is hovered, default: {{cd|true}}
+** {{cd|width}}: horizontal size of element, integer from {{cd|1}} to {{cd|256}} (inclusive), default: {{cd|16}}
+** {{cd|height}}: vertical size of element, integer from {{cd|1}} to {{cd|256}} (inclusive), default: {{cd|16}}
+
+; {{cd|minecraft:plain_message}}
+* A multiline label
+* Fields:
+** {{cd|contents}}: text component
+** {{cd|width}}: maximum width of message, integer from {{cd|1}} to {{cd|1024}} (inclusive), default: {{cd|200}}
+
+====== Input control types ======
+* The Dialog can contain a set of controls that accept user input
+* When submitted, the current value of the input will be used to build a response to the server according to the action selected by the user (see [[#input_types|below]])
+* When a value is inserted into a macro, template substitution form is used
+* When a value is sent as a tag, tag form is used
+* Fields:
+** {{cd|type}}: one of the input control types from the {{cd|minecraft:input_control_type}} registry
+** {{cd|key}}: string identifier of the value used when submitting data, must be a valid template argument (letters, digits and _)
+** {{cd|<type-specific>}}: see [[#input_types|below]], depends on {{cd|type}}
+
+; {{anchor|input_types}}{{cd|minecraft:boolean}}
+* A plain checkbox with a label
+* Output values:
+** As template substitution: {{cd|on_true}} when checked, {{cd|on_false}} when unchecked
+** As tag: {{cd|1b}} when checked, {{cd|0b}} when unchecked
+* Fields:
+** {{cd|label}}: text component to be displayed to the right of the control
+** {{cd|initial}}: initial value, default: {{cd|false}} (i.e. unchecked)
+** {{cd|on_true}}: string value to send when the control is checked, default: {{cd|true}}
+** {{cd|on_false}}: string value to send when the control is unchecked, default: {{cd|false}}
+
+; {{cd|minecraft:number_range}}
+* A slider for picking a numeric value out of some range
+* Sends the currently selected value
+* Output values:
+** As template substitution: text representation of the current value
+*** Whole numbers will be sent without a decimal point
+** As tag: float tag with the current value
+* Fields:
+** {{cd|label}}: text component to be used as a slider label
+** {{cd|label_format}}: translation key to be used for building the label (the first argument is the contents of the {{cd|label}} field, the second argument is the current value), default: {{cd|options.generic_value}}
+** {{cd|width}}: width of input, integer from {{cd|1}} to {{cd|1024}} (inclusive), default: {{cd|200}}
+** {{cd|start}}: start value (when slider is in the leftmost position) (inclusive), float
+** {{cd|end}}: end value (when slider is in the rightmost position) (inclusive), float
+** {{cd|initial}}: initial value of the slider, float, defaults to the middle of the slider range
+** {{cd|step}}: step size, optional positive float
+*** If present, only values of {{cd|initial + <any integer> * step}} will be allowed
+*** If absent, any value from the range is allowed
+
+; {{cd|minecraft:single_option}}
+* A button that cycles between a set of options when clicked
+* Output values:
+** As template substitution: contents of the {{cd|id}} field of the currently selected option
+** As tag: string tag with the contents of the {{cd|id}} field of the currently selected option
+* Fields:
+** {{cd|label}}: text component to be displayed on the button
+** {{cd|label_visible}}: if {{cd|true}}, the label will be incorporated into the button text, default: {{cd|true}}
+** {{cd|width}}: width of button, integer from {{cd|1}} to {{cd|1024}} (inclusive), default: {{cd|200}}
+** {{cd|options}}: a list of objects with fields:
+*** {{cd|id}}: string value to send on submit
+*** {{cd|display}}: text component to display on the button, optional (if not present, {{cd|id}} is used)
+*** {{cd|initial}}: optional boolean flag that selects the initial option (only one option can have this be set to {{cd|true}})
+*** Additionally, the list might also contain a plain string — in that case, it is equivalent to a single entry with field {{cd|id}} set to that string and other fields set to default
+
+; {{cd|minecraft:text}}
+* A simple text input
+* Output values:
+** As template substitution: contents with special characters escaped to fit in an [[SNBT]] literal (note: both {{cd|'}} and {{cd|"}} are escaped)
+** As tag: string tag with contents without modification
+* Fields:
+** {{cd|width}}: width of the text input, integer from {{cd|1}} to {{cd|1024}} (inclusive), default: {{cd|200}}
+** {{cd|label}}: text component to be displayed to the left of the control
+** {{cd|label_visible}}: controls label visibility, default: {{cd|true}}
+** {{cd|initial}}: initial contents, default: {{cd|""}} (empty)
+** {{cd|max_length}}: maximum length of the text input, positive integer, default: {{cd|32}}
+** {{cd|multiline}}: if present, allows users to input multiple lines, optional object with fields:
+*** {{cd|max_lines}}: if present, limits maximum lines, optional positive integer
+*** {{cd|height}}: height of input, optional integer from {{cd|1}} to {{cd|512}}
+**** If this field is omitted, but {{cd|max_lines}} is present, the height will be chosen to fit the maximum number of lines (but cannot exceed {{cd|512}})
+**** If this and {{cd|max_lines}} are both omitted, it will default to a height that fits 4 lines
+
+===== Actions =====
+Dialogs have at least one action, presented to the user as a button. After every action, the dialog will always evaluate contents of the {{cd|after_action}} field (see [[#common|above]]).
+* Fields:
+** {{cd|label}}: button label, text component
+** {{cd|tooltip}}: optional text component to display when the button is hovered or focused
+** {{cd|width}}: width of the button, integer from {{cd|1}} to {{cd|1024}} (inclusive), default: {{cd|150}}
+** {{cd|action}}: action to perform when the button is clicked, optional object with fields:
+*** {{cd|type}}: value from the {{cd|minecraft:dialog_action_type}} registry
+*** {{cd|<type-specific>}}: see below, depends on {{cd|type}}
+
+====== Static dialog action types ======
+* All existing {{cd|click_event}} actions (except for {{cd|open_file}}) are included as dialog action types.
+* Uses same format as {{cd|click_event}} on text components (but with {{cd|action}} replaced with {{cd|type}}). For example, when using {{cd|show_dialog}}, the entry for the action button will look like this:
+<pre style="margin:-16px 0 8px 30px; padding:8px; width:20em">{
+    "label": "some label",
+    "action": {
+        "type": "show_dialog",
+        "dialog": "some:id"
+    }
+}</pre>
+
+; {{cd|minecraft:dynamic/run_command}} Action Type
+* This action will build a {{cd|run_command}} event using a provided macro template
+* The macro will be expanded with string values from inputs
+* For example, if the macro template is {{cd|some_command $(some_input)}}, the string value from input with {{cd|key}} of {{cd|some_input}} parameter will be used for the template expansion
+* Inputs not used in the macro will be ignored, while macro parameters not matching any inputs will be replaced with an empty string
+* Fields:
+** {{cd|template}}: string with a macro template to be interpreted as a command
+
+; {{cd|minecraft:dynamic/custom}} Action Type
+* This method will build a {{cd|minecraft:custom}} event using all input values
+* All input contents will be sent together inside a compound tag, with the tag value of each input put under id from {{cd|key}} field of that input
+* Additional static fields can be added to the payload
+* Fields:
+** {{cd|additions}}: fields to be added to the payload, optional compound tag
+** {{cd|id}}: [[namespaced ID]]
+
+====== Built-in dialogs ======
+The built-in [[datapack]] contains some custom dialogs to provide customization of specific screens used by the client.
+; {{cd|minecraft:custom_options}}
+* Shows the contents of the {{cd|minecraft:pause_screen_additions}} tag (see [[#Pause screen configuration|below]])
+* Allows the user to select a specific dialog if this tag contains multiple entries
+* Note: Since this tag is meant for interoperability, any content that replaces this dialog should be careful not to hide other dialog providers
+
+; {{cd|minecraft:server_links}}
+* Replacement for the previously existing "Server Links" screen
+* Meant to simplify migration for servers that previously used this feature
+
+===== [[Pause screen]] configuration =====
+* A [[data pack]] can request some of the available dialogs to be accessible from the Pause screen
+* This feature replaces the "Server Links" button and is placed on the Pause screen according to the same rules
+* Buttons leading to dialogs exposed in this way will use the label described in the {{cd|external_title}} field
+* This feature is configured by the {{cd|minecraft:pause_screen_additions}} dialog [[tag]]:
+** If this tag is not specified or is empty, but the server has sent the {{cd|server_links}} packet, the tag will be handled as if it contained the {{cd|minecraft:server_links}} dialog
+*** Note: this matches previous Server Links feature behavior
+*** If this dialog is removed, the tag remains empty
+*** If this tag is still empty, the button will not be visible ("Send Feedback" and "Report Bugs" buttons are visible instead)
+** If this tag has a single element, the Pause screen button will lead directly to that dialog
+** If this tag has multiple elements, the Pause screen button will lead to a {{cd|minecraft:custom_options}} dialog, which (by default) lets the user select one of the tag elements
+*** If this dialog is removed, the button will not be visible
+
+===== Quick Actions [[key bind]] =====
+* A new key bind has been added that allows users to access a set of dialogs
+* Default key: {{cd|G}}
+* This feature is configured by the {{cd|minecraft:quick_actions}} dialog [[tag]]
+** If this tag is empty, the key bind will do nothing
+** If this tag has a single element, the key bind will open that dialog
+** If this tag has multiple elements, the key bind will lead to the {{cd|minecraft:quick_actions}} dialog, which (by default) lets the user select one of the tag elements
+*** If this dialog is removed, the key bind will do nothing
+* This option is intended for use in custom content and by [[server]]s, so this tag is empty in the Vanilla pack
+
+==== [[Game Rule]]s ====
+; Added {{cd|LocatorBar}}
+* Default is {{cd|true}}: enabling the [[Locator Bar]]
+* Changing to {{cd|false}} will remove all existing [[Waypoint]]s from all [[player]]s
+
+==== [[Tag]]s ====
+* [[Block]] tags:
+** Added {{cd|#happy_ghast_avoids}}: blocks that [[Happy Ghast]]s avoid getting close to
+** Added {{cd|#triggers_ambient_desert_dry_vegetation_block_sounds}}: blocks that can trigger ambient desert dry vegetation sounds to play from blocks above
+** Added {{cd|#triggers_ambient_dried_ghast_block_sounds}}: blocks that can trigger ambient [[Dried Ghast]] sounds to play when a Dried Ghast block is placed on them
+** Renamed {{cd|#plays_ambient_desert_block_sounds}} to {{cd|#triggers_ambient_desert_sand_block_sounds}}
+* [[Item]] tags:
+** Added {{cd|#happy_ghast_food}}: items that can be used to feed Happy Ghasts
+** Added {{cd|#happy_ghast_tempt_items}}: items that can be used to tempt Happy Ghasts
+* Entity tags:
+** Added {{cd|#can_equip_harness}}: entities that can equip the [[Harness]] item
+** Added {{cd|#followable_friendly_mobs}}: non-baby entities that will be followed by Baby Happy Ghasts ([[Ghastling]]s)
+
+==== Text Components ====
+===== Click Events =====
+* Users will now be prompted for confirmation before executing a command from the {{cd|run_command}} click action in [[book]]s and [[chat]] if the command cannot be parsed or requires elevated [[permissions]] (i.e., higher than 0)
+
+; Added {{cd|minecraft:custom}}
+* When the user clicks a component with this click action, the client will send a dedicated packet {{cd|minecraft:custom_click_action}} to a server
+* The intended use is as an alternative for {{cd|run_command}}, to be used by [[modded]] [[server]]s without worrying about having to add custom commands
+* This packet has no functionality on Vanilla servers
+* Fields:
+** {{cd|id}}: [[namespaced ID]]
+** {{cd|payload}}: optional [[tag]] field
+
+; Added {{cd|minecraft:show_dialog}}
+* When the user clicks this component, a dialog will be opened for them
+* Fields:
+** {{cd|dialog}}: [[namespaced ID]] from the {{cd|minecraft:dialog}} registry or inline dialog value as described above
+
+===== Waypoint Broadcasting =====
+The [[Locator Bar]] works through a server-controlled Waypoint system. Waypoints are received by Players, and connections between Waypoints and Players are managed by the multiplayer server.
+* By default, all Players transmit a Waypoint from themselves, and all Players receive all Waypoints
+* Individual Players can have their transmission and receive ranges controlled by the [[#waypoint_atr|{{cd|waypoint_transmit_range}}]] and {{cd|waypoint_receive_range}} attributes
+
+=== Resource Pack versions 56 through 63 ===
+* The game will now consistently respect the {{cd|blur}} texture parameter in {{cd|.png.mcmeta}} files
+* All core shader uniforms are now uniform blocks
+* The cloud texture ({{cd|clouds.png}}) can no longer be colored
+* Panorama textures must now all be the same size, and square
+
+==== Block Models ====
+* {{cd|elements[].rotation.angle}} value in block models is no longer limited to multiples of {{cd|22.5}} degrees, and can now be any angle from {{cd|-45}} to {{cd|+45}}
+
+==== Equipment Assets ====
+* Added new {{cd|happy_ghast_body}} layer type, rendering in the body [[slot]] of the [[Happy Ghast]]
+
+==== Font ====
+* Unifont
+** Updated Unifont to 16.0.03
+** Added previously omitted Unifont glyphs for Private Use Areas
+*** Those glyphs are loaded as a separate sub-font {{cd|minecraft:include/unifont_pua}} and are not included in any normally used font
+*** Characters in those areas are managed by Under-CSUR (Under-ConScript Unicode Registry), which adds various scripts not present in the official Unicode set, like [[wikipedia:Tengwar|Tengwar]] or [[wikipedia:Sitelen Pona|Sitelen Pona]]
+
+* {{cd|unihex}} Font Provider
+** The {{cd|size_overrides}} field is now optional, defaults to an empty list
+
+==== [[Tutorials/Models#Item_models|Item Models]] ====
+* Item model definitions now have a boolean field {{cd|oversized_in_gui}}, which is {{cd|false}} by default
+** If {{cd|true}}, the item model will be allowed to be bigger than its item slot
+** If {{cd|false}}, the item model will be clipped to the item slot size when being rendered in gui
+** This ability of items being rendered outside their slots should not be considered officially supported, it was temporarily restored as an exception since many servers are relying on it
+** At some point in the future, we hope to replace it with an officially supported way of achieving similar functionality
+* Introduced new item model {{cd|minecraft:player_head}} to handle player profile texture loading and rendering
+* Removed support for {{cd|minecraft:profile}} from {{cd|minecraft:head}}
+
+; {{cd|minecraft:player_head}} special model type
+* Renders a player head
+* Uses the profile from the {{cd|minecraft:profile}} component to load a texture. Renders a default texture until the profile texture is fully loaded
+* No fields
+
+; {{cd|minecraft:head}} special model type
+* No longer supports a profile from the {{cd|minecraft:profile}} component to load a player texture
+* Renders a default player texture when {{cd|kind}} is {{cd|player}}, and no texture override is supplied
+* Fields remain unchanged
+
+==== Shaders & Post-process Effects ====
+<div style="margin-left:30px;">Developer's Note: Although it is possible in [[Resource Pack]]s, overriding [[Shaders#Core_shaders|Core Shaders]] is considered as unsupported and not an intended Resource Pack feature. These shaders exist as part of the internal implementation of the game, and as such, may change at any time as the game's internals evolve. We understand that overriding Core Shaders is used for very cool Resource Pack features, many of which lack supported alternatives. We would like to provide better, supported alternatives in the future.</div>
+* Custom uniforms provided to post-process shaders are now uniform blocks
+* Uniform definitions inside {{cd|json}} files are now per-block
+
+===== Post-process Effect Definitions =====
+* Entries in the {{cd|targets}} map have been expanded to support new properties
+** New optional boolean field: {{cd|persistent}}, default: {{cd|false}}
+*** If {{cd|true}}, this render target will be persistent across frames
+*** The contents of the target will be cleared when the screen is resized
+** New optional field: {{cd|clear_color}}, default: {{cd|[0, 0, 0, 0]}}
+*** Format: integer ARGB value, or float array in order {{cd|[R, G, B, A]}}
+*** When this target is created or cleared, it will be filled with this color
+
+* The {{cd|uniforms}} value is now a list-per-block, instead of a global list
+** e.g. {{cd|uniforms: { "UniformBlockName": [ { "type": "vec2", "value": [...] } ] } }}
+*** The order of uniforms in a block must match the order in the shader
+
+* {{cd|name}} as part of a uniform definition is no longer used
+** We encourage setting it to help keep the {{cd|json}} file organized/readable, but the game will not use it
+
+* {{cd|value}} as part of a uniform definition replaces the old {{cd|values}}, and the type depends on the {{cd|type}} field
+** This field is required
+** {{cd|"type": "int"}} needs {{cd|"value": 123}} (a single int)
+** {{cd|"type": "float"}} needs {{cd|"value": 123.4}} (a single float)
+** {{cd|"type": "vec2"}} needs {{cd|"value": [1.2, 3.4]}} (two floats)
+** {{cd|"type": "vec3"}} needs {{cd|"value": [1.2, 3.4, 5.6]}} (three floats)
+** {{cd|"type": "ivec3"}} needs {{cd|"value": [1, 2, 3]}} (three ints)
+** {{cd|"type": "vec4"}} needs{{cd| "value": [1.2, 3.4, 5.6, 7.8]}} (four floats)
+** {{cd|"type": "matrix4x4"}} needs {{cd|"value": [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0]}} (four rows of four columns of floats)
+* We do not validate that the uniform block is valid for a given shader, giving incorrect information will cause undefined and funky behavior
+
+===== Post-process Effect Shaders =====
+* Instead of every uniform being an individual opaque type, they are now grouped in uniform blocks
+* They will be set according to the pass definition in the {{cd|json}} file, and may be shared across both vertex and fragment shaders
+* The list of sizes (all {{cd|vec2 *Size}} uniforms) are now replaced with a single {{cd|SamplerInfo}} uniform block
+** This contains, in order, the size of the output texture followed by the size of every input texture
+** The order of textures in the definition file will dictate the order of samplers in this uniform
+** For most post chains this is just {{cd|OutSize}} and {{cd|InSize}} as before
+** All sizes are {{cd|vec2}}
+
+; {{cd|post/bits.fsh}}
+* Expects a {{cd|BitsConfig}} of {{cd|float Resolution|float MosaicSize|delimiter=and}}
+; {{cd|post/blit.fsh}}
+* Expects a {{cd|BlitConfig}} of {{cd|vec4 ColorModulate}}
+; {{cd|post/blur.vsh}} and {{cd|post/box_blur.fsh}}
+* Expects a {{cd|BlurConfig}} of {{cd|vec2 BlurDir|float Radius|delimiter=and}}
+
+; {{cd|post/color_convolve.fsh}}
+* Expects a {{cd|ColorConfig}} of {{cd|vec3 RedMatrix|vec3 GreenMatrix|vec3 BlueMatrix|delimiter=and}}
+; {{cd|post/invert.fsh}}
+* Expects a {{cd|InvertConfig}} of {{cd|float InverseAmount}}
+; {{cd|post/rotscale.vsh}}
+* Expects a {{cd|RotScaleConfig}} of {{cd|vec2 InScale|vec2 InOffset|float InRotation|delimiter=and}}
+; {{cd|post/spiderclip.fsh}}
+* Expects a {{cd|SpiderConfig}} of {{cd|vec4 Scissor|vec4 Vignette|delimiter=and}}
+
+===== Shader Fog Changes =====
+* The [[fog]] is now split into environmental and render-distance-based fog
+* Previously, both of those concepts were mixed in the same uniforms
+* Environmental fog is supposed to represent the "fogginess" of the environment the player is in
+** e.g. [[lava]], [[water]], and now also atmosphere
+* Render distance fog is supposed to obscure the border of visible terrain
+* Environmental fog uses spherical distance to determine its intensity, render distance fog uses cylindrical distance
+* The resulting fog value for any given vertex is the maximum of both
+
+===== Uniform blocks =====
+; {{cd|CloudInfo}} Uniform Block
+* Only available to the clouds shaders ({{cd|rendertype_clouds.vsh|rendertype_clouds.fsh|delimiter=/}})
+** Contains {{cd|CloudColor|CloudOffset|CellSize|delimiter=and}} (new)
+*** {{cd|CellSize}} contains the size of an individual cloud cell
+
+; {{cd|DynamicTransforms}} Uniform Block
+* Available through {{cd|#moj_import <minecraft:dynamictransforms.glsl>}} for convenience
+* Is no longer available to shaders that do not normally use it
+* Contains {{cd|ModelViewMat|ColorModulator|ModelOffset|TextureMat|LineWidth|delimiter=,}}
+** These are very likely to change in the near future
+** The values of some of these are often hard coded and may not make sense for a given shader, ie {{cd|LineWidth}} in any non-line based pipeline
+
+; {{cd|Fog}} Uniform Block
+* Available through {{cd|#moj_import <minecraft:fog.glsl>}} for convenience
+* Most shaders are able to receive this uniform block, even if they do not normally use it
+* Contains {{cd|FogColor}}, {{cd|FogEnvironmentalStart}} (new), {{cd|FogEnvironmentalEnd}} (new), {{cd|FogRenderDistanceStart}} (renamed from {{cd|FogStart}}), {{cd|FogRenderDistanceEnd}} (renamed from {{cd|FogEnd}}), {{cd|FogSkyEnd}} (new) and {{cd|FogCloudsEnd}} (new)
+** {{cd|FogSkyEnd}} is new and represents where the fog should end when drawing for the sky
+** {{cd|FogCloudsEnd}} is new and represents where the fog should end when drawing the clouds
+** {{cd|FogRenderDistanceStart}} is the render distance fog start
+** {{cd|FogRenderDistanceEnd}} is the render distance fog end
+** {{cd|FogEnvironmentalStart}} is new and represents the start of environment-based fog
+** {{cd|FogEnvironmentalEnd}} is new and represents the end of environment-based fog
+* {{cd|FogShape}} was removed. Render distance fog is now cylindrical and environmental fog is spherical
+
+; {{cd|Globals}} Uniform Block
+* Available through {{cd|#moj_import <minecraft:globals.glsl>}} for convenience
+* Most shaders are able to receive this uniform block, even if they do not normally use it
+* Contains {{cd|ScreenSize|GlintAlpha|GameTime|delimiter=,}} and {{cd|MenuBlurRadius}} (new)
+** {{cd|MenuBlurRadius}} is the blur radius of the background when a menu is open
+
+; {{cd|Lighting}} Uniform Block
+* Available through {{cd|#moj_import <minecraft:light.glsl>}} for convenience
+* Most shaders are able to receive this uniform block, even if they do not normally use it
+** The values may not make sense if the shader would not normally expect it, however
+* Contains {{cd|Light0_Direction}} and {{cd|Light1_Direction}}
+
+; {{cd|LightmapInfo}} Uniform Block
+* Only available to the lightmap shader ({{cd|lightmap.fsh}})
+* Contains {{cd|AmbientLightFactor|SkyFactor|BlockFactor|UseBrightLightmap|NightVisionFactor|DarknessScale|DarkenWorldFactor|BrightnessFactor|SkyLightColor|delimiter=,}} with no change in behavior
+
+; {{cd|Projection}} Uniform Block
+* Available through {{cd|#moj_import <minecraft:projection.glsl>}} for convenience
+* Most shaders are able to receive this uniform block, even if they do not normally use it
+* Contains {{cd|ProjMat}} with no changes
+
+==== [[Sounds]] ====
+* Changed the location of the sounds for [[Glow Squid]], [[Squid]], [[Guardian]], [[Horse]], [[Rabbit]], and [[Pufferfish]] from the {{cd|entity}} folder to the {{cd|mob}} folder
+* Added {{cd|entity/leashknot/break}} for when a [[Lead]] snaps
+* The following sounds have been renamed:
+** {{cd|entity/leashknot/break1}} -> {{cd|entity/leashknot/unleash1}}
+** {{cd|entity/leashknot/break2}} -> {{cd|entity/leashknot/unleash2}}
+** {{cd|entity/leashknot/break3}} -> {{cd|entity/leashknot/unleash3}}
+** {{cd|entity/leashknot/place1}} -> {{cd|entity/leashknot/leash1}}
+** {{cd|entity/leashknot/place2}} -> {{cd|entity/leashknot/leash2}}
+** {{cd|entity/leashknot/place3}} -> {{cd|entity/leashknot/leash3}}
+* The following sounds have been added for [[shear]]ing [[Saddle]]s, [[Horse Armor]], and [[Carpet]]s
+** {{cd|mob/horse/armor_unequip}}
+** {{cd|mob/horse/saddle_unequip}}
+** {{cd|mob/llama/unequip}}
+
+==== [[Sound Event]]s ====
+* {{cd|block.sand.wind}} has been renamed to {{cd|block.dry_grass.ambient}}
+* {{cd|entity.leash_knot.break}} has been replaced with {{cd|item.lead.break}} and {{cd|item.lead.untied}}
+* {{cd|entity.leash_knot.place}} has been renamed to {{cd|item.lead.tied}}
+* The following sound events have been added:
+** {{cd|block.dried_ghast.break}}
+** {{cd|block.dried_ghast.step}}
+** {{cd|block.dried_ghast.fall}}
+** {{cd|block.dried_ghast.ambient}}
+** {{cd|block.dried_ghast.ambient_water}}
+** {{cd|block.dried_ghast.place}}
+** {{cd|block.dried_ghast.place_in_water}}
+** {{cd|block.dried_ghast.transition}}
+** {{cd|entity.ghastling.ambient}}
+** {{cd|entity.ghastling.death}}
+** {{cd|entity.ghastling.hurt}}
+** {{cd|entity.ghastling.spawn}}
+** {{cd|entity.happy_ghast.ambient}}
+** {{cd|entity.happy_ghast.death}}
+** {{cd|entity.happy_ghast.hurt}}
+** {{cd|entity.happy_ghast.riding}}
+** {{cd|entity.happy_ghast.equip}}
+** {{cd|entity.happy_ghast.unequip}}
+** {{cd|entity.happy_ghast.harness_goggles_up}}
+** {{cd|entity.happy_ghast.harness_goggles_down}}
+** {{cd|item.horse_armor.unequip}}
+** {{cd|item.llama_carpet.unequip}}
+** {{cd|item.shears.snip}}
+** {{cd|item.saddle.unequip}}
+
+==== UI Sprites ====
+* The mob effect atlas has been removed, and sprites in the {{cd|textures/mob_effect/}} folder are now included within the GUI atlas
+** This means mob effect sprites now support GUI sprite scaling properties
+* Added {{cd|icon/music_notes}} and {{cd|toast/now_playing}} sprites
+
+==== Waypoint Styles ====
+These define custom icons to be displayed on the [[Locator Bar]] and are within the {{cd|waypoint_style/}} asset directory.
+* {{cd|near_distance}} and {{cd|far_distance}} are optional, and default to the values {{cd|128}} and {{cd|332}} respectively
+** {{cd|far_distance}} distance must be greater than {{cd|near_distance}}
+* {{cd|sprites}} is a list of at least one sprite ID within the prefix of {{cd|hud/locator_bar_dot/}} (the directory {{cd|textures/gui/sprites/hud/locator_bar_dot}})
+* An example "bowtie" waypoint style is provided and accessible via the command:
+** {{cmd|waypoint modify <entity-selector> style set bowtie}}
+* When the distance to the waypoint is less than {{cd|near_distance}}, the first sprite in the list will be selected
+* When the distance to the waypoint is greater than {{cd|far_distance}}, the last sprite in the list will be selected
+* Between this range, sprites will be selected based on the linear progress between the near and far distances
+
+== Fixes==
+* The fix to [https://bugs.mojang.com/browse/MC/issues/MC-3697 MC-3697] has been partially reverted.
+** Decorative hanging entities such as [[painting]]s and [[item frame]]s are now immune to explosions from submerged [[TNT]] while [[items]] and [[armor stand]]s are once again vulnerable to them
+{{fixes|fixedin=1.21.6
+|;old
+|36696|Clicking on the statistics button on the menu screen advances the game by 1 tick
+|69821|[[TNT]] "forgets" the player that ignited it when the world is reloaded
+|94800|URL shown in open URL dialog is not shortened
+|97423|[[Horse]] temporarily stuck in jump animation if dismounted
+|103511|Sound/Song stops playing after adjusting the volume
+|104231|Loading a custom structure doesn't load rails correctly
+|112730|[[Beacon]] beam and structure block render twice per frame
+|118081|Sounds don't pause when game is paused on some UI screens
+|118430|[[Vex]] summoner is not stored in [[NBT]] despite being used for AI task
+|118432|Vex summoner is not reset once it is dead
+|140819|[[Lectern]] model extends past inventory slot
+|147260|Map icons are not displayed in the [[cartography table]]
+|148278|You can select multiple buttons at once in the [[book]] editing GUI by repeatedly pressing Tab
+|189246|Unable to copy and paste on title page of a [[Book & Quill]]
+|191306|Sounds played using {{cmd|playsound}} are played in all dimensions
+|200092|{{cmd|setworldspawn}} seems to ignore the {{cd|'angle'}} parameter
+|200925|[[Ghast]]s are not affected by [[potion]]s thrown on their head
+|217887|Unsigned books written in 1.9-pre1 or earlier don't upgrade properly
+|224704|[[Block]] cracks are not affected by the fog from [[powder snow]] or [[lava]]
+|228451|You cannot move the cursor around on the title page of a [[book and quill]]
+|229483|[[Wither]]s are not affected by [[Instant_Damage#Brewing|instant harming]] and [[Instant_Health#Brewing|healing]] [[splash potion]]s thrown above their heads
+|230902|Black shapes sometimes appear in the end sky at low render distance
+|236464|Beacon beams emitted from below the player are invisible after reloading chunks
+|237015|The cursor in the book signing GUI doesn't turn fully invisible when blinking
+|238931|[[Cloud]]s stop rendering before they are hidden by [[fog]]
+|239701|Rendering issue when breaking [[ice]] and flying with "Chunk Builder" set to Threaded
+|240121|{{cd|"1x1_b5.nbt"}} piece does not generate in [[woodland mansions]]
+|248682|Translucent blocks moved by [[piston]]s aren't affected by fog correctly
+|248688|Falling translucent blocks aren't affected by fog correctly
+|256411|Clouds not fully rendered depending on angle
+|257532|Clouds don't fill the sky after 1.18 height change
+|258336|[[Frost Walker]] causes frequent visual corruption near [[chunk]] borders on Threaded and Semi-Blocking Chunk Builder
+|262268|Keyboard navigation does not work in the book and quill GUI
+|264431|{{cd|#minecraft:sand}} [[tag]] has two {{cd|minecraft:suspicious_sand}}
+|266318|[[Trapdoor]]s and [[door]]s have inconsistent subtitles for being opened and closed
+|269744|Out of memory crash when using a preset with a large layer
+|270279|Disabled item cooldown overlay renders incorrectly over stack size number
+|272825|Custom filled maps from 23w31a and earlier do not upgrade properly in later versions
+|275374|[[Drowned]]s with {{cd|CanBreakDoors:1b}} don't break doors
+|276264|[[Advancement]] screen shadow renders below item icons
+|276665|[[Music]] is never turning on when it's toggled in the menu
+|277369|The draft report icon isn't initially visible when saving a report as a draft
+|277370|The draft report icon doesn't initially disappear when a report is discarded
+|277486|[[Mob]] effect icons ignore {{cd|"scaling"}} parameter in {{cd|mcmeta}} files
+|277903|Creative [[inventory]] tab icons can display item cooldown overlay
+|277991|The 2 brightest pixel colors on [[pale oak boat]] items are still switched
+|277992|1 color in the pale [[chest boat]] item is incorrect
+|278231|Space characters at the end of a line in [[book and quill]] are invisible even if given a texture
+|278459|{{cd|unifont.json}} contains trailing comma
+|278466|Bundle experiment data pack related strings are not in {{cd|deprecated.json}}
+|278873|The data fixer regenerates chunks containing items obtained from [[flower pots]] using {{cd|Ctrl}} + {{cd|Pick Block}} before version 1.13, or it crashes the game if the item is in the player's inventory
+|279284|[[Experience]] orbs from thrown [[bottles o' enchanting]] are very prone to getting stuck inside blocks
+|279417|Luring mobs onto blocks at Y{{=}}-64 will instead make them pathfind to the highest elevation
+|279515|The game stalls when running the "{{cmd|test clearall}}" command with large radiuses
+|279875|Cannot diagonally climb [[slab]] through suspended [[scaffolding]]
+|280047|Temperate [[cow]]s use their 1.14 texture with the Programmer Art resource pack enabled
+|280266|[[Firefly bush]]es don't produce as many, or as constant, amounts of particles as on Bedrock Edition
+|280268|[[Blaze]]s and [[breeze]]s use "large" [[spawn egg]]s despite mobs of a similar size using "medium"
+|280276|Some item models can still clip into the block below when hovering on the ground
+|280281|[[Fishing bobber]]s rapidly jitter when attached to entities that are moving
+|280297|The volume level between [[grass]] and [[dirt]] is inconsistent
+|280471|The {{cd|Particle.color}} field in area effect clouds is read-only
+|280502|Translation key {{cd|snbt.parser.undescore_not_allowed}} has a typo
+|293619|The [[chicken]] spawn egg texture in Programmer Art is missing pixels that match the inventory slot background color
+|293754|Minecraft causes OpenGL errors occasionally
+|295395|Entities interact differently with [[nether portal]]s
+|295677|[[Title screen]] fades in from black after closing the "Welcome to Minecraft" screen
+|295681|[[Leaf litter]] can generate inside of [[woodland mansion]]s
+|295690|Players stay on fire for a while after barely touching fire
+|295850|{{cd|Done}} and {{cd|Cancel}} buttons on the world creation Edit Game Rules screen do the same thing
+|295866|The {{cmd|setblock}} and {{cmd|fill}} commands no longer update [[redstone]] power in some situations
+|295867|Structures from previous versions fail with {{cd|DataFixerUpper}}
+|295879|{{control|Sprint}}-{{control|hitting}} [[boat]]s and then getting in them causes the boat to fall through the block underneath
+|295895|1.21.5 breaks [[minecart]] behavior when travelling through [[nether portal]]s
+|295914|[[Loot table]] files accept invalid {{cd|JSON}}
+|295944|Reloading a professionless [[zombie villager]] causes it to gain random profession clothing
+|296035|Two pixels from {{cd|"mooshroom_spawn_egg"}} are the same as {{cd|"cow_spawn_egg"}}
+|296099|[[Nether portal]] collision is or isn't working depending on the cardinal direction
+|296121|{{cd|ClientboundLevelChunkPacketData}} buffer size is too big
+|296311|[[TNT]] touching [[water]] will destroy blocks and damage entities but will ignore decorative entities
+|296337|[[Minecart]]s cause memory usage increases and crashes
+|296348|{{cd|NoAI:1b}} [[mob]]s cannot be ridden in 1.21.5+
+|296624|Old Brown Mooshroom texture is missing from Programmer Art
+|296638|[[Clocks]], [[compass]]es, and [[lodestone compass]]es do not render enchantment glint in certain display contexts when using {{cd|Fabulous!}} graphics
+|296701|Transformed entities do not retain their {{cd|custom_data}} component
+|296709|All non-default {{cd|jukebox_playable}} components are deleted from existing items when updating past 1.21.4
+|296784|The "Welcome to Minecraft" screen is missing its fade out
+|296866|Predicates of particular namespaces failed to be accessed on {{cmd|execute}}
+|297264|[[Cat]] breeds are not seed based anymore
+|297347|[[Tamed]] animals no longer sit when their owner changes dimension
+|297461|Equipment and sleeping pos data cannot be loaded in 1.21.4, but can be loaded in 1.21.5 to [[bee]]s spawned from [[bee nest]] and [[bee hive]]
+|297524|Connection with realm gives weird HTML text
+|297537|Extra {{cd|"entity.wolf_whine.whine"}} sound event exists in {{cd|sounds.json}}
+|297591|[[Ender pearl]]s can unexpectedly come to a halt
+|297614|Area effect clouds with duration greater than or equal to 2147483628 disappear after a tick
+|297868|Items in the {{cd|armor.body}} and {{cd|saddle}} slots are not kept when dying while the game rule {{cd|keepInventory}} is set to {{cd|true}}
+|297893|{{cd|prevent_equipment_drop}} enchantment effect does not work with {{cd|armor.body}} and {{cd|saddle}} slots
+|297894|{{cmd|clear}} command does not clear {{cd|armor.body}} and {{cd|saddle}} slots
+}}
+
+== Gallery ==
+<gallery>
+File:1.21.6 banner.jpg
+File:1.21.6 nether quest for dried ghast.jpg
+File:1.21.6 ghastling.jpg
+File:1.21.6 build from happy ghast.jpg
+File:1.21.6 locator bar.jpg
+File:1.21.6 music toast.jpg
+File:1.21.6 sheep leashed to wolf.jpg
+File:1.21.6 leash craft.jpg
+File:1.21.6 saddle craft.jpg
+File:1.21.6 rain fog.jpg
+File:1.21.6 realms.jpg
+File:1.21.6 custom dialog.jpg
+File:ChaseTheSkies_Announcement_Header.jpg
+File:1.21.6-rc1.jpg
+File:1.21.6-pre4.jpg
+File:1.21.6-pre3.jpg
+File:1.21.6-pre2.jpg
+File:1.21.6-pre1.jpg
+File:25w21a.jpg
+File:25w20a.jpg
+File:25w19a.jpg
+File:25w18a.jpg
+File:25w17a.jpg
+File:25w16a.jpg
+File:25w15a.jpg
+File:ChaseTheSkies_Trio_of_happy_ghasts.jpg
+File:ChaseTheSkies_Ari_finds_a_dried_ghast.jpg
+File:ChaseTheSkies_Ghastling.jpg
+File:SummerDrop_Feature_Player_locator_bar.jpg
+File:ChaseTheSkies_New_leashing_functionality.jpg
+File:ChaseTheSkies_Ari_leading_her_mounts.jpg
+File:ChaseTheSkies_New_Tears_music_disc.jpg
+File:Ghastling.png
+File:Chase the Skies sunset.png
+File:Happy Ghast size comparison.png
+</gallery>
+
+== Videos ==
+{{yt|hX4itzvFxZo|300|align=inline}}
+{{yt|x7v-t9IxSvU|300|align=inline}}<br/>
+{{yt|zPWdMDZWM4Y|300|align=inline}}
+{{#ev:youtube|jGNgh5zEFkY|300|inline|||start=1209&end=1538}}
+
+== References ==
+{{reflist|
+<ref name=recap>{{mcnet|minecraft-live-2025-recap|Minecraft Live 2025: The Recap|October 15, 2023|Sophie Austin}}</ref>
+<ref name=date>{{Tweet|JustJosIt|1904455682041983227|The Spring to Life game drop comes today, the summer drop updates comes in June!}} ([https://archive.is/j0vh2 archived])</ref>
+<ref name=snapshots>{{mcnet|minecraft-snapshot-25w15a|Snapshot 25w15a|April 8, 2025|Java Team}}<br/>
+{{mcnet|minecraft-snapshot-25w16a|Snapshot 25w16a|April 15, 2025|Java Team}}<br/>
+{{mcnet|minecraft-snapshot-25w17a|Snapshot 25w17a|April 22, 2025|Java Team}}<br/>
+{{mcnet|minecraft-snapshot-25w18a|Snapshot 25w18a|April 29, 2025|Java Team}}<br/>
+{{mcnet|minecraft-snapshot-25w19a|Snapshot 25w19a|May 6, 2025|Java Team}}<br/>
+{{mcnet|minecraft-snapshot-25w20a|Snapshot 25w20a|May 13, 2025|Java Team}}<br/>
+{{mcnet|minecraft-snapshot-25w21a|Snapshot 25w21a|May 20, 2025|Java Team}}<br/>
+{{mcnet|minecraft-1-21-6-pre-release-1|1.21.6-pre1|May 28, 2025|Java Team}}<br/>
+{{mcnet|minecraft-1-21-6-pre-release-2|1.21.6-pre2|June 2, 2025|Java Team}}<br/>
+{{mcnet|minecraft-1-21-6-pre-release-3|1.21.6-pre3|June 4, 2025|Java Team}}<br/>
+{{mcnet|minecraft-1-21-6-pre-release-4|1.21.6-pre4|June 10, 2025|Java Team}}<br/>
+{{mcnet|minecraft-1-21-6-release-candidate-1|1.21.6-rc1|June 12, 2025|Java Team}}<br/>
+{{mcnet|minecraft-java-edition-1-21-6|Minecraft Java Edition 1.21.6|June 17, 2025|Java Team}}</ref>
+<ref name=name>{{mcnet|chase-the-skies-coming|Our next game drop has a name: Get ready to Chase the Skies|June 1, 2025|Sophie Austin}}</ref>
+}}
+
+{{Java Edition versions|1.2x}}

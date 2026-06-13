@@ -1,0 +1,43 @@
+{{Structure
+| biome = All Overworld biomes except {{biomeLink|the Void}}
+| blocks =
+* {{BlockLink|Ice}}
+* {{BlockLink|Snow}}
+|canspawn=No
+}}
+
+A '''freeze top layer''' is a [[feature]] found throughout the [[Overworld]].
+
+== Generation ==
+Freeze top layer is a feature that is used to add snow and ice to mountains and cold [[biome]]s.
+
+Freeze top layer tries to generate in all chunks in [[Overworld]]. In each chunk, it tries at each block column to generate snow or ice on the terrain surface if the [[Biome#Temperature|temperature]] there is cold enough and the block light level is less than 10. If the surface is water, an [[ice]] block replaces the water. And a [[snow]] tries to generate on the surface if it can attach on the surface's block.
+
+== Data values ==
+
+=== ID ===
+
+{{el|je}}:
+{{ID table
+|firstcolumnname=Configured feature
+|displayname=[No displayed name]
+|spritename=freeze-top-layer
+|spritetype=env
+|nameid=freeze_top_layer
+|foot=1}}
+
+{{el|be}}:
+
+{{IN|bedrock}}, it is not a feature technically. The game simply iterates through each horizonal coordinate after the chuck generation to generate ice and snow.
+
+== History ==
+{{Expand section}}
+{{History|java}}
+{{History||1.18|snap=21w41a|Freeze top layer now becomes a feature technically.}}
+{{History|foot}}
+
+{{Terrain features}}
+
+[[ja:地表の氷雪]]
+[[lzh:冰層]]
+[[zh:冰冻顶层]]

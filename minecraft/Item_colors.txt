@@ -1,0 +1,111 @@
+{{wip}}
+The following page lists [[color]]s which are applied to [[item]]s in the game.
+
+== Both editions ==
+
+=== Spawn eggs ===
+{{main|Spawn Egg colors}}
+
+=== Potions ===
+{{main|Effect colors}}
+{{:Effect colors/Potions table}}
+
+=== Item forms of colored blocks ===
+The inventory color of the grass is calculated with {{cd|temperature:0.5}} and {{cd|rainfall:1.0}}. The result is {{cd|AdjTemp:0.5, AdjRainfall:0.5}}, We can get the color({{color|#7CBD6B}}) for the middle of center(x:127, y:127) of the {{cd|grass.png}}.
+
+These are exclusive to ''Java Edition''; Bedrock Edition instead has pre-colored textures used for items, distinct from the textures actually used for blocks in placed form (see [[Bedrock Edition history of textures/Items]]).
+<center>
+<gallery>
+Grass Block.png|Grass Block<br>{{color|#7CBD6B}}
+Oak Leaves.png|Oak Leaves<br>{{color|#48B518}}
+Birch Leaves.png|Birch Leaves<br>{{color|#80A755}}
+Spruce Leaves.png|Spruce Leaves<br>{{color|#619961}}
+Jungle Leaves.png|Jungle Leaves<br>{{color|#48B518}}
+Acacia Leaves.png|Acacia Leaves<br>{{color|#48B518}}
+Dark Oak Leaves.png|Dark Oak Leaves<br>{{color|#48B518}}
+Grass (item).png|Grass<br>{{color|#7CBD6B}}
+Fern (item).png|Fern<br>{{color|#7CBD6B}}
+Tall Grass (item).png|Tall Grass<br>{{color|#7CBD6B}}
+Large Fern (item).png|Large Fern<br>{{color|#7CBD6B}}
+Vines (inventory).png|Vines<br>{{color|#48B518}}
+Lily Pad (item).png|Lily Pad<br>{{color|#71C35C}}
+</gallery>
+</center>
+
+=== Maps ===
+{{section needed}}
+
+The color value used is -12173266, adding 2<sup>24</sup> returns a value of 4603950, giving a map color of {{color|#46402E}}. This color is overlaid onto filled map item icons only.<!--- in older versions this was a texture, it was later changed between 1.6.4 and 1.12.2 on Java Edition--->
+
+=== Dyed leather armor ===
+[[File:DyeGraph3.png|thumb|Leather armor color codes]]
+{{section needed}}
+
+The default color is {{color|#A06540}} (Dec: 10511680). This is used for leather horse armor, and leather helmet, chestplate, leggings, and boots. Dyes return the same colors as [[Dyes#Color values]].
+
+=== Firework stars ===
+{{section needed}}
+
+The default color is {{color|#8A8A8A}} (Dec: 9079434). When dyes are applied, the final color is different from that used for leather armor. They do not match one to one. {{info needed}}
+
+Below are the colors used for firework stars:<!--- on Java Edition, since at least Java 1.6.4, through 1.12.2 (and appear in the code in 1.17.1)--->
+
+{| class="wikitable" style="margin:2px; border: 1px solid silver; text-align: left;" data-description="Firework Star colors"<!---these appeared in the source code for Java 1.6.4, 1.12.2, and 1.17.1, and match firework star colors in Java 1.6.4, 1.11.2, and 1.12.2. The colors did not change between 1.11.2 and 1.12.2---> 
+! rowspan=2 | Description
+! colspan=2 style="text-align:center" | Color Code
+|-
+! Dec
+! <abbr title="Hexadecimal color code">Hex</abbr>
+|-
+| style="text-align:center" | White || 15790320 || {{color|#F0F0F0}}
+|-
+| style="text-align:center" | Light gray || 11250603 || {{color|#ABABAB}}
+|-
+| style="text-align:center" | Gray || 4408131 || {{color|#434343}}
+|-
+| style="text-align:center" | Black || 1973019 || {{color|#1E1B1B}}
+|-
+| style="text-align:center" | Brown || 5320730 || {{color|#51301A}}
+|-
+| style="text-align:center" | Red || 11743532 || {{color|#B3312C}}
+|-
+| style="text-align:center" | Orange || 15435844 || {{color|#EB8844}}
+|-
+| style="text-align:center" | Yellow || 14602026 || {{color|#DECF2A}}
+|-
+| style="text-align:center" | Lime || 4312372 || {{color|#41CD34}}
+|-
+| style="text-align:center" | Green || 3887386 || {{color|#3B511A}}
+|-
+| style="text-align:center" | Cyan || 2651799 || {{color|#287697}}
+|-
+| style="text-align:center" | Light blue || 6719955 || {{color|#6689D3}}
+|-
+| style="text-align:center" | Blue || 2437522 || {{color|#253192}}
+|-
+| style="text-align:center" | Purple || 8073150 || {{color|#7B2FBE}}
+|-
+| style="text-align:center" | Magenta || 12801229 || {{color|#C354CD}}
+|-
+| style="text-align:center" | Pink || 14188952 || {{color|#D88198}}
+|}
+
+== History ==
+{{info needed section|
+* Default colors for other stuff when introduced. Some colored stuff was not colored as items when in the inventory.
+* Console Edition bed items
+* All early spawn egg color info - we have the equations and stuff now}}
+{{History|java beta}}
+{{History||1.7|Leaves now appear colored in the inventory.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease|[[File:Lily Pad (item) JE2.png|32px]] Added [[lily pad]]s, which use a color of {{color|#208030}} in the inventory.}}
+{{History||1.1|snap=11w49a|[[Spawn egg]]s added, which apply a single color to a constant texture according to the table below:
+{{/1.1 spawn egg colors}}
+}}
+{{History|||snap=12w01a|Spawn egg color application has been reworked to use two different textures, which can be colored completely different colors.}}
+{{History||1.8|snap=14w25a|[[File:Lily Pad (item) JE3.png|32px]] Lily pads are now colored with the color {{color|#71C35C}} in the inventory.}}
+{{History||1.8<!---Only 1.6.4 and 1.12.2 code was checked, and MC 1.8.9 in game--->|snap=?|Prior to the introduction of Potions of Leaping, the color for the jump boost status effect was {{color|#786297}} (Dec: 7889559). It was later changed to {{color|#22FF4C}} (Dec: 2293580) in 1.8 with the addition of Potions of Leaping.{{Info needed|When was this change made between 1.6.4 and 1.8.9?}}}}
+{{History|pocket alpha}}
+{{History||v0.1.0|[[File:Oak Leaves (item) BE1.png|32px]] [[File:Oak Leaves (item fast) BE1.png|32px]] Added item models for oak leaves colored with {{color|#59A53F}}.}}
+{{History||v0.2.1|[[File:Placeholder Block JE1 BE1.png|32px]] [[File:Placeholder Block JE1 BE1.png|32px]] The item model use separate but identical magenta textures when "Fancy Graphics" are enabled/disabled and no longer colored.}}
+{{History|foot}}

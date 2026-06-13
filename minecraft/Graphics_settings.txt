@@ -1,0 +1,127 @@
+{{for|other options which change visuals|Video settings}}
+{{wip}}
+'''Graphics''' is one of the game's many visual settings which allows for the game's rendering of an assortment of features to be adjusted to match computer specifications.
+
+There are currently three different options for graphics to be set to, in order of computing expense: Fast, Fancy and ''Fabulous!'' {{only|java}}, each bringing their own dedicated visual improvements.
+
+== Differences between settings ==
+{{info needed section|
+* currently Java Edition centric - Bedrock Edition differences need to be researched
+* "reduces the amount of visible rain or snow" according to its description as of 1.18.1 - demonstrate?
+* darkness vignette presence - {{bug|MC-241321}}
+* world border vignette presence - {{bug|MC-54988}}
+* I've heard it affects fog rendering but don't know exactly how
+* it definitely affects or affected rain somehow (https://twitter.com/Dinnerbone/status/527075906595340288)
+* any other differences I may have missed
+* possibly the fabulous world border bug ({{bug|MC-187669}})
+}}
+
+=== Summary ===
+====''Java Edition''====
+{| class="wikitable" style="text-align:center"
+!Setting
+!Leaves
+!Translucency
+|-
+!Fast
+| {{tc|No|Opaque}}
+| {{tc|No|Flawed}}
+|-
+!Fancy
+| {{tc|Yes|Transparent}}
+| {{tc|No|Flawed}}
+|-
+!''Fabulous!''
+| {{tc|Yes|Transparent}}
+| {{tc|Yes|Correct}}
+|}
+
+<center>
+<gallery>
+Fast graphics.png|Fast
+Fancy graphics.png|Fancy
+Fabulous graphics.png|''Fabulous!''
+</gallery>
+</center>
+
+====Bedrock Edition====
+{{Empty section}}
+
+===Detailed analysis===
+
+====''Java Edition''====
+
+=====Leaves=====
+[[File:Graphic.gif|thumb|The difference between fast graphics leaves and fancy graphics leaves.]]
+When graphics are set to ''Fast'', leaves are rendered as completely opaque blocks when placed in the world. (In item form, they still appear transparent.) This is likely meant to improve framerates by treating leaves more like full, solid cubes, and allowing their faces to be culled by each other, resulting in the game having to render less faces in forested areas; this, however, does not happen.<ref>{{bug|MC-179383}}</ref>
+
+Leaves do not use a separate texture file for their appearance in Fast graphics - rather, all transparent regions in the texture are set to fully opaque, and appear black.{{info needed|If a texture region has colors in transparent regions but still an alpha of 0, do they still appear black in-game in Fast?}}
+
+Leaves are the only block subject to this - other transparent cubes such as [[spawner]]s are still rendered transparent, likely due to their comparative rarity.
+
+=====Translucency=====
+When graphics are set to ''Fast'' or ''Fancy'', the game makes compromises on the rendering of many translucent elements of the game.
+
+A notable example of this involves viewing the world through translucent blocks such as [[stained glass]], [[tinted glass]] and [[ice]]. When this is done, the game will not attempt to render [[particles]], [[rain]], [[snow]] or [[clouds]] behind the block.
+
+There are also many, much more subtle cases which can be seen. [[Experience orb]]s have many associated cases - for example, they can block the rendering of their own shadows, as well as of other entities, including entity-rendered blocks such as [[chest]]s, as well as non-entity-rendered translucent blocks such as stained glass, and other things like the [[Hitbox|outlines]] of targeted blocks.
+
+The effects seem to be time-specific, and often differ depending on the age of the entities in question - different effects can be sighted for experience orbs which existed in the world before the entity behind them than experience orbs which came into existence afterwards.
+
+More obscure cases can be sighted as well, such as with the dying animation of the [[ender dragon]], the [[world border]], and [[structure block]] annotations. Untested cases involve F3+G chunk borders and [[shulker bullet]]s. Blocks such as tripwire, slime blocks and honey blocks may cause even more strange effects.
+
+====Bedrock Edition====
+{{Empty section}}
+
+==History==
+{{info needed section|
+* Ice, water used to render weird in fast graphics around 1.2.5 ({{Bug|MC-8082}})
+* {{bug|MC-29432}}}}
+{{History|java infdev}}
+{{History||20100615|Added the graphics setting, with "fast" and "fancy" options.
+|Currently, only clouds are affected.}}
+{{History||20100616-1|Leaves are now affected by the graphics setting.}}
+{{History|java beta}}
+{{History||1.5|Added an overlay texture for the sides of [[grass block]]s to make their side texture appear colored identically to their top texture. This overlay is only used in fancy graphics, and fast graphics ignores it.}}
+{{History|unknown}}
+{{History||?|Fast and fancy graphics now controls entity shadows.}}
+{{History|java}}
+{{History||1.4.6|snap=12w50a|[[Item (entity)|Dropped item]]s which are 2D now use a three-dimensional model in fancy graphics mode, compared to the flat 2D shape they used previously (and still use in fast graphics).}}
+{{History||1.8|snap=14w04a|Items no longer rotate at all due to a bug. This makes items only visible when facing north when fast graphics are enabled.}}
+{{History|||snap=14w04b|Items are no longer visible at all on Fast graphics.}}
+{{History|||snap=14w05a|Items are once again visible on fast graphics. They now face the player on all three axes, rather than only the horizontal axes, making them clearly visible from above.}}
+{{History|||snap=14w25a|Grass blocks now always use the side overlay, regardless of graphics setting. This is without a doubt due to the overlay section being made to be its own model element in the model file, rather than a setting for each face, possibly also making it less expensive to render.
+|"2D" items now always appear 3D, regardless of graphics setting. This must be due to the introduction of proper, customizable item models in this version, as opposed to being auto-generated by the game in previous versions.
+|However, said "2D" items still do not rotate on Fast graphics - only on Fancy graphics do they rotate.
+|Leaves no longer have different texture files for fast and fancy graphics - rather, the transparent texture is always used, and blank regions are filled in with an average color.{{info needed|what color is used? is it the most common color in the texture? or were these regions always colroed that and with an alpha of 0 and 14w25b changes their texture so these regions are black?}}
+|Leaves now appear transparent on Fast graphics in item form (held, dropped, framed or worn on a player's head),{{info needed|held by a command-summoned enderman?}} and their particles also have transparency. Graphics settings only affect them when placed.}}
+{{History|||snap=14w25b|Leaves now render black in their transparent regions in fast graphics.{{info needed|Again, is this a rendering change, or a texture change which only affected translucent regions? And are they forced to render black - if you put a yellow pixel in there with alpha 0, would it still render black, or yellow?}}}}
+{{History||1.8.1|snap=pre4|Dropped items now rotate on fast graphics.
+|Entity shadows are no longer controlled by fast/fancy graphics - they now have their own setting.
+|Clouds are no longer controlled by fast/fancy graphics - this has been merged into the clouds on/off option, which has become off/fast/fancy itself.}}
+{{History||1.16|snap=Pre-release 1|Added the Fabulous! graphics setting,}}
+
+{{History|pocket alpha}}
+{{History||v0.1.0|The game has two toggles for graphics settings: "Fancy graphics" and "Lower graphics quality." Both toggles are off by default.
+|"Fancy graphics" currently only affects the rendering of leaves.
+|"Lower graphics quality" decreases the [[render distance]] from four chunks to two chunks and prevents the "Fancy graphics" toggle from being enabled.}}
+{{History||v0.6.0|Added [[cloud]]s, which are only visible if "Fancy graphics" is enabled.}}
+{{History||v0.7.0|Render distance is now controlled independently of other graphics settings, and the "Lower graphics quality" toggle has been removed.
+|Cloud visibility is now controlled by the "Beautiful skies" toggle instead of fancy graphics.}}
+{{History||v0.8.0|snap=build 1|The fancy graphics toggle is now enabled by default.
+|Clouds now appear opaque if fancy graphics is off.
+|The following changes have been made to entity lighting in fancy graphics:
+* All entities now produce circular stencil shadows on blocks below them.
+* Lighting on entities is now dynamic and is no longer the same light level on all sides.
+* Lighting on each entity is now tinted based on how much sky light and block light is on it.
+* Light direction on entities now depends on the position of the sun. This does not affect stencil shadows.
+|When the [[inventory]] screen is open, the background is now a dirt texture instead of the world if fancy graphics is off.}}
+{{History||v0.10.0|snap=build 1|Water is now significantly more transparent near the player when fancy graphics is off.}}
+{{History|||snap=build 2|[[Fog]] is now spherical instead of a flat plane when fancy graphics is on.}}
+{{History|||snap=build 6|Fog is no longer applied to clouds when fancy graphics is off.}}
+{{History|foot}}
+
+==References==
+{{reflist}}
+
+[[Category:UI]]

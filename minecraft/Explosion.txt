@@ -1,0 +1,604 @@
+{{redirect|Exploding|the enchantment|MCD:Exploding}}
+[[File:Minecraft-tnt-explosion.gif|frame|A [[TNT]] explosion.]]
+An '''explosion''' is a physical event, generally destructive, that can be caused by several different circumstances. It can destroy nearby [[block]]s, propel and damage nearby [[player]]s, [[entities]], and their [[armor]], and cause one or more [[fire]]s to appear under correct circumstances. Explosions produce a "shockwave" [[particle]] effect.
+
+Multiple close explosions may propel objects further, but have no cumulative effect on the destruction of a [[block]] - for example, no amount of [[TNT]] will destroy a block of [[obsidian]], even if it all explodes at once. This is because explosion [[damage]] to blocks is evaluated individually (per explosion), and blocks' blast resistance do not become "weakened" from previous explosions.
+
+The propulsion effect of explosions is often used for [[Tutorials/TNT Cannons|TNT cannons]], and can also be used to shoot out gravity affected blocks.
+
+== Explosion strength ==
+
+{| class="wikitable" data-description="Explosion strength"
+! Explosion Type
+! Power
+! Creates [[fire]]?
+! Notes
+|-
+| {{EntityLink|Wither}}{{only|bedrock}} (half health charge move)
+| align=center | '''8'''
+| {{tc|No}}
+| Breaks any block that is breakable in survival mode (except reinforced deepslate), ignoring blast resistance. Does no terrain damage when the {{code|mobGriefing}} [[game rule]] is set to false. 
+|-
+| {{EntityLink|Wither}} (when spawned, or when killed{{only|bedrock}})
+| align=center | '''7'''
+| {{tc|No}}
+| Does no terrain damage when the {{code|mobGriefing}} game rule is set to false.
+|-
+| {{EntityLink|End crystal}} (when destroyed)
+| align=center | '''6'''
+| {{tc|No}}
+|-
+| {{EntityLink|Charged creeper}} 
+| align=center | '''6'''
+| {{tc|No}}
+|Drops [[head]]s or skulls of [[mob]]s killed by explosion. Does no terrain damage when the {{code|mobGriefing}} game rule is set to false.
+|-
+| {{BlockLink|Beds}} when used in [[the Nether]], [[the End]], or [[custom dimension]]s
+| align=center | '''5'''
+| {{tc|Yes}} 
+| Uses the death message "(player) was killed by [Intentional Game Design]"{{only|Java}}
+|-
+| {{BlockLink|Respawn anchor}} when used in the [[Overworld]], [[the End]], or [[custom dimension]]s
+| align=center | '''5'''
+| {{tc|Yes}}
+| Uses the death message "(player) was killed by [Intentional Game Design]"{{only|Java}}
+|-
+| {{BlockLink|TNT}}
+| align=center | '''4'''
+| {{tc|No}}
+| Any blocks destroyed by explosion drop their respective items. No effect when in water (unless an anvil is standing inside a [https://minecraft.fandom.com/wiki/TNT#Behavior primed TNT]). 
+|-
+| {{BlockLink|Underwater TNT}}{{only|bedrock|education}}
+| align=center | '''4'''
+| {{tc|No}}
+| Damages terrain, even when underwater.
+|- 
+| {{EntityLink|Creeper}}
+| align=center | '''3'''
+| {{tc|No}}
+| Does no terrain damage when the {{code|mobGriefing}} game rule is set to false.
+|-
+| {{EntityLink|Fireball}} ([[ghast]] projectile)
+| align=center | '''1'''
+| {{tc|Yes}}
+| Does no terrain damage when the {{code|mobGriefing}} game rule is set to false. Does not damage [[cobblestone]].
+|-
+| {{EntityLink|id=wither-skull|Wither#Wither Skull|Black wither skull}}
+| align=center | '''1'''
+| {{tc|No}}
+| Does no terrain damage when the {{code|mobGriefing}} game rule is set to false.
+|-
+| {{EntityLink|id=dangerous-wither-skull|Wither#Wither Skull|Dangerous wither skull}}
+| align=center | '''1'''
+| {{tc|No}}
+| Treats blocks breakable in survival mode as having a blast resistance of no more than 0.8. Does no terrain damage when the {{code|mobGriefing}} game rule is set to false.
+|}
+
+Despite doing [[damage]] to [[entities]], [[firework]]s and [[wind charge]]s do not destroy terrain and as such are not counted as conventional explosions.
+
+[[Lab table]]s sometimes perform a non-terrain-damaging explosion when creating [[garbage]] item.{{only|bedrock|education}}
+
+[[File:ExplosionComparison.png|thumb|right|Comparison of explosion craters, from a [[charged creeper]] (left), [[TNT]] (center), and regular [[creeper]] (right).]]
+
+== Effect ==
+=== Model of block destruction ===
+
+[[File:ExplosionRay.png|right|thumb|The rays from the explosion center to points that are uniformly distributed on the surface of a cube centered at the explosion with an edge length of 2. (However, this defines only their directions, not their length).]]
+
+[[File:Explosion outline.png|right|thumb|The roughly spherical pattern of [[block]]s destroyed can be seen here.]]
+An explosion can destroy nearby [[block]]s. Its blast effect is evaluated independently on many explosion rays originating from the explosion center, as shown in the right figure.
+
+[[File:Bedrockbreak.png|right|thumb|An explosion must be powerful (power ~1542860{{Verify}}) to destroy a [[bedrock]] block.]] 
+# A cube around the explosion is divided into a 16×16×16 grid, and rays are created from the center to each outer point of this grid, meaning that there are a total of 1352 rays.
+# Each ray is given an intensity, calculated as (0.7 + [a random value from 0 to 0.6]) × [''power''].
+# For every attenuation step (0.3 blocks along the ray), the intensity of the ray is reduced by 0.225 (0.3×0.75). If the block passed through is anything other than air, it is further reduced by (''[[blast resistance]]''&nbsp;+&nbsp;0.3)&nbsp;×&nbsp;0.3.
+# The ray destroys any blocks that could not reduce the ray intensity to zero at any checkpoint.
+
+From the above process, the following results can be deduced (where <math>\lfloor x \rfloor</math> is the [[Wikipedia:Floor and ceiling functions|floor]] function):
+
+* The maximum blast radius (assuming no block absorption) is <math>\left\lfloor 1.3\times\frac{\text{power}}{0.225}\right\rfloor\times 0.3</math> = 10.4 ([[charged creeper]]s), 6.9 ([[TNT]]), 5.2 ([[creeper]]s), 1.7 ([[fireball]]s). For example, a [[TNT]] explosion can destroy a [[torch]] 7 blocks away. However, how many [[block]]s an explosion can destroy is non-deterministic and also dependent on the specific location of the explosion.
+* The ''minimum block resistance'' required to absorb maximum blast force of an explosion happening in nearby [[air]]&nbsp;= <math> \frac{1.3\times \mathsf{power}-0.75\times \mathsf{attenuation\ steps} \times \mathsf{step\ length}}{\mathsf{step\ length}} - 0.3</math>. To not be destroyed, a [[block]] has to absorb all blast force at the first checkpoint in it.
+** The <var>attenuation steps</var> is subject to collision restrictions. For explosion in [[air]], there is at least one attenuation step. [[TNT]] and [[creeper]] explosions are always 0.49 and 0.5 blocks away from nearest block (2 attenuation steps), but [[fireball]] explosions can happen anywhere (1 attenuation step).
+** Thus, the block resistances are 24.2 (charged creepers), 15.534 ([[TNT]]), 11.2 ([[creeper]]s), 3.284 ([[fireball]]s).
+** So [[water]], [[lava]] (the stationary block), [[obsidian]], and [[bedrock]] are always indestructible, and [[fence]]s and less blast-resistant blocks can be destroyed by fireballs. These are theoretical values, and in reality less resistant blocks are not always destroyed; there is no such mechanic.
+
+=== Dropping blocks ===
+Destroyed blocks have a {{frac|1|p}} chance of dropping as collectible resources, where ''p'' is the explosion power. So, blocks destroyed by an (uncharged) [[creeper]]'s explosion have a {{frac|1|3}} chance of dropping. However, [[dragon egg]]s, [[beacon]]s, [[conduit]]s, [[head]]s, [[shulker box]]es and [[decorated pot]]s always drop from explosions, though the [[item (entity)|item]]s may be destroyed by subsequent explosions. In addition, explosions from [[TNT]] and [[minecarts with TNT]] cause a 100% drop rate.
+
+{{IN|java}}, the drop chance of blocks in explosions can be customized via three [[game rule]]s:
+* {{cd|blockExplosionDropDecay}} controls whether block-based explosions (e.g. a bed explosion) cause only some blocks to drop.
+** It is set to {{cd|true}} by default.
+** An [[end crystal]] explosion is controlled by this game rule, despite the end crystal being an entity.
+* {{cd|mobExplosionDropDecay}} controls whether mob-based explosions (e.g. a creeper explosion) cause only some blocks to drop.
+** It is set to {{cd|true}} by default.
+* {{cd|tntExplosionDropDecay}} controls whether TNT explosions cause only some blocks to drop.
+** It is set to {{cd|false}} by default.
+The precious blocks listed above always drop from explosions, regardless of the values of these game rules.
+
+=== Interaction with entities ===
+An explosion has different effects on [[entities]] than [[block]]s. Entities are damaged and propelled by an explosion if within its <var>damage radius</var> of <var>2 × power</var>. Note that the "damage radius" is '''different''' from the blast radius of explosion effect on blocks.
+# For every entity within a 2×[''power''] block sphere of the explosion center, the impact is (1-[distance from explosion/damage radius])×[''exposure''] (see section below on exposure).
+# The entity is damaged by ((''impact''×''impact''+''impact'')×7×''power''+1) rounded down (armor enchantments for damage are handled separately). This is scaled by [[Difficulty|difficulty]].
+# After damage, exposure is reduced by (''exposure''×[max Blast Protection from all armor]×0.15).
+# The entity's eyes are propelled along the ray from the explosion center by the new ''exposure''.
+
+From the above process, the following results can be deduced: 
+
+* [[Entities]] always get at least 1 point of damage if they are within the radius, regardless of their explosion exposure.
+* The ''maximum damage'' that entities can take (at the explosion center with 100% exposure and normal difficulty)&nbsp;= (1&nbsp;× 1&nbsp;+ 1)&nbsp;× 7&nbsp;× <var>power</var>&nbsp;+ 1 point of damage&nbsp;= 99, ([[Wither]] newly spawned by the [[player]]), 85 ([[Creeper|charged creeper]]s), 71 ([[Beds]] when using in [[the Nether]] or in [[the End]]), 57 ([[TNT]]), 43 ([[creeper]]s), 15 ([[fireball]]s). When entities are away or covered by [[block]]s from the explosion center, they take less damage.
+* The ''maximum velocity gain'' that an entity can obtain from a single explosion is 1, at the explosion center with 100% exposure.
+
+[[File:TNTAABB.png|right|thumb|A primed [[TNT]] [[wikipedia:Minimum bounding box#Axis-aligned minimum bounding box|AABB]] has directionally asymmetrical sample points (1/2.96 spacing) because of rounding.]]
+
+==== Calculation of explosion exposure ====
+# The entity's bounding box is divided into a [2×''width''+1] by [2×''height''+1] by [2×''depth''+1] grid of unequally spaced points.
+# A ray is drawn from the explosion center to each point.
+# The ''exposure'' of the entity is the percentage of these rays that are unobstructed by [[solid block]]s.
+The approximation algorithm has sampling error that results in directional asymmetry of propulsion. For example, a typical [[Tutorials/TNT Cannons|TNT cannon]] has maximum range in the west direction partly because the primed TNT has largest sampled exposure in that direction.{{verify|Is this still the case? Bug MC-65697 was marked as fixed in 1.8.2-pre1}}
+
+=== Causing fire ===
+If the explosion can, it will randomly start [[Fire|fires]] in ⅓ of all destroyed [[air]] [[block]]s that are above [[opacity|opaque]] blocks.
+
+=== Prolonged lag ===
+In addition to the initial lag from processing the explosion, which subsides once the explosion has occurred, there can also be a prolonged fallout from an explosion, that consists of dropped [[item]]s, [[liquid]] physics, and increased render-complexity of the crater. Technically, the dropped items disappear after 5 minutes, however those 5 in-game minutes may take a long time to process during extreme lag.
+
+Certain rules and commands can be used to avoid this prolonged lag: setting the game rule <code>doTileDrops</code> to false with the command {{cmd|gamerule doTileDrops false}}, preventing dropped items from being generated by explosions. Also, the command {{cmd|kill @e[type{{=}}item]}} destroys all dropped items.
+
+== Blast resistance ==
+{{redirect|Blast resistance|the enchantment|Blast Protection}}
+{{Distinguish|Hardness}}The following table shows blast resistance values for blocks as shown in Minecraft's code. In [[Add-on]]s for [[Bedrock Edition]], these values are multiplied by 5 when used for the "explosion_resistance" value in the "minecraft:destructible_by_explosion" component. 
+[[{{fullurl:Module:Blast resistance values|action=edit}} edit values]]
+{| class="sortable" style="float: left; margin: 0 2px 2px; border: 1px solid silver; text-align: left;" data-description="Blast resistance values"
+! Block name !!data-sort-type="number"| Blast resistance
+{{Explosion table|Allow}}
+{{Explosion table|Board}}
+{{Explosion table|Border}}
+{{Explosion table|Deny}}
+{{Explosion table|Poster}}
+{{Explosion table|Slate}}
+{{Explosion table|Barrier}}
+{{Explosion table|Light Block}}
+{{Explosion table|Bedrock}}
+{{Explosion table|Command Block|sprite=command-blocks|text=Command Blocks}}
+{{Explosion table|End Gateway|sprite=End Portal|link=End Gateway (block)}}
+{{Explosion table|End Portal|link=End Portal (block)}}
+{{Explosion table|End Portal Frame}}
+{{Explosion table|Jigsaw Block}}
+{{Explosion table|Structure Block}}
+{{Explosion table|Ancient Debris}}
+{{Explosion table|Anvil}}
+{{Explosion table|Block of Netherite}}
+{{Explosion table|Crying Obsidian}}
+{{Explosion table|Respawn Anchor}}
+{{Explosion table|Enchanting Table}}
+{{Explosion table|Obsidian}}
+{{Explosion table|Reinforced Deepslate}}
+{{Explosion table|Ender Chest}}
+{{Explosion table|Bubble Column}}
+{{Explosion table|Lava}}
+{{Explosion table|Water}}
+{{Explosion table|Dragon Egg}}
+{{Explosion table|End Stone}}
+{{Explosion table|End Stone Bricks}}
+{{Explosion table|End Stone Brick Wall|link=Wall}}
+{{Explosion table|Andesite}}
+{{Explosion table|Blackstone}}
+{{Explosion table|Block of Coal}}
+{{Explosion table|Block of Copper}}
+{{Explosion table|Block of Diamond}}
+{{Explosion table|Block of Emerald}}
+{{Explosion table|Block of Gold}}
+{{Explosion table|Block of Iron}}
+{{Explosion table|Block of Raw Copper}}
+{{Explosion table|Block of Raw Gold}}
+{{Explosion table|Block of Raw Iron}}
+{{Explosion table|Block of Redstone}}
+{{Explosion table|Bricks}}
+{{Explosion table|Brick Stairs}}
+{{Explosion table|Chain}}
+{{Explosion table|Chiseled Deepslate}}
+{{Explosion table|Cobbled Deepslate}}
+{{Explosion table|Cobblestone}}
+{{Explosion table|Cobblestone Stairs}}
+{{Explosion table|Coral Block|sprite=coral-blocks|text=Coral Blocks}}
+{{Explosion table|Deepslate}}
+{{Explosion table|Deepslate Bricks}}
+{{Explosion table|Deepslate Tiles}}
+{{Explosion table|Diorite}}
+{{Explosion table|Gilded Blackstone}}
+{{Explosion table|Granite}}
+{{Explosion table|Grindstone}}
+{{Explosion table|Iron Bars}}
+{{Explosion table|Jukebox}}
+{{Explosion table|Lightning Rod}}
+{{Explosion table|Mossy Cobblestone}}
+{{Explosion table|Nether Bricks}}
+{{Explosion table|Nether Brick Fence}}
+{{Explosion table|Nether Brick Stairs}}
+{{Explosion table|Polished Deepslate}}
+{{Explosion table|Prismarine}}
+{{Explosion table|Purpur Block}}
+{{Explosion table|Purpur Pillar}}
+{{Explosion table|Purpur Slab}}
+{{Explosion table|Purpur Stairs}}
+{{Explosion table|Red Nether Bricks}}
+{{Explosion table|Smooth Quartz Block}}
+{{Explosion table|Smooth Quartz Slab}}
+{{Explosion table|Smooth Quartz Stairs}}
+{{Explosion table|Smooth Stone}}
+{{Explosion table|Stone}}
+{{Explosion table|Stone Bricks}}
+{{Explosion table|Stone Brick Stairs}}
+{{Explosion table|link=Slab|Stone Slabs|sprite=slabs}}
+{{Explosion table|Stone Wall|sprite=cobblestone-wall|text=Stone Walls (except End, Sandstone)|link=Wall}}
+{{Explosion table|Tuff}}
+{{Explosion table|Bell}}
+{{Explosion table|Iron Door|item=1}}
+{{Explosion table|Iron Trapdoor}}
+{{Explosion table|Monster Spawner}}
+{{Explosion table|Hopper}}
+{{Explosion table|Basalt}}
+{{Explosion table|Polished Basalt}}
+{{Explosion table|Smooth Basalt}}
+{{Explosion table|Terracotta}}
+{{Explosion table|Cobweb}}
+{{Explosion table|Lodestone}}
+{{Explosion table|Blast Furnace}}
+{{Explosion table|Dispenser}}
+{{Explosion table|Dropper}}
+{{Explosion table|Furnace}}
+{{Explosion table|Lantern}}
+{{Explosion table|Soul Lantern}}
+{{Explosion table|Smoker}}
+{{Explosion table|Stonecutter}}
+|}
+{| class="sortable" style="float: left; margin: 0 2px 2px; border: 1px solid silver; text-align: left;" data-description="Blast resistance values"
+! Block name !!data-sort-type="number"| Blast resistance
+{{Explosion table|Observer}}
+{{Explosion table|Beacon}}
+{{Explosion table|Block of Lapis Lazuli}}
+{{Explosion table|Coal Ore}}
+{{Explosion table|Cocoa Beans|text=Cocoa|sprite=cocoa}}
+{{Explosion table|Conduit}}
+{{Explosion table|Copper Ore}}
+{{Explosion table|Deepslate Coal Ore}}
+{{Explosion table|Deepslate Copper Ore}}
+{{Explosion table|Deepslate Diamond Ore}}
+{{Explosion table|Deepslate Emerald Ore}}
+{{Explosion table|Deepslate Gold Ore}}
+{{Explosion table|Deepslate Iron Ore}}
+{{Explosion table|Deepslate Lapis Lazuli Ore}}
+{{Explosion table|Deepslate Redstone Ore}}
+{{Explosion table|Diamond Ore}}
+{{Explosion table|Emerald Ore}}
+{{Explosion table|Gold Ore}}
+{{Explosion table|Iron Ore}}
+{{Explosion table|Lab Table}}
+{{Explosion table|Lapis Lazuli Ore}}
+{{Explosion table|Mud Bricks}}
+{{Explosion table|Nether Quartz Ore}}
+{{Explosion table|Packed Mud}}
+{{Explosion table|Planks}}
+{{Explosion table|Pointed Dripstone}}
+{{Explosion table|Redstone Ore}}
+{{Explosion table|Sculk Catalyst}}
+{{Explosion table|Sculk Shrieker}}
+{{Explosion table|Wooden Fence|link=Fence|sprite=Fences|text=Wooden Fences}}
+{{Explosion table|Fence Gate|sprite=Fence Gates|text=Wooden Fence Gates}}
+{{Explosion table|Wooden Door|link=Door|sprite=Wooden Doors|text=Wooden Doors}}
+{{Explosion table|link=Slab|Wooden Slabs}}
+{{Explosion table|link=Stairs|Wooden Stairs}}
+{{Explosion table|Wooden Trapdoor|link=Trapdoor|sprite=Wooden Trapdoors|text=Wooden Trapdoors}}
+{{Explosion table|Blue Ice}}
+{{Explosion table|Barrel}}
+{{Explosion table|Cartography Table}}
+{{Explosion table|Chest}}
+{{Explosion table|Crafting Table}}
+{{Explosion table|Dried Kelp Block}}
+{{Explosion table|Fletching Table}}
+{{Explosion table|Lectern}}
+{{Explosion table|Loom}}
+{{Explosion table|Smithing Table}}
+{{Explosion table|Trapped Chest}}
+{{Explosion table|Bone Block}}
+{{Explosion table|Campfire}}
+{{Explosion table|Soul Campfire}}
+{{Explosion table|Cauldron}}
+{{Explosion table|Compound Creator}}
+{{Explosion table|Shulker Box}}
+{{Explosion table|Wood}}
+{{Explosion table|Concrete}}
+{{Explosion table|Amethyst Bud}}
+{{Explosion table|Amethyst Cluster}}
+{{Explosion table|Block of Amethyst}}
+{{Explosion table|Bookshelf}}
+{{Explosion table|Budding Amethyst}}
+{{Explosion table|Sculk Sensor}}
+{{Explosion table|Glazed Terracotta}}
+{{Explosion table|Bamboo}}
+{{Explosion table|Banner|text=Banners|sprite=Banners}}
+{{Explosion table|Dripstone Block}}
+{{Explosion table|Jack o'Lantern}}
+{{Explosion table|Head|text=Heads|sprite=Heads}}
+{{Explosion table|Nether Wart Block}}
+{{Explosion table|Pumpkin}}
+{{Explosion table|Shroomlight}}
+{{Explosion table|Sign|text=Signs|sprite=Signs}}
+{{Explosion table|Warped Wart Block}}
+{{Explosion table|Block of Quartz}}
+{{Explosion table|Note Block}}
+{{Explosion table|Quartz Stairs}}
+{{Explosion table|Red Sandstone}}
+{{Explosion table|Red Sandstone Stairs}}
+{{Explosion table|Sandstone}}
+{{Explosion table|Sandstone Stairs}}
+{{Explosion table|Sandstone Wall|sprite=sandstone-wall|text=Sandstone Walls|link=Wall}}
+{{Explosion table|Wool}}
+{{Explosion table|Calcite}}
+{{Explosion table|Infested Block|sprite=Infested Blocks|text=Infested Blocks}}
+{{Explosion table|Activator Rail}}
+{{Explosion table|Detector Rail}}
+{{Explosion table|Powered Rail}}
+{{Explosion table|Rail}}
+{{Explosion table|Mangrove Roots}}
+{{Explosion table|Muddy Mangrove Roots}}
+{{Explosion table|Dirt Path}}
+{{Explosion table|Beehive}}
+{{Explosion table|Clay|link=Clay (block)}}
+{{Explosion table|Composter}}
+{{Explosion table|Farmland}}
+{{Explosion table|Grass Block}}
+{{Explosion table|Gravel}}
+{{Explosion table|Honeycomb Block}}
+{{Explosion table|Sponge}}
+{{Explosion table|Wet Sponge}}
+{{Explosion table|Mycelium}}
+|}
+{| class="sortable" style="float: left; margin: 0 2px 2px; border: 1px solid silver; text-align: left;" data-description="Blast resistance values"
+! Block name !!data-sort-type="number"| Blast resistance
+{{Explosion table|Brewing Stand}}
+{{Explosion table|Button|sprite=Buttons|text=Buttons}}
+{{Explosion table|Cake}}
+{{Explosion table|Coarse Dirt}}
+{{Explosion table|Concrete Powder}}
+{{Explosion table|Dirt}}
+{{Explosion table|Frosted Ice}}
+{{Explosion table|Hay Bale}}
+{{Explosion table|Ice}}
+{{Explosion table|Lever}}
+{{Explosion table|Magma Block}}
+{{Explosion table|Mud}}
+{{Explosion table|Packed Ice}}
+{{Explosion table|Piston}}
+{{Explosion table|Piston Head}}
+{{Explosion table|Podzol}}
+{{Explosion table|Pressure Plate|sprite=Wooden Pressure Plates|text=Pressure Plates}}
+{{Explosion table|Rooted Dirt}}
+{{Explosion table|Sand}}
+{{Explosion table|Soul Sand}}
+{{Explosion table|Soul Soil}}
+{{Explosion table|Sticky Piston}}
+{{Explosion table|Target}}
+{{Explosion table|Turtle Egg}}
+{{Explosion table|Pressure Plate|sprite=Weighted Pressure Plates|text=Weighted Pressure Plates}}
+{{Explosion table|Cactus}}
+{{Explosion table|Chorus Flower}}
+{{Explosion table|Chorus Plant}}
+{{Explosion table|Ladder}}
+{{Explosion table|Netherrack}}
+{{Explosion table|Nylium|sprite=nylium}}
+{{Explosion table|Bee Nest}}
+{{Explosion table|Froglight}}
+{{Explosion table|Glowstone}}
+{{Explosion table|Glass}}
+{{Explosion table|Glass Pane}}
+{{Explosion table|Glowstone}}
+{{Explosion table|Redstone Lamp}}
+{{Explosion table|Sea Lantern}}
+{{Explosion table|Stained Glass}}
+{{Explosion table|Stained Glass Pane|link=Glass Pane|sprite=Stained Glass Panes|text=Stained Glass Panes}}
+{{Explosion table|Tinted Glass}}
+{{Explosion table|Powder Snow}}
+{{Explosion table|Bed|sprite=Beds|text=Beds}}
+{{Explosion table|Daylight Detector}}
+{{Explosion table|Glow Lichen}}
+{{Explosion table|Leaves}}
+{{Explosion table|Mushroom Block|sprite=Mushroom Blocks|text=Mushroom Blocks}}
+{{Explosion table|Sculk}}
+{{Explosion table|Sculk Vein}}
+{{Explosion table|Snow Block}}
+{{Explosion table|Vines}}
+{{Explosion table|Candle}}
+{{Explosion table|Carpet|sprite=Carpets|text=Carpets}}
+{{Explosion table|Big Dripleaf}}
+{{Explosion table|Moss Block}}
+{{Explosion table|Moss Carpet}}
+{{Explosion table|Snow}}
+{{Explosion table|Air}}
+{{Explosion table|Azalea}}
+{{Explosion table|Beetroot Seeds|sprite=Beetroots|text=Beetroots}}
+{{Explosion table|Carrot|sprite=Carrots|text=Carrots}}
+{{Explosion table|Cave vines}}
+{{Explosion table|Colored Torch|sprite=Colored Torch|text=Colored Torches}}
+{{Explosion table|Coral|text=Corals}}
+{{Explosion table|Coral Fan|sprite=Coral Fans|text=Coral Fans}}
+{{Explosion table|Dead Bush}}
+{{Explosion table|Element}}
+{{Explosion table|End Rod}}
+{{Explosion table|Fire}}
+{{Explosion table|Flower|sprite=Flowers|text=Flowers}}
+{{Explosion table|Flower Pot}}
+{{Explosion table|Frogspawn}}
+{{Explosion table|Fungus}}
+{{Explosion table|Grass}}
+{{Explosion table|Hanging Roots}}
+{{Explosion table|Honey Block}}
+{{Explosion table|Kelp}}
+{{Explosion table|Lily Pad}}
+{{Explosion table|Locked chest}}
+{{Explosion table|Melon Seeds|sprite=Melon Stem|text=Melon Stem}}
+{{Explosion table|Moving Piston}}
+{{Explosion table|Mushroom|sprite=Mushrooms|text=Mushrooms}}
+{{Explosion table|Nether Portal|link=Nether Portal (block)}}
+{{Explosion table|Nether Sprouts}}
+{{Explosion table|Nether Wart}}
+{{Explosion table|Potato|sprite=Potatoes|text=Potatoes}}
+{{Explosion table|Pumpkin Seeds|sprite=Pumpkin Stem|text=Pumpkin Stem}}
+{{Explosion table|Redstone Dust}}
+{{Explosion table|Redstone Comparator}}
+{{Explosion table|Redstone Repeater}}
+{{Explosion table|Redstone Torch}}
+{{Explosion table|Roots}}
+{{Explosion table|Sapling|sprite=Saplings|text=Saplings}}
+{{Explosion table|Scaffolding}}
+{{Explosion table|Seagrass}}
+{{Explosion table|Sea Pickle}}
+{{Explosion table|Slime Block}}
+{{Explosion table|Small Dripleaf}}
+{{Explosion table|Soul Fire}}
+{{Explosion table|Spore Blossom}}
+{{Explosion table|Structure Void}}{{only|java|short=1}}
+{{Explosion table|Sugar Cane}}
+{{Explosion table|Sweet Berry Bush}}
+{{Explosion table|TNT}}
+{{Explosion table|Torch}}
+{{Explosion table|Torch|sprite=Soul Torch|text=Soul Torch}}
+{{Explosion table|String|sprite=Tripwire|text=Tripwire}}
+{{Explosion table|Tripwire Hook}}
+{{Explosion table|Twisting Vines}}
+{{Explosion table|Underwater Torch}}
+{{Explosion table|Underwater TNT}}
+{{Explosion table|Weeping Vines|sprite=weeping-vines-plant}}
+{{Explosion table|Wheat Seeds|sprite=Wheat|text=Wheat}}
+|}
+{{-}}
+
+== Typical damage radius ==
+The [[player]] receives [[damage]], if within these radii of a 100% exposure ground 1 [[block]], 2 blocks, or 4 blocks of [[TNT]] explosion, with the amount of damage labeled on each circle in the figures below.
+
+[[File:KillRadiiGrenade1.png|300px]]
+[[File:KillRadiiGrenade2.png|300px]]
+[[File:KillRadiiGrenade4.png|300px]]
+
+== Sounds ==
+{{edition|java}}:
+{{Sound table
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|subtitle=Explosion
+|source=block
+|description=When something explodes
+|id=entity.generic.explode
+|translationkey=subtitles.entity.generic.explode
+|volume=4.0
+|pitch=0.56-0.84
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|source=block
+|description=When something explodes
+|id=random.explode
+|volume=4.0
+|pitch=1.0
+|foot=1}}
+
+== History ==
+<!--Please try and include any explosion related updates in this section-->{{Missing information|section|[[Legacy Console Edition]]}}{{History||May 21, 2009|link=https://web.archive.org/web/0/http://notch.tumblr.com/post/110762705/my-list-on-tile-types-so-far|[[Notch]] shows interest in adding an explosive [[block]].}}
+{{History|java classic}}
+{{History||0.24_SURVIVAL_TEST|Added [[creeper]]s.}}
+{{History||October 24, 2009|link=https://notch.tumblr.com/post/221308991/the-new-block-types-and-new-graphics-for-the-gold|Showed off TNT.}}
+{{History||0.26 SURVIVAL TEST|Added [[TNT]].}}
+{{History|java indev}}
+{{History||0.31|snap=20100122|Explosions are now "better".}}
+{{History|||snap=20100125-1|Explosions now lose power when going through stronger materials.}}
+{{History|java alpha}}
+{{History||v1.2.0|snap=preview|Added [[ghast]]s, which shoot explosive [[fireball]]s.}}
+{{History|java beta}}
+{{History||1.5|Creepers now become charged when struck by [[lightning]], increasing the explosion's radius and strength.}}
+{{History||1.6|snap=Test Build 3|When the player tries to sleep in [[the Nether]], they now cause the [[bed]] to explode.}}
+{{History||1.8|snap=Pre-release|Explosions now emit shockwave [[particle]]s. Prior to Beta 1.8, explosions emitted only smoke.}}
+{{History||Sound Update|The 'Sound Update' on November 11th, 2011 gave TNT a new explosion [[sound]].}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 3|Bed and fireball explosions now cause [[fire]]s.}}
+{{History|||snap=Beta 1.9 Prerelease 4|When the [[player]] tries to sleep in [[the End]], they now cause the bed to explode.
+|Enchantment [[Blast Protection]] added, which can enhance an [[armor]]'s resistance against explosions.}}
+{{History|||snap=Beta 1.9 Prerelease 6|[[End crystal]]s added, which can be destroyed with a melee or hit with an [[arrow]] or [[snowball]], causing an explosion.}}
+{{History||1.3.1|snap=12w24a|Fixed the issue of explosions not propelling players.}}
+{{History|||snap=12w30a|Explosions now [[damage]] the player different amounts on different difficulties. However, no damage is dealt to the player on [[Peaceful]].}}
+{{History||1.4.2|snap=12w34a|Added the [[wither]], which shoots black [[Wither#Wither skull|wither skull]]s.}}
+{{History|||snap=12w37a|An emergent wither now make a massive explosion when its [[health]] is fully charged.
+|Blue [[wither skull]]s added.}}
+{{History|||snap=12w38b|New creeper fall mechanics have been added. Creepers now explode if they fall on the [[player]] from a certain height.}}
+{{History||1.5|snap=?|Destroyed [[block]]s now have a 1/<var>power</var> chance of dropping as items; previously it was a fixed 30% chance.}}
+{{History|||snap=?|The Nether's [[biome]] now controls whether beds explode. As such, [[superflat]] worlds with this biome set will have beds explode in the Overworld. It is not known if Overworld biomes in the Nether allow sleeping as a result of this.{{info needed}}}}
+{{History||1.8.2|snap=pre1|Explosions are now no longer directionally biased.}}
+{{History||1.14|snap=19w11a|Destroyed blocks from TNT or [[minecart with TNT]] explosions now have a 100% chance of dropping as items.}}
+{{History||1.15|snap=pre1|Explosions no longer create smoke particles.<ref>{{bug|MC-165991}}</ref>}}
+{{History||1.16|snap=20w12a|Added [[respawn anchor]]s, which explode in a similar fashion to a bed, if charged and used in the [[Overworld]] and [[the End]] dimensions.}}
+{{History|||snap=20w18a|The [[Nether Wastes]] biome no longer allows for beds to explode in the Overworld.<ref>{{bug|MC-147255}}</ref>{{info needed|Did the other four nether biomes at the time cause beds to explode in the Overworld?}}}}
+{{History||1.16.2|snap=?|[[Custom dimension]]s can specify whether beds and/or respawn anchors explode when used,}}
+{{History||1.19.3|snap=22w44a|Added the following game rules:
+* {{cd|blockExplosionDropDecay}}
+* {{cd|mobExplosionDropDecay}}
+* {{cd|tntExplosionDropDecay}}
+}}
+
+{{History|pocket alpha}}
+{{History||v0.1.0|Added [[TNT]].}}
+{{History||v0.2.1|TNT now actually explodes.}}
+{{History||v0.4.0|Added [[creeper]]s.}}
+{{History||v0.12.1|snap=?|Creepers now become charged when struck by [[lightning]], increasing the explosion's radius and strength.
+|Added [[ghast]]s, which shoot explosive [[fireball]]s.
+|Enchantment [[Blast Protection]] added, which can enhance an [[armor]]'s resistance against explosions.
+|When the player tries to sleep in [[the Nether]], they cause [[bed]]s to explode.}}
+{{History|||snap=?|Added explosion [[particle]]s.
+|[[TNT]] now uses a new explosion [[sound]].}}
+{{History||v0.14.0|snap=?|An invalid mixture of [[liquid]]s in [[cauldron]]s now result in a non-damaging explosion effect.}}
+{{History||v0.16.0|snap=build 4|[[Wither]]s added.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|[[End crystal]]s added.
+|When the player tries to sleep in [[the End]], they now cause the bed to explode.}}
+{{History||1.0.7|Explosions no longer deal [[damage]] to a [[player]], if the explosion is in [[water]].}}
+{{History|bedrock}}
+{{History||1.4.0|snap=beta 1.2.20.1|Creating [[garbage]] in Lab Table sometimes cause explosion sound.
+|Added [[Underwater TNT]], which can damage terrain underwater.}}
+{{History||?|Removed the non-damaging explosion effect from cauldrons, replaced with a hiss and smoke.}}
+{{History|foot}}
+
+== Trivia ==
+* Explosions with a power greater than 100 look mostly the same from the outside, as only certain lines are used to determine if a [[block]] breaks. However, some of those lines continue underground.
+* Explosions that occur in flowing [[water]] or [[lava]] apply propulsion to [[entities]], but don't affect any [[block]]s, regardless of the blocks' blast resistance.
+* Underwater explosions don't emit smoke [[particle]]s.
+* Explosions can redirect projectiles, including [[ender pearl]]s.
+* An explosion just after a mob's death can propel the [[mob]]'s body.
+* If primed [[TNT]] explodes in a large, solid cube of stone blocks, it creates an exact 3×3×3 cube inside. Experimentation confirms that a TNT detonation causes a 3×3 hole in a solid [[block]] of anything with a blast resistance less than that of [[water]], but more than 2.5 (e.g. crafting tables). This implies that 3×3 is the minimum possible result of a TNT detonation without the blast being resisted altogether.
+* If a falling sand entity falls into primed TNT when in water, it deals block [[damage]].
+* Every block that has a higher blast resistance than [[cobweb]]s can block a [[ghast]]'s fireball and remain intact.
+
+== References ==
+{{reflist}}
+
+{{Gameplay}}
+
+[[Category:Mechanics]]
+
+[[de:Explosion]]
+[[es:Explosión]]
+[[fr:Explosion]]
+[[it:Esplosione]]
+[[ja:爆発]]
+[[ko:폭발]]
+[[pl:Eksplozja]]
+[[pt:Explosão]]
+[[ru:Взрыв]]
+[[uk:Вибух]]
+[[zh:爆炸]]

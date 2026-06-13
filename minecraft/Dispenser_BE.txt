@@ -1,0 +1,13 @@
+<div class="treeview">
+*{{nbt|compound}} Block entity data
+** {{nbt inherit/blockentity}}
+** {{:Chunk format/Nameable}}
+** {{nbt|list|Items}}: List of items in this container.
+*** {{nbt|compound}}: An item, including the slot tag. Dispenser slots are numbered 0-8 with 0 in the top left corner.
+**** {{nbt inherit/item|indent=****}}
+** {{:Chunk format/Lockable}}
+** {{nbt|string|LootTable}}: Optional. [[Loot table]] to be used to fill the dispenser when it is next opened, or the items are otherwise interacted with.<ref name="loot" group="note">Both loot table tags are removed once the items have been generated.</ref>
+** {{nbt|long|LootTableSeed}}: Optional. Seed for generating the [[loot table]]. 0 or omitted causes a random seed to be used.<ref name="loot" group="note" />
+</div><references group="note" /><noinclude>
+[[Category:Block entity pages]]
+</noinclude>

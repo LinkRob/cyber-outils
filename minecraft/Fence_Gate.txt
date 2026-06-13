@@ -1,0 +1,581 @@
+{{Redirect|Gate|other uses|Gate (disambiguation)}}
+{{Block
+| image = <gallery>
+Oak Fence Gate.png | Closed
+Oak Fence Gate (Opened).png | Opened
+</gallery>
+| transparent = Yes
+| light = No
+| tool = axe
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = '''Overworld''': Yes (5)<br>'''Nether''': No
+| lavasusceptible = '''Overworld''': Yes<br>'''Nether''': No
+}}
+
+A '''fence gate''' is a block that shares the functions of both the [[door]] and the [[fence]].
+
+== Obtaining ==
+
+=== Breaking ===
+
+A fence gate can be {{control|broken}} with anything, but an [[axe]] is fastest.
+{{breaking row|horizontal=1|Fence Gates|Axe}}
+
+=== Natural generation ===
+
+;{{BlockSprite|Oak Fence Gate|text=Oak}}
+
+Oak fence gates generate as part of:
+
+* Plains [[village]]s
+
+;{{BlockSprite|Spruce Fence Gate|text=Spruce}}
+
+Spruce fence gates generate as part of:
+
+* Taiga, snowy tundra and snowy taiga{{only|be|short=1}} [[village]]s
+
+;{{BlockSprite|Jungle Fence Gate|text=Jungle}}
+
+Jungle fence gates generate as part of:
+
+* Desert [[village]]s
+
+;{{BlockSprite|Acacia Fence Gate|text=Acacia }}
+
+Acacia fence gates generate as part of:
+
+* Savanna [[village]]s
+
+;{{BlockSprite|Dark Oak Fence Gate|text=Dark oak}}
+
+Dark oak fence gates generate as part of:
+
+*[[Woodland mansion]]s
+
+=== Crafting ===
+{{Crafting
+  |name=Wood [[Fence Gate]]
+  |ingredients=Matching [[Planks]] +<br>Stick
+  |A2=Stick
+  |B2=Matching Planks
+  |C2=Stick
+  |A3=Stick
+  |B3=Matching Planks
+  |C3=Stick
+  |Output=Matching Fence Gate
+  |type=Redstone
+}}
+
+== Usage ==
+=== Placing ===
+[[File:Wheat farm with fences.png|A fence gate can provide access to a fenced-in area.|thumb]]
+
+A fence gate can be used as a switchable barrier that can be opened and closed by hand or by redstone power.
+
+To place a fence gate, use the {{control|Place Block}} [[control]] while pointing at a block facing the space the fence gate should occupy. When placed, a fence gate automatically faces toward the player who placed it, regardless of any other fences around it.
+
+A fence gate can be placed whether there is a solid block beneath it or not.
+
+[[Fence]]s, [[nether brick fence]]s and [[wall]]s connect to fence gates, but [[glass pane]]s and [[iron bars]] do not. A fence gate floats in mid-air when placed with no connection to anything else.
+
+=== Barrier ===
+A fence gate can be used as a switchable barrier.
+
+To open or close a fence gate, use the {{control|Use Item}} control. When a fence gate opens or closes, it immediately changes its orientation without affecting anything in the space it "passes through"—moving fence gates don't push entities the way that pistons do. When opened by hand, a fence gate always opens away from the player.
+
+Although a fence gate appears to be only one block tall, a closed fence gate is a barrier one and a half blocks high. Most mobs cannot jump over a fence gate, and entities on top of the fence gate stand half a block above it.
+
+An open fence gate is completely non-solid, similar to a [[sign]] or a [[torch]].<ref>{{bug|MC-252813||Open fence gates don't have any collision|WAI}}</ref> Multiple open fence gates next to each other can be passed through as if the entire space is open.
+
+Hostile mobs recognize closed fence gates as a block and cannot detect players through it unless they were already detected.
+
+The sound of opening and closing of a fence gate can be heard up to 16 blocks away, like most [[mob]] sounds.
+
+=== Redstone component ===
+{{see also|Redstone circuit}}
+
+A fence gate can be controlled with redstone power.
+
+A fence gate is a [[Redstone components#Mechanism components|redstone mechanism]] and can be activated by:
+* an adjacent active '''[[Redstone components#Power components|power component]]''', including above or below: for example, a [[redstone torch]], a [[block of redstone]], a [[daylight sensor]], etc.
+* an adjacent '''powered block''' (for example, a block with an active redstone torch under it), including above or below
+* a powered '''[[redstone comparator]]''' or '''[[redstone repeater]]''' facing the fence gate
+* powered '''[[redstone dust]]''' configured to point at the fence gate or a directionless "dot" next to it; a fence gate is ''not'' activated by adjacent powered redstone dust that is configured to point in another direction.
+
+When activated, a fence gate opens immediately. When deactivated, a fence gate closes immediately.
+
+An activated fence gate can still be closed by a player, and won't re-open until it receives a new activation signal (if a fence gate has been closed "by hand", it still needs to be deactivated and then reactivated to open by redstone).
+
+Fence gates can be moved by pistons. When an activated fence gate is moved by a piston to a position where it shouldn't be activated, it doesn't change its state until it receives a redstone update.
+
+=== Fuel ===
+Overworld wooden fence gates can be used as a [[fuel]] in [[furnace]]s, smelting 1.5 items per fence gate.
+
+=== Note Blocks ===
+Fence gates can be placed under [[note block]]s to produce "bass" sounds.
+
+=== Helmet ===
+[[File:Steve wearing Oak Fence Gate.png|thumb|right|75px]]
+[[File:Alex wearing Oak Fence Gate.png|thumb|right|75px]]
+While a fence gate cannot be equipped in the head slot in Survival mode, equipping it using commands causes it to appear as eyeglasses.
+
+== Sounds ==
+=== Generic ===
+==== Normal wood ====
+{{Sound table/Block/Wood}}
+
+==== Cherry wood ====
+{{Sound table/Block/Cherry wood}}
+
+==== Bamboo wood ====
+{{Sound table/Block/Bamboo wood}}
+
+==== Nether wood ====
+{{Sound table/Block/Nether wood}}
+
+=== Unique ===
+{{edition|java}}:
+{{Sound table
+|sound=Fence Gate open1.ogg
+|sound2=Fence Gate open2.ogg
+|subtitle=Fence Gate creaks
+|source=block
+|description=When a normal wood gate opens
+|id=block.fence_gate.open
+|translationkey=subtitles.block.fence_gate.toggle
+|volume=0.9
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|sound=Fence Gate close1.ogg
+|sound2=Fence Gate close2.ogg
+|subtitle=Fence Gate creaks
+|source=block
+|description=When a normal wood fence gate closes
+|id=block.fence_gate.close
+|translationkey=subtitles.block.fence_gate.toggle
+|volume=0.9
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|rowspan=2
+|sound=Cherry fence gate toggle1.ogg
+|sound2=Cherry fence gate toggle2.ogg
+|sound3=Cherry fence gate toggle3.ogg
+|subtitle=Fence Gate creaks
+|source=block
+|description=When a cherry wood fence gate closes
+|id=block.cherry_wood_fence_gate.open
+|translationkey=subtitles.block.fence_gate.toggle
+|volume=0.9
+|pitch=0.99-1.1
+|distance=16}}
+{{Sound table
+|subtitle=Fence Gate creaks
+|source=block
+|description=When a cherry wood fence gate closes
+|id=block.cherry_wood_fence_gate.close
+|translationkey=subtitles.block.fence_gate.toggle
+|volume=0.9
+|pitch=0.99-1.1
+|distance=16}}
+{{Sound table
+|rowspan=2
+|sound=Bamboo Fence Gate toggle1.ogg
+|sound2=Bamboo Fence Gate toggle2.ogg
+|sound3=Bamboo Fence Gate toggle3.ogg
+|sound4=Bamboo Fence Gate toggle4.ogg
+|subtitle=Fence Gate creaks
+|source=block
+|description=When a bamboo wood fence gate opens
+|id=block.bamboo_wood_fence_gate.open
+|translationkey=subtitles.block.fence_gate.toggle
+|volume=0.9
+|pitch=0.99-1.1
+|distance=16}}
+{{Sound table
+|subtitle=Fence Gate creaks
+|source=block
+|description=When a bamboo wood fence gate closes
+|id=block.bamboo_wood_fence_gate.close
+|translationkey=subtitles.block.fence_gate.toggle
+|volume=0.9
+|pitch=0.99-1.1
+|distance=16}}
+{{Sound table
+|rowspan=2
+|sound=Nether Fence Gate toggle1.ogg
+|sound2=Nether Fence Gate toggle2.ogg
+|sound3=Nether Fence Gate toggle3.ogg
+|sound4=Nether Fence Gate toggle4.ogg
+|subtitle=Fence Gate creaks
+|source=block
+|description=When a Nether wood fence gate opens
+|id=block.nether_wood_fence_gate.open
+|translationkey=subtitles.block.fence_gate.toggle
+|volume=1.0
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|subtitle=Fence Gate creaks
+|source=block
+|description=When a Nether wood fence gate closes
+|id=block.nether_wood_fence_gate.close
+|translationkey=subtitles.block.fence_gate.toggle
+|volume=1.0
+|pitch=0.9-1.0
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Fence Gate open1.ogg
+|sound2=Fence Gate open2.ogg
+|source=block
+|description=When a normal wood fence gate opens
+|id=open.fence_gate
+|volume=0.9
+|pitch=0.9-1.0}}
+{{Sound table
+|sound=Fence Gate close1.ogg
+|sound2=Fence Gate close2.ogg
+|source=block
+|description=When a normal wood fence gate closes
+|id=close.fence_gate
+|volume=0.9
+|pitch=0.9-1.0}}
+{{Sound table
+|rowspan=2
+|sound=Cherry fence gate toggle1.ogg
+|sound2=Cherry fence gate toggle2.ogg
+|sound3=Cherry fence gate toggle3.ogg
+|source=block
+|description=When a cherry wood fence gate opens <ref group=sound name=cherrymissing>Due to {{Bug|MCPE-168021}}, this sound plays less often than it should</ref>
+|id=open.cherry_wood_fence_gate
+|volume=1.0
+|pitch=0.9-1.0}}
+{{Sound table
+|source=block
+|description=When a cherry wood fence gate closes <ref group=sound name=cherrymissing/>
+|id=close.cherry_wood_fence_gate
+|volume=1.0
+|pitch=0.9-1.0}}
+{{Sound table
+|rowspan=2
+|sound=Bamboo Fence Gate toggle1.ogg
+|sound2=Bamboo Fence Gate toggle2.ogg
+|sound3=Bamboo Fence Gate toggle3.ogg
+|sound4=Bamboo Fence Gate toggle4.ogg
+|source=block
+|description=When a bamboo wood fence gate opens
+|id=open.bamboo_wood_fence_gate
+|volume=0.9
+|pitch=0.99-1.1}}
+{{Sound table
+|source=block
+|description=When a bamboo wood fence gate closes
+|id=close.bamboo_wood_fence_gate
+|volume=0.9
+|pitch=0.99-1.1}}
+{{Sound table
+|rowspan=2
+|sound=Nether Fence Gate toggle1.ogg
+|sound2=Nether Fence Gate toggle2.ogg
+|sound3=Nether Fence Gate toggle3.ogg
+|sound4=Nether Fence Gate toggle4.ogg
+|source=block
+|description=When a Nether wood fence gate opens
+|id=open.nether_wood_fence_gate
+|volume=1.0
+|pitch=0.9-1.0}}
+{{Sound table
+|source=block
+|description=When a Nether wood fence gate closes
+|id=close.nether_wood_fence_gate
+|volume=1.0
+|pitch=0.9-1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showitemtags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Oak Fence Gate
+|spritetype=block
+|nameid=oak_fence_gate
+|blocktags=fence_gates, unstable_bottom_center}}
+{{ID table
+|displayname=Spruce Fence Gate
+|spritetype=block
+|nameid=spruce_fence_gate
+|blocktags=fence_gates, unstable_bottom_center}}
+{{ID table
+|displayname=Birch Fence Gate
+|spritetype=block
+|nameid=birch_fence_gate
+|blocktags=fence_gates, unstable_bottom_center}}
+{{ID table
+|displayname=Jungle Fence Gate
+|spritetype=block
+|nameid=jungle_fence_gate
+|blocktags=fence_gates, unstable_bottom_center}}
+{{ID table
+|displayname=Acacia Fence Gate
+|spritetype=block
+|nameid=acacia_fence_gate
+|blocktags=fence_gates, unstable_bottom_center}}
+{{ID table
+|displayname=Dark Oak Fence Gate
+|spritetype=block
+|nameid=dark_oak_fence_gate
+|blocktags=fence_gates, unstable_bottom_center}}
+{{ID table
+|displayname=Mangrove Fence Gate
+|spritetype=block
+|nameid=mangrove_fence_gate
+|blocktags=fence_gates, unstable_bottom_center}}
+{{ID table
+|displayname=Cherry Fence Gate
+|spritetype=block
+|nameid=cherry_fence_gate
+|blocktags=fence_gates, unstable_bottom_center}}
+{{ID table
+|displayname=Bamboo Fence Gate
+|spritetype=block
+|nameid=bamboo_fence_gate
+|blocktags=fence_gates, unstable_bottom_center}}
+{{ID table
+|displayname=Crimson Fence Gate
+|spritetype=block
+|nameid=crimson_fence_gate
+|blocktags=fence_gates, non_flammable_wood, unstable_bottom_center
+|itemtags=non_flammable_wood}}
+{{ID table
+|displayname=Warped Fence Gate
+|spritetype=block
+|nameid=warped_fence_gate
+|blocktags=fence_gates, non_flammable_wood, unstable_bottom_center
+|itemtags=non_flammable_wood
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Oak Fence Gate
+|spritetype=block
+|nameid=fence_gate
+|id=107}}
+{{ID table
+|displayname=Spruce Fence Gate
+|spritetype=block
+|nameid=spruce_fence_gate
+|id=183}}
+{{ID table
+|displayname=Birch Fence Gate
+|spritetype=block
+|nameid=birch_fence_gate
+|id=184}}
+{{ID table
+|displayname=Jungle Fence Gate
+|spritetype=block
+|nameid=jungle_fence_gate
+|id=185}}
+{{ID table
+|displayname=Acacia Fence Gate
+|spritetype=block
+|nameid=acacia_fence_gate
+|id=187}}
+{{ID table
+|displayname=Dark Oak Fence Gate
+|spritetype=block
+|nameid=dark_oak_fence_gate
+|id=186}}
+{{ID table
+|displayname=Mangrove Fence Gate
+|spritetype=block
+|nameid=mangrove_fence_gate
+|id=-492}}
+{{ID table
+|displayname=Cherry Fence Gate
+|spritetype=block
+|nameid=cherry_fence_gate
+|id=-533}}
+{{ID table
+|displayname=Bamboo Fence Gate
+|spritetype=block
+|nameid=bamboo_fence_gate
+|id=-516}}
+{{ID table
+|displayname=Crimson Fence Gate
+|spritetype=block
+|nameid=crimson_fence_gate
+|id=513}}
+{{ID table
+|displayname=Warped Fence Gate
+|spritetype=block
+|nameid=warped_fence_gate
+|id=514
+|foot=1}}
+
+=== Block states ===
+{{main|Block states}}
+
+{{/BS}}
+
+== Video ==
+
+<div style="text-align:center">{{yt|-UhSLyhm8b0}}</div>
+
+== History ==
+''For a more in-depth breakdown of changes to textures and models, including a set of renders for each state combination, see [[/Asset history]]''
+{{History|java beta}}
+{{History||November 29, 2010|link=none|Fence gates were first mentioned on [[Get Satisfaction]],<ref>http://web.archive.org/web/20111231204100/http://getsatisfaction.com/mojang/topics/gates_for_fences</ref> then confirmed by [[Jens Bergensten|Jeb]] on [[wikipedia:Twitter|Twitter]].<ref>{{Tweet|jeb_|104659656399536128|As the question was brought up, yes there are fence gates in 1.8. Not 100% satisfied with their looks though. You'll see at PAX Prime|August 19, 2011}}</ref>}}
+{{History||1.8|snap=Pre-release|[[File:Oak Fence Gate (EW) JE1.png|32px]] Added fence gates.
+|[[File:Oak Fence Gate (item) JE1.png|32px]] The inventory sprite did not have holes.}}
+{{History||Sound Update|The opening and closing [[sound]]s of fence gates have been changed.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 5|[[File:Oak Fence Gate (EW) JE2.png|32px]] The texture of fence gates has been changed as a result of the [[planks]] texture being updated.}}
+{{History|||snap=Beta 1.9 Prerelease 6|Fence gates are now broken faster using an [[axe]].}}
+{{History||1.1|snap=12w01a|Now have [[hitbox]]es more akin to [[fence]]s.}}
+{{History|||snap=release|Fence gates can now be opened and closed with [[redstone]].}}
+{{History||1.4.2|snap=12w34a|[[File:Oak Wall Gate (EW) JE1.png|32px]] Following the introduction of [[wall]]s, fence gates can now be shifted down 3 pixels to accommodate their shape.}}
+{{History||1.4.4|snap=1.4.3|[[File:Oak Fence Gate (EW) JE3.png|32px]] Fence gates, with the exception of closed east-west connected gates, have had UV changes, seemingly to make planks run across the geometry more realistically.}}
+{{History||1.8|snap=14w11a|[[File:Oak Fence Gate (S) JE4.png|32px]] Fence gate models have been updated. Notably, the top texture rotates with the gate itself, making closed north and west facing gates distinguishable from closed south and east facing gates. In addition, wall gates now have the wood texture also shift to accommodate their model.
+|{{InvSprite|Oak Fence Gate}} The texture of the fence gate [[inventory]] icon has been changed. The inventory icon now shows the two holes.}}
+{{History|||snap=14w17a|[[File:Oak Fence Gate (S) JE5.png|32px]] The UVs of non-wall gates have changed once more, excluding those facing south and closed. Closed gates facing north and west are once again indistinguishable from those facing south and east.}}
+{{History|||snap=14w32b|[[File:Spruce Fence Gate JE1.png|32px]] [[File:Birch Fence Gate JE1.png|32px]] [[File:Jungle Fence Gate JE1.png|32px]] [[File:Acacia Fence Gate JE1.png|32px]] [[File:Dark Oak Fence Gate JE1.png|32px]] Added spruce, birch, jungle, acacia, and dark oak fence gates. 
+|The [[crafting]] recipe now requires 2 [[planks|plank]] blocks of the same species, but a gate and a wooden [[fence]] can connect without matching.
+|Fence gates can now catch [[fire]].}}
+{{History||1.9|snap=15w43a|Fence gates now have their own [[sounds]].}}
+{{History||1.13|snap=17w47a|The oak fence gate ID has been changed from <code>fence_gate</code> to <code>oak_fence_gate</code>.
+|Fence gates can now be placed without requiring a block below them.
+|Prior to [[1.13/Flattening|''The Flattening'']], these [[block]]s' numeral IDs were 107, 183, 184, 185, 186 and 187.}}
+{{History||1.14|snap=18w43a|[[File:Oak Fence Gate 18w43a.png|30px]] [[File:Spruce Fence Gate 18w43a.png|30px]] [[File:Birch Fence Gate 18w43a.png|30px]] [[File:Jungle Fence Gate 18w43a.png|30px]] [[File:Acacia Fence Gate 18w43a.png|30px]] [[File:Dark Oak Fence Gate 18w43a.png|30px]] The textures of fence gates have been changed.}}
+{{History|||snap=18w47a|[[File:Oak Fence Gate.png|30px]] [[File:Spruce Fence Gate 18w47a.png|30px]] [[File:Birch Fence Gate.png|30px]] [[File:Jungle Fence Gate.png|30px]] [[File:Acacia Fence Gate.png|30px]] [[File:Dark Oak Fence Gate.png|30px]] The textures of fence gates have been changed.}}
+{{History|||snap=18w48a|Oak fence gates now generate in the updated [[plains]] [[village]]s.}}
+{{History|||snap=18w49a|Spruce fence gates now generate in the newly added [[snowy tundra]] villages.
+|Acacia fence gates now generate in the updated [[savanna]] villages.}}
+{{History|||snap=18w50a|Jungle fence gates now generate in the updated [[desert]] villages.
+|Spruce fence gates now generate in the updated [[taiga]] villages.
+|[[File:Spruce Fence Gate.png|32px]] The texture of spruce fence gates have been changed.}}
+{{History||1.16|snap=20w06a|[[File:Crimson Fence Gate JE1 BE1.png|32px]] [[File:Warped Fence Gate JE1 BE1.png|32px]] Added crimson and warped fence gates.}}
+{{History||October 16, 2021|link={{ytl|or1DfXdqu3U|t=916}}|Mangrove fence gates are shown at [[Minecraft Live 2021]].}}
+{{History||1.19|snap=22w11a|[[File:Mangrove Fence Gate JE1 BE1.png|32px]] Added mangrove fence gates.}}
+{{History|||snap=22w14a|Due to the addition of the [[mangrove tree]] and [[mangrove swamp]], mangrove fence gates are now obtainable and renewable.}}
+{{History||October 18, 2022|link={{Mcnet|try-first-minecraft-1-20-features}}|[[File:Bamboo Fence Gate JE1.png|32px]] Bamboo fence gates were shown on the official article.}}
+{{History||1.20<br>(Experimental)|link=1.19.3|snap=22w42a|[[File:Bamboo Fence Gate JE1.png|32px]] Added bamboo fence gates behind the [[Java Edition 1.20|Update 1.20 experimental datapack]].}}
+{{History||1.19.3|snap=22w43a|Fence gates no longer provide center support beneath them.}}
+{{History||1.20<br>(Experimental)|link=1.19.4|snap=23w07a|[[File:Cherry Fence Gate JE1.png|32px]] Added cherry fence gates behind the [[Java Edition 1.20|Update 1.20 experimental datapack]].}}
+{{History||1.20|snap=23w12a|Bamboo and cherry fence gates are now available without using the aforementioned datapack.}}
+
+{{History|pocket alpha}}
+{{History||v0.2.0|[[File:Oak Fence Gate (inventory) BE1.png|32px]] [[File:Oak Fence Gate (EW) BE1.png|32px]] Added fence gates.}}
+{{History||v0.3.0|Survival players no longer start out with an infinite amount of fence gates in the inventory.}}
+{{History||v0.4.0|[[File:Oak Fence Gate (EW) JE2.png|32px]] The UV of fence gates has been changed to match ''Java Edition''.}}
+{{History||v0.10.0|snap=build 1|[[File:Spruce Fence Gate.png|32px]] [[File:Birch Fence Gate.png|32px]] [[File:Jungle Fence Gate.png|32px]] [[File:Acacia Fence Gate.png|32px]] [[File:Dark Oak Fence Gate.png|32px]] Added spruce, birch, jungle, acacia and dark oak fence gates. Note that these are not the textures used at the time, since this version was released in 2014, predating the [[Texture Update]] by many years.
+|{{InvSprite|Spruce Fence Gate BE}} {{InvSprite|Birch Fence Gate BE}} {{InvSprite|Jungle Fence Gate BE}} {{InvSprite|Acacia Fence Gate BE}} {{InvSprite|Dark Oak Fence Gate BE}} The [[inventory]] [[model]]s of fence gates have been changed to be more akin to the old [[Java Edition|Java]] original model.
+|"Fence Gate" has been renamed to "Oak Fence Gate".}}
+{{History||v0.13.0|snap=build 1|Fence gates can now be opened and closed with [[redstone]].}}
+{{History||?<!-- after 0.9.4 -->|Fence gates can now be shifted down 3 pixels to accommodate the shape of [[wall]]s.}}
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Dark oak fence gates now generate naturally in [[woodland mansion]]s.}}
+{{History|bedrock}}
+{{History||1.10.0|snap=beta 1.10.0.3|Oak, spruce, jungle, and acacia fence gates now generate in the new [[village]]s.
+|[[File:Oak Fence Gate.png|30px]] [[File:Spruce Fence Gate.png|30px]] [[File:Birch Fence Gate.png|30px]] [[File:Jungle Fence Gate.png|30px]] [[File:Acacia Fence Gate.png|30px]] [[File:Dark Oak Fence Gate.png|30px]] The textures of fence gates have been changed.}}
+{{History||1.16.0|snap=beta 1.15.0.51|Fence gates can now be placed without a [[block]] below them.}}
+{{History|||snap=beta 1.16.0.51|[[File:Crimson Fence Gate.png|32px]] [[File:Warped Fence Gate.png|32px]] {{InvSprite|Crimson Fence Gate BE}} {{InvSprite|Warped Fence Gate BE}} Added crimson and warped fence gates.}}
+{{History||1.16.20|snap=beta 1.16.20.50|Crimson and warped fence gates now uses regular plank [[sound]]s instead of their stem variant sounds.}}
+{{History||1.19.0|snap=beta 1.19.0.20|[[File:Mangrove Fence Gate JE1 BE1.png|32px]] Added mangrove fence gates.}}
+{{History||Next Major Update<br>(Experimental)|link=Bedrock Edition 1.19.50|snap=beta 1.19.50.21|[[File:Bamboo Fence Gate JE1.png|32px]] Added bamboo fence gates behind the "[[Bedrock Edition 1.20|Next Major Update]]" [[experimental]] toggle.|Added unique sounds for Nether and bamboo wood fence gates.|The fence gates now use the same opening and closing [[sound]] effects as ''[[Java Edition]]''.}}
+{{History||Next Major Update<br>(Experimental)|link=Bedrock Edition 1.19.80|snap=beta 1.19.80.20|[[File:Cherry Fence Gate JE1.png|32px]] Added cherry fence gates behind the "[[Bedrock Edition 1.20|Next Major Update]]" [[experimental]] toggle.}}
+{{History||1.20.0|snap=beta 1.20.0.21|Bamboo and cherry fence gates are now available without using the "Next Major Update" experimental toggle.}}
+{{History||1.20.30|snap=beta 1.20.30.21|Fence gates now have the correct inventory model. They now show the two holes of the fence gate inside the inventory more like ''Java Edition''.<ref name="bug model BE">{{Bug|MCPE-44296}}</ref>}}
+
+{{History|console}}
+{{History||xbox=TU5|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Oak Fence Gate.png|32px]]{{verify|Was this the model used? Is the UV and such completely accurate?}} Added fence gates. This is not the texture used at the time though.
+|Fence gates can be found in the ''Redstone & Transportation'' tab in the [[Creative inventory]].}}
+{{History||xbox=TU9|Fence gates can now be opened and closed with [[redstone]].}}
+{{History||xbox=TU14|Moved fence gates from the ''Redstone & Transportation'' tab, to the ''Building Blocks'' tab, in the [[Creative]] [[inventory]].}}
+{{History||xbox=TU25|xbone=CU14|ps=1.17|[[File:Spruce Fence Gate.png|32px]] [[File:Birch Fence Gate.png|32px]] [[File:Jungle Fence Gate.png|32px]] [[File:Acacia Fence Gate.png|32px]] [[File:Dark Oak Fence Gate.png|32px]] Added spruce, birch, and jungle fence gates. These are not the textures used at the time.
+|Acacia and dark oak fence gates are not obtainable in the Creative inventory. 
+|"Fence Gate" has been renamed to "Oak Fence Gate".}}
+{{History||xbox=TU27|xbone=CU15|ps=1.18|Acacia and dark oak fence gates have been added to the [[Creative]] [[inventory]].}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|Acacia doors and dark oak doors are now obtainable in [[survival]] mode.}}
+{{History|PS4}}
+{{History||1.90|[[File:Oak Fence Gate.png|32px]] [[File:Spruce Fence Gate.png|32px]] [[File:Birch Fence Gate.png|32px]] [[File:Jungle Fence Gate.png|32px]] [[File:Acacia Fence Gate.png|32px]] [[File:Dark Oak Fence Gate.png|32px]] The textures of fence gates have been changed.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Oak Fence Gate.png|32px]] [[File:Spruce Fence Gate.png|32px]] [[File:Birch Fence Gate.png|32px]] [[File:Jungle Fence Gate.png|32px]] [[File:Acacia Fence Gate.png|32px]] [[File:Dark Oak Fence Gate.png|32px]] Added fence gates, but not with these textures.}}
+{{History|foot}}
+
+== Gallery ==
+<gallery>
+Oak Fence Gate.png|
+Spruce Fence Gate.png|
+Birch Fence Gate.png|
+Jungle Fence Gate.png|
+Acacia Fence Gate.png|
+Dark Oak Fence Gate.png|
+Mangrove Fence Gate.png|
+Cherry Fence Gate.png|
+Bamboo Fence Gate.png|
+Crimson Fence Gate.png|
+Warped Fence Gate.png|
+Oak Fence Gate (Opened).png|
+Spruce Fence Gate (Opened).png|
+Birch Fence Gate (Opened).png|
+Jungle Fence Gate (Opened).png|
+Acacia Fence Gate (Opened).png|
+Dark Oak Fence Gate (Opened).png|
+Mangrove Fence Gate (Opened).png|
+Cherry Fence Gate (Opened).png|
+Bamboo Fence Gate (Opened).png|
+Crimson Fence Gate (Opened).png|
+Warped Fence Gate (Opened).png|
+</gallery>
+
+== Issues ==
+
+{{issue list}}
+
+== References ==
+
+{{reflist}}
+
+{{Redstone}}
+{{Blocks|Utility}}
+
+[[Category:Redstone mechanics]]
+[[Category:Mechanisms]]
+[[Category:Mechanics]]
+[[Category:Manufactured blocks]]
+[[Category:Generated structure blocks]]
+[[Category:Utility blocks]]
+[[Category:Flammable blocks]]
+
+[[cs:Branka]]
+[[de:Zauntor]]
+[[es:Puerta de valla]]
+[[fr:Portillon]]
+[[hu:Kerítéskapu]]
+[[it:Cancelletto]]
+[[ja:フェンスゲート]]
+[[ko:울타리 문]]
+[[nl:Poort]]
+[[pl:Furtka]]
+[[pt:Portão]]
+[[ru:Ворота]]
+[[th:ประตูรั้ว]]
+[[uk:Хвіртка]]
+[[zh:栅栏门]]

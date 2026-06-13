@@ -1,0 +1,648 @@
+{{redirect|Gamerule|the command|Commands/gamerule}}{{Redirect|Rules|rules about the Minecraft Fandom Wiki|Minecraft Wiki:Rules}}
+'''Game rules''' are a set of customizable options for a specific in-game world.
+
+== Modifying game rules ==
+[[File:Edit Game Rules.png|thumb|The "Edit Game Rules" section of the "Create World" screen on {{edition|java}}.]]
+{{IN|java}}, game rules can be changed using toggle buttons on the "Edit Game Rules" menu built into the "Create World" screen. The game rules are split into categories named "Player", "Mobs", "Spawning", "Drops", "World updates", "Chat", and "Miscellaneous".
+
+{{IN|bedrock}}, about half of the game rules can be changed using toggles on the "World settings" and "Cheats" sections of the world's Game settings screen. The remainder can be changed only with commands.
+
+When in-game, game rules can be changed using the {{cmd|gamerule}} [[command]], using the syntax {{cmd|gamerule|<''rule''> [<''value''>]}}, where {{cd|<''rule''>}} is the name of the game rule and {{cd|<''value''>}} is an allowed value, which depends on the type of the game rule. The types are boolean (where the allowed values are either {{cd|true|d=or|false}}) and integer (where any whole number is able to be entered).
+
+== List of game rules ==
+{{missing information|section|the Bedrock Edition game rule "showBorderEffect"}}
+The following is a list of game rules available in-game, their allowed values, and their availability in {{edition|java}} and {{edition|bedrock}}.
+
+{| class="wikitable sortable"
+|+ List of game rules
+! rowspan=2 | Rule name
+! rowspan=2 class="unsortable" | Description
+! rowspan=2 | Default value
+! rowspan=2 | Type
+! colspan=2 | Availability
+|-
+! Java
+! Bedrock
+|-
+| {{cd|announceAdvancements}}
+| Whether [[advancement]]s should be announced in chat.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|blockExplosionDropDecay}}<br>
+| Whether block loot is dropped by all blocks ({{cd|false}}) or randomly ({{cd|true}}) depending on how far the block is from the center of a block explosion (e.g. clicking a bed in dimensions other than the Overworld).
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|commandBlocksEnabled}}
+| Whether [[command block]]s should be enabled in-game.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|no}}
+| {{tc|yes}}
+|-
+| {{cd|commandBlockOutput}}
+| Whether [[command block]]s should notify admins when they perform commands.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|commandModificationBlockLimit}}
+| Controls the maximum number of blocks changed when using {{cmd|clone}}, {{cmd|fill}}, or {{cmd|fillbiome}}.
+| style="text-align:center" | {{cd|32768}}
+| Int
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|disableElytraMovementCheck}}
+| Whether the server should skip checking player speed when the player is wearing [[elytra]]. Often helps with jittering due to lag in multiplayer.
+| style="text-align:center" | {{cd|false}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+|{{cd|disablePlayerMovementCheck}}
+|Whether the server should skip checking player speed.
+|style="text-align:center" | {{cd|false}}
+|Bool
+|{{tc|yes}}
+|{{tc|no}}
+|-
+| {{cd|disableRaids}}
+| Whether [[raids]] are disabled.
+| style="text-align:center" | {{cd|false}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|doDaylightCycle}}
+| Whether the [[daylight cycle]] and [[moon]] phases progress.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|doEntityDrops}}
+| Whether entities that are not mobs should have drops.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|doFireTick}}
+| Whether fire should spread and naturally extinguish.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|doInsomnia}}
+| Whether [[phantoms]] can spawn in the nighttime.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|doImmediateRespawn}}
+| Players respawn immediately without showing the death screen.
+| style="text-align:center" | {{cd|false}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|doLimitedCrafting}}
+| Whether players can craft only those recipes that they have unlocked.
+| style="text-align:center" | {{cd|false}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|doMobLoot}}
+| Whether mobs should [[drops|drop items]] and [[experience]] orbs.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|doMobSpawning}}
+| Whether mobs should [[Spawn#Spawn cycle|naturally spawn]]. Does not affect [[monster spawner]]s.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|doPatrolSpawning}}
+| Whether [[patrol]]s can spawn.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|doTileDrops}}
+| Whether blocks should have drops.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|doTraderSpawning}}
+| Whether [[wandering trader]]s can spawn.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|doVinesSpread}}
+| Whether [[vines]] can spread to other blocks. [[Cave vine]]s, [[weeping vine]]s, and [[twisting vine]]s are not affected.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|doWeatherCycle}}
+| Whether the weather can change naturally. The {{command|weather}} command can still change weather.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+|{{cd|doWardenSpawning}}
+|Whether [[warden]]s can spawn.
+| style="text-align:center" | {{cd|true}}
+|Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|drowningDamage}}
+| Whether the player should take damage when drowning.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|enderPearlsVanishOnDeath}}
+| Controls whether thrown ender pearls vanish when the player dies.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|fallDamage}}
+| Whether the player should take fall damage.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|fireDamage}}
+| Whether the player should take damage in [[fire]], [[lava]], [[campfire]]s, or on [[magma block]]s. 
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|forgiveDeadPlayers}}
+| Makes angered neutral mobs stop being angry when the targeted player dies nearby.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|freezeDamage}}
+| Whether the player should take damage when inside [[powder snow]].
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|globalSoundEvents}}<br>
+| Whether certain sound events are heard by all players regardless of location.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|functionCommandLimit}}
+| The maximum number of commands that can be executed by {{cmd|function}} at once.
+| style="text-align:center" | {{cd|10000}}
+| Int
+| {{tc|no}}
+| {{tc|yes}}
+|-
+| {{cd|keepInventory}}
+| Whether the player should keep items and experience in their inventory after death.
+| style="text-align:center" | {{cd|false}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|lavaSourceConversion}}<br>
+| Whether new sources of lava are allowed to form.
+| style="text-align:center" | {{cd|false}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|logAdminCommands}}
+| Whether to log admin commands to server log.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|maxCommandChainLength}}
+| The maximum length of a chain of commands that can be executed during one tick. Applies to command blocks and functions.
+| style="text-align:center" | {{cd|65536}}
+| Int
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|maxCommandForkCount}}
+| ?
+| style="text-align:center" | {{cd|65536}}
+| Int
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|maxEntityCramming}}
+| The maximum number of pushable entities a mob or player can push, before taking {{hp|6}} [[entity cramming]] damage per half-second. Setting to 0 or lower disables the rule. Damage affects Survival-mode or Adventure-mode players, and all mobs but bats. Pushable entities include non-Spectator-mode players, any mob except bats, as well as boats and minecarts.
+| style="text-align:center" | {{cd|24}}
+| Int
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|minecartMaxSpeed}}
+| The maximum speed in which [[minecart]]s can go.
+| style="text-align:center" | {{cd|8}}
+| Int
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|mobExplosionDropDecay}}<br>
+| Whether block loot is dropped by all blocks ({{cd|false}}) or randomly ({{cd|true}}) depending on how far the block is from the center of a mob explosion (e.g. Creeper explosion).
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|mobGriefing}}
+| Whether [[creeper]]s, [[zombie]]s, [[endermen]], [[ghast]]s, [[wither]]s, [[ender dragon]]s, [[rabbit]]s, [[sheep]], [[villager]]s, [[silverfish]], [[snow golem]]s, and [[end crystal]]s{{only|bedrock|short=1}} should be able to change blocks, and whether mobs can pick up items. When mobGriefing is disabled, [[piglin]]s do not pick up gold ingots, but a player can still [[barter]] with them by {{ctrl|using}} the item on the mob. Similarly, villagers do not pick up food items but can still [[breed]] until they run out of any food already in their inventory. This also affects the capability of zombie-like creatures like [[zombified piglins]] and [[drowned]] to pathfind to [[turtle egg]]s.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|naturalRegeneration}}
+| Whether the player can regenerate health naturally if their hunger is full enough (doesn't affect external healing, such as [[golden apple]]s, the [[Regeneration]] effect, etc.).
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|playersNetherPortalCreativeDelay}}
+| Control how many ticks the player in Creative has to wait in the [[nether portal]] in order to travel through dimensions through it.
+| style="text-align:center" | {{cd|1}}
+| Int
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|playersNetherPortalDefaultDelay}}
+| Control how many ticks the player in Survival or Adventure mode has to wait in the [[nether portal]] in order to travel through dimensions through it.
+| style="text-align:center" | {{cd|80}}
+| Int
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|playersSleepingPercentage}}
+| What percentage of players in the [[Overworld]] must sleep to skip the night. A percentage value of 0 or less will allow the night to be skipped by just 1 player, and a percentage value more than 100 will prevent players from ever skipping the night.
+| style="text-align:center" | {{cd|100}}
+| Int
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|projectilesCanBreakBlocks}}
+| Control whenever do projectiles can break blocks (like [[trident]] breaks [[pointed dripstone]]).
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|pvp}}
+| Whether the player can fight with other players.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|no}}
+| {{tc|yes}}
+|-
+| {{cd|randomTickSpeed}}
+| How often a random [[block tick]] occurs (such as plant growth, leaf decay, etc.) per chunk section per game tick. 0 and negative values disables random ticks, higher numbers increase random ticks. Setting to a high integer results in high speeds of decay and growth. Numbers over 4096 make plant growth or leaf decay instantaneous.
+| style="text-align:center" | {{cd|3}}{{only|java|short=1}}<br/>{{cd|1}}{{only|bedrock|short=1}}
+| Int
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|recipesUnlock}}
+| Controls whether the player needs to collect items to unlock recipes in the [[recipe book]].
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|no}}
+| {{tc|yes}}
+|-
+| {{cd|reducedDebugInfo}}
+| Whether the [[debug screen]] shows all or reduced information; and whether the effects of {{key|F3+B}} (entity hitboxes) and {{key|F3+G}} (chunk boundaries) are shown.
+| style="text-align:center" | {{cd|false}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|respawnBlocksExplode}}
+| Prevents beds/respawn anchors from exploding in other dimensions.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|no}}
+| {{tc|yes}}
+|-
+| {{cd|sendCommandFeedback}}
+| Whether the feedback from commands executed by a player should show up in chat. Also affects the default behavior of whether command blocks store their output text.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|showBorderEffect}}
+| Whether [[border]] blocks create red particles that float up to indicate a border.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|no}}
+| {{tc|yes}}
+|-
+| {{cd|showCoordinates}}
+| Whether the player's coordinates are displayed.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|no}}
+| {{tc|yes}}
+|-
+| {{cd|showDeathMessages}}
+| Whether [[Health#Death messages|death messages]] are put into chat when a player dies. Also affects whether [[Health#Pet death messages|a message]] is sent to the pet's owner when the pet dies.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|showTags}}
+| Hides the "Can place on" and "Can destroy" block lists from item lore, as well as item lock indicators.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|no}}
+| {{tc|yes}}
+|-
+| {{cd|snowAccumulationHeight}}
+| The maximum number of snow layers that can be accumulated on each block.
+| style="text-align:center" | {{cd|1}}
+| Int
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|spawnChunkRadius}}
+| Control the radius of the [[spawn chunk]].
+| style="text-align:center" | {{cd|2}}
+| Int
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|spawnRadius}}
+| The number of blocks outward from the world spawn coordinates that a player spawns in when first joining a server or when dying without a personal spawnpoint. Has no effect on servers where the default game mode is Adventure.
+| style="text-align:center" | {{cd|10}}
+| Int
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|spectatorsGenerateChunks}}
+| Whether players in [[Spectator]] mode can generate chunks.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|tntExplodes}}
+| Whether TNT explodes after activation.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|no}}
+| {{tc|yes}}
+|-
+| {{cd|tntExplosionDropDecay}}
+| Whether block loot is dropped by all blocks ({{cd|false}}) or randomly ({{cd|true}}) depending on how far the block is from the center of a TNT explosion.
+| style="text-align:center" | {{cd|false}}
+| Bool
+| {{tc|yes}}
+| {{tc|yes}}
+|-
+| {{cd|universalAnger}}
+| Makes angered neutral mobs attack any nearby player, not just the player that angered them. Works best if {{cd|forgiveDeadPlayers}} is disabled.
+| style="text-align:center" | {{cd|false}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|-
+| {{cd|waterSourceConversion}}<br>
+| Whether new sources of water are allowed to form.
+| style="text-align:center" | {{cd|true}}
+| Bool
+| {{tc|yes}}
+| {{tc|no}}
+|}
+
+==Additional behavior==
+{{Expand section}}
+This section explains more complex behaviors of certain gamerules.
+* {{cd|disableRaids}}
+** When {{cd|true}}, the [[Bad Omen]] effect is not removed from a player when entering a village.
+** Stops a raid if set to {{cd|true}} while a raid is in progress, but the existing raid mobs do not despawn.
+* {{cd|doEntityDrops}}
+** When {{cd|false}} items cannot be removed from [[item frame]]s.{{needs testing|In some cases, it can but the item doesn't drop}}{{only|JE}}
+** Doesn't seem to have effect in [[Bedrock Edition]] {{Needs testing}}
+* {{cd|doMobLoot}}
+** Does not affect drops not related to a mob's death, such as [[chicken]] laying [[egg]]s, or [[sheep]] dropping [[wool]] when [[shears|sheared]].
+** Does not affect the dropping of [[flower|wither roses]] when mobs are killed by the [[wither]].<ref>{{bug|MC-154922}}</ref><ref>{{bug|MCPE-73842}}</ref>
+* {{cd|doMobSpawning}}
+** Affects only natural mob spawning. Mobs from structures,{{only|java}} monster spawners, and events still spawn when set to {{cd|false}}.
+** [[Trial Spawner|Trial spawners]] do not work <!-- no skeleton traps spawn either,except on bedrock, if they have the spawn event-->
+* {{cd|doTileDrops}}
+** When {{cd|false}}, containers still drop their contents, but not themselves.
+*** [[Shulker box]]es do not drop anything, causing the items in them to be lost.
+** When {{cd|false}}, destroying an armor stand does not drop it nor any armor it had equipped.
+** When {{cd|false}}, item frames still drop themselves and their items.{{only|JE}}
+** When {{cd|false}}, [[Infested Block|infested blocks]] do not spawn [[silverfish]] when broken.
+* {{cd|drowningDamage}}
+** When {{cd|false}}, the player still loses air, but does not take damage when the air is depleted.
+* {{cd|fireDamage}}
+** When {{cd|false}}, the player may still be set on fire, but does not take damage when on fire.
+* {{cd|forgiveDeadPlayers}}
+** Every neutral mob that can be aggravated remain aggravated even after the offending player dies, with the exception of piglins when a player does not wear golden armor and iron golems when it is created from a village where the player is [[Village mechanics#Popularity|unpopular]].
+* {{cd|keepInventory}}
+** When {{cd|true}}, players also retain their experience upon death.
+** When {{cd|true}}, health and hunger are still reset as normal upon death.
+** When {{cd|true}}, all [[effect]]s are still removed upon death.<ref>{{bug|MC-67352|||WAI}}</ref>
+** When {{cd|true}}, items enchanted with [[Curse of Vanishing]] do ''not'' disappear upon death.<ref>{{bug|MC-108353|||WAI}}</ref>
+* {{cd|mobGriefing}}
+** When {{cd|false}}, prevents all mobs from modifying the environment in any way. This includes trampling crops and turtle eggs, picking up items, destroying blocks, or moving blocks. Specifically, it prevents:
+*** [[Allay]]s from picking up dropped items.
+*** [[Blaze]]s from creating fire or lighting campfires.
+*** [[Creeper]]s from destroying blocks when they explode, although they still damage entities.
+*** [[End crystal]]s from destroying blocks when they explode, although they still damage entities.
+*** The [[ender dragon]] from destroying blocks, causing it to just fly through them instead.
+*** [[Endermen]] from picking up or placing blocks.
+*** [[Evoker]] from turning blue [[sheep]] red.
+*** [[Fox]]es from picking [[sweet berries]] from a [[sweet berry bush]].
+*** [[Ghast]] fireballs from exploding blocks and creating fire. They still damage entities.
+*** [[Piglin]]s from attempting to [[Bartering|barter]] by picking up dropped items; using the item on them still works.
+*** [[Rabbit]]s from eating carrot crops.
+*** [[Ravager]]s from destroying crops and leaves.
+*** [[Sheep]] from turning [[grass block]]s into [[dirt]], but does not prevent the regrowth of wool. They still act as if they are eating the grass and regrow their wool upon doing so, but the grass remains and the grass breaking sound does not play.
+*** [[Silverfish]] from hiding in [[Infested Block|infested blocks]] and destroying those blocks when hatching.
+*** [[Snow golem]]s from creating snow trails.
+*** [[Villager]]s from farming and picking up items. However, they can still open doors and throw items.
+*** The [[wither]] and its heads from destroying blocks with their explosions. Entities are still damaged, and a [[wither rose]] drops as an item.
+*** [[Zombie]]s from breaking doors and attacking turtle eggs.
+** Has no effect on the [[player]].
+* {{cd|playersSleepingPercentage}}
+** When set to {{cd|0}}, at least one player is still required to sleep to skip the night.
+** When set to a number greater than {{cd|100}}, night is not skipped no matter how many players are sleeping.
+* {{cd|randomTickSpeed}}
+** Does not affect:
+*** [[Cauldron]]s filling with [[water]] or [[Powder Snow|powder snow]] while raining or snowing.<ref>{{bug|MC-93820||Rain filling cauldrons is not affected by randomTickSpeed}}</ref>
+**** Still affects filling of water and [[lava]] in cauldrons below [[pointed dripstone]].
+*** Death of [[coral block]]s, [[coral]], and [[coral fan]].
+*** Hatching of [[frogspawn]]<ref>{{bug|MC-249308}}</ref> and [[sniffer egg]]s<ref>{{bug|MC-261250|||Invalid}}</ref>.
+* {{cd|snowAccumulationHeight}}
+** When set to {{cd|0}}, snow layers do not form at all.
+** When set to {{cd|8}} or higher, snow forms up to the level of a full block, but no greater than that.
+* {{cd|universalAnger}}
+** Every neutral mob that can be aggravated targets all nearby players whenever they are aggravated.
+** Bees attack all nearby players when their beehive is broken, regardless of the setting of this gamerule.<ref>{{tweet|henrikkniberg|1268765029777772549|Revamped anger management for neutral mobs in minecraft. Now angered neutral mobs won't attack innocent bystanders, won't forget you just cuz you log out & log in, and won't keep killing you after you die & respawn. Etc. Find anything wonky? Report at bugs.mojang.com|June 5, 2020}}</ref>
+*** Bees becoming angry when attacked works as expected.
+<!--Also note that piglins may seem like they stay angry after a player dies, but this is typically because the player won't be wearing gold armor when they respawn. As this isn't a property of a gamerule, I don't think it needs listing here.-->
+
+== History ==
+{{History|java}}
+{{History||1.4.2|snap=12w32a|Added {{cmd|gamerule|link=none}}.|Added the following gamerules:
+* {{cd|doFireTick}}
+* {{cd|mobGriefing}}
+* {{cd|keepInventory}}
+* {{cd|doMobSpawning}}
+* {{cd|doMobLoot}}
+* {{cd|doTileDrops}}
+}}
+{{History|||snap=12w38a|Added game rule {{cd|commandBlockOutput}}.}}
+{{History||1.6.1|snap=13w23a|Added game rule {{cd|naturalRegeneration}}.}}
+{{History|||snap=13w24a|Added game rule {{cd|doDaylightCycle}}.}}
+{{History||1.8|snap=14w03a|Added game rule {{cd|logAdminCommands}}.}}
+{{History|||snap=14w10a|Added game rule {{cd|showDeathMessages}}.}}
+{{History|||snap=14w17a|Added game rule {{cd|randomTickSpeed}}.}}
+{{History|||snap=14w26a|Added game rule {{cd|sendCommandFeedback}}.}}
+{{History|||snap=14w29a|Added game rule {{cd|reducedDebugInfo}}.
+|Added the ability to create dummy game rules.}}
+{{History||1.8.1|snap=pre1|Added game rule {{cd|doEntityDrops}}.
+|Game rule {{cd|doTileDrops}} no longer affects entities.}}
+{{History||1.9|snap=15w37a|Added game rule {{cd|spectatorsGenerateChunks}}.}}
+{{History|||snap=15w51a|Added game rule {{cd|spawnRadius}}.}}
+{{History|||snap=16w07a|Added game rule {{cd|disableElytraMovementCheck}}.}}
+{{History||1.11|snap=16w38a|Added game rule {{cd|doWeatherCycle}}.
+|Added game rule {{cd|maxEntityCramming}}.}}
+{{History||1.12|snap=17w13a|Added game rule {{cd|doLimitedCrafting}}.}}
+{{History|||snap=17w16b|Added game rule {{cd|maxCommandChainLength}}.}}
+{{History|||snap=17w18a|Added game rule {{cd|announceAdvancements}}.}}
+{{History|||snap=pre1|Added game rule {{cd|gameLoopFunction}}.}}
+{{History||1.13|snap=17w45a|Removed the ability to create custom game rules.}}
+{{History|||snap=17w49b|Removed game rule {{cd|gameLoopFunction}}.}}
+{{History||1.14.3|snap=pre3|Added game rule {{cd|disableRaids}}.}}
+{{History||1.15|snap=19w36a|Added game rule {{cd|doInsomnia}}.
+|Added game rule {{cd|doImmediateRespawn}}.
+|Added game rule {{cd|drowningDamage}}.
+|Added game rule {{cd|fallDamage}}.
+|Added game rule {{cd|fireDamage}}.}}
+{{History||1.15.2|snap=pre1|Added game rule {{cd|doPatrolSpawning}}.
+|Added game rule {{cd|doTraderSpawning}}.}}
+{{History||1.16|snap=20w17a|Game rules can now be changed upon world creation.}}
+{{History||1.16|snap=pre1|Added game rule {{cd|universalAnger}}.
+|Added game rule {{cd|forgiveDeadPlayers}}.}}
+{{History||1.17|snap=20w48a|Added game rule {{cd|freezeDamage}}.}}
+{{History|||snap=20w51a|Added game rule {{cd|playersSleepingPercentage}}.}}
+{{History||1.19|snap=22w16a|Added game rule {{cd|doWardenSpawning}}.}}
+{{History||1.19.3|snap=22w44a|Added the following game rules:
+* {{cd|blockExplosionDropDecay}}
+* {{cd|mobExplosionDropDecay}}
+* {{cd|tntExplosionDropDecay}}
+* {{cd|snowAccumulationHeight}}
+* {{cd|waterSourceConversion}}
+* {{cd|lavaSourceConversion}}
+* {{cd|globalSoundEvents}}
+}}
+{{History||1.19.4|snap=23w03a|Added game rule {{cd|commandModificationBlockLimit}}.}}
+{{History|||snap=23w06a|Added game rule {{cd|doVinesSpread}}.}}
+{{History||1.20.2|snap=23w31a|The {{cd|randomTickSpeed}} game rule now affects the formation of [[snow]] and [[ice]].<ref name="MC-93320">{{bug|MC-93320||Water freezes even if randomTickSpeed is 0|Fixed}}</ref>}}
+{{History|||snap=pre1|Added game rule {{cd|enderPearlsVanishOnDeath}}.}}
+
+{{History|pocket}}
+{{History||1.0.5|snap=alpha 1.0.5.0|Added {{cmd|gamerule|link=none}}.
+|Added game rule {{cd|drowningDamage}}.
+|Added game rule {{cd|fallDamage}}.
+|Added game rule {{cd|fireDamage}}.
+|Added game rule {{cd|pvp}}.}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Added game rule {{cd|doDaylightCycle}}.
+|Added game rule {{cd|doEntityDrops}}.
+|Added game rule {{cd|doFireTick}}.
+|Added game rule {{cd|doMobSpawning}}.
+|Added game rule {{cd|doMobLoot}}.
+|Added game rule {{cd|doTileDrops}}.
+|Added game rule {{cd|doWeatherCycle}}.
+|Added game rule {{cd|keepInventory}}.
+|Added game rule {{cd|mobGriefing}}.}}
+{{History|bedrock}}
+{{History||1.6.0|snap=beta 1.6.0.6|Added game rule {{cd|doInsomnia}}.}}
+{{History||1.7.0|snap=beta 1.7.0.2|Added game rule {{cd|commandBlocksEnabled}}.}}
+{{History||1.8.0|snap=beta 1.8.0.8|Added game rule {{cd|randomTickSpeed}}.}}
+{{History||1.9.0|snap=beta 1.9.0.0|Added game rule {{cd|showDeathMessages}}.
+|Added game rule {{cd|immediateRespawn}}.
+|Added game rule {{cd|functioncommandlimit}}.}}
+{{History||1.12.0|snap=beta 1.12.0.2|Added game rule {{cd|spawnRadius}}.
+|Added game rule {{cd|sendCommandBlockFeedback}}.}}
+{{History||?|Added game rule {{cd|commandBlockOutput}}.
+|Added game rule {{cd|maxCommandChainLength}}.
+|Added game rule {{cd|naturalRegeneration}}.
+|Added game rule {{cd|sendCommandFeedback}}.{{verify|Was "sendCommandBlockFeedback" removed also?}}
+|Added game rule {{cd|showCoordinates}}.
+|Added game rule {{cd|tntExplodes}}.}}
+{{History||1.14.0|Added game rule {{cd|showTags}}.}}
+{{History||?|Removed the ability to create dummy gamerules.}}
+{{History||1.16.210|snap=beta 1.16.210.53|Added game rule {{cd|freezeDamage}}.}}
+{{History||1.17.30|snap=beta 1.17.20.20|Added game rule {{cd|respawnBlocksExplode}}.}}
+{{History||?|Added game rule {{cd|showBorderEffect}}.}}
+{{History||1.20.30|snap=beta 1.20.20.21|Added game rule {{cd|playersSleepingPercentage}}.
+|Added game rule {{cd|recipesUnlock}}.}}
+{{History|||snap=beta 1.20.30.20|Added game rule {{cd|doLimitedCrafting}}.}}
+{{History|||snap=beta 1.20.30.22|The {{cd|recipesUnlock}} game rule is now set to <code>true</code> by default.}}
+{{History|bedrock upcoming}}
+{{History||1.20.40|snap=beta 1.20.40.22|The {{cd|spawnRadius}} game rule is now set to <code>10</code> by default to match {{JE}}.}}
+{{History|foot}}
+
+==Gallery==
+<gallery>
+Game rules.png|All the gamerules in 1.17.
+</gallery>
+
+== References ==
+{{Reflist}}
+
+{{Gameplay}}
+
+[[ja:ゲームルール]]
+[[pt:Regra de jogo]]
+[[zh:游戏规则]]

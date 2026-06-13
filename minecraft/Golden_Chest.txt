@@ -1,0 +1,106 @@
+{{wip}}
+{{Exclusive|Java}}
+{{Joke feature}}
+{{Block
+| title = Golden Chest
+| image = Golden Chest.gif
+| transparent =
+| light = No
+| tool =
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = No
+| lavasusceptible = Yes
+}}
+
+A '''Golden Chest''' is a joke block similar to the [[chest]] that is created by opening a chest while the Midas Touch vote is activated.
+
+== Obtaining ==
+Golden chests cannot be obtained with the command {{cmd|give}}, but can be obtained using the {{cmd|setblock}} command in a regular chest with the tag "gold": {{cmd|setblock ~ ~ ~ minecraft:chest{gold:1b} }}. However, it has a {{cd|minecraft:golden_chest}} block ID in the game file.
+
+=== Breaking ===
+Golden Chests cannot be obtained when mined, and will only drop normal ones, even using a tool enchanted with [[Silk Touch]].
+{{Breaking row|Golden Chest|Axe|horizontal=1|drop=0}}
+
+=== Voting ===
+Golden chests can be obtained by activating the {{cd|minecraft:midas_touch}} vote and then opening a chest or a trapped chest. [[Ender chest]]s are not affected.
+
+== Usage ==
+Golden Chests work similar to normal chests, but have a golden appearance and don't drop when broken. Golden trapped chests will still function as trapped chests, but has no identifier like in regular ones.
+ 
+=== Container ===
+{{Main|Chest#Container}}
+
+A golden chest has 27 slots of inventory space.
+
+Golden chests open when {{ctrl|used}}. To move items between the golden chest inventory and the player inventory or hotbar while the golden chest GUI is open, drag or shift-click the items. Holding {{key|Shift}} and double-clicking while holding an item moves all items of the type clicked on in or out of the golden chest, to the extent that space is available for them. To exit the golden chest GUI, use the {{key|Esc}} control.
+
+=== Redstone component ===
+{{Main|Trapped Chest#Redstone component}}
+
+Golden trapped chests can be used to detect when their inventory is accessed by players.
+
+A golden trapped chest is inactive while not being accessed, but activates when accessed by a player. [[Mob]]s cannot access/activate a golden trapped chest, and a golden trapped chest is not activated by items moving into or out of it by [[dropper]]s or [[hopper]]s.
+
+While active, a golden trapped chest:
+* powers any adjacent [[redstone dust]], including beneath the golden trapped chest, to a [[Redstone circuit#Power|power level]] equal to the number of players accessing the golden trapped chest (maximum 15)
+* powers any adjacent [[redstone repeater]]s facing away from the golden trapped chest to power level 15
+* strongly powers any full solid opaque block (stone, dirt, block of gold, etc.) beneath the golden trapped chest to a power level equal to the number of players accessing the golden trapped chest (maximum 15)
+* activates any adjacent [[Redstone components#Mechanism components|mechanism components]], including above or below, such as [[piston]]s, [[redstone lamp]]s, etc. Due to hoppers being locked by redstone activation, hoppers below a golden trapped chest do not take items from it while it is open.
+
+An active golden trapped chest does ''not'' power any adjacent [[redstone comparator]]s facing away from it. Redstone comparators can [[Redstone comparator#Measure block state|measure]] the block state of the golden trapped chest, producing a power level from 0 to 15 proportional to how full the golden trapped chest is. Anything else powered by an active trapped chest (including a block beneath it) can power redstone comparators normally.
+
+== Sounds ==
+=== Generic ===
+{{Sound table/Block/Wood/JE}}
+=== Unique ===
+{{edition|java}}:
+{{Sound table
+|sound=Chest close1.ogg
+|sound2=Chest close2.ogg
+|sound3=Chest close3.ogg
+|subtitle=Chest closes
+|source=block
+|description=When a golden chest closes
+|id=block.chest.close
+|translationkey=subtitles.block.chest.close
+|volume=0.5
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|sound=Chest open.ogg
+|subtitle=Chest opens
+|source=block
+|description=When a golden chest opens
+|id=block.chest.open
+|translationkey=subtitles.block.chest.open
+|volume=0.5
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|sound=Door close.ogg
+|sound2=Door open.ogg
+|subtitle=Chest locked
+|source=block
+|description=When a player attempts to open a golden chest locked using the {{nbt|string|Lock}} tag
+|id=block.chest.locked
+|translationkey=subtitles.block.chest.locked
+|volume=1.0
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+== History ==
+{{History|java}}
+{{History||23w13a_or_b|[[File:Golden Chest.png|32px]]Added golden chests.}}
+{{History|foot}}
+
+== Trivia ==
+* The golden chests are probably a reference to players asking Mojang to add bigger chests to the game, which would be made using ores such as gold.
+
+{{Blocks|Joke}}
+{{jokes}}
+
+[[Category:Joke blocks]]
+
+[[pt:Baú de ouro]]

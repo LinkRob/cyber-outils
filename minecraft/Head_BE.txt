@@ -1,0 +1,10 @@
+<div class="treeview">
+* {{nbt|compound}} Block entity data
+** {{nbt inherit/blockentity}}
+** {{nbt|string|note_block_sound}}: Optional. The sound event this skull plays when played with a note block.
+** {{nbt|string|ExtraType}}: Name of the player this is a skull of. This tag is converted to SkullOwner below upon loading the NBT. When loaded sets the name to the value and the UUID to null.
+** {{nbt|compound|SkullOwner}}: The definition of the skull's owner. When this is a <code>player_head</code> or <code>player_wall_head</code>, shows this player's skin; if missing, shows the head of the default [[Steve]] skin.
+*** {{:Head/PlayerHeadShared|**}}
+</div><noinclude>
+[[Category:Block entity pages]]
+</noinclude>

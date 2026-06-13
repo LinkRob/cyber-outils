@@ -1,0 +1,19 @@
+<div class="treeview" style="margin-top: 0;">
+* {{nbt|compound}} Entity data
+** {{nbt inherit/entity}}
+** {{nbt inherit/projectile}}
+** {{nbt|compound|FireworksItem}}: The crafted [[firework rocket]].
+*** {{nbt|byte|Count}}: The item count, typically 1.
+*** {{nbt|string|id}}: The id of the item, should be {{code|minecraft:firework_rocket}}.
+*** {{nbt|compound|tag}}: The '''tag''' tag.
+**** {{nbt|compound|Fireworks}}: One of these may appear on a [[firework rocket]].
+***** {{nbt|list|Explosions}}: List of compounds representing each explosion this firework causes.
+****** {{nbt|compound}}: A firework explosion.
+******* {{nbt inherit/firework explosion}}
+***** {{nbt|byte|Flight}}: Indicates the flight duration of the firework (equals the amount of gunpowder used in crafting the rocket). Can be anything from -128 to 127.
+** {{nbt|int|Life}}: The number of ticks this fireworks rocket has been flying for.
+** {{nbt|int|LifeTime}}: The number of ticks before this fireworks rocket explodes. This value is randomized when the firework is launched: ((Flight + 1) * 10 + random(0 to 5) + random(0 to 6))
+** {{nbt|byte|ShotAtAngle}}: 1 or 0 (true/false) - true if this firework was shot from a crossbow or dispenser.
+</div><noinclude>
+[[Category:Entity data pages]]
+</noinclude>

@@ -1,0 +1,183 @@
+{{cleanup}}
+{{Effect
+|title=Instant Damage
+|image=Instant Damage.png
+|sources=See [[#Causes]]
+|particle= {{EffectSprite|particle-harming}} #430A09 (maroon)
+|type=Negative (positive for undead mobs)
+|group=Potion
+|group2=Splash Potion
+|group3=Lingering Potion
+|group4=Arrow
+|1-1=Potion of Harming.png
+|2-1=Splash Potion of Harming.png
+|3-1=Lingering Potion of Harming.png
+|4-1=Arrow of Harming.png
+}}
+'''Instant Damage''' is an instant [[status effect]] that decreases [[health]] for players and living [[mob]]s and heals the [[undead]].
+
+== Effect ==
+Instant Damage inflicts magic [[damage]] of {{hp|3}} × 2<sup>''level''</sup>. [[Undead]] mobs (including the [[wither]]) are healed as if with [[Instant Health]] instead. [[Death]] is reported as "<''player''> was killed by magic". When applied using a [[lingering potion]], damage is inflicted every second. As this is magic damage, it can be decreased only via [[Resistance]] and [[Protection]].{{Only|java}}
+
+== Causes ==
+{| class="wikitable" data-description="Causes"
+ ! Cause
+ ! Potency
+ ! Damage
+ ! Heals undead
+ ! Length
+ ! Notes
+ |-
+ | {{ItemLink|Potion of Harming}}
+ | I
+ | {{hp|6}}
+ |
+ | Instant
+ | 
+ |-
+ | {{ItemLink|Potion of Harming}} II
+ | II
+ | {{hp|12}}
+ |
+ | Instant
+ |
+ |-
+ | {{ItemLink|Splash Potion of Harming}}
+ | I
+ | {{hp|6}}
+ | {{hp|4}}
+ | Instant
+ | {{EntityLink|Witch}}es throw this potion at their target.
+ |-
+ | {{ItemLink|Splash Potion of Harming}} II
+ | II
+ | {{hp|12}}
+ | {{hp|8}}
+ | Instant
+ |
+ |-
+ | {{ItemLink|Lingering Potion of Harming}}
+ | I
+ | {{hp|3}} per second<br>{{hp|15}} total
+ | {{hp|2}} per second<br>{{hp|10}} total
+ | 0:05
+ | 
+ |-
+ | {{ItemLink|Lingering Potion of Harming}} II
+ | II
+ | {{hp|6}} per second<br>{{hp|30}} total
+ | {{hp|4}} per second<br>{{hp|20}} total
+ | 0:05
+ |[[Ender Dragon#Dragon Fireball|Dragon Fireball]]s cause this much harm.
+ |-
+ | {{ItemLink|Arrow of Harming}}
+ | I
+ | {{hp|6}}
+ | {{hp|4}}
+ | Instant
+ |
+ |-
+ | {{ItemLink|Arrow of Harming}} II
+ | II
+ | {{hp|12}}
+ | {{hp|8}}
+ | Instant
+ |
+ |}
+
+== Brewing ==
+{| class="wikitable" style="text-align: center;" data-description="Negative effect potions"
+!width="90px"| Potion
+! Reagent, Base
+!width="90px"| {{ItemSprite|Redstone Dust}} Extended
+!width="90px"| {{ItemSprite|Glowstone Dust}} Enhanced
+! Effects
+|-
+! {{Slot|Potion of Harming[&9Instant Damage]}}<br>Potion of Harming
+| {{Brewing Stand
+ |Input= Fermented Spider Eye
+ |Output2= Potion of Poison
+ }}
+| -
+| {{Slot|Potion of Harming[&9Instant Damage II]}}<br>Potion of Harming
+| [[Instant Damage]]<br>Damages {{hp|6|9px}} per potion.
+'''Enhanced:'''<br>[[Instant Damage]] II<br>Damages {{hp|12|9px}} per potion.
+|}
+
+{| class="wikitable" style="text-align: center;" data-description="Negative effect potions"
+!width="90px"| Potion
+! Reagent, Base
+!width="90px"| {{ItemSprite|Redstone Dust}} Extended
+!width="90px"| {{ItemSprite|Glowstone Dust}} Enhanced
+! Effects
+|-
+! {{Slot|Potion of Harming[&9Instant Damage]}}<br>Potion of Harming
+| {{Brewing Stand
+ |Input= Fermented Spider Eye
+ |Output2= Potion of Healing
+ }}
+| -
+| {{Slot|Potion of Harming[&9Instant Damage II]}}<br>Potion of Harming
+| [[Instant Damage]]<br>Damages {{hp|6|9px}} per potion.
+'''Enhanced:'''<br>[[Instant Damage]] II<br>Damages {{hp|12|9px}} per potion.
+|}
+
+== Immune mobs ==
+* [[Witch]]es are 85% resistant to Instant Damage.
+* [[Endermen]] are immune to Instant Damage from splash potions, lingering potions and tipped arrows, but not from [[commands/effect|commands]].
+
+== Data values ==
+=== ID ===
+{{EffectIDLink}}
+{{edition|java}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=java
+|displayname=Instant Damage
+|spritetype=effect
+|nameid=instant_damage
+|id=7
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Instant Damage
+|nameid=instant_damage
+|id=7
+|translationkey=potion.harm
+|foot=1}}
+
+== History ==
+
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|Added instant damage.}}
+{{History|java}}
+{{History||1.15|snap=19w41a|[[File:Instant Damage JE1.png|18px]] Added effect icon texture.}}
+
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=build 1|Added instant damage, which was unobtainable at the time.}}
+{{History||v0.12.1|snap=build 1|Instant damage can now be obtained from [[Potion of Harming]] and splash potion of harming.}}
+{{History||v0.14.0|snap=build 1|Added witches that utilize instant damage from splash potions as an offensive attack.}}
+{{History||v0.15.0|snap=build 1|Added [[Arrow of Harming]] that inflicts instant damage.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Instant damage can now be obtained from lingering potion of harming.}}
+
+{{History|console}}
+{{History||xbox=TU7|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|Added Instant Damage, which can be obtained by a [[Potion of Harming]] or [[Splash Potion of Harming]].}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|switch=1.0.1|Added the [[Lingering Potion of Harming]].
+|Added the [[Arrow of Harming]].}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+
+{{Effects}}
+
+[[de:Direktschaden]]
+[[pt:Dano instantâneo]]
+[[ja:即時ダメージ]]
+[[zh:瞬间伤害]]

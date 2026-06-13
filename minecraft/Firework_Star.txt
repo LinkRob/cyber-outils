@@ -1,0 +1,239 @@
+{{Item
+| image = Firework Star.png
+| renewable = 
+* '''Trail Effect''': No
+* '''All Others''': Yes
+| stackable = Yes (64)
+}}
+'''Firework stars''' are [[items]] used to determine the color, effect, and shape of [[firework rocket]]s.
+
+== Obtaining ==
+
+In [[Survival]] mode, firework stars are obtainable only through crafting. In [[Creative]] mode, they can be found in the creative inventory.
+
+=== Crafting ===
+
+{{Crafting
+  |head=1
+  |showname=0
+  |showdescription=1
+  |ingredients=[[Gunpowder]]&nbsp;+<br>Matching [[Dye]]&nbsp;+<br>Extra ingredients (optional)
+  |Gunpowder
+  |Matching Dye
+  |Head; Gold Nugget; Feather;Fire Charge;
+  |Glowstone Dust;
+  |Diamond;
+  |Output=Matching Firework Star
+  |arggroups=1;2,Output;3;4;5
+  |description=Up to eight dyes can be added.<br>One head, gold nugget, feather, or fire charge can be added.<br>Both the diamond and the glowstone dust can be added with any of the other ingredients.
+  |type=Miscellaneous
+}}
+{{Crafting
+  |ignoreusage=1
+  |Matching Firework Star
+  |Any Dye
+  |Output=Matching Firework Star
+  |type=Miscellaneous
+  |description=Adds a "fade to color" effect to the firework star, overwriting any existing fades.<br>Up to eight dyes can be added.
+  |foot=1
+  |arggroups=1,Output
+}}
+<div style="display:none">
+<!--
+    This is so the pre-Village & Pillage dyes can have dye-related crafting recipes show on their respective pages.
+    They don't need to be displayed on this page because they already intuitively list "Any Matching/Colored Dye".
+-->
+{{Crafting
+  |head=1
+  |showname=0
+  |showdescription=1
+  |Gunpowder
+  |Bone Meal; Lapis Lazuli; Cocoa Beans; Ink Sac
+  |Head; Gold Nugget; Feather;Fire Charge;
+  |Glowstone Dust;
+  |Diamond;
+  |Output=White Firework Star; Blue Firework Star; Brown Firework Star; Black Firework Star
+  |arggroups=1;2,Output;3;4;5
+  |description={{only|bedrock|education}}<br>Up to eight dyes can be added.<br>One head, gold nugget, feather, or fire charge can be added.<br>Both the diamond and the glowstone dust can be added with any of the other ingredients.
+  |type=Miscellaneous
+}}
+{{Crafting
+ |showdescription=1
+ |White Firework Star; Blue Firework Star; Brown Firework Star; Black Firework Star
+ |Bone Meal; Lapis Lazuli; Cocoa Beans; Ink Sac
+ |Output=White Firework Star; Blue Firework Star; Brown Firework Star; Black Firework Star
+ |type=Decoration block
+ |description={{only|bedrock|education}}<br>Adds a "fade to color" effect to the firework star, overwriting any existing fades.<br>Up to eight dyes can be added.
+ |foot=1
+}}
+</div>
+
+== Usage ==
+
+The only usage of firework stars is to create [[firework rocket]]s.
+
+=== Crafting ingredient ===
+
+{{crafting usage|match=end}}
+
+== Effects ==
+
+=== Shape effects ===
+
+A firework star can have only one shape effect.
+
+{| class="wikitable"
+|+ Shape Effects
+! <abbr title="Type (Byte tag in NBT structure)">Type</abbr>
+! Ingredient
+! Effect
+! Sample Animation
+|-
+| 0
+| None
+| Small Ball explosion (default)
+| [[File:Firework Star (Small Sphere).gif|200px]]
+|-
+| 1
+| {{ItemLink|Fire Charge}}
+| Large Ball explosion and heavy sound.
+| [[File:Firework Star (Large Sphere).gif|200px]]
+|-
+| 2
+| {{ItemLink|Gold Nugget}}
+| Star-shaped explosion
+| [[File:Firework Star (Star Shape).gif|200px]]
+|-
+| 3
+| {{BlockLink|id=Heads|Head}} (any)
+| Creeper-shaped (Creeper Face) explosion
+| [[File:Firework Star (Creeper Shape).gif|200px]]
+|-
+| 4
+| {{ItemLink|Feather}}
+| Burst explosion
+| [[File:Firework Star (Burst).gif|200px]]
+|}
+
+=== Additional effects ===
+
+In addition to the shape effects, any combination of these additional effects may be added to a firework star.
+
+{| class="wikitable"
+|+ Additional Effects
+! Ingredient
+! Effect
+! Sample Animation
+|-
+| None
+| Default
+| [[File:Firework Star (Small Sphere).gif|200px]]
+|-
+| {{ItemLink|Glowstone Dust}}
+| Twinkle (Crackle effect and sounds after the explosion)
+| [[File:Firework Star (Twinkle effect).gif|200px]]
+|-
+| {{ItemLink|Diamond}}
+| Trail effect after the explosion
+| [[File:Firework Star (Trail effect).gif|200px]]
+|-
+| {{ItemLink|Glowstone Dust}} <br> {{ItemLink|Diamond}}
+| Twinkle + Trail effect after the explosion
+| [[File:Firework Star (Twinkle and Trail effect).gif|200px]]
+|}
+
+== Sounds ==
+{{see also|Firework_Rocket#Sounds}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Firework Star
+|spritetype=item
+|nameid=firework_star
+|form=item
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|showaliasids=y
+|shownumericids=y
+|showforms=y
+|notshowbeitemforms=y
+|generatetranslationkeys=y
+|displayname=Firework Star
+|spritetype=item
+|nameid=firework_star
+|aliasid=fireworkscharge
+|id=520
+|form=item
+|translationkey=item.fireworksCharge.name
+|foot=1}}
+
+=== Item data ===
+
+{{el|java}}:
+{{main|Player.dat format}}
+<div class="treeview">
+* {{nbt|compound|tag}}: The item's '''tag''' tag.
+{{:Player.dat_format/Firework Stars}}
+</div>
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Item format]].
+
+== Video ==
+<div style="text-align:center">{{yt|fYL1W9aW0UU}}</div>
+
+== History ==
+{{History|java}}
+{{History||1.4.6|snap=12w49a|[[File:Firework Star JE1 BE1.png|32px]] Added firework stars.
+|Firework stars in the [[Creative inventory]] come in only one variation; they do not have any color.}}
+{{History||1.13|snap=17w47a|The ID of firework stars has now been changed from <code>firework_charge</code> to <code>firework_star</code>.
+|Prior to [[Java Edition 1.13/Flattening|''The Flattening'']], this [[item]]'s numeral ID was 402.}}
+
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|[[File:Firework Star JE1 BE1.png|32px]] Added firework stars.
+|Firework stars come in all 16 colors in the [[Creative]] [[inventory]].{{verify|type=update}}{{info needed}}}}
+{{History||1.16.100|snap=beta 1.16.100.56|The ID of firework star has been changed from <code>fireworkscharge</code> to <code>firework_star</code>.}}
+
+{{History|console}}
+{{History||xbox=TU19|xbone=CU7|ps=1.12|wiiu=Patch 1|switch=1.0.1|[[File:Firework Star JE1 BE1.png|32px]] Added firework stars.
+|Firework stars cannot be obtained within the Creative inventory.}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|The [[crafting]] interface has now been updated to allow the crafting of firework stars and [[firework rocket]]s.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list}}
+
+== Trivia ==
+
+* There are 29,617,272,331,290,537 (29.6 quintillion) unique firework stars.
+* Putting firework stars on rockets causes the player to take explosion damage when using them for flying with [[elytra]].
+
+== Gallery ==
+<gallery>
+File:Firework Star (Tricolor Star shaped with Twinkle and Trail effect).gif|Tricolor (Magenta, Pink, White dye) + Star shaped with Twinkle and Trail effect.
+</gallery>
+
+{{Items}}
+
+[[cs:Ohňostrojová hvězda]]
+[[de:Feuerwerksstern]]
+[[es:Estrella de fuegos artificiales]]
+[[fr:Étoile de feu d'artifice]]
+[[hu:Tűzijáték csillag]]
+[[it:Stella pirotecnica]]
+[[ja:花火の星]]
+[[ko:폭죽 탄약]]
+[[nl:Vuurwerkster]]
+[[pl:Gwiazdka pirotechniczna]]
+[[pt:Estrela de fogo de artifício]]
+[[ru:Пиротехническая звезда]]
+[[uk:Зірка феєрверку]]
+[[zh:烟火之星]]

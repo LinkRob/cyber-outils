@@ -1,0 +1,44 @@
+{{Work in progress}}
+{{exclusive|java}}
+{{Entity
+| image = Blank.png
+}}
+
+Interaction entities are [[entities]] useful for map or data pack creators to see who the last player to click on a certain spot is. They can only be created with the {{cmd|summon}} or {{cmd|execute summon}} command.
+
+== Behavior ==
+
+Interaction entities record the [[Universally unique identifier|UUID]] of the last player that left-clicked and right-clicked them, and the time at which the interaction happened. If <code>response</code> is set to true, left-clicking an interaction entity plays a punching sound, and right-clicking it makes the player's arm swing.
+== Usage ==
+
+You can check information on who last left-clicked and right-clicked on the interaction entity with the [[Commands/data|/data get entity]] command. This information can be useful in datapack and map creation. You can also change their size to match the area you want to be checked.
+== Data values ==
+
+=== ID ===
+{{ID table
+|firstcolumnname=Entity
+|generatetranslationkeys=java
+|displayname=Interaction
+|nameid=interaction
+|translationkey=entity.minecraft.interaction
+|spritetype=block
+|spritename=air
+|foot=1
+}}
+
+=== Entity data ===
+{{see also|Entity format}}
+
+Interaction entities have entity data associated with them that contain various properties of the [[entity]].
+
+{{/ED}}
+
+== History ==
+{{History|java}}
+{{History||1.19.4|snap=23w07a|Added Interaction.}}
+{{History|foot}}
+
+{{Entities}}
+
+[[de:Interagierer]]
+[[ja:操作記録エンティティ]]

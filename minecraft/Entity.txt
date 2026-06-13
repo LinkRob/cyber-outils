@@ -1,0 +1,509 @@
+[[File:Entity Scaling.png|thumb|The size of six entities (a [[chicken]], [[Player|Noor]], [[evoker]], [[camel]], [[warden]], and [[Boat|oak boat]]) relative to four blocks]]
+'''Entities''' encompass all dynamic, moving objects throughout the ''[[Minecraft]]'' world.
+
+==General behavior==
+
+Properties all entities have are:
+*A position, rotation, and velocity.
+*A volume consisting of one or more non-rotating, three-dimensional [[wikipedia:Rectangular cuboid|boxes]] with a fixed height and width
+*Whether they are on [[fire]], displayed as flames on or around the entity
+*Whether they have any [[status effect]], such as from [[potion]]s
+
+Most entities can be pushed around by [[water]] currents, and some can have their trajectory altered by [[explosion]]s if already traveling at speed. Some entities can be renamed by {{control|using}} a [[name tag]] on them. Entity tiles, [[items]], shot or thrown projectiles, area effect clouds, and [[experience orb]]s do not have a current [[health]]. Entities that do have a health status include [[mob]]s, [[player]]s, [[boat]]s, [[boat with chest]]s and [[minecart]]s.
+
+Entities cannot pass through [[solid block]]s, excluding [[Vex|vexes.]] Most types of entities prevent blocks from being placed in the space they occupy, except for resources (dropped items) and experience orbs, which are automatically pushed out of the block to open air. If a solid block enters an entity's space, such as falling [[sand]] or a swinging [[door]], then it is free to move out of the solid block but not back in. For example, if a door is closed on you, you can jump up and stand on top of the bottom-half door block, if there is air above the door.
+
+Entities are lit according to the [[light]] level of the block their position is in. For example, if a [[minecart]] runs over a non-straight track directly into a solid block, it turns black because solid blocks always have a light level of 0; [[arrow]]s are also sometimes seen to turn black, especially if fired shallowly into the ceiling.
+
+===Further notes===
+
+[[Item frame]]s, [[glow item frame]]s, [[painting]]s, and [[lead]] knots, unlike most entities, align to the block grid, and are completely immobile.
+
+Arrows, TNT and falling sand (and its variants, including other falling blocks like anvils and dragon eggs) are assumed to have infinite health because they are neither destroyed by explosions (although they can be ''moved'' by explosions, and they can also be fired out of [[Tutorials/Mechanisms#Mechanisms|TNT cannons]]), nor by being on fire for long periods. However, they can still be "killed" with the use of the {{cmd|kill}} command.
+
+<!--When a block is placed on some entities, the block may disappear but might be restored if placed again.{{Needs testing|Sometimes the block is placed, then disappears, but if the entity moves and the block is placed again by your apparently empty hand, the block reappears. Maybe a bug? Maybe a workaround for the temporary conflict?}}
+
+-->
+====Boats, boat with chests and minecarts====
+
+:''See also: [[Transportation]] (contains information about speed)''
+
+Boats, boat with chests and minecarts appear to recover health over time. For example, they can be broken by hitting them quickly, but cannot be destroyed by hits with unarmed hand with a pause after each hit. The amount of wobbling displayed by boats and minecarts when struck appears to indicate their current health. All minecart, boat and boat with chest variants have {{hp|6}}.
+
+====Gravity-affected blocks====
+
+{{main|Falling Block}}
+
+[[File:Sandy Dungeon.png|thumb|right|Falling sand that collapsed into a [[dungeon]].]]
+
+Gravity-affected blocks include [[sand]], [[gravel]], [[anvil]]s, [[red sand]], [[dragon egg]]s, [[concrete powder]], [[scaffolding]], and [[pointed dripstone]], along with [[Snow|snow layers]] in [[Bedrock Edition]].
+
+A gravity-affected block normally exists as a block, but when its support is removed, it becomes a [[falling block]] entity and falls down until hitting the top surface of another block. If there is valid space, it places itself as a block at the nearest on-grid position, or drops as an [[item (entity)|item]] if that position is occupied by a block without a solid top surface, such as a [[torch]] or a bottom [[slab]].
+
+While a falling block ordinarily falls straight down, its trajectory can be affected by [[explosion]]s, [[bubble column]]s, [[piston]]s, [[Fishing|reeling]] it in, and moving [[slime block]]s, and can slide down the side of [[honey block]]s. It is also possible to modify the velocity and direction of a falling block by using [[commands]] such as {{cmd|data}}{{only|java}} or third-party programs. A falling block despawns and drops as an item if it does not land after existing for 600 [[ticks]] (30 seconds), or 100 ticks (5 seconds) if falling into the [[void]]{{verify}}.
+
+If a cave generates underneath sand, gravel, or red sand, the blocks remain stationary until it receives a [[block update]]. If a single block is updated and falls down, neighboring blocks will be updated in a chain reaction which can cause the collapse of an entire region of gravity-affected blocks.
+
+====Interactions with "use" control====
+
+Entities with {{control|use}} interactions (such as [[boat]]s, [[boat with chest]]s, [[minecart]]s, [[cat]]s, [[villager]]s, tamed [[parrot]]s, and tamed [[wolf|wolves]]) do not stop the {{control|use}} action of a tool you are holding. For example, {{control|using|use}} a [[water bucket]] on a tamed wolf causes the wolf to sit, but also empties the bucket near or onto the wolf.
+
+====Riding====
+
+[[File:Skeleton-spider-desert.png|thumb|right|A spider jockey.]]
+
+Entities may be riding on, or attached to, other entities. When this is the case, only the lower/"outer" entity's volume collides with other things, and only that entity can control movement.{{only|java}} However, there are exceptions: players riding [[minecart]]s, [[boat]]s, [[boat with chest]]s, or saddled [[horse]]s, baby [[zombie]]s riding [[chicken]]s, and [[skeleton]]s riding horses or boats.
+
+The only current legitimate combinations of riding entities are:
+
+*A [[mob]] or [[player]] in a [[minecart]], [[boat]] or [[boat with chest]]s.
+*A player on a [[saddle]]d [[pig]], [[horse]], [[donkey]], [[mule]], [[skeleton horse]], [[llama]], [[strider]], or [[camel]].
+*Any type of [[skeleton]] on a [[spider]] or [[cave spider]]{{only|bedrock}}; also known as a [[spider jockey]].
+* Any type of [[Baby animals|baby]] [[zombie]] or [[zombified piglin]]{{only|java}} on a [[chicken]] or other mobs{{only|bedrock}}; also known as a [[chicken jockey]].
+*[[Skeleton trap]]s; [[skeleton]]s riding [[skeleton horse]]s.
+*[[Pillager]], [[vindicator]], or [[evoker]] riding a [[ravager]].
+*Baby [[piglin]], riding a baby [[hoglin]].
+*Baby [[Piglin]], riding a baby [[piglin]] on a baby [[hoglin]].
+*Baby [[Piglin]], riding a baby [[piglin]], riding a baby [[piglin]] on a baby [[hoglin]].
+*Baby [[strider]], riding a grown up [[strider]].
+*[[Zombified piglin]] riding a [[strider]].
+
+Note that a [[parrot]] perched on the [[player]]'s shoulder isn't considered as riding.
+
+It is possible to have multiple levels, such as a baby [[piglin]] on another baby [[piglin]] who is riding a [[hoglin]] in a [[minecart]] in a [[boat]] or a [[boat with chest]].
+
+Entities can also be stacked on top of each other with the use of the {{cmd|summon}} and {{cmd|data}} commands {{in|java}}. For example, using {{cmd|summon spider ~ ~ ~ {Passengers:[{id:skeleton}]} }} summons a [[spider jockey]], or using {{cmd|ride}} {{in|bedrock}}.
+
+If an entity is riding another entity, the top entity cannot teleport because as soon as the teleport is made, the entity is teleported back to riding the other entity.{{Only|Java}}
+
+Starting from the [[Nether Update]], entities that are riders or passengers of other entities cannot [[despawn]].{{verify}}
+
+==Types of entities==
+
+The table below lists types of entities that currently exist in Minecraft. <!-- Please keep the notes to how this entity differs from entities overall, not general descriptions of game functions. -->
+
+Entities listed as "solid" obstruct the passage of other entities. 
+
+{{-}}
+{| class="wikitable sortable center" data-description="Types of entity"
+!| Type
+!|Solid
+!|Health
+!|[[Resource location]]
+!|Living Entity
+|-
+!|{{EntityLink|Player}}s
+| {{tc|yes}}
+| style="width:100px" |{{hp|20}} (Varies with [[attribute]]s)
+||<code>player</code>
+| {{tc|yes}}
+|-
+!|{{EnvLink|Mobs}}
+| {{tc|yes}}
+||Varies
+||see [[Java Edition data values#Entities]]
+| {{tc|yes}}
+|-
+!|{{EntityLink|Camera}}{{only|education|bedrock|short=1}}
+| {{tc|yes}}
+|| {{Hp|1}}
+||<code>camera</code>
+| {{tc|no}}
+|-
+!|{{EntityLink|Ice Bomb}}{{only|education|bedrock|short=1}}
+| {{tc|unknown|?}}
+||∞
+||<code>ice_bomb</code>
+| {{tc|no}}
+|-
+!| {{EntityLink|Balloon|id=balloons}}{{only|education|bedrock|short=1}}
+| {{tc|yes}}
+||∞
+||<code>balloon</code>
+| {{tc|no}}
+|-
+!|{{ItemSprite|Oak Boat}} {{ItemSprite|Spruce Boat}} {{ItemSprite|Birch Boat}} {{ItemSprite|Jungle Boat}} {{ItemSprite|Acacia Boat}} {{ItemSprite|Dark oak Boat}} {{ItemSprite|Mangrove Boat}} {{ItemSprite|Cherry Boat}} {{ItemSprite|Bamboo Raft}}<br>[[Boat]]s
+| {{tc|yes}}
+||{{hp|6}}<br>Recovers health quickly over time.
+||<code>boat</code>
+| {{tc|no}}
+|-
+!|{{ItemSprite|Oak Boat with Chest}} {{ItemSprite|Spruce Boat with Chest}} {{ItemSprite|Birch Boat with Chest}} {{ItemSprite|Jungle Boat with Chest}} {{ItemSprite|Acacia Boat with Chest}} {{ItemSprite|Dark oak Boat with Chest}} {{ItemSprite|Mangrove Boat with Chest}} {{ItemSprite|Cherry Boat with Chest}} {{ItemSprite|Bamboo Raft with Chest}}<br>[[Boat with Chest|Boats with Chests]]
+| {{tc|yes}}
+||{{hp|6}}<br>Recovers health quickly over time.
+||<code>chest_boat</code>
+| {{tc|no}}
+|-
+!|{{ItemSprite|minecart}}<br>[[Minecart]]
+| {{tc|partial|Yes}} (to other entities)
+||{{hp|6}}<br>Recovers health quickly over time.
+||
+<code>minecart</code>
+| {{tc|no}}
+|-
+!|{{ItemSprite|minecart-with-chest}}<br>[[Minecart with Chest]]
+| {{tc|partial|Yes}} (to other entities)
+||{{hp|6}}<br>Recovers health quickly over time.
+||<code>chest_minecart</code>
+| {{tc|no}}
+|-
+!| {{ItemSprite|minecart-with-furnace}}<br>[[Minecart with Furnace]]{{only|java|short=1}}
+| {{tc|partial|Yes}} (to other entities)
+||{{hp|6}}<br>Recovers health quickly over time.
+||<code>furnace_minecart</code>
+| {{tc|no}}
+|-
+!|{{ItemSprite|minecart-with-tnt}}<br>[[Minecart with TNT]]
+| {{tc|partial|Yes}} (to other entities)
+|| {{hp|6}}<br>Recovers health quickly over time.
+||<code>tnt_minecart</code>
+| {{tc|no}}
+|-
+!|{{ItemSprite|minecart-with-hopper}}<br>[[Minecart with Hopper]]
+| {{tc|partial|Yes}} (to other entities)
+||{{hp|6}}<br>Recovers health quickly over time.
+||<code>hopper_minecart</code>
+| {{tc|no}}
+|-
+!|{{EntitySprite|minecart-with-monster-spawner}}<br>[[Minecart with Monster Spawner]]{{only|java|short=1}}
+| {{tc|partial|Yes}} (to other entities)
+||{{hp|6}}<br>Recovers health quickly over time.
+||<code>spawner_minecart</code>
+| {{tc|no}}
+|-
+!|{{ItemSprite|minecart-with-command-block}}<br>[[Minecart with Command Block]]
+| {{tc|partial|Yes}} (to other entities)
+||{{hp|6}}<br>Recovers health quickly over time.
+|| <code>command_block_minecart</code>
+| {{tc|no}}
+|-
+!| {{EnvSprite|items}} [[Item (entity)|Items]]
+| {{tc|partial|Yes}} (to boats, boat with chests and minecarts)
+||{{hp|5}}
+||<code>item</code>
+| {{tc|no}}
+|-
+!| {{EntityLink|Experience orb}}s
+| {{tc|no}}
+||{{hp|5}}
+||<code>experience_orb</code>{{only|java|short=1}}, <code>xp_orb</code>{{only|bedrock|short=1}}
+| {{tc|no}}
+|-
+!|{{EntityLink|Arrow}}s
+| {{tc|partial|Yes}} (to boats, boat with chests and minecarts)
+||∞
+|| <code>arrow</code>, <code>spectral_arrow</code>{{only|java|short=1}}
+| {{tc|no}}
+|-
+!|{{EntityLink|Trident}}s
+| {{tc|yes}}
+||∞
+||<code>trident</code>{{only|java|short=1}}, <code>thrown_trident</code>{{only|bedrock|short=1}}
+| {{tc|no}}
+|-
+!|{{EntityLink|Snowball}}
+| {{tc|yes}}
+||∞
+||<code>snowball</code>
+| {{tc|no}}
+|-
+!|{{EntityLink|Egg}}
+| {{tc|yes}}
+|| ∞
+|| <code>egg</code>
+| {{tc|no}}
+|-
+!|{{EntityLink|Llama spit}}
+| {{tc|yes}}
+||∞
+||<code>llama_spit</code>
+| {{tc|no}}
+|-
+!|{{EntityLink|Ender pearl}}s
+| {{tc|yes}}
+||∞
+||<code>ender_pearl</code>
+| {{tc|no}}
+|-
+!|{{EntityLink|Eye of ender}}
+| {{tc|no}}
+||∞
+||<code>eye_of_ender</code>{{only|java|short=1}}, <code>eye_of_ender_signal</code>{{only|bedrock|short=1}}
+| {{tc|no}}
+|-
+!|{{ItemLink|Firework rocket}}
+| {{tc|no}}
+||∞
+||
+<code>fireworks_rocket</code>
+| {{tc|no}}
+|-
+!| {{BlockSprite|Tnt}} Primed [[TNT]]
+| {{tc|no}}
+||∞
+||<code>tnt</code>
+| {{tc|no}}
+|-
+!|{{BlockSprite|Sand}} [[Falling block]]
+| {{tc|no}}
+||∞
+||<code>falling_block</code>
+| {{tc|no}}
+|-
+!|{{EntitySprite|fishing-bobber}} [[Fishing Rod|Fishing rod bobbers]]
+| {{tc|partial|Yes}} (to boats, boat with chests and minecarts)
+||∞
+||<code>fishing_bobber</code>{{only|java|short=1}}, <code>fishing_hook</code>{{only|bedrock|short=1}}
+| {{tc|no}}
+|-
+!|{{EntitySprite|lightning}} [[Lightning bolt]]s
+| {{tc|no}}
+||∞
+||<code>lightning_bolt</code>
+| {{tc|no}}
+|-
+!|{{EntitySprite|leash-knot}}[[Lead|Lead knot]]
+| {{tc|no}}
+||∞
+||<code>leash_knot</code>
+| {{tc|no}}
+|-
+!|{{EntityLink|Painting}}
+| {{tc|no}}
+||∞
+||<code>painting</code>
+| {{tc|no}}
+|-
+!| {{EntityLink|Item frame}}{{only|java|short=1}}
+| {{tc|no}}
+||∞
+||<code>item_frame</code>, <code>glow_item_frame</code>
+| {{tc|no}}
+|-
+!|{{ItemLink|Armor stand}}
+| {{tc|no}}
+||∞
+||<code>armor_stand</code>
+| {{tc|yes}}
+|-
+!|{{EntityLink|Fireball}}s<br>{{EntityLink|Wither skull|link=Wither#Wither Skull}}s<br>{{EntityLink|Dragon Fireball}}s
+| {{tc|yes}}
+||∞
+||<code>fireball</code>, <code>small_fireball</code>, <code>wither_skull</code>, <code>wither_skull_dangerous</code>{{only|bedrock|short=1}}, <code>dragon_fireball</code>
+| {{tc|no}}
+|-
+!|{{EntityLink|Shulker bullet}}
+| {{tc|yes}}
+||∞
+||<code>shulker_bullet</code>
+| {{tc|no}}
+|-
+!|{{EntityLink|End crystal}}s
+| {{tc|no}}
+||{{hp|5}}
+|<code>end_crystal</code>{{only|java|short=1}}, <code>ender_crystal</code>{{only|bedrock|short=1}}
+| {{tc|no}}
+|-
+!|{{EntityLink|Evoker fangs}}
+| {{tc|no}}
+|| ?
+||<code>evoker_fangs</code>{{only|java|short=1}}, <code>evocation_fang</code>{{only|bedrock|short=1}}
+| {{tc|no}}
+|-
+!|[[Marker]]{{only|java|short=1}}
+| {{tc|no}}
+||∞
+||<code>marker</code>
+| {{tc|no}}
+|-
+!|[[Block display]]{{only|java|short=1}}
+| {{tc|no}}
+||∞
+||<code>block_display</code>
+| {{tc|no}}
+|-
+!|[[Item display]]{{only|java|short=1}}
+| {{tc|no}}
+||∞
+||<code>item_display</code>
+| {{tc|no}}
+|-
+!|[[Text display]]{{only|java|short=1}}
+| {{tc|no}}
+||∞
+||<code>text_display</code>
+| {{tc|no}}
+|-
+!|[[Interaction]]{{only|java|short=1}}
+| {{tc|no}}
+||∞
+||<code>interaction</code>
+| {{tc|no}}
+|}
+
+==Motion of entities==
+{{redirect|Gravity|the ''Minecraft Dungeons'' enchantment|MCD:Gravity}}
+
+Gravity works differently in Minecraft than the real world, as not everything is subject to the same acceleration. Additionally, there is a drag force proportional to velocity, again dependent on the entity.
+
+{| class="wikitable sortable" data-description="Gravity for entities" |
+!|Kind
+<!-- Conversion factor from ticks to seconds is 1/20 -->
+!|Acceleration<br>blocks/[[tick]]<sup>2</sup>
+!|Acceleration<br>m/s<sup>2</sup><!-- calculate = blocks/tick * 20^2 -->
+!| Drag<br>1/tick
+!|Terminal velocity<br>m/tick<!-- calculate = acceleration / drag * (1-drag)
+                   except arrows and thrown items apply drag before acceleration so calculate = acceleration / drag -->
+!|Terminal velocity<br>m/s<!-- calculate = blocks/tick * 20 -->
+|-
+||{{EntitySprite|Player}} Players and other living entities <ref group="note" name="drag">Note that when living entities and explosive projectiles are simulated, the drag is applied after the acceleration, rather than before; this is why their terminal velocities aren't whole numbers while the others are.</ref>
+||0.08
+||32
+||0.02
+||3.92
+||78.4
+|-
+||Players/mobs with {{EffectLink|Slow Falling}} <ref group="note" name="drag" />
+||0.01
+||4
+||0.02
+||0.49
+||9.8
+|-
+||{{EnvSprite|Items}} {{EntitySprite|Sand}} {{EntitySprite|Tnt}} [[Item]]s, [[falling block]]s, and [[TNT]]
+||0.04
+||16
+||0.02
+||2.00
+||40.0
+|-
+||{{ItemSprite|Minecart}} [[Minecart (disambiguation)|Minecart]]s
+||0.04
+||16
+||0.05
+||0.76
+||16.0
+|-
+||{{ItemSprite|Oak Boat}} {{ItemSprite|Oak Boat with Chest}} [[Boat]]s and [[boat with chest]]s
+||0.04
+||16
+||0.00
+||∞
+||∞
+|-
+||{{EntitySprite|Egg}} {{EntitySprite|Snowball}} {{EntitySprite|Splash Potion}} {{EntitySprite|Ender pearl}} Thrown [[egg]]s, [[snowball]]s, [[potion]]s, and [[ender pearl]]s
+||0.03
+||12
+||0.01
+||3.00
+||60.0
+|-
+|| {{EntitySprite|experience-orb}} [[Experience orbs]]
+||0.03
+||12
+||0.02
+||1.50
+||30.0
+|-
+||{{EntitySprite|Fishing hook}} Thrown [[fishing bobber]]s
+||0.03
+|| 12
+||0.08
+||0.375
+||7.5
+|-
+||{{EntitySprite|llama-spit}} [[Llama spit]]
+||0.06
+||24
+||0.01
+||6.00
+||120.0
+|-
+||{{EntitySprite|Arrow}} {{EntitySprite|Trident}} Fired [[arrow]]s, and thrown [[tridents]]
+||0.05
+||20
+||0.01
+||5.00
+||100.0
+|-
+|| {{EntitySprite|Fireball}} {{EntitySprite|Wither skull}} {{EntitySprite|dragon-fireball}} [[Fireball]]s, [[Wither skull]]s, and [[dragon fireball]]s <ref group="note" name="drag" /><ref group="note" name="boom">Explosive projectiles are not affected by gravity but instead get acceleration from getting damaged.</ref>
+||0.10
+||40
+||0.05<ref group="note" name="skull">Dangerous wither skulls have drag force of 0.27.</ref>
+|| 1.90
+||38.0
+|}
+Starting at an initial upwards velocity <math display="inline">\text{initialVelocity}</math>, an entity's velocity after falling for a number of ticks <math display="inline">\text{ticksPassed}</math> can be given by the formulas:
+:Drag applied before acceleration:
+:<math>\text{finalVelocity} = \Bigl( \left(\text{initialVelocity}-\text{acceleration} \right) \times \left(1-\text{drag} \right)^ \text{ticksPassed} \Bigr) 
+- \left( \text{acceleration} \times \frac{ 1 - \left( 1-\text{drag} \right)^\text{ticksPassed}}{ \text{drag} } \right)</math>
+:Drag applied after acceleration<ref group="note" name="drag" /><ref group="note">For living entities that cannot fly, use (ticksPassed+1).</ref>:
+:<math>\text{finalVelocity} = \Bigl( \text{initialVelocity}\times \left(1-\text{drag}\right)^\text{ticksPassed}  \Bigr) 
+- \left( \text{acceleration} \times \frac{ 1 - \left( 1-\text{drag} \right) ^ \text{ticksPassed} }{ \text{drag} }\times \left(1-\text{drag} \right) \right)</math>
+:Note: initialVelocity is in blocks/tick, finalVelocity is in m/tick, and acceleration is in blocks/tick^2.
+{{notelist}}
+
+==Data values== 
+
+{{el|java}}:
+{{main|Entity format}}
+<div class="treeview">
+*{{nbt|compound}}: Root tag.
+**{{nbt inherit/entity}}
+</div>
+
+{{el|bedrock}}:
+
+See [[Bedrock Edition level format/Entity format]].
+
+==Video==
+
+<div style="text-align:center">{{yt|ZKax6u8MePM}}</div>
+
+==History==
+
+{{History|java}}
+{{History||1.1|snap=?|Players cannot interact with entities from far away in [[Creative]] mode.}}
+{{History||1.4.2|snap=12w34a|Entities can now use portals.}}
+{{History||1.9|snap=15w31a|Projectile motion has now been changed slightly.<ref>https://www.reddit.com/r/Minecraft/comments/3f7m2y/minecraft_snowball_projectile_changes_snapshot/</ref>}}
+{{History|||snap=15w36a|Most entities (exceptions being [[item]]s and [[experience|experience orbs]]) can now be pushed by other entities.}}
+{{History|||snap=15w45a|Entities bunched up in a 1&times;1 hole together no longer push away entities touching adjacent corners.}}
+{{History|||snap=15w49a|Projectiles now take the thrower's momentum into account when the player is falling, flying with elytra, or taking knockback; but not when the player is walking, riding an entity, or flying in Creative mode.}}
+{{History||1.11|snap=16w32a|[[Java Edition data values/Pre-flattening/Entity IDs|Entity IDs]] have now been changed to have underscores and no capital letters. They can also be used by typing <code>minecraft:</code> before the IDs, similar to [[Java Edition data values/Pre-flattening/Block IDs|block IDs]].
+|The ID for [[mob (entity)|mobs]] (<code>Mob</code>), and [[monster (entity)|monsters]] (<code>Monster</code>) have now been removed.}}
+{{History|pocket alpha}}
+{{History||?|The insides of [[mob]]s no longer render.}}
+{{History|bedrock}}
+{{History||?|The insides of mobs now render again.}}
+{{History|foot}}
+
+==Issues==
+
+{{Issue list}}
+
+==See also==
+
+*[[Block entity]] – unlike the entities mentioned above, these are simply blocks that store additional data.
+
+==References==
+{{reflist}}
+
+{{entities}}
+{{Environment}}
+
+[[Category:Entities| ]]
+
+[[cs:Subjekt]]
+[[de:Objekt]]
+[[es:Entidad]]
+[[fr:Entités]]
+[[hu:Entitás]]
+[[it:Entità]]
+[[ja:エンティティ]]
+[[ko:개체]]
+[[nl:Entiteit]]
+[[pl:Byty]]
+[[pt:Entidade]]
+[[ru:Сущности]]
+[[uk:Сутності]]
+[[zh:实体]]

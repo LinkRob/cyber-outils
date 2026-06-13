@@ -1,0 +1,409 @@
+{{about|the April Fool's joke snapshot|the actual snapshot released that week|Java Edition 22w13a}}
+{{April Fools|There is no actual "One Block at a Time Update" version of ''Minecraft'' in development.}}
+{{version nav
+| title = Minecraft 22w13oneBlockAtATime
+| name = One Block at a Time Update
+| edition = Java
+| image = Java Edition 22w13oneBlockAtATime.png
+| image2 = Oneblockatatime.webp
+| date = April 1, 2022
+| clienthash = 6548ac25265c2726a2cd24dec3820c07ee2b0b4b
+| clientmap = b1bbd68dbf48041dd994f1a4c1a3eacfa46e344b
+| jsonhash = 4d8a0179f99f9f20909eb3bbfa1fc4e622693ab8 | jsonfile = 22w13oneblockatatime
+| serverhash = 5f48eea55c7fd1881d9c63835b15dfb5bbcd3a67
+| servermap = 2c55055b906935ffe1e7e7cb80d1a8b031eb9f95
+| snapshotfor = 
+| prevparent = 20w14∞
+| nextparent = 23w13a_or_b
+}}
+
+'''22w13oneBlockAtATime''' (known as '''22w13oneblockatatime''' in the launcher) is an [[Easter eggs#April Fools|April Fools' joke]] snapshot, supposedly the first and only snapshot for the "'''One Block at a Time Update'''", released on April 1, 2022,<ref name="offical-announcement">{{Mcnet|mojang-studios-release-new-astonishing-update|Mojang Studios release new astonishing update|April 1, 2022|Per Landin}}</ref> which overhauled the player's [[inventory]] as well as the game logic for [[block]]s, [[item]]s and [[entities]], and redesigned relevant [[gameplay]] aspects such as [[controls|controlling]], [[breaking]] and [[crafting]]. This version is a fork of a commit between [[Java Edition 1.18.2|1.18.2]] and [[Java Edition 22w11a|22w11a]], as it contains several blocks (not complete) from the [[deep dark]] biome.
+<!-- Do not change the version listed to another version without providing a statement in the edit summary that shows evidence that this joke snapshot is indeed a fork of a different version. -->
+==Additions==
+
+===Blocks===
+
+;[[How did we get here?]]
+*All items are converted into item blocks.
+*Has ID {{cd|minecraft:generic_item_block}}
+*Has an <code>item</code> block state that specifies the internal ID of the item to display with (0-1104).
+**[[File:White Carpet.png|32px]] <code>item=0</code> uses the model of white [[carpet]]s.
+*[[Waterlogging|Waterloggable]].
+**In [[Debug Mode]], all items and their waterlogged versions can be found.
+
+===Gameplay===
+
+;[[Advancement]]s
+* Added a new advancement:
+**Ride the End
+***Description reads "Extra Good luck"
+***Obtained for punching the Ender Dragon, causing the player to ride it; this is only possible once all end crystals are destroyed or with a dragon spawned by {{cmd|summon}}.
+
+;[[The End]]
+*Riding the ender dragon into the void teleports the player to the build limit in the Overworld.
+
+;[[The Nether]]
+*Riding the ender dragon into the void teleports the player to the build limit in the Overworld.
+
+===General===
+
+;[[Particles]]
+* Added <code>footstep</code> particle, generated when player walks holding anything.
+
+;[[Splash]]es
+*All regular splashes have been removed.
+*Possible splashes are now "One!", "Block!", "At!", "A!", "Time!", or any possible arrangement of the words "One block at a time!".
+*The special "<PLAYERNAME> IS YOU" splash has been changed to "<PLAYERNAME> IS ONE AT A TIME".
+
+;[[Sound]]s
+* 2 new sounds were added
+**<code>nothingtoseeheremovealong:awesome_intro</code> which is the intro sound.
+*** Has 2 variations, one higher pitch and one normal pitch.
+*** These sounds are located in the <code>assets/nothingtoseeheremovealong/ananas</code> folder and are called <code>papaya.ogg</code> ({{sound||Papaya.ogg}}) and <code>papapaya.ogg</code> ({{sound||Papapaya.ogg}}).
+**<code>nothingtoseeheremovealong:ooof</code> which is the old hurt sound.
+** These sounds are bundled in the <code>.jar</code> file.
+
+==Changes==
+
+===Blocks ===
+;General
+*Blocks will not drop in dropped item forms.
+*When exploded, they are launched instead of dropped.
+
+;[[Bedrock]]
+*Now breakable and obtainable in survival.
+** Takes ~10.5 minutes to break with empty hands and a [[Haste]] II effect applied.{{testingame|precise value of breaking time?}}
+
+;[[Chest]]
+*When loot chests generated in structures are broken, they emit explosion sound effects and particles, and explode out the loot items in falling block forms.
+
+;[[Dispenser]]
+*When powered with a [[redstone]] signal, the block it's facing will be dispensed with velocity in the direction of the dispenser as a falling block.
+**If the block is a fluid source, it turns into the form of buckets, and becomes fluid again when landing.
+
+;[[Dripstone]]
+* Plays [[trident]] sound when thrown.
+
+;[[Dropper]]
+*When powered with a [[redstone]] signal, the block it's facing will be dispensed as a falling block.
+**Unlike dispensers, the converted falling block will drop straight downwards.
+**If the block is a fluid source, it turns into the form of buckets, and becomes fluid again when landing.
+
+;[[End Portal Frame]]
+*Now breakable and obtainable in survival.
+** Takes ~37 seconds to break with empty hands and without [[Haste]].{{testingame|precise value of breaking time?}}
+*Can be found in chests inside [[nether fortress]]es.
+*They can either be orientated vertically or horizontally.
+**When placed in a stronghold, it points up, like in normal versions, which allows to build end portals.
+**When placed outside a stronghold, it points to a stronghold.
+**When placed in a dimension without a stronghold, it points to a random direction.
+*Has an [[eye of ender]] in place at all times.
+
+;[[Fire]]
+*May convert nearby [[smelt]]able items to their smelted item, such as coal ore to coal. [[Soul fire]] does not do this.
+*Can be picked up, though it is invisible when held by the player.
+
+;[[Glass]] and [[Glass Pane]] (including tinted and stained)
+*When thrown, they may break upon landing.
+**This applies to all blocks with <code>#minecraft:fragile</code> tag.
+
+;[[Grass]] and [[Fern]]
+*When thrown on a block that is not a grass block, they lay horizontally and change their variant to a gray one.
+
+;[[Gravel]]
+*When thrown, grass, leaves and vines adjacent to where it lands ignite.
+
+;[[Ice]]
+*When thrown into lava, fire or onto magma blocks, they directly become water.
+
+;[[Iron ore]]
+*Becomes a [[block of iron]] when thrown into soul fire.
+
+;[[Lava]]
+*When a smeltable item or block is thrown onto a lava block, it is converted into its smelted counterpart which overrides the lava it was thrown onto.
+
+;[[Mushroom Block]]
+*Becomes a [[shroomlight]] when thrown into fire.
+
+;[[Pumpkin]]
+*Becomes a carved pumpkin when thrown near a cactus.
+
+;[[Seagrass]]
+*When thrown on a block that is not a leaf block, they will be placed as normal and will generate a [[water]] block on them.
+
+;[[Vines]]
+*When thrown, they will lay horizontally and change their variant to a gray one.
+
+=== Items===
+
+;General
+*All items can be placed on the ground as blocks.
+**When trying to place an item anywhere that's not a block, it is thrown instead.
+***Throwing an item directly on the player's head will equip it in the helmet slot.
+***Throwing any smeltable item into lava or placing it near fire or lava will smelt it.
+***Thrown items are implemented as <code>falling_block</code> entities.
+***Thrown items (or indeed any <code>falling_block</code>) can be caught in midair by hitting it.
+** Items that do not have a block form are converted to <code>generic_item_block</code> with the appropriate data.
+* Items can be crafted by placing a recipe above at least one crafting table, throwing the last item (recipe patterns top facing away from the player, but defaulting to north when not thrown by a player)
+**Alternatively, the recipe can be placed and a crafting table can then be thrown to land on the recipe.
+* Tools may be used but break with one use.
+** Tools break even in situations when they would not lose any durability.
+*Certain items (e.g. top of the door, tall grass, etc) have "invalid" block data and will disappear when they land (as an item). It is still possible to place them, however.
+*Food items cannot be eaten, even in Creative mode, since using them on a block places them, and using them otherwise throws them.
+**However, there exist special cases in the code for bamboo, carrots, and potatoes (see below).
+
+;[[Bamboo]]
+*When a player is named "Ulraf", bamboo can now be eaten at any time.
+*When a player is not named "Ulraf", bamboo can now be eaten while in the offhand slot of the player, when the player is looking at the side of a bamboo block.
+*When bamboo is eaten, the player gains [[Absorption]] IV for 2 minutes, [[Regeneration]] II for 20 seconds, [[Fire Resistance]] for 5 minutes and [[Resistance]] for 5 minutes.
+
+;[[Carrot]]
+*Can now only be eaten in Creative mode (not Survival since the hunger bar is always full), from the player's offhand slot, if the player is looking at carrots placed on farmland.
+
+;[[Ender Pearl]]
+*Can no longer teleport the player, as they cannot be thrown normally.
+
+;[[Eye of Ender]]
+*Can no longer lead the player to the nearest [[stronghold]], as they cannot be thrown normally.
+
+;[[Potato]]
+*Can now only be eaten in Creative mode (not Survival since the hunger bar is always full), from the player's offhand slot, if the player is looking at potatoes placed on farmland.
+
+;[[Potion]]
+*Any potion held uses the bottle texture.
+*Any thrown potion uses uncraftable potion texture.
+*Any potion placed on ground uses slow-falling potion texture.
+
+;[[Powder Snow Bucket]]
+*Thrown as a powder snow block when thrown.
+
+;[[Water Bucket]] and [[Lava Bucket]]
+*Make water and lava when thrown, with the bucket disappearing.
+
+===Mobs===
+
+;General
+*When trying to damage a mob, the player will pick it up instead.
+**When falling, the player holds onto the mob that they picked up.
+**Some mobs like the ender dragon behave like rideable entities.
+**Some mobs like the wither cannot be ridden or picked up.
+*To damage mobs, the player has to:
+** Throw the mob
+** Throw any block, item or entity at the mob
+***Different blocks deal different amounts of damage based on their blast resistance and speed; the formula is speed*10*blast resistance.
+***Different mobs also deal different amounts of damage based on their height and speed; the formula is speed*5*height.
+****However, you also throw mobs slower the taller it is.
+**Release them in a stacked group of two or more.
+**Some mobs like the ender dragon cannot take damage from any block, item or entity.
+*Mobs that can hold items, like zombies, skeletons, etc. can steal the player's held item when damaging them, playing <code>nothingtoseeheremovealong:ooof</code>.
+*Mobs can also be made to wear carved pumpkins or barrels when the blocks are thrown at them.
+
+;[[Bee]]
+*When held by the player, they will cause the player to keep the momentum from when they picked up the bee, albeit a lot slower.
+**If the player was completely still before picking up the bee, the player will not be able to move up or down whatsoever.
+**The player will be unable to jump while doing so.
+
+;[[Cave Spider]]
+*When held by the player, the player will be able to climb blocks vertically.
+
+;[[Chicken]]
+*When held by the player, they will cause the player to float down slowly after jumping, similar to the [[Slow Falling]] effect.
+**When {{control|jumping}} repeatedly, the player will be able to float upwards.
+
+;[[Ender Dragon]]
+*Now rideable by {{control|attacking}} her.
+**Only 30 health points are displayed in the HUD.
+**When riding, the player can control her by looking around.
+***When flying down to the void of the End or the Nether (at y{{=}}-32), it descends to the build limit of the Overworld.
+***Flying down to the void of a custom dimension will also descend the player to the build limit of the Overworld.
+**When there is an [[end crystal]] nearby, the player will be forced off.
+
+;[[Enderman]]
+* Every single enderman is now holding a random block. The random block can be any block in the game, including unobtainable blocks such as [[command block]]s.
+**Each can have random properties, including being waterlogged.
+**Endermen can place waterlogged blocks in the Nether without the water disappearing.
+*All of them are stuck in a holding pose if not holding any blocks.
+* If an enderman holding a block attacks a player, the sound <code>nothingtoseeheremovealong:ooof</code> will play, and the block is given to the player.
+*When held by the player, the player and the enderman will teleport simultaneously.
+
+;[[Illusioner]]
+*When held by the player, they will shoot arrows in the direction of the player.
+
+;[[Iron Golem]]
+*[[File:Billyballong.png|32x32px]] Appearance changes when named "billyballong", causing it to hold its hands in the air.
+* Gives flowers to players named "maria", "alva", "neo", "hidetaka" or "miyazaki" (case-insensitive).
+;[[Magma Cube]]
+*When held by the player, the player will be immune to fire and lava damage.
+;[[Pig]]
+*When held by the player, the pig is rendered upside-down and the holder will be magnetized to any block higher than two blocks above their head.
+**This will cause them to bounce up and down on the bottom side of the block.
+
+;[[Piglin]]
+*When held by the player, they will shoot arrows in the direction of the player. If held by the player while the arrow is fired, their crossbows will break after firing. When hostile, they will damage the player even while held.
+
+;[[Pillager]]
+*When held by the player, they will shoot arrows in the direction of the player. If held by the player while the arrow is fired, their crossbows will break after firing. Without their crossbows they stare at the player harmlessly and try to stay in crossbow range, despite not having a crossbow.
+
+;[[Player]]
+*Leaves a trail of footprints while holding anything.
+*When a player throws a block at another entity, the entity will be damaged.
+*When a player throws a block at another player's head, the block will go into the helmet slot of the receiving player. Taking damage has a chance to remove it.<ref>{{tweet|Xilefian|1510565439675449347|The https://minecraft.fandom.com/wiki/Java_Edition_22w13oneBlockAtATime… page is full of interesting citationless guesses For one: the sneaky block isn't a MGS reference. It came from the idea of using silly stuff as armour, like a bucket on the head. "Barrel Costumes" was the inspiration. MGS similarities was noticed after|April 3, 2022}}</ref>
+**When the block on the player's head is [[snow]], a [[snow block]], [[ice]], [[packed ice]], or [[blue ice]], the player will begin freezing.
+**When the block on the player's head is a [[magma block]], it will set the player on fire.
+**[[File:Alex wearing Barrel.png|32px]] When the block on the player's head is a [[barrel]], their vision becomes largely obstructed, leaving only a narrow window; and their model appears as if they are hiding under it and moving only with their legs visible.
+***[[File:Alex sneaking in Barrel.png|32px]] Sneaking while under a barrel will disguise the player as a barrel block.
+*The hunger bar does not deplete, meaning the player is always able to sprint and regenerate health.
+*In [[Spectator|Spectator Mode]], the two hands of the player are visible.
+
+;[[Sheep]]
+*Are now sheared when they take damage or are thrown, dropping wool.
+*When with wool, when thrown a wool block, the wool color of the sheep will be replaced, dropping the wool of the previous color.
+*When without wool, when thrown a wool block, the wool will be put on the sheep.
+
+;[[Skeleton]]
+* [[File:Skeleton with Spyglasses.png|32px]] Skeletons can spawn with two spyglasses with unknown chance.{{more info}} They can also wear spyglasses when thrown, up to two.
+*When held by the player, they will shoot arrows in the direction of the player.
+* Based on [[Xilefian]]'s idea.<ref>{{tweet|Xilefian|1331632377672642565|One of my recent idea pitches<br>Maybe one day.|November 25, 2020}}</ref>
+
+;[[Spider]]
+*When held by the player, the player will be able to climb blocks vertically.
+
+;[[Stray]]
+*When held by the player, they will shoot arrows in the direction of the player.
+
+;[[Villager]]
+*Now have different trades.
+** Seems to have multiple trades, based on their profession and level. They gain more trades by leveling up by trading with them. The trade always includes emerald_ore blocks as for buying or selling.
+***Can now also trade mobs.
+**The player can trade with them by right clicking on the villager with [[emerald ore]].
+** Their normal trading GUI is now inaccessible.
+** These changes also apply to [[wandering trader]]s.
+
+;[[Witch]]
+*When held, if targeting the player, they will shoot potions in the direction of the player.
+
+;[[Wolf]]
+*[[File:Mars.png|32px]] Naming a tamed wolf 'Mars' will give it a unique texture.
+
+===Entities ===
+;[[Fireball]]
+*Player can hold a [[ghast]]'s fireball, but when released, it will return to its original vector.
+
+;[[Eye of Ender]]
+*When summoned via commands, it will move to the origin point (X{{=}}0, Z{{=}}0) with its vector depending on its distance from the center of the world.
+
+===Gameplay===
+
+;[[Explosion]]
+*Blocks that would be destroyed by an explosion are launched instead of destroyed.
+**Blocks launched represents the form of falling blocks before they land, and sometimes stuck in blocks without turning to normal blocks, causing possible {{w|Z-fighting|z-fighting}}.
+**The explosion will apply random [[stonecutter]] recipes to some blocks around it.
+
+;[[Inventory]]
+*The inventory interface, hotbar, hunger bar and armor bar have been removed.
+*The health bar is now centered at the bottom of the screen.
+*The oxygen bar now appears at the bottom right corner of the screen.
+
+; GUI
+* Every single inventory for any kind of container block has been removed.
+**With the exception of the Horse Inventory.
+*Players now see both hands on the screen instead of just one.
+**Probably inspired by scrapped two-handed hold animation for skulls.<ref>{{tweet|Xilefian|1496163484362584065|Had a brief discussion about uncanny first-person animations, which reminded me of this time back in 1.16 when I was trying to "fix" MC-91869 (mob heads held awkwardly) and I ended up wasting two Fridays prototyping an oddly uncanny two-handed hold animation specific to skulls 💀|February 22, 2022}}</ref>
+
+=== World generation===
+
+;[[Stronghold]]
+*End portal frames without eyes of ender inside of them do not generate.
+**To open the end portal, the player needs to place down end portal frames.
+
+===General===
+
+;[[Debug screen]]
+*Mood in the debug screen has been changed to "Number of ghosts in world".
+
+;Loading screen
+*The loading screen has been changed.
+** Practically similar to [[Java Edition 20w14∞|20w14∞]]'s loading screen, but with different textures.
+** Plays a sound saying "Mojang Studios", similar to [[Java Edition 20w14∞|20w14∞]] and [[Java Edition 3D Shareware v1.34|3D Shareware v1.34]].
+** The silhouette inside the logo is a "Mojang" that resembles a Crewmate from the game {{w|Among Us}}.
+
+==Issues==
+22w13oneBlockAtATime is not supported due to being an April Fools' joke, and therefore issues affecting it get closed as "Invalid" in the issue tracker.
+
+==Trivia ==
+
+*This is the only version in which the player is able to truly hold blocks, rather than items corresponding to blocks. Endermen are the only mob to have this ability in normal versions.
+*When a [[spawner]] is picked up and placed back down, it will lose its block data and become a pig spawner.
+*With the help of a tamed [[horse]], the player can shift - right click it and see their inventory. The player can put items in the slots with the help of the offhand.
+*Despite the snapshot's name, the player can still move items to the offhand, and, therefore, carry two blocks at a time.
+**Placing offhand items in [[creative]] mode does not consume the item, as usual, even though a main hand item is consumed in creative mode.
+*The player's usual <code>Inventory</code> data is still accessible using commands like {{cmd|data}}, {{cmd|item}}, and {{cmd|clear}}, but, apart from the armor slots and offhand, this data doesn't do anything. 
+** Using the {{cmd|give}} command will always place items into the players hands. If the command is used while the player is already holding something, the new item will be thrown onto the ground (and place itself if it is a block).
+**The {{cmd|clear}} command will claim that <code>No items were found on player <player></code> even if the player is holding something, if they had empty <code>Inventory</code> data.
+**The {{cmd|data}} command reveals that the hand slot is using the NBT tag <code>carriedBlockState</code>, which is the same tag as for items held by endermen and which will always be a <code>generic_item_block</code> if the target player is holding something that is not a normal block.
+**In creative mode, loading saved hotbars still modifies this data.
+*Picking up mobs modifies the player's <code>Passengers</code> data, which is usually always empty.
+*If a player is given armor (through commands such as <code>/item replace entity...</code> ) the armor will instantly break upon losing any durability.
+**Elytra will also break instead of entering their disabled state (as they do when they lose all durability outside of this snapshot).
+**The Unbreaking enchantment and the Unbreakable tag both work on armor.
+**With an Unbreakable elytra, it's possible (though difficult) to juggle a chicken in the air for constant flight.
+*Entities thrown by the player cannot be picked up again for a few seconds.
+*Certain blocks, like fire, end or nether portal blocks, and end gateways, do not display properly when held or thrown — these are invisible in first person, and in some cases also in third person or also when thrown.
+*Blocks that do not normally have an item form can now be placed directly, like portal blocks.
+* Using {{cmd|setblock}} to place a <code>generic_item_block</code> with an ID that represents a block will cause it to display the block as if misaligned on the vertical axis, rotated so that the top points south, and with its faces culled to match what would be culled if it were a normal block, e.g. {{cmd|1=setblock ~ ~ ~ minecraft:generic_item_block[id=15]}} for a "grass" block.
+*Some blocks and items that need tinting, such as grass blocks and spawn eggs, may display white as if they are not tinted.
+*When falling blocks touch ground, if they have air below them but stay on the edge of a solid block next to them, they may keep the form of "falling block" entities.
+*When holding a [[ghast]], the player is displayed in the body of the ghast.
+*When holding a [[map]], four hands are displayed in the screen, and three hands displayed when holding the map in the offhand slot.
+
+==Gallery==
+===Screenshots===
+<gallery>
+Player wearing glass block.png|A player wearing [[glass]].
+Footprints in 22w13oneBlockAtATime.png|[[Footprint]]s from carrying.
+Player holding a bee.png|A player floating while carrying a [[bee]].
+22w13oneBlockAtATime_4.png|A player holding a [[spyglass]].
+22w13oneBlockAtATime_5.png|A player holding [[sugar cane]] in [[third-person view]].
+22w13oneBlockAtATime_6.png|A player holding [[sugar cane]] in first-person view.
+22w13oneBlockAtATime_7.png|[[Endermen]] stacked from picking up multiples.
+22w13oneBlockAtATime_1.png|A player holding a [[sheep]].
+22w13oneBlockAtATime_2.png|A player threw a [[sheep]].
+22w13oneBlockAtATime_3.png|A player holding a [[skeleton]] "wearing" spyglasses.
+Player riding enderdragon.png|A player riding the [[ender dragon]].
+Vision in Barrel.png|A player's vision while hiding inside a [[barrel]].
+22w13oneBlockAtATime fontfint walk.png|Holding a birch log.
+</gallery>
+
+===Official images===
+<gallery>
+File:22w13oneBlockAtATime.jpg|The "One Block At A Time" logo
+File:Aprilis_asinus1.png|A [[player]] trading with a [[villager]].
+File:Aprilis_asinus2.png|A crafting grid with [[stone pickaxe]]s.
+File:Aprilis_asinus3.png|A [[player]] carrying multiple [[pigs]].
+File:Aprilis_asinus4.png|A player carrying a zombie with a [[carved pumpkin]] on its head.
+File:Aprilis_asinus5.png|A player holding a [[goat]].
+File:Aprilis_asinus6.jpg|A player sneaking while wearing a [[barrel]].
+</gallery>
+
+== Video==
+{{yt|_AHAbfj7OpQ}}
+
+==See also==
+*[[Java Edition 2.0]] (2013)
+*[[Java Edition 15w14a]] (2015)
+*[[Java Edition 1.RV-Pre1]] (2016)
+*[[Java Edition 3D Shareware v1.34]] (2019)
+*[[Java Edition 20w14infinite]] (2020)
+*[[Java Edition 23w13a or b]] (2023)
+
+==References==
+
+{{reflist}}
+
+{{Java Edition versions}}
+
+[[es:Java Edition 22w13oneBlockAtATime]]
+[[ja:Java Edition 22w13oneBlockAtATime]]
+[[pt:Edição Java 22w13oneBlockAtATime]]
+[[th:รุ่น Java 22w13oneBlockAtATime]]
+[[zh:22w13oneBlockAtATime]]

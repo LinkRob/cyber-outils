@@ -1,0 +1,131 @@
+{{Outdated feature|This bug used to be in the game but has since been fixed.}}
+
+{{Structure
+|title=Far Lands
+|image=[[File:Farlands4.jpg]]
+|invimage=The most famous appearance of the Farlands.
+| canspawn = No
+}}
+
+The '''Far Lands'''<ref>https://web.archive.org/web/20110322154638/http://notch.tumblr.com/post/3746989361/terrain-generation-part-1</ref> were a terrain generation bug that appeared when the [[noise generator]]s responsible for creating the shape of terrain stopped functioning properly. This resulted in a large, spongy wall of terrain appearing around 12,550,821 to 12,550,824 blocks from the origin of the ''Minecraft'' world. However, in Infdev the Far Lands starts at X/Z Coordinates 33.554.432. 
+
+The Far Lands still retain a legacy as one of the franchise's most famous glitches, even being referenced in other official games such as [[Minecraft: Story Mode]] and [[Super Smash Bros. Ultimate]].
+
+* [[Bedrock Edition Far Lands]] 
+* [[Java Edition Far Lands]]
+== General information ==
+
+=== What the Far Lands are not ===
+{{:Far Lands/What the Far Lands are not}}
+
+=== Types of Far Lands ===
+The Far Lands comprised a vast array of terrain generation bugs. These effects vary depending on which noise generator breaks (for traditional Far Lands, "low noise" and "high noise" are jointly responsible), as well as the player's distance on each axis (the "Edge Far Lands" refer to when noise breaks on only one axis, the "Corner Far Lands" on two, and the "Vertex Far Lands" on three).
+
+Other noise generators were prone to breakdown. Selector noise, a noise generator which determines whether low noise or high noise is used at a given position in the world, breaks down 80 times further than low and high noise by default, giving rise to what is known as the "Farther Lands".
+
+A full list of {{el|je}} noise generators known to break down and give rise to their own unique effects is shown as follows. Note that it assumes that the X and Z axes are identical, and ignores the Y axis; in many cases, the Y axis has a different value from the X and Z axes, whereas in other cases the noise generator is entirely 2D.
+
+{| class="wikitable" style="text-align:center"
+! rowspan="2" | Noise generator
+! rowspan="2" | Breaks down at...<br>(32-bit)
+! colspan="2" | Version range
+! rowspan="2" | Notes
+|-
+! First
+! Last
+|-
+! Low noise
+| rowspan="2" | 12,550,824
+| rowspan="2" | inf-20100327
+| rowspan="2" | present<ref name="betaonepointeight" group="n">No longer overflows within vanilla bounds as of Beta 1.8 Pre-release</ref>
+| rowspan="2" | Jointly responsible for the Far Lands
+|-
+! High noise
+|-
+! Selector noise
+| 1,004,065,924
+| inf-20100327
+| present<ref name="betaonepointeight" group="n"/>
+| Responsible for the Farther Lands
+|-
+! Depth noise
+| 42,949,672
+| {{info needed}}
+| present<ref name="betaonepointeight" group="n"/>
+| Causes the terrain to rise up several blocks.<br>"Stretching effects" are rare.<br>Impossible to see unless made to start before low and high noise overflow.
+|-
+! Scale noise
+| 7,662,742,722
+| {{info needed}}
+| Beta 1.7.3
+| Superseded by biome-based terrain height in Beta 1.8.
+|-
+! Classic world noise
+| 33,554,432
+| {{info needed|probably the first version that generated terrain}}
+| inf-20100325
+| Causes the famous "stone wall" of Infdev.
+|-
+! Island carver noise
+| 933,688,542
+| {{info needed|probably the first version of Indev with this world type}}
+| in-20100223
+| Used to create Floating maps in Indev.<br>Due to their limited world size,<br>this breaks far beyond what can generate.
+|-
+! Soil depth
+| 34,359,738,368
+| {{info needed}}
+| present<ref name="betaonepointeight" group="n"/>
+| Causes large regions of exposed stone in earlier versions,<br>or gravel in later versions.
+|-
+! Sand beaches
+| 68,719,476,736
+| {{info needed}}
+| Beta 1.7.3
+| Determines whether beaches use sand or not.<br>In the Nether, this controls soul sand.
+|-
+! Gravel beaches
+| 68,719,476,736
+| {{info needed}}
+| Beta 1.7.3
+| Determines whether beaches use gravel or not.<br>Also exists in the Nether for gravel.
+|}
+
+<references group="n"/>
+
+==Gallery==
+<gallery>
+File:HiIMG 1093.jpg|First version of the far lands in [[Infdev]]. This iteration appeared to be mostly made of [[stone]] with chunk separations.
+File:Farlands4.jpg|The most famous appearance of the Farlands.
+File:Farlands2.jpg|Second version. The same thing, but with ores and chunks, is connected.
+File:Farlands 3.jpg|Third farlands. Same as the second one, but with caves and fewer ores.
+</gallery>
+
+== Trivia ==
+* On October 4th, 2025, after a nearly 14 year journey, KurtJMac had reached the Far Lands.<ref>[https://www.youtube.com/watch?v=fOS10VEgpuk KurtJMac reaching the Far Lands after 14 years.]</ref>
+* One player known as KilloCrazyMan is known to have walked to the Far Lands in vanilla ''Minecraft'', beginning the journey in September 2019 and reaching them nine months later in June 2020. Upon arrival, a USD$10,000 donation was awarded to him by [[Markus Persson|Notch]] for his efforts.<ref>[https://www.youtube.com/watch?v=VAvQ_kT73W4&list=PLUcXQOdlTPJvny3dZMc2bZpB5Rh2fRpW1 KilloCrazyMan's Far Lands stream archive on YouTube]</ref>
+* In {{el|be}}, the Far Lands were first introduced with the infinite terrain generation in [[0.9.0 alpha]], and were removed in [[Bedrock Edition 1.17.30|1.17.30]] ([[Bedrock Edition beta 1.17.20.20|beta 1.17.20.20]]).
+
+
+== References ==
+{{Reflist}}
+
+{{Removed features}}
+
+{{SIA}}
+
+[[Category:Terrain features]]
+
+[[de:Ferne Länder]]
+[[el:Far Lands]]
+[[es:Tierras lejanas]]
+[[fr:Terres lointaines]]
+[[it:Terre lontane]]
+[[ja:ファーランド]]
+[[ko:머나먼 땅]]
+[[nl:Verre landen]]
+[[pl:Odległe lądy]]
+[[pt:Far Lands]]
+[[ru:Далёкие земли]]
+[[uk:Далекі землі]]
+[[zh:边境之地]]

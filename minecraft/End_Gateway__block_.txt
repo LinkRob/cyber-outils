@@ -1,0 +1,193 @@
+{{about|block|the structure|End gateway}}
+{{Block
+|title=End Gateway 
+|image=End Gateway.gif
+|invimage=End Gateway BE
+|renewable=No
+|stackable=Yes (64){{Only|Bedrock|short=1}}<br>N/A{{only|java|short=1}}
+|tool=None
+|transparent =No
+|light=Yes (15)
+|flammable=No
+|lavasusceptible=No
+}}
+The '''end gateway''' is a block that forms a part of [[end gateway]]s, which teleport the player between the main island and the outer islands in [[the End]].
+
+== Obtaining ==
+[[File:Endgatewaycommand.jpg|thumb|The command used to get an end gateway.]]
+
+The end gateway block cannot be obtained as an item and can be placed {{in|java}} only by using block placement commands such as {{cmd|setblock}} or {{cmd|fill}}.
+
+{{IN|be}}, it may be obtained as an item via inventory editing or add-ons. It cannot be placed by block placement commands in this edition, but it can be placed using structure blocks.
+
+=== Post-generation ===
+[[File:End gateway JE3 BE2.png|thumb|150px|An End gateway]]
+End gateway blocks form the functional part of [[end gateway]]s. Each time the [[ender dragon]] is defeated, one end gateway spawns around the [[central island]] in [[the End]], up to 20 times. Activating each of them spawns one additional gateway in the [[outer islands]].
+
+=== Natural generation ===
+More naturally generated gateways that transport the player back to the [[obsidian platform]] can be found throughout the outer End islands.
+
+== Usage ==
+End gateway blocks in their original form can be used to teleport to the outer islands of the end. End gateway blocks can be used as a custom teleporter using NBT tags{{only|java}}.
+
+* <code>ExitPortal</code> tag holds a set of X/Y/Z coordinates to determine the general location the player can be "safely" teleported to when entering.
+* Setting <code>ExactTeleport</code> to 1 teleports entities to the specified coordinates exactly instead of at a safer location around those coordinates.
+* <code>Age</code> determines how long the gateway has existed. This is used to determine when the beam is rendered.
+* Example: {{cmd|/setblock ~ ~-1 ~1 minecraft:end_gateway{Age:180,ExactTeleport:1,ExitPortal:{X:1,Y:2,Z:3}<nowiki />} replace}}
+
+When created in a dimension other than [[the End]] without ExitPortal NBT data, it does not teleport entities but still activates its beam effect when an entity enters.
+
+{{IN|Bedrock|Education}}, when the gateway is placed and entered in the End, it teleports the user to coordinates 0, 0, 0, below the main island. In the [[Overworld]] or [[Nether]], it acts as a solid block and cannot be entered.
+Gateways have a small chance to teleport the player directly into the void at y=0.
+
+=== Beam ===
+When generated (either naturally as part of an [[end gateway]], or through {{cmd|setblock}}{{only|java}} ), the block emits a {{color|#C354CD|magenta}} beam of light vertically from its top and bottom, lasting for {{convert|200|tick|second}} while fading in and out.
+
+An end gateway block also emits a {{color|#7B2FBE|purple}} beam of light vertically from the top and bottom when an [[entity]] enters it. During the {{convert|40|tick|second}} this beam is visible, no additional entities can be teleported.
+
+It also emits the {{color|#7B2FBE|purple}} teleport beam every {{convert|3600|tick|minute}}.
+
+The creation beam extends from around<!-- behavior is complicated and slightly buggy --> Y=0 through the block up to Y=256; the teleport beam goes 50 blocks above and below the gateway block. The beam is visible from roughly the same distance as a single ordinary stack of blocks. If a render distance of 16 chunks is set, the beam of light is visible from up to 255 blocks away. Unlike the beam of a [[beacon]], this beam does not change color if the player puts [[stained glass]] over it.
+
+It is not possible to disable either of the beams entirely. However, it is possible to edit the age of the block to a negative value, effectively delaying beam-emitting properties of the end gateway. You can change the age of the block by entering the command (for example) as follows: <code>/setblock ~ ~ ~ minecraft:end_gateway{Age:-9223372036854775808L}</code>. This will last for 14,993,257,186 years, effectively disabling the beam.
+
+=== Piston interactivity ===
+End gateway blocks cannot be interacted with [[piston]]s or [[sticky piston]]s.
+
+== Sounds ==
+=== Generic ===
+{{Sound table/Block/Normal}}
+
+=== Unique ===
+{{edition|java}}:
+{{Sound table
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|source=block
+|description=When an end gateway is spawned on the central End island
+|subtitle=Explosion
+|id=block.end_gateway.spawn
+|translationkey=subtitles.entity.generic.explosion
+|volume=1.0
+|pitch=0.5-0.9
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}: ''None''
+
+== Data values ==
+{{Info needed section|block tags}}
+
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=End Gateway
+|spritetype=block
+|nameid=end_gateway
+|blocktags=dragon_immune, portals, wither_immune, invalid_spawn_inside
+|form=block
+|foot=1}}
+{{ID table
+|displayname=Block entity
+|spritename=end-gateway
+|spritetype=block
+|nameid=end_gateway
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=End Gateway
+|spritetype=block
+|nameid=end_gateway
+|id=209
+|form=block
+|translationkey=-
+|foot=1}}
+{{ID table
+|notnamespaced=y
+|displayname=Block entity
+|spritename=end-gateway
+|spritetype=block
+|nameid=EndGateway
+|foot=1}}
+
+=== Block data ===
+An end gateway block has a block entity associated with it that holds additional data about the block.
+
+{{el|java}}:
+{{see also|Block entity format}}
+{{/BE}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Block entity format]].
+
+== History ==
+{{History|java}}
+{{History||1.9|snap=15w31a|[[File:End Gateway JE1.png|30px]] Added the end gateway block, part of the end gateway.}}
+{{History|||snap=15w33a|[[File:End Gateway JE2 BE1.png|30px]] The texture of the end gateway block's starfield pattern has been changed, so that it does not change with respect to the viewer.
+|Added <code>ExactTeleport</code> NBT tag to end gateway blocks.
+|The beam of end gateway blocks have been changed to use a separate texture from the [[beacon]] beam.}}
+{{History||1.11|snap=16w32a|The block entity ID has been changed from <code>EndGateway</code> to <code>end_gateway</code>.}}
+{{History|||snap=16w39a|The entity-teleporting beam color of end gateway blocks has been changed from [[File:End Gateway yellow beam.png|32px]] {{color|#DECF2A}} to [[File:End Gateway purple beam.png|32px]] {{color|#7B2FBE}}, matching the beam's color when the gateway is generated.{{verify|type=change|edition=java|Are these the exact colors defined in the code?}}}}
+{{History||1.13|snap=17w47a|Prior to [[Java Edition 1.13/Flattening|''The Flattening'']], this [[block]]'s numeral ID was 209.}}
+{{History|||snap=pre3|The [[particles]] of end gateway blocks have been changed to those of [[obsidian]].}}
+{{History||1.19.3|snap=22w42a|Added the {{cd|invalid_spawn_inside}} tag.}}
+
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|[[File:End Gateway JE2 BE1.png|30px]] Added end gateways.}}
+
+{{History|console}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|switch=1.0.1|[[File:End Gateway JE2 BE1.png|30px]] Added end gateways.}}
+
+{{History|new 3ds}}
+{{History||1.7.10|[[File:End Gateway JE2 BE1.png|30px]] Added end gateways.}}
+{{History|foot}}
+
+=== End gateway "item" ===
+{{:Technical blocks/End Gateway}}
+
+== Issues ==
+{{Issue list|End Gateway}}
+
+== Gallery ==
+<gallery>
+File:GatewayBlockBeamMagenta.png|An End gateway block emitting a magenta beam after being created.
+File:GatewayBlockBeamPurple.png|An End gateway block emitting a purple beam after teleporting an entity.
+File:GatewayBlockBeamComparison.png|Comparison between the magenta (left) and purple (right) beams.
+File:GatewayBlockBeamYellow.png|An End gateway block emitting a yellow beam after teleporting an entity (before [[Java Edition 1.11]]).
+File:End gateway portal inside.png|An interior view of an End gateway block.
+File:Double yellow beam.png|Comparison of the historically emitted yellow beam with a yellow-tinted [[beacon]] beam.
+</gallery>
+
+==Trivia==
+* {{IN|bedrock}} if one manages to place an end gateway at the center of the obsidian platform, it teleports the player before the platform regenerates. As a result, the platform appears in a different location than it should, like below the main island.
+
+== References ==
+{{reflist}}
+
+{{Blocks|Utility}}
+
+[[Category:End blocks]]
+[[Category:Block entities]]
+[[Category:Generated structure blocks]]
+[[Category:Non-solid blocks]]
+[[Category:Utility blocks]]
+[[Category:Light sources]]
+
+[[fr:Bloc de passerelle de l'End]]
+[[ja:エンドゲートウェイ (ブロック)]]
+[[ko:엔드 관문 (블록)]]
+[[pl:Blok portalu bramy Endu]]
+[[pt:Passagem do End (bloco)]]
+[[ru:Блок врат Края]]
+[[zh:末地折跃门方块]]
