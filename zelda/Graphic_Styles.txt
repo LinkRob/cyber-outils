@@ -1,0 +1,182 @@
+Graphics are the main output of a modern computer.  Graphics are displayed on a display unit (Monitor, TV, Projector, etc...) by the connected machine generating pixels based on various algorithms.  Once the display unit has gathered all the pixels it needs, it displays them on the screen.
+
+There are two methods of displaying graphics on a screen. The first is interlacing, in which every other scanline of the graphics is displayed simultaneously. This saves bandwidth in older video cable standards while keeping an acceptable video quality. However, interlacing can create distortions in the displayed image. HDTV broadcasts are the only major use of interlaced video in consumer applications, due to bandwidth limitations - in all other applications, progressive scan is used.
+
+The second method is progressive scan. In this method, all the scanlines that make up the image are displayed per frame, allowing for a smoother, higher quality image. It also removes the distortions caused by interlacing. Progressive scan requires a high-bandwidth digital connection, which modern video standards can easily match.
+
+== 2D Graphics (Sprites) ==
+{{Infobox Object
+| image = [[File:TMC King Daltus Sprite.png|60px]]
+| caption = King Daltus in {{TMC}}.
+Each change you see is a different frame of animation.
+| uses = Since the 1970s, in video games
+| comp = Sprite Art (static), hand-drawn animation
+}}
+
+During the early days of video games, game graphics could only be displayed in 2D. Landscapes, characters, effects, and menus were all created as two-dimensional images known as sprites. Each sprite is a losslessly-encoded image, usually a PNG or similar format image in modern 2D games. Sprites can be manipulated with enough processing power. Each character sprite has frames of animation that have to be individually drawn, much like cels in a traditional cartoon. In this sense, sprite-based video games are an extension of cel-based animation. Most sprites are low-resolution, especially those from older games, but newer sprite-based games, such as ''Rayman Origins'', use high-resolution sprites to achieve an animated-cartoon look that even cel-shading cannot achieve.
+{{Clear}}
+== 3D Graphics ==
+=== Meshes ===
+[[File:TFWireframe.png||center|600px]]
+<br/>
+A mesh is a collection of vertices, edges and faces that form a wireframe, which defines the shape of a 3D model. Vertices, points in 3D space, are the most fundamental layer in a mesh. Two connected vertices form an edge and a face is built when three vertices are connected to form a triangle. Once four edges are connected together to define a face, you will get a quad-face, simply called a quad. However, any face consisting of more than three edges is usually referred to as a polygon. While modifying all of these three layers of a model, a 3D-Artist can create any shape they want. While most 3D applications support n-sided polygons, most real-time applications(Game-Engines) require the mesh to be composed out of triangles. The mesh is triangulated for performance reasons since a Triangle is easier to calculate than a Quad. Furthermore, it is important to watch out for the amount of triangles used in a 3D game environment while trying to keep it at a low rate. The more triangles, the more calculations have to be made by the engine which will inevitably result in a lower frame rate at some point.
+
+{{Clear}}
+
+=== Texture Mapping ===
+[[File:TFUVWcoordinates.png||left|150px|thumb|An example texture of UVW coordinates for a mesh. Every face is laid out evenly onto a flat surface]]
+{{ImageCaption|image=File:TFUVWed.png|size=150px|align=right|caption=Textured mesh using UVW coordinates texture}}
+Texture Mapping is the fundamental method of texturing a 3D model in any medium that uses 3D computer graphics. Textures are simple image files which are wrapped around a 3D model using UVW coordinates. If you imagine a large piece of paper wrapped around a statue which is used to colorize it, then you have a more or less close representation of the process. When laying out UVW coordinates, the 3D model is broken into pieces and the wireframe is stretched out onto a flat plane so that every face in 3D space gets assigned a unique location in 2D space which is required since an image is only two dimensional. Textures in games are usually square and their resolution is usually a power of two, such as 256x256, 512x512, 1024x1024, etc. However, resolutions like 1024x512 or similar are also possible. This is done for several technical reasons, like saving RAM and to support older hardware. The higher the resolution of a texture, the more RAM is occupied, so keeping texture sizes at a reasonable level is important in 3D games.
+
+In modern games a single mesh gets assigned more than just one Texture Map. There are several kinds of different maps all serving a specific purpose. Here is a list of the different types used in the making of the''[[The Legend of Zelda (Series)|The Legend of Zelda]]'' games.
+
+==== Diffuse Map ====
+[[File:TFDifMap.png|left|150px|thumb|Mesh using only the Diffuse Map. A preview of the Map at 16% it's original size is in the upper left corner. ]]
+A Diffuse Map is just a simple Color Map. It will give the 3D model its main color, making it the most basic map. Most, if not all, meshes in a 3D game will be colorized using this kind of map. Diffuse Maps are usually 24-bit images that display the whole RGB spectrum, however, using an 8-bit or 2-bit image is possible too.
+{{Clear}}
+==== Specular Map ====
+[[File:TFSpecMap.png|right|150px|thumb|Mesh using Diffuse + Specular Map. The Triforce gets specular highlights and looks shiny while the stone remains dull]]
+[[File:TWW The Pictographer, Lenzo Figurine Model.png|left|100px|Figurines in {{TWW|-}} show soft specular highlights]]
+A Specular Map is responsible for the specular highlights and defines how shiny the object is when reacting to a light source. This is usually done by using an 8-bit image (grayscale) where lighter colors define shiny spots and deeper colors define dull spots on the texture. Meaning, when you want to make a shiny metal texture, you would use a very bright tone. Using a 24-bit image (RGB) also possible. With this, you can colorize specular highlights which can add a little bit of realism or aesthetic to your mesh. However, this comes at the cost of more memory usage since a 24-bit image uses more RAM than an 8-bit image.
+
+This Map or an Environment Map plus Bump mapping was probably used for [[Medli's Harp]] in {{TWW}}.
+
+{{Clear}}
+==== Bump Map or Normal Map ====
+[[File:TFBumpMap.png||left|150px|thumb|Mesh using Diffuse + Specular + Normal Map. The Normal Map helps with the relief on the Triforce pieces and the Goddess Crest]]
+[[File:SS Goddess's Treasure Chest Render.png|right|100px|A Goddess's Treasure Chest showing Bump mapping effects and artificial reflections]]
+[[File:SS Goddess's Harp Model.png|right|100px|The Goddess's Harp showing Bump mapping effects and artificial reflections]]
+Bump Maps are used to create realistic lighting effects that simulate a complex surface on a simple one. This technique is used to save CPU power. Bump Maps or sometimes called Height Maps were used in the early days of 3D games. Back then, Bump Maps were 8-bit images and worked similar to Specular Maps, except that in this case whites define spots which are raised and blacks define spots that are depressions on the texture. The Bump Map is unable to create realistic lightning effects corresponding to the positioning of the light source, which is why the traditional Bump Map has been replaced by the more powerful Normal Map, nowadays.
+
+A Normal Map is a 24-bit image known for its purple-blueish color. The Normal Map is able to react realistically to lightning environments by showing highlights and shadows on the model corresponding to the position of a light source. A Normal Map and several other maps are usually rendered in a process called 'Map Baking'. A highly detailed mesh and the final game mesh will be needed for this process. The 'high-poly' mesh can be made out of millions of polygons so that the artist can model out smaller details. The final game mesh is then built around this high-poly mesh to encompass it. Once the game mesh is ready for baking, the 3D application will project the details of the high-poly mesh onto the UVW coordinates of the game mesh which will result in highly accurate textures. In the end, the game mesh can look exactly like its high-poly equivalent, depending on the mesh, the technical restrictions and the skill of the artist.
+
+This effect was probably used for [[Medli's Harp]] in {{TWW}} and in {{SS}} on some meshes.
+{{Clear}}
+
+==== Displacement Map ====
+Displacement mapping is a more advanced version of bump mapping that simulates actual complex polygonal surfaces. The Displacement Map is usually an 8-bit image and works exactly like the Bump Map, except that raised spots and depressions are not faked through lighting but rather by offsetting the surface of the mesh itself.While this offset can act as a real change to the meshes topology in most 3D applications, this is usually not the case in real-time applications like games. In games this offset is usually just faked by offsetting the texture depending on the camera angle.
+{{Clear}}
+==== Emissive Map ====
+[[File:TFEmissiveMap.png|right|150px|thumb|Mesh using Diffuse + Specular + Normal + Emissive Map. The Goddess Crest now glows in the dark.]]
+[[File:TP Armos Render.png|left|150px|The neon colored trims and decorations are results of an Emissive Map]]
+This Map defines which parts of a texture should glow in the dark. Whites on the texture define glowy areas and blacks define areas that do not glow in the dark. An 8-bit is used in most cases but using a 24-bit image as an emissive Map is possible and helps colorizing glowing effects. This can be used to create magic effects or to create simple things like textures for fire.
+{{Clear}}
+
+== Lighting ==
+
+=== Lighting Styles ===
+{{Infobox Object
+|image= File:Link-Swimming.jpg
+|caption = Realistic water and lighting from {{TP}}
+|uses = Simulation of real-world lighting in 3D-based media
+|comp = Computer Animation
+}}
+==== Realistic Shading ====
+Realistic shading is the most prevalent lighting method in all of 3D-based media. Realistic lighting is used to achieve a realistic look in a video game. It is usually accompanied with highly detailed textures and large amounts of effects.
+Realistic shading was the first type of lighting system used after the "simple lighting" of early 3D games. Realistic lighting is relatively easy to achieve with programming, leading to its widespread use in video games. Realistic lighting itself can range from simple "soft" lighting seen in early 3D games to complex "ultra-realistic" lighting seen in today's games. Fully realistic lighting can only be achieved with non-real-time ray-tracing, which requires so much computer power that real-time ray tracing at an acceptable framerate is probably impossible for the next decade. As such, realistic shading, which only approximates how light works, is currently used.
+{{Clear}}
+==== Non-Photorealistic Lighting ====
+{{Infobox Object
+|image= File:3D WW Link.png
+|caption = Cel-Shading, a type of non-photorealistic lighting
+|uses = Adding artistic flair to a video game or movie 
+|comp = Computer Animation
+}}
+Non-Photorealistic Lighting encompasses all lighting styles that do not attempt to achieve a completely realistic look. Most non-photorealistic art styles are variants of cel-shading, an alternative lighting method used to simulate an animated cartoon. Cel-shading was first used for pre-rendered computer animations in the 1980s. Animation companies like Disney switched from traditional hand animation to 3D-based cel-shading rendering engines for cartoons, such as Deep Canvas, in the 1990s. The first use of cel-shading in video games was ''Jet Set Radio'' for the Sega Dreamcast.
+Cel-shading is more intensive than realistic shading methods, as it requires more calculations to be able to render the cartoon-like graphics correctly. This is because cel-shading achieves a flat look, and the graphics engine has to calculate how a surface is lit from different angles so that it looks flat.
+Cel-shading is merely a different type of lighting, and uses the same type of assets as ordinary games, though sometimes, an area of a model is not textured because it can more easily be colored in real-time by the hardware during rendering. Textures are usually simple and made up of solid colors to achieve a cartoon-like look, though more detailed textures may be used to simulate the backgrounds of said cartoons, which can be as detailed as high-quality paintings.
+{{Clear}}
+
+=== Lighting Technologies ===
+
+==== Physically-based Rendering ====
+Physically-based rendering, or PBR, is a computer graphics workflow that aims to reproduce how light interacts with materials in the real world. Instead of artists creating diffuse, specular, and other maps to approximate realistic lighting on a particular object, they can instead define how light interacts with the object by using parameters captured from the desired material in the real world. Libraries of materials are often used for this purpose. Although PBR is mostly used for realistic-styled games, it can also be used in more stylized games, such as {{BotW}}.
+{{Clear}}
+==== Sub-surface Scattering ====
+Sub-surface scattering approximates how light is affected by passing through translucent materials, such as skin, paper, and leaves. Many real-world objects look the way they do because of sub-surface scattering, so to accurately emulate the look of these objects in a video game, a sub-surface scattering approximation is required. {{BotW}} uses a simple approximation for the fabric walls of [[Stable|Stables]], as well as leaves and other foilage. 
+{{Clear}}
+==== Global Illumination ====
+Global Illumination, or GI, aims to approximate how light from a global light source, such as the sun, bounces off of objects in a scene. What is called GI in video games are all real-time approximations, as accurate GI calculations are very hardware-intensive. Examples of GI approximations are listed below:
+
+===== Lightmapping =====
+A lightmap is an image containing lighting information, used to display non-dynamic lighting effects. In a lightmap image, darker colors define shadows and lighter colors define areas that are lit. Because lightmaps are prebaked lighting information, they can contain highly accurate lighting information rendered on far more capable hardware than the target application will ever run on. However, this means that lightmaps cannot be used on dynamic objects, such as characters or objects animated by physics. Lightmapping is one of the most common GI approximations in real-time applications such as video games.
+
+===== Ambient Occlusion =====
+Ambient occlusion simulates how ambient light is occluded in real life. It is a very common GI approximation, used in almost every modern 3D video game. Ambient occlusion is most often used together with other GI approximations.
+
+===== Radiosity =====
+Radiosity is an algorithm used to simulate diffuse reflections off of objects. Objects close to other objects lit by strong light sources take on a tint of the same color as the lit object. To obtain this color information, radiosity algorithms may use two methods - the solution method, using a formal equation, is more accurate but very hardware-intensive, while the sampling method, while less accurate, takes much less hardware resources. Most real-time implementations of radiosity use the sampling method for approximating GI.
+
+===== Image-Based Lighting =====
+Image-based lighting, or IBL, uses a panoramic image, mapped to a sphere, to approximate light coming from various indirect sources. The resulting GI approximation can be extremely realistic, as IBL images can be and often are images taken in the real world. IBL is commonly used in CGI rendering for films, as well as real-time applications such as video games.
+
+== Effects ==
+Effects are used to achieve realism or to increase visual appeal in video games.
+
+=== Reflections ===
+==== Reflection Mapping ====
+{{ImageCaption|image=File:TFEnvMap.png|size=150px|align=left|caption=Mesh using Diffuse + Specular + Normal + Environment Map.}}
+[[File:TP Red Chu Model.png|right|100px|A Red Chuchu showing artificial reflections]]
+[[File:OoT Mirror Shield Model.png|right|90px|The Mirror Shield showing artificial reflections]]
+Environment mapping is a common and computationally cheap reflection method. This is done by "mapping" a 2D image of the scene containing the reflective object to the object, similarly to texture mapping. Reflection maps in games act as just another texture which is projected onto a faked environment (in most modern applications, a cube) which is then put around the mesh that is supposed to reflect said texture. This enables reasonably realistic and believable reflections without much work. The mesh holding the reflection map does not have to be visible to the camera. Indeed, in most cases it is not visible to the camera or to the player and so it is only visible to the mesh showing the reflections. As an example, reflection mapping was used extensively in {{OoT}} for close ups of most inventory items and reflections on objects such as swords and the Mirror Shield.
+The major disadvantage of most reflection maps is their inability to accurately display dynamic objects. However, some games use reflection maps that are dynamically recalculated after a period of time, so that they can be used on dynamic objects.
+{{Clear}}
+==== Mirror Copy ====
+Older games requiring dynamic reflections often rendered a mirror copy of dynamic objects within a mirror. This does not require any special graphics effects but requires more performance than reflection mapping. The reflective ice in {{TP}}'s [[Snowpeak Ruins]] uses this method to reflect Link and other objects.
+
+==== Screen-Space Reflection ====
+Screen-space reflection, or SSR, is a modern reflection method, It reflects objects that have already been drawn to the screen, allowing far more dynamic objects to be reflected using a reasonable amount of system resources. {{BotW}} uses SSR for reflective materials within shrines, where there is the performance overhead needed for the effect that isn't present in the overworld.
+
+==== Scene Captured Reflections ====
+Scene captured reflection work somewhat similarly to dynamic reflection maps, in that they use a rendered copy of a scene as a reflection and update that copy as needed. Where scene captured reflections differ is the nature of the reflection image itself - reflections can move around on an object in real time, without the need for a constant reflection update. This allows reflections that seem to update smoothly, but are actually only updating at very low rates. {{BotW}} uses screen captured reflections for reflections on water.
+
+=== Particles ===
+[[File:OoT Hot Rodder Goron Model.png||right|80px|Particles used to create clouds of dirt emitted by the Hot Rodder Goron]]
+Particles are used in video games to simulate rain, snow, fire, smoke, sparks, or fog. Usually, particles obey the laws of physics, though this is not always so. Particles can be made to clump together in a cloud, float around diffusely or can be emitted from meshes. Particles may also be used to simulate hair, though this is not used in the Zelda series. One particle is nothing more than a flat square mesh with a texture applied. Their scale, dimensions and movement can be randomized and manipulated in real-time. Some particles can be 3D meshes, which can be lit by the lighting engine.
+{{Clear}}
+=== Cloth Simulation ===
+[[File:TWW Moblin Figurine Model.png||left|150px|A Moblin in {{TWW|-}} uses Cloth Simulation to animate the ribbons hanging from his spear]]
+Cloth simulation is a physics effect that simulates the effect of gravity or wind on a soft, floppy material, usually cloth or hair. {{TWW}} was the first Zelda game to use such physics in great amounts, though {{OoT}} was the first Zelda game to use it at all to animate Ganondorf's cape. 
+{{Clear}}
+== Shaders and Post-Processing ==
+[[File:OoT Floormaster Model.png||right|70px|A Floormaster tinted in green as it attacks. This is usually done using a shader.]]
+The most basic task of a shader is to define how an object is lit. Nowadays, a shader is also used for much more complex tasks like special effects, in that it modifies or enhances the way an image or object is originally rendered. The term "shader" encompasses many different effects so it is not surprising that they are used in many 3D applications. For example, shaders can be used for tinting something in a different color, animated magic effects flowing over a mesh or rendering objects semi-transparent making them look like water with moving ripples on them.
+{{Clear}}
+Post-Processing is pretty much just a shader applied to a processed frame rather than to objects in a scene.It is comparable to camera filters in the real world. Post-processing can be used in many ways other than simply coloring the image.
+
+=== Atmospheric Effects ===
+Atmospheric effects aim to realistically simulate how light scatters in the atmosphere under various conditions. Most atmospheric scattering systems use a Rayleigh scattering algorithm to simulate sky color, while more advanced systems use Mie scattering, a more comprehensive scattering solution, instead. {{BotW}}, for example, uses Mie scattering for many atmospheric effects, not just for sky color.
+
+=== Bloom ===
+Bloom is a lighting effect that simulates high intensity light overloading the pixels in a camera sensor or retinal cells in a human eye. Low quality bloom often results in a smeary, blurry image. {{TP}}, {{TWWHD}}, and {{BotW}} to a lesser extent, use this effect; the former two have been criticized for their bloom implementations.
+
+=== Lens Flare ===
+[[File:Lens Flare TWWHD.png|300px|right|thumb|Lens flare in {{TWWHD}}]]
+Lens flare in video games is the simulation of the internal reflections of a camera lens, to increase realism. Its first Zelda debut was in {{OoT}}. Lens flare is usually colored, and often accompanies dynamic exposure effects.
+=== Dynamic Exposure ===
+Dynamic exposure is an effect in some video games that compensates for the overexposure of the image when the scene is dominated by a bright light source. In {{TWW}}, dynamic exposure is used with the [[Picto Box]] and the 3rd-person camera. When they are pointed at the sun, the exposure level is lowered. Interestingly, this does not happen when the first-person camera is pointed at the sun.
+
+=== Depth-of-Field Blur ===
+Depth-of-field blur is the imitation of an out-of-focus camera. It was first used in the Zelda series in {{TWW|-}}, where it also served as a smoothing filter. Depth-of-field blur usually occurs only in the distance, but in rare circumstances, objects in the foreground may be blurred. Depth-of-field blur can be manipulated in real-time to simulate a camera focusing in and out, or to draw attention to foreground and background objects. A cheap form of blur is the Gaussian filter, which applies a Gaussian blur to certain objects, while modern shader-based blur methods can simulate effects such as bokeh.
+
+=== Motion Blur ===
+Motion blur is the simulation of blurring caused by fast-moving objects captured by a camera. This effect was used to a great extent in {{MM}}, despite the Nintendo 64's limited capabilities.
+
+=== Image Distortion ===
+Image distortion is the distortion of all or part of a rendered image to achieve some effect. It is most commonly used to simulate the convection currents caused by intense heat from flames or lava, and sometimes used to "simulate" an underwater scene (though in real life, images do not distort underwater.) Distortion may also be used to show an invisible object or certain types of magic. {{TWW}} and {{TP}} used distortion in great amounts, though strangely, {{SS}} did away with all heat-based distortions. A simple method, usually used in 2D games, is simply shifting lines of pixels a certain amount. This method was used in several 2D Zelda games, most notably {{LA}} for when the Wind Fish appears at the end of the game.
+
+=== Tone-Mapping ===
+Tone Mapping is the manipulation of an image so that it appears identically on multiple types of displays. Different displays have different dynamic ranges, so for accurate display output, tonemapping is used.
+
+=== TEV Pipeline===
+The TEV (Texture EnVironment) pipeline is a feature of the Nintendo GameCube (and by extension. the Wii) that can apply special effects to the final rendered graphics of a game and even program shaders, even though the GameCube and the Wii do not support programmable shaders in the modern sense. This feature was most prominently used in ''Star Wars Rogue Squadron II: Rogue Leader'' for the effect used by spacecraft targeting computers. The TEV pipeline may also have been used for the Wolf Sense mode in {{TP}}.
+
+===Examples===
+<gallery>
+File:Hyrule Castle Courtyard TP.jpg|Blurry light effects caused by Bloom as seen in {{TP|-}}
+File:Ghosts.jpg|Post-Processing applied to the screen while [[Wolf Link]] uses Senses
+File:TP Midna Riding Wolf Link.jpg|Black and White Post-Processing used in an earlier version of {{TP|-}}
+File:Hyrule B and W.jpeg|Post-Processing is used in {{TWW|-}} to paint Hyrule in a Black and White tint
+</gallery>
+{{Real World}}
+[[Category:Interface]]
