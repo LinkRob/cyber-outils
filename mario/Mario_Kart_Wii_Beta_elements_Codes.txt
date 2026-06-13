@@ -1,0 +1,354 @@
+== Unused Codes ==
+
+=== Unused Collision Type Effects ===
+Several course collision types have unused variants, which often show different sounds/graphical effects.
+
+==== Slippery Road 1 (0x01) ====
+Note: This does not slow the player
+{| class="wikitable"
+!Effect ID
+!Description
+!Additional Notes
+|-
+|2
+|Water
+|
+|-
+|3
+|Snow
+|
+|-
+|4
+|Grass
+|
+|-
+|6
+|Sand
+|No Graphical Effects
+|-
+|7
+|Dirt
+|No Graphical Effects
+|}
+
+==== Off-road (0x03) ====
+{| class="wikitable"
+!Effect ID
+!Description
+!Additional Notes
+|-
+|3
+|Water
+|No Graphical Effects
+|}
+
+==== Slippery Road 2 (0x05) ====
+Note: This slows the player
+{| class="wikitable"
+!Effect ID
+!Description
+!Additional Notes
+|-
+|1
+|Mud
+|
+|-
+|2-5
+|Water
+|
+|-
+|6-7
+|Normal Road
+|Different Sound Effect
+|}
+
+==== Boost Panel (0x06) ====
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|2-7
+|Unknown
+|}
+
+==== Boost Ramp (0x07) ====
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|2-7
+|The character doesn't do any flips upon using tricking.
+|}
+
+==== Jump Pad (0x08) ====
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|7
+|The distance traveled when jumping is the same as for the jump pad found in [[Mushroom Gorge]].
+|}
+
+==== Item Road (0x09) ====
+This road type is solid for items only.
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|4
+|Unknown
+|-
+|6-7
+|Unknown
+|}
+
+==== Moving Road (0x0B) ====
+This type moves the player along a predefined route.
+
+Note: All of them seem to behave like effect 0
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|4
+|Moving asphalt.
+|-
+|5
+|Moving asphalt.
+|-
+|6
+|Moving road.
+|-
+|7
+|Moving road.
+|}
+
+==== Invisible Wall (0x0D) ====
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|1-2
+|Makes sparks upon contact with the character emitting the sound effect for when hitting a wall.
+|-
+|3-7
+|Unknown. Seems to behave like effect 0.
+|}
+
+==== Item Wall (0x0E) ====
+This wall type is solid for items only.
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|4
+|Unknown
+|-
+|6-7
+|Unknown
+|}
+
+==== Wall 3 (0x0F) ====
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|5
+|Bush
+|}
+
+==== Cannon Activator (0x11) ====
+This code shoots the player to destination point, as the said number in the Effect ID, defined in the parameters.
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|3
+|3rd Destination
+|-
+|4
+|4th Destination
+|-
+|5
+|5th Destination
+|-
+|6
+|6th Destination
+|-
+|7
+|7th Destination
+|}
+
+==== Half-pipe Ramp (0x13) ====
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|2-7
+|Unknown
+|}
+
+==== Wall (0x14) ====
+Much like with the invisible wall, this type only collides with players and not objects.
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|0
+|Normal
+|-
+|1
+|Rock
+|-
+|2
+|Metal
+|-
+|4
+|Ice
+|-
+|5
+|Bush
+|-
+|6
+|Rope
+|}
+
+==== Moving Road (0x15) ====
+This type of moving road is not controlled by routes defined in the parameters, but by objects.
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|6-7
+|Unknown
+|}
+
+==== Road (0x17) ====
+This type of moving road is not controlled by routes defined in the parameters, but by objects.
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|6
+|Dirt
+|}
+
+==== Wall (0x19) ====
+A wall type that affects players, but not items. It's only seen in [[Wario's Gold Mine]] and [[Rainbow Road (Mario Kart Wii)|Rainbow Road]].
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|1-7
+|Unknown
+|}
+
+==== Effect Trigger (0x1A) ====
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|7
+|Unknown
+|}
+
+==== Item State Modifier (0x1B) ====
+This type is used to stop items dropped when on the curved conveyor belts from [[Toad's Factory]].
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|1-7
+|Unknown
+|}
+
+==== Half-Pipe Invisible Wall (0x1C) ====
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|1-7
+|Unknown
+|}
+
+==== Rotating Road (0x1D) ====
+This type can be found on [[Chain Chomp Wheel]], which is used to rotate the road if the object '''casino_roulette''' is present. If it isn't, it will act just like a regular road.
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|1
+|Normal road with different sound effects.
+|-
+|5
+|No sound with star crash impact sound effect, which can only be heard if the object '''starGate''' is defined in the parameters.
+|-
+|6
+|Sand
+|-
+|7
+|Dirt
+|}
+
+==== Special Wall (0x1E) ====
+A type of wall that has different properties depending on the speed that the player crashes into it with.
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|2
+|
+* When driving fast, crashing into the wall will bump the player backwards, producing a graphical spark with the same sound effect used for regular walls.
+* When driving slow, crashing into the wall will result in many bumps, like the ones seen in the "rubber" wall type. However, it won't produce any sound effect at all.
+|}
+
+==== Wall 5 (0x1F) ====
+A type of wall that has different properties depending on the speed that the player crashes into it with.
+{| class="wikitable"
+!Effect ID
+!Description
+|-
+|1-7
+|When driving slow, players won't be able to drive through it, but items can (much like invisible walls).
+|}
+
+=== Player Number on the Minimap ===
+[[File:MKWiiMinimapTextLine.png|left|frameless|150x150px]]
+There's a disabled feature in the minimap icons to display a line with the player number on it, similar to the one used in ''Mario Kart:'' ''Double Dash!!''. It is very big as player icon headlights are rendered on top of it, making it invisible when they overlap. The colors for each player also seem to be in line with the Wii's default rather than the different format used in the final game.
+
+=== Draggable Blue Shells ===
+At one point in development, Blue Shells were possibly once intended to be held behind the player before they could be used it. In the fame's list of values, any item with a value of '''0x00''' will be forced to be used by the player once pressed. For some reason, the  Blue Shell is listed as '''0x01,''' which means the item should be held behind the player like a red shell. However, the game has a code to prevent this and instead has the player immediately fire it. Disabling this code reveals that the Blue Shell has an unused animation for when being held along with an unused action for when a player hits it, which works even if the game is modified so that the blue shell lands on the ground if someone loses it.
+
+=== Double-Sized Green Shells ===
+In one of the routines that sets up items, there is code that scales up the green shells (including their hitbox) to double their size when fired and also when they're stationary in the ground. However, only works if the course has defined the Big Pokey object (with ID '''0x1AB'''). Although this version of the enemy was only used in one competition/tournament, the only items that were present were Bob-Ombs, leaving this functionality go unused.
+
+=== Unused Competition/Tournament Game Mode ===
+The competition/tournament file format ('''RKC''') supports an additional game mode that was never present in any competition/tournament released by Nintendo: hit CPUs with items to increase the score (ID '''0x07'''). The items needed for the score to increase are projectiles (such as Green and Red Shells). Stars, Mushrooms, Mega Mushrooms, and Bullet Bills do not score the player any points. This mode is also present in the unused Mission Mode.
+
+=== Online Squish Command ===
+In the online protocol, there is an unused bit that can make players squished on command. This could possibly mean, at one point during development. that one player who then hits another with a Mega Mushroom on your screen would've made them squished globally instead of just them getting squished on their screen. It was possibly taken out due to online safety reasons.
+
+=== Scrapped Character Sound Method ===
+In the game's code, there is a definition of a '''BRASD''' folder inside of the character archive files. For unknown reasons, it was scrapped later on during development.
+
+=== Unused _Dif Files ===
+The game supports loading variants of the existing course files ending with "'''_Dif.szs'''". These files were meant to be used to replace/load additional course information into the original course files without modifying it. The way these files have to be named is by taking the original course filename and adding "'''_Dif'''" onto it, which then places the said file in '''/Race/Course'''.
+
+When a "'''_Dif.szs'''" file is found, the game loads the original course file as a base and then it will load the contents of the "'''_Dif'''" file, which will either replace the subfiles from the original course archive (only if a match of a subfile is found between the "'''_Dif'''" archive with another in the original course) and/or will load additional subfiles into it.
+
+While a similar approach was used for competitions/tournaments, as well as in the unused Mission mode, it uses a different set of files, which none of have "'''_Dif'''" in their filenames. Along with this, in the multiplayer modes, only the course files ending with "'''_d.szs'''" are loaded as the game never loads the original course file nor any "'''_Dif'''" files from that archive.
+
+=== BDOF File Extra Functions ===
+'''BDOF''' (Binary Depth Of Field) is a post-effect file that controls effects (such as focus, sharpness, and blur in many tracks). There is an unused code that allows the usage of a secondary '''BDOF''' file ('''posteffect.bdof_demo'''). This one has the same format as a normal '''BDOF''' file and it seems to be used only in the course introduction if it was present.
+
+=== BFOG and BFOBJ Files ===
+'''BFOG''' and '''BFOBJ''' Files (which are meant to control the fog in the courses) are defined in the code, but the game only uses the '''BFG''' Files instead, probably because they have a simpler format.
+
+=== Multiplayer-exclusive Skybox Models ===
+The game supports loading files "'''vrcorn_d_model.brres'''", which would have been low-poly versions of the skybox models intended for the multiplayer version of the courses (Note: The names for the low-poly multiplayer versions of the course models are named "'''course_d_model.brres'''"). In the final game, there are no files that are named "'''vrcorn_d_model.brres'''", only "'''vrcorn_model.brres'''" (the regular skybox model), which are found in both the single and multiplayer versions of the courses.
+
+=== Date of creation of Ghosts ===
+When players create a Time Trial ghost, the year, month and day it was created is saved in the file (coming from the Wii's settings). Though the date is never seen in-game, it is still found in the disc's files.
+{{MKWNav}}
+[[Category:Beta elements]]
+[[Category:Mario Kart Wii]]

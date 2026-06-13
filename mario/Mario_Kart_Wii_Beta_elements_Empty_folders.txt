@@ -1,0 +1,59 @@
+{{Icons|mariokart}}
+Files/directories that are referenced in the game's code (but can't be found in the game's filesystem) or content that is in the filesystem, but are are empty.
+
+== Debug Folder ==
+An empty folder meant for debugging purposes
+
+* thumb_jp_d.bin
+* letter_jp_d.bin
+* thumb_jp_v.bin
+* letter_jp_v.bin
+* thumb_jp_c.bin
+* letter_jp_c.bin
+* thumb_nj_d.bin
+* letter_nj_d.bin
+* thumb_nj_v.bin
+* letter_nj_v.bin
+* thumb_nj_c.bin
+* letter_nj_c.bin
+
+== MissionRun Folder ==
+It has been discovered that file resources for Mission Mode (such as '''mission_single.kmt''' and '''mrXX.szs'''), would have been found here. But since they're empty, it's unavailable. (Note: This filename is the Japanese and Korean name for Mission Mode)
+
+== .svn Folders ==
+All of the game directories (except for '''/debug''' and '''/Race/MissionRun''') contain an empty folder named '''.svn'''. This is a leftover from Apache Subversion, which is a version control system. All of these folders, except for one, were removed in the Korean version of the game.
+
+=== Korean SVN Leftovers ===
+On the third partition of the game's disc, there is a '''.wad''' file (the Wii's channel file format) of the Mario Kart Channel alongside its installer. On the Korean version, the '''.svn''' folders of the '''/installer/''', '''/installer/CHN''' and '''/installer/KOR''' directories were left intact with its full contents. With this, a whole load of information can be retrieved. All of these are for the '''WiiBitmapFonts.arc''' file (an archive font files that's used in the screen where the channel is installed) and its respective folders. Since the version control expects the player to be connected to a Nintendo internal server, no one cannot access the revision history of the repository. The repository URLs point to internal Nintendo servers and as a result cannot be accessed by someone outside of the company.
+
+* /installer/.svn
+* /installer
+* /installer/WiiBitmapFonts.arc
+* /installer/CHN
+* /installer/CHN/WiiBitmapFonts.arc
+* /installer/KOR
+* /installer/KOR/WiiBitmapFonts.arc
+
+The name of the branch "'''ChinaKorea'''" implies that both the Korean and the (unreleased) Chinese versions were being developed under the same branch, which explains why there are Chinese leftovers in the Korean version. All of these files and directories were last changed by Yusuke Shiraiwa (credited under the "Programming" team). The revision number for most of these leftovers are '''25769''' and their last commit was on June 19, 2008 at 2:43:23 UTC. The only exception to this is the /installer directory, whose revision number is '''11283''', with its last commit dating October 29th, 2007 at 09:05:16 UTC. In each of the .svn folders, there is a subdirectory ('''text_base''') in which it contains one file (named '''WiiBitmapFonts.arc.svn-base'''), which is byte-to-byte and is identical to the used version game.
+
+== Scrapped Wiimote BRRES File ==
+A string exists at RAM address '''0x808A52A4''' (PAL) for a file called "'''wii_controller.brres'''" which would reside within '''/Race/Common.szs'''. '''BRRES''' files are visual graphical files, but a file of this name/description exists nowhere on the disc.
+
+== Unused Dutch Language ==
+At one point of development, a language option for Dutch was planned for the game as it's the only selectable language in the Wii Menu that is not available because the language option for ''Mario Kart Wii''. Although if the Wii is set to Dutch, the Home Button menu and Wii Remote safety screens will be in Dutch and the rest of the game will be in English. This seems to not have always been the case as the code that detects which language is set in the Wii menu and adjust the game accordingly has an unused pointer to a set of files that end with "'''_N.szs'''" (N standing for Netherlands). No files can be found in the game that have "'''_N.szs'''" in their filename. Even if files ending with "'''_N.szs'''" are manually added to the filesystem, they will not be loaded in practice, likely because the game loads the English language as a fallback language.
+
+== BMS Files ==
+Strings in the game's memory refer to the '''.bms''' files, but these files do not exist anywhere on the disc. They were probably similar to '''BMM''' Files, which control the Mii head's material for the Mii statues found in some courses.
+
+== Removed Symbol Maps ==
+At offsets '''0x241B2C''' and '''0x241F28''' (PAL) of the '''main.dol''' executable resides leftover strings for two missing symbol maps: '''StaticR.SMAP''' (for '''StaticR.rel''') and '''RevoKartR.SMAP'''. There is also a leftover code to load the '''RevoKartR.SMAP''' file in the decompiled code.
+
+== Alternative Mario Kart Channel Version ==
+At offset '''0x37F4A4''' (PAL) of '''StaticR.rel''', there's a string referring to an unknown version of the Home Menu version of the ''Mario Kart Channel'' ('''RevoKartTR.wad'''). Interestingly, its in-game name (located at offset '''0x37F4B4''' (PAL) of '''StaticR.rel''') would've been '''マリオカートWii体験版''', which translates to "Mario Kart Wii Trial Version".
+
+== RKChRes.arc ==
+At offset '''0x241173''' (PAL) of the '''main.dol''' executable, there is a string that mentions a removed file ('''RKChRes.arc''') that would've resided in the root of the game's filesystem. While it's unclear of what this file would have originally been for, it is listed alongside the files from the '''/contents''' directory inside an array of the game's code, which also reveals that it has an ID assigned to it ('''8''').
+
+Interestingly, the IDs assigned to the files from the ''/content'' directory in said array match the numbering of the equivalent files from the extracted Mario Kart Channel, plus '''00000008.app''' contains most directories and files found in the main game's filesystem root, which matches how RKChRes.arc would have resided in the root. Sadly, said file is not found in that ''.app'' container either.
+[[Category:Mario Kart Wii]]
+[[Category:Beta elements]]
