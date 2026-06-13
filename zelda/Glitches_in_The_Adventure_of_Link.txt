@@ -1,0 +1,43 @@
+WIKI : zelda.fandom.com
+TITLE : Glitches in The Adventure of Link
+
+{{DISPLAYTITLE: Glitches in {{TAoL|-}}}}
+These are the glitches which are possible to perform in {{TAoL}}. Please read the [[Glitch Disclaimer Notes]] before attempting any of the glitches on this page.
+
+===Fairy Warp Glitch===
+{{Youtube|gsEaaXE1Ahg|250|right|Again, the Fairy Warp Glitch in [[Zelda II: The Adventure of Link]].}}{{Youtube|wm8008y41_0|250|right|The Fairy Warp Glitch in [[Zelda II: The Adventure of Link]].}}
+This is a simple and surprisingly ill-documented glitch in Zelda II: The Adventure of Link, despite being extensively documented at one point. The glitch is extremely easy to replicate, and it requires very little on the part of the player - the Jump Spell, the Fairy Spell, enough Magic Power to cast both, and a location where Link can jump outside (or at least to the very edge) of the screen. Of particular note for the exploitation of this glitch are the second, third, and fifth palaces, but there are literally dozens of locations this can be attempted, with a differing degree of success.
+
+'''Purpose of Glitch''': Exploration of environment, unusual terrain and effect glitches, quick escape from Palaces, investigation of "Minus World"-like locations
+
+'''Risk(s)''': Minor. You can become trapped, forcing a Save/Quit or reset.
+
+====Using the Glitch====
+Using the glitch is a very simple matter. Once you find a map (any map is possible, be it a dungeon room or a town) wherein Link can go partially or totally off-screen via the top of the screen (for this reason, the Jump Spell, while not necessary, is extremely nice to have), you can perform the glitch. To do so, select the Fairy spell, jump as far off the screen as possible, and Cast Fairy while above the Heads-up Display (HUD). Then, with Link off-screen and in Fairy form, attempt to move.
+
+This will cause a "Link falling cutscene" that triggers when falling down a hole. You will then wind up in a new area. In Palaces, this can be used with a second "warp" via falling (see the video) to arrive in completely new locations.
+
+====Explanation====
+Link's Y-coordinate value is an 8-bit unsigned integer (values 0 to 255). It is calculated from the top of the screen (so that as the value increases, Link's Y position will descend). However, a part of the area that is under the screen always "warp" the player to another location if that Y-position value exceeds a certain value and that Link is at least moving (in Fairy form), regardless of which area he is in. The game was not programmed to have "Bottomless pits" that kills Link or boundaries, only warps. When Link goes far enough above the screen (so that his body is not visible), the Y position value under flows to 255, which is the position below the screen and triggers the warp. Because of triggering the warp in an area that does not have a set destination, it will warp Link to random places (and also positioning him in random coordinates in that area, including getting stuck in walls) depending on his X-position in one area.
+
+===No Jump Spell===
+This is not really a glitch, but more of something that I don't think that the game designers intended.  If you run at a ledge that you would normally need the jump spell to reach, jump, and reach the ledge in the height of your jump, you can make it.  To make this work if you have to make two jumps, like in the cave south of Ruto, run up to the first ledge, jump (and make sure you land near the edge of the ledge) and jump again. If you do this right, you will make the jump, rendering the Jump spell unrequired to gain access to the lower area of the overworld.
+
+====Stuck Bago-Bago====
+[[File:TAoL Bago-Bago Sprite.png]]
+This can only occur in the Death Mountain Trail or other caved bridges.  The bago-bago will jump out at you.  If at any point in its arial path hits a wall, it will slowly crawl through the wall.  When it reaches the end of the wall, it will fall out at you like nothing happened.
+
+====Flash Freeze====
+In any town, use a spell that causes the background or Link to flash, then immediately talk to an NPCs and close the text box before the flash ends. Right when the text box closes, the flashing palette on the background or Link will freeze at an incorrect color.
+
+This happens because when closing the text box, the game briefly freezes to restore a portion of the screen back to normal, interrupting the flashing animation. 
+{{clear}}
+====Replace overworld levels with enemy encounters====
+By entering a warp tile on the overworld that would transition to a side-scrolling stage while encountering an enemy on that same tile at the same time, the enemy's stage would take priority instead. After exiting the enemy stage, the game will place Link on the previous tile without entering the overworld's stage (until Link moves off that tile and re-enters). This means that tiles on the pathway to the [[Great Palace]] can be skipped by waiting until enemies spawn, waiting until at least one of them is on the warp tile and immediately walk onto that tile.
+
+==External Links==
+* '''[http://www.jaytheham.com/zcw/index.php5?title=Main_Page Zelda Chaos]''', ZeldaWiki's top glitch affiliate that specializes in verifying hacks, explaining glitches, and providing up-to-date information on all things exploitable in the ''Zelda'' series. 
+
+
+{{Glitches}}
+[[Category:Glitches|A]]

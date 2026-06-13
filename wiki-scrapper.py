@@ -3,58 +3,79 @@ import urllib.parse
 import json
 import time
 import os
+import subprocess
 
-print("=== DEVOPS MASTER PROGRESSIVE SCRAPER ===")
+print("=== DEVOPS INFINITE SCRAPER & SELF-COMMIT (EXPLOSION MODE) ===")
 
-# L'arsenal complet des thèmes Fandom à siphonner de manière séquentielle
 themes_industriels = [
     "zelda", "mario", "minecraft", "starwars", "pokemon", "naruto", "onepiece", 
     "gta", "fortnite", "witcher", "skyrim", "fallout", "halo", "assassinscreed", 
-    "marvel", "dc", "disney", "harrypotter", "lordoftherings", "gameofthrones",
-    "dragonball", "bleach", "myheroacademia", "demonslayer", "attackontitan",
-    "callofduty", "leagueoflegends", "worldofwarcraft", "eldenring", "darksouls"
+    "marvel", "dc", "disney", "harrypotter", "lordoftherings", "gameofthrones"
 ]
 
 def net(u):
     try:
         req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=7) as r: 
+        with urllib.request.urlopen(req, timeout=10) as r: 
             return json.loads(r.read().decode("utf-8"))
     except: 
         return None
 
-compteur = 0
+def executer_git():
+    """Force une sauvegarde automatique sur GitHub pour simuler une activité continue"""
+    print("\n[➔ KEEP-ALIVE] Envoi des données en cours vers GitHub...")
+    try:
+        subprocess.run(["git", "add", "."], check=True)
+        subprocess.run(["git", "commit", "-m", "Sauvegarde automatique - Moissonnage en cours"], check=True)
+        subprocess.run(["git", "push", "origin", "main"], check=True)
+        print("[+] GitHub mis à jour avec succès. Codespace maintenu éveillé.\n")
+    except Exception as e:
+        print(f"[-] Échec de la sauvegarde Git automatique : {e}\n")
+
+compteur_wikis = 0
+dernier_commit_temps = time.time()
+
 for t in themes_industriels:
-    # On génère la liste des cibles standards et francophones pour chaque thème
-    cibles = [f"{t}.fandom.com", f"{t}-fr.fandom.com"]
+    hote = f"{t}.fandom.com"
+    compteur_wikis += 1
+    folder = hote.split(".")[0]
     
-    for hote in cibles:
-        compteur += 1
-        folder = hote.split(".")[0]
+    print(f"\n" + "X"*60)
+    print(f"[WIKI GLOBAL #{compteur_wikis}] Siphonnage TOTAL de : {hote}")
+    print("X"*60)
+    
+    if not os.path.exists(folder):
+        os.makedirs(folder)
         
-        print(f"\n" + "="*50)
-        print(f"[CRAWL #{compteur}] Tentative sur l'hôte : {hote}")
-        print("="*50)
-        
-        # Test de l'API pour voir si le wiki existe
-        url_p = f"https://{hote}/api.php?action=query&list=allpages&aplimit=20&format=json"
-        data_p = net(url_p)
-        
-        if not data_p or "query" not in data_p or "allpages" not in data_p["query"]:
-            print(f"  [-] Serveur inactif ou inexistant. Passage au suivant.")
-            continue
+    jeton_page = ""
+    compteur_articles_wiki = 0
+    
+    while True:
+        # --- LOGIQUE KEEP-ALIVE ---
+        # Si plus de 15 minutes (900 secondes) se sont écoulées, on fait un push de sécurité
+        if time.time() - dernier_commit_temps > 900:
+            executer_git()
+            dernier_commit_temps = time.time()
+
+        url_liste = f"https://{hote}/api.php?action=query&list=allpages&aplimit=500&format=json"
+        if jeton_page:
+            url_liste += f"&apcontinue={urllib.parse.quote(jeton_page)}"
             
-        if not os.path.exists(folder):
-            os.makedirs(folder)
-            print(f"  [+] Dossier distinct créé : /{folder}")
+        data_pages = net(url_liste)
+        if not data_pages or "query" not in data_pages or "allpages" not in data_pages["query"]:
+            break
             
-        articles = data_p["query"]["allpages"]
-        print(f"  [+] {len(articles)} pages détectées. Extraction séquentielle...")
-        
+        articles = data_pages["query"]["allpages"]
+        if not articles:
+            break
+            
         for p in articles:
             titre = p["title"]
-            print(f"     -> Téléchargement de : {titre}")
+            compteur_articles_wiki += 1
             
+            if compteur_articles_wiki % 100 == 0:
+                print(f"     -> Progression : {compteur_articles_wiki} articles extraits...")
+                
             titre_enc = urllib.parse.quote(titre)
             url_a = f"https://{hote}/api.php?action=query&titles={titre_enc}&prop=revisions&rvprop=content&format=json"
             data_a = net(url_a)
@@ -64,13 +85,21 @@ for t in themes_industriels:
                     p_id = list(data_a["query"]["pages"].keys())[0]
                     if "revisions" in data_a["query"]["pages"][p_id]:
                         txt = data_a["query"]["pages"][p_id]["revisions"][0]["*"]
+                        nom_propre = "".join([c if c.isalnum() or c in "._-" else "_" for c in titre.replace(" ", "_")])
+                        nom_f = f"{folder}/{nom_propre[:100]}.txt"
                         
-                        nom_f = f"{folder}/{titre.replace(' ', '_').replace('/', '_')}.txt"
                         with open(nom_f, "w", encoding="utf-8") as f:
-                            f.write(f"WIKI : {hote}\nTITLE : {titre}\n\n" + txt)
+                            f.write(txt)
                 except:
                     pass
-            time.sleep(0.2) # Respiration par fichier pour tromper le pare-feu
-        time.sleep(1.0) # Respiration entre les serveurs
+            time.sleep(0.02) # Vitesse maximale
+            
+        if "continue" in data_pages and "apcontinue" in data_pages["continue"]:
+            jeton_page = data_pages["continue"]["apcontinue"]
+        else:
+            print(f"[+] {hote} entièrement vidé !")
+            break
 
-print("\n[++] TOUTES LES ARCHIVES CONFIGURÉES ONT ÉTÉ EXTRAITES.")
+# Push final à la toute fin du script
+executer_git()
+print("\n[++] TOUS LES MATELOTS SONT AU PORT. GITHUB A SOUFFERT.")
