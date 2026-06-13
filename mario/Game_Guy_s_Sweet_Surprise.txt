@@ -1,0 +1,102 @@
+{{icons|marioparty}}
+{{Infobox MP Minigame
+|image=GameGuysSweetSurprise.png
+|games=''[[Mario Party 3]]''
+|type=Game Guy mini-game
+|time=10 seconds to select a Chain Chomp
+|music=Game Guy Mini-Game
+}}
+'''Game Guy's Sweet Surprise''' is a Game Guy [[minigame]] in ''[[Mario Party 3]]''.
+
+==Gameplay==
+The player simply has to predict which [[Chain Chomp]] will finish eating its [[cake]] first. Before selecting a Chain Chomp, the player can read a description of the Chain Chomps' moods. If the player correctly predicts that the [[Big Chain Chomp|Big Chomp]] will finish first, the player's [[coin]]s are doubled. However, if the player correctly predicts that the [[Little Chomp]] will finish first, the player's coins are multiplied by an even greater number: either 4, 8, 16, 32, or 64. If the player makes the wrong prediction, they lose all of their coins.
+
+==Mechanics==
+At the beginning of the minigame, the Big Chomp is always assigned a multiplier of ×2, while the Little Chomp is equally likely to be assigned a multiplier of ×4, ×8, ×16, ×32, or ×64. The probability that the Little Chomp will finish its cake first depends entirely on the multiplier assigned to it. The moods of both Chain Chomps do not affect their likelihood of winning.<ref name=jengerer1>[https://web.archive.org/web/20220315133129/https://www.jengerer.com/big-chomp-and-little-chomp/ Blog post detailing reverse engineering of the mini-game]</ref>
+
+At a fixed interval, one of the two Chain Chomps takes a bite of the cake. Below are the probabilities of either Chain Chomp taking a bite of its cake during an interval, based on the multiplier assigned to the Little Chomp:
+{| class="wikitable"
+|-
+! Multiplier !! Chance [[File:Big Chomp MP3.png|44px]] takes a bite !! Chance [[File:Little Chomp MP3.png|44px]] takes a bite
+|-
+| ×4 || 50% || 50%
+|-
+| ×8 || 60% || 40%
+|-
+| ×16 || 70% || 30%
+|-
+| ×32 || 80% || 20%
+|-
+| ×64 || 90% || 10%
+|}
+
+During the same interval, the Chain Chomp that took a bite has a 40% chance to take a second bite. The first Chomp to take six or more bites wins.<ref name=jengerer1/> This means that the overall probabilities that either Chain Chomp will finish its cake first are as follows, based on the multiplier assigned to the Little Chomp:<ref>[https://web.archive.org/web/20220315133124/http://www.jengerer.com/meet-the-chomps-part-ii/ More precise calculation of overall probability]</ref> 
+
+{| class="wikitable"
+|-
+! Multiplier !! Chance [[File:Big Chomp MP3.png|44px]] wins !! Chance [[File:Little Chomp MP3.png|44px]] wins
+|-
+| ×4 || 50.000% || 50.000%
+|-
+| ×8 || 70.927% || 29.073%
+|-
+| ×16 || 87.201% || 12.799%
+|-
+| ×32 || 96.460% || 3.540%
+|-
+| ×64 || 99.654% || 0.346%
+|}
+
+==Expected value==
+Let ''B'' be the number of coins bet. The following table shows the EV for each multiplier assigned to the Little Chomp, as well as whether the player bets on the Big Chomp or the Little Chomp.
+
+{| class="wikitable"
+|-
+! Multiplier !! Bet on [[File:Big Chomp MP3.png|44px]] !! Bet on [[File:Little Chomp MP3.png|44px]] !! Higher EV
+|-
+| ×4 || 2''B'' × 0.50000 = '''1''B''''' || 4''B'' × 0.50000 = '''2''B''''' || [[File:Little Chomp MP3.png|44px]]
+|-
+| ×8 || 2''B'' × 0.70927 ≈ '''1.419''B''''' || 8''B'' × 0.29073 ≈ '''2.326''B''''' || [[File:Little Chomp MP3.png|44px]]
+|-
+| ×16 || 2''B'' × 0.87201 ≈ '''1.744''B''''' || 16''B'' × 0.12799 ≈ '''2.048''B''''' || [[File:Little Chomp MP3.png|44px]]
+|-
+| ×32 || 2''B'' × 0.96460 ≈ '''1.929''B''''' || 32''B'' × 0.03540 ≈ '''1.133''B''''' || [[File:Big Chomp MP3.png|44px]]
+|-
+| ×64 || 2''B'' × 0.99654 ≈ '''1.993''B''''' || 64''B'' × 0.00346 ≈ '''0.221''B''''' || [[File:Big Chomp MP3.png|44px]]
+|}
+
+If the Little Chomp has a multiplier of ×4 and the player wishes to earn as many coins as possible, they should always bet on the Little Chomp, as it has the same chance of winning as the Big Chomp but double the expected value. At ×8 and ×16, the Big Chomp is much more likely to win a single round, but the Little Chomp has a higher reward in the long run. At ×32 and ×64, the Big Chomp's win rate and expected value are both higher than the Little Chomp's; betting on the Big Chomp in those cases is nearly guaranteed to result in the player doubling their coins.
+
+==Controls==
+*{{button|n64|Stickleft}} '''or''' {{button|n64|Stickright}} &ndash; Choose Chain Chomp
+*{{button|n64|A}} &ndash; Select Chain Chomp
+
+==Quotes==
+Both Chain Chomps can say anything listed below while the player is choosing one of them. These have no effect on the outcome of the game.
+*"''I'm so hungry I could faint...''"
+*"''I haven't eaten since this morning.''"
+*"''Love that cake!''"
+*"''I'm starvin'!''"
+*"''Food! Food!!!''"
+*"''Feed 'em faster!''"
+*"''No...more cake...''"
+*"''My tummy hurts...''"
+*"''It's too sweet...''"
+*"''I like mushrooms more than cake.''"
+
+==In-game text==
+*'''[[Game Guy]]''' &ndash; ''"The Big Chomp and the Little Chomp will have a cake-eating race. Predict which one will be the quicker cake eater. If you guess right, you'll get more coins. But, if you guess wrong, your coins will be mine."''
+
+==Gallery==
+<gallery>
+MP3 GGSS Small Chain Chomp victory.png|A rare case of the Little Chomp winning. The Big Chomp did not even get a chance to bite the cake.
+</gallery>
+
+==References==
+<references/>
+
+{{MP3Nav}}
+{{SMW|Game Guy's Sweet Surprise}}
+[[fr:Surprise Sympa de Maskash]]
+
+[[Category:Minigames in Mario Party 3]]
