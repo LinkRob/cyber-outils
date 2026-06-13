@@ -1,0 +1,830 @@
+{{Guide nav
+|edition=bedrock
+|name=
+|vers=
+* {{vl|pe v0.9.0|}}
+* {{vl|pe v0.9.1|}}
+* {{vl|pe v0.9.2|}}
+* {{vl|pe v0.9.3|}}
+* {{vl|pe v0.9.4|}}
+* {{vl|pe v0.9.5|}}
+|prev=0.8 releases
+|next=0.10 releases
+}}
+This guide is a simplified overview of all the changes in the [[Bedrock Edition]] 0.9.x releases, which assumes at least some familiarity with 0.8.x releases.
+
+== Mobs ==
+=== New ===
+{|{{Simple Guide table|New Mobs}}
+|-
+|[[Enderman]]
+|[[File:Enderman BE.png|128px]]
+|
+* All [[biomes]].
+|
+|
+* Does not drop [[Ender Pearls]].
+|-
+|[[Villagers]]
+|{{Animate|Farmer.png; Librarian.png; Priest.png; Blacksmith.png; Butcher.png; Nitwit.png|128px}}
+|
+* {{EnvLink|Village}}
+|
+|
+* Unable to open doors, harvest crops and trade.
+|-
+|[[Slime]]
+|[[File:Slime JE2 BE1.png|128px]]
+|
+* {{BiomeLink|Swamp}}
+|
+|
+* Does not drop [[Slime Ball]]s.
+|-
+|[[Wolf]]
+|{{Animate|Wolf JE1 BE1.png; Tamed Wolf with Red Collar.png; Angry Wolf.png|128px}}
+{{Animate|Baby Wolf JE1 BE1.png; Baby Tamed Wolf.png; Baby Angry Wolf.png|64px}}
+|
+* {{BiomeLink|Taiga}}
+* {{BiomeLink|Snowy Taiga}}
+|
+|
+* Can be tamed using [[Bones]].
+|-
+|[[Silverfish]]
+|[[File:Silverfish.gif|128px]]
+|
+* [[Infested Block]]s
+* {{EnvLink|Stronghold}}'s [[Mob spawner]]
+|
+|
+* Will generate in infested blocks.
+* Changed AI.
+|-
+|[[Mooshroom]]
+|[[File:Red Mooshroom JE2 BE1.png|84px]]
+[[File:Baby Red Mooshroom JE1 BE1.png|84px]]
+|
+* {{BiomeLink|Mushroom Fields}}
+|
+{{Drop|Item|Leather|0|2}}
+{{Drop|Item|Raw Beef|1|3}}
+|Similar to cows, but can be milked with a bowl to get mushroom stew.
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Mobs}}
+|-
+|General
+|
+|
+* New mob spawning algorithm.
+* Mobs are lighter in color when injured.
+* Passive mobs now spawn in groups.
+* Increase the health of all mobs to the values in Java Edition.
+* The game now spawns fewer mobs, clearing out old hostile mobs.
+* Animals no longer disappear.
+|-
+|[[Zombie]]
+|[[File:Zombie JE2 BE1.png|84px]]
+|
+* Zombie AI and mechanics have been changed to make them more team-like.
+* When attacked, there is a small probability of spawning more zombies.
+|-
+|[[Spider]]
+|[[File:Spider JE3 BE2.png|128px]]
+|
+* Now generates on [[leaves]], making tree biomes have more spiders at night.
+* Animation is now twice as fast.
+* Improved AI.
+* Line of sight no longer passes through solid blocks.
+|-
+|[[Creeper]]
+|[[File:Creeper JE2 BE1.png|128px]]
+|
+* Go faster now.
+* Improved AI.
+* No longer floats 2 pixels above the ground.
+* Now has correct explosion range.
+|}
+
+== Blocks ==
+=== New ===
+{|{{Simple Guide table|New Blocks}}
+|-
+|[[Monster spawner]]
+|[[File:Spawner BE1.png|84px]]
+|
+* Generates naturally in [[Dungeon]]s and [[Stronghold]]s.
+|
+Pickaxe
+*Drops nothing.
+|
+* Use monster spawn eggs to change the type of monster spawner.
+|-
+|[[End portal frame]]
+|{{Animate|End Portal Frame (S) JE2 BE1.png; Filled End Portal Frame (S) JE2 BE1.png|84px}}
+|
+* Generates naturally in [[Stronghold]].
+|
+Indestructible.
+|
+*For decorative purposes only.
+|-
+|[[Emerald Ore]]
+|[[File:Emerald Ore JE2 BE1.png|84px]]
+|
+* Generates naturally in [[Mountains]].
+|
+Pickaxe (iron or better)
+*Only [[Emerald]] will be dropped.
+|Drops emeralds
+|-
+|[[Hardened clay]]
+|[[File:Terracotta JE1 BE1.png|84px]]
+|
+* Generate naturally in [[Badlands]].
+{{Smelting
+|Clay
+|Terracotta
+|0.1
+}}
+|
+Pickaxe
+|
+Dyed hardened clay.
+|-
+|[[Stained clay]]
+|{{Animate|White Terracotta JE1 BE1.png; Orange Terracotta JE1 BE1.png; Magenta Terracotta JE1 BE1.png; Light Blue Terracotta JE1 BE1.png; Yellow Terracotta JE1 BE1.png; Lime Terracotta JE1 BE1.png; Pink Terracotta JE1 BE1.png; Gray Terracotta JE1 BE1.png; Light Gray Terracotta JE1 BE1.png; Cyan Terracotta JE1 BE1.png; Purple Terracotta JE1 BE1.png; Blue Terracotta JE1 BE1.png; Brown Terracotta JE1 BE1.png; Green Terracotta JE1 BE1.png; Red Terracotta JE1 BE1.png; Black Terracotta JE1 BE1.png|84px}}
+|
+* Red, orange, yellow, brown, white and light gray terracotta naturally occur in mountains.
+{{Crafting
+|A1= Terracotta |B1= Terracotta |C1= Terracotta
+|A2= Terracotta |B2= Matching Dye |C2= Terracotta
+|A3= Terracotta |B3= Terracotta |C3= Terracotta
+|Output= Matching Dyed Terracotta,8
+|type= Building block
+}}
+|
+Pickaxe
+|Building material
+|-
+|[[Emerald Block]]
+|[[File:Block of Emerald JE1 BE1.png|84px]]
+|
+{{Crafting
+|A1= Emerald |B1= Emerald |C1= Emerald
+|A2= Emerald |B2= Emerald |C2= Emerald
+|A3= Emerald |B3= Emerald |C3= Emerald
+|Output= Block of Emerald
+|type= Building block
+}}
+|
+Pickaxe (iron or better)
+|
+* Used to store emeralds and decorations.
+|-
+|[[End Stone]]
+|[[File:End Stone JE1 BE1.png|84px]]
+|
+* Only available in creative mode.
+|
+Pickaxe
+|Building material
+|-
+|[[Red Sand]]
+|[[File:Red Sand JE1 BE1.png|84px]]
+|
+* Generates naturally in Badlands.
+|
+Shovel
+|
+* Smelts into [[Glass]].
+|-
+|[[Mycelium]]
+|[[File:Mycelium JE1 BE1.png|84px]]
+|
+* Generates naturally on [[Mushroom Island]].
+|
+Shovel
+*Only drops [[Dirt]].
+|Can have mushroom placed on it in any light conditions.
+|-
+|[[Mushroom Block]]
+|{{Animate|Brown Mushroom Block (ESU) JE1 BE1.png; Red Mushroom Block (ESU) JE1 BE1.png; Mushroom Stem (ES) JE1 BE1.png|84px}}
+|
+* Generated by using [[Bone Meal]] on [[Mushroom]].
+* Generate naturally on Mushroom Island.
+|
+Axe
+*Will only drop mushrooms.
+|Building material
+|-
+|[[Podzol]]
+|[[File:Podzol JE1 BE1.png|84px]]
+|
+* Generates naturally in [[Mega Taiga]].
+|
+Shovel
+*Only drops [[Dirt]].
+|Building material
+|-
+|[[Packed Ice]]
+|[[File:Ice BE2.png|84px]]
+|
+* Naturally generated in [[Ice Spikes]].
+|
+Any
+*Drops nothing.
+|Building material
+|-
+|[[Grassless Dirt]]
+|[[File:Dirt JE2 BE2.png|84px]]
+|
+* Generates naturally in [[Savanna]] and Giant Taiga.
+|
+Shovel
+|Grass cannot grow on it
+|-
+|[[Granite]] and [[Polished Granite]]
+|[[File:Granite JE1 BE1.png|84px]]
+[[File:Polished Granite JE1 BE1.png|84px]]
+|
+{{Crafting
+   |head=1
+   |Diorite
+   |Nether Quartz
+   |Output=Granite
+   |type=Building block
+}}
+{{Crafting
+   |ignoreusage=1
+   |A2=Granite
+   |B2=Granite
+   |A3=Granite
+   |B3=Granite
+   |Output=Polished Granite,4
+   |type=Building block
+   |foot=1
+}}
+|
+Pickaxe
+|Building material
+|-
+|[[Andesite]] and [[Polished Andesite]]
+|[[File:Andesite JE1 BE1.png|84px]]
+[[File:Polished Andesite JE1 BE1.png|84px]]
+|
+{{Crafting
+   |head=1
+   |Diorite
+   |Cobblestone
+   |Output=Andesite,2
+   |type=Building block
+}}
+{{Crafting
+   |ignoreusage=1
+   |A2=Andesite
+   |B2=Andesite
+   |A3=Andesite
+   |B3=Andesite
+   |Output=Polished Andesite,4
+   |type=Building block
+   |foot=1
+}}
+|
+Pickaxe
+|Building material
+|-
+|[[Diorite]] and [[Polished Diorite]]
+|[[File:Diorite JE1 BE1.png|84px]]
+[[File:Polished Diorite JE1 BE1.png|84px]]
+|
+{{Crafting
+   |head=1
+   |A2=Cobblestone
+   |B2=Nether Quartz
+   |A3=Nether Quartz
+   |B3=Cobblestone
+   |Output=Diorite,2
+   |type=Building block
+}}
+{{Crafting
+   |ignoreusage=1
+   |A2=Diorite
+   |B2=Diorite
+   |A3=Diorite
+   |B3=Diorite
+   |Output=Polished Diorite,4
+   |type=Building block
+   |foot=1
+}}
+|
+Pickaxe
+|
+* Used to craft granite and andesite.
+|-
+|[[Acacia]] [[Plank]] and [[Dark Oak]] plank
+|[[File:Acacia Planks JE1 BE1.png|84px]]
+[[File:Dark Oak Planks JE1 BE1.png|84px]]
+|
+{{Crafting |showname=0
+  |Acacia Log; Dark Oak Log
+  |Output= Acacia Planks,4; Dark Oak Planks,4
+  |type= Building block
+}}
+|
+Axe
+|Building material
+|-
+|Acacia [[log]] and dark oak logs
+|[[File:Acacia Log Axis Y JE2 BE1.png|84px]]
+[[File:Dark Oak Log Axis Y JE2 BE1.png|84px]]
+|Generates in trees.
+|
+Axe
+|
+*Used for crafting corresponding wooden boards.
+|-
+|Acacia [[slab]] and dark oak slab
+|[[File:Acacia Slab JE1 BE1.png|84px]]
+[[File:Dark Oak Slab JE1 BE1.png|84px]]
+|
+{{Crafting
+|A3= Acacia Planks; Dark Oak Planks
+|B3= Acacia Planks; Dark Oak Planks
+|C3= Acacia Planks; Dark Oak Planks
+|Output= Acacia Slab,6; Dark Oak Slab,6
+|type= Building block
+}}
+|
+Axe
+|Can be used to walk upwards without jumping
+|-
+|Acacia [[stairs]] and dark oak stairs
+|[[File:Acacia Stairs (N) JE2 BE1.png|84px]]
+[[File:Dark Oak Stairs (N) JE2 BE1.png|84px]]
+|
+{{Crafting
+|A1= Acacia Planks; Dark Oak Planks
+|A2= Acacia Planks; Dark Oak Planks
+|B2= Acacia Planks; Dark Oak Planks
+|A3= Acacia Planks; Dark Oak Planks
+|B3= Acacia Planks; Dark Oak Planks
+|C3= Acacia Planks; Dark Oak Planks
+|Output= Acacia Stairs,4; Dark Oak Stairs,4
+|type= Building block
+}}
+|
+Axe
+|Can be used to walk upwards without jumping
+|-
+|Acacia [[leaves]] and dark oak leaves
+|[[File:Oak Leaves BE2.png|84px]]
+|Generates in trees.
+|
+Shears
+|Building material
+|-
+|Jungle tree [[sapling]], acacia sapling, and dark oak sapling
+|[[File:Jungle Sapling JE6 BE1.png|84px]]
+[[File:Acacia Sapling JE6 BE1.png|84px]]
+[[File:Dark Oak Sapling JE6 BE1.png|84px]]
+|
+* Dropped from corresponding leaves.
+|
+Any
+|
+* Grow into the corresponding [[tree]].
+|-
+|[[Flowers]]
+|{{Animate|Poppy JE6 BE1.png; Blue Orchid JE6 BE1.png; Allium JE6 BE1.png; Azure Bluet JE6 BE1.png; Red Tulip JE6 BE1.png; Orange Tulip JE6 BE1.png; White Tulip JE6 BE1.png; Pink Tulip JE6 BE1.png; Oxeye Daisy JE6 BE1.png; Sunflower JE1 BE1.png; Lilac JE3 BE1.png; Rose Bush JE3 BE1.png; Peony JE3 BE1.png|84px}}
+|Generates on grass in various biomes.
+|
+Any
+|Decorative blocks
+|-
+|[[Vine]]
+|[[File:Vines (N) JE1.png|84px]]
+|
+* Generates as part of a dying tree.
+* Generate naturally in [[Jungle]] and [[Swamp]].
+|
+Shears
+|
+* Can be climbed.
+* Can be crafted into [[moss stone]].
+|-
+|[[Lily Pad]]
+|[[File:Lily Pad JE1 BE1.png|84px]]
+|
+* Generate naturally in swamps.
+|
+Any
+|
+* Creates walkable paths on water.
+|-
+|[[Cocoa Pod]]
+|{{Animate|Cocoa Age 0 (S) JE3.png; Cocoa Age 1 (S) JE3.png; Cocoa Age 2 (S) JE3.png|84px}}
+|
+* Generate naturally in jungles.
+|
+Axe
+|
+* Used to get cocoa beans.
+|-
+|[[Double Tallgrass]]
+|[[File:Tall Grass BE1.png|84px]]
+|
+* Will be generated naturally.
+* Can be generated by using [[Bone Meal]] on [[Grass]].
+|
+Shears
+*Drops 2 grass.
+|Decorative block
+|-
+|[[Large fern]]
+|[[File:Large Fern BE1.png|84px]]
+|
+* Will be generated naturally.
+* Can be generated by using bone meal on [[fern]].
+|
+Shears
+*Drops 2 ferns.
+|Decorative block
+|-
+|[[Chiseled Stone Bricks]]
+|[[File:Chiseled Stone Bricks JE1 BE1.png|84px]]
+|
+* Obtained from [[Creative Mode]] [[Inventory]].
+|
+Pickaxe
+|
+*For decorative purposes only.
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Blocks}}
+|-
+|General
+|
+|
+* Block entities are saved differently.
+|-
+|[[Log]]
+|[[File:Spruce Log Axis Y JE2 BE2.png|84px]]
+[[File:Birch Log Axis Y JE2 BE2.png|84px]]<br>
+[[File:Jungle Log Axis Y JE2 BE2.png|84px]]
+|
+* Birch, spruce and jungle logs have different textures on top.
+|-
+|[[Plank|Jungle Plank]]
+|[[File:Jungle Planks JE1 BE1.png|84px]]
+|
+* Now craftable.
+{{Crafting
+  |Jungle Log
+  |Output=Jungle Planks,4
+}}
+|-
+|[[Bed]]
+|[[File:Red Bed (N) JE1.png|84px]]
+|
+* No longer restores health in normal difficulty.
+* Added smooth lighting.
+|-
+|[[Snow|Snow layer]]
+|[[File:Snow (layers 1) JE2 BE2.png|84px]]
+|
+* Now craftable.
+{{Crafting
+|A2= Snow Block |B2= Snow Block |C2= Snow Block
+|Output= Snow,6
+}}
+|-
+|[[Carpet]]
+|{{Animate|White Carpet Revision 1.png; Orange Carpet Revision 1.png; Magenta Carpet Revision 1.png; Light Blue Carpet Revision 1.png; Yellow Carpet Revision 1.png; Lime Carpet Revision 1.png; Pink Carpet Revision 1.png; Gray Carpet Revision 1.png; Light Gray Carpet Revision 1.png; Cyan Carpet Revision 1.png; Purple Carpet Revision 1.png; Blue Carpet Revision 1.png; Brown Carpet Revision 1.png; Green Carpet Revision 1.png; Red Carpet Revision 1.png; Black Carpet Revision 1.png|84px}}
+|
+* All carpets can be obtained in survival mode.
+{{Crafting
+  |Any Wool
+|Any Wool
+|Output=Any Carpet,3
+}}
+|-
+|[[Fence]]
+|[[File:Oak Fence JE2 BE1.png|84px]]
+|
+* Added smooth lighting.
+|-
+|[[Leaves]]
+|{{Animate|Oak Leaves BE2.png; Birch Leaves BE3.png; Spruce Leaves BE2.png; Jungle Leaves (fast) BE2.png|84px}}
+|
+* Added smooth lighting.
+* Jungle leaves are completely opaque.
+* New foliage rendering.
+|-
+|[[Cobweb]]
+|[[File:Cobweb JE1 BE1.png|84px]]
+|
+* Added smooth lighting.
+|-
+|[[Chest]]
+|[[File:Chest.gif|84px]]
+[[File:Large Chest.gif|84px]]
+|
+* Added smooth lighting.
+|-
+|[[Glowstone]]
+|[[File:Glowstone JE2 BE1.png|84px]]
+|
+* Removed smooth lighting.
+|-
+|[[Glass]]
+|[[File:Glass JE3 BE1.png|84px]]
+|
+* Removed smooth lighting.
+|-
+|[[Jack o'Lantern]]
+|[[File:Jack o'Lantern JE1 BE1.png|84px]]
+|
+* Removed smooth lighting.
+|-
+|Lighted [[Redstone Ore]]
+|[[File:Redstone Ore JE1 BE1.png|84px]]
+|
+* Removed smooth lighting.
+|-
+|[[TNT]]
+|[[File:TNT JE2 BE1.png|84px]]
+|
+* Improved performance.
+|-
+|[[Wool]]
+|{{Animate|White Wool JE1 BE1.png; Light Gray Wool JE2 BE2.png; Gray Wool JE2 BE2.png; Black Wool JE2 BE2.png; Brown Wool JE2 BE2.png; Red Wool JE2 BE2.png; Orange Wool JE2 BE2.png; Yellow Wool JE2 BE2.png; Lime Wool JE2 BE2.png; Green Wool JE2 BE2.png; Cyan Wool JE2 BE2.png; Light Blue Wool JE2 BE2.png; Blue Wool JE2 BE2.png; Purple Wool JE2 BE2.png; Magenta Wool JE2 BE2.png; Pink Wool JE2 BE2.png|84px}}
+|
+* Added smooth lighting.
+|-
+|[[Moss stone]]
+|[[File:Mossy Cobblestone JE2 BE1.png|84px]]
+|
+* Can be crafted with [[Cobblestone]] and [[Vines]].
+{{Crafting
+  |Cobblestone
+  |Vines
+  |Output=Mossy Cobblestone
+}}
+|}
+
+== Items ==
+=== New ===
+{|{{Simple Guide table|New Items}}
+|-
+|[[Saddle]]
+|[[File:Saddle JE1 BE1.png|84px]]
+|
+* Found in the blacksmith's chest.
+|
+*Currently unavailable.
+|-
+|[[Cookie]]
+|[[File:Cookie JE1 BE1.png|84px]]
+|
+{{Crafting
+|A1= |B1= |C1=
+|A2= Wheat |B2= Cocoa Beans |C2= Wheat
+|A3= |B3= |C3=
+|Output= Cookie,8
+|type= Foodstuff
+}}
+|
+* Restores {{hp|1}}.
+|-
+|[[Spawn Egg]]
+|{{Animate|Mooshroom Spawn Egg JE2 BE1.png; Creeper Spawn Egg JE2 BE1.png; Enderman Spawn Egg JE2 BE1.png; Silverfish Spawn Egg BE1.png; Skeleton Spawn Egg JE2 BE1.png; Slime Spawn Egg JE2 BE1.png; Spider Spawn Egg JE2 BE1.png; Zombie Spawn Egg JE2 BE1.png; Zombie Pigman Spawn Egg JE2 BE1.png; Wolf Spawn Egg JE2 BE1.png; Villager Spawn Egg JE2 BE1.png|84px}}
+|
+* Obtained from [[Creative Mode]] [[Inventory]].
+|
+* Spawns the corresponding [[mob]].
+|-
+|[[Emerald]]
+|[[File:Emerald JE1 BE1.png|84px]]
+|
+{{Crafting
+|Block of Emerald
+|Output= Emerald,9
+|type= Material
+}}
+* Dropped from [[Emerald Ore]].
+|
+* Currently not available for [[Trading]].
+* Can be crafted into [[Emerald Block]]s.
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Items}}
+|-
+|[[Dye]]
+|[[File:Gray Dye JE1 BE1.png|84px]]
+[[File:Light Gray Dye JE1 BE1.png|84px]]
+|
+* [[Gray Dye]] and [[Light Gray Dye]] can be obtained in Survival Mode.
+|}
+
+== Non-mob entities ==
+=== Changed ===
+{| class = "wikitable"
+! Name !! Appearance !! Change
+|-
+|[[Camera]]
+|[[File:Camera old.png|128px]]
+|
+* Completely removed camera entity.
+|}
+
+== Structures ==
+=== New ===
+{|{{Simple Guide table|New Structures}}
+|-
+|General
+|
+|
+|
+|
+|
+* Same world generation algorithm as Java Edition 1.8, allowing new structures and biomes to be generated.
+|-
+|[[Village]]
+|{{Animate|OakHouse.png;SandstoneHouse.png|256px}}
+|
+* {{BiomeLink|Plains}}
+* {{BiomeLink|Desert}}
+|
+  no
+|
+  yes
+|
+* Has plains and desert variants.
+* A carpet table will be generated in the house instead of the [[Pressure Plate]] table.
+|-
+|[[Cave]]
+|[[File:Medium-cave.png|256px]]
+|
+* Generates on the surface and underground.
+|
+  no
+|
+  no
+|Tunnels underground full of ore and monsters.
+|-
+|[[Lava Lake]]
+|[[File:LavaLake.png|256px]]
+|
+* Generates on the surface and underground.
+|
+  no
+|
+  no
+|Lakes of lava.
+|-
+|[[Abandoned Mineshaft]]
+|[[File:Mineshaft.png|256px]]
+|
+* Will generate underground.
+|
+  no
+|
+  yes
+|
+* Contains [[Spider]] [[Monster Spawner]]s instead of [[Cave Spider]] spawners due to the lack of [[Poison]] potion effect. <ref name="spiders">{{tweet|jeb|465804639645237248}}</ref>
+|-
+|[[Giant Mushroom]]
+|{{Animate|Huge Red Mushroom.png; Huge Brown Mushroom.png|256px}}
+|
+* Use [[Bone Meal]] on [[Mushroom]] to generate.
+|
+  no
+|
+  no
+|
+*Can be up to 13 blocks. <ref>https://www.reddit.com/r/MCPE/comments/288c1n/are_there_supposed_to_be_super_tall_mushrooms/</ref>
+|-
+|[[Forest Rock]]s
+|[[File:Forest Rock JE1 BE1.png|256px]]
+|
+* {{BiomeLink|Giant Tree Taiga}}
+|
+  no
+|
+  no
+|Chunks of moss stone in mega taigas.
+|-
+|[[Stronghold]]
+|[[File:StrongholdPortalRoom.png|256px]]
+|Underground
+|
+  yes
+|
+  yes
+|
+* Difficult to find because [[Eye of Ender]] has not yet been implemented.
+* Has a greater chance of spawning below villages.
+|-
+|[[Dungeon]]
+|[[File:Monster Room (Dungeon).png|256px]]
+|
+* Will generate underground.
+|
+  yes
+|
+  yes
+|
+* Contains one of three monster spawners: [[Skeleton]], [[Zombie]], and Spider.
+|-
+|[[Desert Well]]
+|[[File:Desert Well.png|256px]]
+|
+* {{BiomeLink|Desert}}
+|
+  no
+|
+  no
+|A well in the desert.
+|-
+|[[Trees]]
+|{{Animate|Jungle Tree.png; Dark Oak Tree.png; Acacia Tree.png; Oak Fallen Log.png; Spruce Fallen Log.png; Birch Fallen Log.png; Jungle Fallen Log.png; Spruce Tree.png; Swamp Oak.png|256px}}
+|Various biomes
+|
+  no
+|
+  no
+|
+* [[Jungle Tree]] (small and large)
+* [[Dark Oak]]
+* [[Acacia]]
+* [[Fallen Tree]]
+* Large [[Spruce]]
+* [[Oak]] Swamp variant and large oak variant with vines.
+|-
+|[[Biomes]]
+|
+|
+|
+|
+|
+* Added all [[Java Edition 1.7.2]] biomes. Biomes exceeding [[Height|128 height limit]] are shrunk to accommodate.
+**Includes: [[Jungle]], [[Badlands]], [[Plains]], [[Dark Forest]], [[Savannah]], [[Taiga]], [[Cliff]], [[Mushroom Island]], [[Flower Forest]], [[Mega Taiga]], [[Ice Spikes]], [[Swamp]], [[Desert]], [[Forest]], [[Deep Ocean]], [[Eroded Badlands]], [[Stone Shore]], [[Jungle Edge]].
+* Frozen oceans no longer generate naturally.
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Structures}}
+|-
+|[[Trees]]
+|{{Animate|Oak.png; Spruce.png|256px}}
+|
+* [[Trees#Spruce Oak|Spruce Oak]] do not generate in new worlds as their rare glitch has been fixed.
+* [[Trees|Oaks]] now generate with different heights and structures.
+* [[Trees#SpruceTree|Spruce Trees]] now generate with different heights and structures.
+|-
+|[[Terrain Features]]
+|
+|
+* Old terrain generation removed, now using [[old]] [[world type]].
+|-
+|[[Biomes]]
+|
+|
+* Added biome-specific colored blocks.
+* Removed gravel beaches.
+* Frozen oceans no longer generate naturally.
+|}
+
+== Gameplay ==
+=== New ===
+{| class = "wikitable"
+! Name !! Description
+|-
+|[[Particles|Particle Effect]]
+|
+* <code>dripWater</code>
+* <code>dripLava</code>
+|}
+
+=== Changed ===
+{| class = "wikitable"
+! Name !! Change
+|-
+|[[Clouds]]
+|
+* Improved appearance.
+|-
+|[[Fog]]
+|
+* It's darker underground.
+|}
+
+==References==
+{{Reflist}}
+
+[[zh:携带版指南/0.9版本]]

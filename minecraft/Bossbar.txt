@@ -1,0 +1,76 @@
+{{About|the HUD element|the command|Commands/bossbar}}
+{{Work in progress}}
+{{More images|1=An image of the ender dragon and wither bossbars.}}
+A '''bossbar''' is a bar that can track a [[Mob#Boss mobs|boss mob's]] [[health]] or the total health of [[raid]] mobs.
+
+== Manual creation ==
+{{Expand section}}
+A bossbar can be shown using the {{Command|bossbar}} command. {{Only|Java}}
+
+== Natural creation ==
+=== Boss mobs ===
+{{Missing information|section|the specific area near a wither where you get to see a bossbar}}
+A bossbar appears in the top center of the screen when near a [[wither]] or [[ender dragon]].
+
+For the ender dragon's bossbar to appear, the player must be within a [[Euclidean distance]] of 192 blocks from the [[coordinates]] (0.0, 192, 0.0) in [[the End]] dimension.{{Needs testing|Needs testing for Bedrock Edition}}
+
+For the wither's bossbar to appear, the player must be loading the [[chunk]] the wither is in and be within 24 chunks and 3.5 blocks of a chunk the wither is in.
+
+=== Raids ===
+{{Missing information|section|the specific area near a raid center where you get to see a bossbar}}
+When a player is within a 93 radius of the center of a [[raid]], a raid bossbar appears, showing the total health of all raid mobs present during the current wave.
+
+== Parts ==
+=== Color ===
+The bossbar has colors depending on which [[Mob#Boss_mobs|boss mob]] or event is active.
+
+The ender dragon has a color of pink. The wither has a dark purple{{Only|Java}} or pink{{Only|Bedrock}} bossbar. The raid bossbar has a color of red.
+
+=== ID system ===
+A bossbar has an ID, which can be used to do certain actions with one bossbar. An ID is not shown on the creation of the bossbar{{Verify}}, so you can't see it.
+
+== Removing ==
+{{Expand section}}
+A bossbar can be disabled by using {{Command|bossbar remove ''<id>''}}.{{Info needed}}
+
+== Issues ==
+{{Issue list}}
+
+== History ==
+{{History|java}}
+{{History||1.0|snap=Beta 1.9 Prerelease 6|Added bossbars.
+|The only color is pink.
+|[[Ender dragon]]s use bossbars.|"Boss health" was displayed over the bossbar.}}
+{{History||1.4.2|snap=12w34a|[[Wither]]s use bossbars.
+|Added <samp>bars.png</samp>, which has pink, cyan, orange, green, yellow, purple, and white bossbars, as well as textures for notches.}}
+{{History|||snap=12w34b|Added boss names above the wither.{{Verify|Was the ender dragon broken here too, or was that introduced later?}}}}
+{{History||1.5|snap=13w05b|Ender dragons now properly display their names above their bossbar.<ref>{{Bug|MC-7700}}</ref>}}
+{{History||1.9|snap=15w31a|Withers now have a purple bossbar.
+|Multiple bossbars can now show without overlapping.
+|Bossbars are no longer briefly visible after respawning or opening a new world.<ref>{{Bug|MC-4474}}</ref>
+|Bossbars are now visible even when the boss is not being looked at.<ref>{{Bug|MC-68062}}</ref>}}
+{{History|||snap=16w02a|Ender dragons created using {{Command|summon}} no longer show a health bar.}}
+{{History||1.11|snap=16w32a
+|Ender dragons with custom names now show their name above their bossbar.<ref name="MC-83571">{{Bug|MC-83571}}</ref>}}
+{{History||1.11.1|snap=16w50a|Withers with custom names now show their name above their bossbar.<ref name="MC-83571"/><ref>{{Bug|MC-110234}}</ref>}}
+{{History||1.13|snap=18w02a|Unnamed ender dragons now show "<code>entity.EnderDragon.name</code>" above their bossbar, rather than "Ender dragon".<ref name="MC-124113">{{Bug|MC-124113}}</ref>}}
+{{History|||snap=18w03a|Ender dragons now show "Ender Dragon" again.<ref name="MC-124113"/>}}
+{{History|||snap=18w05a|Added the {{Command|bossbar}} command, which can create a custom bossbar.}}
+{{History||1.14|snap=18w47a|[[Raid]]s use bossbars.}}
+{{History|||snap=18w49a|The raid bossbar now slowly fills up when a raid is triggered or when a wave is cleared.}}
+{{History|||snap=19w13b|Notched bossbars now display correctly when more than one is active.<ref>{{Bug|MC-146070}}</ref>}}
+{{History||1.16|snap=20w17a|Bossbars with scores now update correctly when reloading the world.<ref>{{Bug|MC-135738}}</ref>}}
+{{History||1.19|snap=22w11a|Notched bossbars now display correctly when more than one is active.{{More info|This happened twice?}}<ref>{{Bug|MC-165036}}</ref>}}
+{{History|foot}}
+<gallery>
+Dinnerbone Bossbars.png|First image of multiple bossbars.
+</gallery>
+
+==References==
+{{Reflist}}
+
+{{Gameplay}}
+
+[[Category:UI]]
+
+[[zh:Boss栏]]

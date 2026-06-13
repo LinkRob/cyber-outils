@@ -1,0 +1,549 @@
+{{Update|missing information about 1.18 formats, this page is W.I.P. and sections that are updated for 1.18 mention it.}}
+{{for|the storage format of entities|Entity format}}
+[[Chunk]]s store the terrain and entities within a 16×384×16 area. They also store precomputed lighting, heightmap data for Minecraft's performance, and other meta information.
+
+{{TOC|limit=3|none}}
+
+== NBT structure ==
+{{See also|Anvil file format#Further information|title1=Information from the Anvil format page}}
+
+Chunks are stored as tags in regional Minecraft Anvil files, which are named in the form {{code|r.x.z.mca}}. They are stored in [[NBT format]], with the following structure (updated for 1.18):
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+**{{nbt|int|DataVersion}}: Version of the chunk NBT structure.
+**{{nbt|int|xPos}}: X position of the chunk (in chunks, from the origin, '''not''' relative to region).
+**{{nbt|int|zPos}}: Z position of the chunk (in chunks, from the origin, '''not''' relative to region).
+**{{nbt|int|yPos}}: Lowest Y section position in the chunk (e.g. -4 in 1.18).
+**{{nbt|string|Status}}: Defines the world generation status of this chunk. It is always one of the following: {{code|empty}}, {{code|structure_starts}}, {{code|structure_references}}, {{code|biomes}}, {{code|noise}}, {{code|surface}}, {{code|carvers}}, {{code|liquid_carvers}}, {{code|features}}, {{code|light}}, {{code|spawn}}, {{code|heightmaps}} or {{code|minecraft:full}}. All status except {{code|minecraft:full}} are used for chunks called ''proto-chunks'', in other words, for chunks with incomplete generation.
+**{{nbt|long|LastUpdate}}: Tick when the chunk was last saved.
+**{{nbt|list|sections}}: List of compound tags, each tag is a section (also known as sub-chunk). All sections in the world's height are present in this list, even those who are empty (filled with air).
+***{{nbt|compound}} An individual section.
+****{{nbt|byte|Y}}: The Y position of this section.
+****{{nbt|compound|block_states}}
+*****{{nbt|list|palette}}: Set of different block states used in this particular section.
+******{{nbt|compound}} A block
+*******{{nbt|string|Name}}: Block [[resource location]]
+*******{{nbt|compound|Properties}}: List of [[block state]] properties, with [name] being the name of the block state property
+********{{nbt|string|''Name''}}: The block state name and its value.
+*****{{nbt|long-array|data}}: A packed array of 4096 indices pointing to the palette, stored in an array of 64-bit integers. ''If only one block state is present in the palette, this field is not required and the block fills the whole section.'' All indices are the same length: the minimum amount of bits required to represent the largest index in the palette. These indices have a minimum size of 4 bits. Since 1.16, the indices are not packed across multiple elements of the array, meaning that if there is no more space in a given 64-bit integer for the next index, it starts instead at the first (lowest) bit of the next 64-bit element.
+****{{nbt|compound|biomes}}
+*****{{nbt|list|palette}}: Set of different biomes used in this particular section.
+******{{nbt|string|Name}}: Biome [[resource location]]
+*****{{nbt|long-array|data}}: A packed array of 64 indices pointing to the palette, stored in an array of 64-bit integers. ''If only one biome is present in the palette, this field is not required and the biome fills the whole section.'' All indices are the same length: the minimum amount of bits required to represent the largest index in the palette. These indices do not have a minimum size.
+****{{nbt|byte-array|BlockLight}}: 2048 bytes recording the amount of block-emitted light in each block. Makes load times faster compared to recomputing at load time. 4 bits per block.
+****{{nbt|byte-array|SkyLight}}: 2048 bytes recording the amount of sunlight or moonlight hitting each block. 4 bits per block.
+**{{nbt|list|block_entities}}: Each TAG_Compound in this list defines a block entity in the chunk. See [[#Block entity format|Block Entity Format]] below. If this list is empty, it becomes a list of End tags.
+**{{nbt|compound|CarvingMasks}}: Only for ''proto-chunks'' '''(not confirmed for 1.18 format)'''.
+***{{nbt|byte-array|AIR}}: A series of bits indicating whether a cave has been dug at a specific position, stored in a byte array.
+***{{nbt|byte-array|LIQUID}}: A series of bits indicating whether an underwater cave has been dug at a specific position, stored in a byte array.
+**{{nbt|compound|Heightmaps}}: Several different [[heightmap]]s corresponding to 256 values compacted at 9 bits per value (lowest being 0, highest being 384, both values inclusive). The 9 bit values are stored in an array of 37 longs, each containing 7 values (long = 64 bits, 7 * 9 = 63; the last bit is unused). In versions prior to 1.16 the heightmaps were stored in 36 long values, where the bits were arranged in an uninterrupted "stream" across all values, resulting in all 2304 bits being used. The 9 bit values are unsigned, and indicate the amount of blocks above the bottom of the world. This means that converting a world to 1.18 adds 64 to every value. '''Note''' the stored value is the "number of blocks above the bottom of the world", this is not the same thing as the block Y value, to compute the block Y value use ''highestBlockY = (chunk.yPos * 16) - 1 + heightmap_entry_value''. A highestBlockY of -1 (or -65 if 1.18 overworld) then indicates there are no blocks at that location (e.g. the void). '''Note''' the number of longs is not actually fixed, it simply appears to be fixed for vanilla worlds. A more complete description of this data structure is that it it contains 256 packed values, packing uses a minimum of 9 bits per value, but may use as many bits per value as necessary to encompass the entire Y build height of the world (which can be modified via datapacks for example to +/-2048).
+***{{nbt|long-array|MOTION_BLOCKING}}
+***{{nbt|long-array|MOTION_BLOCKING_NO_LEAVES}}
+***{{nbt|long-array|OCEAN_FLOOR}}
+***{{nbt|long-array|OCEAN_FLOOR_WG}}
+***{{nbt|long-array|WORLD_SURFACE}}
+***{{nbt|long-array|WORLD_SURFACE_WG}}
+**{{nbt|list|Lights}}: A List of 16 lists that store positions of light sources per chunk section as shorts, only for ''proto-chunks'' '''(not confirmed for 1.18 format)'''.
+**{{nbt|list|Entities}}: A list of entities in the ''proto-chunks'', used when generating. As of 1.17, this list is not present for fully generated chunks and entities are moved to a separated region files once the chunk is generated, see [[Entity format#Entity Format|Entity format]] for more details '''(not confirmed for 1.18 format)'''.
+***{{nbt|compound}}: An entity.
+**{{nbt|list|fluid_ticks}}: Each TAG_Compound in this list is an "active" liquid in this chunk waiting to be updated. See [[#Tile tick format|Tile Tick Format]] below.
+**{{nbt|list|block_ticks}}: Each TAG_Compound in this list is an "active" block in this chunk waiting to be updated. These are used to save the state of redstone machines or falling sand, and other activity. See [[#Tile tick format|Tile Tick Format]] below.
+**{{nbt|long|InhabitedTime}}: The cumulative number of ticks players have been in this chunk. Note that this value increases faster when more players are in the chunk. Used for regional difficulty: increases the chances of mobs spawning with equipment, the chances of that equipment having enchantments, the chances of spiders having potion effects, the chances of mobs having the ability to pick up dropped items, and the chances of zombies having the ability to spawn other zombies when attacked. Note that at values 3600000 and above, regional difficulty is effectively maxed for this chunk. At values 0 and below, the difficulty is capped to a minimum (thus, if this is set to a negative number, it behaves identically to being set to 0, apart from taking time to build back up to the positives). See [[Difficulty#Regional difficulty|Regional Difficulty]] for more specifics.
+**{{nbt|list|PostProcessing}}: A List of 24 (number of sections in the height) TAG_Lists that store positions of blocks that need to receive an update when a ''proto-chunk'' turns into a full chunk, packed in TAG_Shorts. See [[#ToBeTicked format|ToBeTicked format]] below for a description of the coordinate packing format. A common use case for this to is make liquids flow after generating a source block, such as springs in caves.
+**{{nbt|compound|structures}}: Structure data in this chunk.
+***{{nbt|compound|References}}: Coordinates of chunks that contain ''Starts''.
+****{{nbt|long-array|''Structure Name''}}: Each 64-bit number of this array represents a chunk coordinate (i.e. block coordinate / 16), with its X packed into the low (least significant) 32 bits and Z packed into the high (most significant) 32 bits.
+***{{nbt|compound|starts}}: Structures that are yet to be generated, stored by general type. Some parts of the structures may have already been generated. Completely generated structures are ''removed'' by setting their ''id'' to "INVALID" and removing all other tags.
+****{{nbt|compound|''Structure Name''}}: Only the structures that can spawn in this dimension are stored, for example, EndCity is stored only in the end chunks.
+*****{{nbt|int-array|BB}}: Bounding box of the entire structure (remaining Children). Value is 6 ints: the minimum X, Y, and Z coordinates followed by the maximum X, Y, and Z coordinates. Absent if id is INVALID.
+*****{{nbt|string|biome}}: The biome id this structure is in. Absent if id is INVALID.
+*****{{nbt|list|Children}}: List of structure pieces making up this structure, that were not generated yet. Absent if id is INVALID.
+******{{nbt|compound}} Structure piece data. {{info needed|Missing structure data from end cities, woodland mansions, igloos, pillager outposts, and the village data needs updating.}}
+*******{{nbt|int array|BB}}: Bounding box of the structure piece. (Does not include the part of a village roof that can overhang the road.) Value is 6 ints: the minimum X, Y, and Z coordinates followed by the maximum X, Y, and Z coordinates. Both min and max are inclusive.
+*******{{nbt|string|BiomeType}}: The ocean temperature this ocean ruins is in. Valid values are WARM and COLD.
+*******{{nbt|byte|C}}: (Village "ViSmH") Hut roof type.{{verify|Still a thing since 1.14?}}
+*******{{nbt|compound|CA}}: (Village "ViF" and "ViDF") Crop in the farm plot.{{verify|Still a thing since 1.14?}}
+********{{nbt|string|Name}}: Block [[resource location]]
+********{{nbt|compound|Properties}}: List of [[block state]] properties, with [name] being the name of the block state property
+*********{{nbt|string|''Name''}}: The block state name and its value.
+*******{{nbt|compound|CB}}: (Village "ViF" and "ViDF") Crop in the farm plot.{{verify|Still a thing since 1.14?}}
+********{{nbt|string|Name}}: Block [[resource location]]
+********{{nbt|compound|Properties}}: List of [[block state]] properties, with [name] being the name of the block state property
+*********{{nbt|string|''Name''}}: The block state name and its value.
+*******{{nbt|compound|CC}}: (Village "ViDF") Crop in the farm plot.{{verify|Still a thing since 1.14?}}
+********{{nbt|string|Name}}: Block [[resource location]]
+********{{nbt|compound|Properties}}: List of [[block state]] properties, with [name] being the name of the block state property
+*********{{nbt|string|''Name''}}: The block state name and its value.
+*******{{nbt|compound|CD}}: (Village "ViDF") Crop in the farm plot.{{verify|Still a thing since 1.14?}}
+********{{nbt|string|Name}}: Block [[resource location]]
+********{{nbt|compound|Properties}}: List of [[block state]] properties, with [name] being the name of the block state property
+*********{{nbt|string|''Name''}}: The block state name and its value.
+*******{{nbt|byte|Chest}}: 1 or 0 (true/false) - (Fortress "NeSCLT" and "NeSCRT") Whether this fortress piece should contain a chest but hasn't had one generated yet. (Stronghold "SHCC") Whether this chest in this stronghold piece was placed. (Village "ViS") Whether the blacksmith chest has been generated.
+*******{{nbt|int|D}}: (Mineshaft "MSCrossing") Indicates the "incoming" direction for the crossing.
+*******{{nbt|int|Depth}}: (Temples and huts) Depth of the structure (X/Z).
+*******{{nbt|list|Entrances}}: (Mineshaft "MSRoom") List of exits from the room.
+********{{nbt|int array}}: Bounding box of the exit. Both min and max are inclusive.
+*******{{nbt|string|EntryDoor}}: (Stronghold) The type of door at the entry to this piece.
+*******{{nbt|int|GD}}: Appears to be some sort of measure of how far this piece is from the start.
+*******{{nbt|byte|hasPlacedChest0}}: 1 or 0 (true/false) - (Desert temple) Whether chest was placed.
+*******{{nbt|byte|hasPlacedChest1}}: 1 or 0 (true/false) - (Desert temple) Whether chest was placed.
+*******{{nbt|byte|hasPlacedChest2}}: 1 or 0 (true/false) - (Desert temple) Whether chest was placed.
+*******{{nbt|byte|hasPlacedChest3}}: 1 or 0 (true/false) - (Desert temple) Whether chest was placed.
+*******{{nbt|int|Height}}: (Temples and huts) Height of the structure (Y).
+*******{{nbt|int|HPos}}: (Temples, huts and villages) Y level the structure was moved to in order to place it on the surface, or -1 if it hasn't been moved yet.{{verify|Still a thing since 1.14?}}
+*******{{nbt|byte|hps}}: 1 or 0 (true/false) - (Mineshaft "MSCorridor") Whether the corridor has a cave spider monster spawner.
+*******{{nbt|byte|hr}}: 1 or 0 (true/false) - (Mineshaft "MSCorridor") Whether the corridor has rails.
+*******{{nbt|string|id}}: Identifier for the structure piece. Typically a heavily abbreviated code rather than something human-readable.
+*******{{nbt|float|integrity}}: The integrity of this structure (only used by ocean ruins).
+*******{{nbt|byte|isLarge}}: 1 or 0 (true/false) - If this ocean ruin is big.
+*******{{nbt|list|junctions}}: (Village) List of junction points. {{info needed}}{{verify|Still a thing since 1.14?}}
+********{{nbt|compound}}
+*********{{nbt|int|source_x}}: Block coordinate.
+*********{{nbt|int|source_ground_y}}: Block coordinate.
+*********{{nbt|int|source_z}}: Block coordinate.
+*********{{nbt|int|delta_y}}:
+*********{{nbt|string|dest_proj}}: One of <code>terrain_matching</code> or <code>rigid</code>.
+*******{{nbt|byte|Left}}: 1 or 0 (true/false) - (Stronghold "SHS") Whether the corridor has an opening on the left.
+*******{{nbt|byte|leftHigh}}: 1 or 0 (true/false) - (Stronghold "SH5C") Whether the 5-way crossing has an exit on the upper level on the side with the upward staircase.
+*******{{nbt|byte|leftLow}}: 1 or 0 (true/false) - (Stronghold "SH5C") Whether the 5-way crossing has an exit on the lower level on the side with the upward staircase.
+*******{{nbt|int|Length}}: (Village "ViSR") Length of the road piece.{{verify|Still a thing since 1.14?}}
+*******{{nbt|byte|Mob}}: 1 or 0 (true/false) - (Fortress "NeMT") Whether this fortress piece should contain a blaze monster spawner but hasn't had one generated yet. (Stronghold "SHPR") Whether the silverfish monster spawner has been placed in this piece.
+*******{{nbt|int|Num}}: (Mineshaft "MSCorridor") Corridor length.
+*******{{nbt|int|O}}: Likely orientation of the structure piece.
+*******{{nbt|byte|placedHiddenChest}}: 1 or 0 (true/false) - (Jungle temple) Whether the hidden chest was placed.
+*******{{nbt|byte|placedMainChest}}: 1 or 0 (true/false) - (Jungle temple) Whether the main chest was placed.
+*******{{nbt|byte|placedTrap1}}: 1 or 0 (true/false) - (Jungle temple) Whether the hallway arrow trap dispenser was placed.
+*******{{nbt|byte|placedTrap2}}: 1 or 0 (true/false) - (Jungle temple) Whether the chest arrow trap dispenser was placed.
+*******{{nbt|int|PosX}}: The X coordinate origin of this village part.{{verify|Still a thing since 1.14?}}
+*******{{nbt|int|PosY}}: The Y coordinate origin of this village part.{{verify|Still a thing since 1.14?}}
+*******{{nbt|int|PosZ}}: The Z coordinate origin of this village part.{{verify|Still a thing since 1.14?}}
+*******{{nbt|byte|Right}}: 1 or 0 (true/false) - (Stronghold "SHS") Whether the corridor has an opening on the right.
+*******{{nbt|byte|rightHigh}}: 1 or 0 (true/false) - (Stronghold "SH5C") Whether the 5-way crossing has an exit on the upper level on the side with the downward staircase.
+*******{{nbt|byte|rightLow}}: 1 or 0 (true/false) - (Stronghold "SH5C") Whether the 5-way crossing has an exit on the lower level on the side with the downward staircase.
+*******{{nbt|string|Rot}}: Rotation of ocean ruins and shipwrecks. Valid values are COUNTERCLOCKWISE_90, NONE, CLOCKWISE_90, and CLOCKWISE_180.
+*******{{nbt|byte|sc}}: 1 or 0 (true/false) - (Mineshaft "MSCorridor") Whether the corridor has cobwebs.
+*******{{nbt|int|Seed}}: (Fortress "NeBEF") Random seed for the broken-bridge fortress piece.
+*******{{nbt|byte|Source}}: 1 or 0 (true/false) - (Stronghold "SHSD") Whether the spiral staircase is the source of the Stronghold or was randomly generated.
+*******{{nbt|int|Steps}}: (Stronghold "SHFC") Length of the corridor
+*******{{nbt|int|T}}: (Village "ViSmH") Table: 0 is no table, 1 and 2 place it on either side of the hut.{{verify|Still a thing since 1.14?}}
+*******{{nbt|byte|Tall}}: 1 or 0 (true/false) - (Stronghold "SHLi") Whether the library has an upper level.
+*******{{nbt|string|Template}}: The template of the ocean ruin or shipwreck that was used.
+*******{{nbt|byte|Terrace}}: 1 or 0 (true/false) - (Village "ViSH") Whether the house has a ladder to the roof and fencing.{{verify|Still a thing since 1.14?}}
+*******{{nbt|byte|tf}}: 1 or 0 (true/false) - (Mineshaft "MSCrossing") Whether the crossing is two floors tall.
+*******{{nbt|int|TPX}}: The X coordinate origin of this ocean ruin or shipwreck.
+*******{{nbt|int|TPY}}: The Y coordinate origin of this ocean ruin or shipwreck.
+*******{{nbt|int|TPZ}}: The Z coordinate origin of this ocean ruin or shipwreck.
+*******{{nbt|byte|Type}}: (Village) Village type: 0=plains, 1=desert, 2=savanna, 3=taiga.{{verify|Still a thing since 1.14?}}
+*******{{nbt|int|Type}}: (Stronghold "SHRC") Indicates whether the room contains a pillar with torches, a fountain, an upper level with a chest, or is just empty room.
+*******{{nbt|int|VCount}}: (Village) Count of villagers spawned along with this piece.{{verify|Still a thing since 1.14?}}
+*******{{nbt|int|Width}}: (Temples and huts) Width of the structure (X/Z).
+*******{{nbt|byte|Witch}}: 1 or 0 (true/false) - (Witch hut) Whether the initial witch has been spawned for the hut.
+*******{{nbt|byte|Zombie}}: 1 or 0 (true/false) - (Village) Whether this village generated as a zombie village.{{verify|Still a thing since 1.14?}}
+*****{{nbt|int|ChunkX}}: Chunk X coordinate of the start of the structure. Absent if id is INVALID.
+*****{{nbt|int|ChunkZ}}: Chunk Z coordinate of the start of the structure. Absent if id is INVALID.
+*****{{nbt|string|id}}: If there's no structure of this kind in this chunk, this value is "INVALID", else it's the structure name.
+*****{{nbt|list|Processed}}: (Monument only) List of chunks that have had their piece of the structure created. Absent if id is INVALID.
+******{{nbt|compound}}: A chunk.
+*******{{nbt|int|X}}: The chunk's X position (chunk coordinates, not block coordinates).
+*******{{nbt|int|Z}}: The chunk's Z position.
+*****{{nbt|byte|Valid}}: 1 or 0 (true/false) - (Village only) Whether the village generated at least 3 non-roads. Absent if id is INVALID.
+</div>
+
+== Block format ==
+In the Anvil format, block positions are ordered YZX for compression purposes.
+
+The coordinate system is as follows:
+* '''X''' increases East, decreases West
+* '''Y''' increases upward, decreases downward
+* '''Z''' increases South, decreases North
+
+This means indices are ordered like in a book, with its top to the North, read from beneath and with words written backward: each letter is a different X-index, each line a Z-index, and each page a Y-index. In case of a flat 2D array, the Y-index is omitted, and the array reads like a single page.
+
+
+Each section is a 16×16×16-block area, with up to 16 sections in a chunk : from 0 at the bottom, to 15 on top. Empty sections are not saved. Each section has a "Y" byte for its Y-index (0 to 15), a "Palette" list linking IDs to block states, and a "BlockStates" long array storing the IDs per block location, compressed by fitting multiple IDs inside each entry (see [[Chunk_format#NBT_structure|NBT_structure]] above for details on the compression). There is an additional section at the top and bottom of the world used to store light, so that light travels properly over and under the world limits.
+
+The "BlockLight" byte array is for block light levels. The "SkyLight" byte array stores the maximum sky light that reaches each block, regardless of current time. Each of them are 2048 bytes long, and both are omitted if no light reaches this section of the chunk. Light level is stored as 4 bits per block, 2 blocks sharing a byte : starting at 0, even blocks take the first nibble, and odd blocks the second one. This is the only known instance of {{wikipedia|Little-endian|small-endian}} data storage in Java Edition.
+
+The pseudo-code below shows how to access individual block information from a single section.
+
+<pre>
+byte Nibble4(byte[] arr, int index){
+	return index%2 == 0 ? arr[index/2]&0x0F : (arr[index/2]>>4)&0x0F;
+}
+int BlockPos = y*16*16 + z*16 + x; 
+compound Block = Palette[change_array_element_size(BlockStates,Log2(length(Palette)))[BlockPos]];
+string BlockName = Block.Name; 
+compound BlockState = Block.Properties; 
+byte Blocklight = Nibble4(BlockLight, BlockPos); 
+byte Skylight = Nibble4(SkyLight, BlockPos);
+</pre>
+
+== <span class="anchor" id="Tile entity format"></span>Block entity format ==
+
+{| class="wikitable" style="position:relative; z-index:1; float:right; margin-right:0" data-description="Block entity IDs"
+|-
+! colspan="2" | Block Entities
+|-
+! Block Entity ID
+! Associated Block
+|-
+| banner
+| [[Banner]]
+|-
+| barrel
+| [[Barrel]]
+|-
+| beacon
+| [[Beacon]]
+|-
+| bed
+| [[Bed]]
+|-
+| beehive
+| [[Bee nest]]/[[beehive]]
+|-
+| bell
+| [[Bell]]
+|-
+| blast_furnace
+| [[Blast Furnace]]
+|-
+| brewing_stand
+| [[Brewing Stand]]
+|-
+| campfire
+| [[Campfire]]
+|-
+| chest
+| [[Chest]]
+|-
+| chiseled_bookshelf
+| [[Chiseled Bookshelf]]
+|-
+| comparator
+| [[Redstone Comparator]]
+|-
+| command_block
+| [[Command Block]]
+|-
+| conduit
+| [[Conduit]]
+|-
+| daylight_detector
+| [[Daylight Detector]]
+|-
+| dispenser
+| [[Dispenser]]
+|-
+| dropper
+| [[Dropper]]
+|-
+| enchanting_table
+| [[Enchanting Table]]
+|-
+| ender_chest
+| [[Ender Chest]]
+|-
+| end_gateway
+| [[End Gateway (block)|End Gateway]]
+|-
+| end_portal
+| [[End Portal (block)|End Portal]]
+|-
+| furnace
+| [[Furnace]]
+|-
+| hopper
+| [[Hopper]]
+|-
+| jigsaw
+| [[Jigsaw Block]]
+|-
+| jukebox
+| [[Jukebox]]
+|-
+| lectern
+| [[Lectern]]
+|-
+| mob_spawner
+| [[Monster Spawner]]
+|-
+| piston
+| [[Moving Piston]]
+|-
+| shulker_box
+| [[Shulker Box]]
+|-
+| sign
+| [[Sign]]
+|-
+| skull
+| [[Mob head]]
+|-
+| smoker
+| [[Smoker]]
+|-
+| soul_campfire
+| [[Soul Campfire]]
+|-
+| structure_block
+| [[Structure Block]]
+|-
+| trapped_chest
+| [[Trapped Chest]]
+|}
+A [[block entity]] (not related to [[entity]]) is used by ''Minecraft'' to store information about a block that can't be stored in the block's block states. Block entities were called "tile entities" until the 1.18 snapshots and that term is still used in some [[command]] usage.
+
+{{Data transclude|blockentity|Banner/BE|sprite=block|title=banners}}
+{{Data transclude|blockentity|Barrel/BE|sprite=block|title=barrel}}
+{{Data transclude|blockentity|Beacon/BE|sprite=block|title=beacon}}
+{{Data transclude|blockentity|Bed/BE|sprite=block|title=bed|icon=beds}}
+{{Data transclude|blockentity|Beehive/BE|sprite=block|title=beehive|icon=all-beehives}}
+{{Data transclude|blockentity|Bell/BE|sprite=block|title=bell}}
+{{Data transclude|blockentity|Blast Furnace/BE|sprite=block|link=Blast Furnace|title=blast_furnace}}
+{{Data transclude|blockentity|Brewing Stand/BE|sprite=block|link=Brewing Stand|title=brewing_stand}}
+{{Data transclude|blockentity|Campfire/BE|sprite=block|title=campfire}}
+{{Data transclude|blockentity|Chiseled Bookshelf/BE|sprite=block|title=chiseled_bookshelf|link=Chiseled Bookshelf}}
+{{Data transclude|blockentity|Chest/BE|sprite=block|title=chest}}
+{{Data transclude|blockentity|Redstone Comparator/BE|sprite=block|link=Redstone Comparator|title=comparator}}
+{{Data transclude|blockentity|Command Block/BE|sprite=block|link=Command Block|title=command_block|icon=command-blocks}}
+{{Data transclude|blockentity|Conduit/BE|sprite=block|link=Conduit|title=conduit}}
+{{Data transclude|blockentity|Daylight Detector/BE|sprite=block|link=Daylight Detector|title=daylight_detector}}
+{{Data transclude|blockentity|Dispenser/BE|sprite=block|link=Dispenser|title=dispenser}}
+{{Data transclude|blockentity|Dropper/BE|sprite=block|title=dropper}}
+{{Data transclude|blockentity|Enchanting Table/BE|sprite=block|link=Enchanting Table|title=enchanting_table}}
+{{Data transclude|blockentity|Ender Chest/BE|sprite=block|link=Ender Chest|title=ender_chest}}
+{{Data transclude|blockentity|End Gateway (block)/BE|sprite=block|icon=end-gateway|link=End Gateway (block)|title=end_gateway}}
+{{Data transclude|blockentity|End Portal (block)/BE|sprite=block|icon=end-portal|link=End Portal (block)|title=end_portal}}
+{{Data transclude|blockentity|Furnace/BE|sprite=block|title=furnace}}
+{{Data transclude|blockentity|Hopper/BE|sprite=block|title=hopper}}
+{{Data transclude|blockentity|Jigsaw Block/BE|sprite=block|title=jigsaw|link=Jigsaw Block}}
+{{Data transclude|blockentity|Jukebox/BE|sprite=block|link=Jukebox|title=jukebox}}
+{{Data transclude|blockentity|Lectern/BE|sprite=block|title=lectern}}
+{{Data transclude|blockentity|Monster Spawner/BE|sprite=block|link=Monster Spawner|title=mob_spawner}}
+{{Data transclude|blockentity|Piston/BE|sprite=block|title=piston}}
+{{Data transclude|blockentity|Shulker Box/BE|sprite=block|link=Shulker Box|title=shulker_box}}
+{{Data transclude|blockentity|Sign/BE|sprite=block|title=sign|icon=signs}}
+{{Data transclude|blockentity|Head/BE|sprite=block|link=Head|title=skull|icon=heads}}
+{{Data transclude|blockentity|Smoker/BE|sprite=block|title=smoker}}
+{{Data transclude|blockentity|Campfire/BE|sprite=block|link=Soul Campfire|title=soul_campfire}}
+{{Data transclude|blockentity|Structure Block/BE|sprite=block|link=Structure Block|title=structure_block}}
+{{Data transclude|blockentity|Chest/BE|sprite=block|title=trapped_chest|link=Trapped Chest}}
+{{-}}
+
+== Tile tick format ==
+Tile Ticks represent block updates that need to happen because they could not happen before the chunk was saved. Examples reasons for tile ticks include redstone circuits needing to continue updating, water and lava that should continue flowing, recently placed sand or gravel that should fall, etc. Tile ticks are not used for purposes such as leaf decay, where the decay information is stored in the leaf block data values and handled by Minecraft when the chunk loads. For map makers, tile ticks can be used to update blocks after a period of time has passed with the chunk loaded into memory.
+
+<div class="treeview">
+* {{nbt|compound}} A Tile Tick
+** {{:Chunk format/Tile Tick}}
+</div>
+
+== ToBeTicked format ==
+This TAG_List is always present, and contains 16 TAG_lists, each representing one of the "sections" of the chunk. Those inside lists may contain TAG_Shorts, each representing a packed coordinate relative to the section : The 4 most significant bits are always 0, then each group of 4 bits (or nibble) represents a section-relative coordinate, from 0 to 15. The order of sections in the list appear to be ordered from bottom to top, and the packing order of the coordinates is 0ZYX. When converting ''proto-chunks'' to full chunks, only coordinates that are stored in PostProcessing appear to receive a tick update, tick updates stored in ''block_ticks'' and ''fluid_ticks'' are ignored. {{verify|Further testing needed for confirmation.}}
+
+== History ==
+{{Needs update|section=1|This history section is missing a significant number of changes, including most of the 1.13 changes, mainly the region file format.}}
+
+{{History|java beta}}
+{{History||1.2|Originally, chunks were stored as individual chunk files ".dat" where the file names contained the chunk's position encoded in Base36
+| The format used was [[Java Edition Alpha level format]]}} 
+{{History||1.3|The [[Region file format|MCRegion]] format is introduced
+|Chunks are now stored in groups of 32×32 chunks in individual ".mcr" files with the coordinates in Base10
+|The goal was to reduce disk usage by cutting down on the number of file handles Minecraft had open at once.
+}}
+{{History|java}}
+{{History||1.2.1|snap=?|The [[Anvil file format]] is introduced
+| Chunks are now divided into 16 individual 16×16×16 block sections
+| Blocks, Data, BlockLight, and SkyLight arrays are now housed in individual chunk Sections
+| The [[NBT Format]] now includes an integer array tag similar to the existing byte array tag
+}}
+{{History||1.3.1|snap=12w21a|<code>MaxExperience</code>, <code>RemainingExperience</code>, <code>ExperienceRegenTick</code>, <code>ExperienceRegenRate</code> and <code>ExperienceRegenAmount</code> from <code>MobSpawner</code> have been removed.}}
+{{History||1.4.2|snap=12w34a|Added entity <code>WitherBoss</code>.}}
+{{History||1.5|snap=13w02a|Added entity <code>MinecartTNT</code>.
+|<code>Minecart</code> is now deprecated.}}
+{{History|||snap=13w03a|Added entity <code>MinecartHopper</code>.}}
+{{History|||snap=13w06a|Added entity <code>MinecartSpawner</code>.}}
+{{History||1.6.1|snap=13w16a|Added entity <code>EntityHorse</code>.}}
+{{History|||snap=13w21a|<code>ArmorType</code> has been removed from <code>EntityHorse</code>.
+|<code>Saddle</code> has been removed from <code>EntityHorse</code>.}}
+{{History|||snap=release|<code>Saddle</code> to <code>EntityHorse</code> has been re-added.}}
+{{History||1.7.2|snap=13w39a|Added entity <code>MinecartCommandBlock</code>.}}
+{{History|||snap=13w42a|Added <code>CanBreakDoors</code> to <code>Zombie</code>.}}
+{{History||1.8|snap=14w02a|Added <code>Lock</code> to containers.
+|[[Item]] IDs are no longer used when specifying NBT data.
+|Added <code>Block</code> to <code>FallingBlock</code>, using the alphabetical ID format.}}
+{{History|||snap=14w06a|Added <code>ShowParticles</code> to all [[mob]]s.
+|Added <code>PickupDelay</code> to [[item]] [[entity|entities]].
+|Setting <code>Age</code> to -32768 makes items, which never expire.
+|<code>AttackTime</code> has been removed from [[mob]]s.}}
+{{History|||snap=14w10a|Added <code>rewardExp</code> to <code>Villager</code>.
+|Added <code>OwnerUUID</code> for mobs that can [[breeding|breed]].
+|Added <code>Owner</code> to <code>Skull</code>.
+|Changes to [[item frame]]s and [[painting]]s: added <code>Facing</code>, <code>TileX</code>, <code>TileY</code> and <code>TileZ</code> now represent the co-ordinates of the [[block]] the [[item]] is in rather than what it is placed on. <code>Direction</code> and <code>Dir</code> are now deprecated.}}
+{{History|||snap=14w11a|Added [[entity]] <code>Endermite</code>.
+|Added <code>EndermiteCount</code> to <code>Enderman</code>.}}
+{{History|||snap=14w21a|<code>CustomName</code> and <code>CustomNameVisible</code> now work for all [[entity|entities]].}}
+{{History|||snap=14w25a|Added entity <code>Guardian</code>.
+|Added <code>Text1</code>, <code>Text2</code>, <code>Text3</code> and <code>Text4</code> to [[sign]]s. The limit no longer depends on the amount of characters (16), it now depends on the width of the characters.}}
+{{History|||snap=14w27a|Added entity <code>Rabbit</code>.
+Added <code>CommandStats</code> to [[command block]]s and signs.}}
+{{History|||snap=14w28a|<code>EndermiteCount</code> has been removed from <code>Enderman</code>.}}
+{{History|||snap=14w30a|Added <code>Silent</code> for all [[entity|entities]].}}
+{{History|||snap=14w32a|Added <code>NoAI</code> for all [[mob]]s.
+|Added entity <code>ArmorStand</code>.}}
+{{History|||snap=14w32c|Added <code>NoBasePlate</code> to <code>ArmorStand</code>.}}
+{{History||1.9|snap=15w31a|Added [[tag]]s <code>HandItems</code>, <code>ArmorItems</code>, <code>HandDropChances</code>, and <code>ArmorDropChances</code> to <code>Living</code>, which now replace the <code>DropChances</code> and <code>Equipment</code> tags.
+|Added <code>HandItems</code> and <code>ArmorItems</code> to <code>ArmorStand</code>.
+|Added <code>Glowing</code> to <code>Entity</code>.
+|Added <code>Team</code> to <code>LivingBase</code>.
+|Added <code>DragonPhase</code> to <code>EnderDragon</code>
+|Added [[entity]] <code>Shulker</code>, child of <code>Entity</code>.
+|Added entity <code>ShulkerBullet</code>, child of <code>Entity</code>.
+|Added entity <code>DragonFireball</code>, which extends <code>FireballBase</code> and has no unique tags.
+|Added entities <code>TippedArrow</code> and <code>SpectralArrow</code>, children of <code>Arrow</code>.
+|Added [[block]] <code>EndGateway</code>, child of <code>TileEntity</code>.
+|Added block <code>Structure</code>, child of <code>TileEntity</code>.
+|Added [[item]] [[tag]] <code>Potion</code>, child of <code>tag</code>.}}
+{{History|||snap=15w32a|<code>Tags</code> and <code>DataVersion</code> tag can now be applied on [[entity|entities]].
+|Changed the <code>Fuse</code> tag's type for the </code>PrimedTnt</code> entity from "Byte" to "Short".}}
+{{History|||snap=15w32c|Introduced a limit on the amount of [[tag]]s an entity can now have (1024 tags). When surpassed it displays an error saying: "Cannot add more than 1024 tags to an entity."}}
+{{History|||snap=15w33a|Added entity <code>AreaEffectCloud</code>, child of <code>Entity</code>.
+|Added <code>ExactTeleport</code> and renamed <code>Life</code> to <code>Age</code> for <code>EndGateway</code>.
+|Added <code>Linger</code> to <code>ThrownPotion</code>.
+|<code>DataVersion</code> from <code>Entity</code> has been removed. It is now applied to <code>Player</code> only, child of <code>LivingBase</code>.
+|<code>UUID</code> from <code>Entity</code> has been removed.
+|<code>HealF</code> under <code>LivingBase</code> has now become deprecated.
+|<code>Health</code> under <code>LivingBase</code> has now changed from type "Short" to "Float".
+|<code>Equipment</code> has been removed from <code>ArmorStand</code> and <code>Living</code> entity, its usage is now replaced by <code>HandItems</code> and <code>ArmorItems</code>, which were added earlier.}}
+{{History|||snap=15w33c|Added <code>BeamTarget</code> to <code>EnderCrystal</code>.}}
+{{History|||snap=15w34a|Added <code>powered</code> and <code>conditional</code> byte [[tag]]s to <code>Control</code> tile [[entity]] for [[command block]]s.
+|Added <code>life</code> and <code>power</code> to <code>FireballBase</code>.
+|Added <code>id</code> inside <code>SpawnData</code> to <code>MobSpawner</code>.
+|Added <code>powered</code> to the <code>Music</code> tile entity for [[note block]]s.}}
+{{History|||snap=15w35a|Added <code>VillagerProfession</code> to <code>Zombie</code>.}}
+{{History|||snap=15w37a|Added <code>Enabled</code> to <code>MinecartHopper</code>.}}
+{{History|||snap=15w38a|Added <code>SkeletonTrap</code> and <code>SkeletonTrapTime</code> to <code>EntityHorse</code>.}}
+{{History|||snap=15w41a|<code>Riding</code> has been replaced with <code>Passengers</code> for all [[entity|entities]].
+|Added <code>RootVehicle</code> for all passengers.
+|Added <code>Type</code> to <code>Boat</code>.}}
+{{History|||snap=15w42a|Added <code>Fuel</code> to <code>Cauldron</code> ([[brewing stand]]s).}}
+{{History|||snap=15w43a|Added <code>LootTable</code> and <code>LootTableSeed</code> to <code>Chest</code>, <code>Minecart</code> and <code>MinecartHopper</code>.
+|Added <code>DeathLootTable</code> and <code>DeathLootTableSeed</code> to all [[mob]]s.
+|Added <code>life</code> and <code>power</code> to all [[fireball]]s (<code>FireballBase</code>).}}
+{{History|||snap=15w44a|Added <code>ShowBottom</code> to <code>EnderCrystal</code>.}}
+{{History|||snap=15w44b|Added <code>Potion</code> and <code>CustomPotionEffects</code> to <code>Arrow</code>.
+|Added <code>Potion</code> to <code>AreaEffectCloud</code>.}}
+{{History|||snap=15w45a|<code>Linger</code> has been removed from <code>ThrownPotion</code>. Instead, the [[potion]] lingers if the stored item has an ID of <code>minecraft:lingering_potion</code>.
+|<code>ThrownPotion</code> now renders as its stored [[item]], even if the item is not a potion.}}
+{{History|||snap=15w46a|<code>MoreCarrotTicks</code> from <code>Rabbit</code> is now set to 40 when [[rabbit]]s eat a [[carrot]] [[crop]], but is not used anyway.}}
+{{History|||snap=15w47a|Added <code>PaymentItem</code> to <code>Beacon</code>.}}
+{{History|||snap=15w49a|<code>PaymentItem</code> has been removed from <code>Beacon</code>.
+|In order for a sign to accept text, all 4 tags ("Text1", "Text2", "Text3", and "Text4") must exist.}}
+{{History|||snap=15w51b|The original values of <code>DisabledSlots</code> in <code>ArmorStand</code> have been changed in nature.}}
+{{History||1.10|snap=16w20a|Added entity <code>PolarBear</code>.
+|Added <code>ZombieType</code> to <code>Zombie</code>, replacing <code>VillagerProfession</code> and <code>IsVillager</code>. Value of 6 indicates the "[[husk]]" [[zombie]].
+|A value of 2 on <code>SkeletonType</code> indicates the "[[stray]]" [[skeleton]].
+|<code>NoGravity</code> extended to all [[entity|entities]].
+|Added <code>powered</code>, <code>showboundingbox</code> and <code>showair</code> to <code>Structure</code>.}}
+{{History|||snap=16w21a|Added <code>FallFlying</code> to [[mob]]s and [[armor stand]]s.
+|Added <code>integrity</code> and <code>seed</code> to <code>Structure</code>.}}
+{{History|||snap=pre1|Added <code>ParticleParam1</code> and <code>ParticleParam2</code> to <code>AreaEffectCloud</code>.}}
+{{History||1.11|snap=16w32a|[[Horse]]s have been split into [[entity]] IDs <code>horse</code>, <code>donkey</code>, <code>mule</code>, <code>skeleton_horse</code> and <code>zombie_horse</code> for their respective types. <code>Type</code> and <code>HasReproduced</code> removed from <code>horse</code>, <code>ChestedHorse</code> and <code>Items</code> tags now apply only to <code>mule</code> and <code>donkey</code>, and <code>SkeletonTrap</code> and <code>SkeletonTrapTime</code> [[tag]]s now apply only to <code>skeleton_horse</code>.
+|[[Skeleton]]s have been split into entity IDs <code>skeleton</code>, <code>stray</code> and <code>wither_skeleton</code>. <code>SkeletonType</code> tag is removed from all skeleton types. 
+|[[Zombie]]s have been split into entity IDs <code>zombie</code>, <code>zombie_villager</code> and <code>husk</code>. <code>ZombieType</code> tag is removed from all zombie types, <code>ConversionTime</code> and <code>Profession</code> tags now apply only to <code>zombie_villager</code>.
+|[[Guardian]]s have been split into entity IDs <code>guardian</code> and <code>elder_guardian</code>. <code>Elder</code> tag has been removed from <code>guardian</code>.
+|Unused savegame IDs <code>Mob</code> and <code>Monster</code> have been removed.
+|<code>Pumpkin</code> byte [[tag]] has been added to <code>snowman</code>.}}
+{{History|||snap=16w35a|Added <code>CustomName</code> to <code>banner</code>.}}
+{{History|||snap=16w39a|Added <code>llama</code>, <code>llama_spit</code>, <code>vindication_illager</code>, <code>vex</code>, <code>evocation_fangs</code> and <code>evocation_illager</code>.
+|Added <code>Color</code> to <code>shulker</code>.
+|Added <code>LocName</code>, <code>CustomPotionColor</code> and <code>ColorMap</code> to [[item]]s.}}
+{{History|||snap=16w40a|Added <code>Johnny</code> to <code>vindication_illager</code>.
+|Removed <code>xTile</code>, <code>yTile</code>, <code>zTile</code>, <code>inTile</code>, <code>inGround</code> from the FireballBase class (in large [[fireball]]s, small fireballs, [[dragon fireball]]s, and [[wither skull]]s).}}
+{{History|||snap=16w41a|<code>llama_spit</code> is now available as a save game entity.}}
+{{History|||snap=16w42a|Added <code>crit</code> to <code>arrow</code>.}}
+{{History|||snap=16w43a|Added <code>OwnerUUIDLeast</code> and <code>OwnerUUIDMost</code> to <code>evocation_fangs</code>.}}
+{{History|||snap=16w44a|<code>xTile</code>, <code>yTile</code>, <code>zTile</code>, <code>inTile</code>, <code>inGround</code> have been removed from the fishing bobber entity.}}
+{{History|||snap=pre1|<code>ench</code> has been changed to require at least one compound.}}
+{{History||1.12|snap=17w13a|Added entity <code>Parrot</code>, <code>ShoulderEntityLeft</code>/<code>ShoulderEntityRight</code>, <code>seenCredits</code>, <code>recipeBook</code> and <code>Recipes</code>.}}
+{{History|||snap=17w14a|Added <code>isFilteringCraftable</code>, <code>isGuiOpen</code> and <code>recipes</code> to <code>recipeBook</code>, which is now a compound [[tag]].
+|Added <code>ConversionPlayerLeast</code> and <code>ConversionPlayerMost</code> to [[entity]] <code>Zombie</code>.}}
+{{History|||snap=17w16a|NBT parsing in commands has been improved.}}
+{{History|||snap=17w17a|Added <code>toBeDisplayed</code> to <code>recipeBook</code>, <code>UpdateLastExecution</code> and <code>LastExecution</code>.}}
+{{History|||snap=17w17b|Added <code>LoveCauseLeast</code> and <code>LoveCauseMost</code> to [[breeding|breedable]] [[entity|entities]].}}
+{{History||1.13|snap=17w47a|The {{code|damage}} tag from items removed, tools and armor now use {{code|Damage}} and maps use {{code|map}}, both in {{code|tag}}.
+|Endermen's {{code|carried}} and {{code|carriedData}} merged into {{code|carriedBlockState}}.
+|Arrows' {{code|inTile}} and {{code|inData}} merged into {{code|inBlockState}}.
+|Minecarts' {{code|DisplayTile}} and {{code|DisplayData}} merged into {{code|DisplayState}}.
+|Falling blocks' {{code|Block}} and {{code|Data}} merged into {{code|BlockState}}.
+|Moving pistons' {{code|BlockId}} and {{code|BlockData}} merged into {{code|blockState}}.
+|Removed note block and flower pot block entities.
+|Trapped chests now have their own block entity {{code|trapped_chest}}.
+|Removed {{code|Base}} from banners.
+|Removed {{code|Rot}} from heads.}}
+{{History|||snap=17w47a|Removed {{code|Record}} from jukeboxes.}}
+{{History|||snap=17w47b|Trapped chests no longer have their own block entity, and again use {{code|chest}}.}}
+{{History|||snap=18w01a|<code>Thrower</code> and <code>Owner</code> has been changed from strings to compounds with two longs named <code>L</code> and <code>M</code>.}}
+{{History|||snap=18w02a|Bobbers created by fishing rods now have the entity ID <code>fishing_bobber</code>.
+|Painting motives are now lowercased and namespaced.}}
+{{History|||snap=18w07a|Added <code>turtle</code>, <code>trident</code>, and <code>phantom</code> entities.
+|Added <code>HomePosX</code>, <code>HomePosY</code>, <code>HomePosZ</code>, <code>TravelPosX</code>, <code>TravelPosY</code>, <code>TravelPosZ</code>, and <code>HasEgg</code> to <code>turtle</code>.
+|Added <code>AX</code>, <code>AY</code>, <code>AZ</code>, and <code>Size</code> to <code>phantom</code>.}}
+{{History|||snap=18w15a|Added <code>dolphin</code> entity.}}
+{{History|||snap=18w19a|Renamed {{code|puffer_fish}} to {{code|pufferfish}}.}}
+{{History|||snap=18w20a|Renamed {{code|cod_mob}} to {{code|cod}}.
+|Renamed {{code|salmon_mob}} to {{code|salmon}}.}}
+{{History|||snap=18w21a|Added <code>TreasurePosX</code>, <code>TreasurePosY</code>, <code>TreasurePosZ</code>, <code>GotFish</code>, and <code>CanFindTreasure</code> to <code>dolphin</code>.
+|<code>ench</code> has been renamed to <code>Enchantments</code>.
+|<code>Enchantments</code> no longer accepts numeric IDs, and instead requires name IDs.}}
+{{History|||snap=pre5|Renamed {{code|xp_orb}} to {{code|experience_orb}}.
+|Renamed {{code|xp_bottle}} to {{code|experience_bottle}}.
+|Renamed {{code|eye_of_ender_signal}} to {{code|eye_of_ender}}.
+|Renamed {{code|ender_crystal}} to {{code|end_crystal}}.
+|Renamed {{code|fireworks_rocket}} to {{code|firework_rocket}}.
+|Renamed {{code|commandblock_minecart}} to {{code|command_block_minecart}}.
+|Renamed {{code|villager_golem}} to {{code|iron_golem}}.
+|Renamed {{code|evocation_fangs}} to {{code|evoker_fangs}}.
+|Renamed {{code|evocation_illager}} to {{code|evoker}}.
+|Renamed {{code|vindication_illager}} to {{code|vindicator}}.
+|Renamed {{code|illusion_illager}} to {{code|illusioner}}.}}
+{{History||1.14|snap=18w43a|Added <code>illager_beast</code>, <code>panda</code>, and <code>pillager</code> entities.}}
+{{History|||snap=18w45a|The <code>LIGHT_BLOCKING</code> heightmap has been removed.}}
+{{History||1.15|snap=19w36a|The {{nbt|int array|Biomes}} array in the {{nbt|compound|Level}} tag for each chunk now contains 1024 integers instead of 256, allowing biomes to differ based on altitude.}}
+{{History||1.17|snap=20w45a|Entities have been extracted from main (terrain) chunks and are now stored in separate entities directory (similar to POI storage). Those new files are still region files with NBT.}}
+{{History|||snap=20w51a|Added <code>axolotl</code>.}}
+{{History|||snap=21w03a|Added <code>glow_squid</code>.}}
+{{History|||snap=21w13a|Added <code>goat</code>.}}
+{{History|java upcoming}}
+{{History||1.20.2|snap=23w32a|Game no longer uses numeric values when storing mob effects to world. For example, <code>4</code> becomes <code>minecraft:mining_fatigue</code>.|Changed following fields in mob effect instances:
+* <code>Id</code> (integer) -> <code>id</code> (string, resource identifier)
+* <code>Ambient</code> -> <code>ambient</code>
+* <code>Amplifier</code> -> <code>amplifier</code>
+* <code>Duration</code> -> <code>duration</code>
+* <code>ShowParticles</code> -> <code>show_particles</code>
+* <code>ShowIcon</code> -> <code>show_icon</code>
+* <code>HiddenEffect</code> -> <code>hidden_effect</code>
+* <code>FactorCalculationData</code> -> <code>factor_calculation_data</code>
+|In NBT format for block entity type <code>beacon</code>:
+*<code>Primary</code> (integer) -> <code>primary_effect</code> (string, resource identifier)
+*<code>Secondary</code> (integer) -> <code>secondary_effect</code> (string, resource identifier)}}
+{{History|foot}}
+
+==References==
+{{Reflist}}
+
+{{Java Edition}}
+
+[[Category:Development]]
+
+[[de:Chunkdaten]]
+[[fr:Format de tronçon]]
+[[ja:Chunkフォーマット]]
+[[ko:청크 형식]]
+[[nl:Segment formaat]]
+[[ru:Формат чанка]]
+[[pt:Formato Chunk]]
+[[tr:Chunk Biçimi]]
+[[uk:Формат чанку]]
+[[zh:区块格式]]

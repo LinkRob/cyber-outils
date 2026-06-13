@@ -1,0 +1,166 @@
+{{about|the fruit that drops from [[chorus tree]]s|the building material|Popped Chorus Fruit|other uses|Chorus}}
+{{Item
+| title = Chorus Fruit
+| image = Chorus Fruit.png
+| renewable = Yes
+| heals = {{hunger|4}}
+| stackable = Yes (64)
+}}
+
+'''Chorus fruit''' is a [[food]] [[item]] native to [[the End]] that can be eaten, or [[smelting|smelted]] into [[Popped Chorus Fruit|popped chorus fruit]]. It can be eaten even when the hunger bar is full, and eating it may teleport the [[player]] up to 8 blocks in any direction.
+
+== Obtaining ==
+{{see also|Tutorials/Chorus fruit farming}}
+
+Chorus fruit can be obtained by breaking [[Chorus Plant (block)|chorus plant blocks]]. Each block of chorus plant has a 50% chance to drop a chorus fruit. This is not affected by [[Fortune]].<ref>{{bug|MC-198924||Chorus Fruit doesn't have a higher chance with Fortune|Invalid}}</ref>
+
+== Usage ==
+To eat chorus fruit, press and hold {{control|use}} while it is selected in the hotbar. Eating one restores {{hunger|4}} [[hunger]] and 2.4 hunger [[Hunger#Mechanics|saturation]].
+
+Unlike most foods, chorus fruits can be eaten even when the player has a full hunger bar.
+
+The player may also be [[teleportation|teleported]]: up to 16 attempts are made to choose a random destination within ±8 on all three axes in the same manner as [[Enderman#Teleportation|enderman teleportation]], with the exception that the player may teleport into an area only 2 blocks high, or one block tall if the player is crawling. The player does not land in the average centroid of the block, but rather to any position within an 8-block range. The player will be teleported directly down to the ground regardless of the height it was used at if the player is too far from a valid destination.
+
+The chorus fruit, unlike an [[Ender Pearl|ender pearl]], can teleport the player through [[solid block]]s. The algorithm tries to avoid [[fluid]]s; the player cannot teleport into a space occupied by [[water]] or [[lava]]. However, the player can be teleported onto dangerous blocks such as fire, cacti and magma blocks.<ref>{{bug|MC-102836||Enderman and chorus fruit can teleport to some dangerous places}}</ref>
+
+If a teleport succeeds, a sound similar to an enderman teleporting plays originating from the teleportation origin location. Chorus fruit has a cooldown of 1 second before being able to be used again. The cooldown is represented by a white overlay on the chorus fruit in the hotbar. The cooldown is applied to all chorus fruits items, including those in the player's inventory and containers.<ref>{{bug|MC-88236|||WAI}}</ref>
+
+Eating chorus fruit may teleport the player into areas protected by [[bedrock]], [[barrier|barrier blocks]], or other blocks that are otherwise unbreakable in [[Survival]] mode. However, it cannot teleport the player onto [[the Nether]] roof.<ref>{{bug|MC-84198|||Fixed}}</ref>
+
+Chorus fruit is completely non-functional above the nether roof.
+
+[[Fox]]es can also eat chorus fruit and the teleportation effect works the same as with players.
+
+=== Smelting ingredient ===
+
+{{smelting
+|Chorus Fruit
+|Popped Chorus Fruit
+|0.1}}
+
+== Sounds ==
+===Generic===
+{{Sound table/Entity/Food}}
+===Unique===
+{{edition|java}}:
+{{Sound table
+|rowspan=2
+|sound=Teleport1.ogg
+|sound2=Teleport2.ogg
+|subtitle=Player teleports
+|source=player
+|description=When a player teleports by eating a chorus fruit
+|id=item.chorus_fruit.teleport
+|translationkey=subtitles.item.chorus_fruit.teleport
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|subtitle=Fox teleports
+|source=Players & Friendly Creatures<wbr><ref group=sound>{{Bug|MC-257516||"Fox teleports" sound plays for both Players and Friendly Creatures sound categories}}</ref>|overridesource=1
+|description=When a fox teleports by eating a chorus fruit
+|id=entity.fox.teleport
+|translationkey=subtitles.entity.fox.teleport
+|volume=1.0
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Teleport1.ogg
+|sound2=Teleport2.ogg
+|source=hostile
+|description=When something teleports by eating a chorus fruit
+|id=mob.shulker.teleport
+|volume=1.0
+|pitch=1.0
+|foot=1}}
+
+==Data values ==
+
+===ID===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Chorus Fruit
+|spritetype=item
+|nameid=chorus_fruit
+|form=item
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|notshowbeitemforms=y
+|generatetranslationkeys=y
+|displayname=Chorus Fruit
+|spritetype=item
+|nameid=chorus_fruit
+|id=558
+|form=item
+|foot=1}}
+
+==Advancements==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load advancements|Husbandry;A Balanced Diet}}
+</table-progress-tracking>
+
+==History==
+{{History|java}}
+{{History||1.9|snap=15w31a|[[File:Chorus Fruit JE1 BE1.png|32px]] Added chorus fruit.}}
+{{History|||snap=15w34c|A cooldown for using chorus fruit has now been added.}}
+{{History|||snap=15w37a|The chorus fruit's teleportation range has now been reduced from ±32 to ±8.}}
+{{History|||snap=15w50a|Added a [[sound]] for chorus fruit: <code>item.chorus_fruit.teleport</code>.}}
+{{History||1.10|snap=16w21a|Chorus fruit can now teleport riders off their mounts.}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], this [[item]]'s numeral ID was 432.}}
+{{History||1.14|snap=18w43a|[[File:Chorus Fruit JE2 BE2.png|32px]] The texture of chorus fruit has now been changed.}}
+{{History||1.20.2|snap=23w33a|Eating chorus fruit now resets fall distance.<ref>{{bug|MC-112133||Eating chorus fruit does not reset fall distance|Fixed}}</ref>}}
+
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|[[File:Chorus Fruit JE1 BE1.png|32px]] Added chorus fruit.}}
+{{History|||snap=alpha 1.0.0.1|The cooldown of chorus fruit now has an animation.}}
+{{History|bedrock}}
+{{History||1.7.0|snap=beta 1.7.0.2|The category that chorus fruit are apart of in the [[Creative inventory]] has been changed from "Nature" to "Items".}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Chorus Fruit JE2 BE2.png|32px]] The texture of chorus fruit has now been changed.}}
+{{History||1.13.0|snap=beta 1.13.0.15|Chorus fruit has been moved back to the "Nature" section in the Creative inventory.}}
+
+{{History|console}}
+{{History||xbox=TU46|xbone=CU36|switch=1.0.1|ps=1.38|wiiu=Patch 15|[[File:Chorus Fruit JE1 BE1.png|32px]] Added chorus fruit.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Chorus Fruit JE2 BE2.png|32px]] The texture of chorus fruit has now been changed.}}
+
+{{History|new 3ds}}
+{{History||1.7.10|[[File:Chorus Fruit JE1 BE1.png|32px]] Added chorus fruit.}}
+{{History|foot}}
+
+==Issues==
+{{issue list}}
+
+==References==
+{{reflist}}
+
+==External Links==
+*[https://www.minecraft.net/en-us/article/taking-inventory--chorus-fruit Taking Inventory: Chorus Fruit] – Minecraft.net on November 5, 2020
+
+{{Items}}
+
+[[Category:Plants]]
+[[Category:Food]]
+[[Category:Renewable resources]]
+
+[[de:Chorusfrucht]]
+[[es:Fruta chorus]]
+[[fr:Chorus]]
+[[ja:コーラスフルーツ]]
+[[ko:후렴과]]
+[[nl:Chorusfruit]]
+[[pl:Owoc refrenusu]]
+[[pt:Fruta do coro]]
+[[ru:Плод коруса]]
+[[uk:Фрукт хорусу]]
+[[zh:紫颂果]]

@@ -1,0 +1,121 @@
+{{Infobox command
+| name = summon
+| oplevel =
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+| others = [[Options|Cheat]] only{{only|bedrock|short=1}}
+}}
+
+Summons an [[entity]].
+
+==Syntax==
+
+* '''''Java Edition'''''
+: <code>summon <entity> [<pos>] [<nbt>]</code>
+
+* '''''Bedrock Edition'''''
+: <code>summon <entityType: EntityType> [spawnPos: x y z] [yRot: value] [xRot: value] [spawnEvent: string] [nameTag: string]</code>
+: <code>summon <entityType: EntityType> [spawnPos: x y z] facing <lookAtEntity: target> [spawnEvent: string] [nameTag: string]</code>
+: <code>summon <entityType: EntityType> [spawnPos: x y z] facing <lookAtPosition: x y z> [spawnEvent: string] [nameTag: string]</code>
+
+==Arguments==
+
+{{argument|entity|resource|entityType: EntityType|enum}}
+: Specifies the entity to be summoned.
+: {{arg desc|je=resource|registry=minecraft:entity_type|be=enum}}
+
+{{argument|pos|vec3|spawnPos: x y z|CommandPositionFloat}}
+: Specifies the position to summon the entity. If not specified, defaults to the position of the command's execution.
+: {{arg desc|je=vec3|be=CommandPositionFloat}}
+
+{{el|je|short=1}}: {{argument|nbt|nbt_compound_tag}}
+: Specifies the [[Commands#Data tags|data tag]] for the entity.
+: {{arg desc|je=nbt_compound_tag}}
+
+{{el|be|short=1}}: {{Argument|be=1|yRot: value|RelativeFloat}} and {{Argument|be=1|xRot: value|RelativeFloat}}
+: Specifies the rotation of the summoned entity.
+: {{arg desc|be=RelativeFloat}}
+
+{{el|be|short=1}}: {{Argument|be=1|lookAtEntity: target|CommandSelector<Actor>}}
+: Specifies the entity to make the summoned entity facing to.
+: {{arg desc|be=CommandSelector<Actor>}}
+
+{{el|be|short=1}}: {{Argument|be=1|lookAtPosition: x y z|CommandPositionFloat}}
+: Specifies the coordinates to make the summoned entity facing to.
+: {{arg desc|be=CommandPositionFloat}}
+
+{{el|be|short=1}}: {{argument|be=1|spawnEvent: string|basic_string}}
+: Specifies the in-game event for the entity. Should be a [[spawn event]] (event name for entities in behavior pack).
+: {{arg desc|be=basic_string}}
+
+{{el|be|short=1}}: {{argument|be=1|nameTag: string|basic_string}}
+: Specifies the name of the entity.
+: {{arg desc|be=basic_string}}
+
+==Result==
+
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|unparseable}}
+{{Result table|specified position is unloaded|fail|fail}}
+{{Result table|trying to summon hostiles in peaceful difficulty.|success}}
+{{Result table|attempting to summon an entity with a duplicate UUID.|fail|N/A}}
+{{Result table|designated position's <x> or <z> exceeds the range of [-30000000, 30000000), or <y> exceeds the range of [-20000000, 20000000)||success}}
+{{Result table|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|On success|1|1|1}}
+{{Output table|edition=be|On fail|0}}
+{{Output table|On success|1}}
+{{Output table}}
+
+==Examples==
+
+*To summon lightning 10 blocks west of the current position of the executing player:
+** <code> summon lightning_bolt ~-10 ~ ~</code>
+
+* ''Java Edition'':
+** To summon a [[charged creeper]] at the current position named "Powered Creeper":
+*** <code> summon creeper ~ ~ ~ {powered:1b,CustomName:'{"text":"Powered Creeper"}'}</code>
+*** NOTE: CustomName is a [[raw JSON text]].
+** To summon a [[spider jockey]]:
+***<code>summon spider ~ ~ ~ {Passengers:[{id:"minecraft:skeleton",HandItems:[{id:"minecraft:bow",Count:1b}]}]}</code>
+** To summon a [[villager]] that trades 1 dirt block in exchange for 1 diamond:
+***<code>summon villager ~ ~ ~ {Offers:{Recipes:[{buy:{id:dirt,Count:1},sell:{id:diamond,Count:1},rewardExp:false}]}}</code>
+* ''Bedrock Edition'':
+** To summon a [[patrol]] captain pillager at the current position:
+*** <code>summon pillager ~ ~ ~ minecraft:promote_to_patrol_captain</code>
+** To summon a [[dolphin]] with the name "Dolphin" in a golden color:
+*** <code>summon dolphin §6Dolphin ~ ~ ~</code>
+** To summon a red dyable [[wolf]]:
+*** <code>summon wolf ~ ~ ~ minecraft:on_tame</code>
+
+
+==History==
+{{Expand section}}
+{{History|java}}
+{{History||1.7.2|snap=13w36a|Added {{cmd|summon|link=none}}.}}
+{{History||1.8|snap=14w30a|{{cmd|summon|link=none}} can now spawn [[lightning]].}}
+{{History||1.16|snap=20w06a|{{cmd|summon|link=none}} now cannot summon an entity with a position where <x> or <z> exceeds the range of [-30000000, 30000000), or <y> exceeds the range of [-20000000, 20000000)}}
+{{History|||snap=20w11a|{{cmd|summon|link=none}} now gives permission to summon [[Fireball]].}}
+{{History||1.19.3|snap=22w42a|{{cd|<entity>}} now accepts a [[argument types|<code>resource</code> argument]], instead of <code>entity_summon</code>.}}
+
+{{History|pocket alpha}}
+{{History||v0.16.0|snap=build 1|Added {{cmd|summon|link=none}}.}}
+{{History|bedrock}}
+{{History||1.19.40|snap=beta 1.19.40.21|Added new overload to the {{cmd|summon|link=none}} command that adds rotation arguments.}}
+{{History|||snap=beta 1.19.40.23|Temporarily disabled the rotation for the {{cmd|summon|link=none}} command while a bug is worked on.}}
+{{History||1.19.70|snap=beta 1.19.70.23|Re-added the rotation arguments.}}
+{{History||1.19.80|snap=beta 1.19.80.20|Added <code>facing</code> argument.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[de:Befehl/summon]]
+[[es:Comandos/summon]]
+[[ja:コマンド/summon]]
+[[pt:Comandos/summon]]
+[[zh:命令/summon]]

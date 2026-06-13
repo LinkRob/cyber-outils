@@ -1,0 +1,277 @@
+{{Block
+| image = Blast Furnace (S).png
+| image2 = Lit Blast Furnace.gif
+| extratext = View [[#Gallery|all renders]]
+| transparent = Partial <small>(when active)</small>
+| light = Yes (13) <small>(when active)</small>
+| tool = Wooden pickaxe
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = No
+| lavasusceptible = No
+}}
+A '''blast furnace''' is a block that [[Smelting|smelts]] [[ore]]s, [[Raw Metal|raw metals]] and metal [[armor]] and [[tools]] twice as quickly as a [[furnace]] but cannot smelt anything else. It also serves as an [[armorer]]'s [[job site block]].
+
+== Obtaining ==
+=== Breaking ===
+
+A blast furnace can be picked up using any [[pickaxe]]. If mined without a pickaxe, it does not drop.
+
+Blast furnaces drop their contents when broken.
+{{breaking row|horizontal=1|Blast Furnace|Pickaxe|Wood|foot=1}}
+
+=== Natural generation ===
+Blast furnaces can generate in any armorer house; these can be found in a [[village]]. They can also generate in [[trail ruins]].
+
+=== Crafting ===
+
+{{Crafting
+|A1=Iron Ingot
+|B1=Iron Ingot
+|C1=Iron Ingot
+|A2=Iron Ingot
+|B2=Furnace  
+|C2=Iron Ingot
+|A3=Smooth Stone
+|B3=Smooth Stone
+|C3=Smooth Stone
+|Output= Blast Furnace
+|type= Decoration block
+}}
+
+== Usage ==
+Blast furnaces can be pushed by [[piston]]s.{{only|bedrock}}
+
+=== Smelting ===
+[[File:Blast Furnace GUI.png|thumb|176px|The GUI for the blast furnace, same as the ordinary furnace's.]]
+{{main|Smelting}}
+
+Blast furnaces are similar to furnaces, but can [[smelt]] only raw [[ore]], [[ore]] blocks and [[tool]]s/[[armor]] made of [[iron]], [[gold]] or [[armor|chainmail]]. Blast furnaces serve as the counterpart to [[smoker]]s, which are used mainly to cook food faster. Smelting equipment yields one iron or gold nugget from their respective materials. Once an [[item]] and a [[fuel]] are placed into the blast furnace, the block state changes to {{code|lit}} and the item is smelted twice as fast as a normal furnace. Fuel is also used at double the rate of normal furnaces, so the number of items smelted per fuel stays the same. The product can then be collected by {{control|using}} the output. Like normal [[furnace]]s, a [[hopper]] can be used to feed items into a blast furnace and can also pick up items from it.
+
+=== Changing profession ===
+If a village has a blast furnace that has not been claimed by a villager, any nearby villager who has not chosen a [[job site]] block has a chance to change their profession to armorer.
+
+=== Light source ===
+Blast furnaces emit a [[light]] level of 13 when active, similar to normal [[furnace]]s.
+
+=== Custom name ===
+By default, the interface of a blast furnace is labeled "Blast Furnace", but this name can be customized by naming it in an [[anvil]] before placing it, or by changing the <code>CustomName</code> tag using the {{cmd|data}} command.{{only|java}}
+
+=== Lock ===
+{{IN|je}}, a blast furnace can be "locked" by setting its <code>Lock</code> tag using the {{cmd|data}} command. If a blast furnace's <code>Lock</code> tag is not blank, the blast furnace cannot be opened unless the player is holding an item with the same name as the <code>Lock</code> tag's text. For example, to lock a blast furnace at (0,64,0) so that the blast furnace cannot be opened unless the player is holding an item named "Blast Furnace Key", use {{cmd|data merge block 0 64 0 <nowiki>{Lock:"Blast Furnace Key"}</nowiki>}}.
+
+=== Note Blocks ===
+Blast furnace can be placed under [[note block]]s to produce "bass drum" sounds.
+
+== Sounds ==
+=== Generic ===
+{{Sound table/Block/Stone}}
+
+=== Unique ===
+{{edition|java}}:
+{{Sound table
+|rowspan=2
+|sound=Blast Furnace fire crackle1.ogg
+|sound2=Blast Furnace fire crackle2.ogg
+|sound3=Blast Furnace fire crackle3.ogg
+|sound4=Blast Furnace fire crackle4.ogg
+|sound5=Blast Furnace fire crackle5.ogg
+|subtitle=Blast furnace crackles
+|source=block
+|description=Randomly while lit
+|id=block.blastfurnace.fire_crackle|idnote=<ref name="nospace" group="sound">{{bug|MC-179832}}</ref>
+|translationkey=subtitles.block.blastfurnace.fire_crackle|translationkeynote=<ref name="nospace" group="sound" />
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|subtitle=Armorer works
+|source=neutral
+|description=Randomly while an armorer is working
+|id=entity.villager.work_armorer
+|translationkey=subtitles.entity.villager.work_armorer
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Door close.ogg
+|sound2=Door open.ogg
+|subtitle=Chest locked<ref group=sound name=lock>{{Bug|MC-98316||Wrong subtitles caused by missing distinction}}</ref>
+|source=block
+|description=When a player attempts to open a blast furnace locked using the {{nbt|string|Lock}} tag
+|id=block.chest.locked|idnote=<ref group=sound name=lock/>
+|translationkey=subtitles.block.chest.locked|translationkeynote=<ref group=sound name=lock/>
+|volume=1.0
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|rowspan=2
+|sound=Furnace fire crackle1.ogg
+|sound2=Furnace fire crackle2.ogg
+|sound3=Furnace fire crackle3.ogg
+|sound4=Furnace fire crackle4.ogg
+|sound5=Furnace fire crackle5.ogg
+|source=block
+|description=Randomly while lit
+|id=block.blastfurnace.fire_crackle
+|volume=3.0
+|pitch=0.6}}
+{{Sound table
+|source=block
+|description=Randomly while an armorer is working
+|id=block.blastfurnace.fire_crackle
+|volume=3.0
+|pitch=0.6
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Blast Furnace
+|spritetype=block
+|nameid=blast_furnace
+|foot=1}}
+{{ID table
+|displayname=Block entity
+|spritename=Blast Furnace
+|spritetype=block
+|nameid=blast_furnace
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Unlit block
+|spritename=Blast Furnace
+|spritetype=block
+|nameid=blast_furnace
+|id=451}}
+{{ID table
+|displayname=Lit block
+|spritename=Lit Blast Furnace
+|spritetype=block
+|nameid=lit_blast_furnace
+|id=469
+|form=block
+|translationkey=-
+|foot=1}}
+{{ID table
+|notnamespaced=y
+|displayname=Block entity
+|spritename=Blast Furnace
+|spritetype=block
+|nameid=BlastFurnace
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+{{/BS}}
+
+=== Block data ===
+A blast furnace has a block entity associated with it that holds additional data about the block.
+
+{{el|java}}:
+{{see also|Block entity format}}
+{{/BE}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Block entity format]].
+
+== History ==
+{{History|java}}
+{{History||1.14|snap=18w44a|[[File:Blast Furnace (N) JE1 BE1.png|32px]] [[File:Blast Furnace (E) JE1.png|32px]] [[File:Blast Furnace (S) JE1.png|32px]] [[File:Blast Furnace (W) JE1.png|32px]] [[File:Blast Furnace (N) JE1 BE1.png|32px]] [[File:Lit Blast Furnace (E) JE1.png|32px]] [[File:Lit Blast Furnace (S) JE1.png|32px]] [[File:Blast Furnace (W) JE1.png|32px]] Added blast furnaces. 
+|Blast furnaces are currently obtainable only through the [[Creative]] inventory and the GUI can be accessed only through [[Spectator]] mode.}}
+{{History|||snap=18w48a|Blast furnaces now generate in the updated [[plains]] [[village]]s.}}
+{{History|||snap=18w49a|Blast furnaces now generate in the updated [[savanna]] villages and the new [[Snowy Tundra|snowy]] villages.}}
+{{History|||snap=18w50a|Blast furnaces now generate in the updated [[desert]] and [[taiga]] villages.
+|Blast furnaces are now functional and [[crafting|craftable]].}}
+{{History|||snap=19w03a|[[Sound]]s have been added for blast furnaces.}}
+{{History|||snap=19w11a|Blast furnaces now serve as armorer [[villager]]s' job site block.}}
+{{History||1.16|snap=20w06a|Added [[Ancient Debris|ancient debris]], which can be [[smelting|smelted]] in blast furnaces.}}
+{{History||1.17|snap=21w14a|Added [[Raw Metal|raw metals]], which can be smelted in blast furnaces.}}
+{{History||1.20|snap=23w12a|Blast furnaces now generate in [[trail ruins]].}}
+
+{{History|bedrock}}
+{{History||1.9.0|snap=beta 1.9.0.2|[[File:Blast Furnace (N) JE1 BE1.png|32px]] [[File:Blast Furnace (E) BE1.png|32px]] [[File:Blast Furnace (S) BE1.png|32px]] [[File:Blast Furnace (N) JE1 BE1.png|32px]] Added blast furnaces.}}
+{{History||1.10.0|snap=beta 1.10.0.3|A [[crafting]] recipe has been added for the blast furnace.
+|Blast furnaces now generate in the new [[village]] armorer houses.}}
+{{History||1.11.0|snap=beta 1.11.0.1|[[File:Lit Blast Furnace (N) BE1.png|32px]] [[File:Lit Blast Furnace (E) BE1.png|32px]] [[File:Lit Blast Furnace (S) BE1.png|32px]] [[File:Lit Blast Furnace (N) BE1.png|32px]] Blast furnaces are now functional.}}
+{{History||1.20.30|snap=beta 1.20.30.20|Blast furnaces now use the <code>minecraft:cardinal_direction</code> [[block state]] instead of <code>facing_direction</code>.}}
+
+{{History|console}}
+{{History||ps=1.91|[[File:Blast Furnace (N) JE1 BE1.png|32px]] [[File:Blast Furnace (E) JE1.png|32px]] [[File:Blast Furnace (S) JE1.png|32px]] [[File:Blast Furnace (W) JE1.png|32px]] [[File:Blast Furnace (N) JE1 BE1.png|32px]] [[File:Lit Blast Furnace (E) JE1.png|32px]] [[File:Lit Blast Furnace (S) JE1.png|32px]] [[File:Blast Furnace (W) JE1.png|32px]] Added blast furnaces.}}
+{{History|foot}}
+
+=== Lit blast furnace "item" ===
+{{:Technical blocks/Lit Blast Furnace}}
+
+== Gallery ==
+=== Renders ===
+
+<gallery caption="Java Edition">
+Blast Furnace (S).png | Facing south
+Lit Blast Furnace (S).png | Facing south, lit
+Blast Furnace (W).png | Facing west
+Blast Furnace (N).png | Facing north
+Blast Furnace (E).png | Facing east
+Lit Blast Furnace (E).png | Facing east, lit
+</gallery>
+
+<gallery caption="Bedrock Edition">
+Blast Furnace (S) BE.png | Facing south
+Lit Blast Furnace (S) BE.png | Facing south, lit
+Blast Furnace (W) BE.png | Facing west
+Blast Furnace (N) BE.png | Facing north
+Blast Furnace (E) BE.png | Facing east
+Lit Blast Furnace (E) BE.png | Facing east, lit
+</gallery>
+
+=== Screenshots ===
+<gallery widths="320px" heights="180px">
+Blast Furnace Smoker & Barrel.jpg|A blast furnace, smoker and barrel.
+</gallery>
+
+== Issues ==
+{{issue list}}
+
+== See also ==
+* {{BlockLink|Furnace}}
+* {{BlockLink|Smoker}}
+
+== References ==
+{{Reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/block-week--blast-furnace Block of the Week: Blast Furnace] – Minecraft.net on September 10, 2020
+
+{{Blocks|Utility}}
+
+[[Category:Job blocks]]
+[[Category:Utility blocks]]
+[[Category:Manufactured blocks]]
+[[Category:Generated structure blocks]]
+[[Category:Storage]]
+[[Category:Block entities]]
+[[Category:Light sources]]
+
+[[cs:Tavicí pec]]
+[[de:Schmelzofen]]
+[[fr:Haut fourneau]]
+[[ja:溶鉱炉]]
+[[ko:용광로]]
+[[pl:Piec hutniczy]]
+[[pt:Alto-forno]]
+[[ru:Плавильная печь]]
+[[th:เตาหลอม]]
+[[zh:高炉]]

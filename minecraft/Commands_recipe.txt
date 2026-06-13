@@ -1,0 +1,73 @@
+{{Infobox command
+| name = recipe
+| oplevel = 2
+}}
+
+Gives or takes (unlocks or locks) [[recipes]] for players.
+
+== Syntax == 
+
+*'''Java Edition'''
+<code>recipe (give|take) <targets> *</code>
+:Gives or takes all recipes from the player.
+<code>recipe (give|take) <targets> <recipe></code>
+:Gives or takes a specified recipe from the player.
+
+*'''Bedrock Edition'''
+<code>recipe give <player: target> *</code>
+:Gives all recipes to the player.
+<code>recipe take <player: target> *</code>
+:Takes all recipes from the player.
+<code>recipe give <player: target> <recipe: string></code>
+:Gives a specified recipe to the player.
+<code>recipe take <player: target> <recipe: string></code>
+:Takes a specified recipe from the player.
+
+== Arguments ==
+
+<code>give|take</code>
+:If <code>give</code>, the recipe will be given (unlocked) for the player. If <code>take</code>, the recipe will be taken (locked) for the player.
+
+{{argument|target|entity|player: target|CommandSelector<Player>}}
+:Specifies the player(s) to give or take the recipe from.
+:{{arg desc|je=entity|amount=multiple|type=players|be=player}}
+
+{{argument|recipe|resource_location|recipe: string|basic_string}} 
+:Specifies a recipe to give or take.
+
+== Result ==
+
+{{Result table|onlyje=1}}
+{{Result table|the arguments are not specified correctly|unparseable}}
+{{Result table|<code><target></code> fails to resolve to one or more online players|fail}}
+{{Result table|does not give or take any recipe from any player}}
+{{Result table|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|On success|1|1|the total number of recipes given to/taken from each player.}}
+{{Output table}}
+
+== History ==
+{{History|java}}
+{{History||1.12|snap=17w13a|Added {{cmd|recipe|link=none}}.}}
+{{History|bedrock}}
+{{History||Recipe Unlocking<br>(Experimental)|link=Bedrock Edition 1.20.10|snap=beta 1.20.10.21|Added {{cmd|recipe|link=none}} behind the "Recipe Unlocking" [[experimental]] toggle.}}
+{{History||Recipe Unlocking<br>(Experimental)|link=Bedrock Edition 1.20.30|snap=beta 1.20.20.20|Updated the syntax to match {{JE}}.|The recipes are now suggested by the [[command]] auto-complete.|Now an output message appears after the command is executed.}}
+{{History||1.20.30|snap=beta 1.20.20.21|{{cmd|recipe|link=none}} is no longer behind the "Recipe Unlocking" experimental toggle.}}
+{{History|||snap=beta 1.20.20.22|Renamed the <code>''victim'': target</code> argument to <code>''player'': target</code>.}}
+{{History|foot}}
+
+== See also == 
+
+*[[Knowledge Book]]
+*{{cmd|gamerule doLimitedCrafting}} – Whether players should only be able to [[craft]] recipes that they have unlocked first.
+
+{{Commands}}
+
+[[de:Befehl/recipe]]
+[[ja:コマンド/recipe]]
+[[pt:Comandos/recipe]]

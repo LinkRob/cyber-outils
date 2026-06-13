@@ -1,0 +1,40 @@
+**{{nbt|int|sea_level}}: The sea level in this dimension. Note that this value only affects world generation. The sea level for mob spawning is a fixed value 63.
+**{{nbt|boolean|disable_mob_generation}}: Disables creature spawning upon chunk generation.
+**{{nbt|boolean|ore_veins_enabled}}: Whether [[ore vein]]s generate.
+**{{nbt|boolean|aquifers_enabled}}: Whether [[aquifer]]s generate. If set to false, almost all caves below sea level will be filled with water.
+**{{nbt|boolean|legacy_random_source}}: Whether to use the old random number generator from before 1.18 for world generation.
+**{{nbt|compound|default_block}}: The default block used for the terrain.
+*** {{nbt inherit/block_state}}
+**{{nbt|compound|default_fluid}}: The default block used for seas and lakes.
+*** {{nbt inherit/block_state}}
+**{{nbt|list|spawn_target}}: (Required, but can be empty) A list of noise parameters to specify the points around which the player tries to spawn. The game will select some horizonal locations that are not more than 2560 blocks away from the origin (0,0), then sample the noise values ("depth" noise and "offset" are alway 0), and calculate <code>((x^2+z^2)^2) / 390625 + (the square of the mininum distance to the ranges in the list)</code>. The player will spawn near the location whose this value is smallest.
+***{{nbt|compound}}：A range.
+****{{nbt inherit/parameter point}}
+**{{nbt|compound|noise}}: Fields for world generation.
+***{{nbt|int|min_y}}: The minimum Y coordinate where terrain starts generating. Value between -2032 and 2031 (both inclusive). Must be divisible by 16.
+*** {{nbt|int|height}}: The total height where terrain generates. Value between 0 and 4064 (both inclusive). Must be divisible by 16. And <code>min_y + height</code> cannot exceed 2032.
+*** {{nbt|int|size_horizontal}}: Value between 0 and 4 (both inclusive)
+*** {{nbt|int|size_vertical}}: Value between 0 and 4 (both inclusive)
+**{{nbt|compound|noise_router}}: Routes density functions to noise parameters used for world generation. Each field can be an ID of density function or a density function (can be in constant form or object form).
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|initial_density_without_jaggedness}}: Related to the generation of aquifer and surface rule. At a horizonal position, starting from the top of the world, the game searches from top to bottom with the precision of size_vertical*4 blocks. The first Y-level whose noise value greater than 25/64 is used as the initial terrain height for world generation. This height should be generally lower than the actual terrain height (determined by the final density).
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|final_density}}: Determines where there is an air or a default block. If positive, returns default block which will can be replaced by the {{nbt|compound|surface_rule}}. Otherwise, an air where aquifers can generate.
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|barrier}}: Affects whether to separate between aquifers and open areas in caves. Larger values leads to higher probability to separate.
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|fluid_level_floodedness}}: Affects the probability of generating liquid in an cave for aquifer. The larger value leads to higher probability. The noise value greater than 1.0 is regarded as 1.0, and value less than -1.0 is regarded as -1.0.
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|fluid_level_spread}}: Affects the height of the liquid surface at a horizonal position. Smaller value leads to higher probability for lower height.
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|lava}}: Affects whether an aquifer here uses lava instead of water. The threshold is 0.3.
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|vein_toggle}}: Affects ore vein type and vertical range. If the noise value is greater than 0.0, the vein will be a copper vein. If the noise value is less than or equal to 0.0, the vein will be an iron vein.
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|vein_ridged}}: Controls which blocks are part of a vein. If greater than or equal to 0.0, the block will not be part of a vein. If less than 0.0, the block will be either the vein type's stone block, or possibly an ore block.
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|vein_gap}}: Affects which blocks in a vein will be ore blocks. If greater than -0.3, and a random number is less than the absolute value of '''vein_toggle''' mapped from 0.4 - 0.6 to 0.1 - 0.3, with values outside of this range clamped, an ore block will be placed, with a 2% chance for the ore block to be a raw metal block. Otherwise, the ore type's stone block will be placed.
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|temperature}}: The temperature values only for biome placement. Note that this field and the following five fields do not affect terrain shape, as terrain generation is defined in <code>final_density</code>.
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|vegetation}}: The humidity values only for biome placement.
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|continents}}: The continentalness values only for biome placement.
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|erosion}}: The erosion values only for biome placement and aquifer generation.
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|depth}}: The depth values only for biome placement and aquifer generation.
+***{{nbt|string}}{{nbt|double}}{{nbt|compound|ridges}}: The weirdness values only for biome placement.
+** {{nbt|compound|surface_rule}}: To place blocks in the terrain.
+*** {{nbt inherit/surface_rule}}
+<noinclude>
+
+[[ja:カスタムワールド生成/noise settings]]
+[[pt:Geração de mundo personalizado/configurações de ruído]]
+[[zh:自定义世界生成/noise settings]]

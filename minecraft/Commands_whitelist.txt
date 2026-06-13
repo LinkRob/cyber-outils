@@ -1,0 +1,87 @@
+{{Infobox command
+|name=whitelist
+|oplevel=
+* 3 {{only|java|short=1}}
+* 4 {{only|bedrock|short=1}}
+|others=[[Options|Cheat]] only{{only|bedrock|short=1}}
+|serveronly=y
+|nocmdblock=y
+}}
+
+'''Whitelist''' is used to manage [[server]] whitelists.
+
+{{IN|java}}, server operators can ''always'' connect when the whitelist is active, even if their profiles do not appear in the whitelist. {{IN|bedrock}}, players ''must'' be whitelisted regardless of operator status. The profiles of the whitelisted players are stored in the [[whitelist.json]] or allowlist.json{{only|bedrock}} configuration file.
+In Minecraft Bedrock version 1.18.10 the whitelist was renamed to allowlist. The old file and command still exist, but have been deprecated.
+
+==Syntax==
+
+:<code>whitelist add <targets></code> ({{el|je}})
+:<code>allowlist add <name: string></code> ({{el|be}})
+:: Adds the player profile(s) to the whitelist. The player does not need to be online.
+:<code>whitelist list</code> ({{el|je}})
+:<code>allowlist list</code> ({{el|be}})
+::Displays all player profiles in the whitelist.
+:<code>whitelist off</code>({{el|je}})
+:<code>allowlist off</code> ({{el|be}})
+::Disables the server's use of a whitelist.
+:<code>whitelist on</code>({{el|je}})
+:<code>allowlist on</code> ({{el|be}})
+::Enables the server's use of a whitelist.
+:<code>whitelist reload</code>({{el|je}})
+:<code>allowlist reload</code> ({{el|be}})
+::Reloads the list of player profiles in <code>whitelist.json</code> from disk (used when <code>whitelist.json</code> has been modified outside of ''Minecraft'').
+:<code>whitelist remove <targets></code> ({{el|je}})
+:<code>allowlist remove <name: string></code> ({{el|be}}) 
+::Removes the player profile(s) from the whitelist. The player does not need to be online.
+enable-command-block=true
+
+==Arguments==
+
+{{el|je|short=1}}: {{argument|targets|game_profile}}
+:Specifies the player profile(s) to be added to or removed from the whitelist.
+:{{arg desc|je=game_profile}}
+
+{{el|be|short=1}}: {{argument|be=1|name: string|basic_string}}
+:Specifies the player name(s) to be added to or removed from the whitelist.
+:{{arg desc|be=string}}
+
+== Result==
+
+{{Result table|onlyje=1}}
+{{Result table|the arguments are not specified correctly|unparseable}}
+{{Result table|cmd=/whitelist on|the whitelist is already enabled|fail}}
+{{Result table|cmd=/whitelist off|the whitelist is already disabled}}
+{{Result table|the target selector fails to resolve to one or more online players}}
+{{Result table|cmd=/whitelist add <targets>|there's no new new player profile added to the whitelist}}
+{{Result table|cmd=/whitelist remove <targets>|all specified profiles is not in the whitelist}}
+{{Result table|cmd=|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On fail|N/A|0|0}}
+{{Output table|cmd=/whitelist on<br>/whitelist off<br>/whitelist reload|On success|N/A|1|1}}
+{{Output table|cmd=/whitelist list|On success|N/A|1|the number of players in the list.}}
+{{Output table|cmd=/whitelist add <targets>|On success|N/A|1|the number of new player profiles added to the whitelist.}}
+{{Output table|cmd=/whitelist remove <targets>|On success|N/A|1|the number of player profiles removed from the whitelist.}}
+{{Output table}}
+
+== History ==
+
+{{History|Java Beta}}
+{{History||1.3|Added {{cmd|link=none|whitelist}}.}}
+
+{{History|bedrock}}
+{{History||1.16.0|snap=release|Added {{cmd|whitelist|link=none}}.}}
+{{History||1.17.0|snap=beta 1.16.230.50|Renamed to {{cmd|allowlist|link=none}}.}}
+{{h|||snap=release|Reverted back to {{cmd|whitelist}}}} 
+{{History||1.18.10|snap=release|Renamed to {{cmd|allowlist|link=none}}.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[de:Befehl/whitelist]]
+[[ja:コマンド/whitelist]]
+[[pt:Comandos/whitelist]]
+[[zh:命令/whitelist]]

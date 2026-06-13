@@ -1,0 +1,64 @@
+{{exclusive|java}}
+{{Infobox command
+|name=datapack
+|oplevel=2
+}}
+
+Controls the loading/unloading of [[data pack]]s.
+
+Note that feature flags can be enabled through data pack only when creating the [[world]]. Data packs requiring a feature flag that is not enabled cannot be loaded by this command.
+
+==Syntax==
+
+: <code>datapack disable <name></code>
+: <code>datapack enable <name></code>
+::Enable the specified pack.
+: <code>datapack enable <name> (first|last)</code>
+::Load this pack before (lowest priority) or after (highest priority) all others (lowest or highest priority).
+: <code>datapack enable <name> (before|after) <existing></code>
+::Load this pack just before (lower priority) or after (higher priority) an ''existing'' pack.
+: <code>datapack list [available|enabled]</code>
+::List all data packs, or list only the available/enabled ones. Hovering over the data packs in the chat output shows their description defined in their <code>pack.mcmeta</code>.
+
+==Arguments==
+
+{{argument|name|string}}
+: Specifies the name of the data pack.
+: {{arg desc|je=string|type=phrase}}
+
+{{argument|existing|string}}
+: Specifies the name of an existing enabled data pack.
+: {{arg desc|je=string|type=phrase}}
+
+==Result==
+
+{{Result table|onlyje=1}}
+{{Result table|the arguments are not specified correctly|unparseable}}
+{{Result table|cmd=/datapack enable ...<br>/datapack disable ...|<code><name></code> is not a valid data pack|fail}}
+{{Result table|the data pack has already been enabled/disabled}}
+{{Result table|cmd=/datapack enable <name> ...|pack <code><name></code> requires enabling a feature flag that is not enabled via data pack when creating world}}
+{{Result table|cmd=/datapack enable ... <existing>|<code><existing></code> is not an existing enabled data pack}}
+{{Result table|cmd=|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|cmd=/datapack enable ...<br>/datapack disable ...|On success|1|1|The number of packs that are loaded after executing.}}
+{{Output table|cmd=/datapack list [available{{!}}enabled]|On success|1|1|the number of data packs that are listed}}
+{{Output table}}
+
+== History ==
+
+{{History|java}}
+{{History||1.13|snap=17w46a|Added {{cmd|datapack|link=none}}.}}
+{{History||1.19.3|snap=22w42a|Added feature flags. Data pack requiring feature flag that is not enabled cannot load by this command now.}}
+{{History|foot}}
+{{Commands}}
+
+[[de:Befehl/datapack]]
+[[ja:コマンド/datapack]]
+[[pt:Comandos/datapack]]
+[[th:คำสั่ง/datapack]]
+[[zh:命令/datapack]]

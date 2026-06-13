@@ -1,0 +1,35 @@
+<div class="treeview">
+*{{Nbt|compound}} The root tag
+**{{Nbt|string|type}}: The type of configured decorator. Must be one of the types listed below.
+**{{Nbt|compound|config}}: The settings for this configured decorator. The settings vary depending on <code>type</code>. Any name not listed under this tag has no settings; however, they must still include an empty <code>config</code> object in their definition.
+***If <code>type</code> is <code>chance</code>, <code>lava_lake</code>, or <code>water_lake</code>:
+****{{Nbt|int|chance}}:{{Needs testing}} The chance for this feature to generate. Calculated by <code>1 / chance</code>.
+***If <code>type</code> is <code>count</code>, <code>fire</code>, <code>glowstone</code>, or <code>count_multilayer</code>:
+****{{Nbt|compound|count}}:{{Needs testing}}
+*****''Uniform Int'' with <code>minBase</code> -10, <code>maxBase</code> 128, and <code>maxSpread</code> 128
+***If <code>type</code> is <code>count_noise</code>:
+****{{Nbt|double|noise_level}}: Determines the threshold within the Perlin noise of when to use <code>below_noise</code> or <code>above_noise</code>.
+****{{Nbt|int|below_noise}}: Determines the count placed when the noise is below <code>noise_level</code> .
+****{{Nbt|int|above_noise}}: Determines the count placed when the noise is above <code>noise_level</code> .
+***If <code>type</code> is <code>count_noise_biased</code>:
+****{{Nbt|int|noise_to_count_ratio}}: Determines the count features generated at the peak noise.
+****{{Nbt|double|noise_factor}}: Determines the size of the affected region, scales Perlin noise.
+****{{Nbt|double|noise_offset}} (optional): Determines the threshold of the "positive" area, where features are generated. Ranges from -1 to 1, defaults to 0 if not provided.
+***If <code>type</code> is <code>count_extra</code>:
+****{{Nbt|int|count}}:{{Needs testing}}
+****{{Nbt|float|extra_chance}}:{{Needs testing}}
+****{{Nbt|int|extra_count}}:{{Needs testing}}
+***If <code>type</code> is <code>range</code>, <code>range_biased</code>, or <code>range_very_biased</code>:
+****{{Nbt|int|bottom_offset}} (optional):{{Needs testing}} Defaults to 0 if not provided.
+****{{Nbt|int|top_offset}} (optional):{{Needs testing}} Defaults to 0 if not provided.
+****{{Nbt|int|maximum}} (optional):{{Needs testing}} Defaults to 0 if not provided.
+***If <code>type</code> is <code>depth_average</code>:
+****{{Nbt|int|baseline}}:{{Needs testing}}
+****{{Nbt|int|spread}}:{{Needs testing}}
+***If <code>type</code> is <code>carving_mask</code>:
+****{{Nbt|string|step}}:{{Needs testing}} The carving generation step; either <code>"air"</code> or <code>"liquid"</code>
+****{{Nbt|float|probability}}:{{Needs testing}}
+***If <code>type</code> is <code>decorated</code>:
+****{{Nbt|compound|outer}}: The outer configured decorator.
+****{{Nbt|compound|inner}}: The inner configured decorator.
+</div>

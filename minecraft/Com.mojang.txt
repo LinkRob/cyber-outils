@@ -1,0 +1,123 @@
+{{lowercase title}}
+{{about|the folder in Bedrock Edition|the folder in ''Java Edition''|.minecraft}}
+{{distinguish|Mojang.com}}
+{{exclusive|bedrock|education}}
+
+'''com.mojang''' is the folder used internally by ''Minecraft'' Bedrock Edition. It contains worlds, [[JSON]] data, and other files necessary for the game to run.
+
+== Location ==
+
+Below is a table showing the default directory for {{mono|com.mojang}}.<ref name=":0" />
+
+{|class="wikitable"
+!Platform
+!Location
+|-
+|Windows (including mobile)
+|<code> %localappdata%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang</code>
+|-
+|Android and Fire OS
+|<code>storage/emulated/0/Android/data/com.mojang.minecraftpe/files/games/com.mojang</code>(Android)
+|-
+|Android
+|<code>Minecraft/games/com.mojang
+|-
+|iOS and iPadOS
+|<code>On My iPhone/Minecraft/games/com.mojang
+|}
+
+On Xbox One, the files are stored locally.{{info needed}} They are also stored online if signed in to Xbox Live.<ref name=":0">{{cite|url=https://help.minecraft.net/hc/en-us/articles/4409165790605-Managing-Data-and-Game-Storage-in-Minecraft-|title=Managing Data and Game Storage in Minecraft|website=help.minecraft.net}}</ref>
+
+== File hierarchy ==
+
+<div class="toccolours treeview">
+* com.mojang 
+** behavior_packs (see {{slink|Behavior packs}})
+** development_behavior_packs{{info needed|What is in this folder?}}
+** development_resource_packs{{info needed|What is in this folder?}}
+** development_skin_packs{{info needed|What is in this folder?}}
+** logs
+*** ClientCorrelation<ID>.dat{{info needed}}
+** minecraftpe
+*** catalog_info.json
+*** clientId.txt
+*** custom.png
+*** global_resource_packs.json
+*** hs{{note|This file has no extension. It is a plaintext list of UUIDs, separated by newlines.{{info needed|What are the UUIDs for? I've heard people say this is for rolling out the new Bedrock UI, but I can not confirm nor deny that.}}}}
+*** [[options.txt]]
+*** telemetry_info.json
+*** valid_known_packs.json
+** minecraftWorlds
+*** <internal world ID>
+**** behavior_packs (see {{slink|Behavior packs}})
+**** db
+***** <region ID>.dat<ref group="note">The region ID is a 6-digit number. The region containing the player{{verify}} is a .log instead of a .dat.</ref>
+***** CURRENT.dat
+***** LOCK.dat{{info needed|Not all worlds have this. Does is depend on the version in which the world was created?}}
+***** MANIFEST-<ID>.dat
+**** [[Bedrock Edition level format#level.dat|level.dat]]
+**** level.dat_old
+**** levelname.txt
+**** resource_packs (see {{slink|Resource packs}})
+**** world_behavior_packs.json
+**** world_icon.jpeg
+**** world_resource_packs.json
+** resource_packs (see {{slink|Resource packs}}) 
+** skin_packs
+*** <skin pack name>{{info needed|How are skin packs structured?}}
+** ud<id> (there may be more than 1)
+** world_templates{{info needed|What is in this folder?}}
+** xal{{verify|Exists in PE 1.16.0+?}}{{info needed|Is it the account data for XBL?}}
+</div>
+=== Add-ons ===
+
+Each world, and the {{mono|com.mojang}} folder itself, has a resource_packs folder. This contains resource packs with the following structure:
+<div class="toccolours treeview">
+* <resource pack name>{{info needed|Is this a complete list?}}
+** manifest.json
+** pack_icon.png
+** shaders
+*** glsl
+**** renderchunk.dat
+*** hlsl
+**** renderchunk.fragment.dat
+**text
+***<language>.lang
+***languages.json
+</div>
+
+Behavior packs can contain anything that a resource pack contains, plus additional files:{{verify}}
+
+<div class="toccolours treeview">
+* <behavior pack name>{{info needed}}
+** loot_tables
+*** blocks{{verify}}
+**** <block name>.json
+*** entities
+**** <entity name>.json
+** recipes
+*** <item name>.json
+</div>
+
+== History ==
+{{History|pocket alpha}}
+{{History||v0.1.0|Added <code>com.mojang</code> folder.}}
+{{History||v0.15.0|snap=build 1|Added <code>resource_packs</code>.}}
+{{History||v0.16.0|snap=build 1|Added <code>behavior_packs</code>.}}
+{{History|bedrock}}
+{{History||1.18.0|snap=beta 1.18.0.21|Changed the location of <code>com.mojang</code> folder on Android due to API changes.
+|New location: <code>storage/emulated/0/Android/data/com.mojang.minecraftpe/files/games/com.mojang</code>.}}
+{{History|foot}}
+
+== Notes ==
+{{Notelist}}
+
+== References ==
+{{Reflist}}
+
+{{Bedrock Edition}}
+
+[[es:Com.mojang]]
+[[lzh:Com.mojang]]
+[[pt:Com.mojang]]
+[[zh:Com.mojang]]

@@ -1,0 +1,76 @@
+{{exclusive|java}}
+{{Infobox command
+|name=pardon, pardon-ip
+|oplevel=3
+|serveronly=y
+}}
+
+Remove profiles from the banlist, allowing anyone to connect into the server with uuids of these profiles.
+
+== pardon ==
+
+=== Syntax ===
+
+: <code>pardon <targets></code>
+
+=== Arguments ===
+
+{{argument|targets|game_profile}}
+: Specifies the player profile(s) to remove from the banlist.
+: {{arg desc|je=game_profile}}
+
+=== Result ===
+
+{{Result table|onlyje=1}}
+{{Result table|the arguments are not specified correctly|unparseable}}
+{{Result table|target selector fails to resolve to one or more online players|fail}}
+{{Result table|all specified player profiles have not been banned}}
+{{Result table|succeed}}
+{{Result table}}
+
+=== Output ===
+
+{{Output table}}
+{{Output table|edition=je|On fail|N/A|0|0}}
+{{Output table|On success|N/A|1|the number of player profiles that is successfully unbanned.}}
+{{Output table}}
+
+== pardon-ip ==
+
+=== Syntax ===
+
+: <code>pardon-ip <target></code>
+
+=== Arguments ===
+
+{{argument|target|string}}
+: Specifies the IP address to remove from the banlist. Should be a valid IP address.
+: {{arg desc|je=string|type=word}}
+
+=== Result ===
+
+{{Result table|onlyje=1}}
+{{Result table|the arguments are not specified correctly|unparseable}}
+{{Result table|<code><string></code> fails to resolve as a IP|fail}}
+{{Result table|all specified IPs have not been banned}}
+{{Result table|succeed|Remove the IP address(es) from the banlist,<br>allowing anyone to connect to the server from that IP address.}}
+{{Result table}}
+
+=== Output ===
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|On success|1|1|1}}
+{{Output table}}
+
+== History ==
+{{History|java alpha}}
+{{History||v1.0.16|snap=|Added {{cmd|pardon|link=none}} and {{cmd|link=none|pardon-ip}}.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[de:Befehl/pardon]]
+[[ja:コマンド/pardon]]
+[[lzh:令/pardon]]
+[[zh:命令/pardon]]

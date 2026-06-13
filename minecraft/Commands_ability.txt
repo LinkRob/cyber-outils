@@ -1,0 +1,49 @@
+{{education feature}}
+{{Infobox command
+|name=ability
+|oplevel=1
+|cheat=y
+}}
+
+Sets or queries a player with a specific ability.
+
+== Syntax ==
+
+: <code>ability <player: target> <ability: Ability> [value: Boolean]</code>
+: <code>ability <player: target> [ability: Ability]</code>
+
+== Arguments ==
+
+{{argument|be=1|player: target|CommandSelector<Player>}}
+: Specifies the target for which to grant/revoke/query the ability.
+
+{{argument|be=1|ability: Ability|enum}}
+: Specifies the player ability. 
+: These abilities are:
+:* <code>worldbuilder</code> gives the selector the ability to become a world builder.
+:* <code>mayfly</code> lets the selector [[Flying|fly]].
+:* <code>mute</code> mutes the selector. If they [[chat]], no one can hear (or see) them.
+
+{{argument|be=1|value: Boolean|enum}}
+: Specifies the value to set the ability to, must be either <code>true</code> or <code>false</code>. If not specified, returns the current ability's value.
+
+== Result ==
+
+Fails if the arguments are not specified correctly.
+
+On success, Sets the player ability into the specified ability. If <code>value: Boolean</code> isn't specified, returns whether the player has the specified ability. If <code>ability: Ability</code> isn't specified, returns what abilities the player has.
+
+== History ==
+{{History|pocket alpha}}
+{{History||v0.16.0|snap=build 1|Added {{cd|/ability}}.}}
+{{History|bedrock}}
+{{History||1.5.0|snap=beta 1.5.0.4|Added the function of query.}}
+{{History|education}}
+{{History||1.7|Added {{cd|/ability}}.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[ja:コマンド/ability]]
+[[pt:Comandos/ability]]
+[[zh:命令/ability]]

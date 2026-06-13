@@ -1,0 +1,64 @@
+{{Outdated feature}}
+
+{{Infobox command
+| name = placefeature
+| oplevel =
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|others=[[Options|Cheats]] only{{only|bedrock|short=1}}
+}}
+
+Places a [[feature]] at the specified location where meet the placement requirements.
+
+==Syntax==
+:<code>/placefeature <feature> [<pos>]</code>{{only|java}}
+:<code>/placefeature <featureName: Features> [position: x y z]</code>{{only|bedrock}}
+:<code>/placefeature <featureRule: featureRules> [position: x y z]</code>{{only|bedrock}}
+
+==Arguments==
+{{el|je|short=1}}: {{argument|feature|resource}}<br>
+{{el|be|short=1}}: {{argument|featureName: Features|enum}} or {{argument|featureRule: featureRules|enum}}
+:{{IN|java}}, specifies the [[Custom feature|configured feature]] to place. Must be a [[resource location]].
+:{{IN|bedrock}}, specifies the feature to place. Must be an namespaced ID of a feature rule or feature. If both a feature rule with the specified ID and a feature with the ID exist, the feature rule will be placed.
+:See [[feature]] for IDs of vanilla features.
+
+{{argument|pos|block_pos|position|CommandPosition}}
+:Specifies the position of the origin for the feature to be placed.
+:{{arg desc|je=block_pos|be=CommandPosition}}
+
+==Result==
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|unparseable}}
+{{Result table|the requirements for the selected feature are not met|fail|fail}}
+{{Result table|there's no configured feature with the provided ID||N/A}}
+{{Result table|cmd=/placefeature ... <pos>|<code><pos></code> is not loaded}}
+{{Result table|cmd=|succeed|Generates the feature in the specified location}}
+{{Result table}}
+
+== Output ==
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|On success|1|1|1}}
+{{Output table|edition=be|On fail|0}}
+{{Output table|On success|1}}
+{{Output table}}
+
+== History ==
+{{History|java}}
+{{History||1.18.2|snap=22w03a|Added {{cmd|placefeature|link=none}}.}}
+{{History|||snap=1.18.2-pre3|Changed from {{cd|resource_location}} to {{cd|resource}} [[argument type]] for the feature argument.}}
+{{History||1.19|snap=22w18a|Removed {{cmd|placefeature|link=none}} in favor of {{cmd|place|link=commands/place (Java Edition)}}}}
+{{History|bedrock}}
+{{History||1.18.30|snap=beta 1.18.20.25|Added {{cmd|placefeature|link=none}}. However, it may be removed again due to the commands being not fully implemented.<ref>{{tweet|MattGartzke|1491601001618366467|@MCPE4theBeacon Not quite ready for full implementation. You might see it go away in the next beta, but the team is still working hard on it!}}</ref>}}
+{{History|||snap=beta 1.18.20.27|Removed {{cmd|placefeature|link=none}} temporarily.}}
+{{History|foot}}
+
+==References==
+{{Reflist}}
+
+{{Commands}}
+
+[[de:Befehl/placefeature]]
+[[ja:コマンド/placefeature]]
+[[pt:Comandos/placefeature]]
+[[zh:命令/placefeature]]

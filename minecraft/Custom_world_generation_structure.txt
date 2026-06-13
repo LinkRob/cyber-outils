@@ -1,0 +1,50 @@
+<div class="treeview">
+* {{nbt|compound}} The root tag
+** {{nbt|string|type}}: The ID of structure feature type. One of <code>buried_treasure</code>, <code>desert_pyramid</code>, <code>end_city</code>, <code>fortress</code>, <code>igloo</code>, <code>jigsaw</code>, <code>jungle_temple</code>, <code>mineshaft</code>, <code>nether_fossil</code>, <code>ocean_monument</code>, <code>ocean_ruin</code>, <code>ruined_portal</code>, <code>shipwreck</code>, <code>stronghold</code>, <code>swamp_hut</code>, or <code>woodland_mansion</code>.
+** {{nbt|string}}{{nbt|list|biomes}}: Biomes that this structure is allowed to generate in. Can be a biome ID or a biome tag, or a list of biome IDs.
+** {{nbt|string|step}}: The step where the structure generates. See also the <code>features</code> field in [[custom biome]]. Structure features are generated prior to features in the same step. One of <code>raw_generation</code>, <code>lakes</code>, <code>local_modifications</code>, <code>underground_structures</code>, <code>surface_structures</code>, <code>strongholds</code>, <code>underground_ores</code>, <code>underground_decoration</code>, <code>fluid_springs</code>, <code>vegetal_decoration</code>, and <code>top_layer_modification</code>.
+** {{nbt|string|terrain_adaptation}}: (Optional, defaults to <code>none</code>) The type of terrain adaptation used for the structure {{needs testing}}. <code>none</code> for no adaptation, <code>beard_thin</code> is used by [[Pillager Outpost|pillager outposts]] and [[Village|villages]],  <code>beard_box</code> is used by [[Ancient City|ancient cities]], and <code>bury</code> is used by [[Stronghold|strongholds]].
+** {{nbt|compound|spawn_overrides}}: (Required, but can be empty. If this object doesn't contain a certain category, the category's spawn setting won't be overridden, and mobs are spawned based on biome.) Overrides the mobs that can spawn in this structure. Used for things like blaze and wither skeleton spawning in nether fortresses, and can also be used to block mobs from spawning like in ancient cities.
+*** {{nbt|compound|<mob category>}}: The key must be one of <code>monster</code>, <code>creature</code>, <code>ambient</code>, <code>water_creature</code>, <code>underground_water_creature</code>, <code>water_ambient</code>, <code>misc</code>, or <code>axolotls</code>.
+**** {{nbt|string|bounding_box}}：Can be <code>piece</code> or <code>full</code>. If <code>full</code>, overrides spawn setting inside the full bounding box of the structure. If <code>piece</code>, only the bounding boxs of all structure pieces.
+**** {{Nbt|list|spawns}}：(Required, but can be empty. If empty, mobs in this category will not be spawned) A list of spawner data objects, one for each mob which should spawn in this biome.
+***** {{nbt|compound}}: The spawner data for a single mob.
+****** {{nbt|string|type}}: The namespaced entity id of the mob.
+****** {{nbt|int|weight}}: How often this mob should spawn, higher values produce more spawns.
+****** {{nbt|int|minCount}}: The minimum count of mobs to spawn in a pack. Must be greater than 0.
+****** {{nbt|int|maxCount}}: The maximum count of mobs to spawn in a pack. Must be greater than 0. And must be not less than {{nbt|int|minCount}}.
+**;If <code>type</code> is <code>minecraft:jigsaw</code>, additional fields are as follows<nowiki>:</nowiki>
+**{{nbt|string}}{{nbt|compound|start_pool}}: The [[Custom structure|structure pool]] the structure starts from. Can be an ID of structure pool, or a structure pool object.
+**{{nbt|int|size}}: The depth of jigsaw structures to generate. Value between 0 and 7 (inclusive).
+**{{nbt|int}}{{nbt|compound|start_height}}: If <code>project_start_to_heightmap</code> is unset, the structure will start at the value provided. Otherwise, the value acts as an offset from the [[heightmap]].
+*** {{Nbt inherit/height provider}}
+**{{nbt|string|project_start_to_heightmap}}: (optional) The [[heightmap]] the start height should project to. Can be <code>WORLD_SURFACE_WG</code>, <code>WORLD_SURFACE</code>, <code>OCEAN_FLOOR_WG</code>, <code>OCEAN_FLOOR</code>, <code>MOTION_BLOCKING</code>, or <code>MOTION_BLOCKING_NO_LEAVES</code>.
+**{{nbt|string|start_jigsaw_name}}: (optional) The name of the jigsaw block the structure start attaches to.
+**{{nbt|int|max_distance_from_center}}: The maximum 3D Chebyshev distance from the jigsaw pieces to the structure start. Value between 1 and 128 (inclusive) when {{nbt|string|terrain_adaptation}} is "none", otherwise from 1 to 116 (inclusive).
+**{{nbt|bool|use_expansion_hack}}: Only used in villages.
+**;If <code>type</code> is <code>minecraft:mineshaft</code>, additional fields are as follows<nowiki>:</nowiki>
+**{{nbt|string|type}}: Either <code>normal</code> or <code>mesa</code>. <code>normal</code> for mineshaft made of oak, while <code>mesa</code> for mineshaft made of dark oak.
+**;If <code>type</code> is <code>minecraft:nether_fossil</code>, additional fields are as follows<nowiki>:</nowiki>
+**{{nbt|int}}{{nbt|compound|start_height}}: The y-value that the structure will start.
+*** {{Nbt inherit/height provider}}
+**;If <code>type</code> is <code>minecraft:ocean_ruin</code>, additional fields are as follows<nowiki>:</nowiki>
+**{{nbt|string|biome_temp}}: Either <code>warm</code> or <code>cold</code>. Determines which variant this structure uses.
+** {{nbt|float|large_probability}}: The probability of this structure using the large variant buildings. Value between 0.0 and 1.0 (inclusive).
+** {{nbt|float|cluster_probability}}: The probability of a cluster of ocean ruins generating, instead of just one. Value between 0.0 and 1.0 (inclusive).
+**;If <code>type</code> is <code>minecraft:ruined_portal</code>, additional fields are as follows<nowiki>:</nowiki>
+**{{nbt|list|setups}}: (Cannot be empty) A list of ruined portal setups to randomly choose one from it.
+***{{nbt|int|weight}}: The weight this ruined portal setup will be chosen.
+***{{nbt|string|placement}}: Either <code>on_land_surface</code>, <code>partly_buried</code>, <code>on_ocean_floor</code>, <code>in_mountain</code>, <code>underground</code>, <code>in_nether</code>. Determines how the ruined portal will be placed.
+***{{nbt|float|air_pocket_probability}}: The probability that the ruined portal will generate an air pocket around it. Value between 0.0 and 1.0 (inclusive).
+***{{nbt|float|mossiness}}: Determines how mossy the ruined portal is, as an argument for <code>minecraft:block_age</code> processor. Value between 0.0 and 1.0 (inclusive).
+***{{nbt|bool|overgrown}}: Determines whether or not jungle leaves generate.
+***{{nbt|bool|vines}}: Determines whether or not vines generate on the ruined portal.
+***{{nbt|bool|can_be_cold}}: Determines whether or not lava and magma can be replaced with netherrack. 
+***{{nbt|bool|replace_with_blackstone}}: Determines whether or not stone bricks in the ruined portal will be replaced with their blackstone equivalents.
+**;If <code>type</code> is <code>minecraft:shipwreck</code>, additional fields are as follows<nowiki>:</nowiki>
+**{{nbt|boolean|is_beached}}: (optional, defaults to false) Whether or not the shipwreck is beached.
+</div>
+<noinclude>
+[[ja:カスタムワールド生成/structure]]
+[[zh:自定义世界生成/structure]]
+</noinclude>

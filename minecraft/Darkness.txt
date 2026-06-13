@@ -1,0 +1,92 @@
+{{for|the absence of brightness|Light}}
+{{Effect
+|title={{EffectSprite|darkness}} Darkness
+|image=Darkness.png
+|sources=See {{slink||Causes}}
+|particle={{EffectSprite|particle-darkness}} #292721 (black) (seen with commands)
+|type=Negative
+}}
+'''Darkness''' is a [[status effect]] that causes the player's vision to temporarily deteriorate. The effect is caused by the activation of a [[sculk shrieker]], or by being within detection range of a [[warden]].
+
+== Effect ==
+Darkness, when applied, dims the player's vision. A dark vignette appears around the player, which initially makes faraway objects hard to see. The vignette then steadily closes in around the player, diminishing the player's eyesight. The player can only see about 14 blocks away. When the effect wears off, the vignette retreats and the player's vision reverts to normal. Unlike [[Blindness]], Darkness does not leave a circle of unaffected vision centered on the player; moreover, [[Light|luminous]] objects such as [[fire]] can still be seen even when viewed from far away by a player with the effect applied.  
+
+With the Darkness effect, the player's vision slowly cycles every few seconds between complete darkness, and relative visibility where they can see within a distance of roughly 14 blocks. The strength of this pulsing effect can be adjusted using the "Darkness Pulsing"{{only|java|short=1}}/"Darkness effect strength"{{only|bedrock|short=1}} slider under the [[accessibility settings]], which is normally at 100%; when set to 0%, the player's vicinity does not darken at all, but their vision is still restricted to about 14 blocks.
+
+Unlike other status effects, Darkness does not cause [[particles]] to appear around the player when it is naturally activated, nor does its icon appear in the player's [[heads-up display]] {{in|java}}.<ref>{{bug|MC-249416|||WAI}}</ref> This is similar to when an effect is given using the {{cmd|effect}} command with the {{cd|hideParticles}} argument set to {{cd|true}}. However, the particles do appear when {{cd|hideParticles}} is set to {{cd|false}}, and the effect's icon can be seen when entering the player's [[inventory]].
+
+== Causes ==
+{| class="wikitable" data-description="Causes"
+ ! Cause
+ ! Potency
+ ! Length
+ ! Notes
+ |-
+ | {{BlockLink|Sculk Shrieker}} (naturally generated)
+ | I
+ | 0:13
+ | When activated, to players within 40 blocks
+ |-
+ | {{EntityLink|Warden}}
+ | I
+ | 0:13
+ | Every 6 seconds, to players within 20 blocks
+ |}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|shownumericids=1
+|generatetranslationkeys=java
+|displayname=Darkness
+|spritetype=effect
+|nameid=darkness
+|id=33
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=1
+|generatetranslationkeys=bedrock
+|displayname=Darkness
+|spritetype=effect
+|nameid=darkness
+|id=30
+|translationkey=effect.darkness
+|foot=1}}
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load advancements|How Did We Get Here?}}
+</table-progress-tracking>
+
+== History ==
+{{History||October 3, 2020|link={{ytl|DWZIfsaIgtE|t=2504s}}|Darkness was shown in [[Minecraft Live 2020]].}}
+{{History||October 16, 2021|link={{ytl|w6zLprHHZOk|t=6810s}}|[[File:Darkness.png|18px]] More information was announced about Darkness, revealing that it is a status effect and is given by sculk shriekers. The Darkness effect was delayed until [[The Wild Update]].}}
+{{History|java}}
+{{History||1.19|snap=Deep Dark Experimental Snapshot 1|[[File:Darkness.png|18px]] Added Darkness.}}
+{{History|||snap=22w11a|Darkness is not added yet in this non-experimental snapshot.}}
+{{History|||snap=22w12a|Re-added Darkness.}}
+{{History|||snap=22w15a|Darkness is now needed for the "How Did We Get Here?" advancement.}}
+{{History|bedrock}}
+{{History||Vanilla Experiments<br>(experimental)|link=Experimental Gameplay|snap=beta 1.18.0.22|[[File:Darkness.png|18px]] Added Darkness.}}
+{{History||Wild Update<br>(experimental)|link=Bedrock Edition 1.19.0|snap=beta 1.18.10.21|Moved the Darkness effect to the [[Wild Update]] experimental toggle.}}
+{{History||1.19.0|snap=beta 1.19.0.20|Darkness is now available without enabling experimental gameplay.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list}}
+
+== References ==
+{{Reflist}}
+
+== See also ==
+* {{EffectLink|Blindness}}
+
+{{Effects}}
+
+[[es:Oscuridad]]
+[[ja:暗闇]]
+[[pt:Escuridão]]
+[[zh:黑暗]]

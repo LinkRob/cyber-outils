@@ -1,0 +1,184 @@
+{{Item
+| image = Bundle Filled.png
+| image2 = Bundle.png
+| extratext = View [[#Gallery|all renders]]
+| rarity = Common
+| renewable = Yes
+| stackable = No
+}}
+
+A '''bundle''' is an [[item]] that can store up to a stack's worth of mixed item types within itself in a single [[inventory]] slot. Items that stack to 16 occupy more space within the bundle, and items that do not stack occupy the entire bundle without allowing space for any other items. A bundle can be dyed into 16 different colors.
+
+==Obtaining==
+
+===Crafting===
+{{Crafting
+  |head=1
+  |shapeless=1
+  |B1=String
+  |B2=Leather
+  |Output=Bundle
+  |type=Tool
+}}
+{{Crafting
+  |shapeless=1
+  |B1=Matching Dye
+  |B2=Bundle
+  |Output=Matching Dyed Bundle
+  |type=Tool
+  |foot=1
+}}
+
+== Usage ==
+<!--The tooltip does not reflect the current bundle "tooltip"-->
+{{FakeImage|style=max-width:250px;
+|1={{Slot|Stick,64}}{{Slot|Ender Pearl,16}}{{Slot|Iron Sword}}<br>{{Slot|Stick,1}}{{Slot|Ender Pearl,4}}{{Slot|Iron Sword,64}}<br>{{Slot|Filled Bundle[Stick x32/Ender Pearl x8]| title = Bundle|link=none}}
+|2=Item stack sizes (top row) and the number of bundle slots they take up (middle row). Sticks stack to 64, so they take up one bundle slot; ender pearls stack to 16, so they take up four; and swords do not stack, so they take up the whole bundle. So, for instance, a bundle may have 32 sticks and 8 ender pearls inside (bottom), which take up a total of {{Tooltip|(32&times;1)|32 Sticks}}+{{Tooltip|(8&times;4)|8 Ender Pearls}}=64 bundle slots.
+}}
+Bundles are used to store different [[item|item type]]s in the same [[inventory]] slot. This does not, however, increase the total capacity of the slot: each bundle has 64 "bundle slots" and each item placed in the bundle takes up these slots similar to how they take up space in a normal inventory slot: items that stack to 64 take up 1 bundle slot, items that stack to 16 (for example, [[egg]]s) take up 4, and items that do not stack (such as tools/weapons/armors) take up the whole bundle, all 64 slots.
+
+Although bundles themselves cannot be stacked, a bundle can be placed inside another (nested): the inner bundle itself uses 4 slots plus the number of slots already occupied by the items in that bundle.<ref>{{bug|MC-203567||Bundles can be placed inside of bundles|WAI}}</ref>  
+
+To place items inside a bundle, either (1) pick up the bundle in the inventory and right-click on the item(s) to be placed inside or (2) pick up the item(s) and right-click on the bundle. When placing bundles inside another bundle, the interface uses the first method: picking up Bundle A and right clicking on Bundle B attempts to store Bundle B inside A.  
+
+Bundles can be {{ctrl|used}} inside the inventory to take out the last item put in. In this way, items are accessible LIFO (last in, first out). When {{ctrl|used}} outside the inventory, it dumps all the items out into the world.
+
+Hovering over the bundle shows its contained items in its inventory slots. The number of bundle slots used is displayed as ''<fullness>''/64 in the tooltip. If the bundle is full, then the empty slots are greyed out with an <span class="invslot">{{SlotSprite|Bundle full}}</span>.
+
+[[Shulker box]]es cannot be placed inside of bundles.
+
+[[File:MinecraftBundle.jpg|thumb|256px|Hovering the mouse over a bundle filled with mob loot, nearly full, with 61 items.]]
+
+==Sounds ==
+{{Sound table
+|sound=Bundle drop contents1.ogg
+|sound2=Bundle drop contents2.ogg
+|sound3=Bundle drop contents3.ogg
+|subtitle=Bundle empties
+|source=player
+|description=When a bundle's items are thrown onto the ground
+|id=item.bundle.drop_contents
+|translationkey=subtitles.item.bundle.drop_contents
+|volume=0.8
+|pitch=''varies'' <ref group=sound>Can be 0.8-1.2 or 0.76-1.14 for each sound</ref>
+|distance=16}}
+{{Sound table
+|sound=Bundle insert1.ogg
+|sound2=Bundle insert2.ogg
+|sound3=Bundle insert3.ogg
+|subtitle=Item packed
+|source=player
+|description=When items are placed into a bundle
+|id=item.bundle.insert
+|translationkey=subtitles.item.bundle.insert
+|volume=0.8
+|pitch=''varies'' <ref group=sound>Can be 0.8-1.2, 0.76-1.14, or 0.84-1.26 for each sound</ref>
+|distance=16}}
+{{Sound table
+|sound=Bundle remove one1.ogg
+|sound2=Bundle remove one2.ogg
+|sound3=Bundle remove one3.ogg
+|subtitle=Item unpacked
+|source=player
+|description=When items are removed from a bundle
+|id=item.bundle.remove_one
+|translationkey=subtitles.item.bundle.remove_one
+|volume=0.8
+|pitch=''varies' <ref group=sound>Can be 0.8-1.2, 0.84-1.26, or 0.88-1.32 for each sound</ref>
+|distance=16
+|foot=1}}
+
+==Data values==
+===ID===
+{{JE}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Bundle
+|spritetype=item
+|nameid=bundle
+|form=item
+|foot=1}}
+
+===Item data===
+<div class="treeview" style="margin-top: 0;">
+* {{nbt|compound|tag}}: The '''tag''' tag.
+{{:Player.dat_format/Bundle}}
+</div>
+
+==History==
+{{History||October 3, 2020|link={{ytl|DBvZ2Iqmm3M|t=1846s}}|[[File:Bundle JE1.png|32px]][[File:Bundle Filled JE1.png|32px]] Bundles are revealed at [[Minecraft Live 2020]]. Hovering over them shows all items inside scattered around a large area, and incomplete bundles have the empty texture.}}
+{{History||October 16, 2021|link=https://clips.twitch.tv/AffluentEncouragingOryxPeteZaroll-cd8pIapkfD4PRHxO|Ulraf, a game developer on ''Minecraft'', states that bundles will not be included in [[Caves & Cliffs]].}}
+{{History||November 17, 2021|link=https://www.minecraft.net/en-us/article/caves---cliffs-update-part-ii-coming|Bundles are announced to be added after [[The Wild Update]].}}
+{{History|java}}
+{{History||1.17|snap=20w45a|[[File:Bundle JE1.png|32px]][[File:Bundle Filled JE1.png|32px]] Added bundles. Hovering over them shows some of the items contained and their quantities, much like the tooltip of a [[shulker box]]. Incomplete bundles have the full texture.}}
+{{History|||snap=20w46a|[[File:Bundle JE2.png|32px]][[File:Bundle Filled JE2.png|32px]] The textures of bundles have been changed.
+|Hovering over bundles now shows its contained items in special slots, similar to slots in the [[inventory]]. If the bundle is not full, it also has an empty slot with a plus on it.}}
+{{History|||snap=20w48a|Bundles now show fullness as a number when [[advanced tooltips]] are enabled.
+|{{ctrl|Using}} a bundle in the inventory now empties one item from the bundle instead of emptying all the contents out to the [[inventory]].
+|{{ctrl|Using}} a bundle now throws out its entire content into the world.}}
+{{History|||snap=20w49a|Bundle fullness is now always shown.
+|Full bundles now show the blue bar instead of hiding it, to distinguish from empty bundles.}}
+{{History|||snap=20w51a|Bundles now drop its contents when destroyed as an [[Item (entity)|item entity]].
+|Bundle fullness has been changed from <code>Fullness: ''<fullness>'' / 64</code> to <code>''<fullness>''/64</code>
+|The slots in the tooltip when hovering over bundles have changed to have a border, and rows of slot have a thicker edge between them.
+|When the bundle is not full, it instead shows empty slots instead of one slot with a plus. When it is full, those empty slots become greyed out with an X.}}
+{{History|||snap=21w05a|The player now receives a tutorial when first having a bundle in the inventory.}}
+{{History|||snap=21w19a|Bundles are now accessible only through commands.}}
+{{History||1.18|snap=Experimental Snapshot 1|Bundles are now available in the creative inventory and can be crafted once again.}}
+{{History|||snap=21w37a|Bundles are once again accessible only through commands.}}
+{{History||1.19.3|snap=22w42a|Bundles have been made available once again, and have been moved behind their own datapack.}}
+{{History||1.21.2|snap=24w38a|Bundles now have the ability to be dyed.}}
+{{History|||snap=24w39a|Bundles no longer needed the Experiment Bundles datapack.}}
+{{History|||snap=?|The recipe of bundle has been changed.}}
+{{History|foot}}
+
+== Issues==
+{{Issue list}}
+
+==Gallery ==
+<gallery>
+Bundle Filled.png|Bundle.
+Black Bundle Filled.png|Black bundle.
+Blue Bundle Filled.png|Blue bundle.
+Brown Bundle Filled.png|Brown bundle.
+Cyan Bundle Filled.png|Cyan bundle.
+Gray Bundle Filled.png|Gray bundle.
+Green Bundle Filled.png|Green bundle.
+Light Blue Bundle Filled.png|Light blue bundle.
+Light Gray Bundle Filled.png|Light gray bundle.
+Lime Bundle Filled.png|Lime bundle.
+Magenta Bundle Filled.png|Magenta bundle.
+Orange Bundle Filled.png|Orange bundle.
+Pink Bundle Filled.png|Pink bundle.
+Purple Bundle Filled.png|Purple bundle.
+Red Bundle Filled.png|Red bundle.
+White Bundle Filled.png|White bundle.
+Yellow Bundle Filled.png|Yellow bundle.
+Bundle.png|Opened bundle.
+</gallery>
+
+=== Screenshot ===
+<gallery>
+JE 1.17 Development Bundle.png|The original bundle UI.
+Bundle in Inventory.jpg|A bundle inventory in the inventory.
+</gallery>
+
+==References==
+{{Reflist}}
+
+{{Items}}
+
+[[Category:Storage]]
+[[Category:Tools]]
+[[Category:Renewable resources]]
+
+[[de:Bündel]]
+[[es:Saco]]
+[[fr:Sac]]
+[[ja:バンドル]]
+[[pl:Sakwa]]
+[[pt:Trouxa]]
+[[ru:Мешок]]
+[[zh:收纳袋]]

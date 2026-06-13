@@ -1,0 +1,29 @@
+** {{Nbt|string|type}}: The ID of the genarator. One of <code>noise</code>, <code>flat</code>, or <code>debug</code>.
+**; If {{Nbt|string|type}} is {{code|minecraft:noise}}, additional fields are as follows<nowiki>:</nowiki>
+** {{Nbt|string}}{{Nbt|compound|settings}}: The [[Custom world generation#Noise settings|noise settings]] used in this generator. Can be set to an ID of noise settings, or a object of noise_settings.
+** {{nbt|compound|biome_source}}: Settings dictating which biomes and biome shapes.
+*** {{Nbt|string|type}}: The type of biome generation. One of <code>multi_noise</code>, <code>fixed</code>, <code>checkerboard</code>, or <code>the_end</code>.
+***; If {{cd|type}} is '''multi_noise'''(3D biome generation used in the nether, and in the overworld in snapshot [[21w37a]] and after.) , additional fields are as follows<nowiki>:</nowiki>
+*** {{Nbt|string}}{{Nbt|compound|preset}}: (mutually exclusive with {{Nbt|list|biomes}}) An ID or an object of a [[Custom dimension#Multi-noise biome source parameter list|multi-noise biome source parameter list]].
+*** {{Nbt|list|biomes}}: (mutually exclusive with {{Nbt|string|preset}}) (Cannot be empty) A parameter list of biomes, including their IDs and target noise parameters.
+**** {{Nbt|compound}}: A biome and its properties.
+***** {{Nbt|string|biome}}: The biome ID. A single biome ID may be repeated several times with different parameters.
+***** {{Nbt|compound|parameters}}: Represent optimal intervals for where the biome should be placed. These values do not affect the generation of terrain within biomes, instead, they only affect where the game chooses to place biomes. Thinking of a six-dimensional space, in the space these intervals are defined for biomes. If the six parameters at a location based on the noise router in [[noise settings]] fall into an interval, the corresponding biome is generated here. If the six parameters at a location do not fall into a defined biome interval in this list, it uses the closest biome interval to the 6D parameter point, in order to form a transition between biomes. Parameter combinations should be unique in the biomes list.
+****** {{nbt inherit/parameter point}}
+***; If {{cd|type}} is '''the_end'''(Biome generation used in the end with biome {{Code|minecraft:the_end}} in the center and other end biomes around) , no additional field.
+***; If {{cd|type}} is '''fixed'''(single biome) , additional fields are as follows<nowiki>:</nowiki>
+*** {{Nbt|string|biome}}: The ID of the single biome to generate.<!--Setting to a object of biome crashes the game-->
+***; If {{cd|type}} is '''checkerboard'''(A biome generation in which biomes are square (or close to square) and repeat along the diagonals) , additional fields are as follows<nowiki>:</nowiki>
+*** {{Nbt|string}}{{nbt|list|biomes}}: A list of biomes that repeat along the diagonals. Can be a ID of biome or a tag of biome, or a list of biome IDs. <!--Setting to a object of biome or a list of object may crash the game-->
+*** {{Nbt|int|scale}}: (optional, defaults to 2) Value between 0 and 62 (both inclusive). Determines the size of the squares on an exponential scale.
+**; If {{Nbt|string|type}} is {{code|minecraft:debug}}(used for [[Debug world]] generation) , no additional fields.
+**; If {{Nbt|string|type}} is {{code|minecraft:flat}}(used for [[Superflat]] world generation) , additional fields are as follows<nowiki>:</nowiki>
+** {{Nbt|compound|settings}}: Superflat settings.
+*** {{nbt inherit/flat generator settings}}
+<noinclude>
+
+[[Category:Java Edition]]
+[[Category:Data packs]]
+
+[[ja:カスタムディメンション/Generator]]
+[[zh:自定义维度/Generator]]

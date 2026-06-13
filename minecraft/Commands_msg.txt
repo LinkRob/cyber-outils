@@ -1,0 +1,75 @@
+{{Infobox command
+| name = msg
+| alias =
+* {{cmd|tell|link=none}}
+* {{cmd|w|link=none}}
+| oplevel = 0
+}}
+
+{{distinguish|Commands/tellraw|Commands/say}}
+Sends a private message to one or more players.
+
+==Syntax==
+
+*'''Java Edition'''
+: <code>msg <targets> <message></code>
+
+*'''Bedrock Edition'''
+: <code>msg <target: target> <message: message></code>
+
+==Arguments==
+
+{{argument|targets|entity|target: target|CommandSelector<Player>}}
+: Specifies the player(s) to send the message to.
+: {{arg desc|je=entity|amount=multiple|type=players|be=player}}
+
+{{argument|message|message|message: message|CommandMessage}}
+: Specifies the message to tell.
+: {{arg desc|je=message|be=CommandMessage}}
+
+==Result==
+
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|unparseable}}
+{{Result table|<code>player: target</code> is not of [[Target_selectors#Player_type_and_single_type|player type]]|N/A|fail}}
+{{Result table|<code><targets></code> or <code>player: target</code> fails to resolve to one or more online players|fail}}
+{{Result table|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|On success|1|1|the number of targeted players}}
+{{Output table|edition=be|On fail|0}}
+{{Output table|On success|the number of targeted players}}
+{{Output table}}
+
+==Examples==
+
+* To privately tell Steve to start the game: <code>tell Steve Start the game!</code>
+* To say "Hi" to all online players: <code>msg @a Hi</code>
+* To whisper to kevinhuangers instructions to trap Ralixto: <code>w kevinhuangers Trap Ralixto now!</code>
+
+== History ==
+{{History|java alpha}}
+{{History||v1.0.16_02|Added {{cmd|msg|link=none}}, {{cmd|tell|link=none}}, and {{cmd|w|link=none}}.}}
+
+{{History|java}}
+{{History||1.16.2|snap=Pre-release 2|Now this commmand display the message to the sender even if gamerule sendCommandFeedback is disabled.<ref>{{bug|MC-134084|resolution=Fixed}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.16.0|snap=build 1|Added {{cmd|msg|link=none}}, {{cmd|tell|link=none}}, and {{cmd|w|link=none}}.}}
+{{History|foot}}
+
+== See also ==
+
+* <code>/[[Commands/tellraw|tellraw]]</code> — send a JSON message to players.
+
+== References ==
+<references/>
+{{Commands}}
+
+[[de:Befehl/msg]]
+[[ja:コマンド/msg]]
+[[zh:命令/tell]]

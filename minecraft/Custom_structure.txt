@@ -1,0 +1,115 @@
+{{exclusive|java}}
+'''Structures''' (also known as '''structure features''') are a special type of feature that generates a structure. 
+
+== Structure Feature Type ==
+A '''structure feature type''' determines how and what to generate.
+
+=== List ===
+
+All structure feature types and their roles are listed below:
+
+* <code>buried_treasure</code>
+** To generate a [[buried treasure]] with hardcode.
+* <code>desert_pyramid</code>
+** To generate a [[desert temple]] with hardcode.
+* <code>end_city</code>
+** To generate an [[end city]] with structure templates.
+* <code>fortress</code>
+** To generate a [[nether fortress]] with hardcode.
+* <code>igloo</code>
+** To generate an [[igloo]] with structure templates.
+* <code>jigsaw</code>
+** To generate a structure feature using custom structure templates. Often used to generate large structures by connecting multiple structural templates via [[jigsaw block]]s.
+* <code>jungle_temple</code>
+** To generate a [[jungle temple]] with hardcode.
+* <code>mineshaft</code>
+** To generate a [[mineshaft]] with hardcode.
+* <code>nether_fossil</code>
+** To generate a [[nether fossil]] with structure templates.
+* <code>ocean_monument</code>
+** To generate an [[ocean monument]] with hardcode.
+* <code>ocean_ruin</code>
+** To generate an [[underwater ruin]] with structure templates.
+* <code>ruined_portal</code>
+** To generate a [[ruined portal]] with structure templates.
+* <code>shipwreck</code>
+** To generate a [[shipwreck]] with structure templates.
+* <code>stronghold</code>
+** To generate a [[stronghold]] with hardcode.
+* <code>swamp_hut</code>
+** To generate a [[swamp hut]] with hardcode.
+* <code>woodland_mansion</code>
+** To generate a [[woodland mansion]] with structure templates.
+
+== Structure Template ==
+'''Structure template''' refers to a [[Structure block file format|structure file]], which stores the template used to generate structure features. For structures of <code>jigsaw</code> type, the resource locations of the structure templates is customized. While for other structure features, such as [[end city]], [[igloo]], etc., the resource locations of structure templates are hardcoded.
+
+== Structure Pool ==
+A '''structure pool''' (aka. '''jigsaw pool''', '''template pool''') groups multiple structure templates or placed features together to randomly select one of them to generate. Used in structures of type <code>jigsaw</code>. Stored as [[JSON]] files within a data pack in the {{cd|data/<namespace>/worldgen/template_pool}}.
+
+=== JSON Format ===
+{{:Custom_world_generation/template pool}}
+
+== Configured Structure Feature ==
+
+A structure feature type determines how to generate a structure feature, but the specific details need to be configured additionally. After configured, it is called a '''configured structure feature''', or simply called a '''structure feature''' or a '''structure'''.
+
+'''Configured structure features''' are stored as [[JSON]] files within a [[data pack]] in the path {{cd|data/<namespace>/worldgen/structure}}.
+
+=== JSON Format ===
+{{:Custom_world_generation/structure}}
+
+== Structure Set ==
+A '''structure set''' is used to place structures in given locations, stored as [[JSON]] files within a [[data pack]] in the path {{cd|data/<namespace>/worldgen/structure_set}}.
+
+=== JSON Format ===
+{{:Custom_world_generation/structure_set}}
+
+== Processor List ==
+A '''processor list''' is a list of processors used to transform blocks in a structure template, stored as [[JSON]] files within a [[data pack]] in the path {{cd|data/<namespace>/worldgen/processor_list}}.
+
+=== JSON Format ===
+A processor list can be a list, or an object that contains a list.
+
+A list:
+<div class="treeview">
+* {{nbt|list}}: A list of processors.
+** {{nbt|compound}}: A processor object.
+*** {{nbt inherit/processor}}
+</div>
+
+Or an object:
+<div class="treeview">
+* {{nbt|compound}}: An object of processor list.
+** {{nbt|list|processors}}: A list of processors.
+*** {{nbt|compound}}: A processor object.
+**** {{nbt inherit/processor}}
+</div>
+
+== History ==
+{{History|java}}
+{{History||1.19|snap=22w11a|The structure system was rewritten.
+|Renamed "configured structure feature" to "structure".
+|Moved <samp>worldgen/configured_structure_feature</samp> to <samp>worldgen/structure</samp> folder.
+}}
+{{History|||snap=22w12a|Added {{cd|max_distance_from_center}} field to {{cd|jigsaw}} structure.}}
+{{History|||snap=22w13a|Added {{cd|rottable_blocks}} field into <code>minecraft:block_rot</code> processor.
+|Now the {{cd|integrity}} field in <code>minecraft:block_rot</code> processor becomes a required field, and now it must be between 0.0 and 1.0 (inclusive).
+|Replaced the {{nbt|boolean|adapt_noise}} feild in configured structure feature with {{nbt|string|terrain_adaptation}} field. Before, it is an optional boolean value that defaults to false.
+|All fields except {{cd|type}} of jigsaw structure are now wrapped in a {{cd|value}} field.}}
+{{History|||snap=22w14a|Reverted the change on jigsaw structure from last snapshot.
+|Now the {{cd|rottable_blocks}} field in <code>minecraft:block_rot</code> processor also accepts a block ID or a list of block IDs, and the block tag now needs to be prefixed with a {{cd|#}}.}}
+{{History|||snap=22w17a|Added {{nbt|string|start_jigsaw_name}} field in <code>minecraft:jigsaw</code> config type of configured structure feature.}}
+{{History||1.19.3|snap=22w44a|Removed the {{nbt|string|name}} field in structure pool. Before, this field was a required field, but had no effect.}}
+{{History||1.19.4|snap=Pre-release 1|Now {{nbt|int|minCount}} and {{nbt|int|maxCount}} in {{nbt|compound|spawners}} in configured structure feature must be a positive integer. And {{nbt|int|maxCount}} must be not less than {{nbt|int|minCount}}.}}
+{{History||1.20|snap=23w12a|Added <code>capped</code> processer.
+|The {{nbt|compound|output_nbt}} field in the <code>rule</code> processer used to set fixed NBT data to the block entity has now been changed to {{nbt|compound|block_entity_modifier}}. Before, {{nbt|compound|output_nbt}} was an NBT compound in JSON object form, see [[NBT format#JSON and NBT]].}}
+{{History|foot}}
+
+== Reference ==
+
+{{Data packs}}
+{{Java Edition}}
+
+[[ja:構造物のカスタマイズ]]
+[[zh:自定义结构]]

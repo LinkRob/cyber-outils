@@ -1,0 +1,68 @@
+{{Infobox command
+|name=setworldspawn
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|others=[[Options|Cheat]] only{{only|bedrock|short=1}}
+}}
+Sets the [[Spawn#Player spawning|world spawn]].
+
+== Syntax ==
+* '''Java Edition'''
+: <code>setworldspawn [<pos>] [<angle>]</code>
+
+* '''Bedrock Edition'''
+: <code>setworldspawn [spawnPoint: x y z]</code>
+
+== Arguments ==
+{{argument|pos|block_pos|spawnPoint: x y z|CommandPositionFloat}}
+: Specifies the [[coordinates]] of the [[Spawn#Player spawning|world spawn]]. If not specified, defaults to the block position of the command's execution. {{IN|bedrock}}, <code>x</code> and <code>z</code> that are greater than 30,000,000 or less than -30,000,000 revert to 30,000,000 and -30,000,000 respectively. <code>y</code> values which are greater than 256 and less than 0 revert to 256 and 0 respectively.
+: {{IN|java}}, {{lcfirst:{{arg desc|je=block_pos}}}}
+: {{IN|bedrock}}, {{lcfirst:{{arg desc|be=CommandPositionFloat}}}}
+
+{{el|je|short=1}}: {{argument|angle|angle}}
+: Specified the yaw angle to spawn with. Defaults to 0.0.
+: {{arg desc|je=angle}}
+
+== Result ==
+
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|unparseable}}
+{{Result table|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On success|1|1|1}}
+{{Output table|edition=be|On fail|0}}
+{{Output table|On success|1}}
+{{Output table}}
+
+== Note ==
+This command can not be used to set the world spawn in any [[dimension]] other than the [[Overworld]]. {{IN|java}}, if executed in another dimension, the command will act as if it succeeded, but the world spawn will not be changed.
+
+On success, [[spawn chunk]]s are also changed along with the world spawn {{in|java}}.
+
+Normal spawn spreading still applies, and can be set with a [[Commands/gamerule|gamerule]].
+
+== History ==
+{{History|java}}
+{{History||1.7.2|snap=13w43a|Added {{cmd|setworldspawn|link=none}}.}}
+{{History||1.16.2|snap=20w29a|Added {{cd|angle}} parameter for setting the default facing angle of a respawning [[player]].}}
+
+{{History|pocket alpha}}
+{{History||v0.16.0|snap=build 1|Added {{cmd|setworldspawn|link=none}}.}}
+{{History|foot}}
+
+==See also==
+
+*{{cmd|spawnpoint}}
+*{{cmd|clearspawnpoint}}
+
+{{Commands}}
+
+[[de:Befehl/setworldspawn]]
+[[ru:Команды консоли/setworldspawn]]
+[[uk:Команди консолі/setworldspawn]]
+[[zh:命令/setworldspawn]]

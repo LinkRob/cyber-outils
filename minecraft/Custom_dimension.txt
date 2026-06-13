@@ -1,0 +1,58 @@
+{{about|data pack contents|other uses|Dimension}}
+{{exclusive|java}}
+'''Dimensions''' are [[JSON]] files located in [[data pack]]s that define dimensions for the game. New dimensions added can be accessed currently only by using commands, like {{cmd|/execute in <dimension> run tp <coordinates>}}.
+
+== Dimension type ==
+Dimension types are stored as [[JSON]] files within a [[data pack]], at the path <code>data/<namespace>/dimension_type/<name>.json</code>.
+
+=== Syntax ===
+<div class="treeview">
+* {{nbt|compound}} The root
+** {{/dimension type}}
+</div>
+
+===== Defaults =====
+{{/Defaults}}
+
+== Dimension ==
+Dimensions used to be stored as [[JSON]] files within a data pack, at the path <code>data/<namespace>/dimension/<name>.json</code>. Now the world preset has a higher priority, as long as the world preset is used (even using the default preset), the dimension folder doesn't work at all (see [[Custom world preset]] for details). With custom world preset it is possible to fully customize all dimensions.
+
+=== Syntax ===
+
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+** {{/dimension}}
+</div>
+
+== Multi-noise biome source parameter list ==
+When the generator of a dimension is <code>noise</code> and its biome source is <code>multi_noise</code>, a preset can be specified in the {{Nbt|string}}{{Nbt|object|preset}} field. This field can be an ID or an object of a '''multi-noise biome source parameter list'''.
+
+A multi-noise biome source parameter list is stored as [[JSON]] files within a data pack, at the path <code>data/<namespace>/worldgen/multi_noise_biome_source_parameter_list/<name>.json</code>. It is used to avoid changing world preset files when adding new biomes to experimental data packs. For modders and data pack creators, it is useless.
+
+=== Syntax ===
+
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+** {{Nbt|string|preset}}: A hardcoded preset of the parameter list of biomes to be used. Must be one of <code>overworld</code> and <code>nether</code>.
+</div>
+
+== History ==
+{{History|java}}
+{{History||1.16|snap=Pre-release 1|Added {{code|dimension}} and {{code|dimension_type}} to [[data pack]]s.}}
+{{History||1.16.2|snap=20w29a|The [[Custom world generation#Noise settings|noise settings]] for custom dimensions have been moved from {{code|dimension}} to {{code|worldgen}} in data packs.}}
+{{History|||snap=pre1|Custom dimensions now use the same folder pattern in data packs as other resources: <samp>namespace/<''type''>/resource.json</samp>.}}
+{{History|||snap=pre2|The dimension type's {{nbt|bool|shrunk}} has been replaced with {{nbt|float|coordinate_scale}}.}}
+{{History||1.17|snap=20w49a|Added {{nbt|integer|min_y}} and {{nbt|integer|height}} to the dimension type.}}
+{{History||1.19|snap=22w11a|Removed the <code>seed</code> field in <code>noise</code> generator and <code>the_end</code> biome source, and the world seed is now always used for all dimensions.
+|Dimension types can no longer be inlined in the dimension, they have to be a reference to a separate dimension_type file.}}
+{{History|||snap=1.19-pre1|Added {{nbt|integer|monster_spawn_block_light_limit}} and {{nbt|int}}{{nbt|compound|monster_spawn_light_level}} to the dimension type.}}
+{{History||1.19.4|snap=1.19.4-pre1|Added multi-noise biome source parameter list.}}
+{{History|foot}}
+
+{{Data packs}}
+
+[[de:Angepasste Dimensionen]]
+[[fr:Dimension personnalisée]]
+[[ja:カスタムディメンション]]
+[[pt:Dimensão personalizada]]
+[[zh:自定义维度]]

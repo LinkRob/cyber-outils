@@ -1,0 +1,74 @@
+{{about|the command that fills biomes|the command that fills blocks|Commands/fill|the item|Filled Map}}
+{{exclusive|java}}
+{{Infobox command
+|name=fillbiome 
+|oplevel=2
+}}
+
+Fills a specified area of a region with a specific [[biome]].
+
+== Usage ==
+
+Because biomes in a world are stored in cells of 4×4×4 blocks, this command is applied on each selected cell instead of each block.
+
+Though biomes are stored in cells, biome boundaries are slightly fiddled with to make them smooth. So the shape of the region whose biome is actually changed is irregular.
+
+The command only changes the biome, but not the blocks in it. For example, changing a forest to a desert with this command will not change the grass blocks to sand and will not plant cacti, but [[rabbit]]<nowiki/>s will spawn in that "desert", that will still look like the forest.
+
+<gallery heights='100px' mode='packed' style='text-align:left'>
+Fillbiome example-before.png|This command is used to attempt to change the biome between the two stone blocks to [[desert]].
+Fillbiome example-after.png|As shown here, the biome changes are not applied at the exact coordinates specified.
+</gallery>
+
+== Syntax ==
+: <code>/fillbiome <from> <to> <biome></code>
+The fillbiome [[command]] also has an optional alternate syntax when using the <code>replace</code> option:
+: <code>/fillbiome <from> <to> <biome> replace <filter></code>
+
+== Arguments ==
+
+{{argument|from|block_pos}} and {{argument|to|block_pos}}
+: The two corners to fill the biome between.
+: {{arg desc|je=block_pos}}
+
+{{argument|biome|resource}}
+: Specifies the biome to fill the specified area with. See {{slink|Biome|Biome IDs}} for a list of vanilla biome IDs.
+: {{arg desc|je=resource|registry=minecraft:worldgen/biome}}
+
+{{argument|filter|resource_or_tag}}
+: Specifies the biomes in the fill region to be replaced. If not specified, replaces all biomes in the fill region.
+: {{arg desc|je=resource_or_tag|registry=minecraft:worldgen/biome}}
+
+==Result==
+
+{{Result table|onlyje=1}}
+{{Result table|the arguments are not specified correctly|unparseable}}
+{{Result table|the specified region are unloaded or out of the world|fail}}
+{{Result table|the volume of the specified region is greater than <code>commandModificationBlockLimit</code> gamerule}}
+{{Result table|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|On success|1|1|the number of cells whose biomes are replaced}}
+{{Output table}}
+
+== History ==
+
+{{History|java}}
+{{History||1.19.3|snap=22w46a|Added {{cd|fillbiome}}.}}
+{{History|||snap=Pre-release 1|<code>/fillbiome</code> now supports a filtered form.}}
+{{History||1.19.4|snap=23w03a|Now the limit volume of the source region is controlled by <code>commandModificationBlockLimit</code> gamerule, instead of a hardcoded value 32768.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[Category:Commands]]
+
+[[de:Befehl/fillbiome]]
+[[es:Comandos/fillbiome]]
+[[ja:コマンド/fillbiome]]
+[[pt:Comandos/fillbiome]]
+[[zh:命令/fillbiome]]

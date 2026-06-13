@@ -1,0 +1,34 @@
+<div class="treeview">
+* {{nbt|compound}}: Root object.
+** {{nbt|list|structures}}: (Required, but can be empty) The structures that may be placed. One configured structure feature shouldn't be included by two structure sets.
+*** {{nbt|compound}}: A structure to be placed.
+**** {{nbt|string}}{{nbt|compound|structure}}: The configured structure feature to be placed. Can be a namespaced ID or an object of configured structure feature.
+**** {{nbt|int|weight}}: Determines the chance of it being chosen over others. Must be a positive integer.
+**{{nbt|compound|placement}}: How the structures should be placed.
+*** {{nbt|int|salt}}: A number that assists in randomization; see {{w|salt (cryptography)}}. Must be a non-negative integer.
+*** {{nbt|float|frequency}}: (Optional, default to 1.0) Probability to try to generate if other conditions below are met. Values between 0.0 to 1.0 (inclusive). Setting it to a number does not mean one structure is generated this often, only that the game attempts to generate one; biomes or terrain could lead to the structure not being generated.
+*** {{nbt|string|frequency_reduction_method}}: (Optional, defaults to <code>default</code>) Provides a random number generator algorithm for frequency. One of <code>default</code> (the random number depends on the the [[seed]], position and {{nbt|int|salt}}), <code>legacy_type_1</code> (the random number depends only on the seed and position, and randomness only occurs when the locations differ greatly), <code>legacy_type_2</code> (same as <code>default</code>, but with fixed salt: 10387320) and <code>legacy_type_3</code> (the random number depends only on seed and position).
+*** {{nbt|compound|exclusion_zone}}: Specifies that it cannot be placed near certain structures.
+**** {{nbt|int|chunk_count}}: Value betwenn 1 and 16 (inclusive).
+**** {{nbt|string|other_set}}: A structure set ID.
+*** {{nbt|list|locate_offset}}: (optional, defaults to [0,0,0]) The chunk coordinate offset given when using {{cmd|/locate structure}}.
+**** {{nbt|int}}: X. Value between -16 and 16 (inclusive).
+**** {{nbt|int}}: Y. Value between -16 and 16 (inclusive).
+**** {{nbt|int}}: Z. Value between -16 and 16 (inclusive).
+*** {{nbt|string|type}}: One of <code>minecraft:concentric_rings</code> or <code>minecraft:random_spread</code>.
+***; If <code>type</code> is <code>minecraft:concentric_rings</code> (distributed like [[stronghold]]s), additional fields are as follows<nowiki>:</nowiki>
+*** {{nbt|integer|distance}}: The thickness of a ring plus that of a gap between two rings. Value between 0 and 1023 (inclusive). Unit is '''6 chunks'''
+*** {{nbt|integer|count}}: The total number of generation attempts in this dimension. Value between 1 and 4095 (inclusive).
+*** {{nbt|string}}{{nbt|list|preferred_biomes}}: Biomes in which the structure is likely to be generated. Can be a biome ID or a biome tag, or a list of biome IDs.
+*** {{nbt|integer|spread}}: How many attempts are on the closest ring to spawn. Value between 0 and 1023 (inclusive). The number of attempts on the Nth ring is: <code>spread * (N^2 + 3 * N + 2) / 6</code>, until the number of attempts reaches the total {{nbt|integer|count}}.
+***; If <code>type</code> is <code>minecraft:random_spread</code> (distributed like [[bastion remnant]]s or [[swamp hut]]s), additional fields are as follows<nowiki>:</nowiki>
+*** {{nbt|string|spread_type}}: (optional, defaults to <code>linear</code>) One of <code>linear</code> or <code>triangular</code>.
+*** {{nbt|int|spacing}}: Average distance between two neighboring generation attempts. Value between 0 and 4096 (inclusive).
+*** {{nbt|int|separation}}: Minimum distance (in chunks) between two neighboring attempts. Value between 0 and 4096 (inclusive). And be not bigger than {{nbt|int|spacing}}. The maximum distance of two neighboring generation attempts is {{cd|2*spacing - separation}}.
+</div>
+<noinclude>
+[[Category:Java Edition]]
+[[Category:Data packs]]
+[[ja:カスタムワールド生成/structure set]]
+[[zh:自定义世界生成/structure set]]
+</noinclude>

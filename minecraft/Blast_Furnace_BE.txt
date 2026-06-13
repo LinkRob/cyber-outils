@@ -1,0 +1,16 @@
+<div class="treeview">
+*{{nbt|compound}} Block entity data
+** {{nbt inherit/blockentity}}
+** {{nbt|short|BurnTime}}: Number of ticks left before the current fuel runs out.
+** {{nbt|short|CookTime}}: Number of ticks the item has been smelting for. The item finishes smelting when this value reaches 200 (10 seconds). Is reset to 0 if BurnTime reaches 0.
+** {{nbt|short|CookTimeTotal}}: Number of ticks It takes for the item to be smelted.
+** {{:Chunk format/Nameable}}
+** {{nbt|list|Items}}: List of items in this container.
+*** {{nbt|compound}}: An item in the blast furnace, including the slot tag:<br>Slot 0: The item(s) being smelted.<br>Slot 1: The item(s) to use as the next fuel source.<br>Slot 2: The item(s) in the result slot.
+**** {{nbt inherit/item|indent=****}}
+** {{:Chunk format/Lockable}}
+** {{nbt|compound|RecipesUsed}}: Recipes that have been used since the last time a recipe result item was manually removed from the GUI. Used to calculate experience given to the player when taking out the resulting item.
+*** {{nbt|int|''recipe ID''}}: How many times this specific recipe has been used. The ''recipe ID'' is the identifier of the smelting [[recipe]], as a [[resource location]], as used in the {{cmd|recipe}} command.
+</div><noinclude>
+[[Category:Block entity pages]]
+</noinclude>

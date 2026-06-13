@@ -1,0 +1,73 @@
+{{exclusive|java}}
+
+{{Infobox command
+|name=perf
+|serveronly=1
+|oplevel=4
+}}
+Captures information and metrics about the game for ten seconds.
+
+Note that this command can only executed in dedicated server, use {{key|F3+L}} in client to run performance profiler.
+
+== Syntax ==
+:<code>perf start</code>
+::Starts a recording for 10 seconds performance profiling such as tick durations, used heap sizes and other more detailed stats.
+:<code>perf stop</code>
+::Ends the recording early before the 10-second limit.
+
+== Result ==
+{{Result table|onlyje=1}}
+{{Result table|cmd=/perf start|a perf profiling session has already been started|fail}}
+{{Result table|cmd=/perf stop|there's no perf profiling session running.}}
+{{Result table|cmd=|succeed}}
+{{Result table}}
+
+== Outputs ==
+{{Output table}}
+{{Output table|edition=je|On fail|N/A|0|0}}
+{{Output table|On success|N/A|1|0}}
+{{Output table}}
+
+== File structure ==
+When perf profiling session is stopped, a ZIP file is created in <samp>.minecraft/debug/profiling</samp> with the following structure:
+<div class=treeview>
+* '''yyyy-MM-dd_HH.mm.ss-''<world name>''-''<game version>''.zip'''
+** '''system.txt'''
+** '''server'''
+*** '''deviations'''
+**** '''ticktime'''
+***** '''''<current tick>''@yyyy-MM-dd_HH.mm.ss.SSS.txt'''
+*** '''levels'''
+**** '''''<namespace>'''''
+***** '''<dimension name>'''
+****** '''block_entities.csv''': Contains a list of [[block entities]] in the world in the format <code>x,y,z,type</code>.
+****** '''chunks.csv''': Contains a list of chunk information in the format {{cd|x,z,level,in_memory,status,full_status,accessible_ready,ticking_ready,entity_ticking_ready,ticket,spawning,entity_count,block_entity_count}}.
+****** '''entities.csv''': Contains a list of [[entities]] in the world in the format {{cd|x,y,z,uuid,type,alive,custom_name}}.
+****** '''entity_chunks.csv''': Contains a list of loaded chunks in the dimension in the format {{cd|x,y,z,visibility,load_status,entity_count}}.
+****** '''example_crash.txt''': An example crash file.
+****** '''stats.txt''': Contains some stats.
+*** '''metrics'''
+**** '''cpu.csv'''
+**** '''event_loops.csv'''
+**** '''jvm.csv'''
+**** '''mailboxes.csv'''
+**** '''ticking.csv'''
+*** '''classpath.txt''': Contains the file paths of the external jars ''Minecraft'' uses.
+*** '''gamerules.txt''': A plain text file containing a list of [[game rule]]s and their values (<code><gamerule>=<value></code>).
+*** '''modules.txt''': Contains the external modules jars ''Minecraft'' uses.
+*** '''profiling.txt''': The profiler results.
+*** '''server.properties.txt''': Current [[server.properties]].
+*** '''stats.txt''': Contains some stats.
+*** '''threads.txt''': All running threads.
+</div>
+
+== History ==
+{{History|java}}
+{{History||1.17|snap=Pre-release 1|Added {{cmd|perf|link=none}}.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[de:Befehl/perf]]
+[[ja:コマンド/perf]]
+[[zh:命令/perf]]

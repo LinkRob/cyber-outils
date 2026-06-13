@@ -1,0 +1,239 @@
+{{distinguish|Entity}}
+
+A '''block entity''' (also known as '''tile entity''') is extra data associated with a [[block]], beyond the finite set of [[block states]] associated with each block.
+
+== Usage ==
+
+Block entities store additional information about certain blocks, with the type of information varying by block.  In some cases, this information is used to create a more complex model, such as the book on an enchanting table.  In other cases, it is used to store contents of an object.
+Blocks with block entities can be moved by [[piston]]s in [[Bedrock Edition]], but not in [[Java Edition]].
+
+== List of block entities ==
+These are the current blocks that hold block entities.
+
+{| class="wikitable list-style-none" data-description="Blocks with block entities"
+! Block Entity
+! Usage
+|-
+|
+* {{BlockLink|Beehive}}
+* {{BlockLink|Bee Nest}}
+| To store bees.
+|-
+|
+* {{BlockLink|Signs}}
+* {{BlockLink|Hanging Signs}}
+* {{BlockLink|Chalkboard}}{{Only|bedrock|education}}
+* {{BlockLink|Poster}}{{Only|bedrock|education}}
+* {{BlockLink|Slate}}{{Only|bedrock|education}}
+| To store written text.
+|-
+|
+* {{BlockLink|Sculk Sensor}}
+* {{BlockLink|Calibrated Sculk Sensor}}
+|To store the [[Redstone Dust|redstone]] signal strength.
+|-
+|
+* {{BlockLink|Sculk Catalyst}}
+|To store [[Experience|xp levels]].
+|-
+|
+* {{BlockLink|Sculk Shrieker}}
+|To store the amount of activations.
+|-
+|
+* {{BlockLink|Banners}}
+| To store the patterns.
+|-
+|
+* {{BlockLink|Chest}}
+* {{BlockLink|Trapped Chest}}
+* {{BlockLink|Dispenser}}
+* {{BlockLink|Furnace}}
+* {{BlockLink|Brewing Stand}}
+* {{BlockLink|Hopper}}
+* {{BlockLink|Dropper}}
+* {{BlockLink|Shulker Box}}
+* {{BlockLink|Barrel}}
+* {{BlockLink|Smoker}}
+* {{BlockLink|Blast Furnace}}
+* {{BlockLink|Campfire}}
+* {{BlockLink|Soul Campfire}}
+* {{BlockLink|Lectern}}
+* {{BlockLink|Chiseled Bookshelf}}
+| To store their contents.
+
+* Furnaces, blast furnaces, and smokers also store the time until the current item is smelted, the time until the furnace's current fuel item is exhausted, and all of the items that have been smelted since a player emptied the output slot.
+* Brewing stands also store the brewing time.
+* Hoppers also store the time until the next transfer of an item.
+* Chests, trapped chests and shulker boxes also use the block's position and rotation for the opening and closing animation.
+* Lecterns also store the page the book is currently on.
+* The Chiseled Bookshelf stores books.
+|-
+|
+* {{BlockLink|Beacon}}
+| To store the pyramid level, active effects, and contents. Also uses the block's position for the beacon beam.
+|-
+|
+* {{BlockLink|Monster Spawner}}
+| To store: 
+* the entity to be spawned.
+* the delay until the next entity is spawned, and the min and max values for the next spawn delay.
+* how many entities to spawn per spawn attempt.
+* additional data about the entity to be spawned (such as position, [[Status effect|effects]], and entities stacked on top of it).
+* Also uses the block's position to display the spinning mob inside.
+|-
+|
+* {{BlockLink|Note Block}}{{only|bedrock|edu}}
+| To store the note to be played.
+|-
+|
+* {{BlockLink|Item Frame}}{{only|bedrock|education}}
+* {{BlockLink|Glow Item Frame}}{{only|bedrock|edu}}
+|To store the [[item]] displayed on it.
+|-
+|
+* {{BlockLink|Piston}}{{only|bedrock|edu}}
+* {{BlockLink|Sticky Piston}}{{Only|bedrock|education}}
+| To store the offset of block, and blocks that it should move or break.
+|-
+|
+* {{BlockLink|Moving Piston}}
+| To store the offset of block{{only|java}}, direction of movement{{only|java}}, and ID (and data value, if applicable) of the moving block.
+|-
+|
+* {{BlockLink|Jukebox}}
+| To play [[music disc]]s, if any are inside.
+|-
+|
+* {{BlockLink|Enchanting Table}}
+| For the floating book.
+|-
+|
+* {{BlockLink|id=end-portal|text=End Portal|link=End Portal (block)}}
+* {{BlockLink|Ender Chest}}
+| For the [[Particles|particle]] field effect.
+|-
+|
+* {{BlockSprite|Player Head}} {{BlockSprite|Zombie Head}} {{BlockSprite|Skeleton Skull}} {{BlockSprite|Wither Skeleton Skull}} {{BlockSprite|Creeper Head}} {{BlockSprite|Dragon Head}} {{BlockSprite|Piglin Head}} [[Mob Head]]
+| For the type of the head{{only|bedrock}}, rotation when placed on top of a block{{only|bedrock}}, and (if applicable) data of the player represented.
+|-
+|
+* {{BlockSprite|command-block}} {{BlockSprite|chain-command-block}} {{BlockSprite|repeating-command-block}} [[Command Block]]
+| For the [[Commands|command]] text, its output strength, and the output text.
+|-
+|
+* {{BlockLink|id=end-gateway|text=End Gateway|link=End Gateway (block)}}
+| For the teleport location and also whether to render the beam.
+|-
+|
+* {{BlockSprite|structure-block-save}} {{BlockSprite|structure-block-corner}} {{BlockSprite|structure-block-data}} {{BlockSprite|structure-block-load}} [[Structure Block]]
+| To store information about the structure.
+|-
+|
+* {{BlockLink|Jigsaw Block}}
+| To store the structure pool and the block this jigsaw block becomes.
+|-
+|
+* {{BlockLink|Nether Reactor Core}}{{only|bedrock|edu}}
+| To store whether the reaction started and the time remaining in the reaction.
+|-
+|
+* {{BlockSprite|Daylight Detector}} {{BlockSprite|Inverted Daylight Detector}} [[Daylight Detector]]
+| To force the daylight detector to update its output signal strength.
+|-
+|
+* {{BlockLink|Flower Pot}}{{only|bedrock|edu}}
+| To store the ID and the data value of the block displayed inside of it.
+|-
+|
+* {{BlockLink|Redstone Comparator}}
+| To store its output strength.
+|-
+|
+* {{BlockLink|id=red-bed|Bed}}
+| To store color{{only|bedrock}} and for rendering the block.
+|-
+|
+* {{BlockLink|Cauldron}}{{only|bedrock|edu}}
+| To store details about liquid content. Cauldrons containing [[Cauldron|dyed water]] store water color. Cauldrons containing potions store the [[Potion|potion's]] ID and a tag of whether it is a splash potion or not.
+|-
+|
+* {{BlockLink|Conduit}}
+| To check its activation area for valid activation blocks and calculate its effective range. Also used for rendering the block in its active and inactive states.
+|-
+|
+* {{BlockLink|Bell}}
+| For the render of the swaying animation of the bell.
+|-
+|
+* {{BlockLink|Lodestone}}{{only|bedrock|education}}
+| To link with [[compass]].
+|-
+|
+* {{BlockLink|Suspicious Sand}}
+* {{BlockLink|Suspicious Gravel}}
+| To store loot table, contents, brushability, and loot table seed.
+|-
+|
+* {{BlockLink|Decorated Pot}}
+| To store [[Pottery Sherd|sherds]].
+|-
+|
+* {{BlockLink|Compound Creator}}{{only|bedrock|edu}}<br>{{BlockLink|Element Constructor}}{{only|bedrock|edu}}<br> {{BlockLink|Lab Table}}{{only|bedrock|edu}}<br>{{BlockLink|Material Reducer}}{{only|bedrock|edu}}
+| To store the items in lab table and the process of lab experiment.
+|}
+
+== Render limits ==
+{{Exclusive|java|section=1}}
+
+Some block entities, or their effects, stop being rendered beyond a hard-coded block limit which is modeled after the radius of a sphere. This limit is ''not'' affected by the Render Distance nor the Entity Distance scale in the [[Video Settings]].
+
+Block entities that stop rendering beyond 64 blocks include:
+* {{BlockLink|Banners}}
+* {{BlockLink|id=red-bed|Bed}}s
+* {{BlockLink|Chest}}s
+* {{BlockLink|Conduit}}s
+* {{BlockLink|Decorated Pot}}s
+* {{BlockLink|Ender chest}}s
+* {{BlockLink|id=end-portal|text=End portal|link=End Portal (block)}}s
+* {{BlockLink|Hanging Sign}}s
+* {{BlockLink|Heads}}
+* {{BlockLink|Signs}}
+* {{BlockLink|Shulker box}}es
+* {{BlockLink|Trapped chest}}s
+
+Some effects related to block entities stop rendering beyond a number of blocks:
+* The [[beacon]] and [[End Gateway (block)|end gateway]] beams stop rendering beyond 256 blocks {{in|JE}} or 64 blocks {{in|BE}} or when the end gateway is out of frame.
+* The contents of a [[campfire]] stop rendering beyond 64 blocks.
+* The book on a [[lectern]] stops rendering beyond 64 blocks.
+* The mob inside a [[monster spawner]] stops spinning beyond the {{nbt|short|RequiredPlayerRange}}, which is 16 blocks by default, and stops rendering beyond 64 blocks.
+* The note particles emitted by a [[note block]] stop rendering beyond 32 blocks.
+* [[Piston]]s stop animating beyond 64 blocks.
+* The book on an [[enchanting table]] stops rendering beyond 64 blocks.
+* The outlines created by a [[structure block]] stop rendering beyond 96 blocks.
+* The bell part of the model of a [[bell]], but not the frame, stops rendering beyond 64 blocks.
+
+== See also ==
+
+* [[Chunk format#Block entity format|Chunk format § Block entity format]] – describes the save format for block entities
+* [[Entity|Entities]], which are all the dynamic, moving objects throughout the ''Minecraft'' world, plus several non-moving objects that resemble blocks.
+* [[Block states]], which are, like block entities, extra pieces of data that further define a block.
+
+{{Java Edition}}
+{{Bedrock Edition}}
+
+[[Category:Block entities| ]]
+
+[[de:Blockobjektdaten]]
+[[el:Block entity]]
+[[es:Entidad de bloque]]
+[[fr:Entités de blocs]]
+[[hu:Blokkentitás]]
+[[ja:ブロックエンティティ]]
+[[ko:블록 개체]]
+[[nl:Segment formaat]]
+[[pl:Byty bloków]]
+[[pt:Entidade de bloco]]
+[[ru:Блок-сущность]]
+[[uk:Блок-сутність]]
+[[zh:方块实体]]

@@ -1,0 +1,78 @@
+{{Cleanup|Reword without second person}}
+{{Outdated feature|edition=Bedrock}}
+{{Infobox command
+|name=mixer
+|oplevel=0
+|cheat=1
+}}
+Controls Mixer interactivity.
+
+==Syntax==
+
+: <code>mixer <stop: string></code>
+: <code>mixer <scene: string> <sceneName: string></code>
+: <code>mixer <start: string> <version: int> [shareCode: string]</code>
+
+==Arguments==
+<code>start</code>
+:Starts the interactive board.
+
+<code>version</code>
+:Specifies the version ID of the player's board. (for example, 000001)
+
+<code>shareCode</code>
+:Specifies the share code of the player's board. (for example, 0000aaaa)
+
+<code>scene</code>
+:Changes scene.
+
+<code>sceneName</code>
+:Specifies the name of the scene the player wants to change to. (for example, default)
+
+<code>stop</code>
+:Specifies that the player wants to stop the interactive board.
+
+==Result==
+<code>start</code> mode:
+:The MixPlay board begins.
+
+<code>scene</code> mode:
+:The scene changes.
+
+<code>stop</code> mode:
+:The MixPlay board shuts down.
+
+Fails if the arguments are not specified correctly.
+
+==Interactive Board Setup==
+# Login to your account at the [https://mixer.com/lab mixer interactive lab].
+# Click on the [https://mixer.com/lab/interactive MixPlay Projects] button.
+# If you haven't made a board before, click ''Let's Create One''. If you have already made a board, click the '''+''' button in the top right.
+# Name the board whatever you would like and set the game to ''Other''.
+# Click on ''Build''.
+:The ''default'' scene is the main one that is loaded upon starting with the '''/mixer''' command. This cannot be renamed.
+# In ''Controls'', click the '''+''' to add a button.
+# Name it, click ''Button'', then click ''Add''.
+# Click on the '''>''' and put some text in. This is shown on the button. If you want to use an image, put a link of the image in ''Background Image''.
+# If wanted, fill in the other boxes. Note that only the text is required.
+# Go to the meta properties and click '''+ Add Property'''.
+# Name it '''Command''' (it must be Command or it won't work) and leave the type as Text.
+# In the ''Value'' area, type in your command. (for example, /summon zombie)
+# Click the '''X''' and hold the '''='''. While holding it, drag it where you would like it to be on the board.
+# If wanted, resize it using the dots on the side.
+# Now to use it. Click the share icon in the top right corner and click '''Anyone with the versionId and code can play'''.
+# In Minecraft Bedrock, type '''/mixer start VERSIONID SHARECODE'''.
+# If done successfully, you can click the buttons on your stream. When the button is pressed, the command is executed if set up correctly.
+
+==History==
+{{History|bedrock}}
+{{History||1.2.5|snap=beta 1.2.5.12|Added {{cd|/mixer}}.}}
+{{History||1.16.210|snap=beta 1.16.210.53|Removed {{cd|/mixer}}.}}
+{{History||1.16.210|snap=beta 1.16.210.54|Reimplemented {{cd|/mixer}}.}}
+{{History||1.16.210|snap=beta 1.16.210.58|Removed {{cd|/mixer}} again.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[ru:Команды консоли/mixer]]
+[[pt:Comandos/mixer]]

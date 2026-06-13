@@ -1,0 +1,548 @@
+{{exclusive|bedrock|education}}
+{{Infobox command
+|name=playanimation
+|oplevel=1
+|cheat=1
+}}
+
+Sends an animation request to clients to make one or more [[entities]] play an [[animation]]. This [[command]] has an equivalent function in the script API: [https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entity#playanimation Entity.playAnimation].
+
+== Usage ==
+This command only sends an animation request to client sides. The server side doesn't process the animation at all.
+
+If the target entity is not loaded on the client, the client cannot receive the animation request.
+
+The client processes the request based on the contents of [[resource packs]], so players using different resource packs in the same [[server]] may see different animations.
+
+=== Animation controller ===
+
+Animation controllers are state-machines. State machines are a special kind of logic management, that relies on a series of states. Each state has two properties:
+* What to do in the current state
+* How to transmit to other states
+A state machine can only be in one state at a time. For example if you play an animation on the animation controller <code>controller.animation.player.root</code> on a player, then any other player animations such as sneaking, walking, hand moving, swimming, sleeping, jumping etc. won't play on that player, until this controller returns to a vanilla state. 
+
+In an animation controller, there are two types of states:
+* '''Animation specified state'''
+** Created by <code>/playanimation</code>. Doesn't have a name. Contains <code>animation</code> for what to do in the current state, <code>next_state</code> and <code>stop_expression</code> for how to transmit to the next state, and <code>blend_out_time</code> for fade-out duration. The <code>animation</code> is used as the unique identifier of the state. Can transmit into only one state. 
+* '''Resource pack defined state'''
+** Defined by resource packs. Has a name. Contains <code>animations</code> for what to do in the current state, <code>transitions</code> for how to transmit to other states, and <code>blend_transition</code> for fade-out duration. Its name is used as the unique identifier of the state. Can transmit into different states on different conditions.
+
+<code>/playanimation</code> command cannot interact with resource pack defined states, except to set <code>next_state</code> (of an animation specified state) to it.
+
+Animation controllers can be defined for an entity type by resource packs with several resource pack defined states (see also [https://learn.microsoft.com/en-us/minecraft/creator/reference/content/animationsreference/examples/animationcontroller official doc]). Animation controllers can also be created by this command as described below. There are also animation controllers in behavior packs running on the server side, but they do not control the animation.
+
+Animation controllers on an entity are not saved and are cleared when the entity becomes unloaded on the client, or when the player leaves and rejoins the game.
+
+Animation controllers on an entity become their default states when the resource pack is reloaded by minimizing or taping out the client game, but states of the animation controllers won't be cleared.
+
+Animation controller <code>controller.animation.player.root</code> on a player becomes its default state when the player opens the dressing room, but states of the animation controller won't be cleared.
+
+=== Behavior ===
+When the client receives the request, it first creates the specified animation controller on this entity if not existing. Then, the client adds a new animation specified state of the specified <code>animation</code> into the controller and sets the <code>next_state</code>, <code>blend_out_time</code>, and <code>stop_expression</code> for this state. Finally, it sets the currently state to this new state.
+
+If the specified controller already exists on the targeted entity, and the animation specified state of the specified <code>animation</code> already exists in the controller, when the client receives the request, the <code>next_state</code> dosen't change, the <code>blend_out_time</code> is updated, and the <code>stop_expression</code> becomes <code>original_stop_expression || new_stop_expression</code>. Finally, it sets the current state to this state.
+<!--
+<gallery>
+Animation controller data structure.png|Data structure of controllers on an entity
+Playing an animation when existing.png|Runing /playanimation when the specified animation already exists in the specified controller on the target entity
+</gallery>
+-->
+
+If specifying an animation controller defined by resource packs, the command work the same as described above. But note that because this command cannot interact with resource pack defined states (except to set <code>next_state</code> to one of them), after playing an animation, to make the controller return to a resource pack defined state, you have to make sure an animation specified state has a <code>next_state</code> that is a resource pack defined state.
+
+==Syntax==
+
+:<code>playanimation <entity: target> <animation: string> [next_state: string] [blend_out_time: float] [stop_expression: string] [controller: string]</code>
+
+==Arguments==
+
+{{argument|be=1|entity: target|CommandSelector<Actor>}}
+: Specifies the targeted entities.
+: {{arg desc|be=actor}}
+
+{{argument|be=1|animation: string|basic_string}}
+: Specifies a state (animation specified) by specifying an animation. The state will be added into the controller and set as current state of the controller.
+: {{arg desc|be=basic_string}}
+: Should be an [[Animation names|animation name]] (e.g. <code>animation.wolf.angry</code> for any entity type), or an animation shortcut defined under the Json path <code>"minecraft:client_entity"."animations"</code> in the <samp><a_resource_pack>/entity/<entity_name>.entity.json</samp> file (e.g. <code>wolf_angry</code> for only wolf entity). Animation controller shortcuts under this Json path do not work here.
+: Be careful when using animations with <code>.v1.0</code> at the end because it may be incompatible with the version of current world, this may result in lagging and a possible crash.
+: If the entered string isn't a valid animation in resource packs, the client does not respond to the animation request.
+
+{{argument|be=1|next_state|basic_string}}
+: Specifies the <code>next_state</code> by specifying an animation (for animation specified states) or a name (for resource pack defined states). Defaults to {{cd|default}} if not specified.
+: {{arg desc|be=basic_string}}
+: Can be an animation shortcut defined under the Json path <code>"minecraft:client_entity"."animations"</code> in the <samp><a_resource_pack>/entity/<entity_type>.entity.json</samp> file (e.g. <code>wolf_angry</code> for only wolf entity). Animation controller shortcuts under this Json path do not work here. Animation names do not work here.
+: Can also be a name of state from resource packs defined under the Json path <code>"animation_controllers"."<controller_name>.states"</code> in the <samp><a_resource_pack>/animation_controllers/<entity_type>.animation_controller.json</samp> file.
+: If a resource pack defined state and an animation shortcut have the same name, this name will specify an animation specified state which plays both animations in the resource pack defined state and the animation from shortcut.
+: If the entered string is a valid animation shortcut, but the corresponding state doesn't exist in the controller, the controller will still get in this state and then be stuck here and cannot transmit to other states, until the state is created into this controller by another <code>/playanimation</code> command, or the state of the controller is changed by <code>/playanimation</code> command.
+: If the entered string isn't a valid animation shortcut or a valid resource pack defined state name, the next state defaults to an empty state that plays no animation.
+
+{{argument|be=1|blend_out_time: float|float}}
+: Specifies the duration of the fade-out after the specified animation stops. Defaults to 0 if not specified.
+: {{arg desc|be=float}}
+
+{{argument|be=1|stop_expression: string|basic_string}}
+: Specifies the conditions for transmit to the next state.
+: {{arg desc|be=basic_string}}
+:Should be a [[Molang|Molang expression]]. Defaults to {{cd|query.any_animation_finished}} if not specified.
+: For example, if you want the animation to only end once the player starts sneaking: <code>"query.is_sneaking"</code>.
+: For another example, after running the following two commands, when the player jumps, it quickly switches between the two animations:
+:* <code>/playanimation @a riding.legs riding.arms 0 query.is_jumping ''controller_name''</code>
+:* <code>/playanimation @a riding.arms riding.legs 0 query.is_jumping ''controller_name''</code>
+
+{{argument|be=1|controller: string|basic_string}}
+: Specifies a controller on the target entity. Defaults to {{cd|__runtime_controller}} if not specified.
+: {{arg desc|be=basic_string}}
+: Can be any string, or an animation controller from a resource pack defined under the Json object <code>"animation_controllers"</code> in the <samp><a_resource_pack>/animation_controllers/<entity_type>.animation_controller.json</samp> file..
+
+== Result ==
+
+{{Result table|onlybe=1}}
+{{Result table|the arguments are not specified correctly||unparseable}}
+{{Result table|if <code>entity: target</code> fails to resolve to one or more online entities (named players must be online)||fail}}
+{{Result table|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table|onlybe=1}}
+{{Output table|edition=be|On fail|0}}
+{{Output table|On success|1}}
+{{Output table}}
+
+== Example ==
+
+Make the foxes sit down until they leave the ground. Once leaving the ground, the foxes become in sleep state:
+:<code>/playanimation @e[type=fox] sit sleep 0 "!query.is_on_ground" ''controller_name''</code>
+:Or:
+:<code>/playanimation @e[type=fox] sit sleep 0 "query.is_on_ground == 0.0" ''controller_name''</code>
+To make a player sit down until they move:
+: <code>/playanimation @a animation.player.riding.legs a 0 query.is_moving ''controller_name''</code>
+To make a players legs flip upside down into their body until they jump:
+: <code>/playanimation @a animation.player.move.legs.inverted a 0 query.is_jumping ''controller_name''</code>
+To make a player's body freeze and stop all player animations from playing on that player (Note: the animation controller has to be <code>controller.animation.player.root</code> for this to work):
+: <code>/playanimation @s sleeping a 0 true controller.animation.player.root</code>
+For some cool combinations you can do with /playanimation go to [[Playanimation Combinations|playanimation combonations]]. 
+
+== History ==
+
+{{History|bedrock}}
+{{History||1.16.100|snap=beta 1.16.100.52|Added {{cmd|playanimation|link=none}}.}}
+{{History|foot}}
+
+== List of animations ==
+{{columns-list|
+* animation.actor.billboard
+* animation.agent.move
+* animation.agent.swing_arms
+* animation.armor.boots.offset
+* animation.armor_stand.athena_pose
+* animation.armor_stand.brandish_pose
+* animation.armor_stand.cancan_a_pose
+* animation.armor_stand.cancan_b_pose
+* animation.armor_stand.default_pose
+* animation.armor_stand.entertain_pose
+* animation.armor_stand.hero_pose
+* animation.armor_stand.honor_pose
+* animation.armor_stand.no_pose
+* animation.armor_stand.riposte_pose
+* animation.armor_stand.salute_pose
+* animation.armor_stand.solemn_pose
+* animation.armor_stand.wiggle
+* animation.armor_stand.zombie_pose
+* animation.arrow.move
+* animation.axolotl.idle_underwater
+* animation.axolotl.idle_floor
+* animation.axolotl.idle_floor_underwater
+* animation.axolotl.swim
+* animation.axolotl.walk_floor
+* animation.axolotl.walk_floor_underwater
+* animation.axolotl.play_dead
+* animation.axolotl.swim_angle
+* animation.bat.flying
+* animation.bat.resting
+* animation.bee.flying
+* animation.bee.sting
+* animation.bee.no_stinger
+* animation.bee.fly.bobbing
+* animation.blaze.move
+* animation.bow.wield
+* animation.bow.wield_first_person_pull
+* animation.camel.sit
+* animation.cat.baby_transform
+* animation.cat.lie_down
+* animation.cat.sit
+* animation.cat.sneak
+* animation.cat.sprint
+* animation.cat.walk
+* animation.chicken.general.v1.0
+* animation.chicken.baby_transform
+* animation.chicken.general
+* animation.chicken.move
+* animation.cod.flop
+* animation.cod.swim
+* animation.cow.baby_transform
+* animation.cow.setup
+* animation.cow.setup.v1.0
+* animation.creeper.legs
+* animation.creeper.swelling
+* animation.crossbow.wield
+* animation.dolphin.move
+* animation.idle_arm_1
+* animation.idle_back_1
+* animation.idle_bottom_1
+* animation.idle_torso_1
+* animation.react_arm_1
+* animation.react_arm_2
+* animation.react_back_1
+* animation.react_back_2
+* animation.react_bored_1
+* animation.react_bored_arm_1
+* animation.react_bored_back_1
+* animation.react_bored_bottom_1
+* animation.react_bored_head_1
+* animation.react_bottom_1
+* animation.react_bottom_2
+* animation.react_bottom_3
+* animation.react_confirm_1
+* animation.react_confirm_2
+* animation.react_head_1
+* animation.react_head_2
+* animation.react_idle
+* animation.react_offer_1
+* animation.react_offer_2
+* animation.react_offer_arm_1
+* animation.react_offer_arm_2
+* animation.react_offer_back_1
+* animation.react_offer_back_2
+* animation.react_offer_bottom_1
+* animation.react_offer_bottom_2
+* animation.react_offer_head_1
+* animation.react_offer_head_2
+* animation.react_offer_torso_1
+* animation.react_offer_torso_2
+* animation.react_torso_1
+* animation.react_torso_2
+* animation.drowned.attack.rotations
+* animation.drowned.attack.rotations.v1.0
+* animation.drowned.swimming.v1.0
+* animation.elytra.default
+* animation.elytra.gliding
+* animation.elytra.sneaking
+* animation.elytra.sleeping
+* animation.elytra.swimming
+* animation.ender_crystal.move
+* animation.ender_dragon.setup
+* animation.ender_dragon.jaw_movement
+* animation.ender_dragon.neck_head_movement
+* animation.ender_dragon.wings_limbs_movement
+* animation.ender_dragon.tail_movement
+* animation.enderman.arms_legs
+* animation.enderman.base_pose
+* animation.enderman.carrying
+* animation.enderman.scary_face
+* animation.enderman.base_pose_v1.0
+* animation.enderman.scary_face_v1.0
+* animation.endermite.move
+* animation.evocation_fang.bite
+* animation.evoker.casting
+* animation.evoker.casting.v1.0
+* animation.evoker.general
+* animation.evoker.general.v1.0
+* animation.fireworks_rocket.move
+* animation.fox.baby_transform
+* animation.fox.crouch
+* animation.fox.pounce
+* animation.fox.setup
+* animation.fox.sit
+* animation.fox.sleep
+* animation.fox.stuck
+* animation.fox.wiggle
+* animation.frog.croak
+* animation.frog.jump
+* animation.frog.tongue
+* animation.frog.walk
+* animation.ghast.move
+* animation.ghast.scale
+* animation.goat.baby_scaling
+* animation.goat.look_at_target
+* animation.goat.walk
+* animation.goat.attack
+* animation.goat.ram_attack
+* animation.guardian.move_eye
+* animation.guardian.setup
+* animation.guardian.spikes
+* animation.guardian.swim
+* animation.guardian.move_eye.v1.0
+* animation.guardian.spikes.v1.0
+* animation.hoglin.baby_scaling
+* animation.hoglin.look_at_target
+* animation.hoglin.walk
+* animation.hoglin.attack
+* animation.horse.baby_transform
+* animation.horse.eat
+* animation.horse.look_at_player
+* animation.horse.mouth
+* animation.horse.setup
+* animation.horse.shake_tail
+* animation.horse.stand
+* animation.horse.walk
+* animation.horse.v2.baby_transform
+* animation.horse.v2.eat
+* animation.horse.v2.setup
+* animation.horse.v2.stand
+* animation.horse.v2.tail
+* animation.horse.v2.walk
+* animation.horse.v3.baby_transform
+* animation.horse.v3.eat
+* animation.horse.v3.look_at_player
+* animation.horse.v3.rear
+* animation.horse.v3.tail
+* animation.horse.v3.walk
+* animation.humanoid.attack.rotations
+* animation.humanoid.base_pose
+* animation.humanoid.big_head
+* animation.humanoid.bob
+* animation.humanoid.bow_and_arrow
+* animation.humanoid.brandish_spear
+* animation.humanoid.holding_spyglass
+* animation.humanoid.celebrating
+* animation.humanoid.charging
+* animation.humanoid.damage_nearby_mobs
+* animation.humanoid.holding
+* animation.humanoid.look_at_target.default
+* animation.humanoid.look_at_target.gliding
+* animation.humanoid.look_at_target.swimming
+* animation.humanoid.move
+* animation.humanoid.riding.arms
+* animation.humanoid.riding.legs
+* animation.humanoid.sneaking
+* animation.humanoid.swimming
+* animation.humanoid.use_item_progress
+* animation.iron_golem.attack
+* animation.iron_golem.flower
+* animation.iron_golem.move
+* animation.iron_golem.move_to_target
+* animation.iron_golem.walk
+* animation.iron_golem.walk_to_target
+* animation.llama.baby_transform
+* animation.llama.baby_transform.v1.0
+* animation.llama.setup
+* animation.llama.setup.v1.0
+* animation.llama_spit.setup
+* animation.common.look_at_target
+* animation.magma_cube.move
+* animation.minecart.move
+* animation.minecart.move.v1.0
+* animation.mooshroom.baby_transform
+* animation.mooshroom.setup
+* animation.mooshroom.setup.v1.0
+* animation.npc.baby_transform
+* animation.npc.general
+* animation.npc.get_in_bed
+* animation.npc.move
+* animation.npc.raise_arms
+* animation.ocelot.baby_transform
+* animation.ocelot.sit
+* animation.ocelot.sneak
+* animation.ocelot.sprint
+* animation.ocelot.walk
+* animation.ocelot_v1.0.baby_transform
+* animation.ocelot_v1.0.setup
+* animation.ocelot_v1.0.sit
+* animation.ocelot_v1.0.sneak
+* animation.ocelot_v1.0.sprint
+* animation.ocelot_v1.0.walk
+* animation.panda.baby_transform
+* animation.panda.lying
+* animation.panda.rolling
+* animation.panda.sitting
+* animation.panda.sneezing
+* animation.panda.unhappy
+* animation.parrot.base
+* animation.parrot.dance
+* animation.parrot.flying
+* animation.parrot.moving
+* animation.parrot.sitting
+* animation.parrot.standing
+* animation.phantom.base_pose
+* animation.phantom.move
+* animation.pig.baby_transform
+* animation.pig.setup
+* animation.pig.setup.v1.0
+* animation.piglin.crossbow.charge
+* animation.piglin.crossbow.hold
+* animation.piglin.sword.attack
+* animation.piglin.hand.attack
+* animation.piglin.move
+* animation.piglin.admire
+* animation.piglin.celebrate_hunt
+* animation.piglin.celebrate_hunt_special
+* animation.pillager.crossbow.charge
+* animation.pillager.crossbow.hold
+* animation.player.attack.positions
+* animation.player.attack.rotations
+* animation.player.base_pose.upside_down
+* animation.player.bob
+* animation.player.bob.stationary
+* animation.player.bow_equipped
+* animation.player.cape
+* animation.player.crossbow_equipped
+* animation.player.crossbow_hold
+* animation.player.glide
+* animation.player.holding
+* animation.player.holding.zombie
+* animation.player.look_at_target.inverted
+* animation.player.look_at_target.ui
+* animation.player.move.arms
+* animation.player.move.arms.single
+* animation.player.move.arms.stationary
+* animation.player.move.arms.statue_of_liberty
+* animation.player.move.arms.zombie
+* animation.player.move.legs
+* animation.player.move.legs.inverted
+* animation.player.move.legs.single
+* animation.player.move.legs.stationary
+* animation.player.riding.arms
+* animation.player.riding.arms.zombie
+* animation.player.riding.legs
+* animation.player.shield_block_main_hand
+* animation.player.shield_block_off_hand
+* animation.player.sleeping
+* animation.player.sneaking
+* animation.player.sneaking.inverted
+* animation.player.swim
+* animation.player.swim.legs
+* animation.player.swim.legs.single
+* animation.player.swim.legs.stationary
+* animation.player.first_person.attack_rotation
+* animation.player.first_person.attack_rotation_item
+* animation.player.first_person.base_pose
+* animation.player.first_person.crossbow_equipped
+* animation.player.first_person.crossbow_hold
+* animation.player.first_person.breathing_bob
+* animation.player.first_person.empty_hand
+* animation.player.first_person.map_hold
+* animation.player.first_person.map_hold_attack
+* animation.player.first_person.map_hold_main_hand
+* animation.player.first_person.map_hold_off_hand
+* animation.player.first_person.swap_item
+* animation.player.first_person.vr_attack_rotation
+* animation.player.first_person.walk
+* animation.polarbear.baby_transform
+* animation.polarbear.move
+* animation.pufferfish.flop
+* animation.pufferfish.swim
+* animation.quadruped.walk
+* animation.rabbit.baby_transform
+* animation.rabbit.move
+* animation.ravager.biting
+* animation.ravager.idle_mouth
+* animation.ravager.roaring
+* animation.ravager.stunned
+* animation.ravager.walk
+* animation.salmon.flop
+* animation.salmon.swim
+* animation.sheep.baby_transform
+* animation.sheep.grazing
+* animation.sheep.setup
+* animation.shield.wield_main_hand_first_person
+* animation.shield.wield_off_hand_first_person
+* animation.shield.wield_main_hand_first_person_blocking
+* animation.shield.wield_off_hand_first_person_blocking
+* animation.shield.wield_third_person
+* animation.shulker.facing
+* animation.shulker.move
+* animation.shulker.facing.v1.0
+* animation.shulker.move.v1.0
+* animation.shulker_bullet.move
+* animation.silverfish.move
+* animation.skeleton.attack
+* animation.humanoid.attack.rotations.v1.0
+* animation.humanoid.base_pose.v1.0
+* animation.humanoid.big_head.v1.0
+* animation.humanoid.bob.v1.0
+* animation.humanoid.bow_and_arrow.v1.0
+* animation.humanoid.brandish_spear.v1.0
+* animation.humanoid.charging.v1.0
+* animation.humanoid.damage_nearby_mobs.v1.0
+* animation.humanoid.holding.v1.0
+* animation.humanoid.look_at_target.default.v1.0
+* animation.humanoid.look_at_target.gliding.v1.0
+* animation.humanoid.look_at_target.swimming.v1.0
+* animation.humanoid.move.v1.0
+* animation.humanoid.riding.arms.v1.0
+* animation.humanoid.riding.legs.v1.0
+* animation.humanoid.sneaking.v1.0
+* animation.humanoid.swimming.v1.0
+* animation.humanoid.use_item_progress.v1.0
+* animation.skeleton.attack.v1.0
+* animation.snowgolem.move.v1.8
+* animation.snowgolem.arms
+* animation.snowgolem.move
+* animation.spider.default_leg_pose
+* animation.spider.look_at_target
+* animation.spider.walk
+* animation.spyglass.holding
+* animation.spyglass.scoping
+* animation.squid.move
+* animation.squid.rotate
+* animation.strider.look_at_target.default
+* animation.strider.walk
+* animation.strider.bristle_flow
+* animation.trident.wield_first_person
+* animation.trident.wield_first_person_raise
+* animation.trident.wield_first_person_raise_shake
+* animation.trident.wield_first_person_riptide
+* animation.trident.wield_third_person
+* animation.trident.wield_third_person_raise
+* animation.tripod_camera.neutral
+* animation.tropicalfish.flop
+* animation.tropicalfish.swim
+* animation.turtle.general
+* animation.turtle.ground_move
+* animation.turtle.move
+* animation.vex.attack.rotations.v1.0
+* animation.vex.move
+* animation.villager.baby_transform
+* animation.villager.general
+* animation.villager.general.v1.0
+* animation.villager.get_in_bed
+* animation.villager.move
+* animation.villager.raise_arms
+* animation.vindicator.attack
+* animation.vindicator.hand_attack
+* animation.vindicator.base
+* animation.vindicator.riding.arms
+* animation.vindicator.riding.legs
+* animation.vindicator.walk
+* animation.warden.attack
+* animation.warden.dig
+* animation.warden.emerge
+* animation.warden.hurt
+* animation.warden.move
+* animation.warden.roar
+* animation.warden.sniff
+* animation.warden.sonic_boom
+* animation.witch.general
+* animation.wither_boss.look_at_target
+* animation.wither_boss.move
+* animation.wither_boss.scale
+* animation.wither_skeleton.attack
+* animation.wither_skull.move
+* animation.wolf.angry
+* animation.wolf.baby_scaling
+* animation.wolf.head_rot_z
+* animation.wolf.leg_default
+* animation.wolf.setup
+* animation.wolf.shaking
+* animation.wolf.sitting
+* animation.wolf.tail_default
+* animation.zombie.attack_bare_hand
+* animation.zombie.swimming
+}}
+[[Category:Data driven id lists in Bedrock Edition]]
+
+{{Commands}}
+
+[[zh:命令/playanimation]]
+[[Category:Education Edition]]

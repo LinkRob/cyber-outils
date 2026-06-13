@@ -1,0 +1,328 @@
+{{Block
+| image = <gallery>
+Brewing Stand (empty) JE10.png | Empty
+Brewing Stand (right) JE10.png | Right
+Brewing Stand (left) JE10.png | Left
+Brewing Stand (full) JE10.png | Full
+</gallery>
+| transparent = Yes
+| light = Yes (1)
+| tool = Wooden Pickaxe
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = No
+| lavasusceptible = No
+}}
+
+A '''brewing stand''' is a [[block]] used for [[brewing]] [[potion]]s using [[Glass Bottle|bottles]] and suitable ingredients. It also serves as a [[cleric]]'s [[job site block]].
+
+== Obtaining ==
+
+=== Breaking ===
+
+A brewing stand can be obtained using any [[pickaxe]]. If mined without a pickaxe, it drops nothing {{in|JE}}, while it drops itself {{in|BE}}.
+{{breaking row|horizontal=1|Brewing Stand|Pickaxe|Wood|foot=1}}
+
+=== Natural generation ===
+
+Brewing stands generate in [[end ship]]s. They have two [[potion of Healing|Instant Health II potions]] in their holders. 
+
+A brewing stand also generates in the basement of [[igloo]]s with a [[splash potion of Weakness]] in it.
+
+Brewing stands can generate without potions in [[village]] churches.
+
+=== Crafting ===
+{{Crafting
+|head=1
+|showdescription=1
+|B1= Blaze Rod 
+|A2= Any stone-tier block |B2= Any stone-tier block |C2= Any stone-tier block
+|Output= Brewing Stand
+|type= Brewing
+|description=Can use cobblestone and its other variants interchangeably.
+|foot=1
+}}
+
+== Usage ==
+[[File:Brewing Stand GUI.png|thumb|right|176px|Brewing stand GUI {{in|java}}]]
+
+By default, the interface  of a brewing stand is labeled "Brewing Stand", but this name can be customized by naming it in an [[anvil]] before placing it.
+
+Brewing stands cannot be pushed by [[piston]]s {{in|java}}.
+
+=== Brewing ===
+{{main|Brewing}}
+The main purpose of brewing stands is to allow for the [[brewing]] of [[potion]]s. Its interface can be opened by pressing {{control|use}} on them.
+
+Brewing stands need [[blaze powder]] as fuel. Each piece brews 20 batches of potions, with each stage of brewing counting separately. Unlike [[furnace]]s, there is no time limit; fuel is consumed only when there are [[Glass Bottle|bottles]] and an ingredient to brew into it.
+
+Brewing stands interact with [[hopper]]s as follows:
+
+* They accept brewing ingredients from hoppers pointing down into the top.
+* Any valid potion recipe can be preloaded for "hands-free" brewing of a complex recipe, with the [[Nether Wart|nether wart]] falling through into the stand for the first step.
+* Bottles and fuel are accepted from hoppers pointing into the side.
+* Finished products can be pulled out by hoppers below, but each stage of brewing counts as a batch of "finished" potions.
+
+{{IN|education}}, elements can be combined in the brewing stand to make the [[medicine]] potions: antidote, elixir, eye drops, and tonic.
+
+=== Changing profession ===
+If a village has a brewing stand that has not been claimed by a villager, any villager who hasn't already picked a [[job site]] block in the village has a chance to change their profession into cleric.
+
+=== Light source ===
+Brewing stands emit a light level of 1.
+
+== Sounds ==
+
+=== Generic ===
+{{Sound table/Block/Stone}}
+
+=== Unique ===
+{{edition|java}}:
+{{Sound table
+|rowspan=2
+|sound=Brewing Stand brew1.ogg
+|sound2=Brewing Stand brew2.ogg
+|subtitle=Brewing Stand bubbles
+|source=block
+|description=When a potion finishes brewing
+|id=block.brewing_stand.brew
+|translationkey=subtitles.block.brewing_stand.brew
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|subtitle=Cleric works
+|source=neutral
+|description=Randomly while a cleric is working
+|id=entity.villager.work_cleric
+|translationkey=subtitles.entity.villager.work_cleric
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Door close.ogg
+|sound2=Door open.ogg
+|subtitle=Chest locked<ref group=sound name=lock>{{Bug|MC-98316||Wrong subtitles caused by missing distinction}}</ref>
+|source=block
+|description=When a player attempts to open a brewing stand locked using the {{nbt|string|Lock}} tag
+|id=block.chest.locked|idnote=<ref group=sound name=lock/>
+|translationkey=subtitles.block.chest.locked|translationkeynote=<ref group=sound name=lock/>
+|volume=1.0
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|rowspan=2
+|sound=Brewing Stand brew1.ogg
+|sound2=Brewing Stand brew2.ogg
+|source=block
+|description=When a potion finishes brewing
+|id=random.potion.brewed
+|volume=1.0
+|pitch=1.0}}
+{{Sound table
+|source=block
+|description=Randomly while a cleric is working
+|id=random.potion.brewed
+|volume=1.0
+|pitch=1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Brewing Stand
+|spritetype=block
+|nameid=brewing_stand
+|translationkey=block.minecraft.brewing_stand, item.minecraft.brewing_stand
+|foot=1}}
+{{ID table
+|displayname=Block entity
+|spritename=brewing-stand
+|spritetype=block
+|nameid=brewing_stand
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|firstcolumnname=Brewing Stand
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Block
+|spritename=brewing-stand
+|spritetype=block
+|nameid=brewing_stand
+|id=117
+|form=block
+|itemform=item.brewing_stand
+|translationkey=-}}
+{{ID table
+|displayname=Item
+|spritename=brewing-stand
+|spritetype=item
+|nameid=brewing_stand
+|id=431
+|form=item
+|foot=1}}
+{{ID table
+|notnamespaced=y
+|displayname=Block entity
+|spritename=brewing-stand
+|spritetype=block
+|nameid=BrewingStand
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+
+{{/BS}}
+
+=== Block data ===
+
+A brewing stand has a block entity associated with it that holds additional data about the block.
+
+{{el|java}}:
+{{see also|Block entity format}}
+{{/BE}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Block entity format]].
+
+== Achievements ==
+<table-progress-tracking table-id="2" unique-column-index="3">
+{{load achievements|Local Brewery}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="2">
+{{Load advancements|Local Brewery}}
+</table-progress-tracking>
+
+== History ==
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|[[Cauldron]]s are implemented to be used to brew [[potion]]s, but are not available in-game yet.}}
+{{History|||snap=September 30, 2011|slink={{tweet|jeb|119762786619359232}}|[[File:Brewing Stand (pre-release).png|32px]] [[Jens Bergensten|Jeb]] reveals that brewing is done through a brewing stand instead of a [[cauldron]].}}
+{{History|||snap=Beta 1.9 Prerelease 3|[[File:Brewing Stand (empty) JE1 BE1.png|32px]] [[File:Brewing Stand (right) JE1.png|32px]] [[File:Brewing Stand (left) JE1.png|32px]] [[File:Brewing Stand (full) JE1.png|32px]] [[File:Brewing Stand (item) JE1 BE1.png|32px]] Added brewing stands.
+|Brewing [[potion]]s with brewing stands currently take 30 seconds.
+|When the first brewing stand was shown by Jeb, it had an additional 2D sub-stand for [[Glass Bottle|bottles]], but the stands for bottles are now designed in 3D.<ref>{{tweet|jeb|119763532312096769|I'm fully aware the potions are very thin (diet?), but it looks cute. (Always work in progress, of course)|September 30, 2011}}</ref>}}
+{{History||1.1|snap=12w01a|Brewing time for brewing stands has been reduced to 20 seconds.}}
+{{History||1.3.1|snap=12w15a|{{key|Shift}} + clicking can now be used to put items in brewing stands.}}
+{{History||1.8|snap=14w11a|[[File:Brewing Stand (empty) JE2.png|32px]] [[File:Brewing Stand (right) JE2.png|32px]] [[File:Brewing Stand (left) JE2.png|32px]] [[File:Brewing Stand (full) JE2.png|32px]] The [[model]] of brewing stands has been changed. Stands with no bottles appear glitched from some angles, the left and right slots appear identical when filled in (although both distinct appearences still exist as metadata), and the arm angles have changed due to the 22.5º rotation limit.
+|Brewing stands' targeting [[hitbox]] is now a full cube - previously it was a cuboid around the base plates.}}
+{{History|||snap=14w11b|[[File:Brewing Stand (empty) JE3.png|32px]] [[File:Brewing Stand (right) JE3.png|32px]] [[File:Brewing Stand (left) JE3.png|32px]] [[File:Brewing Stand (full) JE3.png|32px]] Empty brewing stands' model have been fixed, although the other changes still remain.}}
+{{History|||snap=14w25a|[[File:Brewing Stand (empty) JE4.png|32px]] [[File:Brewing Stand (right) JE4.png|32px]] [[File:Brewing Stand (left) JE4.png|32px]] [[File:Brewing Stand (full) JE4.png|32px]] Brewing stand models have changed such that bottles in the left and right slots now indeed appear different. However, the leftmost one appears stretched. Arms are also now affected by directional shading.<ref>{{bug|MC-68302|||WAI}}</ref>}}
+{{History||1.9|snap=15w31a|Brewing stands now generate in [[End City|end cities]].}}
+{{History|||snap=15w33a|Brewing stands can now brew [[Lingering Potion|lingering potion]]s.}}
+{{History|||snap=15w33c|A bug where the [[player]] couldn't put in a [[splash potion]] to make a lingering potion has been fixed.}}
+{{History|||snap=15w42a|Brewing stands now require [[Blaze Powder|blaze powder]] to operate.}}
+{{History|||snap=15w43a|Brewing stands now generate in the basement of [[igloo]]s.
+|Each blaze powder now fuels 20 brewing stand operations rather than 30.}}
+{{History|||snap=15w44a|[[File:Brewing Stand (empty) JE5.png|32px]] [[File:Brewing Stand (right) JE5.png|32px]] [[File:Brewing Stand (left) JE5.png|32px]] [[File:Brewing Stand (full) JE5.png|32px]] Brewing stand models no longer have a stretched bottle.}}
+{{History|||snap=15w47b|[[Sound]]s have been added for brewing stands.}}
+{{History||1.11|snap=16w32a|The block entity ID has been changed from <code>Cauldron</code> to <code>brewing_stand</code>.}}
+{{History||1.13|snap=17w47a|Prior to [[Java Edition 1.13/Flattening|''The Flattening'']], this [[block]]'s numeral ID was 117, and the [[item]]'s 379.}}
+{{History||1.14|snap=18w43a|[[File:Brewing Stand (empty) JE6 BE2.png|32px]] <!-- [[File:Brewing Stand (left) JE6 BE2.png|32px]] [[File:Brewing Stand (right) JE6 BE2.png|32px]] -->[[File:Brewing Stand (Full) JE6 BE2.png|32px]] [[File:Brewing Stand (item) JE2.png|32px]] The textures of brewing stands have been changed.}}
+{{History|||snap=18w44a|[[File:Brewing Stand (item) JE3 BE2.png|32px]] The texture of the brewing stand [[item]] has been changed.}}
+{{History|||snap=18w48a|Brewing stands now generate in the updated [[plains]] [[village]]s.}}
+{{History|||snap=18w49a|Brewing stands now generate in the updated [[savanna]] villages and the new [[Snowy Tundra|snowy]] villages.}}
+{{History|||snap=18w50a|Brewing stands now generate in the updated [[desert]] and [[taiga]] villages.}}
+{{History|||snap=19w03c|The three plates, but not the rod, of a brewing stand now use correct cullface arguments.}}
+{{History|||snap=19w11a|Brewing stands now serve as cleric [[villager]]s' job site block.}}
+{{History||1.16.2|snap=20w28a|Brewing stands can now be [[crafting|crafted]] with [[blackstone]].}}
+{{History||1.17|snap=21w07a|Brewing stands can now be crafted with [[deepslate|grimstone]] (now deepslate).}}
+{{History||1.17|snap=21w08a|Brewing stands can no longer be crafted with deepslate.
+|Brewing stands can now be crafted with [[Cobbled Deepslate|cobbled deepslate]].}}
+{{History|||snap=21w11a|<!--[[File:Brewing Stand (empty) JE7.png|32px]] [[File:Brewing Stand (right) JE7.png|32px]] [[File:Brewing Stand (left) JE7.png|32px]] [[File:Brewing Stand (Full) JE7.png|32px]] Changed [[lighting]].-->Tweaked the brewing stand GUI texture.}}
+{{History||1.18|snap=21w39a|[[File:Brewing Stand (empty) JE8.png|32px]] [[File:Brewing Stand (right) JE8.png|32px]] [[File:Brewing Stand (left) JE8.png|32px]] [[File:Brewing Stand (full) JE8.png|32px]] The default [[brightness]] has been changed from "Moody" to 50.}}
+{{History||1.19|snap=22w11a|[[File:Brewing Stand (empty) JE9.png|32px]] [[File:Brewing Stand (right) JE9.png|32px]] [[File:Brewing Stand (left) JE9.png|32px]] [[File:Brewing Stand (full) JE9.png|32px]] Changed texture and model.}}
+{{History|||snap=22w17a|[[File:Brewing Stand (empty) JE10.png|32px]] [[File:Brewing Stand (right) JE10.png|32px]] [[File:Brewing Stand (left) JE10.png|32px]] [[File:Brewing Stand (full) JE10.png|32px]] Changed base texture and model.}}
+
+{{History|pocket alpha}}
+{{History||v0.12.1|snap=build 1|[[File:Brewing Stand (empty) JE1 BE1.png|32px]] [[File:Brewing Stand (item) JE1 BE1.png|32px]] Added brewing stands.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Brewing stands now generate in [[igloo]] basements.
+|Brewing stands now generate in [[end ship]]s.}}
+
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|Brewing stands now require [[blaze powder]] to operate.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Brewing Stand (empty) JE6 BE2.png|32px]] [[File:Brewing Stand (item) JE3 BE2.png|32px]] The textures of brewing stands have been changed.|A brewing stand can now generate in [[village]] temples.}}
+{{History||1.16.100|snap=beta 1.16.100.52|Brewing stands can now be [[craft]]ed with [[blackstone]].}}
+{{History||1.17.0|snap=beta 1.17.0.50|Brewing stands can now be [[craft]]ed with [[cobbled deepslate]].}}
+{{History||1.19.0|snap=beta 1.19.0.20|[[File:Brewing Stand (empty) JE10.png|32px]] [[File:Brewing Stand (right) JE10.png|32px]] [[File:Brewing Stand (left) JE10.png|32px]] [[File:Brewing Stand (full) JE10.png|32px]] Slightly changed its texture, to make their arms connect to their bases.}}
+
+{{History|console}}
+{{History||xbox=TU7|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Brewing Stand (empty) JE1 BE1.png|32px]] [[File:Brewing Stand (item) JE1 BE1.png|32px]] Added brewing stands.}}
+{{History||xbox=TU43|xbone=CU33|ps=1.36|wiiu=Patch 13|Brewing stands now appear in [[igloo]]s. The lack of a fuel requirement means that potions can now be made without going to the Nether.}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|Brewing stands now require [[blaze powder]] to operate.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Brewing Stand.png|32px]] [[File:Brewing Stand (item) JE3 BE2.png|32px]] The textures of brewing stands have been changed.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Brewing Stand (empty) JE1 BE1.png|32px]] [[File:Brewing Stand (item) JE1 BE1.png|32px]] Added brewing stands.}}
+{{History|foot}}
+
+<gallery>
+File:Brewingstand Potion.png|The first picture of a brewing stand. A [[giant mushroom]] is also seen in this picture.
+</gallery>
+
+=== Brewing stand "item" ===
+{{:Technical blocks/Brewing Stand}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* Even when the brewing stand is not in use, there is still smoke coming out of the top of it.
+* In ''[[Java Edition]]'', when a brewing stand is broken, particles from a bottle appear, even if no bottle is in the stand.
+* No matter what potion (including water bottles) is in the stand it always looks like a full red bottle.
+* Brewing stands always face east, no matter what direction they are placed.
+* According to [[Michael Stoyke|Searge]], for thematic reasons, a brewing stand was added to the basement of the [[igloo]]. Because of this, blaze powder was required for fuel to preserve game progression. In this way, the player is prevented from using it before going to the Nether.<ref>https://minecraft.net/en-us/article/meet-blaze</ref>
+
+== Gallery ==
+<gallery>
+File:Brewing stand in action.png|A brewing stand in action.
+File:Igloobasement.png|A brewing stand in an igloo basement.
+File:1.8 and below brewing stand.png|The GUI of the brewing stand in 1.8.x and below.
+</gallery>
+
+== See also ==
+*[[Glass Bottle]]
+*[[Splash Potion]]
+
+== References ==
+{{reflist}}
+
+== External links ==
+*[https://www.minecraft.net/en-us/article/taking-inventory--brewing-stand Taking Inventory: Brewing Stand] – Minecraft.net on October 11, 2019
+
+{{Blocks|Utility}}
+{{items}}
+
+[[Category:Job blocks]]
+[[Category:Utility blocks]]
+[[Category:Manufactured blocks]]
+[[Category:Generated structure blocks]]
+[[Category:Storage]]
+[[Category:Block entities]]
+[[Category:Light sources]]
+
+[[de:Braustand]]
+[[es:Soporte para pociones]]
+[[fr:Alambic]]
+[[hu:Főzőállvány]]
+[[it:Alambicco]]
+[[ja:醸造台]]
+[[nl:Brouwstandaard]]
+[[pl:Statyw alchemiczny]]
+[[pt:Suporte de poções]]
+[[ru:Варочная стойка]]
+[[uk:Варильна стійка]]
+[[zh:酿造台]]

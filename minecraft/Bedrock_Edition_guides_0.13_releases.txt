@@ -1,0 +1,489 @@
+{{Wip}}{{Guide nav
+|edition=bedrock
+|name=
+|vers=
+* {{vl|pe v0.13.0|}}
+* {{vl|pe v0.13.1|}}
+* {{vl|pe v0.13.2|}}
+|prev=0.12 releases
+|next=Overworld Update
+}}
+This guide is a simplified overview of all the changes in the [[Bedrock Edition]] 0.13.x releases, which assumes at least some familiarity with 0.12.x releases.
+
+== Creature ==
+=== NEW CONTENT ===
+{|{{Simple Guide table|New Mobs}}
+|-
+|[[Rabbit]]
+|{{Animate|Brown Rabbit JE1 BE1.png; White Rabbit.png; Black Rabbit JE1 BE1.png; Gold Rabbit JE1 BE1.png; Salt & Pepper Rabbit JE1 BE1.png; Black & White Rabbit JE2 BE1.png|128px }}
+{{Animate|Baby Brown Rabbit JE1 BE1.png; Baby White Rabbit.png; Baby Black Rabbit JE1 BE1.png; Baby Gold Rabbit JE1 BE1.png; Baby Salt & Pepper Rabbit JE1 BE1.png; Baby Black & White Rabbit JE2 BE1.png|64px}}
+|
+* {{BiomeLink|Desert}}
+* {{BiomeLink|Flower Forest}}
+* {{BiomeLink|Taiga}}
+* {{BiomeLink|Giant Tree Taiga}}
+* {{BiomeLink|Snowy Taiga}}
+* {{BiomeLink|Snowy Tundra}}
+* {{BiomeLink|Frozen River}}
+* {{BiomeLink|Snowy Beach}}
+|
+{{Drop|Item|Rabbit hide|0|1|}}
+{{Drop|Item|Raw rabbit|0|1|}}
+{{Drop|Item|Cooked rabbit|0|2|}} (if killed by fire)
+{{Drop|Item|Rabbit's foot|0|1|}}
+|
+* New passive creatures.
+* Will move away from the player.
+* Carrots can be used for [[breeding]].
+* Can damage crops.
+|}
+
+=== Changes ===
+{|{{Simple Guide table|Changed Mobs}}
+|-
+|[[Ghost]]
+|[[File:Ghast JE1 BE1.gif|128px]]
+|
+* Increased spawn probability.
+|-
+|[[Slime]]
+|[[File:Slime JE3 BE1.png|128px]]
+|
+* Increased spawn probability.
+|-
+|[[Skeleton]]
+|[[File:Skeleton JE4 BE2.png|128px]]
+|
+* Now try to stay away from the wolf.
+|-
+|[[Villager]]
+|{{Animate|Farmer.png; Librarian.png; Priest.png; Blacksmith.png; Butcher.png; Nitwit.png|128px}}
+|
+* Will follow the player or stop.
+|-
+|[[Wolf]]
+|[[File:Angry Wolf JE2 BE2.png|128px]]
+[[File:Baby Angry Wolf JE2 BE2.png|64px]]
+|
+* Will now actively attack [[Sheep]] and Rabbits.
+|}
+
+== Block ==
+=== NEW CONTENT ===
+{|{{Simple Guide table|New Blocks}}
+|-
+|[[Redstone Lamp]]
+|{{Animate|Redstone Lamp JE2 BE1.png; Lit Redstone Lamp JE2 BE1.png|84px}}
+|
+{{Crafting
+|B1= Redstone Dust
+|A2= Redstone Dust
+|B2= Glowstone
+|C2= Redstone Dust
+|B3= Redstone Dust
+|Output= Redstone Lamp
+|type= Redstone
+}}
+|
+* Can be mined with bare hands or with any tool.
+|
+* Emits level 15 light when activated.
+|-
+|[[Redstone Torch]]
+|{{Animate|Redstone Torch JE1 BE1.png; Redstone Wall Torch (S) JE1 BE1.png; Unlit Redstone Torch JE1 BE1.png; Unlit Redstone Wall Torch (S) JE1 BE1.png|84px}}
+|
+{{Crafting
+|B1= Redstone Dust
+|B2= Stick
+|Output= Redstone Torch
+|type= Redstone
+}}
+|
+* Can be mined with bare hands or with any tool.
+|
+* Used to activate or deactivate redstone circuits.
+|-
+|[[lever]]
+|[[File:Lever JE2 BE1.png|84px]]
+|
+{{Crafting
+|B2= Stick
+|B3= Cobblestone
+|Output= Lever
+|type= Redstone
+}}
+|
+* Can be mined with bare hands or with any tool.
+|
+* Used to activate or deactivate redstone circuits.
+|-
+|[[tripwire hook]] and [[tripwire]]
+|[[File:Tripwire Hook JE3 BE1.png|84px]]
+{{Animate|Tripwire (N).png; Tripwire (E).png; Tripwire (S).png; Tripwire (W).png; Tripwire (NS).png; Tripwire (EW).png; Tripwire (NE) .png; Tripwire (ES).png; Tripwire (SW).png; Tripwire (NW).png; Tripwire (ESW).png; Tripwire (NSW).png; Tripwire (NEW).png; Tripwire (NES). png; Tripwire (NESW).png|84px}}
+|
+; Tripwire hook:
+{{Crafting
+|B1= Iron Ingot
+|B2= Stick
+|B3= Any Overworld Planks
+|Output= Tripwire Hook,2
+|type= Redstone
+}}
+* Tripwire hooks can be obtained as "junk" items in [[Fishing]].
+; Tripwire:
+* {{control|use|text=USE}} wires against the surface where the tripwire needs to be placed.
+|
+* Can be mined with bare hands or with any tool.
+|
+* Connected to each other to form a redstone switch.
+|-
+|[[Daylight Detector]] and Inverted Daylight Detector
+|{{Animate|Daylight Detector JE1 BE1.png; Inverted Daylight Detector JE1 BE1.png|84px}}
+|
+{{Crafting
+|A1= Glass |B1= Glass |C1= Glass
+|A2= Nether Quartz |B2= Nether Quartz |C2= Nether Quartz
+|A3= Any Overworld wood Slab |B3= Any Overworld wood Slab |C3= Any Overworld wood Slab
+|Output= Daylight Sensor
+|type= Redstone
+}}
+* Press the {{control|use}} key on it to invert it into ab inverted daylight detector.
+|
+* Can be mined with bare hands or with any tool, but using an [[axe]] is fastest.
+|
+* Used to detect light levels during the day or night and output the corresponding redstone signal strength.
+|-
+|[[Pressure Plate]]
+|[[File:Oak Pressure Plate JE3 BE1.png|84px]]
+[[File:Stone Pressure Plate JE3 BE1.png|84px]]
+|
+{{Crafting
+|head=1
+|name=Stone pressure plate
+|A2= Stone
+|B2= Stone
+|Output= Stone Pressure Plate
+|type= Redstone
+}}
+{{Crafting
+|name=Wooden pressure plate
+|A2= Oak Planks
+|B2= Oak Planks
+|Output= Oak Pressure Plate
+|type= Redstone
+|foot=1
+}}
+* A stone pressure plate will naturally generate in each [[Desert Temple]].
+|
+* Wooden pressure plates can be mined with bare hands or with any tool, but an ax is fastest.
+* Stone pressure plates can only be mined with [[pickaxe]], otherwise they will not drop any items.
+|
+* Used to detect entities on it (players, creatures, items, etc.).
+|-
+|[[Weighted pressure plate]]
+|[[File:Light Weighted Pressure Plate JE1 BE1.png|84px]]
+[[File:Heavy Weighted Pressure Plate JE1 BE1.png|84px]]
+|
+{{Crafting
+|head=1
+|name=Heavy weighted pressure plate
+|A2=Iron Ingot
+|B2=Iron Ingot
+|Output= Heavy Weighted Pressure Plate
+|type=Redstone
+}}
+{{Crafting
+|foot=1
+|name=Light weighted pressure plate
+|A2=Gold Ingot
+|B2=Gold Ingot
+|Output= Light Weighted Pressure Plate
+|type=Redstone
+}}
+|
+* Can only be mined with a pickaxe, otherwise no items will be dropped.
+|
+* Used to detect entities on it (players, creatures, items, etc.).
+|-
+|[[Button]]
+|
+[[File:Oak Wall Button (S) JE1 BE1.png|84px]]
+[[File:Stone Button JE2 BE1.png|84px]]
+|
+{{Crafting
+|Stone
+|Output=Stone Button
+|type=Redstone
+|head=1
+}}
+{{Crafting
+|Oak Planks
+|Output= Oak Button
+|type=Redstone
+|foot=1
+}}
+|
+* Wooden buttons can be mined with bare hands or with any tool, but an ax is fastest.
+* Stone buttons can be mined with bare hands or with any tool, but a pickaxe is fastest.
+|
+* Provides a short redstone signal.
+|-
+|[[Detector rails]]
+|{{Animate|Detector Rail (NS) JE1 BE1.png; Powered Detector Rail JE1 BE1.png|84px}}
+|
+{{Crafting
+|A1= Iron Ingot
+|C1= Iron Ingot
+|A2= Iron Ingot
+|B2= Stone Pressure Plate
+|C2= Iron Ingot
+|A3= Iron Ingot
+|B3= Redstone Dust
+|C3= Iron Ingot
+|Output= Detector Rail,6
+|type= Transportation
+}}
+|
+* Can be mined with bare hands or with any tool, but a pickaxe is fastest.
+|
+* A minecart driving on it will emit a redstone signal.
+|-
+|[[Activator rails]]
+|{{Animate|Activator Rail JE1 BE1.png; Powered Activator Rail JE1 BE1.png|84px}}
+|
+{{Crafting
+|A1= Iron Ingot |B1= Stick |C1= Iron Ingot
+|A2= Iron Ingot |B2= Redstone Torch |C2= Iron Ingot
+|A3= Iron Ingot |B3= Stick |C3= Iron Ingot
+|Output= Activator Rail,6
+|type= Transportation
+}}
+|
+* Can be apprenticedMining by hand or with any tool, but a pickaxe is fastest.
+|
+* Driving a minecart on it will cause passengers to get off.
+|-
+|[[Trapped Chest]]
+|[[File:Trapped Chest.gif|84px]]
+|
+{{Crafting
+|Tripwire Hook
+|Chest
+|Output= Trapped Chest
+|type= Decoration block
+}}
+|
+* Can be mined with bare hands or with any tool, but an ax is the fastest.
+|
+* Emits a redstone signal when opened.
+|-
+|[[Door|Birch Door]], [[Door|Spruce Door]], [[Door|Jungle Door]], [[Door|Acacia Door]] and [[Door|Dark Oak Door]]
+|{{Animate|Birch Door JE1 BE1.png; Spruce Door JE1 BE1.png; Jungle Door JE2 BE1.png; Acacia Door JE2 BE1.png; Dark Oak Door JE1 BE1.png|84px}}
+|
+{{Crafting
+|name=corresponds to wooden door
+|ingredients=corresponds to [[board]]
+|A1= Birch Planks; Spruce Planks; Jungle Planks; Acacia Planks; Dark Oak Planks
+|B1= Birch Planks; Spruce Planks; Jungle Planks; Acacia Planks; Dark Oak Planks
+|A2= Birch Planks; Spruce Planks; Jungle Planks; Acacia Planks; Dark Oak Planks
+|B2= Birch Planks; Spruce Planks; Jungle Planks; Acacia Planks; Dark Oak Planks
+|A3= Birch Planks; Spruce Planks; Jungle Planks; Acacia Planks; Dark Oak Planks
+|B3= Birch Planks; Spruce Planks; Jungle Planks; Acacia Planks; Dark Oak Planks
+|Output= Birch Door; Spruce Door; Jungle Door; Acacia Door; Dark Oak Door
+|type= Redstone
+}}
+|
+* Can be mined with bare hands or with any tool, but an ax is the fastest.
+|
+|-
+|[[Iron trapdoor]]
+|[[File:Iron Trapdoor JE1 BE1.png|84px]]
+|
+{{Crafting
+   |A2= Iron Ingot |B2= Iron Ingot
+   |A3= Iron Ingot |B3= Iron Ingot
+   |Output= Iron Trapdoor
+   |type= Redstone
+}}
+|
+* Can only be mined with a pickaxe, otherwise no items will be dropped.
+|
+* Same function as wooden trapdoor, but requires redstone signal to open.
+|-
+|[[note block]]
+|[[File:Note Block JE1 BE1.png|84px]]
+|
+{{Crafting
+|A1= Any Overworld Planks |B1= Any Overworld Planks |C1= Any Overworld Planks
+|A2= Any Overworld Planks |B2= Redstone Dust |C2= Any Overworld Planks
+|A3= Any Overworld Planks |B3= Any Overworld Planks |C3= Any Overworld Planks
+|Output= Note Block
+|type= Redstone
+}}
+|
+* Can be mined with bare hands or with any tool, but an ax is the fastest.
+|
+* Will emit different sounds depending on the type of block underneath it.
+* Click to adjust the tone, and use redstone to activate it to emit a constant tone.
+|}
+
+=== Changes ===
+{|{{Simple Guide table|Changed Blocks}}
+|-
+|[[花]]
+|{{Animate|Poppy JE1 BE1.png; Blue Orchid JE1 BE1.png; Allium JE1 BE1.png; Azure Bluet JE1 BE1.png; Red Tulip JE1 BE1.png; Orange Tulip JE1 BE1.png; White Tulip JE1 BE1. png; Pink Tulip JE1 BE1.png; Oxeye Daisy JE1 BE1.png; Sunflower JE1 BE1.png; Lilac JE1 BE1.png; Rose Bush JE1 BE1.png; Peony JE1 BE1.png|84px}}
+|
+* [[Bone Meal]] generated flowers are now biome dependent.
+|-
+|[[Obsidian]]
+|[[File:Obsidian JE1 BE1.png|84px]]
+|
+* Destruction time changed from 3 seconds to 6.5 seconds.
+|-
+|[[Stone cutting machine (MATTIS)|Stone cutting machine]]
+|[[File:Stonecutter BE.png|84px]]
+|
+* Removed its own synthesis recipe, and the original synthesis recipe is inherited by [[Workbench]].
+* No longer available in [[Survival Mode]], only available as a decorative block in [[Creative Mode]].
+|-
+|[[Iron Gate]]
+|[[File:Iron Door JE1 BE1.png|84px]]
+[[File:Iron Door (item) JE2 BE2.png|84px]]
+|
+* Added actual functionality.
+* Can be crafted in survival mode.
+* Fixed textures.
+|-
+|[[Door|Oak Door]]
+|[[File:Oak Door (item) JE3 BE2.png|84px]]
+|
+* Updated textures.
+|-
+|[[LINE]]
+|{{Animate|Tripwire (N).png; Tripwire (E).png; Tripwire (S).png; Tripwire (W).png; Tripwire (NS).png; Tripwire (EW).png; Tripwire (NE ).png; Tripwire (ES).png; Tripwire (SW).png; Tripwire (NW).png; Tripwire (ESW).png; Tripwire (NSW).png; Tripwire (NEW).png; Tripwire (NES) .png; Tripwire (NESW).png|84px}}
+|
+* Now placeable.
+|}
+
+== Items ==
+=== NEW CONTENT ===
+{|{{Simple Guide table|New Items}}
+|-
+|[[Rabbit skin]]
+|[[File:Rabbit Hide JE2 BE1.png|84px]]
+|
+* Adult [[Rabbit]] will drop 0-1 rabbit skin when killed.
+|
+* Can be used to synthesize [[Leather]].
+|-
+|[[raw rabbit meat]]
+|[[File:Raw Rabbit JE2 BE1.png|84px]]
+|
+* Adult rabbits will drop 0-1 raw rabbit meat when killed.
+|
+* Press and hold the {{Control|Use}} key in the hotkey bar to eat raw rabbit meat. Each piece of raw rabbit meat will restore {{hunger|3}} hunger and 1.8 [[saturation]].
+* Raw rabbit meat can be used to [[breed]] or heal tamed [[wolves]], guide them to move around, and also speed up the remaining growth time of tamed wolf pups by 10%.
+* Raw rabbit meat can be used to cook cooked rabbit meat.
+|-
+|[[Cooked rabbit meat]]
+|[[File:Cooked Rabbit JE2 BE1.png|84px]]
+|
+* Adult rabbits will drop 0-1 cooked rabbit meat when they die on fire.
+{{Smelting
+|showname=1
+|Raw Rabbit
+|Cooked Rabbit
+|0.35
+}}
+|
+* Press and hold the {{Control|Use}} key in the hotkey bar to eat cooked rabbit meat. Each cooked rabbit meat will restore {{hunger|5}} hunger and 6 [[saturation]].
+* Cooked rabbit meat can be used to [[breed]] or heal tamed [[wolves]], guide them to move around, and also speed up the remaining growth time of tamed wolf pups by 10%.
+* Cooked rabbit meat can be used to craft rabbit meat stew.
+|-
+|[[Rabbit stew]]
+|[[File:Rabbit Stew JE1 BE1.png|84px]]
+|
+{{Crafting
+|A2=Cooked Rabbit
+|B2=Carrot
+|C2=Baked Potato
+|A3=Any Mushroom
+|B3=Bowl
+|Output=Rabbit Stew
+|type=Foodstuff
+}}
+|
+* Press and hold the {{Control|Use}} key in the hotkey bar to eat rabbit meat stew. Each rabbit meat stew will restore {{hunger|10}} hunger and 12 [[saturation]].
+** After eating the rabbit stew, it will turn into a [[bowl]].
+* Can be eaten by [[Wolf]] to restore {{hp|10|mob=1}} life.
+|}
+
+=== Changes ===
+{|{{Simple Guide table|Changed Items}}
+|-
+|[[redstone powder]]
+|[[File:Redstone Dust JE1 BE1.png|84px]]
+|
+* Now placeable.
+|-
+|Plants
+|
+|
+* Produce particle effects when using [[Bone Meal]] on it.
+|-
+|[[Beetroot]]
+|[[File:Beetroot JE1 BE1.png|84px]]
+|
+* Now stackable to 64.
+|}
+
+== Non-living entities ==
+=== Changes ===
+{| class = "wikitable"
+! Name !! Appearance !! Change
+|-
+|[[ship]]
+|{{Animate|Oak Boat JE2 BE1.png; Spruce Boat JE1 BE1.png; Birch Boat JE1 BE1.png; Jungle Boat JE1 BE1.png; Acacia Boat JE1 BE1.png; Dark Oak Boat JE1 BE1.png|128px}}
+|
+* Speed equal to sprinting.
+* No longer affects [[Hunger]].
+* Multiple ships will stack up high and can overlap when squeezing each other.
+|-
+|[[Minecart]]
+|[[File:Minecart JE2 BE1.png|128px]]
+|
+* Stacking multiple minecarts will increase the height.
+|}
+
+== Structure ==
+=== NEW CONTENT ===
+{|{{Simple Guide table|New Structures}}
+|-
+|[[Desert Temple]]
+|[[File:Desert Pyramid.png|256px]]
+|
+* {{BiomeLink|Desert}}
+|
+* yes
+|
+* no
+|
+* Contains 4 treasure chests and a trap consisting of 9 [[TNT]] and 1 stone [[Pressure Plate]].
+|}
+
+== Game Content ==
+=== NEW CONTENT ===
+{| class = "wikitable"
+! Name !! Description
+|-
+|[[height]]
+|
+* A client warning will now appear if you attempt to place blocks above 128 blocks.
+|-
+|[[particle]]
+|
+* <code>happyVillager</code>
+* <code>note</code>
+|}
+
+[[zh:携带版指南/0.13版本]]

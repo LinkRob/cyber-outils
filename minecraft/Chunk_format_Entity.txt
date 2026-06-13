@@ -1,0 +1,28 @@
+<div class="treeview"><onlyinclude>
+**{{nbt|short|Air}}: How much air the entity has, in ticks. Decreases by 1 per tick when unable to breathe (except suffocating in a block). Increase by 1 per tick when it can breathe. If -20 while still unable to breathe, the entity loses 1 health and its air is reset to 0. Most mobs can have a maximum of 300 in air, while dolphins can reach up to 4800, and axolotls have 6000.
+** {{nbt|string|CustomName}}: The custom name JSON text component of this entity. Appears in player death messages and villager trading interfaces, as well as above the entity when the player's cursor is over it. May be empty or not exist. Cannot be removed using the <code>data remove</code> command,<ref>{{bug|MC-128225}}</ref> but setting it to an empty string has the same effect.
+** {{nbt|byte|CustomNameVisible}}: 1 or 0 (true/false) - if true, and this entity has a custom name, the name always appears above the entity, regardless of where the cursor points. If the entity does not have a custom name, a default name is shown. May not exist.
+** {{nbt|float|FallDistance}}: Distance the entity has fallen. Larger values cause more damage when the entity lands.
+** {{nbt|short|Fire}}: Number of ticks until the fire is put out. Negative values reflect how long the entity can stand in fire before burning. Default -20 when not on fire.
+** {{nbt|byte|Glowing}}: 1 or 0 (true/false) - true if the entity has a glowing outline. 
+** {{nbt|byte|HasVisualFire}}: 1 or 0 (true/false) - if true, the entity visually appears on fire, even if it is not actually on fire.
+** {{nbt|string|id}}: [[Resource location#Conversion to string|String representation]] of the [[Java Edition data values#Entities|entity's ID]]. Does not exist for the Player entity.
+** {{nbt|byte|Invulnerable}}: 1 or 0 (true/false) - true if the entity should not take damage. This applies to living and nonliving entities alike: mobs should not take damage from any source (including potion effects), and cannot be moved by fishing rods, attacks, explosions, or projectiles, and objects such as vehicles and item frames cannot be destroyed unless their supports are removed. Invulnerable player entities are also ignored by any hostile mobs. Note that these entities can be damaged by players in Creative mode.
+** {{nbt|list|Motion}}: 3 TAG_Doubles describing the current dX, dY and dZ velocity of the entity in meters per tick.
+** {{nbt|byte|NoGravity}}: 1 or 0 (true/false) - if true, the entity does not fall down naturally. Set to true by striders in lava.
+** {{nbt|byte|OnGround}}: 1 or 0 (true/false) - true if the entity is touching the ground.
+** {{nbt|list|Passengers}}: The data of the entity(s) that is riding this entity. Note that both entities control movement and the topmost entity controls spawning conditions when created by a mob spawner.
+*** {{nbt|compound}}: The same as this format (recursive).
+**** {{nbt inherit/entity}}
+**** Tags unique to this passenger entity.
+** {{nbt|int|PortalCooldown}}: The number of ticks before which the entity may be teleported back through a nether portal. Initially starts at 300 ticks (15 seconds) after teleportation and counts down to 0.
+** {{nbt|list|Pos}}: 3 TAG_Doubles describing the current X, Y and Z position of the entity.
+** {{nbt|list|Rotation}}: Two TAG_Floats representing rotation in degrees.
+*** {{nbt|float}} The entity's rotation around the Y axis (called yaw). Values vary from -180 (facing due north) to -90 (facing due east) to 0 (facing due south) to +90 (facing due west) to +180 (facing due north again).<ref>{{bug|MC-121855}}</ref>
+*** {{nbt|float}} The entity's declination from the horizon (called pitch). Horizontal is 0. Positive values look downward. Does not exceed positive or negative 90 degrees.
+** {{nbt|byte|Silent}}: 1 or 0 (true/false) - if true, this entity is silenced. May not exist.
+** {{nbt|list|Tags}}: List of [[Scoreboard#Tags|scoreboard tags]] of this entity.
+** {{nbt|int|TicksFrozen}}: Optional. How many ticks the entity has been [[Powder Snow#Freezing|freezing]]. Although this tag is defined for all entities, it is actually only used by [[mob]]s that are not in the freeze_immune_entity_types [[entity type tag]]. Ticks up by 1 every [[tick]] while in [[powder snow]], up to a maximum of 300 (15 seconds), and ticks down by 2 while out of it.
+** {{nbt|int-array|UUID}}: This entity's [[Universally Unique IDentifier]]. The 128-bit UUID is stored as four 32-bit integers, ordered from most to least significant.
+</onlyinclude></div>
+[[Category:Top-level data pages]]

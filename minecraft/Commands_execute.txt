@@ -1,0 +1,895 @@
+{{about|the command in the current version (since [[Java Edition 1.13]] (17w45a) and [[Bedrock Edition 1.19.50]] (beta 1.19.50.23))|the command in former game versions|Commands/execute/Before}}
+{{Infobox command
+| name = execute @e[oak_boat] at
+| oplevel = * 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+| others = [[Options|Cheats]] only{{only|bedrock|short=1}}
+}}
+{{TOC|right}}
+{{cmd|execute}} executes another [[command]] but allows changing the executor, changing the position and angle it is executed at, adding preconditions, and storing its result.
+
+== Usage ==
+There are fourteen{{only|java|short=1}} / eleven{{only|bedrock|short=1}} instructions (aka. subcommands) for the <code>/execute</code> command. Multiple subcommands can be chained after <code>/execute</code>. Subcommands are divided into 4{{only|java|short=1}} / 3{{only|bedrock|short=1}} categories: modify subcommands, condition subcommands, store subcommands{{only|java|short=1}}, and <code>run</code> subcommand.
+* Modify subcommands modify command context variables to change the context the command is executed. Subcommands following it will execute with specific executor(s), execution position(s), execution dimension(s), execution rotation(s) and execution anchor.
+* Condition subcommands are used to test whether certain conditions are met and then output results or limit conditions of execution. 
+* Store subcommands{{only|java|short=1}} can store the return values of the command in a [[scoreboard]] or the data of an [[entity]], [[block entity]], or storage, and can also change the maximum or current value of a [[bossbar]].
+* <code>run</code> subcommand is used for carrying out another command.
+
+All needed subcommands can be concatenated together. Subcommands other than the <code>run</code> subcommand can be arranged arbitrarily and used multiple times. But the <code>run</code> subcommand can be used only once and must be put at the end of the subcommands chain. A <code>run</code> subcommand or a condition subcommand finalizes the chain, otherwise the command is unparseable {{in|bedrock}} or parseable but does nothing (except <code>summon</code> subcommand, see also {{bug|MC-165773}} and {{bug|MC-260576}}) {{in|java}}.
+
+=== Subcommands and forking ===
+
+The game processes subcommand chain in order from front to end, for example, the following commands are different:
+*All entities move one block forward: <code>execute as @e at @s run tp ^ ^ ^1</code>
+*All entities are teleported to one block in front of the executor: <code>execute at @s as @e run tp ^ ^ ^1</code>
+
+Some subcommands can fork the command execution, that is, they cause subcommands following it to be executed multiple times. It is possible to fork with zero branches, that is, terminate. For example, when {{cd|as}} subcommand selects multiple entities, the subcommand following it will execute once per entity.
+
+If the /execute command hasn't ever forked, we describe it as having only one branch — the main branch.
+
+A branch may terminate halfway and does nothing (including {{cd|run}} and store subcommands). For example, the condition in a condition subcommand doesn't met, or {{cd|as}} subcommand selects zero entities. When terminating, an red message is shown {{in|bedrock}}. If all branches terminated, we describe the /execute command itself as terminating.
+
+Note that <code>.... run execute ...</code> has no effect at all in both {{el|java}} and {{el|bedrock}}. For example, the following commands work the same:
+*<code>execute as @e[type=armor_stand] as @e[type=armor_stand] run summon armor_stand</code>
+*<code>execute as @e[type=armor_stand] run execute as @e[type=armor_stand] run execute run execute run summon armor_stand</code>
+
+However, the way to fork is different in {{el|java}} and {{el|bedrock}}. (See also {{bug|MC-125067|resolution=Won't Fix}} and {{bug|MCPE-165278|resolution=Unresolved}})
+* {{IN|java}}, the game processes subcommands in breadth-first, that is, executes subcommands one by one. So the game processes other subcommands before processing <code>run</code> subcommands, so the <code>run</code> subcommand cannot affect other subcommands.
+* {{IN|bedrock}}, the game processes subcommands in depth-first. That is, after forking, all the following subcommands are considered as a whole and will be executed once for each branch.
+* For example, when there're two armor stands (A and B) in the world, and a player executes <code>execute as @e[type=armor_stand] as @e[type=armor_stand] run summon armor_stand</code>, the behaviors of {{el|java}} and {{el|bedrock}} are shown in the following pictures:
+<gallery>
+Execute forking in Java Edition.png|Java Edition
+Execute forking in Bedrock Edition.png|Bedrock Edition
+</gallery>
+
+{{IN|java}}, depth-first can be achieved via {{cmd|function}}, for example:
+* When there're two armor stands (A and B) in the world, and a player executes <code>execute as @e[type=armor_stand] run function test</code>, and in the function file is:
+** <code>execute as @e[type=armor_stand] run summon armor_stand</code>
+*It behaves like <code>/execute as @e[type=armor_stand] as @e[type=armor_stand] run summon armor_stand</code> in {{el|bedrock}}.
+{{IN|bedrock}}, there is no way to achieve breadth-first.
+
+=== Output values ===
+
+==== Stored values ====
+{{exclusive|java|section=1}}
+{{IN|java}}, a branch returns a <code>success</code> value and a <code>result</code> value (see [[#Store subcommand]] for details) after it fully executed (if it does not terminate halfway). These two return values come from the last subcommand (may be a condition subcommand or a <code>run</code> subcommand). The <code>success</code> value is always 0 or 1. The <code>result</code> value must be an integer, if not, it is rounded down. If the last subcommand fails, both the two values are 0. The two values can be stored through storage subcommands.
+
+Note that all commands except the execute command have these two return values. The execute command itself does not have them.
+
+If the command execution is forked after a storage subcommand, the storage operation will be applied on each branch. Each branch's return value will be stored. Since the stored values will not be accumulated, after the whole execute command is executed, the stored value is the return value of the last executed branch.
+
+If executing a {{cmd|function}} command after a storage subcommand, the storage operation will be applied on each command in the function file. For each command (except /execute command) in the function file, its return value will be stored after being executed. For {{cd|/execute}} commands in the function file, return value of each branch will be stored after being executed. The return value of {{cmd|function}} command itself will be also stored after the whole function file is executed. Since the stored values will not be accumulated, after the whole execute command is executed, the stored value is the return value of the {{cmd|function}} command itself.
+
+==== Success count ====
+Like amost commands, <code>/execute</code> command itself also has a '''success count''' (whether or not terminates halfway), which is different from <code>success</code> and <code>result</code> value. It is similar to the <code>success</code> value, but is accumulated. This is usually <code>0</code> or <code>1</code>. If the command is forked or a function is executed, success count can be a number higher than <code>1</code>. When executing it with a command block, the success count is returned to the command block, which can be checked by a conditional command block or be read with a redstone comparator.
+
+== Syntax ==
+There are fourteen{{only|java|short=1}} / eleven{{only|bedrock|short=1}} instructions (aka. subcommands) for the <code>/execute</code> command, and each has its own special syntax, so describing syntax takes a large branching tree.
+<!--
+{| class="collapsible collapsed collapse-button-none" data-description="Command Syntax Tree-Diagram"
+|-
+! style="text-align:left" | Command Syntax Tree-Diagram
+|-
+|
+{{needs update|section=1}}
+[[File:Execute graph.svg]]
+|}
+-->
+; Full syntax tree:
+* '''Java Edition'''
+: <code>'''/execute''' . . .</code>
+:* <code>… [[#align|'''align''']] <axes> -> ''execute''</code>
+:* <code>… [[#anchored|'''anchored''']] <anchor> -> ''execute''</code>
+:* <code>… [[#as|'''as''']] <targets> -> ''execute''</code>
+:* <code>… [[#at|'''at''']] <targets> -> ''execute''</code>
+:* <code>… [[#facing|'''facing''']] (<pos>|entity <targets> <anchor>) -> ''execute''</code>
+:* <code>… [[#in|'''in''']] <dimension> -> ''execute''</code>
+:* <code>… [[#on|'''on''']] <''relation''> -> ''execute''</code>
+:* <code>… [[#positioned|'''positioned''']] (<pos>|as <targets>|over <heightmap>) -> ''execute''</code>
+:* <code>… [[#rotated|'''rotated''']] (<rot>|as <targets>) -> ''execute''</code>
+:* <code>… [[#store|'''store''']] (result|success) . . .</code>
+:**<code>… block <targetPos> <path> <''type''> <scale> -> ''execute''</code>
+:** <code>… bossbar <id> (max|value) -> ''execute''</code>
+:** <code>… entity <target> <path> <''type''> <scale> -> ''execute''</code>
+:** <code>… score <targets> <objective> -> ''execute''</code>
+:** <code>… storage <target> <path> <''type''> <scale> -> ''execute''</code>
+:* <code>… [[#summon|'''summon''']] <entity> -> ''execute''</code>
+:* <code>… ([[#if|'''if''']]|[[#unless|'''unless''']]) . . .</code>
+:** <code>… biome <pos> <biome> -> [''execute'']</code>
+:** <code>… block <pos> <block> -> [''execute'']</code>
+:** <code>… blocks <start> <end> <destination> (all|masked) -> [''execute'']</code>
+:** <code>… data . . .</code>
+:*** <code>… block <sourcePos> <path> -> [''execute'']</code>
+:*** <code>… entity <source> <path> -> [''execute'']</code>
+:*** <code>… storage <source> <path> -> [''execute'']</code>
+:** <code>… dimension <dimension> -> [''execute'']</code>
+:** <code>… function <function> -> [''execute'']</code>{{upcoming|java 1.20.2}}
+:** <code>… entity <entities> -> [''execute'']</code>
+:** <code>… loaded <pos> -> [''execute'']</code>
+:** <code>… predicate <predicate> -> [''execute'']</code>
+:** <code>… score <target> <targetObjective> . . .</code>
+:*** <code>… (<|<=|=|>|>=) <source> <sourceObjective> -> [''execute'']</code>
+:*** <code>… matches <range> -> [''execute'']</code>
+:* <code>… [[#run|'''run''']] <''command''></code>
+: where <code>-> ''execute''</code> represents the start of another subcommand.
+
+* '''Bedrock Edition'''
+: <code>'''/execute''' . . .</code>
+:* <code>… [[#align|'''align''']] <axes: string> <''chainedCommand: ExecuteChainedOption_0''></code>
+:* <code>… [[#anchored|'''anchored''']] <eyes|feet> <''chainedCommand: ExecuteChainedOption_0''></code>
+:* <code>… [[#as|'''as''']] <origin: target> <''chainedCommand: ExecuteChainedOption_0''></code>
+:* <code>… [[#at|'''at''']] <origin: target> <''chainedCommand: ExecuteChainedOption_0''></code>
+:* <code>… [[#facing|'''facing''']] . . .</code>
+:** <code>… <position: x y z> <''chainedCommand: ExecuteChainedOption_0''></code>
+:** <code>… entity <origin: target> <eyes|feet> <''chainedCommand: ExecuteChainedOption_0''></code>
+:* <code>… [[#in|'''in''']] <dimension: Dimension> <''chainedCommand: ExecuteChainedOption_0''></code>
+:* <code>… [[#positioned|'''positioned''']] . . .</code>
+:** <code>… <position: x y z> <''chainedCommand: ExecuteChainedOption_0''></code>
+:** <code>… as <origin: target> <''chainedCommand: ExecuteChainedOption_0''></code>
+:* <code>… [[#rotated|'''rotated''']] . . .</code>
+:** <code>… <yaw: value> <pitch: value> <''chainedCommand: ExecuteChainedOption_0''></code>
+:** <code>… as <origin: target> <''chainedCommand: ExecuteChainedOption_0''></code>
+:* <code>… '''<subcommand: Option_'''[[#if|'''If''']]'''_'''[[#unless|'''Unless''']]'''>''' . . .</code>  
+:** <code>… block <position: x y z> <block: Block> . . .</code>
+:*** <code>… <blockStates: block states> [''chainedCommand: ExecuteChainedOption_0'']</code>
+:*** <code>… [''chainedCommand: ExecuteChainedOption_0'']</code>
+:** <code>… blocks <begin: x y z> <end: x y z> <destination: x y z> <scan mode: BlocksScanMode> [''chainedCommand: ExecuteChainedOption_0'']</code>
+:** <code>… entity <target: target> [''chainedCommand: ExecuteChainedOption_0'']</code>
+:** <code>… score <target: target> <objective: string> . . .</code>
+:***<code>… <operation: compare operator> <source: target> <objective: string> [''chainedCommand: ExecuteChainedOption_0'']</code>
+:*** <code>… matches <range: integer range> [''chainedCommand: ExecuteChainedOption_0'']</code>
+:* <code>… [[#run|'''run''']] <''command: command''></code>
+: where <code>chainedCommand: ExecuteChainedOption_0</code> represents the start of another subcommand.
+
+=== Modify subcommands ===
+
+==== align ====
+: Updates the ''execution position'', aligning to its current [[Coordinates#Block position|block position]] (an integer). Applies only along specified axes.
+: This is akin to {{Wikipedia|floor function|flooring}} the coordinates – i.e. rounding them downward.
+:;Syntax
+: {{el|java}}:
+:: <code>align <axes> -> ''execute''</code>
+: {{el|bedrock}}:
+:: <code>align <axes: string> <''chainedCommand: ExecuteChainedOption_0''></code>
+:;Arguments
+:: {{Argument|axes|swizzle|axes: string|basic_string}}
+::: {{arg desc|je=swizzle}}
+:;Result
+:: ''Execution position'' in the given axes are floored, changing by less than 1 block.
+:: Unparseable if the argument is not specified correctly.
+:;Example
+:: Given (-1.8, 2.3, 5.9), <code>execute '''align xz'''</code> changes the position to (-2, 2.3, 5).
+:: Given (2.4, -1.1, 3.8), <code>execute '''align yxz''' run spawnpoint @p ~ ~ ~</code> sets the player's spawnpoint to (2, -2, 3).
+
+==== anchored ====
+: Sets the ''execution anchor'' to the eyes or feet. Defaults to feet.
+: Running <code>positioned <pos> -> execute</code> resets to feet
+: Effectively recenters [[Commands|local coordinates]] on either the eyes or feet, also changing the angle the <code>facing</code> subcommand (of {{cmd|execute|link=none}} and {{cmd|teleport}}) works off of.
+: See also {{bug|MCPE-162681}} and {{bug|MCPE-165051}} for issues about {{el|bedrock}}.
+:;Syntax
+: {{el|java}}:
+:: <code>anchored <anchor> -> ''execute''</code>
+: {{el|bedrock}}:
+:: <code>anchored <eyes|feet> <''chainedCommand: ExecuteChainedOption_0''></code>
+:;Arguments
+:: {{Argument|anchor|entity_anchor|eyes{{!}}feet}}
+::: Whether to anchor the executed command to ''eyes'' or ''feet''
+::: Must be either <code>eyes</code> or <code>feet</code>.
+:;Result
+:: ''Execution anchor'' is set to either the eyes or the feet.
+:: Unparseable if the argument is not specified correctly.
+:;Example
+:: The effect of {{Command|tp}} is to move a target by placing its feet at the given position.
+:: <code>execute anchored eyes run tp ^ ^ ^</code> effectively teleports the executor's feet to where its eyes are.
+:: <code>execute anchored eyes run tp ^5 ^ ^</code> means "place the executor's feet 5 blocks left of where its eyes are"
+
+==== as ====
+: Sets the ''executor'' to target entity, without changing ''execution position'', ''rotation'', ''dimension'', and ''anchor''.
+:;Syntax
+: {{el|java}}:
+:: <code>as <targets> -> ''execute''</code>
+: {{el|bedrock}}:
+:: <code>as <origin: target> <''chainedCommand: ExecuteChainedOption_0''></code>
+:;Arguments
+:: {{Argument|targets|entity|origin: target|CommandSelector<Actor>}}
+::: Target entity/entities to become the new executor.
+::: {{arg desc|je=entity|amount=multiple|type=entities|be=CommandSelector<Actor>}}
+:;Result
+:: ''Executor'' is updated to target entity (which changes the meaning of <code>@s</code>).
+:: Unparseable if the argument is not specified correctly.
+:: Forks if <code><targets></code> or <code>origin: target</code> selects multiple entities.
+:: Terminates if <code><targets></code> or <code>origin: target</code> fails to resolve to one or more valid entities (named players must be online).
+:;Example
+:: Kill all sheep: <code>execute '''as @e[type=sheep]''' run kill @s</code>
+:: Make all villagers in loaded chunks invincible: <code>execute '''as @e[type=villager]''' run data merge entity @s {Invulnerable:1}</code>{{only|java}}
+
+==== at ====
+: Sets the ''execution position'', ''rotation'', and ''dimension'' to match those of an entity; does not change ''executor''.
+:;Syntax
+: {{el|java}}:
+:: <code>at <targets> -> ''execute''</code>
+: {{el|bedrock}}:
+:: <code>at <origin: target> <''chainedCommand: ExecuteChainedOption_0''></code>
+:;Arguments
+:: {{Argument|targets|entity|origin: target|CommandSelector<Actor>}}
+::: Target entity/entities to match position, rotation, and dimension with.
+::: {{arg desc|je=entity|amount=multiple|type=entities|be=CommandSelector<Actor>}}
+:;Result
+:: ''Execution position, rotation,'' and ''dimension'' are updated to match target entity.
+:: Unparseable if the argument is not specified correctly.
+:: Forks if <code><targets></code> or <code>origin: target</code> selects multiple entities.
+:: Terminates if <code><targets></code> or <code>origin: target</code> fails to resolve to one or more valid entities (named players must be online).
+:;Example
+:;If we have '''''N number of sheep:'''''
+:: Move all sheep upward 1 block: <code>execute as @e[type=sheep] '''at @s''' run tp ~ ~1 ~</code>
+:: Kill the player running the command '''''N times (in one single tick)''''', because "<code>at</code>" does not change the executor, and when selecting multiple entities, it forks the command for each sheep : <code>execute '''at @e[type=sheep]''' run kill @s</code>
+
+==== facing ====
+: Sets the ''execution rotation'' to face a given point, as viewed from its anchor (either the eyes or the feet).
+:;Syntax
+: {{el|java}}:
+:: <code>facing <pos> -> ''execute''</code>
+:: <code>facing entity <targets> <anchor> -> ''execute''</code>
+: {{el|bedrock}}:
+:: <code>facing <position: x y z> <''chainedCommand: ExecuteChainedOption_0''></code>
+:: <code>facing entity <origin: target> <eyes|feet> <''chainedCommand: ExecuteChainedOption_0''></code>
+:;Arguments
+:: '''Option:''' ''<code>facing <pos></code>'' and ''<code>facing <position: x y z></code>''
+::: {{Argument|pos|vec3|position: x y z|CommandPositionFloat}}
+:::: Coordinates to rotate toward
+:::: {{arg desc|je=vec3|be=CommandPositionFloat}}
+:: '''Option:''' ''<code>facing entity <targets> <anchor></code>'' and ''<code>facing entity <origin: target> <eyes|feet></code>''
+::: {{Argument|targets|entity|origin: target|CommandSelector<Actor>}}
+:::: The target(s) to rotate toward
+:::: {{arg desc|je=entity|amount=multiple|type=entities|be=CommandSelector<Actor>}}
+::: {{Argument|anchor|entity_anchor|eyes{{!}}feet}}
+:::: Whether to point at the target's ''eyes'' or ''feet''
+:::: Must be either <code>eyes</code> or <code>feet</code>.
+:;Result
+:: ''Execution rotation'' is updated to face given position or targets.
+:: Unparseable if the argument is not specified correctly.
+:: Forks if <code><targets></code> or <code>origin: target</code> selects multiple entities.
+:: Terminates if <code><targets></code> or <code>origin: target</code> fails to resolve to one or more valid entities (named players must be online).
+:;Example
+:: Executor rotates once to the left: <code>execute facing ^1 ^ ^ run tp @s ~ ~ ~ ~ ~</code>
+:: All entities move one block in the direction of (0, 64, 0) (without changing their rotation): <code>execute as @e at @s '''facing 0 64 0''' run tp @s ^ ^ ^1</code>
+:: All entities move one block in the direction of (0, 64, 0) (with changing their rotation): <code>execute as @e at @s '''facing 0 64 0''' run tp ^ ^ ^1 ~ ~</code>
+:: All non player entities move one space in the direction of their nearest player (without changing their rotation): <code>execute as @e[type=!player] at @s '''facing entity @p feet''' run tp @s ^ ^ ^1</code>
+
+==== in ====
+: Sets the ''execution dimension'' and ''position''.
+: It respects dimension scaling for relative and local coordinates: the ''execution position'' (only the X/Z part)  is divided by 8 when changing from the Overworld to the Nether, and is multiplied by 8 when vice versa. Applies to [[custom dimension]]s as well.
+:;Syntax
+: {{el|java}}:
+:: <code>in <dimension> -> ''execute''</code>
+: {{el|bedrock}}:
+:: <code>in <dimension: Dimension> <''chainedCommand: ExecuteChainedOption_0''></code>
+:;Arguments
+:: {{Argument|dimension|dimension|dimension: Dimension|enum}}
+::: Name of the new execution dimension
+::: {{arg desc|je=dimension|be=enum}}
+:;Result
+:: ''Execution dimension'' and ''position'' is updated.
+:: Unparseable if the argument is not specified correctly.
+:;Example
+:: Looking for an end city (from the overworld):
+:::* <code>execute '''in minecraft:the_end''' run locate structure minecraft:end_city</code>{{only|java}}
+:::* <code>execute '''in the_end''' run locate structure end_city</code>{{only|bedrock}}
+:: If a player at position {{cd|(16,64,16)}} in Overworld runs the following command, the player is teleported to {{cd|(16,64,16)}} in the Nether:
+:::* <code>execute '''in minecraft:the_nether''' positioned as @s run tp ~ ~ ~</code>{{only|java}}
+:::* <code>execute '''in nether''' positioned as @s run tp ~ ~ ~</code>{{only|bedrock}}
+:: If a player at position {{cd|(16,64,16)}} in Overworld runs the following command, the player is teleported to {{cd|(2,64,2)}} in the Nether.
+:::* <code>execute '''in minecraft:the_nether''' run tp ~ ~ ~</code>{{only|java}}
+:::* <code>execute '''in nether''' run tp ~ ~ ~</code>{{only|bedrock}}
+:: If a player at position {{cd|(80,64,80)}} in Overworld runs the following command, the player is teleported to {{cd|(10,64,15)}} in the Nether.
+::* <code>execute '''in minecraft:the_nether''' run tp ~ ~ ~5</code>{{only|java}}
+::* <code>execute '''in nether''' run tp ~ ~ ~5</code>{{only|bedrock}}
+
+==== on ====
+{{exclusive|section=1|java}}
+: Updates the ''executor'', selecting entities based on relation to the current executor entity (changing the original ''executor''), without changing ''execution position'', ''rotation'', ''dimension'', and ''anchor''.
+:;Syntax
+: {{el|java}}:
+:: <code>on <''relation''> -> ''execute''</code>
+:;Arguments
+:: {{el|je|short=1}}: {{Argument|''relation''|}}
+::: A relation of the current executor entity
+:::* <code>attacker</code>: the last entity that damaged the current executor entity in the previous 5 seconds. Note that damage types in <code>minecraft:no_anger</code> tag bypass the record of attacker. [[Interaction]] entities do not forget attacker after 5 seconds. Some mobs forget the attacker when stoping angry.
+:::* <code>controller</code>: the entity that is riding and controlling the current executor entity. See [[Riding#Controlling]] for details.
+:::* <code>leasher</code>: the entity leading the current executor entity with a leash.
+:::* <code>origin</code>: the entity that cause the summon of the current executor entity. For example, the shooter of an arrow, the primer of a primed TNT entity.
+:::* <code>owner</code>: the owner of the current executor entity if it is a tameable animal.
+:::* <code>passengers</code>: all entities that are directly riding the current executor entity, no sub-passengers.
+:::* <code>target</code>: the attack target of the current executor entity. [[Interaction]] entities can select the last entity that interacted with them.
+:::* <code>vehicle</code>: the entity ridden by the current executor entity.
+:;Result
+:: ''Executor'' is updated based on the relation with the executor entity (which changes the meaning of <code>@s</code>).
+:: Forks if <code>passengers</code> selects multiple entities. (Other relations can select only at most one entities.)
+:: Terminates if current executor is not an entity.
+:: Terminates if the relation is not applicable to the current executor entity or there are no entities matching it.
+:;Example
+:: Damage 1 heart the entity that is leashing a cat: <code>execute as @e[type=cat] '''on leasher''' run damage @s 2 generic</code>
+:: Give all players riding a boat a fishing rod: <code>execute as @e[type=boat] '''on passengers''' run give @s fishing_rod</code>
+
+==== positioned ====
+: Sets the ''execution position'', without changing ''execution rotation'' or ''dimension''; can match an entity's position, or at one block above the Y-level stored in the specified [[heightmap]]{{only|java|short=1}}.
+:;Syntax
+: {{el|java}}:
+:: <code>positioned <pos> -> ''execute''</code>
+:: <code>positioned as <targets> -> ''execute''</code>
+:: <code>positioned over <heightmap> -> ''execute''</code>
+: {{el|bedrock}}:
+:: <code>positioned <position: x y z> <''chainedCommand: ExecuteChainedOption_0''></code>
+:: <code>positioned as <origin: target> <''chainedCommand: ExecuteChainedOption_0''></code>
+:;Arguments
+:: '''Option:''' ''<code>positioned <pos></code>'' or ''<code>positioned <position: x y z></code>''
+::: {{Argument|pos|vec3|position: x y z|CommandPositionFloat}}
+:::: New position
+:::: {{arg desc|je=vec3|be=CommandPositionFloat}}
+:: '''Option:''' ''<code>positioned as <targets></code>'' or ''<code>positioned as <origin: target></code>''
+::: {{Argument|targets|entity|origin: target|CommandSelector<Actor>}}
+:::: Target entity/entities to match position with
+:::: {{arg desc|je=entity|amount=multiple|type=entities|be=CommandSelector<Actor>}}
+:: '''Option:'' <code>positioned over <heightmap></code>'''
+::: {{el|je|short=1}}: {{Argument|heightmap|heightmap}}
+:::: Specifies the [[heightmap]]
+:::: Must be one of <code>world_surface</code>, <code>motion_blocking</code>, <code>motion_blocking_no_leaves</code>, and <code>ocean_floor</code>.
+:;Result
+:: ''Execution position'' is updated. And <code>positioned <pos></code> also resets ''execution anchor'' to feet.
+:: Unparseable if the argument is not specified correctly.
+:: Forks if <code><targets></code> or <code>origin: target</code> selects multiple entities.
+:: Terminates if <code><targets></code> or <code>origin: target</code> fails to resolve to one or more valid entities (named players must be online).
+:: When multiple entities are selected, next sub-command is executed once in each execution position.
+:;Example
+:: Look for a village near (0, 64, 0):
+:::* <code>execute '''positioned 0 64 0''' run locate structure #village</code>{{only|java}}
+:::* <code>execute '''positioned 0 64 0''' run locate structure village</code>{{only|bedrock}}
+
+==== rotated ====
+: Sets the ''execution rotation''; can match an entity's rotation.
+:;Syntax
+: {{el|java}}:
+:: <code>rotated <rot> -> ''execute''</code>
+:: <code>rotated as <targets> -> ''execute''</code>
+: {{el|bedrock}}:
+:: <code>rotated <yaw: value> <pitch: value> <''chainedCommand: ExecuteChainedOption_0''></code>
+:: <code>rotated as <origin: target> <''chainedCommand: ExecuteChainedOption_0''></code>
+:;Arguments
+:: '''Option:''' ''<code>rotated <rot></code>'' or ''<code>rotated <yaw: value> <pitch: value></code>''
+::: {{el|je|short=1}}: {{Argument|rot|rotation}} (<code><yaw> <pitch></code>)
+::: {{el|be|short=1}}: {{Argument|be=1|yaw: value|RelativeFloat}} and {{Argument|be=1|pitch: value|RelativeFloat}}
+:::: Angles of rotation
+:::: {{arg desc|je=rotation|be=RelativeFloat}}
+:: '''Option:''' ''<code>rotated as <targets></code>'' or ''<code>rotated as <origin: target></code>''
+::: {{Argument|targets|entity|origin: target|CommandSelector<Actor>}}
+:::: Target entity/entities to match rotation with
+:::: {{arg desc|je=entity|amount=multiple|type=entities|be=CommandSelector<Actor>}}
+:;Result
+:: ''Execution rotation'' is updated.
+:: Unparseable if the argument is not specified correctly.
+:: Forks if <code><targets></code> or <code>origin: target</code> selects multiple entities.
+:: Terminates if <code><targets></code> or <code>origin: target</code> fails to resolve to one or more valid entities (named players must be online).
+:;Example
+:: Move every sheep 1 block in the direction that the player closest to it is facing: <code>execute as @e[type=sheep] <u>at @s</u>OR<u>positioned as @s</u> '''rotated as @p''' run tp @s ^ ^ ^1</code>
+
+==== summon ====
+{{exclusive|section=1|java}}
+: ''Summons'' a new entity at execution position and changes the ''executor'' to this summoned entity.
+:;Syntax
+: {{el|java}}:
+:: <code>summon <entity> -> ''execute''</code>
+:;Arguments
+:: {{el|je|short=1}}: {{Argument|entity|resource}}
+::: Entity to be summon and the new executor
+::: {{arg desc|je=resource|registry=minecraft:entity_type}}
+:;Result
+:: ''Summons'' the entity and changes the ''executor''. 
+:: Unparseable if the argument is not specified correctly.
+:;Example
+:: Summon a sheep with the tag "Test": <code>execute '''summon sheep''' run tag ''@s'' add Test</code>
+:: Summon a block display entiy and scale it: <code>execute '''summon block_display''' run data merge entity ''@s'' {transformation:{scale:[4.0,4.0,4.0]},block_state:{Name:"minecraft:dirt"}}</code>
+
+{{Anchor|if}}{{Anchor|unless}}
+
+=== Condition subcommands ===
+The particular use of the <code>if</code> and <code>unless</code> subcommands are to restrict command execution to happen only under specified conditions. In most cases, <code>unless</code> is a negation of <code>if</code>, equivalent to "if not...". The two commands have identical argument structures.
+
+;Result of condition subcommands:
+: Unparseable if the argument is not specified correctly.
+: In some cases, for example, testing a block outside the world, both <code>if</code> and <code>unless</code> terminates or fails.
+: When not at the end of the subcommands chain, only if the condition tests pass does the branch continue; otherwise it terminates.
+:: {{IN|java}}, if it is executed in multiple branches, it acts as a context filter - Only branchs with a context that matches the condition continues.
+: When at the end of the subcommands chain, it checks whether the condition is met and then outputs. {{IN|java}}, it has output values that can be stored by store subcommands.
+
+There are nine{{only|java|short=1}} / four{{only|bedrock|short=1}} different types of conditions:
+# [[#ifunlessbiome|(if|unless) biome]] – Tests a biome area{{only|java}}
+# [[#ifunlessblock|(if|unless) block]] – Tests a single real block
+# [[#ifunlessblocks|(if|unless) blocks]] – Tests a real 3D rectangular volume against another
+# [[#ifunlessdata|(if|unless) data]] – Tests the data held by a real block, entity, or a storage{{only|java}}
+# [[#ifunlessdimension|(if|unless) dimension]] - Tests the dimension of the execution{{only|java}}
+# [[#ifunlessfunction|(if|unless) function]] – Tests a function{{info needed}}{{upcoming|java 1.20.2}}
+# [[#ifunlessentity|(if|unless) entity]] – Tests whether an entity like the one given is real
+# [[#ifunlessloaded|(if|unless) loaded]] - Tests if a given position is loaded in the world{{only|java}}
+# [[#ifunlesspredicate|(if|unless) predicate]] – Tests a predicate{{only|java}}
+# [[#ifunlessscore|(if|unless) score]] - Tests a target's score
+
+{{anchor|ifunlessbiome}}
+
+==== (if|unless) biome ====
+{{exclusive|section=1|java}}
+: Checks for a specific biome in a given position. 
+:;Syntax
+:: <code>(if|unless) '''biome''' <pos> <biome> -> [''execute'']</code>
+
+:;Arguments
+:: {{Argument|pos|block_pos}}
+::: Position to test
+::: {{arg desc|je=block_pos}}
+:: {{Argument|biome|resource_or_tag}}
+::: Biome(s) to test for
+::: {{arg desc|je=resource_or_tag|registry=minecraft:worldgen/biome}}
+
+:;Result
+:: Unparseable if the argument is not specified correctly.
+:: In following conditions, terminates when this subcommand is not at the end of the subcommands chain; fails when at the end:
+::* If <code><pos></code> is unloaded or out of the world.
+::* If test doesn't pass.
+:: When at the end of the subcommands chain, if the command is successful, both <code>success</code> value and <code>result</code> value are 1.
+
+{{anchor|ifunlessblock}}
+
+==== (if|unless) block ====
+: Compares the block at a given position to a given block ID.
+
+:;Syntax
+: {{el|java}}:
+:: <code>(if|unless) '''block''' <pos> <block> -> [''execute'']</code>
+: {{el|bedrock}}:
+:: <code><subcommand: Option_If_Unless> '''block''' <position: x y z> <block: Block> [''chainedCommand: ExecuteChainedOption_0'']</code>
+:: <code><subcommand: Option_If_Unless> '''block''' <position: x y z> <block: Block> <blockStates: block states> [''chainedCommand: ExecuteChainedOption_0'']</code>
+
+:;Arguments
+:: {{Argument|pos|block_pos|position: x y z|CommandPosition}}
+::: Position of a target block to test
+::: {{arg desc|je=block_pos|be=CommandPosition}}
+:: {{Argument|block|block_predicate|block: Block|enum}}
+::: Specifies the block to test for
+::: {{arg desc|je=block_predicate|be=Block}}
+:: {{el|bedrock|short=1}}: {{Argument|be=1|blockStates: block states|BlockStateCommandParam}}
+::: Specifies the block state for the specified block to test for
+::: {{arg desc|be=BlockStateCommandParam}}
+
+:;Result
+:: Unparseable if the argument is not specified correctly.
+:: In following conditions, terminates when this subcommand is not at the end of the subcommands chain; fails when at the end:
+::* If <code><pos></code> or <code>position: x y z</code> is unloaded or out of the world.
+::* If test doesn't pass.
+:: {{IN|java}}, when at the end of the subcommands chain, if the command is successful, both <code>success</code> value and <code>result</code> value are 1.
+
+{{anchor|ifunlessblocks}}
+
+==== (if|unless) blocks ====
+: Compares the blocks in two equally sized volumes.
+
+:;Syntax
+: {{el|java}}:
+:: <code>(if|unless) '''blocks''' <start> <end> <destination> (all|masked) -> [''execute'']</code>
+: {{el|bedrock}}:
+:: <code><subcommand: Option_If_Unless> '''blocks''' <begin: x y z> <end: x y z> <destination: x y z> <scan mode: BlocksScanMode> [''chainedCommand: ExecuteChainedOption_0'']</code>
+
+:;Arguments
+:: {{Argument|start|block_pos|begin: x y z|CommandPosition}}
+:: {{Argument|end|block_pos|end: x y z|CommandPosition}}
+::: Positions of any two diagonal corners of the source volume (the volume to compare)
+::: {{arg desc|je=block_pos|be=CommandPosition}}
+:: {{Argument|destination|block_pos|destination: x y z|CommandPosition}} 
+::: Position of the lower northwest corner of the destination volume (the volume to compare to)
+::: Assumed to be of the same size as the source volume
+::: {{arg desc|je=block_pos|be=CommandPosition}}
+:: {{el|je|short=1}}: {{code|(all{{!}}masked)}}
+:: {{el|be|short=1}}: {{Argument|be=1|scan mode: BlocksScanMode|enum}}
+::: Specifies whether ''all'' blocks in the source volume should be compared, or if air blocks should be ''masked/ignored''
+::: Must be either <code>all</code> or <code>masked</code>.
+
+:;Result
+:: Unparseable if the argument is not specified correctly.
+:: In following conditions, terminates when this subcommand is not at end of the subcommands chain; fails when at the end:
+::* If <code><start></code> / <code>begin: x y z</code>, <code><end></code> / <code>end: x y z</code>, or <code><destination></code> / <code>destination: x y z</code> is unloaded or out of the world.
+::* If the volume of the source region is greater than 32768 (the equivalent of 8 chunk sections)‌.
+::* If test doesn't pass.
+:: {{IN|java}}, when at the end of the subcommands chain, if the command is successful:
+::: The <code>success</code> value is 1.
+::: For <code>if</code> mode, <code>result</code> value is the number of matching blocks (the total number of blocks in <code>all</code> mode, or the number of source region non-air blocks in <code>masked</code> mode).
+::: For <code>unless</code> mode, <code>result</code> value is 1.
+
+{{Anchor|ifunlessdata}}
+
+==== (if|unless) data ====
+{{exclusive|section=1|java}}
+: Checks whether the targeted block, entity or [[Command storage|storage]] has any data tag for a given path.
+
+:;Syntax
+:: <code>(if|unless) '''data''' block <pos> <path> -> [''execute'']</code> – for data checking a block
+:: <code>(if|unless) '''data''' entity <target> <path> -> [''execute'']</code> – for data checking an entity
+:: <code>(if|unless) '''data''' storage <source> <path> -> [''execute'']</code> – for data checking a storage
+
+:; Arguments
+:: '''Option:''''' <code>(if|unless) data '''block <pos> <path></code>'''
+::: {{Argument|pos|block_pos}}
+:::: Position of the block for data testing
+:::: {{arg desc|je=block_pos}}
+::: {{Argument|path|nbt_path}}
+:::: Data path to check whether the block has
+:::: {{arg desc|je=nbt_path}}
+:: '''Option:''''' <code>(if|unless) data '''entity <target> <path></code>'''
+::: {{Argument|target|entity}}
+:::: A single entity for data testing
+:::: {{Arg desc|je=entity|amount=single|type=entities}}
+::: {{Argument|path|nbt_path}}
+:::: Data path to check whether the entity has
+:::: {{arg desc|je=nbt_path}}
+:: '''Option:''''' <code>(if|unless) data '''storage <source> <path></code>'''
+::: {{Argument|source|resource_location}}
+:::: The [[resource location]] of the storage for data testing
+:::: {{arg desc|je=resource_location}}
+::: {{Argument|path|nbt_path}}
+:::: Data path to check whether the storage has
+:::: {{arg desc|je=nbt_path}}
+
+:;Result
+:: Unparseable if the argument is not specified correctly.
+:: In following conditions, terminates when this subcommand is not at the end of the subcommands chain; fails when at the end:
+::* If <code><pos></code> is unloaded or out of the world.
+::* If block at <code><pos></code> isn't a block entity.
+::* If <code><target></code> fails to resolve to one or more valid entities (named players must be online).
+::* If test doesn't pass.
+:: When at the end of the subcommands chain, if the command is successful:
+::: The <code>success</code> value is 1.
+::: For <code>if</code> mode, <code>result</code> value is the number of matching data tags.
+::: For <code>unless</code> mode, <code>result</code> value is 1.
+
+{{anchor|ifunlessdimension}}
+
+==== (if|unless) dimension ====
+{{exclusive|section=1|java}}
+: Checks if the execution is in a matching dimension.
+
+:;Syntax
+:: <code>(if|unless) '''dimension''' <dimension> -> [''execute'']</code>
+
+:;Arguments
+:: {{Argument|dimension|dimension}}
+::: Dimension to test for
+::: {{arg desc|je=dimension}}
+:;Result
+:: Unparseable if the argument is not specified correctly.
+:: In following conditions, terminates when this subcommand is not at the end of the subcommands chain; fails when at the end:
+::* If test doesn't pass.
+:: When at the end of the subcommands chain, if the command is successful, both <code>success</code> value and <code>result</code> value are 1.
+
+{{anchor|ifunlessfunction}}
+
+==== (if|unless) function ====
+{{development|section=1|java}}
+: Checks a function or function tag and matches the return value(s). If a tag is given, all functions run regardless of the results of prior functions.{{info needed}}
+:;Syntax
+:: <code>(if|unless) '''function''' <function> -> [''execute'']</code>
+
+:;Arguments
+:: {{Argument|function|function}}
+::: Function to test for
+::: {{arg desc|je=function}}
+
+:;Result
+:: Unparseable if the argument is not specified correctly.
+:: In following conditions, terminates when this subcommand is not at the end of the subcommands chain; fails when at the end:
+::* If the function or function tag doesn't exist.
+::* If test doesn't pass.
+:: {{info needed}}
+
+{{anchor|ifunlessentity}}
+
+==== (if|unless) entity ====
+: Checks whether one or more entities exist.
+
+:;Syntax
+: {{el|java}}:
+:: <code>(if|unless) '''entity''' <entities> -> [''execute'']</code>
+: {{el|bedrock}}:
+:: <code><subcommand: Option_If_Unless> '''entity''' <target: target> [''chainedCommand: ExecuteChainedOption_0'']</code>
+:;Arguments
+:: {{Argument|entities|entity|target: target|CommandSelector<Actor>}}
+::: The target entity/ies to test for
+::: {{arg desc|je=entity|amount=multiple|type=entities|be=CommandSelector<Actor>}}
+:;Result
+:: Unparseable if the argument is not specified correctly.
+:: In following conditions, terminates when this subcommand is not at the end of the subcommands chain; fails when at the end:
+::* If test doesn't pass.
+:: {{IN|java}}, when at the end of the subcommands chain, if the command is successful:
+::: The <code>success</code> value is 1.
+::: For <code>if</code> mode, <code>result</code> value is the number of matching entities.
+::: For <code>unless</code> mode, <code>result</code> value is 1.
+
+{{anchor|ifunlessloaded}}
+
+==== (if|unless) loaded ====
+{{exclusive|section=1|java}}
+: Checks if [[chunk]]s at a given position is fully loaded (Entity Ticking).
+
+:;Syntax
+:: <code>(if|unless) '''loaded''' <pos> -> [''execute'']</code>
+:;Arguments
+:: {{Argument|pos|block_pos}}
+::: Position to test
+::: {{arg desc|je=block_pos}}
+
+:;Result
+:: Unparseable if the argument is not specified correctly.
+:: In following conditions, terminates when this subcommand is not at the end of the subcommands chain; fails when at the end:
+::* If <code><pos></code> is out of the world.
+::* If test doesn't pass.
+:: When at the end of the subcommands chain, if the command is successful, both <code>success</code> value and <code>result</code> value are 1.
+
+{{anchor|ifunlesspredicate}}
+
+==== (if|unless) predicate ====
+{{exclusive|section=1|java}}
+: Checks whether the predicate successes. See [[Predicate]] for more information.
+
+:;Syntax
+:: <code>(if|unless) '''predicate''' <predicate> -> [''execute'']</code>
+:;Arguments
+:: {{Argument|predicate|resource_location}}
+::: The predicate to be checked whether it evaluates to a positive result
+::: {{Arg desc|je=resource_location}}
+
+:;Result
+:: Unparseable if the argument is not specified correctly.
+:: In following conditions, terminates when this subcommand is not at the end of the subcommands chain; fails when at the end:
+::* If the predicate doesn't exist.
+::* If test doesn't pass.
+:: When at the end of the subcommands chain, if the command is successful, both <code>success</code> value and <code>result</code> value are 1.
+
+{{anchor|ifunlessscore}}
+
+==== (if|unless) score ====
+: Check whether a score has the specific relation to another score, or whether it is in a given range.
+
+:;Syntax
+: {{el|java}}:
+:: <code>(if|unless) '''score''' <target> <targetObjective> (<|<=|=|>=|>) <source> <sourceObjective> -> [''execute'']</code> – for comparing two scores
+:: <code>(if|unless) '''score''' <target> <targetObjective> matches <range> -> [''execute'']</code> – for comparing one score against a range
+: {{el|bedrock}}:
+:: <code><subcommand: Option_If_Unless> '''score''' <target: target> <objective: string> <operation: compare operator> <source: target> <objective: string> [''chainedCommand: ExecuteChainedOption_0'']</code> - for comparing two scores
+:: <code><subcommand: Option_If_Unless> '''score''' <target: target> <objective: string> matches <range: integer range> [''chainedCommand: ExecuteChainedOption_0'']</code> - for comparing one score against a range
+
+:;Arguments
+:: {{Argument|target|score_holder|target: target|CommandSelector<Actor>}}
+::: A single score holder
+::: {{IN|java}}, {{lcfirst:{{arg desc|je=score_holder}}}}
+::: {{IN|bedrock}}, {{lcfirst:{{arg desc|be=CommandSelector<Actor>}}}} It can also be quoted unique id to specified non-player entities in the objective.
+:: {{Argument|targetObjective|objective|objective: string|basic_string}}
+::: The scoreboard objective to check under. The score of <target> or <target: target> in this objective is checked
+::: {{arg desc|je=objective|be=basic_string}}
+:: '''Option:''' ''<code>(if|unless) score ... '''(<|<=|=|>=|>)''' ...</code>'' and ''<code><subcommand: Option_If_Unless> score ... '''<operation: compare operator>''' ...</code>''
+::: {{el|java|short=1}}: <code>(<|<=|=|>=|>)</code>
+::: {{el|bedrock|short=1}}: {{Argument|be=1|operation: compare operator|enum}}
+:::: Specifies a compare operator
+:::: Must be one of <code><</code>, <code><=</code>, <code>=</code>, <code>>=</code>, and <code>></code>.
+::: {{Argument|source|score_holder|source: target|CommandSelector<Actor>}}
+:::: A single score holder to compare against
+:::: {{IN|java}}, {{lcfirst:{{arg desc|je=score_holder}}}}
+:::: {{IN|bedrock}}, {{lcfirst:{{arg desc|be=CommandSelector<Actor>}}}} It can also be quoted unique id to specified non-player entities in the objective.
+::: {{Argument|sourceObjective|objective|objective: string|basic_string}}
+:::: A scoreboard objective. The score of <source> or <source: target> in this objective is checked
+:::: {{arg desc|je=objective|be=basic_string}}
+:: '''Option:''' ''<code>(if|unless) score ... '''matches''' ...</code>'' and ''<code><subcommand: Option_If_Unless> score ... '''matches''' ...</code>''
+::: {{Argument|range|int_range|range: integer range|CommandIntegerRange}}
+:::: Range to compare score against
+:::: {{arg desc|je=int_range|be=CommandIntegerRange}}
+
+:;Result
+:: Unparseable if the argument is not specified correctly.
+:: In following conditions, terminates when this subcommand is not at the end of the subcommands chain; fails when at the end:
+::* {{IN|java}}, if <code><target></code> / <code>target: target</code> or <code><source></code> / <code>source: target</code> is <code>*</code>.
+::* If test doesn't pass.
+:: {{IN|java}}, when at the end of the subcommands chain, if the command is successful, both <code>success</code> value and <code>result</code> value are 1.
+
+==== Example ====
+: Kill all players standing on a wool:
+:* <code>execute as @a at @s '''if block ~ ~-1 ~ #wool''' run kill @s</code>{{only|java}}
+:* <code>execute as @a at @s '''if block ~ ~-1 ~ wool''' run kill @s</code>{{only|bedrock}}
+: Check whether scores A and B are equal: <code>execute '''if score @s A = @s B'''</code>
+
+{{anchor|store}}
+
+=== Store subcommand ===
+{{Exclusive|Java|section=1}}
+Store the final subcommand's <code>result</code> or <code>success</code> value somewhere. It is first processed along with other subcommands, recording the location to store in. After the last subcommand (may be a condition subcommand or a <code>run</code> subcommand) is executed, return values are stored in the recorded location. Note that the return values of commands must be an integer. If a decimal, it is rounded down.
+
+There are five different modes of storage:
+# [[#storeblock|store (result|success) block]] – Store return value under one of a block's NBTs
+# [[#storebossbar|store (result|success) bossbar]] – Store return value as a bossbar data
+# [[#storeentity|store (result|success) entity]] – Store return value under one of an entity's NBTs
+# [[#storescore|store (result|success) score]] – Store return value under a target's score on an objective
+# [[#storestorage|store (result|success) storage]] – Store return value under one of a storage's NBTs
+
+{{Anchor|storeblock}}
+
+==== store (result|success) block ====
+: Saves the final command's return value as tag data within a block entity. Store as a byte, short, int, long, float, or double. If the return value is a decimal, it is rounded first and then multiplied by <code><scale></code>.
+
+:;Syntax
+:: <code>store (result|success) '''block''' <targetPos> <path> <''type''> <scale> -> ''execute''</code>
+
+:;Arguments
+:: {{Argument|targetPos|block_pos}}
+::: Position of target block
+:: {{Argument|path|nbt_path}}
+::: Location of the desired tag to hold the value in
+:: {{code|<''type''>}}
+::: Desired data size/type
+::: Must be one of <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, and <code>double</code>.
+:: {{Argument|scale|double}}
+::: Multiplier to apply before storing value, may be negative
+
+:;Result
+:: Unparseable if the argument is not specified correctly.
+:: Does not store anything when the path does not exist.
+
+{{Anchor|storebossbar}}
+
+==== store (result|success) bossbar ====
+: Saves the final command's return value in either a bossbar's current value or its maximum value
+
+:;Syntax
+:: <code>store (result|success) '''bossbar''' <id> (value|max) -> ''execute''</code>
+:;Arguments
+:: {{Argument|id|resource_location}}
+::: ID of the bossbar to target for saving
+:: {{code|(value{{!}}max)}}
+::: Whether to overwrite the bossbar's ''current value'' or its ''max value''<!--TODO-->
+:;Result
+:: Unparseable if the argument is not specified correctly.
+
+{{Anchor|storeentity}}
+
+==== store (result|success) entity ====
+: Save the final command's return value in one of an entity's data tags. Store as a byte, short, int, long, float, or double. If the return value is a decimal, it is rounded first and then multiplied by <code><scale></code>. Like the {{cmd|data}} command, "/execute store <arguments>" cannot modify [[Player.dat format|player NBT]].
+
+:;Syntax
+:: <code>store (result|success) '''entity''' <target> <path> <''type''> <scale> -> ''execute''</code>
+
+:;Arguments
+:: {{Argument|target|entity}}
+::: A single entity to store under
+:: {{Argument|path|nbt_path}}
+::: Location of the desired tag to hold the value in
+:: {{code|<''type''>}}
+::: Desired data size/type
+::: Must be one of <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, and <code>double</code>.
+:: {{Argument|scale|double}}
+::: Multiplier to apply before storing value, may be negative
+:;Result
+:: Unparseable if the argument is not specified correctly.
+:: Does not store anything when the path does not exist.
+
+{{Anchor|storescore}}
+
+==== store (result|success) score ====
+: Overrides the score held by <code><targets></code> on the given <code><objective></code> with the final command's return value.
+
+:;Syntax
+:: <code>store (result|success) '''score''' <targets> <objective> -> ''execute''</code>
+
+:;Arguments
+:: {{Argument|targets|score_holder}}
+::: Specifies score holder(s) whose score is to be overridden
+:: {{Argument|objective|objective}}
+::: A scoreboard objective
+:;Result
+:: Unparseable if the argument is not specified correctly.
+
+{{Anchor|storestorage}}
+
+==== store (result|success) storage ====
+: Uses the {{cd|<path>}} within [[Command storage|storage]] {{cd|<target>}} to store the return value in. Store as a byte, short, int, long, float, or double. If the return value is a decimal, it is rounded first and then multiplied by {{cd|<scale>}}. If the storage does not yet exist, it gets created.
+
+:;Syntax
+:: <code>store (result|success) '''storage''' <target> <path> <''type''> <scale> -> ''execute''</code>
+
+:;Arguments
+:: {{Argument|target|resource_location}} (Single word)
+::: Target storage container, as a [[resource location]]
+:: {{Argument|path|nbt_path}}
+::: Location of the desired tag to hold the value in
+:: {{code|<''type''>}}
+::: Desired data size/type
+::: Must be one of <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, and <code>double</code>.
+:: {{Argument|scale|double}}
+::: Multiplier to apply before storing value, may be negative
+
+:;Result
+:: Unparseable if the argument is not specified correctly.
+
+{{Anchor|run}}
+
+=== Run subcommand ===
+The {{Cd|run}} command's single argument is the command to be executed, the context variables of which may be modified by the subcommands used.
+
+:;Syntax
+: {{el|java}}:
+:: <code>run --><''command''></code>
+: {{el|bedrock}}:
+:: <code>run <command: command></code>
+
+:;Arguments
+:: {{el|je|short=1}}: <code><command></code>
+:: {{el|be|short=1}}: <code>command: command</code>
+::: Can be any [[Commands#List and summary of commands|command]]
+
+:;Technical{{only|java}}
+:: Resets the command node to the root of the [[Brigadier|command dispatcher]]
+:: Information on modelling commands as chat text:
+::* The ''command dispatcher'' is what starts when the player begins a message with a forward-slash (<code>/</code>).
+::* A ''command node'' is the specific word/entry the cursor is editing, either a command or an argument.
+::* The ''root node'' comes before the first word in the current command.
+
+:;Result
+:: Execute this command. Fails if <code><''command''></code> or <code>command: command</code> is failure.
+
+=== More examples ===
+* Teleport all players who have an item enchanted with [[Efficiency]] in their first hotbar slot to coordinates (0, 64, 0):
+*: <code>/execute as @a if data entity @s Inventory[{Slot:0b}].tag.Enchantments[{id:"minecraft:efficiency"}] run tp @s 0 64 0</code>{{only|java}}
+* Create a smoke [[particle]] three blocks in front of all players:
+*: <code>/execute as @a at @s anchored eyes run particle smoke ^ ^ ^3</code>{{only|java}}
+* Place a saddle on pigs located within 5 blocks of the executing player, and remove saddles from pigs located over 5 blocks away from the executing player:
+*: <code>/execute as @e[type=pig] at @s store success entity @s Saddle byte 1 if entity @p[distance=..5]</code>{{only|java}}
+* Make a player say "My feet are soaked!" in chat if they are located in a block of [[water]]:
+*: <code>/execute as @a at @s if block ~ ~ ~ water run say "My feet are soaked!"</code>
+* Make a player say "Score is reset" in chat if the score 'test' is not set, eg by doing "scoreboard players reset @s test":
+*:<code>/execute as @a unless score @s test = @s test run say "Score is reset"</code>
+* Hurl all pigs skyward who are within 3 blocks of the nearest player:
+*:<code>/execute at @p as @e[type=pig,distance=..3] run data merge entity @s {Motion:[0.0,2.0,0.0]}</code>{{only|java}}
+* Kill all zombies who have no headgear:
+*:<code>/execute as @e[type=zombie] unless data entity @s ArmorItems[3].id run kill @s</code>{{only|java}}
+
+== History ==
+
+{{History|java}}
+{{History||1.13|snap=17w45a|Reworked {{cmd|execute|link=none}}. The syntax of {{cmd|execute|link=none}} has been split off. See [[Commands/execute/Before]] for old syntax.}}
+{{History|||snap=17w45b|Reworked {{cmd|execute store|link=none}}.}}
+{{History|||snap=18w02a|Added new subcommands to {{cmd|execute|link=none}} to allow for more control over commands.}}
+{{History|||snap=18w05a|Added {{cmd|execute store (result{{!}}success) bossbar|link=none}}.}}
+{{History||1.14|snap=18w43a|Added {{cmd|execute (if&#124;unless) data|link=none}}.}}
+{{History||1.15|snap=19w38a|Added {{cmd|execute (if{{!}}unless) predicate|link=none}}.
+|Added {{cmd|execute store (result{{!}}success) storage|link=none}}.}}
+{{History||1.19.3|snap=22w46a|Added {{cmd|execute (if&#124;unless) biome|link=none}}.}}
+{{History||1.19.4|snap=23w03a|Added {{cmd|execute on|link=none}}.|Added {{cmd|execute (if{{!}}unless) dimension|link=none}} and {{cmd|execute (if{{!}}unless) loaded|link=none}}.}}
+{{History|||snap=23w04a|Added a new relation <code>origin</code> for {{cmd|execute on|link=none}}.}}
+{{History|||snap=23w06a|Added {{cmd|execute summon|link=none}}.|Now {{cmd|execute if loaded|link=none}} is a condition subcommand instead of a modify-like subcommand.<ref>{{bug|MC-259227|resolution=Fixed}}</ref>}}
+{{History|||snap=Pre-release 1|Added {{cmd|execute positioned over|link=none}}.}}
+{{History|java upcoming}}
+{{History||1.20.2|snap=23w31a|Added {{cmd|execute (if{{!}}unless) function|link=none}}.}}
+{{History|||snap=1.20.2 Pre-release 1|Temporarily removed syntax {{cmd|link=none|execute (if{{!}}unless) function}}.}}
+
+{{History|bedrock}}
+{{History||Upcoming Creator Features<br>(Experimental)|link=Experimental Gameplay|snap=beta 1.19.10.20|Added new {{cmd|execute|link=None}} syntax to closer resemble that of {{el|java}}.}}
+{{History|||snap=beta 1.19.40.20|Implemented the {{cmd|execute rotated|link=none}} command.}}
+{{History|||snap=beta 1.19.40.21|Implemented the {{cmd|execute facing|link=none}} and {{cmd|execute align|link=none}} commands.}}
+{{History|||snap=beta 1.19.40.23|Implemented the {{cmd|execute anchored|link=none}} and {{cmd|execute in|link=none}} commands.}}
+{{History||1.19.50|snap=beta 1.19.50.23|The new {{cmd|execute|link=none}} syntax is no longer behind the "Upcoming Creator Features" experimental toggle.}}
+{{History||1.19.70|snap=beta 1.19.70.21|Removed <code>data: int</code> argument from {{cmd|execute <if{{!}}unless> block|link=none}}.}}
+{{History|foot}}
+
+== References ==
+<references/>
+{{Commands}}
+
+[[de:Befehl/execute]]
+[[es:Comandos/execute]]
+[[ja:コマンド/execute]]
+[[pt:Comandos/execute]]
+[[ru:Команды консоли/execute]]
+[[uk:Команди консолі/execute]]
+[[zh:命令/execute]]

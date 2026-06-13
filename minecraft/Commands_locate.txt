@@ -1,0 +1,211 @@
+{{Infobox command
+|name=locate
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|others=[[Options|Cheat]] only{{only|bedrock|short=1}}
+}}
+
+Displays the [[coordinates]] for the closest [[generated structure]] or [[biome]]s of a given type in the chat for the player who executed the [[command]]. {{IN|java}}, it can also display for the closest [[Village mechanics|points of interest]].
+
+== Syntax ==
+* '''Java Edition'''
+:<code>/locate structure <structure></code>
+:<code>/locate biome <biome></code>
+:<code>/locate poi <poi></code>
+*'''Bedrock Edition'''
+:<code>/locate structure <structure: Structure> [useNewChunksOnly: Boolean]</code>
+:<code>/locate biome <biome: Biome></code>
+
+==Arguments==
+{{el|je|short=1}} : {{argument|biome|resource_or_tag}}<br>
+{{el|be|short=1}}: {{argument|be=1|biome: Biome|enum}}
+: Specifies the [[biome]] to locate. In ''[[Java Edition]]'', this argument also supports biome [[tag]]s.
+:{{arg_desc|je=resource_or_tag|registry=minecraft:worldgen/biome|be=enum}}
+
+{{el|je|short=1}} (case-sensitive): {{argument|structure|resource_or_tag_key}}<br>
+{{el|be|short=1}}: {{argument|be=1|structure: Structure|enum}}
+:Specifies the structure to locate. See [[Generated structures#Data values]].
+:{{arg_desc|je=resource_or_tag_key|registry=minecraft:worldgen/structure|be=enum}}
+
+{{el|be|short=1}}: {{argument|be=1|useNewChunksOnly: Boolean|enum}}
+:Specifies if a structure of any type wants to be located in new chunks only (<code>true</code>) or not (<code>false</code>), and it's <code>false</code> by default.
+:{{arg_desc|be=bool}}
+
+{{el|je|short=1}} : {{argument|poi|resource_or_tag}}
+:Specifies the point of interest to locate. 
+:{{arg_desc|je=resource_or_tag|registry=minecraft:point_of_interest_type}} 
+: The following are resource locations of POIs:
+: {| class="wikitable sortable collapsible collapsed"
+!Point of Interest||ID
+|-
+|Blast Furnace
+|{{Cd|code=armorer}}
+|-
+|Bee nest
+|{{Cd|code=bee_nest}}
+|-
+|Beehive
+|{{Cd|code=beehive}}
+|-
+|Smoker
+|{{Cd|code=butcher}}
+|-
+|Cartography Table
+|{{Cd|code=cartographer}}
+|-
+|Brewing Stand
+|{{Cd|code=cleric}}
+|-
+|Composter
+|{{Cd|code=farmer}}
+|-
+|Barrel
+|{{Cd|code=fisherman}}
+|-
+|Fletching Table
+|{{Cd|code=fletcher}}
+|-
+|Bed
+|{{Cd|code=home}}
+|-
+|Cauldron
+|{{Cd|code=leatherworker}}
+|-
+|Lectern
+|{{Cd|code=librarian}}
+|-
+|Lightning Rod
+|{{Cd|code=lightning_rod}}
+|-
+|Lodestone
+|{{Cd|code=lodestone}}
+|-
+|Stonecutter
+|{{Cd|code=mason}}
+|-
+|Bell
+|{{Cd|code=meeting}}
+|-
+|Nether Portal
+|{{Cd|code=nether_portal}}
+|-
+|Loom
+|{{Cd|code=shepherd}}
+|-
+|Smithing Table
+|{{Cd|code=toolsmith}}
+|-
+|Grindstone
+|{{Cd|code=weaponsmith}}
+|}
+
+:This argument also supports point of interest type tags, as following:
+: {| class="wikitable sortable collapsible collapsed"
+!Tag
+!Includes
+|-
+|<code>#acquirable_job_site</code>
+|{{Cd|code=armorer}}<br>
+{{Cd|code=butcher}}<br>
+{{Cd|code=cartographer}}<br>
+{{Cd|code=cleric}}<br>
+{{Cd|code=farmer}}<br>
+{{Cd|code=fisherman}}<br>
+{{Cd|code=fletcher}}<br>
+{{Cd|code=leatherworker}}<br>
+{{Cd|code=librarian}}<br>
+{{Cd|code=mason}}<br>
+{{Cd|code=shepherd}}<br>
+{{Cd|code=toolsmith}}<br>
+{{Cd|code=weaponsmith}}
+|-
+|{{cd|#bee_home}}
+|{{Cd|bee_nest}}<br>
+{{Cd|beehive}}
+|-
+|{{cd|#village}}
+|{{cd|#acquirable_job_site}}<br>
+{{Cd|code=home}}<br>
+{{Cd|code=meeting}}
+|}
+
+==Note==
+For {{cd|/locate structure ...}}, the vertical coordinate of structure is ignored when finding. {{IN|java}}, the horizonal search range is 201×201 chunks{{Info needed|How about Bedrock Edition?}}. Structures in the [[Anvil_file_format|Anvil]] chunk region of the command's execution are prioritized over others due to a bug, meaning the found structure is not necessarily the closest.<ref>{{bug|MC-138887}}</ref>
+
+For {{cd|/locate biome ...}}, the horizonal search resolution is 32 blocks, and vertical resolution is 64 blocks, which means biomes that are too narrow may not be found. The horizonal search range is 12801×12801 blocks {{in|java}}.{{Info needed|How about Bedrock Edition?}}
+
+{{IN|java}}, for {{cd|/locate poi ...}}, the search range is a ball with a radius of 256 blocks.
+
+When locating structure or POI, if successful, the following message is sent to chat: "''The nearest <requested thing(s)> is at [<x> ~ <z>] (<nowiki><distance> blocks away)</nowiki>''", in which <code><nowiki><distance></nowiki></code> is the horizontal distance from the executor. 
+
+When locating biome, if successful, the following message is sent to chat: "''The nearest <requested biome(s)> is at [<x> <y> <z>] (<nowiki><distance> blocks away)</nowiki>''", in which <code><nowiki><distance></nowiki></code> is the distance from the executor to the biome. 
+
+{{IN|java}}, the coordinates in these messages can be clicked, which can put the command {{cmd|tp @s <x> ~ <z>}} in the chat box. The command can then be executed, and the player is sent to those coordinates.
+
+==Result==
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|unparseable}}
+<!--For biome and poi, it is unparseable if the specified resource location or tag is not valid-->
+{{Result table|cmd=locate structure ...|the specified resource location or tag is not a valid structure or structure tag|fail|N/A<!--in BE, if it is not valid, the argument is considered incorrectly specified-->}}
+{{Result table|the requested structure doesn't generate in this dimension||fail}}
+{{Result table|unable to locate the requested structure within a square of 201×201 chunks{{needs testing|bedrock=1}}}}
+{{Result table|cmd=locate biome ...|unable to locate the requested biome within a square of 12801×12801 blocks{{needs testing|bedrock=1}}}}
+{{Result table|cmd=locate poi ...|unable to locate the requested poi within a ball  with a radius of 256 blocks.||N/A}}
+{{Result table|cmd=|succeed}}
+{{Result table}}
+
+==Output==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|cmd=locate structure ...<br>locate poi ...|On success|1|1|horizontal distance<br>between the executor and the requested structure or POI}}
+{{Output table|cmd=locate biome ...|On success|1|1|distance between the executor and the requested biome}}
+{{Output table|cmd=|edition=be|On fail|0}}
+{{Output table|On success|1}}
+{{Output table}}
+
+==Examples== 
+* To obtain the coordinates of the nearest woodland mansion: {{cmd|locate structure mansion}}
+* To obtain the coordinates of the nearest pillager outpost in new chunks only: {{cmd|locate structure pillager_outpost true}}{{only|be}}
+*To obtain the coordinates of the nearest village of any kind: {{cmd|locate structure #village}}{{only|je}}/{{cmd|locate structure village}}{{only|be}}
+* To obtain the coordinates of the nearest desert biome: {{cmd|locate biome desert}}
+*To obtain the coordinates of the nearest point of interest used by villagers: {{cmd|locate poi #village}}{{only|je}}
+
+==History==
+{{History|java}}
+{{History||1.11|snap=16w39a|Added {{cmd|locate|link=none}}.}}
+{{History||1.13|snap=18w06a|{{cmd|locate|link=none}} now accepts different structure names for all structures previously grouped under <code>Temple</code>: <code>Desert_Pyramid</code>, <code>Igloo</code>, <code>Jungle_Pyramid</code>, and <code>Swamp_Hut</code>.}}
+{{History|||snap=18w08a|Added a clickable teleport link to the {{cmd|locate|link=none}} command output.}}
+{{History||1.14|snap=18w47a|{{cmd|locate|link=none}} now accepts <code>Pillager_Outpost</code>.}}
+{{History|||snap=18w48a|{{cmd|locate|link=none}} now accepts <code>New_Village</code>.}}
+{{History|||snap=?|{{cmd|locate|link=none}} no longer accepts <code>New_Village</code>.}}
+{{History||1.16|snap=20w11a|[[Nether fossil]]s can now be located.}}
+{{History|||snap=20w21a|Structure names are now specified as lowercase.}}
+{{History||1.18.2|snap=22w03a|{{cmd|locate|link=none}} now uses a namespace ID parameter instead of hard coded values.}}
+{{History|||snap=Pre-release 1|{{cmd|locate|link=none}} now support [[tag]]s, using {{cd|#}} prefix to distinguish from normal IDs.
+|The parameter is now a configured structure rather than a structure type.}}
+{{History||1.19|snap=22w19a|{{cmd|locatebiome}} has been merged with {{cmd|locate|link=none}}.|Added the ability to locate points of interest.}}
+
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Added {{cmd|locate|link=none}}.}}
+{{History|||snap=alpha 0.17.0.2|Removed {{cmd|locate|link=none}}.}}
+{{History|||snap=alpha 1.0.0.0|Re-added {{cmd|locate|link=none}}. Works only for strongholds.}}
+{{History||1.1.0|snap=alpha 1.1.0.0|{{cmd|locate|link=none}} can now find other structures.}}
+{{History|bedrock}}
+{{History||1.19.10|snap=beta 1.19.10.23|{{cmd|locate|link=none}} can now find biomes.}}
+{{History||1.19.30|snap=beta 1.19.30.20|The original command {{cmd|locate <feature:structure>|link=none}} is no longer used.}}
+{{History|||snap=beta 1.19.30.21|Added new structure names with underscores like {{cd|d=and|ancient_city|bastion_remnant|buried_treasure|end_city|pillager_outpost|ruined_portal}}.}}
+{{History|foot}}
+
+==References==
+{{reflist}}
+
+{{Commands}}
+
+[[de:Befehl/locate]]
+[[ja:コマンド/locate]]
+[[pt:Comandos/locate]]
+[[ru:Команды консоли/locate]]
+[[uk:Команди консолі/locate]]
+[[zh:命令/locate]]

@@ -1,0 +1,50 @@
+{{lowercase}}
+{{about|the main source code|the launcher marked for "Linux/Other"|Minecraft Launcher}}
+{{exclusive|java}}
+
+'''client.jar''' is the main code source for ''[[Minecraft]]''. It is located in the <samp>[[.minecraft]]/versions/<''version''></samp> directory. When using the latest version of the [[launcher]], it is named <samp>''<game version>''.jar</samp>.
+
+It can be opened using a [[wikipedia:File archiver|file archiving program]] or a Java [[wikipedia:Decompiler|decompiler]].
+
+== Jar versions ==
+
+The <samp>client.jar</samp> file is found in its version folder. It is accompanied by the <samp>[[client.json]]</samp> file that lists the version's attributes. Normal versions are available to choose from via the [[launcher]], and [[snapshots]] are also available. It is also possible to download [[old alpha]] versions and create version files to install [[mods]] on. Note that creating a new version is the only way to install mods; the launcher keeps normal versions synced.
+
+== Files in client.jar ==
+
+In <samp>client.jar</samp> many files can be found, except for sound files; they can be categorized like so:
+* Class files: compiled Java code that ''Minecraft'' uses for program logic. These files (classes) have names such as "acq" or "qn" because they have been run through an obfuscation tool to hide the names of methods, variables, and classes. However, they can still be disassembled to understand their functionality.
+* The META-INF directory: contains meta information about the game files.
+* Resource pack files: Contents that are in the vanilla [[resource pack]], located in the <samp>assets</samp> directory.
+:* <samp>.mcassetsroot</samp>: Used for identifying vanilla resources.
+:* <samp>realms</samp> folder: Contains the textures and language files used by [[Realms]].
+:* <samp>minecraft</samp> folder: Resources for <code>minecraft</code> namespace.
+* Data pack files: Contents that are in the vanilla [[data pack]], located in the <samp>data</samp> directory.
+:* <samp>.mcassetsroot</samp>: Used for identifying vanilla datas.
+:* <samp>minecraft</samp> folder: Datas for <code>minecraft</code> namespace.
+* <samp>pack.mcmeta</samp>: Metadata for both the vanilla resource and data packs. Fulfills the requirement for both [[Resource pack#Contents|resource pack]] and [[Data pack#pack.mcmeta|data pack]] metadata.
+* <samp>pack.png</samp>: Icon for both the vanilla resource and data packs. 
+* <samp>log4j2.xml</samp>: [https://logging.apache.org/log4j/2.x/manual/configuration.html#XML XML Configuration file] for Apache Log4j 2.
+* <samp>[[version.json]]</samp>: Contains some basic information of this version.
+
+== File hierarchy ==
+This is the current file list as of [[Java Edition 1.16.5]]. Note that Java class files have been omitted for brevity.
+{{:Resource pack/Folders}}
+
+{{Java Edition}}
+
+[[Category:Development]]
+
+[[de:Minecraft.jar]]
+[[es:Minecraft.jar]]
+[[fr:Client.jar]]
+[[it:Client.jar]]
+[[ja:Client.jar]]
+[[ko:Client.jar]]
+[[nl:Minecraft.jar]]
+[[pl:Minecraft.jar]]
+[[pt:client.jar]]
+[[ru:Client.jar]]
+[[tr:Client.jar]]
+[[uk:client.jar]]
+[[zh:Client.jar]]

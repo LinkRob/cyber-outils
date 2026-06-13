@@ -1,0 +1,45 @@
+<div class="treeview"><onlyinclude>
+** {{Nbt|string|processor_type}}: Can be {{cd|minecraft:rule}}(Replaces blocks with custom rules), {{cd|minecraft:block_rot}}(Randomly removes blocks. The removed blocks are not replaced by air, but keep the old blocks before the structure being generated.), {{cd|minecraft:block_age}}(Makes blocks aged. A stone, stone bricks, or cracked stone bricks block has a chance of 0.5 to be replaced with one of cracked stone bricks, stone brick stairs, mossy stone bricks, and mossy stone brick stairs. All variants of stairs have a 0.5 chance to become one of stone slab, stone brick slab, mossy stone brick stairs, and mossy stone brick slab. All variants of slabs and walls may remain unchanged or become mossy stone brick variants. An obsidians have a 0.15 chance to become crying obsidian.), {{cd|minecraft:block_ignore}}(Removes specified blocks. The removed blocks are not replaced by air, but keep the old blocks before the structure being generated.), {{cd|minecraft:gravity}}(Change the Y-level of blocks' positions to fit the terrain like a village road. Note that this is not used to make floating gravity blocks fall down. This processor is hardcoded to be used on a structure template if its "projection" field in its [[Custom structure#Structure Pool|structure pool]] is "terrain_matching".), {{cd|minecraft:protected_blocks}}(Specifies which blocks in the world cannot be overridden by this structure), {{cd|minecraft:blackstone_replace}}(Replaces all stone-variant blocks with blackstone variants and all iron bars with chains.), {{cd|minecraft:jigsaw_replacement}}(Whether to preserve jigsaw blocks and structure void blocks. This processor is hardcoded to be used unless generated in the jigsaw block GUI.), {{cd|minecraft:lava_submerged_block}}(Blocks with incomplete outline shapes will not be able to override the lava in the world), {{cd|minecraft:capped}}(Applies a processor to some random blocks instead of applying it to all blocks.) or {{cd|minecraft:nop}}(Do nothing).
+**; If {{cd|processor_type}} is {{cd|minecraft:rule}}, additional field is as follows<nowiki>:</nowiki>
+** {{Nbt|list|rules}}: (Required, but can be empty) A list of rules. Only the first rule that all conditions are met takes effect. This is decided anew for each block.
+*** {{Nbt|compound}}: A rule.
+**** {{Nbt|compound|position_predicate}}: (Optional, defaults to an "always_true" test) The test to apply to the distance from the structure start to this block.
+***** {{Nbt inherit/pos rule test}}
+**** {{Nbt|compound|input_predicate}}: The test to apply to the block that will be placed by the structure.
+***** {{Nbt inherit/rule test}}
+**** {{Nbt|compound|location_predicate}}: The test to apply to the block in the world that will be replaced by the structure.
+***** {{Nbt inherit/rule test}}
+**** {{Nbt|compound|output_state}}: The block that will be placed when all conditions are met. Omitting block states use default values (e.g. the replacement of stairs with stairs without changing states need 40 rules to check for all facing combinations).
+***** {{nbt inherit/block state}}
+**** {{Nbt|compound|block_entity_modifier}}: (optional) Modifies nbt data of the block entity if all conditions are met.
+***** {{Nbt|string|type}}: Can be {{cd|minecraft:append_loot}}(Appends <code>LootTable</code> field and <code>LootTableSeed</code> field to the block entity. The <code>LootTableSeed</code> uses a random number seeded by the block position.), {{cd|minecraft:append_static}}(Merges specified data into the block entity.), {{cd|minecraft:clear}}(Resets any existing fields on the block entity.) or {{cd|minecraft:passthrough}}(Do nothing).
+*****; If {{cd|type}} is {{cd|minecraft:append_loot}}, additional field is as follows<nowiki>:</nowiki>
+***** {{Nbt|string|loot_table}}: The resource location of a loot table.
+*****; If {{cd|type}} is {{cd|minecraft:append_static}}, additional field is as follows<nowiki>:</nowiki>
+***** {{Nbt|compound|data}}: The nbt data to be merged into the block entity. Needs to be in JSON form, see [[NBT format#JSON and NBT]].
+**; If {{cd|processor_type}} is {{cd|minecraft:block_rot}}, additional fields are as follows<nowiki>:</nowiki>
+** {{Nbt|float|integrity}}: The probability of randomly removing blocks in the structure. Value between 0 and 1.
+** {{Nbt|string}}{{nbt|list|rottable_blocks}}: (optional) Blocks that can be removed. A block ID or a block tag, or a list of block IDs.
+**; If {{cd|processor_type}} is {{cd|minecraft:block_age}}, additional field is as follows<nowiki>:</nowiki>
+** {{Nbt|float|mossiness}}: Values below 0.0 is treated as 0.0; values above 1.0 is treated as 1.0. The probability of using mossy variants when making a block aged.
+**; If {{cd|processor_type}} is {{cd|minecraft:block_ignore}}, additional field is as follows<nowiki>:</nowiki>
+** {{Nbt|list|blocks}}: (Required, but can be empty) IDs of blocks to ignore. Specifying block states has no effect.
+*** {{Nbt|compound}}: A block.
+**** {{nbt inherit/block state}}
+**; If {{cd|processor_type}} is {{cd|minecraft:gravity}}, additional fields are as follows<nowiki>:</nowiki>
+** {{Nbt|string|heightmap}}: (optional, defaults to WORLD_SURFACE_WG) Must be one of <code>"WORLD_SURFACE_WG"</code>(if not during world generation, fallbacks to <code>WORLD_SURFACE</code>), <code>"WORLD_SURFACE"</code>, <code>"OCEAN_FLOOR_WG"</code>(if not during world generation, fallbacks to <code>OCEAN_FLOOR</code>), <code>"OCEAN_FLOOR"</code>, <code>"MOTION_BLOCKING"</code>, or <code>"MOTION_BLOCKING_NO_LEAVES"</code>.
+** {{Nbt|int|offset}}: (optional, defaults to 0) The offset relative to the terrain. For example: 0 is to place the structure on the ground, -1 is to sink one block into the ground. When this processor is used on a structure template by hardcoding (when the template's "projection" field in its [[Custom structure#Structure Pool|structure pool]] is "terrain_matching"), {{Nbt|int|offset}} is -1.
+**; If {{cd|processor_type}} is {{cd|minecraft:protected_blocks}}, additional field is as follows<nowiki>:</nowiki>
+** {{Nbt|string|value}}: A block tag with <code>#</code>.
+**; If {{cd|processor_type}} is {{cd|minecraft:capped}}, additional fields are as follows<nowiki>:</nowiki>
+** {{Nbt|int}}{{Nbt|compound|value}}: The number of blocks on which the processer is applied. Must be greater than 0. If it is greater than or equal to the total number of blocks in the structure template, all blocks are processed as if the processer is not capped.
+*** {{nbt inherit/int provider}}
+** {{Nbt|compound|delegate}}: The processer.
+*** {{nbt inherit/processor}}</onlyinclude>
+</div>
+<noinclude>
+[[ja:カスタムワールド生成/processor]]
+[[zh:自定义世界生成/processor]]
+[[Category:Java Edition]]
+[[Category:Data packs]]
+</noinclude>

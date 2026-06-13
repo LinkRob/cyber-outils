@@ -1,0 +1,91 @@
+{{exclusive|java}}
+{{Program
+| title=Brigadier
+| version = [https://github.com/Mojang/brigadier/releases/latest 1.0.18]
+| source available = [https://github.com/Mojang/brigadier/ brigadier]
+| programming language = [[wikipedia:Java (programming language)|Java]]
+| author = [[Mojang Studios]]
+| license = MIT License
+}}
+
+{{quote|I'm so proud of that name! Brigadier is the name of the command engine that Minecraft uses.|[[Dinnerbone]]|Brigadier<ref>{{Mcnet|programmers-play-minecrafts-inner-workings|Programmers: Play with Minecraft's Inner Workings!}}</ref>|Nathan Adams Mojang avatar.png}}
+
+'''Brigadier''' is a [[command]] parser and dispatcher, designed and developed for {{el|je}},<ref>{{link|url=https://github.com/Mojang/brigadier|title=Mojang/brigadier: Brigadier is a command parser & dispatcher, designed and developed for Minecraft: Java Edition.|website=GitHub}}</ref> mainly maintained by [[Dinnerbone]].<ref>{{link|url=https://github.com/Mojang/brigadier/graphs/contributors|title=Contributors to Mojang/brigadier|website=GitHub}}</ref> It is the first library used by ''Java Edition'' that [[Mojang]] has released under an open-source license.<ref>{{tweet|Dinnerbone|1045022190079479809|We just pulled in our very first community contributed code into a Minecraft Java Edition official library. Woo! 🎉 Want to help out? The first library we've opened is our command engine - it's MIT licensed so you can freely use it in your own projects!}}</ref>
+
+== Usage ==
+Brigadier is used for parsing and executing string commands.
+
+=== Features ===
+* Define command nodes with argument or literal branches
+** [[Commands#List and summary of commands|All the commands available in ''Java Edition'']] are actually the literal branches available for the root command nodes instead of the actual executed commands.<ref>{{Link|url=https://github.com/Mojang/brigadier/pull/8#discussion_r220457388|quote=I'd argue that most people identify command by first literal after root, so that would make "command" a sub-tree and not just path leading to leaf node. /bikeshedding|author=[[Bartosz Bok|boq]]|title=Added copyright header, LICENSE, and README.md by Dinnerbone · Pull Request #8 · Mojang/brigadier|website=Mojang/brigadier – GitHub}}</ref>
+* Modify/fork command source in command contexts
+** {{cmd|execute as ''[[Commands#Target selectors in Java Edition|<target selector>]]''}} may modify the command source to be multiple when multiple entities are [[Commands#Target selectors in Java Edition|selected]]
+* Active inspection on command parsing<ref>{{Link|url=https://github.com/Mojang/brigadier#inspecting-a-command|title=Inspecting a command|website=Mojang/brigadier – GitHub}}</ref>
+* Listing all possible commands from current command node<ref>{{Link|url=https://github.com/Mojang/brigadier#displaying-usage-info|title=Displaying usage info|website=Mojang/brigadier – GitHub}}</ref>
+* Handle command result real-time on execution success/failure
+** {{cmd|execute store}} can store the command result to [[Chunk format#Block entity format|block]]/[[Chunk format#Entity format|entity]] NBT data or [[scoreboard]]
+* Recursive command node redirection
+** {{cmd|execute run}} redirects to the root node of the vanilla command dispatcher
+
+== Limitations and issues ==
+
+Brigadier has various numbers of limitations while executing the command, such as the numeric limitations on integer data types such as {{command|effect}}, {{command|weather}}, and floating-point data types such as {{command|time}}, making many integer values parsed in the commands inaccessible.
+
+Since [[Java Edition 1.15|1.15]], whenever the chat cursor is positioned at the start of a node after a whitespace character, command suggestion will say "Incorrect argument for command at position {{samp|<position number>}}" instead of displaying the command suggestions, especially the command arguments that requires numbers or strings before parsing and the trailing spaces beyond the command argument list.<ref>{{bug|MC-165562}}</ref>
+<!-- According to the mentioned limitations and issues above, these are expected to get bug fixes in the future. Please do not address the future fix version until verified. -->
+
+== History ==
+{{History||October 25, 2014|link=https://bugs.mojang.com/browse/MC-10880?focusedCommentId=205438&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-205438|Dinnerbone mentions Brigadier in the comments on {{bug|MC-10880}}.}}
+{{h||July 27, 2017|link={{tweet|Dinnerbone|890548451372564480}}|Dinnerbone discloses a non-obfuscated command parser library called "brigadier".}}
+{{h|java}}
+{{h||1.13|snap=17w45a|[[Command]]s are now handled with Brigadier.
+|''Minecraft'' introduces Brigadier as a dependency.
+}}
+{{History||September 26, 2018|link={{tweet|Dinnerbone|1045022190079479809}}|Brigadier is open sourced under the MIT License.<ref>[https://github.com/Mojang/brigadier/pull/8#issue-217673918 "Preparation for OSS :)" - Preparing for the open source software]  – Mojang/brigadier – GitHub</ref>}}
+{{h||1.14|snap=19w08a|Now allows single quotes for strings in commands.<ref>{{Link|url=https://github.com/Mojang/brigadier/pull/52|title=Allow single quote in strings by boq · Pull Request #52 |website=Mojang/brigadier – GitHub}}</ref>}}
+{{h|foot}}
+
+=== Version history ===
+
+{| class=wikitable
+! Version !! Date !! Changes
+|-
+! 1.0.15
+| September 26, 2018<ref>{{cite|url=https://github.com/Mojang/brigadier/releases/tag/1.0.15|title=Release 1.0.15 &middot; Mojang/brigadier|website=GitHub}}</ref>
+|
+*Initial release
+|-
+! 1.0.17
+| February 19, 2019<ref>{{cite|url=https://github.com/Mojang/brigadier/releases/tag/1.0.17|title=Release 1.0.17 &middot; Mojang/brigadier|website=GitHub}}</ref>
+|
+*Allow single quotes in strings
+*Added <code>long</code> argument
+*Implement calculation of suggestions for any text position
+*No longer depend on Guava
+|-
+! 1.0.18
+| July 16, 2021<ref>{{cite|url=https://github.com/Mojang/brigadier/releases/tag/1.0.18|title=Release 1.0.18 &middot; Mojang/brigadier|website=GitHub}}</ref>
+|
+*Peformance optimizations
+|}
+
+== Gallery ==
+<gallery>
+execute graph.svg|The {{cmd|execute}} command tree, which utilizes an overwhelming amount of the brigadier features.
+tag graph.svg|The {{cmd|tag}} command tree, showing the difference between actual executed commands (red nodes) versus the first literal after the root (the "tag" box)
+msg graph.svg|The {{cmd|msg}} command tree, showing that aliases have been implemented by brigadier's command node redirection functionality (dashed lines)
+</gallery>
+
+<!-- Uncomment when dfu page is done
+== See also ==
+* [[Data Fixer Upper]]: Another open-source library used for updating {{el|je}}'s saves across data versions.
+-->
+
+== References ==
+{{reflist}}
+
+{{Java Edition}}
+
+[[fr:Brigadier]]
+[[pt:Brigadier]]
+[[zh:Brigadier]]

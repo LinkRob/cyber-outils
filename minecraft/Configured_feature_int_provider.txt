@@ -1,0 +1,33 @@
+<div class="treeview"><onlyinclude>
+** {{nbt|string|type}}: The type of the int provider. One of <code>constant</code>, <code>uniform</code>, <code>biased_to_bottom</code>, <code>clamped</code>, <code>clamped_normal</code>, or <code>weighted_list</code>.
+**; If <code>type</code> is <code>constant</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|int|value}}: The constant value to use.
+** {{nbt|compound|value}}: Another format.
+*** {{nbt|int|value}}: The constant value to use.
+**; If <code>type</code> is <code>uniform</code> or <code>biased_to_bottom</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|compound|value}}: Gives a number between two bounds. If <code>type</code> is <code>biased_to_bottom</code>, the number will be biased towards <code>min_inclusive</code>.
+*** {{nbt|int|min_inclusive}}: The minimum possible value.
+*** {{nbt|int|max_inclusive}}: The maximum possible value. Cannot be less than {{Nbt|int|min_inclusive}}.
+**; If <code>type</code> is <code>clamped</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|compound|value}}: Clamps a number from another int provider between a lower and upper bound.
+*** {{nbt|int|min_inclusive}}: The minimum allowed value that the number will be.
+*** {{nbt|int|max_inclusive}}: The maximum allowed value that the number will be. Cannot be less than {{Nbt|int|min_inclusive}}.
+*** {{nbt|int}}{{nbt|compound|source}}: The source int provider
+**** {{nbt inherit/int_provider}}
+**; If <code>type</code> is <code>clamped_normal</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|compound|value}}: Clamps a number from the specific normal distribution.
+*** {{nbt|float|mean}}: The mean value of the normal distribution.
+*** {{nbt|float|deviation}}: The deviation of the normal distribution.
+*** {{nbt|int|min_inclusive}}: The minimum allowed value that the number will be.
+*** {{nbt|int|max_inclusive}}: The maximum allowed value that the number will be.
+**; If <code>type</code> is <code>weighted_list</code>, additional fields are as follows<nowiki>:</nowiki>
+** {{nbt|list|distribution}}: A random pool of int providers.
+*** {{nbt|compound}}: One entry in the random pool.
+**** {{nbt|int}}{{nbt|compound|data}}: An int.
+***** {{nbt inherit/int_provider}}
+**** {{nbt|int|weight}}: The weight of this entry.
+</onlyinclude></div>
+
+[[Category:Java Edition]]
+
+[[ja:生成物のカスタマイズ/int provider]]

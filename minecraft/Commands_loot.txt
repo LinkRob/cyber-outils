@@ -1,0 +1,174 @@
+{{Infobox command
+|name=loot
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|others=[[Options|Cheats]] only{{only|bedrock|short=1}}
+}}
+
+Drops the given loot table into the specified inventory or into the world.
+
+==Syntax==
+* '''Java Edition'''
+: <code>loot <''TARGET''> <''SOURCE''></code>
+::In which:
+::<code><''TARGET''></code> is:
+::: <code>give <players></code>
+:::: Gives items to players, ignoring empty item stacks.
+::: <code>insert <targetPos></code>
+:::: Distributes items to a container block.
+::: <code>spawn <targetPos></code>
+:::: Spawns item entities.
+::: <code>replace block <targetPos> <slot> [<count>]</code>
+:::: Distributes items to a container block.
+::: <code>replace entity <entities> <slot> [<count>]</code>
+:::: Distributes items to entities.
+
+::<code><''SOURCE''></code> is:
+::: <code>fish <loot_table> <pos> [<tool>|mainhand|offhand]</code>
+::: <code>loot <loot_table></code>
+::: <code>kill <target></code>
+::: <code>mine <pos> [<tool>|mainhand|offhand]</code>
+
+* '''Bedrock Edition'''
+: <code>loot <''TARGET''> <''SOURCE''></code>
+::In which:
+::<code><''TARGET''></code> is:
+::: <code>give <player: target></code>
+:::: Gives items to players, ignoring empty item stacks.
+::: <code>insert <position: x y z></code>
+:::: Distributes items to a container block, ignoring empty item stacks.
+::: <code>spawn <position: x y z></code>
+:::: Spawns item entities, ignoring empty item stacks.
+::: <code>replace block <position: x y z> slot.container <slotId: int> [count: int]</code>
+:::: Distributes items to a container block.
+:::<code>replace entity <entity: target> <slotType: EntityEquipmentSlot> <slotId: int> [count: int]</code>
+::::Distributes items to entities.
+
+::<code><''SOURCE''></code> is:
+:::<code>kill <entity: target> ["<tool>|mainhand|offhand": string]</code>
+:::<code>loot <loot_table: string> ["<tool>|mainhand|offhand": string]</code>
+
+
+==Arguments==
+
+{{argument|loot_table|resource_location|loot_table: string|basic_string}} 
+:Specifies which loot table to use.
+:{{IN|java}}, {{lcfirst:{{arg desc|je=resource_location}}}}
+:{{IN|bedrock}}, {{lcfirst:{{arg desc|be=string}}}} And it refers to a loot table with the path of "loot_tables/<code>loot_table: string</code>.json".
+
+{{el|je|short=1}}: {{argument|tool|item_stack}} 
+:Specifies a tool to mine or fish.
+:{{arg desc|je=item_stack}}
+
+{{el|be|short=1}}: {{argument|be=1|"<tool>{{!}}mainhand{{!}}offhand": string|string}} 
+:Specifies a tool to be used to kill or loot.
+:{{arg desc|be=string}} Can be <code>mainhand</code> and <code>offhand</code>, otherwise it represents an item id.
+
+{{argument|target|entity|entity: target|CommandSelector<Actor>}} (in <code>kill</code> source)
+: Specifies one entity to kill simulatively.
+:{{arg desc|je=entity|amount=single|type=entities|actor}}
+
+{{argument|players|entity|player: target|CommandSelector<Player>}} 
+:Specifies one or more players to give.
+:{{arg desc|je=entity|amount=multiple|type=players|be=CommandSelector<Player>}}
+
+{{el|je|short=1}}: {{argument|pos|block_pos}} and {{argument|targetPos|block_pos}} (in <code>replace block</code> and <code>insert</code> mode)<br>
+{{el|be|short=1}}: {{argument|be=1|position: x y z|CommandPositionFloat}} (in <code>replace block</code> and <code>insert</code> mode) 
+:Specifies the position of a block.
+:{{IN|java}}: {{lcfirst:{{arg desc|je=block_pos}}}}
+:{{IN|bedrock}}: {{lcfirst:{{arg desc|be=CommandPositionFloat}}}}
+
+{{argument|targetPos|block_pos|position: x y z|CommandPositionFloat}} (in <code>spawn</code> mode) 
+:Specifies the location where item drops.
+:{{arg desc|je=vec3|be=CommandPositionFloat}}
+
+{{argument|entities|entity|entity: target|CommandSelector<Actor>}} 
+:Specifies one or more entities to modify.
+:{{arg desc|je=entity|amount=multiple|type=entities|be=actor}}
+
+{{argument|count|integer|count: int|int}} 
+:Specifies the number of consecutive slots to be filled.
+:{{arg desc|je=integer|min=0|be=int}}
+
+{{el|je|short=1}}: {{argument|slot|item_slot}}<br>
+{{el|be|short=1}}: {{argument|be=1|slotType: EntityEquipmentSlot|enum}}, <code>slot.container</code>, and {{argument|be=1|slotId: int|int}}  
+:Specifies the inventory slot to be modified.
+:{{arg desc|je=item_slot|be=enum}}
+
+==Result==
+
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|fail}}
+{{Result table|cmd=/... fish ...<br>/... mine ...|<code><pos></code> or <code>position: x y z</code> is unloaded or out of the world|fail}}
+{{Result table|cmd=/... mainhand<br>/... offhand|the executor is not a living entity||N/A}}
+{{Result table|the executor is not an entity||fail}}
+{{Result table|cmd=/... kill ...|<code><target></code> or <code>entity: target</code> fails to resolve to a single entity (named player must be online)}}
+{{Result table|the target is not a living entity||N/A}}
+{{Result table|the target has no loot table|N/A|fail}}
+{{Result table|cmd=/... loot ...|the <code>loot_table: string</code> is not a valid loot table<!--unparseable in java because the argument is not specified correctly-->}}
+{{Result table|cmd=/loot replace entity ...|<code><entities></code> or <code>entity: target</code> fails to resolve to one or more entities (named player must be online)|fail}}
+{{Result table|cmd=/loot replace entity ...|When one or more item stacks are got, all the targeted entities meet one or more of the following conditions:
+*This entity dosen't have the specified slot.
+*{{cd|slotId: int}}(or {{cd|<slot>}}) plus {{cd|count: int}}(or {{cd|<cound>}}) exceeds the size of the greatest valid slot number with the specified slot type this entity has.|success}}
+{{Result table|cmd=/loot give ...|<code><players></code> or <code>player: target</code> fails to resolve to one or more online players|fail}}
+{{Result table|cmd=/loot insert ...<br>/loot replace block ...|<code><targetPos></code> or <code>position: x y z</code> is unloaded or out of the world}}
+{{Result table|the block at <code><targetPos></code> or <code>position: x y z</code> is not a container}}
+{{Result table|cmd=/loot replace block ...|the block does not have the specified slot}}
+{{Result table|cmd=/loot replace block <targetPos> <slot> ...<br>/loot replace block ... <slotId: int> ...|the number of item stacks got from loot plus the <code><slot></code> id is bigger than the number of all slots in the specified container|exception|success}}
+{{Result table|cmd=/loot replace block <targetPos> <slot> <count> ...<br>/loot replace block ... <slotId: int> <count: int> ...|the <code><count></code> plus the <code><slot></code> id is bigger than the number of all slots in the specified container||fail}}
+{{Result table|cmd=|success}}
+{{Result table}}
+
+==Output==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|cmd=/loot spawn ...|On success|1|1|the number of item stacks got from loot}}
+{{Output table|cmd=/loot give ...|On success|1|1|the total number of item stacks successfully allocated to each player}}
+{{Output table|cmd=/loot insert ...|On success|1|1|the number of item stacks successfully distributed to the container}}
+{{Output table|cmd=/loot replace block ...|On success|1|1|the number of item stacks successfully distributed to the container}}
+{{Output table|On error|0|unchanged|unchanged}}
+{{Output table|cmd=/loot replace entity ...|On success|1|1|the total number of item stacks successfully allocated to each entity}}
+{{Output table|On error|0|unchanged|unchanged}}
+{{Output table|edition=be|cmd=|On fail|0}}
+{{Output table|cmd=loot give ...|On success|{{needs testing}}}}
+{{Output table|cmd=loot spawn ...<br>loot insert ...|On success|1}}
+{{Output table|cmd=loot replace entity ...|On success|When zero item stack is got, return 1.
+
+When one or more item stacks are got, return the number of entities that do not meet any of the following conditions:
+*This entity dosen't have the specified slot.
+*{{cd|slotId: int}} plus {{cd|count: int}} exceeds the size of the greatest valid slot number with the specified slot type this entity has.}}
+{{Output table}}
+
+== See also==
+
+*{{cmd|give}} — give specific items to players without specifying a loot table
+*{{cmd|item}}{{only|je}} — modify specific item slots of entities or container
+*{{cmd|replaceitem}}{{only|be}} — modify specific item slots of entities or container
+
+==History==
+
+{{History|java}}
+
+{{History||1.14|snap=18w43a|Added {{cmd|drop|link=none}}.}}
+{{History|||snap=18w45a|Renamed {{cmd|drop|link=none}} to {{cmd|loot|link=none}}.
+|{{cmd|loot|link=none}} got reworked.}}
+
+{{History|bedrock}}
+{{History||1.18|snap=beta 1.18.0.21|Added {{cmd|loot spawn ... loot ...|link=none}}.}}
+{{History||1.18|snap=beta 1.18.0.22|Removed {{cmd|loot|link=none}}.}}
+{{History||1.18.10|snap=beta 1.18.10.21|Re-added {{cmd|loot|link=none}}.}}
+{{History||1.18.10|snap=beta 1.18.10.24|Added {{cmd|loot spawn ... kill ...|link=none}}}}
+{{History||1.18.20|snap=beta 1.18.20.21|Added {{cmd|loot give ...|link=none}}}}
+{{History||1.18.30|snap=beta 1.18.30.20|Added {{cmd|loot insert ...|link=none}}}}
+{{History||1.19.0|snap=beta 1.19.0.30|Added {{cmd|loot replace entity ...|link=none}}}}
+{{History||1.19.40|snap=beta 1.19.40.20|Added {{cmd|loot replace block ...|link=none}}}}
+{{History|foot}}
+
+{{Commands}}
+
+[[de:Befehl/loot]]
+[[es:Comandos/loot]]
+[[ja:コマンド/loot]]
+[[zh:命令/loot]]

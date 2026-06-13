@@ -1,0 +1,46 @@
+{{exclusive|Bedrock|Education}}
+{{Infobox command
+|name=event
+|oplevel=1
+|cheat=1
+}}
+Used to trigger an event on an [[entity]].
+
+== Syntax ==
+
+: <code>event entity <target: target> <eventName: string></code>
+
+== Arguments ==
+{{argument|be=1|target: target|CommandSelector<Actor>}}
+: {{arg desc|amount=multiple|type=entities|be=actor}}
+: Specifies the target(s) to execute an entity event.
+
+{{argument|be=1|eventName: string|string}}
+: Specifies the in-game event for the entity. Should be a [[spawn event]] (event name for entities in [[behavior pack]]).
+: {{arg desc|be=string}}
+
+== Result ==
+
+{{Result table|onlybe=1}}
+{{Result table|the arguments are not specified correctly||unparseable}}
+{{Result table|<code>target: target</code> fails to resolve to one or more entities (named players must be online)||fail}}
+{{Result table|all selected entities don't have this specified events declared in the events section of the entity definition file}}
+{{Result table|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table|onlybe=1}}
+{{Output table|edition=be|On fail|0}}
+{{Output table|On success|the number of types of entities that is executed entity event}}
+{{Output table}}
+
+== History ==
+{{History|bedrock}}
+{{History||1.16.100|snap=beta 1.16.100.57|Added {{cmd|event|link=none}}.}}
+{{History|foot}}
+
+{{Commands}}
+[[ja:コマンド/event]]
+[[pt:Comandos/event]]
+[[zh:命令/event]]

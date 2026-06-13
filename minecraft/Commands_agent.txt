@@ -1,0 +1,54 @@
+{{Infobox command
+|oplevel=
+* 0 {{only|EDU}}
+* 1 {{only|BE}}
+}}
+
+{{exclusive|bedrock|education}}
+
+'''/agent''' is a command used to control an [[agent]].
+Agent control commands are only allowed to be executed by the WebSocket side to which the player is connected, and the player cannot execute the command directly in the game unless you use an NPC. The /agent command can be run using an NPC. WARNING: if you summon an agent using an NPC then the only way to remove it from your world is by using an NBT Editor and deleting the <code>actorprefix</code> file for that agent.  
+
+==Syntax==
+
+: <code>agent move &lt;direction&gt;</code>
+: <code>agent turn &lt;turnDirection&gt;</code>
+: <code>agent attack &lt;direction&gt;</code>
+: <code>agent destroy &lt;direction&gt;</code>
+: <code>agent drop &lt;int:slotNum&gt; &lt;int:quantity&gt; &lt;direction&gt;</code>
+: <code>agent dropall &lt;direction&gt;</code>
+: <code>agent inspect &lt;direction&gt;</code>
+: <code>agent inspectdata &lt;direction&gt;</code>
+: <code>agent detect &lt;direction&gt;</code>
+: <code>agent detectredstone &lt;direction&gt;</code>
+: <code>agent transfer &lt;int:srcSlotNum&gt; &lt;int:quantity&gt; &lt;int:dstSlotNum&gt;</code>
+: <code>agent create</code>
+: <code>agent tp &lt;coordinates&gt;</code>
+: <code>agent collect &lt;string:item&gt;</code>
+: <code>agent till &lt;direction&gt;</code>
+: <code>agent place &lt;int:slotNum&gt; &lt;direction&gt;</code>
+: <code>agent setitem &lt;int:slotNum&gt; &lt;int:quantity&gt; &lt;int:amount&gt; &lt;int:data&gt;</code>
+: <code>agent getitemcount &lt;int:slotNum&gt;</code>
+: <code>agent getitemspace &lt;int:slotNum&gt;</code>
+: <code>agent getitemdetail &lt;int:slotNum&gt;</code>
+
+==Parameters==
+
+: <code>&lt;direction&gt;</code> is one of <code>forward|back|left|right|up|down</code>
+
+: <code>&lt;turnDirection&gt;</code> is one of <code>left|right</code>
+
+==History==
+{{History|pocket}}
+{{History||1.0.0|snap=?|Added{{cd|/agent}}.}}
+{{History|education}}
+{{History||?|Added{{cd|/agent}}.}}
+{{History|foot}}
+
+==See also==
+* [[Agent]]
+
+{{Commands}}
+
+[[ja:コマンド/agent]]
+[[zh:命令/agent]]

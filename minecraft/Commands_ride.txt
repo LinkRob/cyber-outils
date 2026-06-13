@@ -1,0 +1,149 @@
+{{Infobox command
+|name=ride
+|oplevel=2{{only|java|short=1}}<br>1{{only|bedrock|short=1}}
+|others=[[Options|Cheat]] only{{only|bedrock|short=1}}
+}}
+Allows entities to mount or dismount other entities.
+
+== Usage ==
+{{main|Riding}}
+{{IN|java}}, all types of entities (except [[marker]] and [[player]]) can ride and be ridden by other entities of any types. Marker and player cannot be ridden.
+
+{{IN|bedrock}}, an entity cannot ride entities which are not normally rideable for it in vanilla game, which is mainly data driven, controlled by the {{cd|minecraft:rideable}} component in the entity files in behavior packs (see [[Riding#Valid riding combinations in vanilla]] for details; see also the [https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/entitycomponents/minecraftcomponent_rideable official doc]). {{IN|bedrock}}, this command can also be used to summon passengers and mounts.
+
+==Syntax==
+
+* '''Java Edition'''
+: <code>ride <target> mount <vehicle></code>
+:: Makes <code><target></code> ride on <code><vehicle></code>.
+: <code>ride <target> dismount</code>
+:: Dismounts <code>target</code> from any vehicle it is riding.
+
+* '''Bedrock Edition'''
+: <code>ride <riders: target> start_riding <ride: target> [teleportRules: TeleportRules] [howToFill: FillType]</code>
+::Tries to make <code><riders: target></code> ride on <code><ride: target></code>.
+: <code>ride <riders: target> stop_riding</code>
+::Makes <code><riders: target></code> dismount.
+: <code>ride <rides: target> evict_riders</code>
+::Makes entities that are riding on <code><rides: target></code> dismount.
+: <code>ride <rides: target> summon_rider <entityType: EntityType> [spawnEvent: string] [nameTag: string]</code>
+::Summons an entity at the position of each of <code><rides: target></code> that are rideable and not full, and then tries to make them ride on <code><rides: target></code>.
+: <code>ride <riders: target> summon_ride <entityType: EntityType> [rideRules: RideRules] [spawnEvent: string] [nameTag: string]</code>
+::Summons an entity at the position of each of <code><riders: target></code>, and then tries to make <code><riders: target></code> ride on them.
+
+==Arguments==
+
+{{el|java|short=1}}: {{argument|target|entity}}
+: Specifies the passenger.
+: {{arg desc|je=entity|amount=single|type=entities}}
+
+{{el|java|short=1}}: {{argument|vehicle|entity}}
+: Specifies the mount.
+: {{arg desc|je=entity|amount=single|type=entities}}
+
+{{el|bedrock|short=1}}: {{argument|be=1|riders: target|CommandSelector<Actor>}}
+: Specifies the passengers.
+: If in <code>start_riding</code> mode, should be only one entity if <code>teleportRules: TeleportRules</code> is <code>teleport_ride</code>.
+: {{arg desc|be=actor}}
+
+{{el|bedrock|short=1}}: {{argument|be=1|ride: target|CommandSelector<Actor>}}
+: Specifies an mount.
+: Should be only one entity.
+: {{arg desc|be=actor}}
+
+{{el|bedrock|short=1}}: {{argument|be=1|rides: target|CommandSelector<Actor>}}
+: Specifies the mounts.
+: {{arg desc|be=actor}}
+
+{{el|bedrock|short=1}}: {{argument|be=1|teleportRules: TeleportRules|enum}}
+: Must be one of <code>teleport_ride</code> and <code>teleport_rider</code>.
+: Specified which entities are teleported. If unspecified, defaults to <code>teleport_rider</code>.
+
+{{el|bedrock|short=1}}: {{argument|be=1|howToFill: FillType|enum}}
+: Must be one of <code>if_group_fits</code> and <code>until_full</code>.
+:* If <code>if_group_fits</code>, checks whether all <code>riders: target</code> can ride on <code>ride: target</code> at the same time, and makes them ride only if true.
+:* If <code>until_full</code> or unspecified, makes them ride up one by one until it's full.
+
+{{el|bedrock|short=1}}: {{argument|be=1|entityType: EntityType|enum}}
+: Specifies the entities to be summoned.
+: {{arg desc|be=ActorDefinitionIdentifier}}
+
+{{el|bedrock|short=1}}: {{argument|be=1|spawnEvent: string|basic_string}}
+: Specifies the entity event for the to-be-summoned entities. Should be a [[spawn event]] (event name for entities in behavior pack).
+: {{arg desc|be=string}}
+
+{{el|bedrock|short=1}}: {{argument|be=1|nameTag: string|basic_string}}
+: Specifies the name of the to-be-summoned entities.
+: {{arg desc|be=string}}
+
+{{el|bedrock|short=1}}: {{argument|be=1|rideRules: RideRules|enum}}
+: Must be one of <code>no_ride_change</code>, <code>reassign_rides</code>, and <code>skip_riders</code>.
+:* If <code>skip_riders</code>, summons entities only for <code><riders: target></code> that are not riding on another entity.
+:* If <code>no_ride_change</code>, summons entities only for <code><riders: target></code> that are not riding on and not ridden by other entity(s).
+:* If <code>reassign_rides</code> or unspecified, makes <code><riders: target></code> dismount if they're riding, then summons entities for all of them.
+
+==Result==
+
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|unparseable}}
+{{Result table|<code><target></code>, or <code>vehicle</code> fails to resolve to an entity (named players must be online)|fail|N/A}}
+{{Result table|cmd=/ride ... mount ...|<code><target></code> is already riding on an entity}}
+{{Result table|<code>vehicle</code> is a player}}
+{{Result table|a mounting loop is detected (<code>vehicle</code> is riding <code><target></code>, or its passengers, or passengers of its passengers, etc.)}}
+{{Result table|<code><target></code> and <code>vehicle</code> are in different dimensions}}
+{{Result table|<code><vehicle></code> is a [[marker]]}}
+{{Result table|cmd=/ride ... dismount|<code><target></code> is not riding on an entity}}
+{{Result table|<code>riders: target</code>, <code>rides: target</code>, or <code>ride: target</code> fails to resolve to one or more entities (named players must be online)|N/A|fail}}
+{{Result table|cmd=/... start_riding ...|more than one entity is targeted by <code>ride: target</code>}}
+{{Result table|the entity targeted by <code>ride: target</code> is already full}}
+{{Result table|<code>teleportRules: TeleportRules</code> is <code>teleport_ride</code> and more than one entity is targeted by <code><riders: target></code>.}}
+{{Result table|<code>howToFill: FillType</code> is not specified or <code>until_full</code> and the <code>ride: target</code> is not rideable for all of <code><riders: target></code>}}
+{{Result table|<code>howToFill: FillType</code> is <code>if_group_fits</code> and too many entities is targeted by <code><riders: target></code> to ride up at the same time.}}
+{{Result table|<code>howToFill: FillType</code> is <code>if_group_fits</code> and the <code>ride: target</code> is not rideable for at least one of <code><riders: target></code>}}
+{{Result table|cmd=/... stop_riding|none of <code><riders: target></code> is riding on other entity.}}
+{{Result table|cmd=/... evict_riders|none of <code><rides: target></code> is ridden by other entities.}}
+{{Result table|cmd=/... summon_rider ...|all <code><rides: target></code> are already full or not rideable for the riders.}}
+{{Result table|trying to summon hostiles in peaceful difficulty.}}
+{{Result table|cmd=/... summon_ride ...|all summoned entities are not rideable for <code><riders: target></code>.}}
+{{Result table|trying to summon hostiles in peaceful difficulty.}}
+{{Result table|cmd=|succeed}}
+{{Result table}}
+
+==Output==
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|On success|1|1|1}}
+{{Output table|edition=be|cmd=|On fail|0}}
+{{Output table|cmd=/... start_riding ...|On success|the number of entities that get riding on the targeted ride}}
+{{Output table|cmd=/... stop_riding ...|On success|the number of entities that get dismounted}}
+{{Output table|cmd=/... evict_riders ...|On success|the number of entities that successfully evict their riders}}
+{{Output table|cmd=/... summon_rider ...|On success|the number of summoned entities that successfully ride on their linked rides}}
+{{Output table|cmd=/... summon_ride ...|On success|the number of summoned entities that are successfully ridden by their linked riders}}
+{{Output table}}
+
+==Example==
+
+{{IN|java}}, make the nearest player ride on an nearest arrow:
+*<code>/ride @p mount @e[type=arrow,sort=nearest,limit=1]</code>
+
+{{IN|bedrock}}, summon an arrow at the position of each player who have "A" tag:
+*<code>/ride @a[tag=A] summon_ride arrow</code>
+
+{{IN|bedrock}}, summon a charged creeper at the position of each player who have "A" tag:
+*<code>/ride @a[tag=A] summon_ride creeper reassign_rides minecraft:become_charged</code>
+
+== History ==
+
+{{History|java}}
+{{History||1.19.4|snap=23w03a|Added {{cmd|ride|link=none}}.}}
+
+{{History|bedrock}}
+{{History||1.16.100|snap=beta 1.16.100.52|Added {{cmd|ride|link=none}}.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[de:Befehl/ride]]
+[[ja:コマンド/ride]]
+[[pt:Comandos/ride]]
+[[zh:命令/ride]]

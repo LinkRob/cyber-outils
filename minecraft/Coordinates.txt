@@ -1,0 +1,98 @@
+{{See also|South-east rule}}
+
+'''Coordinates''' numerically represent a location in a [[dimension]]. 
+== World coordinates ==
+[[File:coordinates.png|200px|thumb|X, Y and Z coordinate on a Minecraft map.]]
+[[File:Minecraft axes.png|alt=North is upward, at *negative* z and 180 degrees. Moving clockwise, East is to the right at positive X and -90 degrees. South is down, at *positive* Z and 0 degrees. West is left, at negative X and +90 degrees.|thumb|X and Z axes with directions shown, from a birds-eye view. Red highlights where these axes are different than standard.]]
+World coordinates are expressed as a set of three ''absolute world coordinates'' (<code>X Y Z</code>), each number representing a distance along an axis from the world origin.
+
+=== Coordinate system ===
+World coordinates are based on a grid where three lines or axes intersect at the origin point. 
+*The x-axis indicates the player's distance east (positive) or west (negative) of the origin point—i.e., the longitude,
+*The z-axis indicates the player's distance south (positive) or north (negative) of the origin point—i.e., the latitude,
+*The y-axis indicates how high or low (from 0 to 255 (pre 1.18) or -64 to 320 (from 1.18), with 63 being sea level) the player is—i.e., the [[elevation]],
+* The unit length of the three axes equals the side of one block. And, in terms of [[Tutorials/Measuring Distance|real-world measurement]], one block equals 1 cubic meter.
+
+The origin point marks the zero point for the x and z coordinates. Hence, it may be thought of as the 0,0 coordinate:
+*X-axis = 0
+*Z-axis = 0
+As the player travels south, the z-axis number increases; travel north and it decreases. Similarly, the x-axis number increases as the player travels east and decreases as you travel west. As the player's elevation rises, the y-axis number increases, and as the player's elevation lowers, that number decreases.
+
+An entity's coordinates are actually the coordinates of the center at the bottom of player's collision box. When the display shows you are at Y=63, then the player's feet are at Y=63, and their eyes are at 64.62.
+
+=== Block position===
+
+The position of a block is actually the coordinates of the point at the lower northwest corner of the block, that is, the integer coordinates obtained by rounding down the coordinates inside the block.
+
+In ''Minecraft'', decimal coordinates usually needs to be converted into integer coordinates by rounding down, which is called the '''block position''' of the coordinate.
+{{-}}
+=== Displaying coordinates ===
+
+[[File:DebugScreen.png|350px|thumb|Screenshot showing the debug information, with coordinates XYZ, Facing, and Block position.]]
+[[File:Bedrock Edition Coordinates.png|350px|thumb|The block position of player shown in Bedrock Edition.]]
+[[File:Debug screen without coordinates.png|350px|thumb|Debug screen when reducedDebugInfo is true.]]
+
+{{IN|java}}, pressing {{key|F3}} (or {{key|Fn+F3}} on Macs and some laptops or {{key|Alt+Fn+F3}} on newer Macs) brings up a [[debug screen]] which gives the player's current coordinates and rotation in the upper left part of the screen. It can be disabled using the command {{cmd|/gamerule reducedDebugInfo true}}.
+
+{{IN|java}}, pressing {{key|F3}} can also replace the crosshair with a display of these three directions: +X in red, +Y in green, +Z in blue (eastward, upward, and southward, respectively).
+
+{{IN|bedrock}}, the block position of the player can be displayed by changing the world options. The coordinates are displayed in a box in the top left, if the "Show Coordinates" option is turned on in the game settings screen or {{command|gamerule showcoordinates true}} is used.
+
+
+{{-}}
+{{anchor|Tilde and caret notation}}
+
+== Commands ==
+Some [[commands]] use require the player to specify coordinates. They can be expressed explicitly, using absolute world coordinates, or relative to the command source, using relative world coordinates or local coordinates.
+
+{{anchor|Tilde notation}}
+=== Relative world coordinates ===
+When specifying coordinates, each coordinate can alternatively be expressed as a '''relative world coordinate''', written in '''tilde notation''' (<code>~ΔX ~ΔY ~ΔZ</code>). A number following a [[wikipedia:tilde|tilde]] (~) describes an offset from execution position along one of the world axes, and a lone tilde assumes an offset of 0.
+For example, the position {{distdir|0|0|10|-30}} <code>~10 ~ ~-30</code> means "10 blocks east (+X) and 30 blocks north (–Z) of here." And <code>~ ~ ~</code> means the command's current position.
+
+Relative world coordinates can mix with absolute coordinates; for example, {{cmd|tp ~ 64 ~}} keeps the sender's X and Z positions unchanged but teleports them to an absolute height of 64 blocks.
+
+The {{Command|execute}} command can update a command's current position, changing the meaning of <code>~ ~ ~</code>.
+
+=== Local coordinates ===
+The other way to describe positions is with '''local coordinates''', written in '''caret notation''' (<code>{{Local frame}}</code>).
+
+Like relative coordinates, these describe positions relative to where a command is executed from, but with different directions. A number following a [[wikipedia:caret|caret]] (^) is an offset within a moving, entity-centric frame: This coordinate system is centered at the executor's position, with +X<sub>local</sub> directed to its left, +Y<sub>local</sub> directed upward, and +Z<sub>local</sub> directed in the direction the sender faces. (Note that an entity with rotation <code>0 0</code> has its local frame aligned with the world frame.)
+
+Described in other terms, these coordinates express ^ΔSway ^ΔHeave ^ΔSurge
+
+For example, {{cmd|tp ^ ^ ^5}} teleports the player 5 blocks forward. If they turn around and repeat the command, they are teleported back to where they started.
+
+{{IN|java}}, pressing {{key|F3}}+{{key|B}} displays the +Z<sub>local</sub> direction for all entities as a blue ray centered on their heads.
+
+Local coordinates cannot be mixed with world coordinates (e.g. <code>^ 0 ^</code>, <code> ^ 0 ~1</code>), and attempting so alerts the typist, "Cannot mix world & local coordinates (everything must either use ^ or not)." So such a command fails to be parsed. However, this effect can be achieved using {{cmd|execute rotated ~ 0}} to "globalize" the y coordinate, and {{cmd|execute rotated 0 ~}} to "globalize" the x and z coordinates. For example, {{cmd|execute rotated ~ 0 run tp ^ ^ ^3}} will teleport the player 3 blocks in forward, but at the same y level.
+
+A command's execution position, rotation, dimension, and anchor all can change the effect of using <code>^ ^ ^</code>. These can be updated by the {{Command|execute}} command.
+
+== History ==
+{{Needs update|section=1|Doesn't show when the coordinates display was added in Bedrock Edition.}}
+{{History|java alpha}}
+{{History||v1.2.3|Coordinates now appear on the debug screen.}}
+{{History|java}}
+{{History||1.13|snap=17w50a|Local coordinates can now be specified in commands using <code>^</code>.}}
+{{History|pocket alpha}}
+{{History||v0.16.0|snap=?|Added coordinates as a world toggle.}}
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.31|Coordinates can now be enabled from the command <code>/gamerule showCoordinates</code> and appear in the top left corner of the screen.}}
+{{History||1.8.0|snap=beta 1.8.0.8| Showing coordinates no longer requires cheats to be enabled.}}
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.00|wiiu=Patch 1|switch=1.0.1|Coordinates are displayed at the top corner of a [[map]].}}
+{{History|3ds}}
+{{History||0.1.0|Coordinates are displayed at the bottom Touch Screen alongside the map and hotbar.}}
+{{History|foot}}
+
+{{Minecraft}}
+
+
+[[de:Koordinaten]]
+[[es:Coordenadas]]
+[[ja:座標]]
+[[ko:좌표]]
+[[nl:Coördinaten]]
+[[ru:Координаты]]
+[[zh:坐标]]

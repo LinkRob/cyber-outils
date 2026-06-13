@@ -1,0 +1,109 @@
+[[File:Screenshot01.png|thumb|upright=1.5|Clouds as they appear with Fancy graphics]]
+'''Clouds''' are graphical effects in the sky. They serve a solely aesthetic purpose, although they can be used to determine compass directions because they always move westward.
+
+== Appearance ==
+
+[[File:Fancy vs fast clouds.png|thumb|upright=1.5|Comparison of Fancy clouds (left) and Fast clouds (right).]]
+[[File:CloudsComparison.png|thumb|right|upright=1.5|The same clouds during different time and weather conditions.]]
+
+The appearance of clouds varies depending on the [[Options#Video Settings|graphics settings]] used either on the general graphics settings or the specific clouds one, with the exception of ''Fabulous!'' which is only present on the general graphics settings. Clouds can be toggled between Fancy, Fast, and Off in the specific clouds settings:
+
+*'''Fast:''' Clouds are two-dimensional and opaque. They do not change between day and night. Their color comes from the top of the fancy clouds. Their smallest horizontal dimensions are 8×8 blocks wide. Fast clouds {{in|be}} are also opaque, but remain three-dimensional. Their appearance is similar to [[wikipedia:Cirrus cloud|cirrus clouds]].
+*'''Fancy:''' Clouds are translucent, three-dimensional prisms, approximately four blocks tall and 12x12 blocks wide. At night they turn a shade of blue and become more transparent. They are similar in appearance to [[wikipedia:Stratocumulus cloud|stratocumulus clouds]].
+*''Fabulous!'' graphics also affect clouds, being the same as Fancy, but also being visible through transparent blocks and [[water]].
+
+From above or inside the clouds, they appear semi-transparent, regardless of the player's graphics settings. The [[sun]] and the [[moon]] appear visible through the clouds from below, except during [[rain]] or [[thunderstorm]]s where they aren't visible at all.
+
+The shape, dimensions, and color of clouds can be changed by modifying the <code>clouds.png</code> file located within <code>assets\minecraft\textures\environment</code> within the version's [[Minecraft.jar|JAR file]]. The file's dimensions can be changed to any size.
+
+== Behavior ==
+
+Clouds always float westward between [[Altitude|layer]] 192 and 196. They are not interactive, and simply float through blocks and entities. Unlike in real life, clouds themselves do not produce [[Weather|rain or snow]], meaning rain or snow continues even above the clouds.
+
+Clouds do not render when you have a render distance of 3 or lower.
+
+Since clouds are rendered client-side, the position of clouds is different for each player on a [[server]].
+
+Clouds retain their position even if the game is restarted. The position of clouds is persistent between worlds — if the player quits their current world and generates a new one, then travels to the same coordinates they were at in the previous world, the clouds appear in the same position as the previous world.
+
+== History ==
+
+{{History|java classic}}
+{{History||May 23, 2009|link=wordofnotch:111691116|Notch says he accomplished adding "Clouds two tiles above the maximum build height".}}
+{{History||0.0.14a|Added clouds, which float westward between layers 108 and 112.}}
+{{History|java indev}}
+{{History||?|The color of clouds can now be changed via world editing.}}
+{{History|java infdev}}
+{{History||20100227-1|With the removal of Indev world types and formatting, clouds can no longer be recolored.}}
+{{History||20100330|Clouds no longer follow the player horizontally. However, they still follow the player vertically.{{verify}}}}
+{{History||20100611|[[File:Cloudsold.png|150px]] Clouds are now 3D, have a top texture, and are translucent.}}
+{{History||20100615|A Fast/Fancy graphics setting is added, which toggles clouds between two- and three-dimensional.}}
+{{History||20100624|Clouds no longer have a further texture applied.}}
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|Now clouds float between layers 128 and 132.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 5|Clouds can now be disabled in the Video Options menu.}}
+{{History||?|Clouds now completely occlude the rendering of blocks when seen from below.}}
+{{History||1.5|snap=13w06a|Fixed blocks being unable to be seen through clouds from below.}}
+{{History|||snap=13w10b|Undid the previous fix due to performance reasons.}}
+{{History||1.8.1|snap=pre4|The clouds' "Fast" and "Fancy" shape are controlled with the same option that enables clouds, rather than with the standard Fast and Fancy graphics.}}
+{{History||1.13|snap=18w10d|Big optimizations to how clouds are rendered.}}
+{{History|||snap=18w14a|The rendering of clouds has been optimized again.}}
+{{History||1.15|snap=19w38b|Blocks can now be seen through clouds from below again.<ref>{{bug|MC-997}}</ref>}}
+{{History|||snap=19w44a|Clouds no longer follow the player vertically.<ref>{{bug|MC-63179}}</ref>}}
+{{History||1.17|snap=21w06a|Now clouds float between layers 192 and 196.}}
+{{History|||snap=21w13a|Reverted the above change.}}
+{{History||1.18|snap=experimental snapshot 2|Clouds once again float between layers 192 and 196.}}
+{{History||1.21.6|snap=25w21a|Cloud patterns are changed, to look less scattered and slightly more realistic. One of the clouds now has a special easter egg.}}
+
+{{History|pocket alpha}}
+{{History||v0.6.0|Added clouds. Clouds could be seen only in Fancy graphics, and if so, the clouds appeared opaque and two-dimensional, similar to the Fast clouds seen on {{el|je}}.}}
+{{History||v0.7.0|Clouds are now toggled with the Beautiful Skies option.}}
+{{History||v0.7.4|Clouds now have a darker color to match ''Java Edition''.}}
+{{History||v0.8.0|snap=build 1|Clouds are always three-dimensional, and are opaque and transparent with Fast and Fancy graphics, respectively.}}
+{{History||v0.9.0|snap=build 1|New culling of clouds.
+|Clouds have been made translucent, as opposed to being completely opaque.}}
+{{History||v0.10.0|snap=build 1|New double-sided lighting on clouds that's more coherent with the terrain.}}
+{{History|||snap=build 6|Better fog on clouds, starting farther away and following the sky color.}}
+{{History|||snap=build 7|The clouds and the terrain are now tinted red during sunset.}}
+{{History|bedrock}}
+{{History||1.17.40|snap=beta 1.17.40.20|Now clouds float between layers 192 and 196.}}
+{{History||1.18.0|snap=?<!-- probably beta 1.18.0.22, but I have no way of confirming this -->|Clouds once again float between layers 128 and 132 in [[old]] worlds.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|Added clouds.}}
+{{History||xbox=TU5|Cloud height raised to the top of the map, so clouds can no longer phase through blocks.
+|Cloud movement syncs with the game's time.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list}}
+
+== Gallery ==
+<gallery>
+Sky1.png|Clouds can have different sizes and shapes.
+Sky.png|Standing just above the cloud layer, looking down at the surface.
+Clouds Disabled.png|The sky with clouds disabled.
+Pocket Edition Clouds.png|Early pocket edition clouds.
+Environment01.png|Clouds pattern. A black background was added for visibility.
+Clouds Artwork.png|Clouds artwork.
+Cloud Height Slider.png|The unimplemented cloud height slider.
+Jappa Clouds.jpg|Clouds over windswept hills.
+</gallery>
+
+== References ==
+{{reflist}}
+
+{{Environment}}
+
+[[cs:Mrak]]
+[[de:Wolke]]
+[[es:Nube]]
+[[fr:Nuage]]
+[[ja:雲]]
+[[ko:구름]]
+[[nl:Wolk]]
+[[pl:Chmury]]
+[[ru:Облака]]
+[[uk:Хмари]]
+[[zh:云]]

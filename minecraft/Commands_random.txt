@@ -1,0 +1,61 @@
+{{exclusive|java}}
+{{Infobox command
+| name = random
+| oplevel = 2
+0 (without <code>sequence</code>)
+}}
+
+The {{cmd|/random}} command can be used to randomly draw a value.
+
+== Syntax ==
+<code>/'''random''' <nowiki>(value|roll) <range> [<sequence>]</nowiki></code>
+* Extract random numbers.
+
+<code>/'''random''' <nowiki>reset (*|<sequence>) [<seed>] [<includeWorldSeed>] [<includeSequenceId>]</nowiki></code>
+* Reset the random number sequence.
+
+== Arguments ==
+
+{{code|value{{!}}roll}}
+: Whether or not to notify other players of the results when extracting random numbers. If this is <code>value</code>, then the results are displayed only to the player using the command. If this is <code>roll</code>, then the results are revealed to all players.
+
+{{argument|range|range}}
+: Specifies the range of random numbers to generate. The size of the range must be between 2 and 2147483646. If the upper and lower limits are not specified, 2147483647 and -2147483648 are assumed respectively.
+: Specified as an integer within the value range (e.g. <code>0</code>: exactly 0, <code>..0</code>: 0 or less, <code>0..</code>: 0 or more, <code>0..1</code>: between 0 and 1 inclusive).
+
+{{argument|sequence|resource_location}}
+: Specify the namespace ID of the random number string to be used/reset . <code>random value|roll...</code> Optional in syntax. The syntax can also specify <code>random reset...</code> instead *, in which case all random numbers will be reset. If you specify a random number string that does not exist, the random number string is created on the spot and the command is executed.
+
+{{argument|seed|long}}
+: The seed value used to reset the random number sequence.
+
+{{argument|includeWorldSeed|bool}}
+: Whether to incorporate the world seed value when seeding the random number sequence. If set to <code>false</code> (default), the random number sequence will be reset in the same way regardless of the world.
+
+{{argument|includeSequenceId|bool}}
+:Whether to include the ID of the random number column when seeding the random number column. If set to <code>false</code> (default), the result of resetting the random number sequence will be the same regardless of the random number sequence ID.
+
+== Result ==
+{{Result table|onlyje=1}}
+{{Result table|Incorrectly specified arguments|unparseable}}
+{{Result table|cmd=random (value{{!}}roll) ...|{{Cd|<range>}}range is less than 2 or greater than 2147483646|fail}}
+{{Result table|cmd=|success}}
+{{Result table}}
+
+== Output ==
+{{Output table}}
+{{Output table|edition=je|when failed|0|0|0}}
+{{Output table|cmd=/random (value{{!}}roll) ... |when successful|1|1|sampled random value}}
+{{Output table|cmd=/random reset ... |when successful|1|1|number of random number sequences reset}}
+{{Output table}}
+
+== History ==
+{{history|Java}}
+{{History||1.20.2|snap=23w31a|Added {{cd|random}}.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[de:Befehl/random]]
+[[ja:コマンド/random]]
+[[zh:命令/random]]

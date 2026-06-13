@@ -1,0 +1,108 @@
+{{Infobox command
+|name=time
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|others=[[Options|Cheat]] only{{only|bedrock|short=1}}
+}}
+
+Changes or queries the [[world]]'s game [[time]].
+
+==Syntax==
+
+* '''Java Edition'''
+: <code>time add <<nowiki/>time></code>
+:: Adds <code><<nowiki/>time></code> to the in-game daytime.
+: <code>time query (daytime|gametime|day)</code>
+:: Queries current time.
+: <code>time set (day|night|noon|midnight)</code>
+: <code>time set <<nowiki/>time></code>
+:: Sets the internal daytime.
+
+* '''Bedrock Edition'''
+: <code>time add <amount: int></code>
+:: Adds <code><<nowiki/>time></code> to the internal daytime.
+: <code>time query <daytime|gametime|day></code>
+:: Queries current time.
+: <code>time set <amount: int></code>
+: <code>time set <time: TimeSpec></code>
+:: Sets the internal daytime.
+
+==Arguments==
+
+{{argument|time|time|amount: int|int}}
+: Specifies the time to add or set.
+: {{arg desc|je=time|be=int}}
+
+{{code|daytime{{!}}gametime{{!}}day}}
+: Specifies the time to query. Must be <code>daytime</code>, <code>gametime</code> or <code>day</code>.
+:* <code>daytime</code> - the number of game [[tick]]s since dawn. (the internal daytime modulo 24000)
+:* <code>gametime</code> - the age of the world in game ticks. (the game time modulo 2147483647)
+:* <code>day</code> - the number of in-game days passed. (the internal daytime divided by 24000, then modulo 2147483647)
+
+{{el|je|short=1}}: {{code|day{{!}}night{{!}}noon{{!}}midnight}}<br>
+{{el|be|short=1}}: {{argument|be=1|time: TimeSpec|enum}}
+: Specifies the time to set.
+: Must be <code>day</code>, <code>night</code>, <code>noon</code>, <code>midnight</code>, <code>sunrise</code>{{only|bedrock}}, or <code>sunset</code>{{only|bedrock}}.
+:* <code>day</code> = 1,000
+:* <code>night</code> = 13,000
+:* <code>noon</code> = 6,000
+:* <code>midnight</code> = 18,000
+:* <code>sunrise</code> = 23,000
+:* <code>sunset</code> = 12,000
+
+== Notes ==
+<code>/time set ...</code> command {{in|java}} always directly sets the "internal daytime" to the specified number. But {{in|bedrock}}, when {{cd|time: TimeSpec}} is specified, it '''increases''' the "internal daytime" to meet the specified {{cd|time: TimeSpec}}.
+
+For example:
+:{{In|java}}, when executing <code>/time set day</code> or <code>/time set 1000</code>, the "internal daytime" is set to 1000, so the "day" value returns to 0.
+:{{IN|bedrock}}, when executing <code>/time set 1000</code>, the "internal daytime" is also set to 1000. But if now the "internal daytime" is 25001 (1 day + 1001 ticks), after executing <code>/time set day</code>, it won't become 1000 or 25000, since '''it only increases time''' when using {{cd|time: TimeSpec}}. In fact, it turns into 49000 (2 days + 1000 ticks), and the "day" value becomes 2. If now the "internal daytime" is 25000 (1 day + 1000 ticks), after executing <code>/time set day</code>, it remains unchanged.
+
+==Result==
+
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|unparseable}}
+{{Result table|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|cmd=/time add ...<br>/time set ...|edition=je|On success|1|1|the time in this day (the in-game daytime modulo 24000) after execution}}
+{{Output table|cmd=/time query ...|On success|1|1|the obtained value}}
+{{Output table|cmd=|edition=be|On fail|0}}
+{{Output table|On success|1}}
+{{Output table}}
+
+==Examples==
+
+* To set the time to 1,000: <code>time set 1000</code>
+* To add one [[day]] to the world time: <code>time add 24000</code>
+* To change/reset in-game day count to desired number: <code>time set <desired day number*24000+time of day in ticks></code>; to change day count to day 472 at noon (6000): <code>time set 11334000</code>
+
+== History ==
+
+{{History|java beta}}
+{{History||1.3|Added {{cmd|time|link=none}}.  Both <code>add</code> and <code>set</code> can be used.}}
+{{History|java}}
+{{History||1.3.1|snap=12w16a|{{cmd|time|link=none}} is now usable in singleplayer.
+|{{cmd|time|set|link=none}} now accepts <code>day</code> (equivalent to 0) and <code>night</code> (equivalent to 12500).}}
+{{History||1.7|snap=13w36a|{{cmd|time|set|day|link=none}} now is equivalent to 1000, and {{cmd|time|set|night|link=none}} now is equivalent to 13000.}}
+{{History||1.8|snap=14w29a|Added {{cmd|time|query|link=none}}, accepting <code>daytime</code> and <code>gametime</code>.}}
+{{History||1.9|snap=15w49b|{{cmd|time|query|link=none}} now accepts {{cd|day}} as a value.}}
+{{History||1.13|snap=18w01a|Added the options {{cd|noon}} and {{cd|midnight}} to {{cmd|time|set|link=none}}.}}
+
+{{History|pocket alpha}}
+{{History||v0.16.0|snap=build 1|Added {{cmd|time|link=none}}.}} 
+
+{{History|bedrock}}
+{{History||1.17.30|snap=beta 1.17.30.20|Now {{cd|/time set <amount: int>}} directly sets the "internal day" to the specified number, instead of incrementing the "internal day" to satisfy the specified daytime.}} 
+{{History|foot}}
+
+{{Commands}}
+
+[[de:Befehl/time]]
+[[es:Comandos/time]]
+[[ja:コマンド/time]]
+[[pt:Comandos/time]]
+[[zh:命令/time]]

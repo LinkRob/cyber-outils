@@ -1,0 +1,26 @@
+{{el|je}}<br>
+Floor:
+{{bst|waterlogged|true|false,true|Whether or not there's water in the same place as this coral fan.|foot=1}}
+Wall:
+{{bst|facing|north|east,north,south,west|The direction in which the coral fan juts out from the block it is attached to.<br>
+For example, a coral fan facing north is attached to a block to its south.}}
+{{bst|waterlogged|true|false,true|Whether or not there's water in the same place as this coral fan.|foot=1}}
+
+{{el|be}}<br>
+Floor:
+{{bst|showaux=1|bits=0x1,0x2,0x4|coral_color|blue
+|blue|{{BlockLink|Tube Coral Fan}}|0
+|pink|{{BlockLink|Brain Coral Fan}}|1
+|purple|{{BlockLink|Bubble Coral Fan}}|2
+|red|{{BlockLink|Fire Coral Fan}}|3
+|yellow|{{BlockLink|Horn Coral Fan}}|4}}
+{{bst|bits=0x8|coral_fan_direction|0|0,1|The direction the coral is facing. East-west or north-south.|foot=1}}
+Wall:
+{{bst|showaux=1|bits=0x1|coral_hang_type_bit|false|false,true|Which coral it is; depends on the ID.<br>For {{code|hang}} false means tube and true means brain.<br>For {{code|hang2}} false means bubble and true means fire.<br>For {{code|hang3}} false mean horn.|0,1}}
+{{bst|bits=0x4,0x8|coral_direction|0|0,1,2,3|The direction the top of the fan is facing.
+*0: west
+*1: east
+*2: north
+*3: south
+}}
+{{bst|bits=0x2|dead_bit|false|false,true|Whether or not this coral is dead.|0,1|foot=1}}
