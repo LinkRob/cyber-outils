@@ -1,0 +1,891 @@
+{{exclusive|bedrock}}
+[[File:Bedrock Dedicated Server Icon.png|thumb|Icon for Bedrock Dedicated Server]]
+'''Bedrock Dedicated Servers''' allow ''Minecraft'' players on Windows and Linux computers to set up their own server at home, or host their server using a cloud-based service. This is in its early development stages, so as with any early release software, it may have severe issues. Due to this, support may be stopped at any time.
+
+== Configuration ==
+{{main|server.properties}}
+BDS is a server hosting tool similar to the ''Java Edition'' [[server]]. Like ''Java Edition'', there is a {{cd|server.properties}} and {{cd|allowlist.json}} file. Instead of {{cd|ops.json}}, permissions are stored in the {{cd|permissions.json}} file. [[Resource pack|Resource]] and [[Behavior packs|behavior]] packs are in the {{cd|resource_packs}} and {{cd|behavior_packs}} directories. JSON files in the world directory set packs to be used, ''Minecraft'' clients generate them and can be uploaded to the server. Worlds are in a new world directory.
+
+== System Requirements ==
+;Operating Systems
+:Windows 10 (any edition), Windows Server 2016 (tested and works as of 10/2021), Ubuntu >= 20.04
+:''There is no official documentation on what the minimum or recommended system requirements are for running a bedrock server. These are assumptions based on running the server on a Windows machine and checking the resource usage.''
+
+;Processor
+:A minimum of a dual core CPU. Highly recommended to have a quad-core x86/64 bit processor that can run at least 3 GHz or higher, Intel i5 Ivy Bridge processor or newer, AMD FX-4100 or higher.
+
+;Memory
+:'''On Windows 10 or Server''', 6 GB of memory minimum for the '''operating system''' and the '''server'''. May require more memory with more than 10 players at the same time. Generally Bedrock Edition does not seem to be as memory hungry as ''Java Edition''. Unlike with ''Java Edition'', there does not seem to be a way to dedicate memory specifically to the Minecraft server as of November 2021. 
+
+;Internet Speed
+:You should have an upload speed of 5 Mbits per second to 10 players and 10 Mbits per second download. A DSL connection will likely not have the bandwidth to run server over the internet. However, if you want to run your server locally then you could do that.
+
+;Network
+:Your server should be connected to your router using an ethernet connection. You should avoid using Wi-Fi to connect your server to your router. 100 Mbit ethernet is acceptable. Gigabit LAN is not required.
+:You will need to set your network as a static IP address. Your server should not be connected to your home network using DHCP unless you have mapped the address on your router. You will also need to forward the port listed below to your dedicated server. This is another reason why you want to make sure you have a static IP on the device or a static mapping on your router.
+
+== Connection ==
+{{seealso|Bedrock_Edition#Platform_differences}}
+Xbox One, PlayStation 4 and Nintendo Switch users can only connect though a custom DNS or a LAN connection. To connect with a custom DNS to a Java server, you'll need an additional step. Besides the account on your respective console, you also require a separate Minecraft Java account. Essentially, this means that you need to have two accounts: one for your console and one for Minecraft Java edition. BDS uses UDP, unlike ''Java Edition'' which uses TCP. The default port for IPv4 is 19132, the default port for IPv6 is 19133; these can be changed in {{cd|server.properties}}.
+
+By default, Minecraft for Windows 10 does not support connections to a server hosted on the same machine (where you connect via {{cd|127.0.0.1/localhost}}). To fix this, you must launch Windows PowerShell or cmd as an administrator and run the following:<ref>[https://pmmp.readthedocs.io/en/rtfd/faq/connecting/win10localhostcantconnect.html Can't connect to localhost Win10 server with Minecraft Win10 Edition]</ref><syntaxhighlight lang="powershell">
+CheckNetIsolation LoopbackExempt -a -n="Microsoft.MinecraftUWP_8wekyb3d8bbwe"
+</syntaxhighlight>
+Alternatively, you can grant loopback exemption by Security Identifier (as recommended in the <code>bedrock_server_how_to.html</code> file bundled with the server download). Launch PowerShell or cmd as an administrator and run the following:<ref>[https://www.reddit.com/user/ProfessorValko/comments/9f438p/bedrock_dedicated_server_tutorial/ Bedrock Dedicated Server Tutorial]</ref><syntaxhighlight lang="powershell">
+CheckNetIsolation LoopbackExempt -a -p=S-1-15-2-1958404141-86561845-1752920682-3514627264-368642714-62675701-733520436
+</syntaxhighlight>
+
+== Whitelist ==
+To use the whitelist, it needs to be enabled in {{cd|[[server.properties]]}}. When enabled, the server will only allow selected users to connect, and you will need to know the Xbox Live gamertag and (optionally) XUID<ref>[https://docs.microsoft.com/en-us/gaming/xbox-live/test-release/tools/live-xbox-live-account-tool Xbox Live Account tool (XboxLiveAccountTool.exe)]</ref> of all players who want to join the server; players without an Xbox Live gamertag will not be able to connect. If your server is public and you do not enable the whitelist, you will not be able to ban players from the server.
+
+To learn more about whitelisting, check out the <code>bedrock_server_how_to.html</code> file bundled with the server download. If you are having trouble with player behavior on a server that you own, whitelisting may be a good way to solve the issue.
+
+== Community Resources ==
+{{disclaimer|section}}
+
+=== Plugin Support software ===
+[https://github.com/LiteLDev/LiteLoaderBDS LiteLoaderBDS] is an unofficial plugin loader that provides basic API support for Bedrock Dedicated Server, with a massive API, lots of packed utility interfaces, a rich event system and powerful basic interface support. With LiteLoaderBDS and plugins, it is easy to extend the functionality of BDS, the associated development is easy to learn, and the development approach is flexible.
+
+[https://github.com/bdsx/bdsx BDSX] is a modification of Minecraft Bedrock Dedicated Server, supporting node.js. Because it is based on the offical BDS software, it includes all the features of vanilla ''Minecraft'', but includes other features as well, such as hooking functions and packets to change behavior.
+
+[https://github.com/EndstoneMC/endstone Endstone] is a modern plugin loader that provides a high-level plugin API for Bedrock Dedicated Servers, supporting both Python and C++. It allows developers to extend Bedrock Dedicated Servers without the hassle of dealing with low-level hooks. Endstone users will benefit from all vanilla features and native support for both Windows and Linux.
+
+=== Startup and maintenance scripts ===
+*[https://github.com/chegele/BDSAddonInstaller BDSAddonInstaller] A node.js tool used for automatically installing, updating, and uninstalling addons/packs.
+*[https://github.com/TapeWerm/MCscripts MCscripts] systemd units and scripts for backups, automatic updates, and posting logs to chat bots
+*[https://github.com/TheRemote/MinecraftBedrockServer MinecraftBedrockServer] Sets up a Minecraft Bedrock dedicated server on Ubuntu / Debian / Raspbian / Armbian with options for automatic updates, backups and running automatically at startup
+*[https://foxynotail.com/software/mcbe-play/ MCBEPlay]  MCBEPlay is primarily a Windows 10 GUI for the official BDS System, that enables you to control and manage your Minecraft Bedrock Edition Server with little to no knowledge of server systems. It also has automatic backups, can save automatically, and has auto restarts.
+* [https://github.com/Bannini/WinMSSScripts WinMSSScripts] WinMSSScripts is a basic batch file to help create maintain backups of your worlds and log files as you run the official BDS System on Windows systems.
+* [https://hub.docker.com/r/tchorwat/bedrock-in-docker bedrock-in-docker] Docker image for install, update, backup&restore and run the Minecraft Bedrock server.
+*[https://github.com/ColinLabDev/MC-BDS-PWSH MC-BDS-PWSH] Updates Minecraft Bedrock Dedicated Server with PowerShell.
+
+== Download ==
+=== Release versions ===
+{| class="mw-collapsible mw-collapsed wikitable"
+! colspan=3 | Download
+|-
+!1.6.0.15
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.6.0.15.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.6.0.15.zip Ubuntu]
+|-
+!1.6.1.0
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.6.1.0.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.6.1.0.zip Ubuntu]
+|-
+!1.7.0.13
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.7.0.13.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.7.0.13.zip Ubuntu]
+|-
+!1.8.0.24
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.8.0.24.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.0.24.zip Ubuntu]
+|-
+!1.8.1.2
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.8.1.2.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.1.2.zip Ubuntu]
+|-
+!1.9.0.15
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.9.0.15.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.9.0.15.zip Ubuntu]
+|-
+!1.10.0.7
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.10.0.7.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.10.0.7.zip Ubuntu]
+|-
+!1.11.0.23
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.11.0.23.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.11.0.23.zip Ubuntu]
+|-
+!1.11.1.2
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.11.1.2.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.11.1.2.zip Ubuntu]
+|-
+!1.11.2.1
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.11.2.1.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.11.2.1.zip Ubuntu]
+|-
+!1.11.4.2
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.11.4.2.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.11.4.2.zip Ubuntu]
+|-
+!1.12.0.28
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.12.0.28.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.12.0.28.zip Ubuntu]
+|-
+!1.12.1.1
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.12.1.1.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.12.1.1.zip Ubuntu]
+|-
+!1.13.0.34
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.13.0.34.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.13.0.34.zip Ubuntu]
+|-
+!1.13.1.5
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.13.1.5.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.13.1.5.zip Ubuntu]
+|-
+!1.13.2.0
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.13.2.0.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.13.2.0.zip Ubuntu]
+|-
+!1.13.3.0
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.13.3.0.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.13.3.0.zip Ubuntu]
+|-
+!1.14.0.9
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.14.0.9.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.0.9.zip Ubuntu]
+|-
+!1.14.1.4
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.14.1.4.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.1.4.zip Ubuntu]
+|-
+!1.14.20.1
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.14.20.1.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.20.1.zip Ubuntu]
+|-
+!1.14.21.0
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.14.21.0.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.21.0.zip Ubuntu]
+|-
+!1.14.30.2
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.14.30.2.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.30.2.zip Ubuntu]
+|-
+!1.14.32.1
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.14.32.1.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.32.1.zip Ubuntu]
+|-
+!1.14.60.5
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.14.60.5.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.60.5.zip Ubuntu]
+|-
+!1.16.0.2
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.0.2.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.0.2.zip Ubuntu]
+|-
+!1.16.1.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.1.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.1.02.zip Ubuntu]
+|-
+!1.16.10.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.10.02.zip Windows]
+|
+|-
+!1.16.20.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.20.01.zip Windows]
+|
+|-
+!1.16.20.03
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.20.03.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.20.03.zip Ubuntu]
+|-
+!1.16.40.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.40.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.40.02.zip Ubuntu]
+|-
+!1.16.100.04
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.100.04.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.100.04.zip Ubuntu]
+|-
+!1.16.101.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.101.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.101.01.zip Ubuntu]
+|-
+!1.16.200.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.200.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.200.02.zip Ubuntu]
+|-
+!1.16.201.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.201.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.201.02.zip Ubuntu]
+|-
+!1.16.201.03
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.201.03.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.201.03.zip Ubuntu]
+|-
+!1.16.210.05
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.210.05.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.210.05.zip Linux]
+|-
+!1.16.210.06
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.210.06.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.210.06.zip Linux]
+|-
+! 1.16.220.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.220.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.220.02.zip Linux]
+|-
+! 1.16.221.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.221.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.221.01.zip Linux]
+|-
+!1.17.0.03
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.17.0.03.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.17.0.03.zip Linux]
+|-
+!1.17.1.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.17.1.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.17.1.01.zip Linux]
+|-
+!1.17.2.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.17.2.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.17.2.01.zip Linux]
+|-
+!1.17.10.04
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.17.10.04.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.17.10.04.zip Linux]
+|-
+!1.17.11.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.17.11.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.17.11.01.zip Linux]
+|-
+!1.17.30.04
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.17.30.04.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.17.30.04.zip Linux]
+|-
+!1.17.31.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.17.31.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.17.31.01.zip Linux]
+|-
+!1.17.32.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.17.32.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.17.32.02.zip Linux]
+|-
+!1.17.33.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.17.33.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.17.33.01.zip Linux]
+|-
+!1.17.34.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.17.34.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.17.34.02.zip Linux]
+|-
+!1.17.40.06
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.17.40.06.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.17.40.06.zip Linux]
+|-
+!1.17.41.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.17.41.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.17.41.01.zip Linux]
+|-
+!1.18.0.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.18.0.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.18.0.02.zip Linux]
+|-
+!1.18.1.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.18.1.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.18.1.02.zip Linux]
+|-
+!1.18.2.03
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.18.2.03.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.18.2.03.zip Linux]
+|-
+!1.18.11.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.18.11.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.18.11.01.zip Linux]
+|-
+!1.18.12.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.18.12.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.18.12.01.zip Linux]
+|-
+!1.18.30.04
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.18.30.04.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.18.30.04.zip Linux]
+|-
+!1.18.31.04
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.18.31.04.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.18.31.04.zip Linux]
+|-
+!1.18.32.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.18.32.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.18.32.02.zip Linux]
+|-
+!1.18.33.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.18.33.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.18.33.02.zip Linux]
+|-
+!1.19.10.20
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.10.20.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.10.20.zip Linux]
+|-
+!1.19.1.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.1.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.1.01.zip Linux]
+|-
+!1.19.2.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.2.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.2.02.zip Linux]
+|-
+!1.19.10.03
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.10.03.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.10.03.zip Linux]
+|-
+!1.19.11.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.11.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.11.01.zip Linux]
+|-
+!1.19.20.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.20.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.20.02.zip Linux]
+|-
+!1.19.21.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.21.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.21.01.zip Linux]
+|-
+!1.19.22.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.22.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.22.01.zip Linux]
+|-
+!1.19.30.04
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.30.04.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.30.04.zip Linux]
+|-
+!1.19.31.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.31.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.31.01.zip Linux]
+|-
+!1.19.40.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.40.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.40.02.zip Linux]
+|-
+!1.19.41.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.41.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.41.01.zip Linux]
+|-
+!1.19.50.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.50.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.50.02.zip Linux]
+|-
+!1.19.51.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.51.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.51.01.zip Linux]
+|-
+!1.19.52.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.52.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.52.01.zip Linux]
+|-
+!1.19.60.04
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.60.04.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.60.04.zip Linux]
+|-
+!1.19.61.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.61.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.61.01.zip Linux]
+|-
+!1.19.62.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.62.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.62.01.zip Linux]
+|-
+!1.19.63.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.63.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.63.01.zip Linux]
+|-
+!1.19.70.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.70.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.70.02.zip Linux]
+|-
+!1.19.71.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.71.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.71.02.zip Linux]
+|-
+!1.19.72.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.72.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.72.01.zip Linux]
+|-
+!1.19.73.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.73.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.73.02.zip Linux]
+|-
+!1.19.80.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.80.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.80.02.zip Linux]
+|-
+!1.19.81.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.81.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.81.01.zip Linux]
+|-
+!1.19.83.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.83.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.83.01.zip Linux]
+|-
+!1.20.0.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.0.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.0.01.zip Linux]
+|-
+!1.20.1.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.1.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.1.02.zip Linux]
+|-
+!1.20.10.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.10.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.10.01.zip Linux]
+|-
+!1.20.11.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.11.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.11.01.zip Linux]
+|-
+!1.20.12.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.12.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.12.01.zip Linux]
+|-
+!1.20.13.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.13.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.13.01.zip Linux]
+|-
+!1.20.14.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.14.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.14.01.zip Linux]
+|-
+!1.20.15.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.15.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.15.01.zip Linux]
+|-
+!1.20.30.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.30.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.30.02.zip Linux]
+|-
+!1.20.31.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.31.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.31.01.zip Linux]
+|-
+!1.20.32.03
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.32.03.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.32.03.zip Linux]
+|-
+!1.20.40.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.40.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.40.01.zip Linux]
+|-
+!1.20.41.02
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.41.02.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.41.02.zip Linux]
+|-
+!1.20.50.03
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.50.03.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.50.03.zip Linux]
+|-
+!1.20.51.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.51.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.51.01.zip Linux]
+|-
+!1.20.61.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.61.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.61.01.zip Linux]
+|-
+!1.20.62.03
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.62.03.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.62.03.zip Linux]
+|-
+!1.20.71.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.71.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.71.01.zip Linux]
+|-
+!1.20.72.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.72.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.72.01.zip Linux]
+|-
+!1.20.73.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.73.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.73.01.zip Linux]
+|-
+!1.20.80.05
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.80.05.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.80.05.zip Linux]
+|-
+!1.20.81.01
+|[https://minecraft.azureedge.net/bin-win/bedrock-server-1.20.81.01.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux/bedrock-server-1.20.81.01.zip Linux]
+|}
+
+=== [[Minecraft Preview|Preview]] versions ===
+{| class="mw-collapsible mw-collapsed wikitable"
+! colspan=3 | Download
+|-
+!1.19.50.21
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.50.21.zip Windows]
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.50.21.zip Linux]
+|-
+!1.19.50.24
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.50.24.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.50.24.zip Linux]
+|-
+!1.19.50.25
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.50.25.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.50.25.zip Linux]
+|-
+!1.19.60.20
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.60.20.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.60.20.zip Linux]
+|-
+!1.19.60.22
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.60.22.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.60.22.zip Linux]
+|-
+!1.19.60.23
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.60.23.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.60.23.zip Linux]
+|-
+!1.19.60.24
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.60.24.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.60.24.zip Linux]
+|-
+!1.19.60.25
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.60.25.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.60.25.zip Linux]
+|-
+!1.19.60.26
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.60.26.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.60.26.zip Linux]
+|-
+!1.19.60.27
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.60.27.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.60.27.zip Linux]
+|-
+!1.19.70.20
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.70.20.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.70.20.zip Linux]
+|-
+!1.19.70.21
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.70.21.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.70.21.zip Linux]
+|-
+!1.19.70.22
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.70.22.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.70.22.zip Linux]
+|-
+!1.19.70.23
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.70.23.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.70.23.zip Linux]
+|-
+!1.19.70.24
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.70.24.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.70.24.zip Linux]
+|-
+!1.19.70.26
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.70.26.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.70.26.zip Linux]
+|-
+!1.19.80.20
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.80.20.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.80.20.zip Linux]
+|-
+!1.19.80.21
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.80.21.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.80.21.zip Linux]
+|-
+!1.19.80.22
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.80.22.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.80.22.zip Linux]
+|-
+!1.19.80.23
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.80.23.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.80.23.zip Linux]
+|-
+!1.19.80.24
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.19.80.24.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.19.80.24.zip Linux]
+|-
+!1.20.0.20
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.0.20.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.0.20.zip Linux]
+|-
+!1.20.0.21
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.0.21.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.0.21.zip Linux]
+|-
+!1.20.0.22
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.0.22.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.0.22.zip Linux]
+|-
+!1.20.0.23
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.0.23.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.0.23.zip Linux]
+|-
+!1.20.0.24
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.0.24.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.0.24.zip Linux]
+|-
+!1.20.0.25
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.0.25.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.0.25.zip Linux]
+|-
+!1.20.10.20
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.10.20.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.10.20.zip Linux]
+|-
+!1.20.10.21
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.10.21.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.10.21.zip Linux]
+|-
+!1.20.10.23
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.10.23.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.10.23.zip Linux]
+|-
+!1.20.10.24
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.10.24.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.10.24.zip Linux]
+|-
+!1.20.20.20
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.20.20.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.20.20.zip Linux]
+|-
+!1.20.20.21
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.20.21.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.20.21.zip Linux]
+|-
+!1.20.20.22
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.20.22.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.20.22.zip Linux]
+|-
+!1.20.20.23
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.20.23.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.20.23.zip Linux]
+|-
+!1.20.30.20
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.30.20.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.30.20.zip Linux]
+|-
+!1.20.30.21
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.30.21.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.30.21.zip Linux]
+|-
+!1.20.30.22
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.30.22.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.30.22.zip Linux]
+|-
+!1.20.30.24
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.30.24.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.30.24.zip Linux]
+|-
+!1.20.30.25
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.30.25.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.30.25.zip Linux]
+|-
+!1.20.40.20
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.40.20.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.40.20.zip Linux]
+|-
+!1.20.40.21
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.40.21.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.40.21.zip Linux]
+|-
+!1.20.40.22
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.40.22.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.40.22.zip Linux]
+|-
+!1.20.40.23
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.40.23.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.40.23.zip Linux]
+|-
+!1.20.40.24
+|[https://minecraft.azureedge.net/bin-win-preview/bedrock-server-1.20.40.24.zip Windows]
+|[https://minecraft.azureedge.net/bin-linux-preview/bedrock-server-1.20.40.24.zip Linux]
+|}
+
+== Issues ==
+Since this server software is still in Alpha phase, therefore, it still lacks many built-in functions in the Java server, and there are many very serious problems:<ref group="feedback">https://feedback.minecraft.net/hc/en-us/community/posts/360059965732-Expand-Bedrock-Dedicated-Server-BDS-Configuration-Customization-Options</ref>
+
+* The {{cmd|reload}} command cannot reload the server like the Java server to prevent the server from crashing. As a result, the server needs to be restarted every time the server settings are readjusted, or plug-ins are added.
+* Doesn't have a server invite system that allows Xbox One and Nintendo Switch users to connect, similar to [[Realms]]
+* Can't run the server on other platforms
+* Support for websocket server, similar to {{cmd|wsserver}}
+* Add Remote console (RCON)
+* The server software has many item duplication bugs, and it is difficult to prevent players who cheat with third-party software from disturbing the server order without using third-party plugins. As BDS is a closed source server software, the cost of developing plug-ins is very high.
+* The performance of BDS is poor on some multi-core server CPUs with low clock speed. On the contrary, some high clock speed desktop CPUs with stronger single core performance are more suitable for running BDS.
+* In the case of high load (for example, a large number of entities accumulate / load complex chunks), sometimes the server suddenly has a very low CPU utilization, but the whole server is stuck.
+* In 1.19.80 and lower, there is a very serious exploit that allows for malicious users to log in as other people, and give themselves operator. It is highly recommended to not use any older versions in a production environment.
+
+== History ==
+'''The server follows the client's release cycle.'''<ref>https://discordapp.com/channels/302094807046684672/489043421072195585/489067565843349504</ref>
+{{History|bedrock}}
+{{History||1.6.0.14|link=Bedrock Edition 1.6.0|An unreleased Bedrock Dedicated Server version has been shown.}}
+{{History||1.6.1.0|link=Bedrock Edition 1.6.1|First public Bedrock Dedicated Server (BDS) release.<ref>https://twitter.com/Minecraft/status/1039527221835309058</ref><ref>https://twitter.com/jeb_/status/1039483667515625472</ref>
+| Includes a <code>bedrock_server_how_to.html</code> as a guide.
+| [[Bug tracker]] for BDS was launched.}}
+{{History||1.7.0.13|link=Bedrock Edition 1.7.0|Server software updated for [[Bedrock Edition 1.7.0]]}}
+{{History||1.8.0.24|link=Bedrock Edition 1.8.0|Server software updated for [[Bedrock Edition 1.8.0]]
+{{fixes|fixedin=1.8.0.24|project=BDS
+|104|Save hold/resume causing world size to increase quite a bit more than normal.
+|198|save query does not work more than once per boot
+}}
+}}
+{{History||1.8.1.2|link=Bedrock Edition 1.8.1|Server software updated for [[Bedrock Edition 1.8.1]]}}
+{{History||1.9.0.15|link=Bedrock Edition 1.9.0|Server software updated for [[Bedrock Edition 1.9.0]]}}
+{{History||1.10.0.7|link=Bedrock Edition 1.10.0|Server software updated for [[Bedrock Edition 1.10.0]]}}
+{{History||1.11.0.23|link=Bedrock Edition 1.11.0|Server software updated for [[Bedrock Edition 1.11.0]]}}
+{{History||1.11.1.2|link=Bedrock Edition 1.11.1|Server software updated for [[Bedrock Edition 1.11.1]]}}
+{{History||1.11.2.1|link=Bedrock Edition 1.11.2|Server software updated for [[Bedrock Edition 1.11.2]]}}
+{{History||1.11.4.2|link=Bedrock Edition 1.11.4|Server software updated for [[Bedrock Edition 1.11.4]]}}
+{{History||1.12.0.28|link=Bedrock Edition 1.12.0|Server software updated for [[Bedrock Edition 1.12.0]]}}
+{{History||1.12.1.1|link=Bedrock Edition 1.12.1|Server software updated for [[Bedrock Edition 1.12.1]]}}
+{{History||1.13.0.34|link=Bedrock Edition 1.13.0|Server software updated for [[Bedrock Edition 1.13.0]]}}
+{{History||1.13.1.5|link=Bedrock Edition 1.13.1|Server software updated for [[Bedrock Edition 1.13.1]]}}
+{{History||1.13.2.0|link=Bedrock Edition 1.13.2|Server software updated for [[Bedrock Edition 1.13.2]]}}
+{{History||1.13.3.0|link=Bedrock Edition 1.13.3|Server software updated for [[Bedrock Edition 1.13.3]]}}
+{{History||1.14.0.9|link=Bedrock Edition 1.14.0|Server software updated for [[Bedrock Edition 1.14.0]]}}
+{{History||1.14.1.4|link=Bedrock Edition 1.14.1|Server software updated for [[Bedrock Edition 1.14.1]]}}
+{{History||1.14.20.1|link=Bedrock Edition 1.14.20|Server software updated for [[Bedrock Edition 1.14.20]]}}
+{{History||1.14.21.0|link=Bedrock Edition 1.14.20|Unknown}}
+{{History||1.14.30.2|link=Bedrock Edition 1.14.30|Server software updated for [[Bedrock Edition 1.14.30]]}}
+{{History||1.14.32.1|link=Bedrock Edition 1.14.30|
+{{fixes|fixedin=1.14.32.1|project=BDS
+|1682|BDS CRASH
+|2772|Server crashes constantly
+|3245|PS4 player cannot authenticate to BDS LAN game when online-mode&equals;true
+|3357|/save command crashes server
+}}
+}}
+{{History||1.14.60.5|link=Bedrock Edition 1.14.60|Server software updated for [[Bedrock Edition 1.14.60]]}}
+{{History||1.16.0.2|link=Bedrock Edition 1.16.0|Server software updated for [[Bedrock Edition 1.16.0]]}}
+{{History||1.16.1.02|link=Bedrock Edition 1.16.1|Server software updated for [[Bedrock Edition 1.16.1]]}}
+{{History||1.16.10.02|link=Bedrock Edition 1.16.10|Server software updated for [[Bedrock Edition 1.16.10]]}}
+{{History||1.16.20.03|link=Bedrock Edition 1.16.20|Server software updated for [[Bedrock Edition 1.16.20]]}}
+{{History||1.16.40.02|link=Bedrock Edition 1.16.40|Server software updated for [[Bedrock Edition 1.16.40]]}}
+{{History||1.16.100.04|link=Bedrock Edition 1.16.100|Server software updated for [[Bedrock Edition 1.16.100]]}}
+{{History||1.16.101.01|link=Bedrock Edition 1.16.101|Server software updated for [[Bedrock Edition 1.16.101]]}}
+{{History||1.16.200.02|link=Bedrock Edition 1.16.200|Server software updated for [[Bedrock Edition 1.16.200]]}}
+{{History||1.16.201.02|link=Bedrock Edition 1.16.201|Server software updated for [[Bedrock Edition 1.16.201]]}}
+{{History||1.16.201.03|link=Bedrock Edition 1.16.201|Fixed a bug {{bug|BDS-10666}}.}}
+{{History||1.16.210.05|link=Bedrock Edition 1.16.210|Server software updated for [[Bedrock Edition 1.16.210]]}}
+{{History||1.16.210.06|link=Bedrock Edition 1.16.210|Unknown}}
+{{History||1.16.220.02|link=Bedrock Edition 1.16.220|Server software updated for [[Bedrock Edition 1.16.220]] and removed libCrypto.so}}
+{{History||1.16.221.01|link=Bedrock Edition 1.16.221|Server software updated for [[Bedrock Edition 1.16.221]]}}
+{{History||1.17.0.03|link=Bedrock Edition 1.17.0|Server software updated for [[Bedrock Edition 1.17.0]]}}
+{{History||1.17.1.01|link=Bedrock Edition 1.17.1|Server software updated for [[Bedrock Edition 1.17.1]]}}
+{{History||1.17.2.01|link=Bedrock Edition 1.17.2|Server software updated for [[Bedrock Edition 1.17.2]]}}
+{{History||1.17.10.04|link=Bedrock Edition 1.17.10|Server software updated for [[Bedrock Edition 1.17.10]]}}
+{{History||1.17.11.01|link=Bedrock Edition 1.17.11|Server software updated for [[Bedrock Edition 1.17.11]]}}
+{{History||1.17.30.04|link=Bedrock Edition 1.17.30|Server software updated for [[Bedrock Edition 1.17.30]]}}
+{{History||1.17.31.01|link=Bedrock Edition 1.17.30|Unknown}}
+{{History||1.17.32.02|link=Bedrock Edition 1.17.32|Server software updated for [[Bedrock Edition 1.17.32]]}}
+{{History||1.17.33.01|link=Bedrock Edition 1.17.33|Server software updated for [[Bedrock Edition 1.17.33]]}}
+{{History||1.17.34.02|link=Bedrock Edition 1.17.34|Server software updated for [[Bedrock Edition 1.17.34]]}}
+{{History||1.17.40.06|link=Bedrock Edition 1.17.40|Server software updated for [[Bedrock Edition 1.17.40]]}}
+{{History||1.17.41.01|link=Bedrock Edition 1.17.41|Server software updated for [[Bedrock Edition 1.17.41]]}}
+{{History||1.18.0.02|link=Bedrock Edition 1.18.0|Server software updated for [[Bedrock Edition 1.18.0]]}}
+{{History||1.18.1.02|link=Bedrock Edition 1.18.1|Server software updated for [[Bedrock Edition 1.18.1]]}}
+{{History||1.18.2.03|link=Bedrock Edition 1.18.2|Server software updated for [[Bedrock Edition 1.18.2]]}}
+{{History||1.18.11.01|link=Bedrock Edition 1.18.10|Server software updated for [[Bedrock Edition 1.18.10]]}}
+{{History||1.18.12.01|link=Bedrock Edition 1.18.12|Server software updated for [[Bedrock Edition 1.18.12]]}}
+{{History||1.18.30.04|link=Bedrock Edition 1.18.30|Server software updated for [[Bedrock Edition 1.18.30]]}}
+{{History||1.18.31.04|link=Bedrock Edition 1.18.31|Server software updated for [[Bedrock Edition 1.18.31]]}}
+{{History||1.18.32.02|link=Bedrock Edition 1.18.32|Server software updated for [[Bedrock Edition 1.18.32]]}}
+{{History||1.18.33.02|link=Bedrock Edition 1.18.33|Server software updated for [[Bedrock Edition 1.18.33]]}}
+{{History||1.19.10.20|link=none|The initial release of the server software for betas, the Bedrock Edition beta 1.19.10.20.}}
+{{History||1.19.1.01|link=Bedrock Edition 1.19.0|Server software updated for [[Bedrock Edition 1.19.0]]}}
+{{History||1.19.2.02|link=Bedrock Edition 1.19.2|Server software updated for [[Bedrock Edition 1.19.2]]}}
+{{History||1.19.10.03|link=Bedrock Edition 1.19.10|Server software updated for [[Bedrock Edition 1.19.10]]}}
+{{History||1.19.11.01|link=Bedrock Edition 1.19.11|Server software updated for [[Bedrock Edition 1.19.11]]}}
+{{History||1.19.20.02|link=Bedrock Edition 1.19.20|Server software updated for [[Bedrock Edition 1.19.20]]}}
+{{History||1.19.21.01|link=Bedrock Edition 1.19.21|Server software updated for [[Bedrock Edition 1.19.21]]}}
+{{History||1.19.22.01|link=Bedrock Edition 1.19.22|Server software updated for [[Bedrock Edition 1.19.22]]}}
+{{History||1.19.30.04|link=Bedrock Edition 1.19.30|Server software updated for [[Bedrock Edition 1.19.30]]}}
+{{History||1.19.31.01|link=Bedrock Edition 1.19.31|Server software updated for [[Bedrock Edition 1.19.31]]}}
+{{History||1.19.50.21|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.50.21}}
+{{History||1.19.40.02|link=Bedrock Edition 1.19.40|Server software updated for [[Bedrock Edition 1.19.40]]}}
+{{History||1.19.41.01|link=Bedrock Edition 1.19.41|Server software updated for [[Bedrock Edition 1.19.41]]}}
+{{History||1.19.50.24|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.50.24}}
+{{History||1.19.50.25|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.50.25}}
+{{History||1.19.60.20|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.60.20}}
+{{History||1.19.50.02|link=Bedrock Edition 1.19.50|Server software updated for [[Bedrock Edition 1.19.50]]
+{{fixes|fixedin=1.19.50|project=BDS
+|1094|Additional IPv4 and IPv6 port opening upon starting server
+}}
+}}
+{{History||1.19.60.22|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.60.22}}
+{{History||1.19.60.23|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.60.23}}
+{{History||1.19.51.01|link=Bedrock Edition 1.19.51|Server software updated for [[Bedrock Edition 1.19.51]]}}
+{{History||1.19.60.24|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.60.24}}
+{{History||1.19.60.25|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.60.25}}
+{{History||1.19.60.26|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.60.26}}
+{{History||1.19.60.27|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.60.27}}
+{{History||1.19.70.20|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.70.20}}
+{{History||1.19.52.01|link=none|Server software updated.}}
+{{History||1.19.70.21|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.70.21}}
+{{History||1.19.60.04|link=Bedrock Edition 1.19.60|Server software updated for [[Bedrock Edition 1.19.60]]}}
+{{History||1.19.61.01|link=none|Server software updated.}}
+{{History||1.19.62.01|link=none|Server software updated.}}
+{{History||1.19.63.01|link=none|Server software updated.}}
+{{History||1.19.70.23|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.70.23}}
+{{History||1.19.70.24|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.70.24}}
+{{History||1.19.70.26|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.70.26}}
+{{History||1.19.80.20|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.80.20}}
+{{History||1.19.70.02|link=Bedrock Edition 1.19.70|Server software updated for [[Bedrock Edition 1.19.70]]}}
+{{History||1.19.80.21|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.80.21}}
+{{History||1.19.71.02|link=Bedrock Edition 1.19.71|Server software updated for [[Bedrock Edition 1.19.71]]}}
+{{History||1.19.72.01|link=Bedrock Edition 1.19.72|Server software updated for [[Bedrock Edition 1.19.72]]}}
+{{History||1.19.80.22|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.80.22}}
+{{History||1.19.73.02|link=Bedrock Edition 1.19.73|Server software updated for [[Bedrock Edition 1.19.73]]}}
+{{History||1.19.80.23|link=none|Server software (beta) updated for Bedrock Edition beta 1.19.80.23}}
+{{History||1.20.0.20|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.0.20}}
+{{History||1.20.0.21|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.0.21}}
+{{History||1.19.80.02|link=Bedrock Edition 1.19.80|Server software updated for [[Bedrock Edition 1.19.80]]}}
+{{History||1.20.0.22|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.0.22}}
+{{History||1.19.81.01|link=Bedrock Edition 1.19.81|Server software updated for [[Bedrock Edition 1.19.81]]}}
+{{History||1.20.0.23|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.0.23}}
+{{History||1.20.0.24|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.0.24}}
+{{History||1.19.83.01|link=Bedrock Edition 1.19.83|Server software updated for [[Bedrock Edition 1.19.83]]}}
+{{History||1.20.0.25|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.0.25}}
+{{History||1.20.10.20|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.10.20}}
+{{History||1.20.0.01|link=Bedrock Edition 1.20.0|Server software updated for [[Bedrock Edition 1.20.0]]}}
+{{History||1.20.10.21|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.10.21}}
+{{History||1.20.10.23|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.10.23}}
+{{History||1.20.1.02|link=Bedrock Edition 1.20.1|Server software updated for [[Bedrock Edition 1.20.1]]}}
+{{History||1.20.10.24|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.10.24}}
+{{History||1.20.20.20|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.20.20}}
+{{History||1.20.10.01|link=Bedrock Edition 1.20.10|Server software updated for [[Bedrock Edition 1.20.10]]
+{{fixes|fixedin=1.20.10|project=BDS
+|18133|server crash with non-empty allowlist.json
+}}
+}}
+{{History||1.20.11.01|link=Bedrock Edition 1.20.11|Server software updated for [[Bedrock Edition 1.20.11]]}}
+{{History||1.20.20.21|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.20.21}}
+{{History||1.20.12.01|link=Bedrock Edition 1.20.12|Server software updated for [[Bedrock Edition 1.20.12]]}}
+{{History||1.20.20.22|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.20.22}}
+{{History||1.20.13.01|link=Bedrock Edition 1.20.13|Server software updated for [[Bedrock Edition 1.20.13]]}}
+{{History||1.20.20.23|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.20.23}}
+{{History||1.20.30.20|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.30.20}}
+{{History||1.20.14.01|link=Bedrock Edition 1.20.14|Server software updated for [[Bedrock Edition 1.20.14]]}}
+{{History||1.20.30.21|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.30.21}}
+{{History||1.20.15.01|link=Bedrock Edition 1.20.15|Server software updated for [[Bedrock Edition 1.20.15]]}}
+{{History||1.20.30.22|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.30.22
+{{fixes|project=BDS
+|17527|Multiple server crashes due to memory leak when loading chunks
+}}
+}}
+{{History||1.20.30.24|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.30.24}}
+{{History||1.20.30.25|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.30.25}}
+{{History||1.20.40.20|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.40.20}}
+{{History||1.20.40.21|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.40.21}}
+{{History||1.20.30.02|link=Bedrock Edition 1.20.30|Server software updated for [[Bedrock Edition 1.20.30]] and requires Ubuntu 20.04}}
+{{History||1.20.40.22|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.40.22}}
+{{History||1.20.31.01|link=Bedrock Edition 1.20.31|Server software updated for [[Bedrock Edition 1.20.31]]}}
+{{History||1.20.40.23|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.40.23}}
+{{History||1.20.32.03|link=Bedrock Edition 1.20.32|Server software updated for [[Bedrock Edition 1.20.32]]}}
+{{History||1.20.40.24|link=none|Server software (beta) updated for Bedrock Edition beta 1.20.40.24}}
+{{History|foot}}
+
+== External links == 
+
+*[https://minecraft.net/en-us/download/server/bedrock/ Download page]
+*[https://bugs.mojang.com/projects/BDS/ Bug tracker]
+*[https://cdn.discordapp.com/attachments/489043421072195585/489240159943000065/permissions.json Download permissions.json]
+*[https://cdn.discordapp.com/attachments/489043421072195585/489240175340290060/whitelist.json Download whitelist.json]
+*[https://reddit.com/user/ProfessorValko/comments/9f438p/bedrock_dedicated_server_tutorial/ Tutorial]
+
+== Notes ==
+{{reflist|group="feedback"}}
+
+== References ==
+{{reflist}}
+
+{{Bedrock Edition}}
+{{Bedrock Dedicated Server versions}} 
+
+[[Category:Server]]
+
+[[de:Bedrock Dedicated Server]]
+[[ja:Bedrock Dedicated Server]]
+[[pt:Servidor dedicado da Edição Bedrock]]
+[[tr:Bedrock Özel Serverı]]
+[[zh:基岩版专用服务器]]

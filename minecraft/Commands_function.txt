@@ -1,0 +1,109 @@
+{{Infobox command
+|name=function
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|others=[[Options|Cheat]] only{{only|bedrock|short=1}}
+}}
+
+Runs commands founds in the corresponding function file with command execution context (executor, execution position, angles, etc) of the /function command.
+
+{{IN|java}}, runs a [[Function (Java Edition)|function]] or all functions in a [[tags|tag]] from a [[datapack]].<br>
+{{IN|bedrock}}, Runs a [[Function (Bedrock Edition)|function]] from a [[behavior pack]].
+
+== Syntax ==
+
+* '''Java Edition'''
+: <code>function <name> [<arguments>|with (block <sourcePos>|entity <source>|storage <source>) [<path>]]</code>
+
+* '''Bedrock Edition'''
+: <code>function <name: filepath></code>
+
+== Arguments ==
+
+{{argument|name|function|name: filepath|CommandFilePath}}
+: {{arg desc|je=function|be=commandfilepath}}
+{{el|je|short=1}}: {{Argument|arguments|nbt_compound_tag}}
+: {{Arg desc|je=nbt_compound_tag}}
+{{el|je|short=1}}: {{Argument|sourcePos|block_pos}}
+: {{arg desc|je=block_pos}}
+{{el|je|short=1}}: {{Argument|source|entity}} (in <code>entity <target></code> mode)
+: {{arg desc|je=entity}}
+{{el|je|short=1}}: {{Argument|source|resource_location}} (in <code>storage <target></code> mode)
+: {{arg desc|je=resource_location}}
+{{el|je|short=1}}: {{Argument|path|nbt_path}}
+: {{arg desc|je=nbt_path}}
+
+== Result ==
+
+{{Result table}}
+{{Result table|the arguments are not specified correctly|unparseable|unparseable}}
+{{Result table|the specified functions or function tags do not exist|fail|fail}}
+{{Result table|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|On success when executed not by a function|the number of all commands executed in the function(s) '''plus''' 1 (this command itself)|1|the number of commands executed (whether successfully or not) '''plus''' the number of embedded functions.}}
+{{Output table|On success when executed in a function|N/A|1|0}}
+{{Output table|edition=be|On fail|0}}
+{{Output table|On success|1}}
+{{Output table}}
+
+{{IN|java}}:<ref>{{bug|MC-148612}}</ref><ref>{{bug|MC-135636}}</ref>
+:Success count is the sum of success counts of all commands ran in the function/functions plus 1 (this command itself).
+:For example,
+::<samp>'''foo:bar1'''</samp>
+:::<code>function foo:bar2</code>
+::<samp>'''foo:bar2'''</samp>
+:::<code>function foo:bar3</code>
+::<samp>'''foo:bar3'''</samp>
+:::<code>say hi</code>
+::The success count of {{cmd|function foo:bar3|link=none}} is 1 (one command in foo:bar3) + 1 (this command itself) = 2.
+::The success count of {{cmd|function foo:bar2|link=none}} is 2 (from above) + 1 (this command itself) = 3.
+::The success count of {{cmd|function foo:bar1|link=none}} is 3 (from above) + 1 (this command itself) = 4.
+:Output message displayed in chat returns the number of commands ran (not the number of commands that succeed) plus the number of embedded functions called by a function.
+::The chat output count of {{cmd|function foo:bar3|link=none}} is 1(one command in foo:bar3).
+::The chat output count of {{cmd|function foo:bar2|link=none}} is 1 (one command in foo:bar2) + 1 (one command in foo:bar3) + 1 (one embedded function) = 3.
+::The chat output count of {{cmd|function foo:bar1|link=none}} is 1 (one command in foo:bar1) + 1 (one command in foo:bar2) + 1  (one command in foo:bar3) + 2 (two embedded functions) = 5.
+:If successful, {{cmd|execute store success|link=none}} always returns 1. Otherwise, returns 0.
+:If successful, the return value of {{cmd|execute store result|link=none}} is the same as chat output count. Otherwise, returns 0.
+
+== Examples ==
+
+* {{IN|java}}: 
+** To run a function located at <code>data/custom/functions/example/test.mcfunction</code> in a loaded data pack: {{cmd|function custom:example/test|link=none}}
+** To run all functions in a function [[tags|tag]] located at <code>data/custom/tags/functions/example/test.json</code>: {{cmd|function #custom:example/test|link=none}}
+** To run a function if there is a sheep within a radius of 2 blocks: <code>/execute if entity @e[type=sheep,distance=..2] run function custom:example/test</code>
+** To run a function unless the executor is a player: <code>/execute unless entity @s[type=player] run function custom:example/test</code>
+** To run a function macro with arguments a=42, b="example": <code>/function custom:example/test {a: 42, b: "example"}</code>
+** To run a function macro with arguments from storage <code>custom:storage</code>: <code>/function custom:example/test with custom:storage</code>
+
+== History ==
+{{History|java}}
+{{History||1.12|snap=pre1|Added {{cmd|function|link=none}}.}}
+{{History||1.13|snap=17w49b|{{cmd|function|link=none}} now accept function [[tags]] as the argument.|Removed {{cd|[if/unless]}} arguments in favor of {{cmd|execute [if/unless]}}.}}
+{{History|java upcoming}}
+{{History||1.20.2|snap=23w31a|Added function arguments.}}
+{{History|bedrock}}
+{{History||1.8.0|snap=beta 1.8.0.8|Added {{cmd|function|link=none}}.}}
+{{History|foot}}
+
+== See also ==
+
+* {{cmd|tag}} – To run function in batch, every tick, or on server (re)load.
+
+== References ==
+{{Reflist}}
+
+{{Commands}}
+
+[[de:Befehl/function]]
+[[es:Comandos/function]]
+[[ja:コマンド/function]]
+[[pt:Comandos/function]]
+[[ru:Команды консоли/function]]
+[[uk:Команди консолі/function]]
+[[zh:命令/function]]

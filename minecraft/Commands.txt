@@ -1,0 +1,1426 @@
+{{About|console commands|the similar system found in the Legacy Console Edition|host privileges}}
+
+'''Commands''', also known as '''console commands''' and '''slash commands''', are advanced features activated by typing certain strings of text.
+
+== Usage ==
+In the client, commands are entered via the [[chat]] window, which is displayed by pressing the {{key|T}} / [[File:Chat button.png|25px]]{{only|bedrock|short=1}} / {{Xbutton|onedpad-right}}{{only|bedrock|short=1}} or {{key|/}} key. Using the {{key|/}} key also enters the forward-slash that commands require as a prefix, so it is a useful shortcut. The {{key|Up}} and {{key|Down}} keys can be used to view previously entered text, including all previously executed commands.
+
+When the cursor is at a location corresponding to some types of argument (such as an ID), a list of applicable values appears above the text box. If the argument is already containing some characters, the list displays only those values containing the typed command/text. Pressing {{key|Tab}} while entering commands cycles through possible commands or arguments, and can be used to auto-enter them.
+
+Commands may also be entered in a multiplayer [[server]]'s console, but are '''not''' preceded by a {{key|/}} when entered this way. A server owner running commands in this way is often referred to as "ghosting".
+
+Commands in [[command block]]s ''can'' be preceded by a slash, but it is not required. 
+
+Commands can be executed in the following ways;
+* Entered by a player in the chat window.
+* Executed by a [[command block]] or [[Minecart with command block]].
+* In [[function]]s, as part of a [[data pack]]<sup>[<nowiki/>[[Java Edition]] only]</sup> or [[add-on|behavior pack]]<sup>[<nowiki/>[[Bedrock Edition]] only]</sup>.
+* In a multiplayer [[server]], entered in the console.
+* Click a [[Json text]] that has "run_command" action.{{only|java}}
+* Executed with a WebSocket server.{{only|bedrock}}
+* Executed by an [[NPC]].{{only|bedrock}}
+
+Most commands require the executor have a high enough [[permission level]]. That means most commands are available in the singleplayer world only if cheats are enabled, and available in multiplayer server only if the player is an operator. See [[permission level]] for details.
+
+=== Enabling cheats in existing worlds ===
+
+{{IN|java}}, in singleplayer worlds where cheats were not enabled at creation, they can be enabled on a temporary basis by opening the current game session to LAN play ( {{key|Esc}} → "Open to LAN", then "Allow Cheats" button and "Start LAN World"). The player does not actually need to be on a LAN or have others join. This is not permanent but allows the use of commands until the player quits the world, and changes the player makes via commands (items spawned, etc.) are saved with the world. The player can do this each time the player starts playing the world again. Note that this disables game pausing for the duration, so while open to LAN, the player should get somewhere safe or reload their world before using the Game Menu. The player can disable the LAN world by reloading the world. To permanently enable cheats, the [[level.dat]] file has to be edited. 
+
+{{IN|bedrock}}, cheats can be toggled at any time in the "Game" tab of the settings menu. Enabling cheats in a world permanently prevents players from unlocking [[achievement]]s in that world, even if cheats are later turned off.
+
+== Command guide ==
+
+=== Syntax ===
+{{IN|java}}: 
+:{| class="wikitable" style="text-align:center" data-description="Syntax"
+! Syntax !! Meaning
+|-
+| {{code|plain text}} || '''Enter this literally''', exactly as shown.
+|-
+| {{code|<argumentsName>}} || An '''argument''' that should be replaced with an appropriate value.
+|-
+| {{code|[entry]}} || This entry is '''optional'''.
+|-
+| {{code|<nowiki>(entry|entry)</nowiki>}} || (Required) '''Pick one''' of the entries that is shown.
+|-
+| {{code|<nowiki>[entry|entry]</nowiki>}} || (Optional) '''Pick one''' of the entries that is shown.
+|-
+| {{code|ellipsis ...}} || Another '''sub-command''' is required.
+|}
+
+{{IN|bedrock}}: 
+:{| class="wikitable" style="text-align:center" data-description="Syntax"
+! Syntax !! Meaning
+|-
+| {{code|plain text}} || '''Enter this literally''', exactly as shown.
+|-
+| {{code|name: type}} || An '''argument''' that should be replaced with an appropriate value.
+|-
+| {{code|<nowiki>entry|entry</nowiki>}} || '''Pick one''' of the entries that is shown.
+|-
+| {{code|<entry>}} || This entry is '''required'''.
+|-
+| {{code|[entry]}} || This entry is '''optional'''.
+|-
+| {{code|ellipsis ...}} || Another '''sub-command''' is required.
+|}
+
+=== Restrictions ===
+
+: Some commands have restrictions on who can use the command or in what context.
+:*''None'': The command has no restriction.
+:* ''Cheat only'':{{only|bedrock}} When executed '''by a player''', the command is available only if cheats is enabled.
+:** {{IN|bedrock}}, when cheats is disabled, these commands can't be used by players even if they have a high [[permission level]]. {{IN|java}}, if players have a high enough permission level, they can use corresponding commands regardless of whether cheats are allowed.
+:* ''Dedicated server only'': The command is available only on a dedicated server.
+:* ''Creative Only:{{only|bedrock}}'' When executed '''by a player''', the command is available only if player is in [[Creative]].
+
+=== Result ===
+
+After trying to run the command comes different results, including "unparseable", "failed", "successful", "error",{{only|java}} and "Terminate".{{only|java}}
+
+;Unparseable
+:If the entered command is incomplete or the arguments do not meet required [[argument types]], the command is unparseable.
+:When typing a argument into the chat bar, it's noticeable if an argument does not meet the required argument type {{in|java}}.
+::{{IN|java}}, if not meet, the argument is marked red and an syntax error message is displayed.
+::{{IN|bedrock}}, when typing in chat bar, if an argument can be identified by client, the next argument in grammar hints turns white from gray. If all arguments (including optional arguments) are entered, the whole grammar hint turns gray from white. However, being able to be identified by client doesn't guarantee that this argument meet required argument type.
+:{{IN|java}}, it behaves the same as typing in the chat bar when typing in a [[command block]].
+:{{IN|bedrock}}, when entering into a command block, if the command is unparseable, an syntax error message is outputted into its output box after closing the command block screen.
+:When trying to execute an unparsable command, an error message is displayed.
+::{{IN|java}}, it is "Unknown or incomplete command" or "Incorrect argument for command".
+::{{IN|bedrock}}, it is "Unknown command" or "Syntax error: unexpected ... at ...".
+:If a command in a [[function]] file is unparseable, the function is unable to loaded in game.
+
+;Failed and successful
+:A command's Success Conditions must be met in order for the game to consider the command "successful". This is used to determine a variety of things, such as the output of a [[redstone comparator]] feeding from a [[command block]] with a command. Note that not all "successful" commands actually do something, and not all "failed" commands fail to do something useful.
+
+;Error{{only|java}}
+:If an error occurs with the command, it means that there's a noticeable bug on this command.
+
+;Terminate{{only|java}}
+:When running a {{cmd|execute}} command, if the subcommands specifies 0 execution context, the command does nothing and doesn't output anything.
+:For example: {{cmd|execute as @s run ...}} in a command block.
+
+== List and summary of commands ==
+The table below summarizes all commands.
+
+{| class="sortable wikitable stikitable" style="text-align:center;"
+|+ Summary of Commands
+! style="text-align:left;" | Command
+! style="text-align:left;" | Description
+! {{Tooltip|BE|Available in Bedrock Edition}}
+! {{Tooltip|EE|Available in Education Edition}}
+! {{Tooltip|JE|Available in Java Edition}}
+! {{Tooltip|JE [[OP level]]|Permission level required in Java Edition to perform the command}}
+! {{Tooltip|BE&EE [[OP level]]|Command permission level required in Bedrock and Education Edition to perform the command}}
+! {{Tooltip|Multiplayer{{only|je|short=1}}/Server{{only|Be|Ee|short=1}} only|Commands usable only in multiplayer or servers}}
+! {{Tooltip|{{EnvSprite|blocks}}|Command modifies or queries blocks}}
+! {{Tooltip|{{EnvSprite|mobs}}|Command modifies or queries entities (mobs, dropped items, etc.)}}
+! {{Tooltip|{{EnvSprite|player}}|Command modifies or queries players}}
+! {{Tooltip|{{EnvSprite|default}}|Command modifies or queries the world}}
+|-
+| style="text-align:left;" | {{cmd|?}}
+| style="text-align:left;" | An alias of {{cmd|help}}. Provides help for commands.
+| {{tc|yes}} || {{tc|yes}} || {{tc|no|Removed}}
+| {{tc|no|0}} || {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" | {{cmd|ability}}
+| style="text-align:left;" | Grants or revokes a player ability. 
+| {{tc|yes}} || {{tc|yes}} ||{{tc|-}}
+| {{tc|-}} ||{{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" | {{cmd|advancement}}
+| style="text-align:left;" | Gives, removes, or checks player advancements.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" | {{cmd|alwaysday}}
+| style="text-align:left;" | An alias of {{cmd|daylock}}. Locks and unlocks the day-night cycle.
+| {{tc|yes}} || {{tc|yes}} ||{{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" | {{cmd|attribute}}
+| style="text-align:left;" | Queries, adds, removes or sets an entity attribute.
+| {{tc|-}} || {{tc|-}} ||{{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" | {{cmd|ban}}
+| style="text-align:left;" | Adds player to banlist.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|-}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" | {{cmd|ban-ip}}
+| style="text-align:left;" | Adds IP address to banlist.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|-}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" | {{cmd|banlist}}
+| style="text-align:left;" | Displays banlist.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|-}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" | {{cmd|bossbar}}
+| style="text-align:left;" | Creates and modifies bossbars.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" | {{cmd|camera}}
+| style="text-align:left;" | Switch to custom camera perspectives and fade the screen.
+| {{tc|yes}} || {{tc|No|Not Added Yet}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{info needed}}}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" | {{cmd|camerashake}}
+| style="text-align:left;" | Used to enable a camera shaking effect.
+| {{tc|yes}} || {{tc|Yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" | {{cmd|changesetting}}
+| style="text-align:left;" | Changes a setting on the dedicated server while it's running.
+| {{tc|yes}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|4}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" | {{cmd|clear}}
+| style="text-align:left;" | Clears items from player inventory.
+| {{tc|yes|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" | {{cmd|clearspawnpoint}}
+| style="text-align:left;" | Remove spawnpoints in the world.
+| {{tc|yes}} || {{tc|Yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" | {{cmd|clone}}
+| style="text-align:left;" | Copies blocks from one place to another.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" | {{cmd|connect}}
+| style="text-align:left;" | An alias of {{cmd|wsserver}}. Attempts to connect to the websocket server.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|0{{only|education|short=1}}<br>2{{only|bedrock|short=1}}}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" | {{cmd|damage}}
+| style="text-align:left;" | Applies damage to the specified entities.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|data}}
+| style="text-align:left;" |Gets, merges, modifies and removes block entity and entity NBT data.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|datapack}}
+| style="text-align:left;" |Controls loaded data packs.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|daylock}}
+| style="text-align:left;" |An alias of {{cmd|alwaysday}}. Locks and unlocks the day-night cycle.
+| {{tc|yes}} || {{tc|yes}} ||{{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|debug}}
+| style="text-align:left;" |Starts or stops a debugging session.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|dedicatedwsserver}}
+| style="text-align:left;" |Attempts to connect to a websocket server.
+| {{tc|yes}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|no|0}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|defaultgamemode}}
+| style="text-align:left;" |Sets the default [[game mode]].
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|deop}}
+| style="text-align:left;" |Revokes operator status from a player.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|yes|2}} || {{tc|partial|yes{{only|java}}}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|dialogue}}
+| style="text-align:left;" |Opens NPC dialogue for a player.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|difficulty}}
+| style="text-align:left;" |Sets the difficulty level.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|effect}}
+| style="text-align:left;" |Adds or removes [[status effect]]s.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|enchant}}
+| style="text-align:left;" |Adds an enchantment to a player's selected item.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|event}}
+| style="text-align:left;" |Used to trigger an event on an entity.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|execute}}
+| style="text-align:left;" |Executes another command.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|experience}}
+| style="text-align:left;" |An alias of {{cmd|xp}}. Adds or removes player [[experience]].
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|fill}}
+| style="text-align:left;" |Fills a region with a specific block.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|fillbiome}}
+| style="text-align:left;" |Fills a region with a specific biome.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|fog}}
+| style="text-align:left;" |Used for managing active fog settings for players.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|forceload}}
+| style="text-align:left;" |Forces [[chunk]]s to constantly be loaded or not.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|function}}
+| style="text-align:left;" |Runs a [[function]].
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|gamemode}}
+| style="text-align:left;" |Sets a player's [[game mode]].
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|gamerule}}
+| style="text-align:left;" |Sets or queries a [[game rule]] value.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|gametest}}
+| style="text-align:left;" |To test the GameTest features.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|give}}
+| style="text-align:left;" |Gives an item to a player.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}}
+|-
+| style="text-align:left;" |{{cmd|help}}
+| style="text-align:left;" |An alias of {{cmd|?}}. Provides help for commands.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|immutableworld}}
+| style="text-align:left;" |Allows setting immutable state of a world.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|item}}
+| style="text-align:left;" |Manipulates items in inventories.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|jfr}}
+| style="text-align:left;" |Starts or stops a JFR profiling.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|4}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|kick}}
+| style="text-align:left;" | Kicks a player off a server.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|kill}}
+| style="text-align:left;" |Kills entities (players, mobs, items, etc.).
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|list}}
+| style="text-align:left;" |Lists players on the server.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|locate}}
+| style="text-align:left;" | Locates closest structure, biome, or point of interest.
+| {{tc|Yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|loot}}
+| style="text-align:left;" |Drops items from an inventory slot onto the ground.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|2}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|me}}
+| style="text-align:left;" |Displays a message about the sender.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|mobevent}}
+| style="text-align:left;" |Enables/disables a specified mob event.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|msg}}
+| style="text-align:left;" |An alias of {{cmd|tell}} and {{cmd|w}}. Displays a private message to other players.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|music}}
+| style="text-align:left;" | Allows the player to control playing music tracks.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|op}}
+| style="text-align:left;" |Grants operator status to a player.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|yes|2}} || {{tc|partial|yes{{only|java}}}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|ops}}
+| style="text-align:left;" |An alias of {{cmd|permission}}. Reloads and applies permissions.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|4}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|pardon}}
+| style="text-align:left;" |Removes entries from the banlist.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|-}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|pardon-ip}}
+| style="text-align:left;" |Removes entries from the banlist.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|-}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|particle}}
+| style="text-align:left;" |Creates particles.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|perf}}
+| style="text-align:left;" |Captures info and metrics about the game for 10 seconds.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|4}} || {{tc|-}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|permission}}
+| style="text-align:left;" | An alias of {{cmd|ops}}. Reloads and applies permissions.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|4}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|place|link=Commands/place (Java Edition)}}
+| style="text-align:left;" |Used to place a configured feature, jigsaw, template, or structure at a given location. 
+| {{tc|Yes}} || {{tc|Yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|playanimation}}
+| style="text-align:left;" |Used to run a one-off animation.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|playsound}}
+| style="text-align:left;" |Plays a sound. 
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|publish}}
+| style="text-align:left;" |Opens single-player world to local network.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|4}} || {{tc|-}} || {{tc|neutral|{{Tooltip|SP only|Command usable only in singleplayer}}}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|random}}
+| style="text-align:left;" | Draw a random value or control the random number sequence.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|0 (without <code>sequence</code>)<br>2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+
+|-
+| style="text-align:left;" |{{cmd|recipe}}
+| style="text-align:left;" |Gives or takes player recipes.
+| {{tc|yes}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|reload}}
+| style="text-align:left;" |Reloads loot tables, advancements, and functions from disk. 
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|2}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|remove}}
+| style="text-align:left;" |Removing agent.
+| {{tc|-}} || {{tc|yes}}<!--Can't confirm its existence in new version--> || {{tc|-}}
+| {{tc|-}} || {{tc|yes|2}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|replaceitem}}
+| style="text-align:left;" |Replaces items in inventories.
+| {{tc|yes}} || {{tc|yes}} || {{tc|no|Removed}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|return}}
+| style="text-align:left;" |Control execution flow inside functions and change their return value.
+| {{tc|no}} || {{tc|no}} || {{tc|yes}}
+| {{tc|?}} || {{tc|-}} || {{tc|?}}
+| {{tc|?}} || {{tc|?}} || {{tc|?}} || {{tc|?}}
+|-
+| style="text-align:left;" |{{cmd|ride}}
+| style="text-align:left;" | Used to make entities ride other entities, stop entities from riding, make rides evict their riders, or summon rides or riders.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|save}}
+| style="text-align:left;" |Prepares a backup, queries its status, or resumes. 
+| {{tc|yes}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|4}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|save-all}}
+| style="text-align:left;" |Saves the server to disk.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|4}} || {{tc|-}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|save-off}}
+| style="text-align:left;" |Disables automatic server saves.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|4}} || {{tc|-}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|save-on}}
+| style="text-align:left;" |Enables automatic server saves.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|4}} || {{tc|-}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|say}}
+| style="text-align:left;" |Displays a message to multiple players. 
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|schedule}}
+| style="text-align:left;" |Delays the execution of a function. 
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|scoreboard}}
+| style="text-align:left;" |Manages scoreboard objectives and players.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|script}}
+| style="text-align:left;" |{{Info needed}}.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|?}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|scriptevent}}
+| style="text-align:left;" |{{Info needed}}.
+| {{tc|yes}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|?}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|seed}}
+| style="text-align:left;" |Displays the [[world seed]].
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|0 in singleplayer<br>2 in multiplayer}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|setblock}}
+| style="text-align:left;" |Changes a block to another block.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|setidletimeout}}
+| style="text-align:left;" |Sets the time before idle players are kicked.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|-}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|setmaxplayers}}
+| style="text-align:left;" |Sets the maximum number of players allowed to join.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|3}} || {{tc|-}} 
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|setworldspawn}}
+| style="text-align:left;" |Sets the [[Spawn#Player spawning|world spawn]].
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|spawnpoint}}
+| style="text-align:left;" |Sets the spawn point for a player.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|spectate}}
+| style="text-align:left;" | Make one player in spectator mode spectate an entity.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|spreadplayers}}
+| style="text-align:left;" |Teleports entities to random locations.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|stop}}
+| style="text-align:left;" |Stops a server.
+| {{tc|yes}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|4}} || {{tc|yes|4}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|stopsound}}
+| style="text-align:left;" | Stops a sound.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|structure}}
+| style="text-align:left;" |Used to save and load structures without having to use structure blocks items in inventories.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|summon}}
+| style="text-align:left;" |Summons an entity.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|tag}}
+| style="text-align:left;" |Controls entity tags.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|team}}
+| style="text-align:left;" |Controls teams.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|teammsg}}
+| style="text-align:left;" |An alias of {{cmd|tm}}. Specifies the message to send to team.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|teleport}}
+| style="text-align:left;" |An alias of {{cmd|tp|link=Commands/teleport}}. Teleports entities.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|tell}}
+| style="text-align:left;" |An alias of {{cmd|msg}} and {{cmd|w}}. Displays a private message to other players.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|tellraw}}
+| style="text-align:left;" |Displays a JSON message to players.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|testfor}}
+| style="text-align:left;" |Counts entities matching specified conditions.
+| {{tc|yes}} || {{tc|yes}} || {{tc|no|Removed}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|testforblock}}
+| style="text-align:left;" |Tests whether a block is in a location.
+| {{tc|yes}} || {{tc|yes}} || {{tc|no|Removed}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|testforblocks}}
+| style="text-align:left;" |Tests whether the blocks in two regions match.
+| {{tc|yes}} || {{tc|yes}} || {{tc|no|Removed}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|tickingarea}}
+| style="text-align:left;" | Add, remove, or list ticking areas.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|time}}
+| style="text-align:left;" |Changes or queries the world's game time.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|tick}}
+| style="text-align:left;" |Freezes and unfreezes time, manages how fast time goes.
+| {{tc|N/A}} || {{tc|N/A}} || {{tc|yes}}
+| {{tc|N/A}} || {{tc|N/A}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|title}}
+| style="text-align:left;" |Manages screen titles.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|titleraw}}
+| style="text-align:left;" |Controls screen titles with JSON messages.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|tm}}
+| style="text-align:left;" |An alias of {{cmd|teammsg}}. Specifies the message to send to team.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|toggledownfall}}
+| style="text-align:left;" |Toggles the weather.
+| {{tc|yes}} || {{tc|yes}} || {{tc|no|Removed}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|tp}}
+| style="text-align:left;" |An alias of {{cmd|teleport}}. Teleports entities.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|trigger}}
+| style="text-align:left;" | Sets a trigger to be activated.
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+
+| style="text-align:left;" |{{cmd|transferserver}}
+| style="text-align:left;" | Transfers a player to another server.
+| {{tc|no|Removed}} || {{tc|no|Removed}} || {{tc|no}}
+| {{tc|no|0}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|volumearea}}
+| style="text-align:left;" | Add, remove, or list volume areas.
+| {{tc|yes}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|w}}
+| style="text-align:left;" |An alias of {{cmd|tell}} and {{cmd|msg}}. Displays a private message to other players.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|wb}}
+| style="text-align:left;" |An alias of {{cmd|worldbuilder}}. Ability to edit restricted blocks.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|weather}}
+| style="text-align:left;" |Sets the weather.
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|whitelist}}
+| style="text-align:left;" |Manages server whitelist.
+| {{tc|yes}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|yes|4}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|worldborder}}
+| style="text-align:left;" |Manages the [[world border]].
+| {{tc|-}} || {{tc|-}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|worldbuilder}}
+| style="text-align:left;" |An alias of {{cmd|wb}}. Ability to edit restricted blocks.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|wsserver}}
+| style="text-align:left;" |An alias of {{cmd|connect}}. Attempts to connect to the websocket server.
+| {{tc|yes}} || {{tc|yes}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|0{{only|education|short=1}}<br>2{{only|bedrock|short=1}}}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|xp}}
+| style="text-align:left;" |An alias of {{cmd|experience}}{{only|java}}. Adds or removes player [[experience]].
+| {{tc|yes}} || {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|2}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|}
+===Hidden commands===
+{{exclusive|bedrock|section=1}}
+These commands are unavailable in general cases. Most of them can be accessed with a Websocket Server.
+
+{| class="sortable wikitable stikitable collapsible collapsed" style="text-align:center;"
+|+Summary of Hidden Commands
+! style="text-align:left;" |Command
+! style="text-align:left;" |Description
+!{{Tooltip|BE|Available in Bedrock Edition}}
+!{{Tooltip|EE|Available in Education Edition}}
+!
+{{Tooltip|BE&EE [[OP level]]|Command permission level required in Bedrock and Education Edition to perform the command}}
+!{{Tooltip|MP only|Commands usable only in multiplayer}}
+!{{Tooltip|{{EnvSprite|blocks}}|Command modifies or queries blocks}}
+!{{Tooltip|{{EnvSprite|mobs}}|Command modifies or queries entities (mobs, dropped items, etc.)}}
+!{{Tooltip|{{EnvSprite|player}}|Command modifies or queries players}}
+!{{Tooltip|{{EnvSprite|default}}|Command modifies or queries the world}}
+|-
+| style="text-align:left;" |{{cmd|agent}}
+| style="text-align:left;" |Controls the agent.
+| {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|0{{only|education|short=1}}<br>1{{only|bedrock|short=1}}}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|codebuilder}}
+| style="text-align:left;" |Sets Code Builder state for a player.
+| {{tc|-}} || {{tc|yes}}
+| {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|classroommode}}
+| style="text-align:left;" |Ability to edit restricted blocks.
+| {{tc|-}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|closechat}}
+| style="text-align:left;" |Closes the chat window of the local player if it is open.
+| {{tc|-}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|closewebsocket}}
+| style="text-align:left;" |Closes websocket connection if there is one.
+| {{tc|yes}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|code}}
+| style="text-align:left;" |Launches Code Builder.
+| {{tc|-}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|enableencryption}}
+| style="text-align:left;" |Enable encryption for the current websocket connection.
+| {{tc|yes}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|getchunkdata}}
+| style="text-align:left;" |Gets pixels for a specific chunk.
+| {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|getchunks}}
+| style="text-align:left;" |Gets list of chunks that are loaded.
+| {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|geteduclientinfo}}
+| style="text-align:left;" |Shows the information about the client.
+| {{tc|-}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|geteduserverinfo}}
+| style="text-align:left;" |Shows the information about the server.
+| {{tc|yes}} || {{tc|-}}
+| {{tc|no|0}} || {{tc|yes}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|getlocalplayername}}
+| style="text-align:left;" |Shows the name of the local player.
+| {{tc|yes}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|getspawnpoint}}
+| style="text-align:left;" |Gets the spawn position of the specified player(s).
+| {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|gettopsolidblock}}
+| style="text-align:left;" | Gets the position of the top non-air block below the specified position.
+| {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|0{{only|education|short=1}}<br>1{{only|bedrock|short=1}}}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|globalpause}}
+| style="text-align:left;" |Sets or gets the paused state of the game for all players.
+| {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|lesson}}
+| style="text-align:left;" |Handle Educational Lesson reporting.
+| {{tc|-}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |
+{{cmd|listd}}
+| style="text-align:left;" |Lists the information about players on the server.
+| {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|3}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|querytarget}}
+| style="text-align:left;" |Gets transform, name, and id information about the given target entity or entities.
+| {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|0{{only|education|short=1}}<br>2{{only|bedrock|short=1}}}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|spawnitem}}
+| style="text-align:left;" |Spawns an item entity at position.
+| {{tc|-}} || {{tc|yes}}
+| {{tc|no|0}} || {{tc|-}} 
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|takepicture}}
+| style="text-align:left;" |Takes a photo of a player or from a player's point of view.
+| {{tc|yes}} || {{tc|yes}}
+| {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|}
+
+===Removed commands===
+
+{| class="sortable wikitable stikitable collapsible collapsed" style="text-align:center;"
+|+Summary of Removed Commands
+!Command
+! class="unsortable" |Description
+!Version Removed
+! class="unsortable" |Reason for Deletion
+!{{Tooltip|BE|Available in Bedrock Edition}}
+!{{Tooltip|EE|Available in Education Edition}}
+!{{Tooltip|JE|Available in Java Edition}}
+!{{Tooltip|JE OP level|Permission level required in Java Edition to perform the command}}
+!{{Tooltip|BE&EE OP level|Command permission level required in Bedrock and Education Edition to perform the command}}
+!{{Tooltip|MP Only|Commands usable only in multiplayer}}
+!{{Tooltip|{{EnvSprite|blocks}}|Command modifies or queries blocks}}
+!{{Tooltip|{{EnvSprite|mobs}}|Command modifies or queries entities (mobs, dropped items, etc.)}}
+!{{Tooltip|{{EnvSprite|player}}|Command modifies or queries players}}
+!{{Tooltip|{{EnvSprite|default}}|Command modifies or queries the world}}
+|-
+| style="text-align:left;" |
+<span class="nowrap">{{cmd|achievement}}</span>
+| style="text-align:left;" |Gives or takes an achievement from a player
+| data-sort-value="4 1.12 17w13a" |{{nowrap|[[Java Edition 1.12]]}}<br>(17w13a)
+| style="text-align:left;" |[[Achievements]] were superseded by [[advancements]]
+| {{tc|-}} || {{tc|-}} || {{tc|no|removed}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |<span class="nowrap">{{cmd|banip}}</span>
+| style="text-align:left;" |Bans a player by IP number
+| data-sort-value="2 0.31" |{{nowrap|[[Java Edition Indev 0.31]]}}
+| style="text-align:left;" |Superseded by {{cmd|ban-ip}}
+| {{tc|-}} || {{tc|-}} || {{tc|no|removed}}
+|'''?'''|| {{tc|-}} || {{tc|yes|MP}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}} 
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|blockdata}}}}
+| style="text-align:left;" |Modifies the data tag of a block
+| data-sort-value="4 1.13 17w47a" |{{nowrap|[[Java Edition 1.13]]}}<br>(17w47a)
+| style="text-align:left;" |Superseded by {{cmd|data}}
+| {{tc|-}} || {{tc|-}} || {{tc|no|removed}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|broadcast}}}}
+| style="text-align:left;" | Broadcasts a message across the entire server
+| data-sort-value="1 0.0.16a_01" |{{nowrap|[[Java Edition Classic 0.0.16a_01]]}}
+| style="text-align:left;" |Superseded by {{cmd|say}}
+| {{tc|-}} || {{tc|-}} || {{tc|no|removed}}
+| {{tc|yes|1}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|chunk|link=none}}}}
+| style="text-align:left;" | Force chunks to load constantly or not
+| data-sort-value="4 1.13.1 pre1" |{{nowrap|Java Edition 1.13.1-pre1}}
+| style="text-align:left;" |Superseded by {{cmd|forceload}}
+| {{tc|-}} || {{tc|-}} || {{tc|no|removed}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|clearfixedinv}}}}
+| style="text-align:left;" |Clears fixed inventory slots
+| data-sort-value="5 0.16.0" |{{nowrap|[[Pocket Edition v0.16.0 alpha]]}}<br>(build 2)
+|'''?'''
+| {{tc|no|removed}} || {{tc|no|removed}} || {{tc|-}}
+| {{tc|-}} ||'''?'''||'''?'''
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}} 
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|detect|link=none}}}}
+| style="text-align:left;" |Execute a command when condition is met.
+| data-sort-value="6 0.16.0" |{{nowrap|[[Bedrock Edition 1.2.0]]}}
+| style="text-align:left;" |Superseded by {{cmd|execute}}
+| {{tc|no|removed}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}} 
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|entitydata}}}}
+| style="text-align:left;" |Modifies the data tag of an entity
+| data-sort-value="4 1.13 17w45b" |{{nowrap|[[Java Edition 1.13]]}}<br>(17w45b)
+| style="text-align:left;" |Superseded by {{cmd|data}}
+| {{tc|-}} || {{tc|-}} || {{tc|no|removed}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|executeasself}}}}
+| style="text-align:left;" | Execute a command.
+| data-sort-value="5 ?" |'''?'''
+|'''?'''
+| {{tc|no|removed}} || {{tc|no|removed}} || {{tc|-}}
+| {{tc|-}} || {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|home}}}}
+| style="text-align:left;" |Teleports player to the world [[spawn]]
+| data-sort-value="3 1.2.5" |{{nowrap|[[Java Edition Alpha v1.2.5]]}}
+| style="text-align:left;" |Superseded by {{cmd|kill}}
+| {{tc|-}} || {{tc|-}} || {{tc|no|removed}}
+| {{tc|no|0}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|mixer}}
+| style="text-align:left;" |Mixer interactivity control.
+| data-sort-value="7 1.0.21" |{{nowrap|[[Bedrock Edition 1.16.210]]}}
+| style="text-align:left;" |Mixer was discontinued
+| {{tc|no|removed}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|locatebiome}}
+| style="text-align:left;" |Locates biomes.
+| data-sort-value="4" 1.19 22w19a |{{nowrap|[[Java Edition 1.19]]<br>(22w19a)}}
+| style="text-align:left;" |Superseded by {{cmd|locate}}
+| {{tc|-}} || {{tc|-}} || {{tc|no|removed}}
+| colspan="7" |?
+|-
+| style="text-align:left;" |{{cmd|placefeature}}
+| style="text-align:left;" |Used to place a configured feature at a given location.
+| data-sort-value="4 1.19 22w18a" |{{nowrap|[[Java Edition 1.19]]<br>(22w18a)}}
+| style="text-align:left;" |Superseded by {{cmd|place}}
+| {{tc|-}} || {{tc|-}} || {{tc|no|removed}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|position}}
+| style="text-align:left;" |Toggles player coordinates to be displayed on the HUD.
+| data-sort-value="7 1.0.21" |{{nowrap|[[Education Edition 1.0.21]]}}
+| style="text-align:left;" |Superseded by {{cmd|gamerule}}
+| {{tc|-}} || {{tc|no|Removed}} || {{tc|-}}
+| {{tc|-}} || {{tc|no|0}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|replaceitem}}}}
+| style="text-align:left;" |Replaces items in inventories.
+| data-sort-value="4 1.17 20w46a" |{{nowrap|[[Java Edition 1.17]]}}<br>(20w46a)
+| style="text-align:left;" |Superseded by {{cmd|item}}
+| {{tc|yes|Available}} || {{tc|yes|Available}} || {{tc|no|removed}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|resupply}}}}
+| style="text-align:left;" |Update the [[villager]]s' supply for economic trade.
+| data-sort-value="9 ?" |'''?'''
+|'''?'''
+| {{tc|no|Removed}}|| {{tc|-}} || {{tc|-}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|setfixedinvslot}}}}
+| style="text-align:left;" | Sets fixed inventory slot with a specific item.
+| data-sort-value="5 0.16.0" |{{nowrap|[[Pocket Edition v0.16.0 alpha]]}}<br>(build 2)
+|'''?'''
+| {{tc|no|removed}} || {{tc|no|removed}} || {{tc|-}}
+| {{tc|-}} ||'''?'''||'''?'''
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}} 
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|setfixedinvslots}}}}
+| style="text-align:left;" |Sets the amount of fixed inventory slots
+| data-sort-value="5 0.16.0" |{{nowrap|[[Pocket Edition v0.16.0 alpha]]}}<br>(build 2)
+|'''?'''
+| {{tc|no|removed}} || {{tc|no|removed}} || {{tc|-}}
+| {{tc|-}} ||ava Edi||on Inde
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}} 
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|setspawn}}}}
+| style="text-align:left;" |Sets the current location as the default spawn location for new players
+| data-sort-value="2 0.31" |{{nowrap|[[Java Edition Indev 0.31]]}}
+| style="text-align:left;" |Superseded by {{cmd|setworldspawn}}
+| {{tc|-}} || {{tc|-}} || {{tc|no|removed}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|solid}}}}
+| style="text-align:left;" |Toggles between placing stone and placing bedrock
+| data-sort-value="2 0.31" |{{nowrap|[[Java Edition Indev 0.31]]}}
+| style="text-align:left;" |[[Bedrock]] was added to the creative inventory as a separate item
+| {{tc|-}} || {{tc|-}} || {{tc|no|removed}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|stats}}}}
+| style="text-align:left;" |Update objectives from command results
+| data-sort-value="4 1.13 17w45a" |{{nowrap|[[Java Edition 1.13]]}}<br>(17w45a)
+| style="text-align:left;" |Merged with {{cmd|execute}}
+| {{tc|-}} || {{tc|-}} || {{tc|no|removed}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|swing}}}}
+| style="text-align:left;" |Plays a swinging animation to entities especially [[The Copper Age|mannequin]]s
+| data-sort-value="4 26.1" |{{nowrap|[[Java Edition 26.1]]}}<br>
+| style="text-align:left;" |?
+| {{tc|-}} || {{tc|-}} || {{tc|no|removed}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|yes|{{EnvSprite|blocks}}}} || {{tc|yes|{{EnvSprite|mobs}}}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|toggledownfall}}}}
+| style="text-align:left;" |Toggles the weather
+| data-sort-value="4 1.13 17w45a" |{{nowrap|[[Java Edition 1.13]]}}<br>(17w45a)
+| style="text-align:left;" |Redundancy with {{cmd|weather}}
+| {{tc|yes|Available}} || {{tc|yes|Available}} || {{tc|no|removed}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|-
+| style="text-align:left;" |{{cmd|transferserver}}
+| style="text-align:left;" | Transfer player to a server.
+| data-sort-value="6 1.2.3" |{{nowrap|[[Bedrock Edition 1.2.3]]}}
+|'''?'''
+| {{tc|no|removed}} || {{tc|no|removed}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{nowrap|{{cmd|unban}}}}
+| style="text-align:left;" |Pardons a banned player
+| data-sort-value="3 1.0.16" |{{nowrap|[[Java Edition Alpha v1.0.16]]}}
+| style="text-align:left;" |Superseded by {{cmd|pardon}}
+| {{tc|-}} || {{tc|-}} || {{tc|no|removed}}
+| {{tc|yes|3}} || {{tc|-}} || {{tc|yes|MP}}
+| {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|player}}}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|videostream}}
+| style="text-align:left;" |Attempts to connect to the websocket server to send a video stream.
+| data-sort-value="9 ?" |'''?'''
+|'''?'''
+| {{tc|no|Removed}}|| {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|videostreamaction}}
+| style="text-align:left;" |Attempts to run a action on video stream.
+| data-sort-value="9 ?" |'''?'''
+|'''?'''
+| {{tc|no|Removed}}|| {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|1}} || {{tc|-}}
+| {{tc|-}} || {{tc|yes|-}} || {{tc|-}} || {{tc|-}}
+|-
+| style="text-align:left;" |{{cmd|warden_spawn_tracker}}
+| style="text-align:left;" | Sets the spawn state of the warden.
+| data-sort-value="4 1.19 22w11a" |{{nowrap|[[Java Edition 1.19]]}}<br> (22w11a)
+| style="text-align:left;" | Temporary Command.
+| {{tc|-}} || {{tc|-}} || {{tc|no|Removed}}
+| {{tc|yes|2}} || {{tc|-}} || {{tc|-}}
+| {{tc|-}} || {{tc|-}} || {{tc|-}} || {{tc|yes|{{EnvSprite|default}}}}
+|}
+
+====Other removed commands====
+=====<small>Developer command</small>=====
+{{main|developer commands}}
+{{exclusive|bedrock|education|section=1}}
+Developer commands are only enabled in internal development builds of Bedrock Edition, and are not normally present in release versions.
+=====<small>Agent commands</small>=====
+{{education feature|section=1}}
+Superseded by {{cmd|agent}}
+*{{cmd|move}}
+*{{cmd|turn}}
+*{{cmd|attack}}
+*{{cmd|destroy}}
+*{{cmd|drop}}
+*{{cmd|dropall}}
+*{{cmd|inspect}}
+*{{cmd|inspectdata}}
+*{{cmd|detect}}
+*{{cmd|detectredstone}}
+*{{cmd|transfer}}
+*{{cmd|createagent}}
+*{{cmd|tpagent}}
+*{{cmd|collect}}
+*{{cmd|till}}
+*{{cmd|place|link=Commands/place (Bedrock Edition)}}
+*{{cmd|getitemcount}}
+*{{cmd|getitemspace}}
+*{{cmd|getitemdetail}} 
+
+===Joke commands ===
+
+These commands only exist in [[April Fools]] versions of the game.
+
+*{{cmd|debugdim}}
+*{{cmd|transform}}
+*{{cmd|vote}}
+*{{cmd|warp}}
+
+==History==
+{{info needed section|Bedrock Edition and Education Edition info}}
+{{work in progress|section=1}}
+
+===Command additions and changes===
+{{History|java classic}}
+{{History||0.0.16a|Added commands.}}
+{{History|java indev}}
+{{History||0.31|snap=?|Removed all commands.}}
+{{History|java alpha}}
+{{History||v1.0.16|Re-added several commands.}}
+{{History|java}}
+{{History||1.3.1|snap=12w16a|Added cheats mode.}}
+{{History|||snap=12w25a|Cheats can now be turned on or off when opening a world to other players through LAN.}}
+{{History||1.8|snap=14w03a|NBT data now supports using string IDs rather than numerical IDs.
+|Numerical IDs no longer work in other parts of commands, though they still work for NBT data.}}
+{{History||1.11|snap=16w32a|Added [[Block states|block state]] support to commands.}}
+{{History||1.13|snap=17w45a|A new library named [[Brigadier]] is now used to parse commands. Different components of commands are displayed in different colors, and errors are displayed in red without having to run the command. Commands, for the most part, do not allow uppercase letters, and are now much faster and more efficient.}}
+{{History|||snap=17w46a|The player now has the option to toggle automatic command suggestions.
+|The command UI has a new prototype, and now works in multiplayer.}}
+{{History|||snap=17w47a|Added an option in chat to toggle automatic command suggestions.}}
+{{History|||snap=17w48a|Tweaked the command suggestion UI.
+|Reworked tab-completion for coordinates.}}
+{{History|||snap=17w50a|[[Coordinates#Local_coordinates|Local coordinates]] can now be specified in commands using {{code|^}}.
+|Tab-completing when not targeting a block suggests {{code|~ ~ ~}}.}}
+{{History|||snap=18w01a|Changed all custom names (blocks, items, entities, block entities) to translatable text components.
+|{{code|Thrower}} and {{code|Owner}} nbt keys of item entities are no longer strings, but are instead compounds with two longs named {{code|L}} and {{code|M}}.
+|{{code|owner}} nbt key of snowballs, eggs and ender pearls are no longer strings, but are instead compounds with two longs named {{code|L}} and {{code|M}}.}}
+{{History|||snap=18w02a|Errors during a command are now a nicer error message (with a tool tip for more info).
+|Server commands now run from world spawn in the Overworld, instead of at {{code|0,0,0}}.}}
+{{History|||snap=18w03a|Improved performance of command parsing and command execution.}}
+{{History|||snap=18w05a|Added basic entity selector suggestions in the command UI.
+|A warning is now logged for ambiguous commands.}}
+{{History|||snap=18w06a|Added command suggestions for entity selectors.
+|Whitespaces are now allowed in entity selectors & block state arguments.}}
+{{History||September 26, 2018|link={{tweet|dinner|1044870699465216001}}|[[Brigadier]] [https://github.com/Mojang/brigadier open-sourced] under the MIT license. (Source code previously was available on the library site, with no license specified).}}
+{{History||1.16|snap=20w06a|Added {{cmd|locatebiome}}.}}
+{{History|||snap=20w17a|Added {{cmd|attribute}}.}}
+{{History||1.17|snap=20w46a|Removed {{cmd|replaceitem}}. Replaced with {{cmd|item replace}}.}}
+{{History||1.18|snap=21w37a|Added {{cmd|jfr}}.}}
+{{History||1.18.2|snap=22w03a|Added {{cmd|placefeature}}.}}
+{{History||1.19|snap=Deep Dark Experimental Snapshot 1|Added {{cmd|warden_spawn_tracker}}.}}
+{{History|||snap=22w11a|Removed {{cmd|warden_spawn_tracker}}.}}
+{{History|||snap=22w18a|Removed {{cmd|placefeature}}. Replaced with {{cmd|place feature}}.}}
+{{History|||snap=22w19a|Removed {{cmd|locatebiome}}. Replaced with {{cmd|locate biome}}.
+|Finding structures from {{cmd|locate}} now uses {{cmd|locate structure}}.}}
+{{History||1.19.3|snap=22w46a|Added {{cmd|fillbiome}}.}}
+{{History||1.19.4|snap=23w03a|Added {{cmd|ride}}.}}
+{{History|||snap=23w06a|Added {{cmd|damage}}.}}
+{{History||1.20|snap=23w16a|Added {{cmd|return}}.}}
+{{History||1.20.2|snap=23w31a|The last 50 commands sent in chat is now remembered across game sessions, and can be accessed via up and down arrow keys.
+|Recent commands are now stored in {{cd|command_history.txt}} in the <code>[[.minecraft]]</code> folder.
+|Added {{cmd|random}}.}}
+
+{{History|pocket alpha}}
+{{History||v0.7.4|Added support for commands, though none are implemented yet.}}
+{{History||v0.16.0|snap=build 1|Added commands.
+|Functionality of most commands is equivalent to [[Java Edition 1.10]] usage. Differences include: no support for [[#Data tags|data tags]].}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Added {{cmd|locate}}, {{cmd|connect}}, and {{cmd|fly}}.}}
+{{History|||snap=alpha 0.17.0.2|Removed {{cmd|locate}}.}}
+{{History|||snap=alpha 1.0.0.0|Re-added {{cmd|locate}}, currently can locate strongholds only.}}
+{{History||1.0.5|snap=alpha 1.0.5.0|Added more commands.}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Added <code>dodaylightcycle</code>, <code>doentitydrops</code>, <code>dofiretick</code>, <code>domobspawning</code>, <code>domobloot</code>, <code>dotiledrops</code>, <code>doweathercycle</code>, <code>keepinventory</code> and <code>mobgriefing</code> to {{cmd|gamerule}}.
+|<code>CanPlaceOn</code> and <code>CanDestroy</code> are now in {{cmd|replaceitem}} and {{cmd|give}}.
+|{{cmd|locate}} can now find other structures.}}
+{{History|||snap=alpha 1.1.0.3|Added {{cmd|setmaxplayers}}.}}
+{{History|bedrock}}
+{{History||1.2.0|snap=?|A new command parsing system is now used.}}
+{{History|||snap=beta 1.2.0.2|Added {{cmd|tickingarea}}.
+|{{cmd|summon}} can now summon projectiles.}}
+{{History|||snap=beta 1.2.0.31|<code>[[Coordinates]]</code> are now a gamerule to {{cmd|gamerule}}.}}
+{{History||1.5.0||Added {{cmd|ability|link=none}}, {{cmd|immutableworld|link=none}}, and {{cmd|worldbuilder|link=none}}.}}
+{{History||1.6.0|snap=beta 1.6.0.6|<code>doInsomnia</code> is now a gamerule to {{cmd|gamerule}}.}}
+{{History||1.7.0|snap=beta 1.7.0.2|Added {{cmd|scoreboard}}.
+|<code>commandblocksenabled</code> is now a gamerule to {{cmd|gamerule}}.}}
+{{History||1.8.0|snap=beta 1.8.0.8|<code>randomtickspeed</code> is now a gamerule to {{cmd|gamerule}}.
+|Added {{cmd|particle}} and {{cmd|reload}}.
+|<code>showcoordinates</code> <code>dofiretick</code> <code>tntexplodes</code> <code>domobloot</code> <code>naturalregeneration</code> <code>dotiledrops</code> and <code>pvp</code> no longer require cheats when using {{cmd|gamerule}}.}}
+{{History||1.9.0|snap=beta 1.9.0.0|<code>immediateRespawn</code> and <code>showDeathMessages</code> are now a gamerule to {{cmd|gamerule}}.
+|Added more particles ([[Bedrock Edition beta 1.9.0.0#Command format|View all]]) to {{cmd|particle}}.
+|Added {{cmd|tellraw}}.}}
+{{History||1.11.0|snap=beta 1.11.0.3|Added {{cmd|mobevent}}.}}
+{{History||1.12.0|snap=beta 1.12.0.2|<code>spawnradius</code>, <code>sendcommandblockfeedback</code>, <code>maxcommandchainlength</code> and <code>commandblockoutput</code> are now gamerules to {{cmd|gamerule}}.
+|Added more particles ([[Bedrock Edition beta 1.12.0.2#Command format|View all]]) to {{cmd|particle}}.}}
+{{History||1.14.0|<code>showtags</code> is now a gamerule to {{cmd|gamerule}}.}}
+{{History||1.16.0|Added {{cmd|kick}}.
+|{{cmd|spawnpoint}} can now be used in the nether.}}
+{{History||1.16.100|snap=beta 1.16.100.52|Added {{cmd|playanimation}}, {{cmd|ride}}, and {{cmd|structure}}.}}
+{{History|||snap=beta 1.16.100.54|Added {{cmd|fog}}.}}
+{{History|||snap=beta 1.16.100.57|Added {{cmd|camerashake}}, {{cmd|clearspawnpoint}}, and {{cmd|event}}.}}
+{{History|||snap=beta 1.16.100.58|Added {{cmd|music}}.}}
+{{History|||snap=beta 1.16.100.59|Added {{cmd|schedule}}.
+|{{cmd|camerashake}} now have two types of shakes.}}
+{{History|||snap=beta 1.16.100.60|{{cmd|structure}} can now animate the placement of a structure.}}
+{{History||1.16.210|snap=beta 1.16.210.53|<code>freezeDamage</code> is now a gamerule to {{cmd|gamerule}}.
+|{{cmd|clone}}, {{cmd|fill}}, and {{cmd|setblock}} now have a new slash command options for passing in a list of block states to set on the block being spawned.
+|Removed {{cmd|mixer}}.}}
+{{History|||snap=beta 1.16.210.54|You can now stop camera shaking in {{cmd|camerashake}}.
+|Re-added {{cmd|mixer}}.
+|You can now delete structures in {{cmd|structure}}.}}
+{{History|||snap=beta 1.16.210.58|Removed {{cmd|mixer}} again.}}
+{{History|||snap=beta 1.16.210.60|Added {{cmd|gametest}}.}}
+{{History||1.17.10|snap=beta 1.17.10.22|Added {{cmd|dialogue}}.}}
+{{History||1.17.30|snap=beta 1.17.20.20|<code>respawnBlocksExplode</code> is now a gamerule to {{cmd|gamerule}}.}}
+{{History||1.18.0|snap=beta 1.18.0.21|Added {{cmd|loot}}.}}
+{{History|||snap=beta 1.18.0.22|Removed {{cmd|loot}}.}}
+{{History||1.18.10|snap=beta 1.18.10.21|Re-added {{cmd|loot}}.}}
+{{History|||snap=beta 1.18.10.26|Added {{cmd|damage}}.}}
+{{History||1.18.30|snap=beta 1.18.20.21|Added {{cmd|volumearea}}.}}
+{{History||1.19.0|snap=beta 1.19.0.30|Added {{cmd|script}}.}}
+{{History||1.19.10|snap=beta 1.19.10.23|{{cmd|locate}} can now find biomes.}}
+{{History||1.19.60|snap=beta 1.19.60.22|Added {{cmd|scriptevent}}.}}
+{{History||1.19.80|snap=beta 1.19.80.20|Added command suggestions for [[block states]].}}
+{{History||1.19.80|snap=beta 1.19.80.21|Added {{cmd|inputpermission}}.}}
+{{History||1.20.0|snap=beta 1.20.0.22|Added {{cmd|camera}}.}}
+{{History||1.20.10|snap=beta 1.20.10.21|Added {{cmd|recipe}}.}}
+{{History|foot}}
+
+===April Fools command===
+{{History|java}}
+{{History||20w14∞|Added {{cmd|debugdim}} and {{cmd|warp}}.}}
+{{History||23w13a or b|Added {{cmd|transform}} and {{cmd|vote}}.}}
+{{History|foot}}
+
+==Issues==
+
+{{issue list}}
+
+==See also==
+
+*[[Argument types]]
+*[[Coordinates]]
+*[[Entity format]]
+*[[Formatting codes]]
+*[[Raw JSON text format]]
+*[[Target selectors]]
+
+==References==
+{{Reflist}}
+
+{{Commands}}
+{{Java Edition}}
+{{Bedrock Edition}}
+
+[[Category:Commands| ]]
+[[Category:Server]]
+
+[[de:Befehl]]
+[[es:Comandos]]
+[[fr:Commandes]]
+[[hu:Szerverparancsok]]
+[[it:Comandi]]
+[[ja:コマンド]]
+[[ko:명령어]]
+[[nl:Opdrachten]]
+[[pl:Polecenia]]
+[[pt:Comandos]]
+[[ru:Команды консоли]]
+[[th:คำสั่ง]]
+[[tr:Komutlar]]
+[[uk:Команди консолі]]
+[[zh:命令]]

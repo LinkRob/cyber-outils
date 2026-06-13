@@ -1,0 +1,167 @@
+{{stub}}
+{{Exclusive|Bedrock}}
+{{Infobox command
+| name = camera
+| oplevel = 1
+| cheat = 1
+}}
+Modifies player's camera view.
+
+== Syntax ==
+: <code>'''/camera''' <players: target> . . .</code>
+:* <code>… '''clear'''</code>
+:* <code>… '''fade''' . . .</code>
+:** <code>… color <red: int> <green: int> <blue: int></code>
+:** <code>… time <fadeInSeconds: float> <holdSeconds: float> <fadeOutSeconds: float> . . .</code>
+:*** <code>… color <red: int> <green: int> <blue: int></code>
+:* <code>… '''set''' <preset: string> . . .</code>
+:** <code>… [default: default]</code>
+:** <code>… facing . . .</code>
+:*** <code>… <lookAtEntity: target></code>
+:*** <code>… <lookAtPosition: x y z></code>
+:** <code>… pos <position: x y z> . . .</code>
+:*** <code>… facing . . .</code>
+:**** <code>… <lookAtEntity: target></code>
+:**** <code>… <lookAtPosition: x y z></code>
+:*** <code>… rot <xRot: value> <yRot: value></code>
+:** <code>… rot <xRot: value> <yRot: value></code>
+:** <code>… ease <easeTime: float> <easeType: Easing> . . .</code>
+:*** <code>… [default: default]</code>
+:*** <code>… facing . . .</code>
+:**** <code>… <lookAtEntity: target></code>
+:**** <code>… <lookAtPosition: x y z></code>
+:*** <code>… pos <position: x y z> . . .</code>
+:**** <code>… facing . . .</code>
+:***** <code>… <lookAtEntity: target></code>
+:***** <code>… <lookAtPosition: x y z></code>
+:**** <code>… rot <xRot: value> <yRot: value></code>
+:*** <code>… rot <xRot: value> <yRot: value></code>
+
+::'''Syntax displayed in various ways'''
+:::{| class="collapsible collapsed collapse-button-none" data-description="simple_tree"
+|-
+! style="text-align:left" | Simplified tree:
+|-
+|
+: <code>camera <players: target> . . .</code>
+:* <code>… clear</code>
+:* <code>… fade . . .</code>
+:** <code>… color <red: int> <green: int> <blue: int></code>
+:** <code>… time <fadeInSeconds: float> <holdSeconds: float> <fadeOutSeconds: float> . . .</code>
+:*** <code>… color <red: int> <green: int> <blue: int></code>
+:* <code>… set <preset: string> . . .</code>
+:** <code>… [default: default]</code>
+:** <code>… ease <easeTime: float> <easeType: Easing> . . .</code>
+:*** <code>… [default: default]</code>
+:*** <code>… facing <lookAtEntity: target></code>
+:*** <code>… facing <lookAtPosition: x y z></code>
+:*** <code>… pos <position: x y z> . . .</code>
+:**** <code>… facing <lookAtEntity: target></code>
+:**** <code>… facing <lookAtPosition: x y z></code>
+:**** <code>… rot <xRot: value> <yRot: value></code>
+:*** <code>… rot <xRot: value> <yRot: value></code>
+:** <code>… facing <lookAtEntity: target></code>
+:** <code>… facing <lookAtPosition: x y z></code>
+:** <code>… pos <position: x y z> . . .</code>
+:*** <code>… facing <lookAtEntity: target></code>
+:*** <code>… facing <lookAtPosition: x y z></code>
+:*** <code>… rot <xRot: value> <yRot: value></code>
+:** <code>… rot <xRot: value> <yRot: value></code>
+|}
+:::{| class="collapsible collapsed collapse-button-none" data-description="maximised_tree"
+|-
+! style="text-align:left" | Maximised:
+|-
+|
+: <code>camera <players: target> clear</code>
+: <code>camera <players: target> fade</code>
+: <code>camera <players: target> fade color <red: int> <green: int> <blue: int></code>
+: <code>camera <players: target> fade time <fadeInSeconds: float> <holdSeconds: float> <fadeOutSeconds: float></code>
+: <code>camera <players: target> fade time <fadeInSeconds: float> <holdSeconds: float> <fadeOutSeconds: float> color <red: int> <green: int> <blue: int></code>
+: <code>camera <players: target> set <preset: string> [default: default]</code>
+: <code>camera <players: target> set <preset: string> ease <easeTime: float> <easeType: Easing> [default: default]</code>
+: <code>camera <players: target> set <preset: string> ease <easeTime: float> <easeType: Easing> facing <lookAtEntity: target></code>
+: <code>camera <players: target> set <preset: string> ease <easeTime: float> <easeType: Easing> facing <lookAtPosition: x y z></code>
+: <code>camera <players: target> set <preset: string> ease <easeTime: float> <easeType: Easing> pos <position: x y z></code>
+: <code>camera <players: target> set <preset: string> ease <easeTime: float> <easeType: Easing> pos <position: x y z> facing <lookAtEntity: target></code>
+: <code>camera <players: target> set <preset: string> ease <easeTime: float> <easeType: Easing> pos <position: x y z> facing <lookAtPosition: x y z></code>
+: <code>camera <players: target> set <preset: string> ease <easeTime: float> <easeType: Easing> pos <position: x y z> rot <xRot: value> <yRot: value></code>
+: <code>camera <players: target> set <preset: string> ease <easeTime: float> <easeType: Easing> rot <xRot: value> <yRot: value></code>
+: <code>camera <players: target> set <preset: string> facing <lookAtEntity: target></code>
+: <code>camera <players: target> set <preset: string> facing <lookAtPosition: x y z></code>
+: <code>camera <players: target> set <preset: string> pos <position: x y z></code>
+: <code>camera <players: target> set <preset: string> pos <position: x y z> facing <lookAtEntity: target></code>
+: <code>camera <players: target> set <preset: string> pos <position: x y z> facing <lookAtPosition: x y z></code>
+: <code>camera <players: target> set <preset: string> pos <position: x y z> rot <xRot: value> <yRot: value></code>
+: <code>camera <players: target> set <preset: string> rot <xRot: value> <yRot: value></code>
+|}
+
+== Arguments ==
+{{argument|be=1|players: target|CommandSelector<Player>}}
+: {{info needed}}
+: {{arg desc|be=CommandSelector<Player>}}
+
+{{argument|be=1|red: int|int}}, {{argument|be=1|green: int|int}}, and {{argument|be=1|blue: int|int}}
+: {{info needed}}
+: {{arg desc|be=int}} And must be between 0 and 255. 
+
+{{argument|be=1|fadeInSeconds: float|float}}, {{argument|be=1|holdSeconds: float|float}}, and {{argument|be=1|fadeOutSeconds: float|float}}
+: Specifies the camera fade in, hold, and fade out duration.
+: {{arg desc|be=float}} And must be between 0.0 and 10.0 (seconds). 
+
+{{argument|be=1|preset: string|basic_string}}
+: A camera view/preset.
+: Must be one of <code>minecraft:free</code>, <code>minecraft:first_person</code>, <code>minecraft:third_person</code>, <code>minecraft:third_person_front</code>, <code>example:example_free</code>, <code>example:example_player_effects</code>, and <code>example:example_player_listener</code>.
+
+{{argument|be=1|easeTime: float|float}}
+: Specifies the duration of the easing.
+: {{arg desc|be=float}}
+
+{{argument|be=1|easeType: Easing|enum}}
+: Specifies an easing function/type to use for the camera.
+: Must be one of <code>linear</code>, <code>spring</code>, <code>in_quad</code>, <code>out_quad</code>, <code>in_out_quad</code>, <code>in_cubic</code>, <code>out_cubic</code>, <code>in_out_cubic</code>, <code>in_quart</code>, <code>out_quart</code>, <code>in_out_quart</code>, <code>in_quint</code>, <code>out_quint</code>, <code>in_out_quint</code>, <code>in_sine</code>, <code>out_sine</code>, <code>in_out_sine</code>, <code>in_expo</code>, <code>out_expo</code>, <code>in_out_expo</code>, <code>in_circ</code>, <code>out_circ</code>, <code>in_out_circ</code>, <code>in_bounce</code>, <code>out_bounce</code>, <code>in_out_bounce</code>, <code>in_back</code>, <code>out_back</code>, <code>in_out_back</code>, <code>in_elastic</code>, <code>out_elastic</code>, and <code>in_out_elastic</code>.
+
+{{argument|be=1|default: default|basic_string}}
+: {{info needed}}
+: {{arg desc|be=basic_string}}
+
+{{argument|be=1|lookAtEntity: target|CommandSelector<Actor>}}
+: Specifies the entity to make the camera facing to.
+: {{arg desc|be=CommandSelector<Actor>}}
+
+{{argument|be=1|lookAtPosition: x y z|CommandPositionFloat}}
+: Specifies the coordinates to make the camera facing to.
+: {{arg desc|be=CommandPositionFloat}}
+
+{{argument|be=1|position: x y z|CommandPosition}}
+: Specifies the camera position.
+: {{arg desc|be=CommandPosition}}
+
+{{argument|be=1|xRot: value|RelativeFloat}} and {{argument|be=1|yRot: value|RelativeFloat}}
+: Specifies the camera rotation.
+: {{arg desc|be=RelativeFloat}}
+
+== Result ==
+{{section needed}}
+
+== Output ==
+{{section needed}}
+
+== Examples ==
+{{info needed section}}
+
+* <code>/camera @s set minecraft:free ease 5 in_out_circ pos ~ ~5 ~ rot 90 0</code>
+
+== History ==
+{{History|bedrock}}
+{{History||?|snap=?|Added {{cmd|camera|link=none}} as a developer command.}}
+{{History||Experimental Cameras<br>(Experimental)|link=Bedrock Edition 1.20.0|snap=beta 1.20.0.22|{{cmd|camera|link=none}} is now behind the "Experimental Cameras" [[experimental]] toggle.}}
+{{History||Experimental Cameras<br>(Experimental)|link=Bedrock Edition 1.20.10|snap=beta 1.20.10.20|Added <code>example:example_player_listener</code> camera preset.|The color fade values are now integers between 0 and 255 instead of 0.0 to 1.0.|The camera fade in, hold, and fade out duration must be between 0.0 and 10.0 seconds.}}
+{{History|||snap=beta 1.20.10.23|Added <code>facing</code> option.|Added <code>example:example_player_effects</code> camera preset.}}
+{{History||1.20.30|snap=beta 1.20.20.22|{{cmd|camera|link=none}} is now available without using the "Experimental Cameras" [[experimental]] toggle.}}
+{{History|foot}}
+
+{{Commands}}
+
+[[pt:Comandos/camera]]
+[[zh:命令/camera]]

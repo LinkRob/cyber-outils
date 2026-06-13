@@ -1,0 +1,432 @@
+Animated blocks and fluids had backup '''placeholder textures''' in <samp>terrain.png</samp>, overwritten in memory with the [[Procedural animated texture generation|generated animations]], which would be used if the animated texture could not be loaded.
+
+== Info ==
+In some versions,{{info needed|This works in Beta 1.7.3 but does not work in Infdev 20100630-2 - where are the cutoff versions for this?}} they could be triggered to appear if the game is paused upon first loading the world, which can be done by having another window which is not the game be in focus while the game loads the world.
+
+It is worth noting here that flowing liquids use a texture twice the size of most block textures (32x32 as opposed to the usual 16x16). This is not unique to placeholder textures, and can also be noted when viewing the raw textures for liquids in 13w02a{{info needed|equivalent bedrock version?}} and above, as well as applying internally for generated liquid textures. A larger texture is used here since the texture is rotated accordingly to match the flow direction, while otherwise remaining at the same resolution. As a result, 16x16 textures would be too small to show a continuous texture if rotated at all, as with the most extreme case, a 45 degree rotation, there would be clear gaps at the corners, as one corner to the other would cross 16√2 pixels rather than 16.{{verify|not sure I did my math correctly here, or explained it well enough. Can someone else maybe do it better? A visual example is upcoming anyway.}}
+
+== Water ==
+=== {{el|je}} ===
+When the generated animation was added for water in 0.0.19a, the old water texture used before that point was kept in  for use as a placeholder texture.
+
+A second copy of the water texture was added in the 20091223-1 Indev build, which was without a doubt linked to the addition of the flowing water texture.
+
+In the 20100616 build of Infdev, the water placeholder textures were moved to the bottom-right of <samp>terrain.png</samp>. The still water texture remained as a single texture square, and the flowing water texture became a 2x2 square of water textures, as explained earlier.
+
+With the addition of animated texture images in 13w02a, these textures were decommissioned and removed soon after.
+
+<center>
+{| class="wikitable" style="text-align:center"
+! rowspan="3" | Texture \ Version
+! [[Java Edition Classic|Classic]]
+! [[Java Edition Indev|Indev]]
+! [[Java Edition Infdev|Infdev]]
+|-
+! rowspan="2" | [[Java Edition Classic 0.0.19a|0.0.19a]]
+! [[Java Edition Indev 0.31|0.31]]
+! [[Minecraft Infdev]]
+|-
+! [[Java Edition Indev 0.31 20091223-1|20091223-1]]
+! [[Java Edition Infdev 20100616|20100616]]
+|-
+! Still
+| colspan="3" | [[File:Flowing Water (placeholder texture) JE1.png|60px]]
+|-
+! Flowing
+! {{tc|No|-}}
+| [[File:Water (placeholder texture) JE1 BE1.png|60px]]
+| [[File:Flowing Water (placeholder texture) JE2 BE1.png|120px]]
+|}
+</center>
+
+=== {{el|be}} ===
+Due to the first <samp>terrain.png</samp> in Pocket Edition being based off of the <samp>terrain.png</samp> from Beta 1.3, both the still and flowing water texture placeholders from said version are there by default. It was used as the water texture on certain devices, seemingly on either very new or very old devices relative to 2011-12. It seems that as of v0.7.0 alpha, the generated water texture would always be used, and the placeholder texture's use in later versions is unknown.
+
+It was updated in v0.10.0 alpha to more closely resemble the generated water texture, becoming opaque as a result.
+
+<center>
+{| class="wikitable" style="text-align:center"
+! rowspan="3" | Texture \ Version
+! colspan="2" | [[Pocket Edition Alpha|Alpha]]
+|-
+! rowspan="2" | [[Pocket Edition v0.1.0 alpha|v0.1.0 alpha]]
+! [[Pocket Edition v0.10.0 alpha|v0.10.0 alpha]]
+|-
+! build 1
+|-
+! Still
+| [[File:Water (placeholder texture) JE1 BE1.png|60px]]
+| [[File:Water (placeholder texture) BE2.png|60px]]
+|-
+! Flowing
+| [[File:Flowing Water (placeholder texture) JE2 BE1.png|120px]]
+| [[File:Flowing Water (placeholder texture) BE2.png|120px]]
+|}
+</center>
+
+=== {{el|lce}} ===
+Due to the first <samp>terrain.png</samp> in Xbox 360 Edition being the same as the <samp>terrain.png</samp> from Beta 1.6.6, both the still and flowing water texture placeholders from said version are there by default, and would carry on into the other respective consoles. What the water placeholder textures were used for in this edition is unknown.
+
+It was updated in TU25 and equivalent versions to more closely resemble the generated water texture, and was updated again in TU31 and equivalent versions alongside all other translucent textures to appear more translucent.
+
+<center>
+{| class="wikitable" style="text-align:center"
+! rowspan="3" | Texture \ Version
+! colspan="15" | {{el|lce}}
+|-
+! [[Xbox 360 Edition|360]]
+! [[Xbox One Edition|One]]
+! [[PlayStation Edition|PS]]
+! [[Wii U Edition|Wii U]]
+! [[Nintendo Switch Edition|Switch]]
+! [[Xbox 360 Edition|360]]
+! [[Xbox One Edition|One]]
+! [[PlayStation Edition|PS]]
+! [[Wii U Edition|Wii U]]
+! [[Nintendo Switch Edition|Switch]]
+! [[Xbox 360 Edition|360]]
+! [[Xbox One Edition|One]]
+! [[PlayStation Edition|PS]]
+! [[Wii U Edition|Wii U]]
+! [[Nintendo Switch Edition|Switch]]
+|-
+! [[Xbox 360 Edition TU0|TU0]]
+! [[Xbox One Edition CU1|CU1]]
+! [[1.0#Legacy Console Edition|1.00]]
+! {{tc|No|-}}
+! {{tc|No|-}}
+! [[Xbox 360 Edition TU25|TU25]]
+! [[Xbox One Edition CU14|CU14]]
+! [[1.17#Legacy Console Edition|1.17]]
+! [[Wii U Edition Patch 1|Patch 1]]
+! {{tc|No|-}}
+! [[Xbox 360 Edition TU31|TU31]]
+! [[Xbox One Edition CU19|CU19]]
+! [[1.22#Legacy Console Edition|1.22]]
+! [[Wii U Edition Patch 3|Patch 3]]
+! [[Nintendo Switch Edition 1.0.1|1.0.1]]
+|-
+! Still
+| colspan="5" | [[File:Water (placeholder texture) JE1 BE1.png|60px]]
+| colspan="5" | [[File:Water (placeholder texture) LCE2.png|60px]]
+| colspan="5" | [[File:Water (placeholder texture) LCE3.png|60px]]
+|-
+! Flowing
+| colspan="5" | [[File:Flowing Water (placeholder texture) JE2 BE1.png|120px]]
+| colspan="5" | [[File:Flowing Water (placeholder texture) LCE2.png|120px]]
+| colspan="5" | [[File:Flowing Water (placeholder texture) LCE3.png|120px]]
+|}
+</center>
+
+== Lava ==
+=== {{el|je}} ===
+When the generated animation was added for lava in 0.0.19a, the old lava texture used before that point was kept in  for use as a placeholder texture.
+
+A second copy of the lava texture was added in the 20100110 Indev build, presumably for flowing lava, despite flowing lava not appearing visually distinct from still lava until the 20100616 build of Infdev. Whether this even represents where flowing lava would be at all, or if versions before 20100110 and inclusively after 20091223-1 would use the same placeholder texture for would-be "flowing" lava (in an identical situation to water) as it would still lava or if it would use the texture at this position instead which was a duplicate of the top of grass at the time, is currently unknown.
+
+In the 20100616 build of Infdev, the lava placeholder textures were moved to the bottom-right of <samp>terrain.png</samp>. The still lava texture remained as a single texture square, and the flowing lava texture became a 2x2 square of lava textures, as explained earlier.
+
+With the addition of animated texture images in 13w02a, these textures were decommissioned and removed soon after.
+
+<center>
+{| class="wikitable" style="text-align:center"
+! rowspan="3" | Texture \ Version
+! [[Java Edition Classic|Classic]]
+! [[Java Edition Indev|Indev]]
+! [[Java Edition Infdev|Infdev]]
+|-
+! rowspan="2" | [[Java Edition Classic 0.0.19a|0.0.19a]]
+! [[Java Edition Indev 0.31|0.31]]
+! [[Minecraft Infdev]]
+|-
+! [[Java Edition Indev 0.31 20100110|20100110]]{{verify|we need to confirm if this is the first version to define the existence of a "flowing lava texture", and make sure that earlier versions such as 20091223-2 don't also define a unique yet identical "flowing lava texture"}}
+! [[Java Edition Infdev 20100616|20100616]]
+|-
+! Still
+| colspan="3" | [[File:Lava (placeholder texture) JE1 BE1.png|60px]]
+|-
+! Flowing
+! {{tc|No|-}}
+| [[File:Flowing Lava (placeholder texture) JE1.png|60px]]
+| [[File:Flowing Lava (placeholder texture) JE2 BE1.png|120px]]
+|}
+</center>
+
+=== {{el|be}} ===
+Due to the first <samp>terrain.png</samp> in Pocket Edition being based off of the <samp>terrain.png</samp> from Beta 1.3, both the still and flowing water texture placeholders from said version are there by default. It was used for all lava seemingly regardless of device up until v0.7.0 alpha, when lava became animated on seemingly all devices.
+
+It was updated in v0.14.2 to more closely resemble the generated lava.
+
+<center>
+{| class="wikitable" style="text-align:center"
+! rowspan="2" | Texture \ Version
+! colspan="2" | [[Pocket Edition Alpha|Alpha]]
+|-
+! [[Pocket Edition v0.1.0 alpha|v0.1.0 alpha]]
+! [[Pocket Edition v0.14.2 alpha|v0.14.2 alpha]]
+|-
+! Still
+| [[File:Lava (placeholder texture) JE1 BE1.png|60px]]
+| [[File:Lava (placeholder texture) BE2.png|60px]]
+|-
+! Flowing
+| [[File:Flowing Lava (placeholder texture) JE2 BE1.png|120px]]
+| [[File:Flowing Lava (placeholder texture) BE2.png|120px]]
+|}
+</center>
+
+=== {{el|lce}} ===
+Due to the first <samp>terrain.png</samp> in Xbox 360 Edition being the same as the <samp>terrain.png</samp> from Beta 1.6.6, both the still and flowing lava texture placeholders from said version are there by default, and would carry on into the other respective consoles. What the lava placeholder textures were used for in this edition is unknown.
+
+It was updated in TU25 and equivalent versions to more closely resemble the generated lava texture.
+
+<center>
+{| class="wikitable" style="text-align:center"
+! rowspan="3" | Texture \ Version
+! colspan="10" | {{el|lce}}
+|-
+! [[Xbox 360 Edition|360]]
+! [[Xbox One Edition|One]]
+! [[PlayStation Edition|PS]]
+! [[Wii U Edition|Wii U]]
+! [[Nintendo Switch Edition|Switch]]
+! [[Xbox 360 Edition|360]]
+! [[Xbox One Edition|One]]
+! [[PlayStation Edition|PS]]
+! [[Wii U Edition|Wii U]]
+! [[Nintendo Switch Edition|Switch]]
+|-
+! [[Xbox 360 Edition TU0|TU0]]
+! [[Xbox One Edition CU1|CU1]]
+! [[1.0#Legacy Console Edition|1.00]]
+! {{tc|No|-}}
+! {{tc|No|-}}
+! [[Xbox 360 Edition TU25|TU25]]
+! [[Xbox One Edition CU14|CU14]]
+! [[1.17#Legacy Console Edition|1.17]]
+! [[Wii U Edition Patch 1|Patch 1]]
+! [[Nintendo Switch Edition 1.0.1|1.0.1]]
+|-
+! Still
+| colspan="5" | [[File:Lava (placeholder texture) JE1 BE1.png|60px]]
+| colspan="5" | [[File:Lava (placeholder texture) LCE2.png|60px]]
+|-
+! Flowing
+| colspan="5" | [[File:Flowing Lava (placeholder texture) JE2 BE1.png|120px]]
+| colspan="5" | [[File:Flowing Lava (placeholder texture) LCE2.png|120px]]
+|}
+</center>
+
+== Fire ==
+=== {{el|je}} ===
+[[File:FIRE TEX! HNST.png|thumb|{{info needed|How would this (the placeholder texture appearing in front of the player) be made to happen?}}]]
+Despite fire being added in early Indev in January, a dedicated placeholder texture for fire was not added until late Infdev in June. Initially, the placeholder texture was a hilarious red-orange scribble, but was changed several days later to a red square with "FIRE TEX! HNST" (Fire texture!, honest!) cut out of it.
+
+In Beta 1.2, a second copy of the placeholder texture was added to <samp>terrain.png</samp> below the original copy. This is very likely linked to there being two similar but different fire textures, with there now being one placeholder texture each.
+
+<center>
+{| class="wikitable" style="text-align:center"
+! rowspan="3" | Texture \ Version
+! colspan="2" | [[Java Edition Infdev|Infdev]]
+! [[Java Edition Beta|Beta]]
+|-
+! colspan="2" | [[Minecraft Infdev]]
+! rowspan="2" | [[Java Edition Beta 1.2|1.2]]
+|-
+! [[Java Edition Infdev 20100617-2|20100617-2]]{{verify|can we be sure it wasn't 0617-1 or 0616?}}
+! [[Java Edition Infdev 20100624|20100624]]
+|-
+! Fire 0
+| [[File:Fire 0 (placeholder texture) JE1.png|60px]]
+| colspan="2" | [[File:Fire 0 (placeholder texture) JE2.png|60px]]
+|-
+! Fire 1
+! colspan="2" style="background-color:#ffc7ce" | -
+| [[File:Fire 1 (placeholder texture) JE1.png|60px]]
+|}
+</center>
+
+=== {{el|be}} ===
+[[File:Burning player PE.png|thumb]]
+Due to the first <samp>terrain.png</samp> in Pocket Edition being based off of the <samp>terrain.png</samp> from Beta 1.3, both of the spaces that held fire texture placeholders also hold fire texture placeholders here. Interestingly, however, all of the fire placeholders which exist throughout Pocket Edition are much different from any of those encountered in Java Edition. The first texture, in v0.1.0 alpha, resembles a red U-shape. This texture was quickly changed to a translucent orange texture in v0.1.3 alpha, which, upon further investigation, can be seen to be based off of the water placeholder texture. In v0.8.0 alpha build 1, despite the scrapping of <samp>terrain.png</samp>, two new fire texture placeholders were created, which could be seen in <samp>terrain-atlas.tga</samp>, resembling small orange rectangles.
+
+In earlier versions,{{info needed|end version?}} the fire placeholder texture would appear in front of burning players, successfully functioning as a stand-in for the fire texture. It also appeared as the item texture for [[Technical blocks/Fire|fire as an item]] until v0.7.0 alpha, which made fire render correctly.
+
+<center>
+{| class="wikitable" style="text-align:center"
+! rowspan="3" | Texture \ Version
+! colspan="4" | [[Pocket Edition Alpha|Alpha]]
+|-
+! rowspan="2" | [[Pocket Edition v0.1.0 alpha|v0.1.0 alpha]]
+! rowspan="2" | [[Pocket Edition v0.1.3 alpha|v0.1.3 alpha]]
+! [[Pocket Edition v0.8.0 alpha|v0.8.0 alpha]]
+! [[Pocket Edition v0.15.0|v0.15.0]]
+|-
+! build 1
+! build 1
+|-
+! Fire 0
+| [[File:Fire 0 (placeholder texture) BE1.png|60px]]
+| [[File:Fire 0 (placeholder texture) BE2.png|60px]]
+| [[File:Fire 0 (placeholder texture) BE3.png|60px]]
+| [[File:Fire 0 (placeholder texture) BE4.png|60px]]
+|-
+! Fire 1
+| [[File:Fire 1 (placeholder texture) BE1.png|60px]]
+| [[File:Fire 1 (placeholder texture) BE2.png|60px]]
+| [[File:Fire 1 (placeholder texture) BE3.png|60px]]
+| [[File:Fire 1 (placeholder texture) BE4.png|60px]]
+|}
+</center>
+
+=== {{el|lce}} ===
+Due to the first <samp>terrain.png</samp> in Xbox 360 Edition being the same as the <samp>terrain.png</samp> from Beta 1.6.6, both fire texture placeholders from said version are there by default, and would carry on into the other respective consoles. What the fire placeholder textures were used for in this edition is unknown.
+
+<center>
+{| class="wikitable" style="text-align:center"
+! rowspan="3" | Texture \ Version
+! colspan="15" | {{el|lce}}
+|-
+! [[Xbox 360 Edition|360]]
+! [[Xbox One Edition|One]]
+! [[PlayStation Edition|PS]]
+! [[Wii U Edition|Wii U]]
+! [[Nintendo Switch Edition|Switch]]
+|-
+! [[Xbox 360 Edition TU0|TU0]]
+! [[Xbox One Edition CU1|CU1]]
+! [[1.0#Legacy Console Edition|1.00]]
+! [[Wii U Edition Patch 1|Patch 1]]
+! [[Nintendo Switch Edition 1.0.1|1.0.1]]
+|-
+! Fire 0
+| colspan="5" | [[File:Fire 0 (placeholder texture) JE2.png|60px]]
+|-
+! Fire 1
+| colspan="5" | [[File:Fire 1 (placeholder texture) JE1.png|60px]]
+|}
+</center>
+
+== Nether portals ==
+=== {{el|je}} ===
+The nether portal placeholder texture was added in Alpha v1.2.0, alongside the nether portal block itself.
+
+<center>
+{| class="wikitable" style="text-align:center"
+! rowspan="3" | Texture \ Version
+! colspan="2" | [[Java Edition Alpha|Alpha]]
+|-
+! colspan="2" | [[Java Edition Alpha v1.2.0|Alpha v1.2.0]]
+|-
+! ?
+|-
+! Portal
+| [[File:Nether Portal (placeholder texture) JE1 BE1.png|60px]]
+|}
+</center>
+
+=== {{el|be}} ===
+Due to the first <samp>terrain.png</samp> in Pocket Edition being based off of the <samp>terrain.png</samp> from Beta 1.3, the nether portal texture placeholder from said version is there by default. However, due to the absence of nether portals in this version, it remained unused until its removal in v0.8.0 alpha build 2. A second placeholder texture was added when nether portals were actually added in v0.12.1 alpha build 1.
+
+<center>
+{| class="wikitable" style="text-align:center"
+! rowspan="3" | Texture \ Version
+! colspan="4" | [[Pocket Edition Alpha|Alpha]]
+|-
+! rowspan="2" | [[Pocket Edition v0.1.0 alpha|v0.1.0 alpha]]
+! [[Pocket Edition v0.8.0 alpha|v0.8.0 alpha]]
+! [[Pocket Edition v0.12.1 alpha|v0.12.1 alpha]]
+! [[Pocket Edition v0.15.0|v0.15.0]]
+|-
+! build 1
+! build 1
+! build 1
+|-
+! Portal
+| [[File:Nether Portal (placeholder texture) JE1 BE1.png|60px]]
+! {{tc|No|-}}
+| [[File:Nether Portal (placeholder texture) BE2.png|60px]]
+| [[File:Nether Portal (placeholder texture) BE3.png|60px]]
+|}
+</center>
+
+=== {{el|lce}} ===
+Due to the first <samp>terrain.png</samp> in Xbox 360 Edition being the same as the <samp>terrain.png</samp> from Beta 1.6.6, the nether portal texture placeholder from said version are there by default, and would carry on into the other respective consoles. What the nether portal placeholder texture was used for in this edition is unknown.
+
+<center>
+{| class="wikitable" style="text-align:center"
+! rowspan="3" | Texture \ Version
+! colspan="15" | {{el|lce}}
+|-
+! [[Xbox 360 Edition|360]]
+! [[Xbox One Edition|One]]
+! [[PlayStation Edition|PS]]
+! [[Wii U Edition|Wii U]]
+! [[Nintendo Switch Edition|Switch]]
+|-
+! [[Xbox 360 Edition TU0|TU0]]
+! [[Xbox One Edition CU1|CU1]]
+! [[1.0#Legacy Console Edition|1.00]]
+! [[Wii U Edition Patch 1|Patch 1]]
+! [[Nintendo Switch Edition 1.0.1|1.0.1]]
+|-
+! Portal
+| colspan="5" | [[File:Nether Portal (placeholder texture) JE1 BE1.png|60px]]
+|}
+</center>
+
+== Gears ==
+=== {{el|je}} ===
+The gear placeholder textures were added in the January 28, 2010 build of Indev, alongside gears themselves. There were two gear placeholders, likely corresponding to the two possible rotation directions.
+
+<center>
+{| class="wikitable" style="text-align:center"
+! rowspan="3" | Texture \ Version
+! colspan="2" | [[Java Edition Indev|Indev]]
+|-
+! colspan="2" | [[Java Edition Indev 0.31|0.31]]
+|-
+! [[Java Edition Indev 0.31 20100128|20100128]]
+|-
+! Clockwise
+| [[File:Gear (placeholder texture) JE1.png|60px]]
+|-
+! Anticlockwise
+| [[File:Gear (placeholder texture) JE1.png|60px]]
+|}
+</center>
+
+== History ==
+{{History|java classic}}
+{{History||0.0.19a|[[File:Water (placeholder texture) JE1 BE1.png|32px]] [[File:Lava (placeholder texture) JE1 BE1.png|32px]] The old textures of water and lava are now used as placeholders.}}
+{{History|java indev}}
+{{History||0.31|snap=20091231-1|[[File:Water (placeholder texture) JE1 BE1.png|32px]] Added a second water placeholder texture for flowing water.}}
+{{History|||snap=20100110|[[File:Lava (placeholder texture) JE1 BE1.png|32px]] Added a second lava placeholder texture presumably for flowing lava.}}
+{{History|||snap=20100128|[[File:Gear (placeholder texture) JE1.png|32px]] [[File:Gear (placeholder texture) JE1.png|32px]] Added two identical [[gear]] placeholder textures, presumably one per direction.}}
+{{History|java infdev}}
+{{History||Minecraft Infdev|snap=20100616|link=Minecraft Infdev|slink=Java Edition Infdev 20100616|[[File:Flowing Water (placeholder texture) JE2 BE1.png|64px]] [[File:Flowing Lava (placeholder texture) JE2 BE1.png|64px]] Placeholder textures for flowing water and lava have been added.
+|All fluid placeholder textures are now located at the bottom-right of <samp>terrain.png</samp>.}}
+{{History|||snap=20100617-2|slink=Java Edition Infdev 20100617-2|[[File:Fire (placeholder texture) JE1.png|32px]] A hilarious placeholder texture for fire has been added.}}
+{{History|||snap=20100624|slink=Java Edition Infdev 20100624|[[File:Fire (placeholder texture) JE2.png|32px]] The fire placeholder texture has changed. The text read "FIRE TEX! HNST", which means "Fire texture! Honest".}}
+{{History|java alpha}}
+{{History||v1.0.1|Removed the gear placeholder textures.}}
+{{History||v1.2.0|snap=preview|[[File:Nether Portal (placeholder texture) JE1 BE1.png|32px]] A placeholder texture for nether portals has been added.}}
+{{History|java beta}}
+{{History||1.2|[[File:Fire (placeholder texture) JE2.png|32px]] A second copy of fire's placeholder texture has been added. It was used to mark the location of the alternate fire animation, which slightly differs.}}
+{{History|java}}
+{{History||1.5|snap=13w02a|With the new native support for animated textures, placeholder textures are no longer needed. The placeholder textures for water, lava, fire and nether portals have been removed.}}
+{{History|pocket alpha}}
+{{History||v0.1.0|[[File:Water (placeholder texture) JE1 BE1.png|32px]] [[File:Flowing Water (placeholder texture) JE2 BE1.png|64px]] [[File:Lava (placeholder texture) JE1 BE1.png|32px]] [[File:Flowing Lava (placeholder texture) JE2 BE1.png|64px]] [[File:Fire (placeholder texture) BE1.png|32px]] [[File:Fire (placeholder texture) BE1.png|32px]] [[File:Nether Portal (placeholder texture) JE1 BE1.png|32px]] Being based off of the Beta 1.3 <samp>terrain.png</samp>, the water, flowing water, lava, flowing lava, both fires and nether portal placeholder textures are present.
+|The nether portal placeholder is unused due to the absence of nether portals, and the fire placeholder has an exclusive texture.}}
+{{History||v0.1.3|[[File:Fire (placeholder texture) BE2.png|32px]] [[File:Fire (placeholder texture) BE2.png|32px]] The fire placeholder texture has changed.}}
+{{History||v0.8.0|snap=build 1|[[File:Fire (placeholder texture) BE3.png|32px]] [[File:Fire (placeholder texture) BE3.png|32px]] With the scrapping of <samp>terrain.png</samp> and introduction of <samp>terrain-atlas.tga</samp>, the fire placeholder texture has changed.
+|The nether portal placeholder has also been removed as a result.}}
+{{History||v0.10.0|snap=build 1|[[File:Water (placeholder texture) BE2.png|32px]] [[File:Flowing Water (placeholder texture) BE2.png|64px]] The water placeholder textures have been update to more closely visually resemble the generated water, although opaque.}}
+{{History||v0.12.1|snap=build 1|[[File:Nether Portal (placeholder texture) BE2.png|32px]] With the introduction of nether portals, there is now a nether portal placeholder texture.}}
+{{History||v0.14.2|[[File:Lava (placeholder texture) BE2.png|32px]] [[File:Flowing Lava (placeholder texture) BE2.png|64px]] The lava placeholder textures have been update to more closely visually resemble the generated lava.}}
+{{History||v0.15.0|snap=build 1|With the new native support for animated textures, placeholder textures are no longer needed.{{verify|Except they still exist? What were/are they used for?}}}}
+{{History|console}}
+{{History||xbox=TU0|xbone=CU1|ps=1.00|[[File:Water (placeholder texture) JE1 BE1.png|32px]] [[File:Flowing Water (placeholder texture) JE2 BE1.png|64px]] [[File:Lava (placeholder texture) JE1 BE1.png|32px]] [[File:Flowing Lava (placeholder texture) JE2 BE1.png|64px]] [[File:Fire (placeholder texture) JE2.png|32px]] [[File:Fire (placeholder texture) JE2.png|32px]] [[File:Nether Portal (placeholder texture) JE1 BE1.png|32px]] Having the same <samp>terrain.png</samp> as Beta 1.6.6, the water, flowing water, lava, flowing lava, both fires and nether portal placeholder textures are present.}}
+{{History||xbox=TU25|xbone=CU14|ps=1.17|wiiu=Patch 1|[[File:Water (placeholder texture) LCE2.png|32px]] [[File:Flowing Water (placeholder texture) LCE2.png|64px]] [[File:Lava (placeholder texture) LCE2.png|32px]] [[File:Flowing Lava (placeholder texture) LCE2.png|64px]] The water and lava placeholder textures have been updated as to more closely match the generated textures.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|switch=1.0.1|[[File:Water (placeholder texture) LCE3.png|32px]] [[File:Flowing Water (placeholder texture) LCE3.png|64px]] All translucent block textures have been made clearer, which includes the water placeholder.}}
+{{History|foot}}

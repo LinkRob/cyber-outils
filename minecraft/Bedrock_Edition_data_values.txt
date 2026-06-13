@@ -1,0 +1,1101 @@
+{{exclusive|bedrock}}
+{{needs update|Changes to numeric IDs in 1.16.100+.}}
+These '''data values''' refer to the different types of blocks and items on {{el|be}}. They are used in many places in ''Minecraft''. Block IDs are used to define blocks placed in the world and inventory items (including items in chests and items dropped in the world). Item IDs are valid only for items. Block data further defines blocks placed, describing for example the height of water or the direction a torch points. 
+These data values differ greatly from {{el|je}}.
+[[File:DataValuesPE.png|thumbnail|right|Picture reference.]]
+
+== IDs ==
+=== Block IDs ===
+{{for|a full table of block-metadata combinations|Bedrock Edition data values/Metadata table}}
+
+{{LoadBox
+|page=Bedrock Edition data values/Blocks
+|title=Block Table with Legacy Numeric ID
+|float=none
+}}
+=== Item IDs ===
+
+==== Block items====
+
+All of blocks have their own direct item forms. A block with numeric ID over 255 have item form with numeric ID of <code>255 - (block ID)</code> to avoid block item IDs being overlapped into the other item ID space.
+
+The string IDs of most blocks' direct item forms are the same as IDs of the blocks themselves. However, there are some exceptions:
+
+{|class="fandom-table wikitable stikitable sortable collapsible collapsed" data-description="Block Item IDs"
+! Block ID !! Block item ID
+ 
+|-
+| skull || item.skull 
+|-
+| campfire || item.campfire 
+|-
+| brewing_stand || item.brewing_stand 
+|-
+| cauldron || item.cauldron 
+|-
+| stone_slab2 || double_stone_slab2 
+|-
+| double_stone_slab2 || real_double_stone_slab2 
+|-
+| flower_pot || item.flower_pot 
+|-
+| chain || item.chain 
+|-
+| soul_campfire || item.soul_campfire 
+|-
+| stone_slab3 || double_stone_slab3 
+|-
+| wheat || item.wheat 
+|-
+| stone_slab || double_stone_slab 
+|-
+| jungle_door || item.jungle_door 
+|-
+| glow_frame || item.glow_frame 
+|-
+| nether_wart || item.nether_wart 
+|-
+| bed || item.bed 
+|-
+| beetroot || item.beetroot 
+|-
+| spruce_door || item.spruce_door 
+|-
+| cake || item.cake 
+|-
+| camera || item.camera 
+|-
+| frame || item.frame 
+|-
+| crimson_door || item.crimson_door 
+|-
+| warped_door || item.warped_door 
+|-
+| double_stone_slab || real_double_stone_slab 
+|-
+| stone_slab4 || double_stone_slab4 
+|-
+| acacia_door || item.acacia_door 
+|-
+| dark_oak_door || item.dark_oak_door 
+|-
+| wooden_door || item.wooden_door 
+|-
+| concretepowder || concrete_powder 
+|-
+| double_stone_slab4 || real_double_stone_slab4 
+|-
+| nether_sprouts || item.nether_sprouts 
+|-
+| reeds || item.reeds 
+|-
+| double_stone_slab3 || real_double_stone_slab3 
+|-
+| iron_door || item.iron_door 
+|-
+| kelp || item.kelp 
+|-
+| birch_door || item.birch_door 
+|-
+| hopper || item.hopper 
+|}
+
+
+Note that commands like {{cmd|give}} use blocks' IDs to specify block items,  instead of block items' IDs.
+
+==== Other items ====
+Other items have values above 255, making it easy to separate the block item IDs from the other item IDs.
+
+In early versions, items had numeric IDs which had been used in commands and savegame files. However, these numeric IDs are deprecated. The following table lists items with their legacy numeric IDs.
+
+{{LoadBox
+|page=Bedrock Edition data values/Items
+|title=Item Table with Legacy Numeric ID
+|float=none
+}}
+
+In current versions, items have numeric runtime IDs which are used internally in the game. The runtime IDs depend on the order in which the item is registered in the code. So when a new item is added, other items' IDs may also change. And some items are exclusive in normal Bedrock Edition, the developer version, or the Education Edition, so items' runtime IDs are not the same in each edition. The following table lists items with their numeric runtime IDs.
+
+{{LoadBox
+|page=Bedrock Edition data values/Items2
+|title=Item Table with Numeric Runtime ID
+|float=none
+}}
+
+{{LoadBox
+|page=Bedrock Edition data values/Items2{{!}}dev=1
+|title=Item Table with Numeric Runtime ID in developer version
+|float=none
+|link=Bedrock Edition data values/Items2
+}}
+
+{{LoadBox
+|page=Bedrock Edition data values/Items2{{!}}edu=1
+|title=Item Table with Numeric Runtime ID in Education Edition
+|float=none
+|link=Bedrock Edition data values/Items2
+}}
+
+Note that the <code>boat</code>, <code>dye</code>, <code>banner_pattern</code>, and <code>spawn_egg</code> in the four tables above are not normal items in game. They are used as alias IDs. For backward compatibility, an item has alias ID if its ID was changed:
+
+{|class="fandom-table wikitable stikitable sortable collapsible collapsed" data-description="Item Alias IDs"
+! Alias ID !! Current ID
+|-
+| record_wait || music_disc_wait 
+|-
+| darkoak_sign || dark_oak_sign 
+|-
+| record_mellohi || music_disc_mellohi 
+|-
+| glazedterracotta.blue || blue_glazed_terracotta 
+|-
+| glazedterracotta.light_blue || light_blue_glazed_terracotta 
+|-
+| glazedterracotta.lime || lime_glazed_terracotta 
+|-
+| record_pigstep || music_disc_pigstep 
+|-
+| fish || cod 
+|-
+| melon || melon_slice 
+|-
+| record_far || music_disc_far 
+|-
+| record_ward || music_disc_ward 
+|-
+| muttonraw || mutton 
+|-
+| map || filled_map 
+|-
+| carrotonastick || carrot_on_a_stick 
+|-
+| totem || totem_of_undying 
+|-
+| reeds || sugar_cane 
+|-
+| sign || oak_sign 
+|-
+| horsearmordiamond || diamond_horse_armor 
+|-
+| muttoncooked || cooked_mutton 
+|-
+| glazedterracotta.green || green_glazed_terracotta 
+|-
+| glazedterracotta.pink || pink_glazed_terracotta 
+|-
+| horsearmorleather || leather_horse_armor 
+|-
+| fireball || fire_charge 
+|-
+| record_otherside || music_disc_otherside 
+|-
+| cooked_fish || cooked_cod 
+|-
+| glazedterracotta.black || black_glazed_terracotta 
+|-
+| speckled_melon || glistering_melon_slice 
+|-
+| record_13 || music_disc_13 
+|-
+| horsearmorgold || golden_horse_armor 
+|-
+| appleenchanted || enchanted_golden_apple 
+|-
+| glazedterracotta.brown || brown_glazed_terracotta 
+|-
+| record_blocks || music_disc_blocks 
+|-
+| glazedterracotta.cyan || cyan_glazed_terracotta 
+|-
+| record_cat || music_disc_cat 
+|-
+| nametag || name_tag 
+|-
+| glazedterracotta.gray || gray_glazed_terracotta 
+|-
+| record_strad || music_disc_strad 
+|-
+| horsearmoriron || iron_horse_armor 
+|-
+| glazedterracotta.yellow || yellow_glazed_terracotta 
+|-
+| turtle_shell_piece || scute 
+|-
+| netherstar || nether_star 
+|-
+| glazedterracotta.magenta || magenta_glazed_terracotta 
+|-
+| glazedterracotta.orange || orange_glazed_terracotta 
+|-
+| prismarineshard || prismarine_shard 
+|-
+| fireworks || firework_rocket 
+|-
+| emptymap || empty_map 
+|-
+| glazedterracotta.white || white_glazed_terracotta 
+|-
+| chorus_fruit_popped || popped_chorus_fruit 
+|-
+| lodestonecompass || lodestone_compass 
+|-
+| glazedterracotta.purple || purple_glazed_terracotta 
+|-
+| glazedterracotta.silver || silver_glazed_terracotta 
+|-
+| record_mall || music_disc_mall 
+|-
+| record_stal || music_disc_stal 
+|-
+| fireworkscharge || firework_star 
+|-
+| clownfish || tropical_fish 
+|-
+| record_11 || music_disc_11 
+|-
+| glazedterracotta.red || red_glazed_terracotta 
+|-
+| record_chirp || music_disc_chirp 
+|-
+| bucket:1 || milk_bucket 
+|-
+| bucket:0 || bucket 
+|-
+| bucket:3 || salmon_bucket 
+|-
+| bucket:2 || cod_bucket 
+|-
+| bucket:5 || pufferfish_bucket 
+|-
+| bucket:4 || tropical_fish_bucket 
+|-
+| bucket:8 || water_bucket 
+|-
+| bucket:13 || tadpole_bucket 
+|-
+| bucket:12 || axolotl_bucket 
+|-
+| bucket:11 || powder_snow_bucket 
+|-
+| bucket:10 || lava_bucket 
+|-
+| dye:20 || glow_ink_sac 
+|-
+| dye:19 || white_dye 
+|-
+| dye:18 || blue_dye 
+|-
+| dye:14 || orange_dye 
+|-
+| dye:15 || bone_meal 
+|-
+| dye:1 || red_dye 
+|-
+| dye:0 || ink_sac 
+|-
+| dye:3 || cocoa_beans 
+|-
+| dye:2 || green_dye 
+|-
+| dye:5 || purple_dye 
+|-
+| dye:4 || lapis_lazuli 
+|-
+| dye:7 || light_gray_dye 
+|-
+| dye:6 || cyan_dye 
+|-
+| dye:9 || pink_dye 
+|-
+| dye:8 || gray_dye 
+|-
+| dye:16 || black_dye 
+|-
+| dye:17 || brown_dye 
+|-
+| dye:13 || magenta_dye 
+|-
+| dye:12 || light_blue_dye 
+|-
+| dye:11 || yellow_dye 
+|-
+| dye:10 || lime_dye 
+|-
+| spawn_egg:43 || blaze_spawn_egg 
+|-
+| spawn_egg:47 || husk_spawn_egg 
+|-
+| spawn_egg:37 || slime_spawn_egg 
+|-
+| spawn_egg:57 || vindicator_spawn_egg 
+|-
+| spawn_egg:112 || cod_spawn_egg 
+|-
+| spawn_egg:115 || villager_spawn_egg 
+|-
+| spawn_egg:111 || tropical_fish_spawn_egg 
+|-
+| spawn_egg:114 || pillager_spawn_egg 
+|-
+| spawn_egg:27 || zombie_horse_spawn_egg 
+|-
+| spawn_egg:17 || squid_spawn_egg 
+|-
+| spawn_egg:13 || sheep_spawn_egg 
+|-
+| spawn_egg:33 || creeper_spawn_egg 
+|-
+| spawn_egg:23 || horse_spawn_egg 
+|-
+| spawn_egg:42 || magma_cube_spawn_egg 
+|-
+| spawn_egg:36 || zombie_pigman_spawn_egg 
+|-
+| spawn_egg:46 || stray_spawn_egg 
+|-
+| spawn_egg:56 || agent_spawn_egg 
+|-
+| spawn_egg:122 || bee_spawn_egg 
+|-
+| spawn_egg:125 || strider_spawn_egg 
+|-
+| spawn_egg:108 || pufferfish_spawn_egg 
+|-
+| spawn_egg:129 || glow_squid_spawn_egg 
+|-
+| spawn_egg:121 || fox_spawn_egg 
+|-
+| spawn_egg:124 || hoglin_spawn_egg 
+|-
+| spawn_egg:16 || mooshroom_spawn_egg 
+|-
+| spawn_egg:26 || skeleton_horse_spawn_egg 
+|-
+| spawn_egg:12 || pig_spawn_egg 
+|-
+| spawn_egg:22 || ocelot_spawn_egg 
+|-
+| spawn_egg:32 || zombie_spawn_egg 
+|-
+| spawn_egg:51 || npc_spawn_egg 
+|-
+| spawn_egg:41 || ghast_spawn_egg 
+|-
+| spawn_egg:55 || endermite_spawn_egg 
+|-
+| spawn_egg:45 || witch_spawn_egg 
+|-
+| spawn_egg:35 || spider_spawn_egg 
+|-
+| spawn_egg:59 || ravager_spawn_egg 
+|-
+| spawn_egg:49 || guardian_spawn_egg 
+|-
+| spawn_egg:39 || silverfish_spawn_egg 
+|-
+| spawn_egg:29 || llama_spawn_egg 
+|-
+| spawn_egg:132 || frog_spawn_egg 
+|-
+| spawn_egg:118 || wandering_trader_spawn_egg 
+|-
+| spawn_egg:19 || bat_spawn_egg 
+|-
+| spawn_egg:25 || mule_spawn_egg 
+|-
+| spawn_egg:15 || villager_spawn_egg 
+|-
+| spawn_egg:31 || dolphin_spawn_egg 
+|-
+| spawn_egg:11 || cow_spawn_egg 
+|-
+| spawn_egg:40 || cave_spider_spawn_egg 
+|-
+| spawn_egg:50 || elder_guardian_spawn_egg 
+|-
+| spawn_egg:54 || shulker_spawn_egg 
+|-
+| spawn_egg:34 || skeleton_spawn_egg 
+|-
+| spawn_egg:44 || zombie_villager_spawn_egg 
+|-
+| spawn_egg:48 || wither_skeleton_spawn_egg 
+|-
+| spawn_egg:58 || phantom_spawn_egg 
+|-
+| spawn_egg:28 || polar_bear_spawn_egg 
+|-
+| spawn_egg:38 || enderman_spawn_egg 
+|-
+| spawn_egg:133 || tadpole_spawn_egg 
+|-
+| spawn_egg:130 || axolotl_spawn_egg 
+|-
+| spawn_egg:75 || cat_spawn_egg 
+|-
+| spawn_egg:127 || piglin_brute_spawn_egg 
+|-
+| spawn_egg:126 || zoglin_spawn_egg 
+|-
+| spawn_egg:105 || vex_spawn_egg 
+|-
+| spawn_egg:123 || piglin_spawn_egg 
+|-
+| spawn_egg:113 || panda_spawn_egg 
+|-
+| spawn_egg:18 || rabbit_spawn_egg 
+|-
+| spawn_egg:110 || drowned_spawn_egg 
+|-
+| spawn_egg:109 || salmon_spawn_egg 
+|-
+| spawn_egg:14 || wolf_spawn_egg 
+|-
+| spawn_egg:24 || donkey_spawn_egg 
+|-
+| spawn_egg:128 || goat_spawn_egg 
+|-
+| spawn_egg:104 || evoker_spawn_egg 
+|-
+| spawn_egg:74 || turtle_spawn_egg 
+|-
+| spawn_egg:30 || parrot_spawn_egg 
+|-
+| spawn_egg:116 || zombie_villager_spawn_egg 
+|-
+| spawn_egg:10 || chicken_spawn_egg 
+|-
+| coal:1 || charcoal 
+|-
+| coal:0 || coal 
+|-
+| banner_pattern:1 || skull_banner_pattern 
+|-
+| banner_pattern:0 || creeper_banner_pattern 
+|-
+| banner_pattern:3 || mojang_banner_pattern 
+|-
+| banner_pattern:2 || flower_banner_pattern 
+|-
+| banner_pattern:5 || bordure_indented_banner_pattern 
+|-
+| banner_pattern:4 || field_masoned_banner_pattern 
+|-
+| banner_pattern:7 || globe_banner_pattern 
+|-
+| banner_pattern:6 || piglin_banner_pattern 
+|-
+| boat:1 || spruce_boat 
+|-
+| boat:0 || oak_boat 
+|-
+| boat:3 || jungle_boat 
+|-
+| boat:2 || birch_boat 
+|-
+| boat:5 || dark_oak_boat 
+|-
+| boat:4 || acacia_boat 
+|-
+| record_5 || music_disc_5 
+|-
+| sealantern || sea_lantern
+|}
+
+=== Entity IDs ===
+Several entity names do not correlate with entity names from ''Java Edition''. The standard for naming new entities changes with subsequent releases; however, existing entity names have not been changed.
+
+{| class="wikitable"
+! Icon !! Dec !! Hex !! Name !! Entity
+|-
+| colspan="5" | Drops
+|-
+| {{EnvSprite|items}}|| 64 || {{dec-hex|64}} || item || [[Item (entity)|Dropped item]]
+|-
+| {{EntitySprite|experience-orb}}|| 69 || {{dec-hex|69}} || xp_orb || [[Experience Orb]]
+|-
+| colspan="5" | Blocks
+|-
+| {{EntitySprite|tnt}}|| 65 || {{dec-hex|65}} || tnt || [[TNT#Primed TNT|Primed TNT]]
+|-
+| {{EntitySprite|sand}}|| 66 || {{dec-hex|66}} || falling_block || Falling block
+|-
+| <!-- No icon --> || 67 || {{dec-hex|67}} || moving_block || [[Piston#Piston extension|Moving Block]]
+|-
+| colspan="5" | Immobile and projectiles
+|-
+| {{ItemSprite|armor-stand}}|| 61 || {{dec-hex|61}} || armor_stand || [[Armor stand]]
+|-
+| {{ItemSprite|bottle-o'-enchanting}}|| 68 || {{dec-hex|68}} || xp_bottle || Thrown [[Bottle o' Enchanting]]
+|-
+| {{ItemSprite|Eye Of Ender}}|| 70 || {{dec-hex|70}} || eye_of_ender_signal ||  [[Eye of Ender]]
+|-
+| {{EntitySprite|end-crystal}}|| 71 || {{dec-hex|71}} || ender_crystal ||  [[Ender Crystal]]
+|-
+| {{ItemSprite|firework-rocket}}|| 72 || {{dec-hex|72}} || fireworks_rocket || [[Firework rocket]]
+|-
+| {{EntitySprite|trident}}|| 73 || {{dec-hex|73}} || thrown_trident || [[Trident]]
+|-
+| {{EntitySprite|shulker-bullet}}|| 76 || {{dec-hex|76}} || shulker_bullet
+|| [[Shulker#Shulker Bullet|Shulker bullet]]
+|-
+| {{EntitySprite|fishing-bobber}}|| 77 || {{dec-hex|77}} || fishing_hook ||  [[Fishing Rod]] hook
+|-
+| {{EntitySprite|dragon-fireball}}|| 79 || {{dec-hex|79}} || dragon_fireball || [[Ender Dragon#Dragon Fireball|Dragon fireball]]
+|-
+| {{EntitySprite|arrow}}|| 80 || {{dec-hex|80}} || arrow || Shot [[arrow]]
+|-
+| {{EntitySprite|snowball}}|| 81 || {{dec-hex|81}} || snowball || Thrown [[snowball]]
+|-
+| {{EntitySprite|egg}}|| 82 || {{dec-hex|82}} || egg || Thrown [[egg]]
+|-
+| {{EntitySprite|painting}}|| 83 || {{dec-hex|83}} || painting || [[Paintings|Painting]]
+|-
+| {{EntitySprite|Minecart}}|| 84 || {{dec-hex|84}} || minecart || [[Minecart]]
+|-
+| {{EntitySprite|fireball}}|| 85 || {{dec-hex|85}} || fireball || [[Ghast]] fireball
+|-
+| {{ItemSprite|splash-potion}}|| 86 || {{dec-hex|86}} || splash_potion || Thrown [[Splash Potions|splash potion]]
+|-
+| {{EntitySprite|Ender Pearl}}|| 87 || {{dec-hex|87}} || ender_pearl || Thrown [[Ender Pearl]]
+|-
+| {{EntitySprite|Leash Knot}}|| 88 || {{dec-hex|88}} || leash_knot || [[Leash]] knot
+|-
+| {{EntitySprite|Wither Skull}}|| 89 || {{dec-hex|89}} || wither_skull || [[Wither]] skull
+|-
+| {{EntitySprite|boats}}|| 90 || {{dec-hex|90}} || boat || [[Boat]]
+|-
+| {{EntitySprite|Dangerous Wither Skull}}|| 91 || {{dec-hex|91}} || wither_skull_dangerous || Blue [[wither]] skull
+|-
+| {{EntitySprite|lightning}}|| 93 || {{dec-hex|93}} || lightning_bolt || [[Lightning]] Bolt
+|-
+| {{EntitySprite|fireball}}|| 94 || {{dec-hex|94}} || small_fireball || [[Blaze]] fireball
+|-
+| {{EffectSprite|particle-water-breathing}}|| 95 || {{dec-hex|95}} || area_effect_cloud || [[Area Effect Cloud]]
+|-
+| {{EntitySprite|minecart-with-hopper}}|| 96 || {{dec-hex|96}} || hopper_minecart || [[Minecart with Hopper]]
+|-
+| {{EntitySprite|minecart-with-TNT}}|| 97 || {{dec-hex|97}} || tnt_minecart || [[Minecart with TNT]]
+|-
+| {{EntitySprite|minecart-with-chest}}|| 98 || {{dec-hex|98}} || chest_minecart || [[Minecart with Chest]]
+|-
+| {{EntitySprite|Minecart-with-command-block}}|| 100 || {{dec-hex|100}} || command_block_minecart || [[Minecart with Command Block]] 
+|-
+| {{ItemSprite|lingering-potion}}|| 101 || {{dec-hex|101}} || lingering_potion || Thrown [[lingering potion]]
+|-
+| {{EntitySprite|llama-spit}}|| 102 || {{dec-hex|102}} || llama_spit || [[Llama#Spit|Llama spit]]
+|-
+| {{EntitySprite|evoker-fangs}}|| 103 || {{dec-hex|103}} || evocation_fang || [[Evoker#Evocation fangs|Evocation fangs]]
+|-
+| {{ItemSprite|ice-bomb}}|| 106 || {{dec-hex|106}} || ice_bomb || [[Ice Bomb]]
+|-
+| {{ItemSprite|white-balloon}}|| 107 || {{dec-hex|107}} || balloon || [[Balloon]]
+|-
+| {{EntitySprite|boat-with-chest}}|| 218 ||{{dec-hex|134}} || chest_boat ||[[Boat with Chest]]
+|-
+| colspan="5" | Hostile mobs
+|-
+| {{EntitySprite|zombie}}|| 32 || {{dec-hex|32}} || zombie || [[Zombie]]
+|-
+| {{EntitySprite|creeper}}|| 33 || {{dec-hex|33}} || creeper || [[Creeper]]
+|-
+| {{EntitySprite|skeleton}}|| 34 || {{dec-hex|34}} || skeleton || [[Skeleton]]
+|-
+| {{EntitySprite|spider}}|| 35 || {{dec-hex|35}} || spider || [[Spider]]
+|-
+| {{EntitySprite|zombified-piglin}}|| 36 || {{dec-hex|36}} || zombie_pigman || [[Zombified Piglin]]
+|-
+| {{EntitySprite|slime}}|| 37 || {{dec-hex|37}} || slime || [[Slime]]
+|-
+| {{EntitySprite|enderman}}|| 38 || {{dec-hex|38}} || enderman || [[Enderman]]
+|-
+| {{EntitySprite|silverfish}}|| 39 || {{dec-hex|39}} || silverfish || [[Silverfish]]
+|-
+| {{EntitySprite|cave-spider}}|| 40 || {{dec-hex|40}} || cave_spider || [[Cave Spider]]
+|-
+| {{EntitySprite|ghast}}|| 41 || {{dec-hex|41}} || ghast || [[Ghast]]
+|-
+| {{EntitySprite|magma-cube}}|| 42 || {{dec-hex|42}} || magma_cube || [[Magma Cube]]
+|-
+| {{EntitySprite|blaze}}|| 43 || {{dec-hex|43}} || blaze || [[Blaze]]
+|-
+| {{EntitySprite|zombie-villager}}|| 44 || {{dec-hex|44}} || zombie_villager || [[Zombie Villager]]
+|-
+| {{EntitySprite|witch}}|| 45 || {{dec-hex|45}} || witch || [[Witch]]
+|-
+| {{EntitySprite|Stray}}|| 46 || {{dec-hex|46}} || stray || [[Stray]]
+|-
+| {{EntitySprite|Husk}}|| 47 || {{dec-hex|47}} || husk || [[Husk]]
+|-
+| {{EntitySprite|Wither Skeleton}}|| 48 || {{dec-hex|48}} || wither_skeleton || [[Wither Skeleton]]
+|-
+| {{EntitySprite|Guardian}}|| 49 || {{dec-hex|49}} || guardian || [[Guardian]]
+|-
+| {{EntitySprite|Elder Guardian}}|| 50 || {{dec-hex|50}} || elder_guardian || [[Elder Guardian]]
+|-
+| {{EntitySprite|Wither}}|| 52 || {{dec-hex|52}} || wither || [[Wither]]
+|-
+| {{EntitySprite|Ender Dragon}}|| 53 || {{dec-hex|53}} || ender_dragon || [[Ender Dragon]]
+|-
+| {{EntitySprite|Shulker}}|| 54 || {{dec-hex|54}} || shulker || [[Shulker]]
+|-
+| {{EntitySprite|Endermite}}|| 55 || {{dec-hex|55}} || endermite || [[Endermite]]
+|-
+| {{EntitySprite|Vindicator}}|| 57 || {{dec-hex|57}} || vindicator || [[Vindicator]]
+|-
+| {{EntitySprite|Phantom}}|| 58 || {{dec-hex|58}} || phantom || [[Phantom]]
+|-
+| {{EntitySprite|Ravager}}|| 59 || {{dec-hex|59}} || ravager || [[Ravager]]
+|-
+| {{EntitySprite|Evoker}}|| 104 || {{dec-hex|104}} || evocation_illager || [[Evoker]]
+|-
+| {{EntitySprite|Vex}}|| 105 || {{dec-hex|105}} || vex || [[Vex]]
+|-
+| {{EntitySprite|drowned}}|| 110 || {{dec-hex|110}} || drowned || [[Drowned]]
+|-
+| {{EntitySprite|pillager}}|| 114 || {{dec-hex|114}} || pillager || [[Pillager]]
+|-
+| {{EntitySprite|zombie-villager}}|| 116 || {{dec-hex|116}} || zombie_villager_v2 || [[Zombie Villager]]
+|-
+| {{EntitySprite|Piglin}}|| 123 || {{dec-hex|123}} || piglin || [[Piglin]]
+|-
+| {{EntitySprite|Hoglin}}|| 124 || {{dec-hex|124}} || hoglin || [[Hoglin]]
+|-
+| {{EntitySprite|Zoglin}}|| 126 || {{dec-hex|126}} || zoglin || [[Zoglin]]
+|-
+| {{EntitySprite|Piglin Brute}}|| 127 || {{dec-hex|127}} || piglin_brute || [[Piglin Brute]]
+|-
+|{{EntitySprite|Warden}}|| 131||{{dec-hex|131}}||warden||[[Warden]]
+|-
+| colspan="5" | Passive and neutral mobs
+|-
+|{{EntitySprite|chicken}}|| 10 ||{{dec-hex|10}}||chicken||[[Chicken]]
+|-
+|{{EntitySprite|cow}}||11||{{dec-hex|11}}||cow||[[Cow]]
+|-
+|{{EntitySprite|pig}}||12||{{dec-hex|12}}|| pig||[[Pig]]
+|-
+|{{EntitySprite|sheep}}|| 13||{{dec-hex|13}}||sheep||[[Sheep]]
+|-
+|{{EntitySprite|wolf}}||14||{{dec-hex|14}}||wolf ||[[Wolf]]
+|-
+|{{EntitySprite|villager}}||15||{{dec-hex|15}}||villager||[[Villager]]
+|-
+|{{EntitySprite|mooshroom}}||16 ||{{dec-hex|16}}|| mooshroom||[[Mooshroom]]
+|-
+|{{EntitySprite|squid}}||17||{{dec-hex|17}}||squid ||[[Squid]]
+|-
+|{{EntitySprite|rabbit}}||18||{{dec-hex|18}}||rabbit||[[Rabbit]]
+|-
+|{{EntitySprite|bat}}||19||{{dec-hex|19}}||bat||[[Bat]]
+|-
+|{{EntitySprite|iron-golem}}||20||{{dec-hex|20}}||iron_golem||[[Iron Golem]]
+|-
+|{{EntitySprite|snow-golem}}||21||{{dec-hex|21}}||snow_golem||[[Snow Golem]]
+|-
+|{{EntitySprite|ocelot}}|| 22 ||{{dec-hex|22}}||ocelot||[[Ocelot]]
+|-
+|{{EntitySprite|Horse}}||23||{{dec-hex|23}}||horse ||[[Horse]]
+|-
+|{{EntitySprite|Donkey}}||24||{{dec-hex|24}}||donkey||[[Donkey]]
+|-
+|{{EntitySprite|Mule}}||25||{{dec-hex|25}}||mule||[[Mule]]
+|-
+|{{EntitySprite|Skeleton Horse}}||26||{{dec-hex|26}}||skeleton_horse||[[Skeleton Horse]]
+|-
+|{{EntitySprite|Zombie Horse}}||27||{{dec-hex|27}}||zombie_horse||[[Zombie Horse]]
+|-
+|{{EntitySprite|Polar Bear}}||28||{{dec-hex|28}}||polar_bear ||[[Polar Bear]]
+|-
+|{{EntitySprite|Llama}}||29||{{dec-hex|29}}||llama ||[[Llama]]
+|-
+|{{EntitySprite|parrot}}||30||{{dec-hex|30}}||parrot ||[[Parrot]]
+|-
+|{{EntitySprite|dolphin}}|| 31 ||{{dec-hex|31}}|| dolphin||[[Dolphin]]
+|-
+|{{EntitySprite|turtle}}||74||{{dec-hex|74}}||turtle||[[Turtle]]
+|-
+|{{EntitySprite|cat}}|| 75 ||{{dec-hex|75}}||cat||[[Cat]]
+|-
+|{{EntitySprite|pufferfish}}||108||{{dec-hex|108}}||pufferfish||[[Pufferfish]]
+|-
+| {{EntitySprite|salmon}}||109||{{dec-hex|109}}||salmon ||[[Salmon]]
+|-
+|{{EntitySprite|tropical-fish}}||111||{{dec-hex|111}}||tropicalfish||[[Tropical Fish]]
+|-
+|{{EntitySprite|cod}}|| 112||{{dec-hex|112}}||cod||[[Cod]]
+|-
+|{{EntitySprite|panda}}|| 113 ||{{dec-hex|113}}|| panda||[[Panda]]
+|-
+|{{EntitySprite|villager}}||115||{{dec-hex|115}}||villager_v2||[[Villager]]
+|-
+|{{EntitySprite|wandering-trader}}||118||{{dec-hex|118}}||wandering_trader ||[[Wandering Trader]]
+|-
+|{{EntitySprite|fox}}||121||{{dec-hex|121}}||fox||[[Fox]]
+|-
+|{{EntitySprite|bee}}||122||{{dec-hex|122}}||bee||[[Bee]]
+|-
+|{{EntitySprite|Strider}}|| 125 ||{{dec-hex|125}}|| strider ||[[Strider]]
+|-
+|{{EntitySprite|Goat}}||128||{{dec-hex|128}}||goat||[[Goat]]
+|-
+|{{EntitySprite|Frog}}||132||{{dec-hex|132}}||frog||[[Frog]]
+|-
+|{{EntitySprite|Tadpole}}||133||{{dec-hex|133}}||tadpole||[[Tadpole]]
+|-
+| {{EntitySprite|allay}}||134 ||{{dec-hex|134}}||allay||[[Allay]]
+|-
+| colspan="5" |Other
+|-
+|{{EntitySprite|player}}||63||{{dec-hex|63}}||player||[[Player]]
+|-
+|{{ItemSprite|shield}}||117||{{dec-hex|117}}||shield||[[Shield]]
+|-
+| colspan="5" |Unused
+|-
+|{{EntitySprite|Elder Guardian}}||120||{{dec-hex|120}}||elder_guardian_ghost||Elder Guardian Ghost
+|-
+| colspan="5" |Education Edition
+|-
+|{{EntitySprite|NPC}}||51||{{dec-hex|51}}||npc||[[NPC]]
+|-
+|{{EntitySprite|Agent}}||56||{{dec-hex|56}}|| agent ||[[Agent]]
+|-
+|{{BlockSprite|Camera}}||62||{{dec-hex|62}}||tripod_camera||[[Camera]]
+|-
+|{{ItemSprite|Board}}||78||{{dec-hex|78}}||chalkboard||[[Chalkboard]]
+|-
+|}
+
+===Effect IDs===
+{| class="wikitable"
+!Effect!!ID!![[Resource location]]!!Particle
+|-
+| height="32px" |{{EffectSprite|speed}} Speed
+|1
+|<code>speed</code>
+|{{EffectSprite|particle-speed}}
+|-
+| height="32px" |{{EffectSprite|slowness}} Slowness
+|2
+|
+<code>slowness</code>
+|{{EffectSprite|particle-slowness}}
+|-
+| height="32px" |
+{{EffectSprite|haste}} Haste
+|3
+|<code>haste</code>
+|{{EffectSprite|particle-haste}}
+|-
+| height="32px" |{{EffectSprite|mining-fatigue}} Mining Fatigue
+|4
+|<code>mining_fatigue</code>
+|{{EffectSprite|particle-mining-fatigue}}
+|-
+| height="32px" |{{EffectSprite|strength}} Strength
+|5
+|<code>strength</code>
+|{{EffectSprite|particle-strength}}
+|-
+| height="32px" |Instant Health
+| 6
+| <code>instant_health</code>
+|{{EffectSprite|particle-healing}}
+|-
+| height="32px" |Instant Damage
+|7
+|<code>instant_damage</code>
+|{{EffectSprite|particle-harming}}
+|-
+| height="32px" |{{EffectSprite|jump-boost}} Jump Boost
+|8
+|<code>jump_boost</code>
+|{{EffectSprite|particle-jump-boost}}
+|-
+| height="32px" |{{EffectSprite|nausea}} Nausea
+|9
+|<code>nausea</code>
+|
+{{EffectSprite|particle-nausea}}
+|-
+| height="32px" |{{EffectSprite|regeneration}} Regeneration
+|10
+|<code>regeneration</code>
+|{{EffectSprite|particle-regeneration}}
+|-
+| height="32px" |{{EffectSprite|resistance}} Resistance
+|11
+|<code>resistance</code>
+|{{EffectSprite|particle-resistance}}
+|-
+| height="32px" |{{EffectSprite|fire-resistance}} Fire Resistance
+|12
+|<code>fire_resistance</code>
+|{{EffectSprite|particle-fire-resistance}}
+|-
+| height="32px" |{{EffectSprite|water-breathing}} Water Breathing
+|13
+|<code>water_breathing</code>
+|{{EffectSprite|particle-water-breathing}}
+|-
+| height="32px" |{{EffectSprite|invisibility}} Invisibility
+|14
+|<code>invisibility</code>
+| {{EffectSprite|particle-invisibility}}
+|-
+| height="32px" |{{EffectSprite|blindness}} Blindness
+|15
+|<code>blindness</code>
+|{{EffectSprite|particle-blindness}}
+|-
+| height="32px" | {{EffectSprite|night-vision}} Night Vision
+|16
+|<code>night_vision</code>
+|{{EffectSprite|particle-night-vision}}
+|-
+| height="32px" | {{EffectSprite|hunger}} Hunger
+| 17
+| <code>hunger</code>
+|{{EffectSprite|particle-hunger}}
+|-
+| height="32px" |{{EffectSprite|weakness}} Weakness
+|18
+|<code>weakness</code>
+|{{EffectSprite|particle-weakness}}
+|-
+| height="32px" |{{EffectSprite|poison}} Poison
+|19
+| <code>poison</code>
+|{{EffectSprite|particle-poison}}
+|-
+| height="32px" | {{EffectSprite|wither}} Wither
+|20
+|<code>wither</code>
+|
+{{EffectSprite|particle-wither}}
+|-
+| height="32px" |{{EffectSprite|health-boost}} Health Boost
+| 21
+| <code>health_boost</code>
+|{{EffectSprite|particle-health-boost}}
+|-
+| height="32px" |{{EffectSprite|absorption}} Absorption
+|22
+|<code>absorption</code>
+|{{EffectSprite|particle-absorption}}
+|-
+| height="32px" |Saturation
+|23
+|<code>saturation</code>
+|{{EffectSprite|particle-saturation}}
+|-
+| height="32px" |
+{{EffectSprite|levitation}} Levitation
+|24
+|<code>levitation</code>
+|| {{EffectSprite|particle-levitation}}
+|-
+| height="32px" |{{EffectSprite|poison}} Fatal Poison
+|25
+|<code>fatal_poison</code>
+|{{EffectSprite|particle-poison}}
+|-
+| height="32px" |{{EffectSprite|conduit-power}} Conduit Power
+|26
+|<code>conduit_power</code>
+| {{EffectSprite|particle-conduit-power}}
+|-
+| height="32px" |{{EffectSprite|slow-falling}} Slow Falling
+|27
+|<code>slow_falling</code>
+|{{EffectSprite|particle-slow-falling}}
+|-
+| height="32px" |{{EffectSprite|bad-omen}} Bad Omen
+|28
+|<code>bad_omen</code>
+|{{EffectSprite|particle-bad-omen}}
+|-
+| height="32px" |{{EffectSprite|hero-of-the-village}} Hero of the Village
+|29
+|<code>village_hero</code>
+|{{EffectSprite|particle-hero-of-the-village}}
+|-
+| height="32px" |{{EffectSprite|darkness}} Darkness
+|30
+|<code>darkness</code>
+|{{EffectSprite|particle-darkness}}
+|}
+
+===Enchantment IDs===
+
+{| class="wikitable sortable col-3-right" data-description="Enchantment IDs" style="text-align: left;"
+!Enchantment
+![[Resource location]]
+!ID
+|-
+|Protection
+|<code>protection</code>
+|0
+|-
+|Fire Protection
+| <code>fire_protection</code>
+|1
+|-
+|Feather Falling
+|<code>feather_falling</code>
+|2
+|-
+|Blast Protection
+|<code>blast_protection</code>
+|3
+|-
+|Projectile Protection
+|<code>projectile_protection</code>
+|4
+|-
+|Thorns
+|<code>thorns</code>
+|5
+|-
+|Respiration
+|<code>respiration</code>
+|6
+|-
+|Depth Strider
+|<code>depth_strider</code>
+|7
+|-
+|Aqua Affinity
+|<code>aqua_affinity</code>
+|8
+|-
+|Sharpness
+|<code>sharpness</code>
+|9
+|-
+|Smite
+|
+<code>smite</code>
+|10
+|-
+|Bane of Arthropods
+|<code>bane_of_arthropods</code>
+|11
+|-
+|Knockback
+|<code>knockback</code>
+|12
+|-
+|Fire Aspect
+|<code>fire_aspect</code>
+|13
+|-
+|Looting
+|<code>looting</code>
+|14
+|-
+|Efficiency
+|<code>efficiency</code>
+|15
+|-
+|Silk Touch
+|<code>silk_touch</code>
+| 16
+|-
+|Unbreaking
+|<code>unbreaking</code>
+|17
+|-
+|Fortune
+|<code>fortune</code>
+|18
+|-
+| Power
+|<code>power</code>
+| 19
+|-
+| Punch
+|<code>punch</code>
+|20
+|-
+|Flame
+|<code>flame</code>
+|21
+|-
+|Infinity
+|<code>infinity</code>
+|22
+|-
+|Luck of the Sea
+| <code>luck_of_the_sea</code>
+|23
+|-
+|Lure
+|<code>lure</code>
+|24
+|-
+|Frost Walker
+|<code>frost_walker</code>
+|25
+|-
+|Mending
+|<code>mending</code>
+|26
+|-
+|Curse of Binding
+|<code>binding_curse</code>
+|27
+|-
+|Curse of Vanishing
+|<code>vanishing_curse</code>
+| 28
+|-
+|Impaling
+|<code>impaling</code>
+|29
+|-
+|Riptide
+|<code>riptide</code>
+|30
+|-
+|Loyalty
+|<code>loyalty</code>
+|31
+|-
+|Channeling
+|<code>channeling</code>
+|32
+|-
+|Multishot
+|<code>multishot</code>
+|33
+|-
+|Piercing
+|<code>piercing</code>
+|34
+|-
+|Quick Charge
+|<code>quick_charge</code>
+|35
+|-
+|Soul Speed
+|<code>soul_speed</code>
+|36
+|-
+|Swift Sneak
+|<code>swift_sneak</code>
+|37
+|}
+
+{{-}}
+
+{{Bedrock Edition}}
+{{minecraft}}
+
+{{DEFAULTSORT:Data value}}
+
+[[de:Numerische Identifikation (Bedrock)]]
+[[ja:データ値/Bedrock Edition]]
+[[ru:Значения данных/Bedrock Edition]]
+[[zh:基岩版数据值]]

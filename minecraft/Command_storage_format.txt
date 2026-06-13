@@ -1,0 +1,36 @@
+{{exclusive|java}}
+The '''command_storage_''<namespace>''.dat''' files are GZip'd [[NBT Format|NBT]] files located in the <samp>data</samp> folder in a savegame. They store information about the {{cmd|data}} [[command storage]] in the world. Each [[namespace]] in the storage has its own data file.
+
+== Folder Structure ==
+{| data-description="List"
+|-
+|<div class="toccolours treeview">
+*''(world save directory)''
+**data
+***command_storage_''<namespace>''.dat
+</div>
+|}
+Multiple {{cd|command_storage_''<namespace>''.dat}} files may be present in the {{cd|data}} directory.
+
+== NBT structure ==
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+** {{nbt|compound|data}}: The actual saved data.
+*** {{nbt|compound|contents}}: Contains all the data storage under the namespace of the command storage.
+**** {{nbt|compound|''<name>''}}: The data associated with a particular [[resource location]] {{code|''<namespace>'':''<path>''}}.
+***** Custom content as set by the {{cmd|data}} or {{cmd|execute store}} commands. 
+** {{nbt|int|DataVersion}}: The [[data version]] in which this file is saved.
+</div>
+Multiple {{nbt|compound}} compound tags of different names may exist under {{nbt|compound|contents}} tag.
+
+== History ==
+{{History|java}}
+{{History||1.15|snap=19w38a|Added [[command storage]] data for the level.}}
+{{History|foot}}
+
+{{Java Edition}}
+
+[[de:NBT-Datenspeicher]]
+[[ja:コマンドストレージフォーマット]]
+[[pt:Formato de armazenamento de comandos]]
+[[zh:命令存储格式]]

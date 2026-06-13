@@ -1,0 +1,78 @@
+{{Infobox command
+|name=difficulty
+|oplevel=
+* 2 {{only|java|short=1}}
+* 1 {{only|bedrock|short=1}}
+|others=[[Options|Cheat]] only{{only|bedrock|short=1}}
+}}
+
+Sets or queries the difficulty level (peaceful, easy, etc.).
+
+== Syntax ==
+
+* '''Java Edition'''
+: <code>difficulty [peaceful|easy|normal|hard]</code>
+
+* '''Bedrock Edition'''
+: <code>difficulty <difficulty: Difficulty></code>
+: <code>difficulty <difficulty: int></code>
+
+== Arguments ==
+
+{{el|je|short=1}}: {{code|peaceful{{!}}easy{{!}}normal{{!}}hard}}<br>
+{{el|be|short=1}}: {{argument|be=1|difficulty: Difficulty|enum}} and {{argument|be=1|difficulty: int|int}}
+: Specifies the new difficulty level. Must be one of the following:
+:* <code>peaceful</code> (can be abbreviated as <code>p</code> or <code>0</code>{{only|bedrock}}) for [[peaceful]] difficulty
+:* <code>easy</code> (can be abbreviated as <code>e</code> or <code>1</code>{{only|bedrock}}) for [[easy]] difficulty
+:* <code>normal</code> (can be abbreviated as <code>n</code> or <code>2</code>{{only|bedrock}}) for [[normal]] difficulty
+:* <code>hard</code> (can be abbreviated as <code>h</code> or <code>3</code>{{only|bedrock}}) for [[hard]] difficulty
+: If unspecified, queries the current difficulty instead of changing it.{{only|java}}
+
+== Result ==
+
+{{Result table}}
+{{Result table|the arguments are not specified correctly|N/A|unparseable}}
+{{Result table|the original difficulty is the same as the specified difficulty‌|fail|success}}
+{{Result table|succeed}}
+{{Result table}}
+
+== Output ==
+
+{{Output table}}
+{{Output table|edition=je|On fail|0|0|0}}
+{{Output table|cmd=/difficulty ...|On success|1|1|0}}
+{{Output table|cmd=/difficulty|On success|1|1|the number id of current difficulty (peaceful {{=}} 0, easy {{=}} 1, normal {{=}} 2, hard {{=}} 3)}}
+{{Output table|cmd=|edition=be|On fail|0}}
+{{Output table|On success|1}}
+{{Output table}}
+
+== Note ==
+
+On a multiplayer server difficulty lasts only until the server is restarted — on restart, difficulty is reloaded from [[server.properties]]. 
+
+In [[hardcore]] mode, the difficulty doesn't change even when successful.{{only|java}}
+
+== Examples ==
+
+* To change the difficulty to hard: <code>difficulty hard</code>, <code>difficulty h</code>{{only|bedrock}}, or <code>difficulty 3</code>{{only|bedrock}}
+
+== See also ==
+
+* {{cmd|gamemode}} – changes a player's game mode (creative, survival, etc.)
+
+== History ==
+{{Expand section|type=old}}
+{{History|java}}{{History||1.4.2|snap=12w32a|Added {{cmd|difficulty|link=none}}.}}
+
+{{History|pocket}}
+{{History||1.0.5|snap=alpha 1.0.5.0|Added {{cmd|difficulty|link=none}}.}}
+{{History|foot}}
+{{Commands}}
+
+[[de:Befehl/difficulty]]
+[[es:Comandos/difficulty]]
+[[pt:Comandos/difficulty]]
+[[ru:Команды консоли/difficulty]]
+[[uk:Команди консолі/difficulty]]
+[[ja:コマンド/difficulty]]
+[[zh:命令/difficulty]]

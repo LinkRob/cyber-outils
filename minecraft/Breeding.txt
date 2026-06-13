@@ -1,0 +1,477 @@
+[[File:Villagers breeding.png|thumb|right|Two [[villager]]s breeding.]]
+[[File:Wolf family.png|thumb|right|A wolf pup with its parents.]]
+'''Breeding''' is a game mechanic that allows certain [[mob]]s, including [[villager]]s and many [[animal]]s, to produce offspring.
+
+Some mobs have similar mechanics that are not classified as breeding.
+
+==Mechanics==
+
+[[File:New Cattle.png|thumb|right|A cow following the player.]]
+Most animals that can be bred have a [[food]] item used to lead and breed it (there are a few special cases, [[#Breeding foods|described below]]). Once an animal notices a player holding its food, it follows the player until either the player is out of range, the player stops holding the item, it begins the breeding process, or it is attacked. Baby animals behave the same way. Most animals are uninterested in food [[Item (entity)|lying on the ground]], and those that are do not breed from eating this food; animals breed only when fed by a [[player]]. One item per parent is needed to breed a single baby.
+
+===Love mode ===
+When an animal is fed its food, it enters "love mode", preparing to breed with another animal of the same species that is also in love mode. Animals that are in love mode emit heart [[particles]] constantly. When both animals are fed, they pathfind toward each other, up to eight blocks away. The two animals walk into each other for about two and a half seconds, and then drop {{xp|1|7}} and end love mode to produce their offspring, the method of which depends on the animal. Most animals immediately spawn a [[#Baby_animals|baby animal]] at the feet of the parents, usually of the same species as their parents, with the exception of [[mule]]s, which cannot breed with each other and must be bred via the union of a [[horse]] and [[donkey]]. Some animals lay eggs, but the method and location they perform this varies from animal to animal. [[Chicken]]s are the only animals that can both directly produce babies and lay eggs, as well as the only animals that lay eggs without being fed. After breeding, the parents cannot be fed to breed again for five minutes, but they (and their babies) always follow players holding breeding items. An animal exits love mode if it does not breed 30 seconds after being fed, but it immediately becomes able to be fed and enter love mode again.
+
+The number of animals that are produced starting from a single pair of animals, assuming the offspring is fully grown before breeding again, is represented by this sequence:
+
+<math>\begin{align}
+a_1 &= 2 \\
+a_2 &= 3 \\
+a_3 &= 4 \\
+a_4 &= 6 \\
+a_5 &= 9 \\
+a_6 &= 13 \\
+a_7 &= 19 \\
+&\;\;\vdots \\
+a_{n+1} &= \left\lfloor \frac{3}{2}a_{n} \right\rfloor \\
+&\;\; \vdots
+\end{align}</math>
+
+where <math>\left\lfloor x \right\rfloor</math> is the [[wikipedia:Floor_and_ceiling_functions|floor function]].
+
+The <math>n</math>th term of the sequence can also be computed with this formula: <math>a_{n} = \left\lceil K \times (3/2)^{n} \right\rceil</math> where <math>K = 1.08151366859...</math> and <math>\left\lceil x \right\rceil</math> is the [[wp:Floor and ceiling functions|ceiling function]]. The constant <math>K</math> is defined to be <math>(2/3) \times K(3)</math> (see [https://oeis.org/A083286 OEIS A083286])
+
+===Breeding foods ===
+
+{| class="sortable fandom-table wikitable list-style-none" data-description="Breeding foods" border="1"
+|-
+!Mob
+!Items
+!Other
+|-
+|
+*{{EntityLink|Horse}} (Tamed)
+*{{EntityLink|Donkey}} (Tamed)
+|
+*{{ItemLink|Golden Apple}}
+*{{ItemLink|Enchanted Golden Apple}}
+*{{ItemLink|Golden Carrot}}
+|These mobs must be tamed by repeatedly mounting them before they can breed. They can be tamed faster by being fed.
+A horse breeding with a donkey produces a [[mule]]. Mules cannot breed. 
+
+The following items cannot be used for leading or breeding, but can be used to feed an untamed horse, donkey, or mule, grow a baby, or for healing:
+  {| class="wikitable list-style-none" style="border-width:0px; margin:0 0 0 -0.4em;" data-description="Horse breeding"
+  |-
+  | style="border-width:0px;" |
+*{{ItemLink|Sugar}}
+*{{ItemLink|Wheat}}
+  | style="border-width:0px;" |
+*{{ItemLink|Apple}}
+*{{BlockLink|Hay Bale}}
+  |}
+|-
+|
+*{{EntityLink|Cow}}
+*{{EntityLink|Goat}}
+*{{EntityLink|Mooshroom}}
+*{{EntityLink|Sheep}}
+|
+*{{ItemLink|Wheat}}
+|Sheep can grow faster if they eat [[grass]] or [[Grass Block|grass blocks]]. They cannot be hand-fed these items; they eat them only if they are placed in the world.
+|-
+|{{EntityLink|Pig}}
+|
+*{{ItemLink|Carrot}}
+*{{ItemLink|Potato}}
+*{{ItemLink|Beetroot}}
+| Pigs can also be led, but not bred, with a [[carrot on a stick]].
+|-
+|{{EntityLink|Chicken}}
+|
+*{{ItemLink|Wheat Seeds}}
+*{{ItemLink|Pumpkin Seeds}}
+*{{ItemLink|Melon Seeds}}
+*{{ItemLink|Beetroot Seeds}}
+*{{ItemLink|Torchflower Seeds}}
+*{{ItemLink|Pitcher Pod}}
+|Chickens directly produce a chick when bred. They also automatically produce [[egg]]s, and do so without having to be fed.
+|-
+|{{EntityLink|id=tamed-wolf|Wolf|Wolf}} (Tamed)
+|
+  {| class="wikitable list-style-none" style="border-width:0px; margin:0 0 0 -0.4em;" data-description="Wolf breeding"
+  |-
+  | style="border-width:0px;" |
+*{{ItemLink|Raw Beef}}
+*{{ItemLink|Raw Chicken}}
+*{{ItemLink|Raw Porkchop}}
+*{{ItemLink|Raw Rabbit}}
+*{{ItemLink|Raw Mutton}}
+*{{ItemLink|Rotten Flesh}}
+  | style="border-width:0px;" |
+*{{ItemLink|Steak}}
+*{{ItemLink|Cooked Chicken}}
+*{{ItemLink|Cooked Porkchop}}
+*{{ItemLink|Cooked Rabbit}}
+*{{ItemLink|Cooked Mutton}}
+*&nbsp;
+  |}
+|These mobs must be tamed by being given enough [[bone]]s before they can be fed anything else, and do not enter love mode from eating bones.
+Tamed wolves can be fed to restore health, and must be at full health to enter love mode.
+{{IN|bedrock}}, the following can also be used for healing, but cannot be used for breeding or growing a baby wolf:
+  {| class="wikitable list-style-none" style="border-width:0px; margin:0 0 0 -0.4em;" data-description="Wolf healing"
+  |-
+  | style="border-width:0px;" |
+*{{ItemLink|Raw Cod}}
+*{{ItemLink|Raw Salmon}}
+*{{ItemLink|link=Pufferfish (item)|Pufferfish}}
+*{{ItemLink|link=Tropical fish (item)|Tropical Fish}}
+
+  | style="border-width:0px;" |
+*{{ItemLink|Cooked Cod}}
+*{{ItemLink|Cooked Salmon}}
+*{{ItemLink|Rabbit Stew}}
+*&nbsp;
+  |}
+|-
+|
+*{{EntityLink|Cat}} (tamed)
+*{{EntityLink|Ocelot}}
+|
+*{{ItemLink|Raw Cod}}
+*{{ItemLink|Raw Salmon}}
+|Cats must be tamed by being given enough food before they can breed.
+Tamed cats can be fed to restore health, and must be at full health to enter love mode. 
+When fed, ocelots trust the player that fed them, and do not run away. An ocelot does not need to be trusting to breed.
+|-
+|{{EntityLink|Axolotl}}
+|
+*{{ItemLink|Bucket of Tropical Fish}}
+| Only bucketed tropical fish can be used to breed axolotls. [[Tropical Fish (item)|Tropical fish]] items cannot be used.
+
+A [[water bucket]] is returned upon feeding.
+|-
+|
+*{{EntityLink|Llama}}
+*{{EntityLink|Trader Llama}}
+|
+*{{BlockLink|Hay Bale}}
+|Llamas must be tamed by repeatedly mounting them before they can breed. They can be tamed faster by being fed.
+Llamas and trader llamas can crossbreed, and the offspring is always a normal llama.{{Needs testing}}
+[[Wheat]] can also be used to feed an untamed llama, grow a baby, or for healing, but it cannot be used to lead or breed llamas. 
+|-
+|{{EntityLink|Rabbit}}
+|
+*{{BlockLink|Dandelion}}
+*{{ItemLink|Carrot}}
+*{{ItemLink|Golden Carrot}}
+|Rabbits always run from players unless they hold a breeding item, even if they are fed or grown from a baby by a player.
+|-
+|{{EntityLink|Turtle}}
+|
+*{{BlockLink|Seagrass}}
+|Turtles lay [[Turtle Egg|eggs]] on [[sand]] when bred that take a few days to hatch into baby turtles. They lay eggs only at the place they spawned or were hatched. Turtle eggs can be obtained only with [[Silk Touch]], hatch only when placed on sand, and hatch significantly faster at night. Turtle eggs can be trampled and broken, and [[zombie]]s and their variants do so deliberately.
+|-
+|{{EntityLink|Panda}}
+|
+*{{ItemLink|Bamboo}}
+|Pandas can eat bamboo and other food items without player input, but breed only when fed by a player.
+Pandas breed only if there are at least eight bamboo plants placed in a radius of five blocks around them.
+|-
+|{{EntityLink|Fox}}
+|
+*{{ItemLink|Sweet Berries}}
+*{{ItemLink|Glow Berries}}
+| Foxes can eat berries and other food items without player input, but breed only when fed by a player.
+The baby fox always trusts the player that bred the foxes, even when it grows up, and does not run away when approached.
+|-
+|{{EntityLink|Bee}}
+|
+*{{BlockLink|Flowers}}
+|All flowers and flowering blocks work. Feeding bees wither roses ''does not'' give them the [[Wither (effect)|Wither effect]] or anger them.
+|-
+|{{EntityLink|Strider}}
+|
+*{{BlockLink|Warped Fungus}}
+|Striders can also be led, but not bred, with a [[warped fungus on a stick]].
+|-
+|{{EntityLink|Hoglin}}
+|
+*{{BlockLink|Crimson Fungus}}
+|Hoglins continue to attack during the breeding process. Hoglins that are fleeing from warped fungi, [[nether portal]]s or [[respawn anchor]]s cannot be bred.
+[[Zoglin]]s cannot breed.
+|-
+|{{EntityLink|Frog}}
+|
+*{{ItemLink|Slimeball}}
+|Frogs lay [[Frogspawn|eggs]] on water that take ten minutes to hatch into [[tadpole]]s. These eggs cannot be obtained in item form or moved.
+|-
+|{{EntityLink|Camel}}
+|
+*{{BlockLink|Cactus}}
+| Despite being fed cacti to breed (and not taking damage from it), camels still take damage from touching it when it is placed in the world.
+|-
+|{{EntityLink|Sniffer}}
+|
+*{{BlockLink|Torchflower Seeds}}
+|Sniffers lay [[Sniffer Egg|eggs]] when bred that take twenty minutes (or ten, if the egg is placed on a [[moss block]]) to hatch into a snifflet. They lay their eggs in item form, and they must be placed by a player.
+|-
+|[[Armadillo]]
+|
+* [[Spider Eye|Spider eye]]
+|
+|-
+|}
+
+===Villagers===
+{{main|Villager#Breeding}}
+
+[[File:ChildrenTag.png|thumb|right|A group of villager children playing tag.]]
+
+[[Villager]]s do not breed automatically when given food. Villager breeding depends on both the number of valid [[bed]]s in the area (see the [[village]] page for full details), as well as whether the villagers are "willing." A villager may become willing if they have 3 [[bread]], 12 [[carrot]]s, 12 [[potato]]es, or 12 [[beetroot]]s in their inventory. They may also become willing as a result of [[trading]] with a player. When they breed, they produce a smaller [[villager]]. Unlike many baby animals, baby villagers do not have large heads {{in|java}}. [[Zombie villager]]s and [[wandering trader]]s cannot breed, and baby zombie villagers do not grow up.
+
+==Baby mobs==
+[[File:SheepBreedingColor.png|thumb|right|An example of how a bred sheep inherits a mixture of its parents' colors when possible.]]
+<!--TO ALL: "sheared" and "shorn" are both perfectly acceptable. However, "sheared" is more commonly used, and is also more obviously the past participle of "shear". Therefore, for clarity and continuity's sakes, "sheared" should be used on this page.
+Thank you.--> 
+
+Baby mobs are smaller variations of their adult counterparts, having small bodies, relatively large heads (with some exceptions), and faster walking speeds. Their sounds are the same as their adult variants but 50% faster and are pitched up by 6 [[Wikipedia:Semitone|semitones]]. The only exception to this is [[tadpole]]s, which are a wholly unique mob from [[frog]]s. Many baby mobs have different interactions or behavior compared to their elders that depends on the mob. For example, lambs cannot be sheared for their [[wool]], calves, mooshroom calves and kids (baby goats) cannot be [[milk]]ed, and baby piglins take [[Gold Ingot|gold]] but do not [[Bartering|barter]]. Most baby mobs do not drop [[loot]] or [[experience]] when killed, with the exception of items they pick up. Baby mobs that do drop loot or experience consist of the following: 
+
+*Baby [[zombie]]s, [[zombie villager]]s, [[husk]]s, [[drowned]], [[zombified piglin]]s and [[zoglin]]s (both loot and experience)
+*Baby [[hoglin]]s (only experience)
+*Baby [[piglin]]s (only experience, but less than adults)
+
+Most baby animals choose and follow an adult within 8 blocks of the same species, regardless of whether it is their parent. Babies can choose new targets to follow whenever they do not have a valid target, such as when the previous target dies or moves further than 16 blocks away. Tamed pups and kittens follow their owner if the parent is absent or sitting. Baby animals that do not follow adults consist of:
+
+*[[Tadpole]]s (which do not follow [[Frog|frogs]])
+*[[Sniffer|Snifflets]]<ref>{{bug|MC-260272|||WAI}}</ref>
+*[[Rabbit|Baby rabbits]]{{Only|Java}}<ref>{{bug|MC-158608|||WAI}}</ref>
+*[[Turtle|Baby turtles]] {{Only|Java}}<ref name="notfollowadultsje">{{bug|MC-185516}}</ref>
+*[[Ocelot|Ocelot kittens]]{{Only|Java}}<ref name="notfollowadultsje" />
+*[[Cat|Stray kittens]]{{Only|Java}}<ref name="notfollowadultsje" />
+* [[Wolf|Wild wolf pups]]{{Only|Java}}<ref name="notfollowadultsje" />
+
+Baby mobs that are not animals never follow adult mobs.
+
+When a baby of a species with different fur/pattern variants is born, they usually inherit the pattern of one of their parents, chosen at random, with some exceptions: 
+
+* In the case of [[sheep]], if the parents have "compatible" colors (meaning that their corresponding [[dye]] items could be combined into a third dye), the lamb inherits a mix of the parents' colors{{Only|java}}. 
+**This also applies to [[Wolf|Wolf pup]] and [[Cat|Kitten]] collars.
+*In the case of [[Mooshroom|mooshrooms]], breeding two of the same variant has a <sup>1</sup>⁄<sub>1024</sub> chance to spawn a mooshroom of the opposite variant. Breeding two mooshrooms of differing variants has an equal chance of a baby mooshroom of either type.
+* In the case of [[Horse|horses]], there is a <sup>13</sup>⁄<sub>45</sub> chance of having a random color/markings instead of matching either of its parents.
+*In the case of [[Axolotl|axolotls]], a baby axolotl bred by a player (not found in the world) has a <sup>1</sup>⁄<sub>1200</sub> chance to be the rare blue variant, with this being the only way to obtain this variant. Otherwise, it inherits the color of one of its parents at random.
+*[[Frog|Frogs]] do not inherit their variants from their parents. A frog's variant is determined by the biome it matures from a [[tadpole]] in.
+
+Baby animals can be manually spawned by {{control|using|use}} [[spawn egg]]s on a grown animal. This also works on zombies or variants. Baby animals may also be spawned using the {{cmd|summon}} command with a negative {{code|Age}} tag; for example, using {{cmd|summon sheep ~ ~ ~ {Age:-100} }} spawns a baby sheep at the player's position, that matures in 100 [[tick]]s (5 seconds). For baby mobs that don't grow up like zombies and [[piglin]]s, the {{code|IsBaby:1}} tag is used instead.[[File:Feed graphic for baby.png|alt=picture of two graphs showing grow time relationship of feedings to minutes |border|right|frameless|325x325px|Feed graphic for baby animals.]]
+Most baby mobs take 20 minutes to grow up. This can be accelerated by feeding them their breeding item. Green sparkles appear similar to those caused by [[Bone Meal|bone meal]]. Usually, each feeding reduces the remaining time before the animal grows up by 10%. The less time remains, the less time is saved by each feeding, making it inefficient to feed an animal continuously until it becomes an adult. After the eighth feeding, the time saved by one feeding is less than a minute, as shown in the graph. 
+
+Horses, donkeys, and llamas have different mechanics: different breeding items grow babies by different amounts, and each item ages babies by a constant time rather than a percentage of the remaining time. 
+
+Baby [[Zombie|zombies]], [[Zombie Villager|zombie villagers]], [[Husk|husks]], [[drowned]], [[Zombified Piglin|zombified piglins]], [[Piglin|piglins]], [[Zoglin|zoglins]], [[skeleton horse]]s, and [[zombie horse]]s do not grow up, and none of these mobs can breed. 
+
+[[Polar Bear|Polar bears]] have a baby form that can grow up into an adult, but cannot be bred. This also applies to [[squid]], [[Glow Squid|glow squid]] and [[Dolphin|dolphins]] in [[Bedrock Edition|''Bedrock Edition'']].
+
+===Animals===
+<gallery>
+File:Baby Cow.png|[[Cow]] calf
+File:Baby Chicken.png|[[Chicken|Chick]]
+File:Baby Pig.png|[[Pig|Piglet]]
+File:Baby Goat JE1 BE2.png|[[Goat|Kid]]
+File:Baby White Sheep.png|[[Sheep|Lamb]]
+File:Baby Mooshroom.png|[[Mooshroom]] calf
+File:Baby Brown Rabbit.png|[[Rabbit]] kit
+File:Baby Wolf.png|[[Wolf]] pup
+File:Baby Ocelot.png|[[Ocelot]] kitten
+File:Baby Tuxedo Cat.png|[[Cat|Domestic kitten]]
+File:Baby White Horse.png|[[Horse]] foal
+File:Baby Donkey.png|[[Donkey]] foal
+File:Baby Mule.png|[[Mule]] foal
+File:Baby Brown Llama.png|[[Llama|Cria]]
+File:Baby Creamy Trader Llama.png|[[Llama|Trader Cria]]
+File:Baby Fox.png|[[Fox]] kit
+File:Lucy Axolotl.png|[[Axolotl]] juvenile
+File:Bee.png|Baby [[bee]]
+File:Baby Panda.png|[[Panda]] cub
+File:Turtle.png|[[Turtle]] hatchling
+File:Baby Hoglin.png|[[Hoglin]] piglet
+File:Strider.png|Baby [[strider]]
+File:Baby Polar Bear.png|[[Polar Bear|Polar bear]] cub
+File:Tadpole swimming.gif|[[Tadpole]]
+File:Dolphin.png|[[Dolphin]] calf{{only|bedrock}}
+File:Glow Squid BE.gif|Baby [[glow squid]]{{only|bedrock}}
+File:Squid.gif|Baby [[squid]]{{only|bedrock}}
+File:Camel.png|[[Camel]] calf
+File:Snifflet sniffsniff.gif|[[Snifflet]]
+</gallery>
+
+===Monsters===
+These are baby versions of mobs that count toward the "Monster Hunter" and "Monsters Hunted" [[advancement]]s or are otherwise [[undead]].
+<gallery>
+File:Baby Zombie.png|[[Zombie]] child
+File:Baby Drowned.png|[[Drowned]] child
+File:Baby Husk.png|[[Husk]] child
+File:Baby Zombified Piglin.png|[[Zombified piglin]] child
+File:Baby Piglin.png|[[Piglin]] child
+File:Plains Baby Zombie Villager.png|[[Zombie villager]] child
+File:Baby Zoglin.png|[[Zoglin]] piglet
+File:Baby Skeleton Horse.png|[[Skeleton horse]] foal <small>([[Unused features|unused]])</small>
+File:Baby Zombie Horse.png|[[Zombie horse]] foal <small>([[Unused features|unused]])</small>
+</gallery>
+
+===Villagers===
+<gallery>
+File:Plains Baby Villager BE.png|Plains Villager child
+File:Jungle Baby Villager BE.png|Jungle Villager child
+File:Savanna Baby Villager BE.png|Savanna Villager child
+File:Snowy Baby Villager BE.png|Snowy Villager child
+File:Swamp Baby Villager BE.png|Swamp Villager child
+File:Taiga Baby Villager BE.png|Taiga Villager child
+</gallery>
+
+==Similar mechanics==
+
+===Allay duplication===
+If an [[allay]] is given an [[amethyst shard]] while it is dancing due to a nearby [[jukebox]] playing any [[Music Disc|music disc]], it splits into two allays (itself and a new allay) and the amethyst shard is consumed. After duplication, both allays have a five minute cooldown before being able to duplicate again. Allays do not have a baby form.
+
+===Shulker duplication===
+There is a chance for a new [[shulker]] of the same color to spawn when a shulker is hit with a shulker bullet (including one of its own).
+
+The following conditions must be met:
+
+*When the shulker gets hit and then has less than half its health remaining, there is a 25% chance for it to teleport without spawning a new shulker instead of checking the conditions below.
+*The hit shulker must have its lid open.
+*The hit shulker needs to find somewhere to teleport. For this, it takes a random block in a 17×17×17 cuboid centered on the shulker and then checks if the block has a valid face to teleport to. If not it proceeds to try this up to 4 more times. If no valid face is found, the attempt fails.
+* Each other shulker within 8 blocks of the hit shulker decreases the odds of success by 20%. When five or more other shulkers are nearby, no shulkers can spawn, but the hit shulker still teleports.
+
+If the attempt succeeds a new shulker spawns where the old shulker was before it teleported. Shulkers do not have a baby form, and, other than the above criteria, have no duplication cooldown.
+
+==Achievements==
+<table-progress-tracking table-id="2" unique-column-index="3">
+{{load achievements|Repopulation;Zoologist}}
+</table-progress-tracking>
+
+==Advancements==
+<table-progress-tracking table-id="1" unique-column-index="2">
+{{load advancements|The Parrots And The Bats;Two by Two}}
+</table-progress-tracking>
+
+==History==
+
+{{History|java}}
+{{History||1.0.0|snap=September 9, 2011|slink={{tweet|jeb_|112166224334553088}}|[[Jeb]] tweets that animal breeding is pushed to [[Java Edition 1.0.0|1.9]].}}
+{{History|||snap=September 25, 2011|slink={{tweet|notch|117862983165681665}}|[[Notch]] also tweets an image of dozens of [[sheep]] crowded together, saying "''They won't stop breeding!!!''"}}
+{{History|||snap=Beta 1.9 Prerelease 2|Introduced breeding. [[Animal]]s could breed instantly, without any "cooldown".
+|No baby animals yet; all animals were born fully-grown.
+|All [[sheep]] were born with white [[wool]], irrespective of their parentage.}}
+{{History|||snap=October 3, 2011|slink={{tweet|notch|120907656918601728}}|Notch tweets the first image of a cow calf and piglet.}}
+{{History|||snap=Beta 1.9 Prerelease 2|Snow golems can enter love mode using wheat.}}
+{{History|||snap=Beta 1.9 Prerelease 3|Added calves, mooshroom calves, lambs, piglets, and chicks.
+|Animals now enter "love mode" when fed with [[wheat]].
+|Interestingly, [[snow golem]]s could also enter love mode before this update.}}
+{{History|||snap=Beta 1.9 Prerelease 5|Baby animals now work in multiplayer.{{more info}}}}
+{{History|||snap=Beta 1.9 Prerelease 6|Lambs can be either of their parents' colors, even if they were dyed.}}
+{{History||1.2.1|snap=12w03a|[[Wolves]] can be bred with any type of [[meat]] to produce pups.}}
+{{History|||snap=12w04a|[[Cat]]s (tamed [[ocelot]]s) can be bred with [[raw fish]] for kittens.}}
+{{History|||snap=12w08a|Baby [[villager]]s and [[ocelot|kitten]]s are now the only baby [[mob]]s that have a head the right size for the body.}}
+{{History||1.3.1|snap=12w22a|Breeding now give [[experience]].}}
+{{History||1.4.2|snap=12w32a|[[Zombie]]s that infect villager children now create [[zombie villager]] children, which are faster than normal zombies, do not age, and survive in sunlight.}}
+{{History|||snap=12w36a|[[Pig]]s are now responsive to [[carrot]]s, [[chicken]]s to [[wheat seeds|seeds]], with [[cow]]s and [[sheep]] still breeding with [[wheat]].}}
+{{History||1.6.1|snap=13w16a|Added [[horse]]s, [[donkey]]s, and [[mule]]s, all of which except mules can breed to produce foals.}}
+{{History||1.6.2|snap=pre|[[Zombie]] and [[zombie pigmen]] children now spawn naturally among regular ones.}}
+{{History||1.8|snap=14w02a|Baby mobs can be grown faster by being fed. Each feeding reduces the remaining time to maturity by 10%, having no effect if less than 9 seconds remain. 28 feedings reduce the remaining time to around a minute, from the initial time of 20 minutes. In addition, lambs reach maturity one minute sooner for every time they consume [[grass block|grass]].}}
+{{History|||snap=January 27, 2014|slink={{tweet|Dinnerbone|427795613733126144}}|[[Dinnerbone]] tweets an image of many [[cow]]s, presumably testing the breeding system.}}
+{{History|||snap=14w26c|[[Wheat]]'s acceleration of foals growth has been reduced.}}
+{{History|||snap=14w27a|Added [[rabbit]]s, which can be bred to produce rabbit kits.}}
+{{History|||snap=pre1|[[Chicken]]s can no longer be bred using [[melon seeds]], [[pumpkin seeds]] or [[nether wart]].}}
+{{History||1.9|snap=15w31a|Chickens now use melon seeds, pumpkin seeds and [[beetroot seeds]] to breed, in addition to [[wheat seed]]s.}}
+{{History|||snap=15w35a|[[Zombie villager]] children now retain their profession.}}
+{{History|||snap=15w46a|[[Rabbit]] kits are now smaller.}}
+{{History||1.10|snap=16w20a|Added [[polar bear]]s and cubs. Unlike other [[mob]]s, polar bears attack any [[player]], if a cub is nearby.
+|Added [[husk]]s and children.}}
+{{History||1.11|snap=16w39a|Added [[llama]]s and crias.}}
+{{History||1.13|snap=18w07a|Added [[turtle]]s and turtle hatchlings.}}
+{{History|||snap=18w10d|[[Zombie]] children now burn in daylight.}}
+{{History||1.14|snap=18w43a|Added [[panda]]s and panda cubs.}}
+{{History|||snap=18w44a|[[Cat]]s and [[ocelot]]s have been split into their own [[mob]]s, thus cats are no longer tamed ocelots.
+|Added seven more cat textures and their kitten variants.}}
+{{History|||snap=19w07a|Added [[fox]]es and fox kits.}}
+{{History||1.15|snap=19w34a|Added [[bee]]s and bee larvae.}}
+{{History||1.16|snap=20w06a|Added [[hoglin]]s.}}
+{{History|||snap=20w07a|Added [[hoglin]] piglets.
+|Added [[piglin]]s and piglin children.}}
+{{History|||snap=20w13a|Added [[strider]]s and stridlings.}}
+{{History|||snap=20w14a|Added [[zoglin]]s and zoglin piglets.}}
+{{History||1.17|snap=20w51a|Added [[axolotl]]s and axolotl juveniles.}}
+{{History|||snap=21w13a|Added [[goats]] and kids.}}
+{{History||1.19|snap=22w11a|Added [[frog]]s and [[tadpole]]s.}}
+{{History||1.20<br>(Experimental)|link=1.19.3|snap=22w42a|Added [[camel]]s and baby camels.}}
+{{History|||snap=22w44a|Turtles now have a breeding delay like other mobs.<ref>{{bug|MC-137306|||Fixed}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.2.0|Baby [[animal]]s exist in the game, though there is currently no way to get them to spawn.}}
+{{History||v0.6.0|Baby [[animal]]s now spawn naturally. Breeding has not been added yet.}}
+{{History||v0.8.0|snap=build 1|Introduced breeding.}}
+{{History||v0.11.0|snap=build 11|[[Mob]]s must be touching to breed (previously they could breed with any mob in an 8 [[block]] radius, regardless of obstruction).
+|Added [[Zombie]] children.}}
+{{History||v0.12.1|snap=build 1|[[Villager]]s can now breed.
+|Breeding is now done through a ''Feed'' button.
+|Added [[zombie villager]] children.
+|Added [[ocelot]] kittens and tamed kittens.}}
+{{History||v0.13.0|snap=build 1|Added [[rabbit]]s, which can be bred to produce kits.}}
+{{History||v0.14.0|snap=build 1|Baby [[zombie]]s now have 15% chance to mount [[mob]]s.}}
+{{History||v0.15.0|snap=build 1|Added [[husk]]s, including their baby form.
+|Added [[horse]]s, [[donkey]]s, and [[mule]]s, all of which can breed to produce foals (except mules).
+|Added zombie horses and skeleton horses, which include foal variants.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Added [[polar bear]]s and cubs. Unlike other [[mob]]s, polar bears attack any player if a cub is nearby.}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Added [[llama]]s and baby llamas.}}
+{{History|bedrock}}
+{{History||1.4.0|snap=beta 1.2.13.8|Added [[drowned]] and their child variants.}}
+{{History|||snap=beta 1.2.20.1|Added [[dolphin]]s, which can be bred to produce dolphin calves.
+|[[Zombie]] children now burn in daylight.}}
+{{History||1.5.0|snap=beta 1.5.0.0|Zombie children now sink underwater.
+|Feeding dolphins raw [[fish]] no longer breed them; dolphin calves now spawn naturally.}}
+{{History|||snap=beta 1.5.0.4|Added [[turtle]]s and turtle hatchling.}}
+{{History||1.8.0|snap=beta 1.8.0.8|Added [[panda]]s and their cubs.
+|Feeding [[ocelot]]s now breed them, instead of taming them. 
+|Feeding an ocelot kitten raw [[fish]] now increase its growth speed, instead of taming it.}}
+{{History||1.13.0|snap=beta 1.13.0.1|Added [[fox]]es and fox kits.}}
+{{History||1.14.0|snap=beta 1.14.0.1|Added [[bee]]s and bee larvae.}}
+{{History||1.16.0|snap=beta 1.16.0.51|Added [[piglin]]s and hoglin piglets.
+|Added [[piglin]]s and their child counterparts.}}
+{{History|||snap=beta 1.16.0.57|Added [[zoglin]]s and zoglin piglets.
+|Added [[strider]]s and stridlists.}}
+{{History||1.16.200|snap=beta 1.16.200.52|Added [[goats]] and kids.}}
+
+{{History|console}}
+{{History||xbox=TU7|xbone=CU1|ps=1.0|wiiu=Patch 1|Added breeding.}}
+{{History||xbox=TU11|Added a message when the [[player]] tries to breed an [[animal]] when the spawn limits have been reached.}}
+{{History||xbox=TU12|Added [[Villager]] children.}}
+{{History||xbox=TU14|ps=1.04|Baby [[mob]]s can be spawned by using {{xbtn|lt}} on an adult form of that mob using a [[spawn egg]].}}
+{{History|foot}}
+
+== Issues==
+{{issue list}}
+
+==Trivia== 
+* Any two adult animals of the same species can breed with each other, even if one animal is the parent of the other.
+
+==Gallery==
+<gallery>
+File:FamilyDogsAndKitten.png|A family of wolves in a [[snowy plains]] biome as well as a [[Cat|kitten]].
+File:NotchAnimalBreedingFirst.png|Early image of sheep breeding.
+File:NotchBabyAnimals.png|Early image of baby animals.
+</gallery>
+
+==See also==
+
+*[[Tutorials/Animal farming]]
+
+==References==
+
+{{reflist|2}}
+
+
+{{Gameplay}}
+
+[[Category:Rewritten gameplay]]
+
+[[de:Viehzucht]]
+[[es:Crianza]]
+[[fr:Élevage]]
+[[it:Riproduzione]]
+[[ja:繁殖]]
+[[ko:번식]]
+[[pl:Rozmnażanie]]
+[[pt:Reprodução]]
+[[ru:Размножение животных]]
+[[zh:繁殖]]

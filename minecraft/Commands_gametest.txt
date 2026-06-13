@@ -1,0 +1,96 @@
+
+{{exclusive|bedrock}}
+{{Infobox command
+|name=gametest
+|oplevel=1
+|cheat=y
+}}
+
+{{cmd|gametest}} is a server-side test automation tool that is based on pairing test code with test structures.
+
+== Usage ==
+
+A GameTest can be registried in GameTest Framework, which is paired with a structure file (<code>.mcstructure</code> format).
+
+Place a structure block and type the ID (in the format of <code><testClassName>:<testName></code>) in it, then execute <code>gametest runthis</code> (or <code>gametest runthese</code> for multiple structure blocks) to run the GameTest in game. Note that the "structure name" in structure block should be the ID of Gametest instead of structure's ID.
+
+<code>gametest run ..</code> can automatically place the structure block with the specified GameTest ID and run this GameTest.
+
+<code>gametest runset ...</code> can automatically run all GameTests in the specified class at the same time.
+
+<code>gametest create ..</code> can place a save mode structure block, a platform made of polished andesite, there-block-thick dirt base, and a command block with a stone button attached on it. It is useful for developer to create a new structure and GameTest.
+
+== Syntax ==
+:<code>gametest runthis</code>
+::Finds nearest structure block within 15 blocks radius, and then try to run GameTest with the ID specified in the structure block.
+:<code>gametest run <testName: GameTestName> <stopOnFailure: Boolean> <repeatCount: int> [rotationSteps: int]</code>
+:<code>gametest run <testName: GameTestName> [rotationSteps: int]</code>
+::Create a run a specific GameTests.
+:<code>gametest runthese</code>
+::Finds structure blocks within 200 blocks radius, and then try to run GameTests with the ID specified in the structure block.
+:<code>gametest runset [tag: GameTestTag] [rotationSteps: int]</code>
+::Create and run all GameTests in this class (<code>tag: GameTestTag</code>).
+:<code>gametest clearall</code>
+::Clear all GameTests.
+:<code>gametest create <testName: string> [width: int] [height: int] [depth: int]</code>
+::Places structure block, command block, and polished andesite platform and dirt base.
+:<code>gametest pos</code>
+::Find nearest structure block within 200 blocks radius.
+:<code>gametest stopall</code>
+::Manually stops all tests while they are running.
+:<code>gametest runsetuntilfail [tag: string] [rotationSteps: int]</code>
+::Runs a set of tests, but will automatically stop if any of the tests fail.
+
+== Arguments ==
+
+{{argument|be=1|testName: GameTestName|enum}}
+: Specifies a GameTest to run.
+: Must be an existing Gametest ID.
+
+{{argument|be=1|repeatCount: int|int}}
+: Specifies the times the gametest will be repeat.
+:{{arg desc|be=int}} And it should greater than 0.
+
+{{argument|be=1|stopOnFailure: Boolean|enum}}
+: Specifies whether to continue with the next repetition when current test fails.
+:{{arg desc|be=bool}}
+
+{{argument|be=1|rotationSteps: int|int}}
+: Specifies the angle by which the gametest is rotate.
+: 1 means 90° clockwise; 2 means 180°; 3 means 270° clockwise. Otherwise the gametest won't be rotated.
+:{{arg desc|be=int}}
+
+{{argument|be=1|tagTag: GameTestTag|enum}}
+: Specifies GameTest class to run.
+: Must be an existing Gametest class ID.
+
+{{argument|be=1|testName: string|string}}
+: Specified a string as gametest ID.
+:{{arg desc|be=string}}
+
+{{argument|be=1|width: int|int}}
+: Specifies x-axis width of the polished andesite platform and of the structure. Defaults to 5.
+:{{arg desc|be=int}} And it should be less than or equal to 48.
+
+{{argument|be=1|height: int|int}}
+: Specifies y-axis height of the polished andesite platform and of the structure. Defaults to 5.
+:{{arg desc|be=int}} And it should be less than or equal to 48.
+
+{{argument|be=1|depth: int|int}}
+: Specifies z-axis width of the polished andesite platform and of the structure. Defaults to 5.
+:{{arg desc|be=int}} And it should be less than or equal to 48.
+
+==History==
+{{History|bedrock}}
+{{History||1.16.210|snap=beta 1.16.210.60|Added {{cd|/gametest}}.}}
+{{History||1.16.220|snap=1.16.220.02|Added {{cd|stopOnFailure: Boolean}} and {{cd|repeatCount: int}} into {{cd|/gametest run ...}}.}}
+{{History||1.17.0|snap=beta 1.16.230.50|Changed {{cd|/gametest runall}} to {{cd|/gametest runset}}.}}
+{{History||1.18.30|snap=beta 1.18.20.27|Removed <code>radius: int</code> argument in <code>gametest clearall</code>.}}
+{{History||1.19.80|snap=beta 1.19.80.22|Added <code>stopall</code> and <code>runsetuntilfail</code> subcommands.}}
+
+{{History|foot}}
+
+{{Commands}}
+
+[[ru:Команды консоли/gametest]]
+[[zh:命令/gametest]]

@@ -1,0 +1,292 @@
+{{Dungeons hatnote|type=mob}}
+{{Entity
+| invimage = Cave Spider Spawn Egg
+| health = {{hp|12}}
+| behavior = Hostile (if light level 7 and below and if [[Spider Jockey|jockey]] ridden by [[Skeleton|skeletons]], [[Stray|strays]] and [[Wither Skeleton|wither skeletons]])<br>Neutral (if light level 8 and above)
+| classification = [[Arthropods|Arthropod]]
+| damage = Easy: {{hp|2}}<br>Normal: {{hp|2|poisoned=1}}<br>Hard: {{hp|3|poisoned=1}}<br>'''Venom:'''<br>{{hp|1|poisoned=1}} per 1.25 sec<br>Normal: {{EffectLink|Poison}} for 7 sec ({{hp|6|poisoned=1|notag=1}})<br>Hard: {{EffectLink|Poison}} for 15 sec ({{hp|12|poisoned=1|notag=1}})
+| size = Height: 0.5 Blocks<br>Width: 0.7 Blocks
+| spawn = [[Mineshaft]]s
+}}
+'''Cave spiders''' are small variants of the [[spider]] that inflict [[Poison]] with their attacks. They are exclusively spawned by [[Monster Spawner|monster spawners]] found in [[mineshaft]]s.
+
+== Spawning ==
+[[File:SpiderSizeComparison.png|thumb|right|Size of a cave spider (left) compared to a regular spider (right).]]
+Cave spiders spawn from monster spawners in mineshafts at a [[light]] level of 0. These monster spawners are surrounded by [[cobweb]]s in corridors of mineshafts.
+
+== Drops ==
+{{See also|Tutorials/Cave spider farming}}
+When killed, a cave spider drops:
+* 0–2 {{ItemLink|String}}. The maximum is increased by 1 per level of [[Looting]], for a maximum of 0-5 string with Looting III.
+* {{xp|5}} when killed by a [[player]] or tamed [[wolf]].
+*They also have a {{frac|1|3}} chance of dropping a {{ItemLink|Spider Eye}} when killed by a player or tamed wolf. The maximum amount of spider eyes is increased by 1 per level of [[Looting]]. The chance of a cave spider '''not''' dropping any spider eyes can be found using the formula <code>2 / (Looting Level + 3)</code>. For example, Looting III gives a {{frac|1|3}} chance of not dropping any spider eyes. All other amounts have an equal chance of occurring.
+
+== Behavior ==
+
+Cave spiders inherit their behavior from [[spider]]s:
+* Neutral if under daylight or in [[light]] levels of 9 or above, otherwise they are hostile towards players and [[Iron Golem|iron golems]]. Once they become hostile, light does not affect them.
+* Climb walls when needed and may sometimes reach a corner and become stuck in a climbing status, thus losing and becoming unable to be aggravated.
+* Gravitate towards cobwebs.
+* Attack by leaping.
+* Are unaffected by [[cobweb]]s and [[Poison]].
+* Can spawn [[spider jockey]]s.{{only|be|short=1}}
+
+They have some distinctions from regular spiders:
+* Can fit through a space that is one [[block]] wide and {{frac|1|2}} block tall.
+* Can go through the spaces between two different types of (unconnected) [[fence]]s.
+* Cannot spawn with [[status effect]]s.
+
+Being [[arthropod]]s, they are weak against weapons with the [[Bane of Arthropods]] enchantment.
+
+=== Poison ===
+
+On Normal or Hard, cave spiders inflict {{EffectLink|Poison}} upon attacking.<ref>{{Tweet|jeb|109527533149630465|Your health hearts turn yellowish|September 2, 2011}}</ref> On Normal difficulty, the Poison lasts for 7 seconds and causes {{hp|6|poisoned=1}} damage. On Hard difficulty, it lasts for 15 seconds and causes {{hp|12|poisoned=1}}. Poison damage is not taken when the [[player]]'s health is at {{hp|1}}.
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Cave spiders use the Hostile Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Spider idle1.ogg
+|sound2=Spider idle2.ogg
+|sound3=Spider idle3.ogg
+|sound4=Spider idle4.ogg
+|subtitle=Spider hisses <ref group=sound name=LousyEvents>The cave spider reuses all of the spider's sound events instead of having its own, resulting in these somewhat unintuitive subtitles - see {{bug|MC-98316}}</ref>
+|source=hostile
+|description=Randomly
+|id=entity.spider.ambient|idnote=<ref group=sound name=LousyEvents/>
+|translationkey=subtitles.entity.spider.ambient|translationkeynote=<ref group=sound name=LousyEvents/>
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Spider death.ogg
+|subtitle=Spider dies <ref group=sound name=LousyEvents/>
+|source=hostile
+|description=When a cave spider dies
+|id=entity.spider.death|idnote=<ref group=sound name=LousyEvents/>
+|translationkey=subtitles.entity.spider.death|translationkeynote=<ref group=sound name=LousyEvents/>
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Spider idle1.ogg
+|sound2=Spider idle2.ogg
+|sound3=Spider idle3.ogg
+|sound4=Spider idle4.ogg
+|subtitle=Spider hurts <ref group=sound name=LousyEvents/>
+|source=hostile
+|description=When a cave spider is damaged
+|id=entity.spider.hurt|idnote=<ref group=sound name=LousyEvents/>
+|translationkey=subtitles.entity.spider.hurt|translationkeynote=<ref group=sound name=LousyEvents/>
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Spider step1.ogg
+|sound2=Spider step2.ogg
+|sound3=Spider step3.ogg
+|sound4=Spider step4.ogg
+|subtitle=Footsteps
+|source=hostile
+|description=While a cave spider is walking
+|id=entity.spider.step|idnote=<ref group=sound name=LousyEvents/>
+|translationkey=subtitles.generic.block.footsteps
+|volume=0.15
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Spider idle1.ogg
+|sound2=Spider idle2.ogg
+|sound3=Spider idle3.ogg
+|sound4=Spider idle4.ogg
+|source=neutral
+|description=Randomly
+|id=mob.spider.say
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Spider death.ogg
+|source=hostile
+|description=When a cave spider dies
+|id=mob.spider.death
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|type=bedrock
+|sound=Spider idle1.ogg
+|sound2=Spider idle2.ogg
+|sound3=Spider idle3.ogg
+|sound4=Spider idle4.ogg
+|source=neutral
+|description=When a cave spider is damaged
+|id=mob.spider.say
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Spider step1.ogg
+|sound2=Spider step2.ogg
+|sound3=Spider step3.ogg
+|sound4=Spider step4.ogg
+|source=hostile
+|description=While a cave spider is walking
+|id=mob.spider.step
+|volume=0.35
+|pitch=0.9-1.1
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|displayname=Cave Spider
+|spritetype=entity
+|nameid=cave_spider
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Cave Spider
+|spritetype=entity
+|nameid=cave_spider
+|id=40
+|foot=1}}
+
+=== Entity data ===
+
+Cave spiders have entity data associated with them that contains various properties.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+==Achievements==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Monster Hunter}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|Adventure;Monster Hunter;Monsters Hunted;It Spreads}}
+</table-progress-tracking>
+
+== History ==
+
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|[[File:Cave Spider JE1 BE1.png|48px]] Added cave spiders.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|Cave spiders now drop 0-1 [[spider eye]] when killed by a [[player]] or tamed [[wolf]].
+|The cave spider's health points have been reduced from {{hp|20}} to {{hp|12}}.}}
+{{History|||snap=Beta 1.9 Prerelease 4|Cave spiders are now immune to the [[Poison]] [[status effect]].
+|Cave spiders are now considered [[arthropod]]s.}}
+{{History||1.2.1|snap=12w06a|Cave spiders now swim extremely fast with the [[water]] stream toward the [[player]], but seem to be almost not moving against the water stream. 
+|Cave spiders can now climb [[ice]] [[block]]s.}}
+{{History||1.8|snap=14w06a|Cave spiders no longer draw a line of sight through opaque [[block]]s.
+|Cave spiders have been given the new AI that regular [[spider]]s have received.}}
+{{History|||snap=14w11a|Cave spiders now run away from [[creeper]]s that are about to explode.}}
+{{History|||snap=unknown|The cave spider's venom is no longer neutralized by [[splash potion]]s of weakness, which may or may not be a bug.}}
+{{History||1.8.1|snap=pre1|Cave spiders no longer run away from creepers that are about to explode.}}
+{{History||1.11|snap=16w32a|The cave spider's [[entity]] ID has been changed from <code>CaveSpider</code> to <code>cave_spider</code>.}}
+{{History||October 16, 2017|link={{tweet|JasperBoerstra|919922884063256576}}|[[File:Cave Spider.png|48px]] [[Jasper Boerstra]] tweets an image of an updated cave spider texture.}}
+{{History||1.14|snap=18w43a|[[File:Cave Spider JE2 BE2.png|48px]] The texture of cave spiders has been changed.}}
+
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=build 1|[[File:Cave Spider JE1 BE1.png|48px]] Added cave spiders with their [[jockey]] variant.}}
+{{History||v0.12.1|snap=build 1|Cave spiders now have a walking [[sound]].
+|Cave spiders can now spawn with [[wither skeleton]]s riding them when spawning as [[spider jockey]] in [[the Nether]].
+|Cave spiders now drop [[spider eye]]s.}}
+{{History||v0.14.0|snap=build 1|Cave spiders can be ridden by baby [[zombie]]s and baby [[zombie villager]]s.}}
+{{History||v0.15.0|snap=?|Cave spiders can now spawn with [[stray]]s riding them when spawning as [[spider jockey]] in snowy [[biome]] with a view of the [[sky]].
+|Cave spiders can be ridden by baby [[husk]]s.}} 
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|The cave spider's [[entity]] ID has been changed from <code>cavespider</code> to <code>cave_spider</code>.
+|The cave spider's Poison time from attack has been changed to be based on [[difficulty]].}}
+{{History|bedrock}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Cave Spider JE2 BE2.png|48px]] The texture of cave spiders has been changed.}}
+
+{{History|console}}
+{{History||xbox=TU5|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Cave Spider JE1 BE1.png|48px]] Added cave spiders.}}
+{{History||xbox=TU12|Cave spiders now swim extremely fast with the [[water]] stream toward the [[player]], but seem to be almost motionless against the water stream. 
+|Cave spiders can now climb [[ice]] [[block]]s.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Cave Spider JE2 BE2.png|48px]] The texture of cave spiders has been changed.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Cave Spider JE1 BE1.png|48px]] Added cave spiders.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+== Trivia ==
+
+* While a cave spider's hitbox is only 13.9% the volume of a normal spider's, its model's volume is 34.3% as large. The shadow is even larger: compared to the normal spider's shadow it has an area of 49%.
+
+== Gallery ==
+=== Screenshots ===
+<gallery>
+Cavespider 1.8.png|A cave spider.
+Cave Spider Cave.png|A cave spider and its [[monster spawner]].
+Yellowhbar.png|The [[health]] bar turns yellow-green when bitten by a cave spider.
+Spiders.png|Size comparison between a cave spider and a regular [[spider]] in a dungeon.
+Cave spider crawl through slab.png|Picture of cave spider going through a 1×1×0.5 [[block]].
+4xCaveSpiderSpawner.png|Four cave spider monster spawners generated in close proximity.
+Cavespiderleveler.png|Cave spider monster spawner enclosed in an area, able to be safely killed.
+Cave spider farming.png|Another cave spider farm generated in a [[mineshaft]].
+Cave Spider Mineshaft.jpg|A group of cave spiders trying to swim after the [[player]] in a mineshaft.
+</gallery>
+
+=== In other media ===
+<gallery>
+File:Story Mode Cave Spider.png|[[Minecraft Story Mode:Cave Spider|Cave Spiders]], as they appear in [[Minecraft Story Mode]].
+LEGO Cave Spider.jpg|[[LEGO Minecraft]] cave spider minifigure.
+File:Cave Spider (Dungeons).png|A [[MCD:Cave Spider|Cave Spider]], as it appears in [[Minecraft Dungeons]].
+Cave Spider Plush JINX.jpg|Cave spider plush made by JINX.
+File:Spider Cave Shirt.png|"Spider Cave," an official T-Shirt design.
+</gallery>
+
+=== Official artwork ===
+<gallery>
+File:Minecraft Tricky Trials Artwork Background.jpg|Official Artwork for the Tricky Trials update, featuring the cave spider.
+</gallery>
+
+== See also ==
+* [[Tutorials/Cave spider farming]]
+
+== References ==
+{{Reflist}}
+
+== External links ==
+*[https://www.minecraft.net/en-us/article/meet-cave-spider Meet the Cave Spider] – Minecraft.net on September 5, 2017
+*[[Wikipedia:Poecilotheria metallica|Poecilotheria Metallica]]
+
+{{Entities}}
+
+[[Category:Neutral mobs]]
+[[Category:Monster mobs]]
+[[Category:Animal mobs]]
+[[Category:Arthropod mobs]]
+
+[[cs:Jeskynní pavouk]]
+[[de:Höhlenspinne]]
+[[es:Araña de cueva]]
+[[fr:Araignée venimeuse]]
+[[hu:Bányapók]]
+[[ja:洞窟グモ]]
+[[ko:동굴 거미]]
+[[nl:Grottenspin]]
+[[pl:Pająk jaskiniowy]]
+[[pt:Aranha das cavernas]]
+[[ru:Пещерный паук]]
+[[uk:Печерний павук]]
+[[zh:洞穴蜘蛛]]
+[[Category:Retaliating mobs]]

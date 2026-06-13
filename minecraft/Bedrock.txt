@@ -1,0 +1,231 @@
+{{about|the block|the Minecraft edition|Bedrock Edition}}
+{{Block
+| image = Bedrock.png
+| transparent = No
+| light = No
+| tool = None
+| renewable = No
+| stackable = Yes (64)
+| flammable = No
+| tntres = 3600000
+| hardness = −1<!--Do not change this value. It was confirmed by code-diggers.-->
+| lavasusceptible = No
+| rarity = Common
+}}
+
+'''Bedrock''' is an [[breaking|indestructible]] block found in all three [[dimension]]s. It cannot be obtained as an item in Survival.
+
+== Obtaining ==
+Bedrock can be obtained from the [[Creative inventory]], or using [[commands]].
+
+=== Breaking ===
+{{see also|Tutorials/Breaking bedrock}}
+Bedrock cannot normally be broken in [[Survival]] mode with any tool. It can only be broken by hand in the oneblockatatime snapshot and has a hardness value of 600.
+
+However, it can be broken using glitches involving a [[piston]], but it does not drop as an item.
+
+=== Natural generation ===
+Bedrock comprises the five bottom-most layers of the [[Overworld]] in a rough pattern, although the top four layers are predominantly flat bedrock with only rare gaps, rendering the lowest, completely flat fifth layer (at Y=-64) mostly inaccessible.
+
+In [[the Nether]], bedrock comprises both the top and bottom four layers in a rough pattern. In both ''Java'' and ''Bedrock'' Editions, the patterns of bedrock are consistent in the Nether. At the top of the Nether, bedrock prevents the player from ascending above Y=127 without exploiting glitches, although in ''Java Edition'' the build limit extends to Y=255 in the Nether, meaning it is possible to build there. This space, known as the "Nether ceiling", consists entirely of flat bedrock and the occasional [[mushroom]]s. No mobs spawn here, as nothing can spawn on bedrock, although mobs can spawn on valid blocks placed by a player.
+
+In [[the End]], a single block of bedrock generates on top of each [[obsidian pillar]], each topped with an [[end crystal]]. The bedrock remains after the destruction of the crystal (because it is indestructible), and is lit on fire indefinitely. Bedrock additionally comprises part of the [[exit portal]] at the center of the [[central island]]. Unlike in other dimensions, there is no bedrock floor at the bottom of the End, meaning it is possible to fall into the [[void]] without exploiting glitches.
+
+An unlimited number of [[end gateway]]s generate randomly across the outer End islands, each consisting of 12 blocks of bedrock.
+
+=== Post-generation ===
+If the bedrock that makes up the exit portal is removed by any means, it regenerates when the ender dragon is defeated or re-summoned. 
+
+An end gateway is generated on the central End island upon the death of each [[ender dragon]], which is mostly made of bedrock. A total of 20 of these gateways generate in a circle centered on the exit portal in set positions. A corresponding end gateway is generated in the inner edge of the [[outer islands]] after an end gateway on the central island is activated for the first time.
+
+== Usage ==
+Bedrock generates at the bottom of the [[Overworld]] and [[the Nether]] in order to prevent players from falling into the void. 
+
+The bedrock ceiling in the Nether was intended to prevent players from accessing the Nether ceiling, which was meant to be an empty out-of-bounds area where players cannot build. This remains true in [[Bedrock Edition|''Bedrock Edition'']]. However, in [[Java Edition 1.2.1]], the world height was doubled from 127 to 255, a change which was applied in all three dimensions, allowing players to build on the Nether ceiling. Due to the amount of players taking advantage of this change, it was decided by Mojang that this was to be treated as an intended feature.<ref>{{Bug|MC-180755|||WAI}}</ref>
+
+Bedrock generates as part of important structures in [[the End]], including crucial elements of the ender dragon fight, as well as the gateways and the exit portals, in order to prevent them from being broken and keep them accessible and usable.
+
+Mobs do not spawn on bedrock. [[Endermen]] are unable to place the block they are holding onto bedrock.
+
+[[Beacon]]s treat bedrock as a transparent block, meaning their beams can pass through it, allowing beacons to be used in the Nether.
+
+In the End, any fire on bedrock never extinguishes naturally, similar to [[netherrack]].
+
+=== Trapping the wither ===
+{{main|Tutorials/Wither cage}}
+Since bedrock is indestructible in Survival, it can be used against [[wither]]s. Certain configurations of bedrock (Such as that found under the exit portal) can be used to securely trap withers by spawning them below the bedrock. The wither can then either be easily killed, utilized to break blocks automatically, or used to farm [[wither rose]]s.
+
+=== End crystal ===
+Bedrock is one of the only two blocks on which [[end crystal]]s can be placed, the other being [[obsidian]].
+
+Placing an [[end crystal]] on bedrock in the End sets it on fire.
+
+=== Note Blocks ===
+[[Note block]]s can be placed above bedrock to produce "bass drum" sounds.
+
+=== Piston interactivity ===
+Bedrock is unable to be pushed or pulled by either of the [[piston]] variants (regular or sticky).
+
+== Sounds ==
+{{Sound table/Block/Stone}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Bedrock
+|spritetype=block
+|nameid=bedrock
+|blocktags=dragon_immune, infiniburn_end, wither_immune, lava_pool_stone_replaceables, features_cannot_replace, geode_invalid_blocks
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Bedrock
+|spritetype=block
+|nameid=bedrock
+|id=7
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+
+{{IN|be}}, bedrock uses the following block states:
+
+{{/BS}}
+
+== History ==
+{{Info needed section|bedrock's blast resistance being changed from 18,000,000 to 3,600,000}}
+{{History|java classic}}
+{{History||0.0.12a|snap=May 18, 2009|slink=Java Edition Classic 0.0.12a/Development#Water test (May 18, 2009)|[[Notch]] showed bedrock.}}
+{{History|||snap=release|slink=Java Edition Classic 0.0.12a|[[File:Bedrock JE1 BE1.png|32px]] Added bedrock.
+|The [[world boundary]] is lined with a bedrock textured barrier. It is completely unbreakable.}}
+{{History||0.0.20a|Bedrock no longer can be placed or destroyed, except by [[player]]s on servers with [[operator]] permissions. 
+|Operators can now destroy bedrock like any other [[block]].
+|Operators can now use {{cmd|solid}}, which now toggles [[stone]] placing itself or turning into bedrock shortly.
+|If any [[player]] attempts to place bedrock using an [[item]] edited into their [[inventory]], the server now kicks them, even if they are an operator.}}
+{{History||0.24_SURVIVAL_TEST|The bedrock at the bottom most layer of the world has been replaced with an infinite [[lava]] sea. Between this version and Infdev, the bottom of the world would repeatedly switch between bedrock and lava. The reason for this is unknown.}}
+{{History|java indev}}
+{{History||0.31|snap=?|The bedrock at the bottom most layer of the world has been re-added.}}
+{{History||0.31|snap=20100130|The bedrock at the bottom most layer of the world has been replaced with an infinite [[lava]] sea once again.}}
+{{History||0.31|snap=20100131|The bedrock at the bottom most layer of the world has been re-added once again.}}
+{{History|java infdev}}
+{{History||20100227|The bedrock at the bottom most layer of the world has been replaced with an infinite [[lava]] sea once again.}}
+{{History||20100616-1|Bedrock now generates at the bottom 5 layers of the world. The infinite [[lava]] sea still generates below it.}}
+{{History||20100617-2|The infinite lava sea under the world has been removed and replaced with an additional layer of bedrock.}}
+{{History|java alpha}}
+{{History||v1.2.0|snap=<nowiki>?</nowiki>|slink=:Category:Information needed requiring unarchived version|[[The Nether]] has been added, with bedrock at the top and bottom.}}
+{{History|java beta}}
+{{History||1.3|Bedrock can no longer be destroyed by planting a [[wheat seed]] below it on tilled [[dirt]].}}
+{{History||1.6|snap=Test Build 3|A bug has been fixed in which the [[player]] could fall into the void. Destroying a [[boat]] or [[rail]]s with a [[minecart]] on the lowest bedrock block caused this to happen.}}
+{{History||August 10, 2011|link={{tweet|notch|101319265164079104}}|[[Notch]] tweets that he had accidentally done something to the bedrock layer, but didn't specify what.}}
+{{History||1.8|snap=Pre-release|[[Creative]] mode has been added, in which bedrock can be placed and destroyed instantly, as can any other [[block]].}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 6|The [[particle]] effect for bedrock can now be turned off or lowered.
+|When the [[ender dragon]] dies, it now leaves behind a fountain-like bedrock structure with the [[dragon egg]] sitting on top. It has another [[exit portal|end portal]] to return to the [[player]]'s spawn point.
+|Added [[end crystal]]s, which are [[entities]] that sit atop a [[block]] of flaming bedrock.|Bedrock in [[the End]] now burns forever if set on [[fire]], similar to [[netherrack]]. It can still be put out by the same methods, as well.}}
+{{History||1.1|snap=12w01a|Bedrock now generates in the [[superflat]] world type.}}
+{{History||1.2.1|snap=12w07a|As the max world height of [[the Nether]] has been increased to 256, but Nether world generation is unchanged, [[mob]]s and [[mushroom]]s are still spawning on top of the bedrock ceiling.}}
+{{History|||snap=12w07b|[[Mob]]s can no longer spawn on bedrock.}}
+{{History||1.8|snap=14w27b|The texture of bedrock now rotates randomly, giving a more natural look to the bedrock layer.}}
+{{History||1.8.2|snap=pre5|Bedrock no longer obstructs [[beacon]] activation or beacon beams.}}
+{{History||1.9|snap=15w31a|The [[ender dragon]] no longer creates the [[exit portal]] upon death, with it instead generating with the world.
+|Bedrock now forms as part of the [[end gateway portal]].}}
+{{History|||snap=16w02a|Bedrock can no longer drop itself as an [[item]].}}
+{{History||1.14|snap=November 27, 2018|slink={{tweet|JasperBoerstra|1067430756757061633}}|[[JAPPA]] tweets an image of the updated bedrock texture.}}
+{{History|||snap=18w50a|[[File:Bedrock JE2 BE2.png|32px]] The texture of bedrock has been changed.}}
+{{History||1.16.2|snap=Pre-release 1|[[Endermen]] no longer place their held blocks onto bedrock.}}
+{{History||1.17|snap=21w06a|With the expansion of the underground by 64 layers, Bedrock in the Overworld now generates at y levels -64 to -60.}}
+{{History|||snap=21w15a|The bedrock layer has been moved back to y levels 0 to 5 due to generation changes being reverted.}}
+{{History||1.18|snap=Experimental Snapshot 1|The Overworld's bedrock layer once again generates between Y{{=}}-64 and Y{{=}}-60.}}
+{{History|||snap=21w40a|The generation of the bedrock layer is now dependent on the [[world seed]].}}
+{{History|||snap=21w43a|Upgrading worlds from before 1.18 replaces the Overworld's old bedrock layer with [[deepslate]].}}
+
+{{History|pocket alpha}}
+{{History||v0.1.0|[[File:Bedrock JE1 BE1.png|32px]] Added bedrock.
+|Bedrock appears at the bottom of the world, but is unobtainable even in [[Creative]] mode.}}
+{{History||v0.8.0|snap=build 3|Added bedrock to Creative mode.}}
+{{History||v0.9.0|snap=build 1|Added bedrock fog.}}
+{{History||v0.12.1|snap=build 1|Bedrock now generates in [[the Nether]].}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Bedrock now generates in [[the End]].
+|Bedrock in [[the End]] now burns forever if set on [[fire]], similar to [[netherrack]] in [[the Nether]].}}
+{{History|bedrock}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Bedrock JE2 BE2.png|32px]] The texture of bedrock has been changed.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Bedrock JE1 BE1.png|32px]] Added bedrock.}}
+{{History||xbox=TU14|ps=1.04|The bedrock on layer 0 can now be broken in a world. However, the [[player]] still cannot fall out of the world.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Bedrock JE2 BE2.png|32px]] The texture of bedrock has been changed.}}
+
+{{History|New 3DS}}
+{{History||0.1.0|[[File:Bedrock JE1 BE1.png|32px]] Added bedrock.}}
+{{History|foot}}
+
+=== Data history ===
+{{History|java}}
+{{History||1.8|snap=14w11b|Bedrock with [[Java Edition data values/Pre-flattening/Block IDs/Before 14w25a|numerical metadata variants]] 1 through 15, which are inaccessible through normal gameplay, now have [[Missing model|no model]] [[File:Missing Model JE2.png|32px]] rather than appearing identical to bedrock.}}
+{{History|||snap=14w26a|Block metadata has been completely removed from this snapshot onwards with the introduction of [[block states]]. As this block never used block metadata at all prior to this version, fifteen unused, inaccessible metadata variants of it have been completely removed from the game:
+{{dvt|spritetype=block|sprite=bedrock|[[Bedrock]]}}
+{{dvt|sprite=missing-texture-block|dv=1-15|[[Java Edition removed blocks/Metadata variants#Boring variants|Inaccessible "boring" variants of bedrock]]|foot=1}}}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], this block's numeral ID was 7.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list|-bedrock_edition|-minecraft_bedrock|-xbox_bedrock|bedrock}}
+
+== Trivia ==
+* [[Stronghold]]s, and the End Portal, can override generated bedrock.
+* The bedrock texture, in both the Default and Programmer Art [[Resource pack|resource packs]], is a variant of the [[stone]] block with increased contrast.
+* [[Vex]]es and the [[ender dragon]] can fly through bedrock. Additionally, the ender dragon cannot break bedrock.
+* Outside of Minecraft, "bedrock" means any solid rock beneath the soil layer (i.e. anything below dirt, sand, gravel. etc.). In real life, bedrock is breakable.
+* {{IN|java}}, the texture of bedrock is randomly rotated and flipped. When the sides line up correctly, a pattern similar to a wither skull might appear.
+* In ''[[Bedrock Edition]]'', the bottom two layers are composed entirely of bedrock, unlike ''Java Edition'' where only the bottommost layer is purely solid bedrock.<ref><nowiki>https://youtube.com/shorts/dyQf9acxTUo?si=aMystan_zTmEPH-5</nowiki></ref>
+
+== Gallery ==
+<gallery>
+File:Bedrock Generated Mineshaft.jpg|A [[mineshaft]] that generated at bedrock level.
+Bedrock2.png|Three of the five bedrock barriers of a [[Classic]] map visible, with a [[stone]] block for comparison.
+Below.png|Below the Overworld's bedrock layer, with an added source of light out of view. Naturally, the light level would be 0 here.
+Belownether.png|Below nether's last layer of bedrock.
+Abovenether.png|Above nether's last layer of bedrock.
+Block of Bedrock Has a Wither Head.png|The correctly lined up [[wither]] head image
+</gallery>
+
+== External links ==
+* [[Wikipedia:Bedrock|Bedrock]] on Wikipedia
+
+== References ==
+{{reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/block-week-bedrock Block of the Week: Bedrock] – Minecraft.net on February 15, 2018
+
+{{Blocks|natural}}
+
+[[Category:Natural blocks]]
+[[Category:Generated structure blocks]]
+
+[[cs:Podloží]]
+[[de:Grundgestein]]
+[[es:Piedra base]]
+[[fr:Bedrock]]
+[[hu:Alapkőzet]]
+[[it:Bedrock]]
+[[ja:岩盤]]
+[[ko:기반암]]
+[[nl:Bodemsteen]]
+[[pl:Skała macierzysta]]
+[[pt:Rocha-mãe]]
+[[ru:Коренная порода]]
+[[th:หินดาน]]
+[[uk:Корінна порода]]
+[[zh:基岩]]

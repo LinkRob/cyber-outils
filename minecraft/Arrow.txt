@@ -1,0 +1,696 @@
+{{ItemEntity
+|title=Arrow
+|image=Arrow.png
+|image2=Spectral Arrow.png
+|renewable='''Uncraftable and Luck{{only|java|short=1}}''': No <br/>
+'''All others''': Yes
+|stackable='''Normal / Spectral:''' Yes (64)<br/>
+'''Tipped:''' Yes (64, only if same effect)
+|size=Height: 0.5 blocks<br>Width: 0.5 blocks
+|networkid='''Normal / Tipped:'''<br>'''[[JE]]''': 60<br>
+'''Spectral:'''<br>'''[[JE]]''': 91
+}}
+An '''arrow''' serves as ammunition for [[bow]]s, [[crossbow]]s, and [[dispenser]]s. Arrows can be modified to give [[status effects]] to [[player]]s and [[mob]]s.
+
+== Obtaining ==
+
+=== Picking up arrows ===
+
+Arrows shot by players can always be [[#Retrieving|picked up]] in Creative mode.
+
+An arrow ''cannot'' be picked up by a player in [[Survival]] or [[Adventure]] mode if:
+* It is shot by a player in [[Creative]] mode.
+* It is shot by any [[mob]] able to shoot arrows, such as [[skeleton]]s, [[stray]]s, [[pillager]]s, or [[piglin]]s. This includes mobs that do not shoot arrows in normal gameplay, such as [[illusioner]]s and bow-wielding [[wither skeleton]]s.
+** This is the case even in Creative mode.<ref>{{bug|MC-128845|||WAI}}</ref>
+* It is shot with an [[Infinity]]-enchanted [[bow]].
+* It is one of the two extra arrows shot with a [[Multishot]]-enchanted [[crossbow]].
+
+=== Mob loot ===
+
+[[Skeleton]]s and [[stray]]s drop 0-2 arrows upon death. The maximum drop is increased by 1 per level of [[Looting]], for a maximum of 0–5 arrows with Looting III.
+
+Strays have a 50% chance of dropping 1 arrow of [[Slowness]] when killed by a player. Each level of Looting increases the chance of this drop by 50% of the previous chance. This results in a maximum of 93.75% with Looting III.
+
+{{IN|bedrock}}, [[pillager]]s also drop 0–2 arrows upon death. The maximum drop is increased by 1 per level of Looting, for a maximum of 0-5 arrows with Looting III.
+
+=== Trading ===
+
+Novice-level fletcher [[villager]]s have a 50% chance {{in|bedrock}}, or a {{frac|2|3}} chance {{in|java}}, to sell 16 arrows for one [[emerald]] as part of their trades.
+
+{{IN|bedrock}}, master-level fletcher villagers have a {{frac|1|2}} chance to sell 5 tipped arrows for 2 emeralds and 5 arrows. {{IN|java}}, they have a {{frac|2|3}} chance to sell 5 tipped arrows for 2 emeralds and 5 arrows.  Trades {{in|java}} can be the base effect, level II, or extended; {{in|bedrock}}, only the arrow of decay is level II.<!-- A check should be made if it chooses randomly from the whole of the list of possible arrows variants, or it it chooses a base arrow potion effect, then randomly choose from that arrow's options. The first one would make arrow's without a level II, like Fire Resistance for example, slightly less likely than ones with all three options like Swiftness. -->
+
+<!-- None are extended duration, but villagers can trade level 2 arrows. -->
+* Arrow of [[Fire Resistance]]
+* Arrow of [[Harming]]
+* Arrow of [[Healing]]
+* Arrow of [[Invisibility]]
+* Arrow of [[Leaping]]
+* Arrow of [[Night Vision]]
+* Arrow of [[Poison]]
+* Arrow of [[Regeneration]]
+* Arrow of [[Slowness]]
+* Arrow of [[Strength]]
+* Arrow of [[Swiftness]]
+* Arrow of the [[Potion of the Turtle Master|Turtle Master]]
+* Arrow of [[Water Breathing]]
+* Arrow of [[Weakness]]
+* Arrow of [[Slow Falling]]{{only|java}}<!-- Bedrock fletchers never sell arrows of Slow Falling -->
+* Arrow of [[Decay]]{{only|bedrock}}
+
+These are all potion effects except Slow Falling {{in|bedrock}} and [[Luck]] {{in|java}}. Trading is the only legitimate way to obtain arrows of Decay in [[Survival]] mode.
+
+=== Bartering ===
+
+Spectral arrows{{only|java}}/normal arrows{{only|bedrock}} can be obtained through [[bartering]] with [[piglin]]s, and have a ~8.71% chance to give the [[player]] 6-12 arrows.
+
+=== Villager gifts ===
+{{IN|java}}, any regular or tipped arrow (except for [[Luck]] and [[Bad Luck]] arrows) can be obtained as a reward item from fletcher [[villager]]s when the player has the [[Hero of the Village]] status effect.
+
+=== Crafting ===
+
+{{Crafting
+|head=1
+|B1= Flint
+|B2= Stick
+|B3= Feather
+|Output = Arrow,4
+|type = Combat
+|showdescription=1
+}}
+{{Crafting
+|A2= Glowstone Dust
+|B1= Glowstone Dust
+|B2= Arrow
+|B3= Glowstone Dust
+|C2= Glowstone Dust
+|Output = Spectral Arrow,2
+|type = Combat
+|description = {{only|java}}
+}}
+{{Crafting
+|foot=1
+|description=Arrows of Decay are exclusive to {{el|be}} unless obtained via [[creative]] or [[commands]]. Arrows of Luck are exclusive to {{el|je}}. A custom potion obtained via commands cannot craft arrows with the potion's custom name, lore, or the <code>CustomPotionColor</code>.
+|A1= Arrow
+|A2= Arrow
+|A3= Arrow
+|B1= Arrow
+|B2= Matching Lingering Potion
+|B3= Arrow
+|C1= Arrow
+|C2= Arrow
+|C3= Arrow
+|Output = Matching Tipped Arrow,8
+|type = Combat
+}}
+
+=== Chest loot ===
+{{LootChestItem|arrow}}
+{{LootChestItem|spectral-arrow}}
+
+=== Retrieving ===
+
+Arrows stuck in a block that were originally shot by dispensers or by players in [[Survival]] without the [[Infinity]] enchantment may be collected. Arrows originally shot by [[skeleton]]s, [[stray]]s, [[illusioner]]s, [[pillager]]s, [[piglin]]s, players in [[Creative]], players using the [[Infinity]] enchantment, or duplicate arrows created by [[Crossbow]]s with the [[Multishot]] enchantment cannot be collected. Arrows cannot be retrieved when they are stuck in a player or mob, and players or mobs do not drop them when killed. Retrievable arrows have a despawn timer of 60 seconds.
+
+=== Cauldrons ===
+{{main|Cauldron#Potions}}
+
+{{IN|bedrock}}, tipped arrows can also be obtained by using arrows on [[Cauldron#Potions|cauldrons]] that contain [[potion]]s. The number of tipped arrows created depends on the potion inside the cauldron. When the cauldron is {{frac|1|3}} full, 16 arrows can be tipped. When the cauldron is {{frac|2|3}} full, up to 32 arrows can be tipped and when the cauldron is full, an entire stack of 64 arrows can be tipped. This is more efficient than using lingering potions as up to 21 and 1/3 arrows can be tipped per potion.
+
+== Usage ==
+{{see also|Bow}}
+
+When fired, arrows fly in a [[wikipedia:Trajectory of a projectile|ballistic trajectory]] affected by gravity and drag in [[air]], [[water]], and [[lava]]. The arrow's velocity is multiplied by 0.99 every game tick, and it also experiences 20 block/s<sup>2</sup> of downward acceleration induced by gravity.
+
+Arrows travel approximately 3 [[block]]s when fired parallel to a flat plane with no charge, 15 blocks average with medium charge, and 24 blocks average with maximum charge. When fired from a fully charged bow, arrows can travel 120 blocks if fired from an optimal angle. The maximum height an arrow fired by a bow can reach is around 66 blocks.
+
+An arrow fired in water experiences much more drag than in air: it moves less than 8 blocks before completely losing horizontal speed and falling straight down, although the knockback of the arrow remains unaffected. It also leaves a trail of bubbles in its wake.
+
+There is a random variable to the trajectory of an arrow, given by <code>this.rand.nextGaussian() * 0.0075 * (double)inaccuracy</code> for the x, y, and z coordinate. The inaccuracy is relatively small, becoming noticeable over larger distances. The inaccuracy of different arrow delivery devices may differ. Dispensers fire with an inaccuracy of 6, while bows fire with an inaccuracy of 1.
+
+An arrow's speed determine the damage it inflicts. The damage inflicted is calculated by multiplying the arrow's [[#Entity data|damage value]] with its velocity in blocks per [[Tick#Game tick|game tick]]. When fired from a fully-charged unenchanted bow, arrows do {{hp|6}} of damage, with a smaller chance to damage for up to {{hp|11}} via critical hits. They inflict up to {{hp|5}} damage from a medium-charged bow, and {{hp|1}} from a bow with no charge. Arrows fired from dispensers always do {{hp|3}} of damage unless their velocity is modified by an external source. Arrows fired from [[crossbow]]s do {{hp|6}} to {{hp|11}} of damage.
+
+Arrows trigger [[Damage#Immunity|damage immunity]] on hit. However, unlike other methods of damage that may bypass invulnerability under certain conditions, arrows hitting the mob while it is invulnerable lose all speed and drop to the ground, dealing no damage unless they contact another mob.
+
+[[File:ArrowShotInTree.png|thumb|An arrow shot into a [[tree]].]]
+Arrows also stick into objects they come in contact with and remain there for one minute before disappearing; the distance from the object and the angle determine how far into the target the arrow penetrates. Such arrows may be [[#Retrieving|retrieved]].
+
+If the arrow has any custom potion effects (NBT tag <code>CustomPotionEffects</code>), all potion effects, including vanilla potion effects (NBT tag <code>Potion</code>) are removed 30 seconds after the arrow stops moving.
+
+If an arrow is stuck in a block, and that block is broken or disappears (e.g., [[leaves]] upon decay), then the arrow falls straight down and damages entities below, but never deals a critical hit. The 1-minute despawn timer is then refreshed, meaning it will take another minute for the arrow to despawn.
+
+Arrows bounce off players and mobs immune to damage, like a player in Creative mode, a [[wither]] under the "wither armor" effect, and a perching [[ender dragon]].
+
+Arrows shot through [[lava]] or (if there's at least a 2 block gap) [[fire]] catch on fire and show an appropriate animation until they pass through water. Like arrows shot from a bow with the Flame enchantment, they can set other entities they hit on fire for 5 seconds as well as ignite TNT and campfires.
+
+An arrow shot at any kind of boat{{only|java|short=1}}, boat with chest{{only|java|short=1}}, or minecart causes the vehicle to break, dropping any components (including container contents).
+
+Arrows can get visually stuck in players {{in|java}}, although not any mobs. They appear as regular arrows regardless of type.<ref>{{bug|MC-83933|||WAI}}</ref>
+<gallery>
+Steve got shot.png|Steve got shot.
+Alex got shot.png|Alex got shot.
+</gallery>
+
+=== Redstone circuits ===
+
+An arrow can activate a wooden [[button]], wooden [[pressure plate]], a [[tripwire]], or a [[target]]. An arrow will continue to power these blocks until it is removed or moved out of the "activation zone", either due to despawning, or being picked up. Target blocks emit a redstone pulse for one second, as opposed to the static depressed state of the other switches. Non-wooden switches are not affected by arrows.
+
+When arrows are fired into the sides of blocks, they change their orientation to point more downward than their original flight path might indicate. This can cause them to intersect and thus trigger switches above them that they didn't actually hit, or block rails above them.
+
+=== Explosions ===
+
+Arrows are affected by explosions while they are in flight. Since explosions can increase the speed of an arrow, they can also increase the damage dealt by them. {{only|Java}}
+
+== Variants ==
+
+=== Tipped arrows ===
+{{See also|#Crafting}}
+
+Tipped arrows are arrows that imbue a potion effect when hitting a mob or player. The duration of the effect is {{frac|1|8}} that of the corresponding potion, if applicable, and is not affected by the power of the arrow. The status effect is the same as the regular power effect for the potion. If a bow is enchanted with [[Infinity]], tipped arrows are still consumed. 
+
+The types of arrows are:
+
+<div class="list-style-none" style="-moz-column-width:19em;-webkit-column-width:19em;column-width:19em">
+* {{ItemLink|link=none|Arrow of Regeneration}}
+* {{ItemLink|link=none|Arrow of Swiftness}}
+* {{ItemLink|link=none|Arrow of Fire Resistance}}
+* {{ItemLink|link=none|Arrow of Healing}}
+* {{ItemLink|link=none|Arrow of Night Vision}}
+* {{ItemLink|link=none|Arrow of Strength}}
+* {{ItemLink|link=none|Arrow of Leaping}}
+* {{ItemLink|link=none|Arrow of Invisibility}}
+* {{ItemLink|link=none|Arrow of Poison}}
+* {{ItemLink|link=none|Arrow of Weakness}}
+* {{ItemLink|link=none|Arrow of Slowness}}
+* {{ItemLink|link=none|Arrow of Harming}}
+* {{ItemLink|link=none|Arrow of Water Breathing}}
+* {{ItemLink|link=none|Arrow of Luck}}{{only|java|short=1}}
+* {{ItemLink|link=none|Arrow of Decay}}{{only|bedrock|short=1}}
+* {{ItemLink|link=none|Arrow of the Turtle Master}}
+* {{ItemLink|link=none|Arrow of Slow Falling}}
+* {{ItemLink|link=none|Arrow of Weaving}}
+* {{ItemLink|link=none|Arrow of Infestation}}
+* {{ItemLink|link=none|Arrow of Wind Charging}}
+* {{ItemLink|link=none|Arrow of Oozing}}
+</div>
+
+Arrows of Harming (and arrows of Healing when used against undead mobs) do not add a static amount of damage to the arrow.<ref>{{bug|MC-107856||Arrows of harming/healing do not stack with bow damage}}</ref> Instead, the arrow's damage is first calculated, then checked to see if it is below {{Health|12}}. If the arrow's damage is less than 12, the Harming effect of the arrow makes up the difference, to ensure the arrow does exactly {{Health|12}}. Therefore, an unenchanted bow cannot deal more than 12 damage using Harming (or Healing) arrows, as it can deal a maximum of {{Health|11}} damage on level ground. However, if the arrow would deal more than 12 damage, the harming effect is entirely neutralized. This means that bows enchanted with Power I through Power III has a chance to not utilize the arrow at full charge, and any Power level above III never utilizes Arrows of Harming effectively at full charge when against unarmored mobs or players. 
+
+==== No-effect tipped arrows ====
+
+It is possible to craft tipped arrows using [[Lingering Potion#Lingering water bottle|lingering water bottle]]s as well as Awkward, Thick, and Mundane [[lingering potion]]s. If crafted with a water bottle, the arrow is called an arrow of Splashing. If crafted with Mundane, Awkward, or Thick potions, it is called a tipped arrow.<ref>{{bug|MC-158539}}</ref> Tipped arrows crafted from different potions do not stack, as resultant tipped arrows all have different potion tags.
+
+In Bedrock Edition, all four kinds as well as the long mundane tipped arrow aren't obtainable either in creative, by cauldrons, by crafting, or by commands.
+
+All four kinds generate blue particles in flight and upon landing, but otherwise behave like regular arrows. In particular, arrow of Splashing has no effect on fire and campfires and when shot from a bow with the Flame enchantment, can light campfires and TNT just like regular arrows on fire. 
+
+{| class="wikitable" style="text-align: center;" data-description="Unused potions"
+! Icon
+! Name
+|-
+| {{Slot|Arrow of Splashing|link=none}}
+! Arrow of Splashing
+|-
+| {{Slot|Tipped Arrow|link=none}}
+! Tipped Arrow
+|}
+
+==== Uncraftable tipped arrows ====
+
+{{IN|java}}, the uncraftable tipped arrow is a tipped arrow with no effect that is unobtainable in regular gameplay. It is available in two variants that don't stack together:
+
+* {{cmd|/give @s minecraft:tipped_arrow{Potion:"minecraft:empty"} }} - arrow assigned an effect placeholder "empty" 
+* {{cmd|/give @s minecraft:tipped_arrow }} - arrow not assigned any effect.
+
+The uncraftable arrow doesn't differ from regular arrows in behavior when used as a projectile.
+
+{| class="wikitable" style="text-align: center;" data-description="Unused potions"
+! Icon
+! Name
+|-
+| {{Slot|Uncraftable Tipped Arrow|link=none}}
+! Uncraftable Tipped Arrow
+|}
+
+=== Spectral arrows ===
+{{exclusive|java}}
+A spectral arrow confers the [[Glowing]] status effect for 10 seconds. The Glowing effect creates an outline of the target, which is visible through blocks, and colored based on the target's [[team]] (white by default). Even if a bow is enchanted with [[Infinity]], spectral arrows are still consumed. Spectral arrows can be acquired through [[bartering]] or crafted by combining 4 [[glowstone dust]] with one arrow, yielding 2 spectral arrows.
+
+{| class="wikitable" style="text-align: center;" 
+! Icon
+! Name
+|-
+| {{Slot|Spectral Arrow|link=none}}
+! Spectral Arrow
+|}
+
+== Sounds ==
+{{edition|java}}:<br>
+Arrows and spectral arrows use the Friendly Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Arrow hit1.ogg
+|sound2=Arrow hit2.ogg
+|sound3=Arrow hit3.ogg
+|sound4=Arrow hit4.ogg
+|subtitle=Arrow hits
+|source=Friendly Creatures
+|description=When an arrow impacts something
+|id=entity.arrow.hit
+|translationkey=subtitles.entity.arrow.hit
+|volume=1.0
+|pitch={{frac|12|11}} - {{frac|4|3}}
+|distance=16}}
+{{Sound table
+|sound=Succesfull Hit.ogg
+|subtitle=Player hit
+|source=Players
+|description=When an arrow shot by a player hits another player
+|id=entity.arrow.hit_player
+|translationkey=subtitles.entity.arrow.hit_player
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|rowspan=3
+|sound=Bow shoot.ogg
+|subtitle=Arrow fired
+|source=Players
+|description=When an arrow is fired by a player
+|id=entity.arrow.shoot
+|translationkey=subtitles.entity.arrow.shoot
+|volume=1.0
+|pitch=Around 1.2<ref group=sound>Depends on how long the bow is charged for, around 1.2 with a fully charged bow. The exact formula is <math>\frac{1}{\operatorname{randomFloat()}\times 4+1.2}+\frac{\text{progress}}{2}</math>.</ref>
+|distance=16}}
+{{Sound table
+|subtitle=Skeleton shoots
+|source=Hostile Creatures
+|description=When a skeleton shoots an arrow
+|id=entity.skeleton.shoot
+|translationkey=subtitles.entity.skeleton.shoot
+|volume=1.0
+|pitch={{frac|5|6}} - 1.25
+|distance=16}}
+{{Sound table
+|subtitle=Dispensed item
+|source=Blocks
+|description=When a dispenser shoots an arrow
+|id=block.dispenser.launch
+|translationkey=subtitles.block.dispenser.dispense
+|volume=1.0
+|pitch=1.2
+|distance=16}}
+{{Sound table
+|sound=Crossbow shoot1.ogg
+|sound2=Crossbow shoot2.ogg
+|sound3=Crossbow shoot3.ogg
+|subtitle=Crossbow fires
+|source=Players
+|description=When a crossbow shoots an arrow
+|id=item.crossbow.shoot
+|translationkey=subtitles.item.crossbow.shoot
+|volume=0.8 / 0.9
+|pitch=0.9 / 1.0
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Arrow hit1.ogg
+|sound2=Arrow hit2.ogg
+|sound3=Arrow hit3.ogg
+|sound4=Arrow hit4.ogg
+|source=player
+|description=When an arrow impacts something
+|id=random.bowhit
+|volume=1.0
+|pitch=1.09-1.3}}
+{{Sound table
+|sound=Bow shoot.ogg
+|source=player
+|description=When something shoots an arrow
+|id=random.bow
+|volume=1.0
+|pitch=0.83-1.25}}
+{{Sound table
+|sound=Crossbow shoot1.ogg
+|sound2=Crossbow shoot2.ogg
+|sound3=Crossbow shoot3.ogg
+|source=player
+|description=When a crossbow shoots an arrow
+|id=crossbow.shoot
+|volume=1.0
+|pitch=1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showitemtags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Arrow
+|spritetype=item
+|nameid=arrow
+|itemtags=arrows
+|form=item}}
+{{ID table
+|displayname=Spectral Arrow
+|spritetype=item
+|nameid=spectral_arrow
+|itemtags=arrows
+|form=item}}
+{{ID table
+|displayname=Tipped Arrow
+|spritetype=item
+|nameid=tipped_arrow
+|itemtags=arrows
+|form=item
+|translationkey=item.minecraft.tipped_arrow, item.minecraft.tipped_arrow.effect.empty, item.minecraft.tipped_arrow.effect.water, item.minecraft.tipped_arrow.effect.mundane, item.minecraft.tipped_arrow.effect.thick, item.minecraft.tipped_arrow.effect.awkward, item.minecraft.tipped_arrow.effect.night_vision, item.minecraft.tipped_arrow.effect.invisibility, item.minecraft.tipped_arrow.effect.leaping, item.minecraft.tipped_arrow.effect.fire_resistance, item.minecraft.tipped_arrow.effect.swiftness, item.minecraft.tipped_arrow.effect.slowness, item.minecraft.tipped_arrow.effect.water_breathing, item.minecraft.tipped_arrow.effect.healing, item.minecraft.tipped_arrow.effect.harming, item.minecraft.tipped_arrow.effect.poison, item.minecraft.tipped_arrow.effect.regeneration, item.minecraft.tipped_arrow.effect.strength, item.minecraft.tipped_arrow.effect.weakness, item.minecraft.tipped_arrow.effect.levitation, item.minecraft.tipped_arrow.effect.luck, item.minecraft.tipped_arrow.effect.turtle_master, item.minecraft.tipped_arrow.effect.slow_falling, item.minecraft.tipped_arrow.effect.infested, item.minecraft.tipped_arrow.effect.oozing, item.minecraft.tipped_arrow.effect.weaving, item.minecraft.tipped_arrow.effect.wind_charged
+|foot=1}}
+{{ID table
+|edition=java
+|showentitytags=y
+|generatetranslationkeys=y
+|displayname=Arrow
+|spritetype=entity
+|nameid=arrow
+|entitytags=arrows, impact_projectiles}}
+{{ID table
+|displayname=Spectral Arrow
+|spritetype=entity
+|nameid=spectral_arrow
+|entitytags=arrows, impact_projectiles
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|showitemtags=y
+|notshowbeitemforms=y
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Arrow
+|spritetype=item
+|nameid=arrow
+|id=301
+|itemtags=minecraft:arrow
+|form=item
+|translationkey=item.arrow.name, item.tipped_arrow.name, tipped_arrow.effect.water, tipped_arrow.effect.mundane, tipped_arrow.effect.thick, tipped_arrow.effect.awkward, tipped_arrow.effect.nightVision, tipped_arrow.effect.invisibility, tipped_arrow.effect.jump, tipped_arrow.effect.fireResistance, tipped_arrow.effect.moveSpeed, tipped_arrow.effect.moveSlowdown, tipped_arrow.effect.waterBreathing, tipped_arrow.effect.heal, tipped_arrow.effect.harm, tipped_arrow.effect.poison, tipped_arrow.effect.regeneration, tipped_arrow.effect.damageBoost, tipped_arrow.effect.weakness, tipped_arrow.effect.wither, tipped_arrow.effect.turtleMaster, tipped_arrow.effect.slowFalling
+|foot=1}}
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|generatetranslationkeys=y
+|displayname=Arrow
+|spritetype=entity
+|nameid=arrow
+|id=80
+|foot=1}}
+
+=== Metadata ===
+
+{{IN|bedrock}}, arrows use the following item data values:
+
+{{/DV}}
+
+=== Entity data ===
+==== Normal and tipped arrows ====
+Arrows have entity data that define various properties of the entity.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+
+==== Spectral arrows ====
+Spectral arrows also have entity data that define various properties of the entity.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED1}}
+
+{{el|bedrock}}
+: See [[Bedrock Edition level format/Entity format]].
+
+== Achievements ==
+<table-progress-tracking table-id="2" unique-column-index="3">
+{{load achievements|Sniper Duel;Archer;Bullseye}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="2">
+{{load advancements|Take Aim;Sniper Duel;Not Today;Bullseye;Ol' Betsy;Two Birds;Who's the Pillager Now;Arbalistic;How Did We Get Here}}
+</table-progress-tracking>
+
+== Video ==
+
+<div style="text-align:center">{{yt|STQkD1Oa65s}}</div>
+
+== History ==
+{{History|java classic}}
+{{History||0.24_SURVIVAL_TEST|[[File:Arrow JE1.png|42px]] Arrows have been added as an object and are fired by pressing {{Key|Tab}}.}}
+{{History||0.25 SURVIVAL TEST|[[File:Arrow JE2 BE1.png|42px]] The texture of arrows has been changed.
+|Arrows now deal more [[damage]], and can damage the player.
+|The [[player]] now spawns with 20 arrows; the remaining amount is shown above the hotbar labeled as "Arrows".
+|[[File:Purple Arrow JE1.png|42px]] [[Skeleton]]s now fire purple arrows, instead of hitting the [[player]] directly. These arrows can't be collected by the [[player]]. 
+|When a skeleton is killed, it now drops 6-9 normal arrows for the player to gather.}}
+{{History||0.29|Arrows can no longer be shot by the player in Creative Mode.}}
+{{History|java indev}}
+{{History||0.31|snap=20100122|[[File:Arrow (item) JE1 BE1.png|32px]] Arrows have been added as [[item]]s alongside with [[bow]]s.
+|The "Arrows" display above the hotbar has been removed.}}
+{{History|||snap=20100124|Arrows now have a [[sound]] effect. What this sound effect is is completely unknown; it could be for hitting a block, for being fired or for something else entirely.}}
+{{History|||snap=20100128|Arrows can now be [[craft]]ed using [[apple]]s.}}
+{{History|||snap=20100129|Arrows can no longer be crafted.}}
+{{History|||snap=20100130|Arrows are once again now craftable. Iron is used instead of steel.}}
+{{History||20100219|Arrows are now dropped by [[skeleton]]s.}}
+{{History|java infdev}}
+{{History||20100316|Arrows now have a high chance of spawning either a [[sheep]], a [[pig]], a [[skeleton]], a [[creeper]], a [[spider]], or a [[zombie]] upon hitting a [[block]].
+|The player now spawns with 999 arrows.}}
+{{History||20100320|The player now spawns with 64 arrows.}}
+{{History||20100327|The player no longer spawns with any arrows in new worlds.}}
+{{History||20100413|Arrows no longer spawn [[mob]]s.}}
+{{History|java alpha}}
+{{History||v1.0.14|The tip of an arrow in crafting is now made from [[flint]] rather than an [[iron ingot]].}}
+{{History|java beta}}
+{{History||1.2|Arrows can now be fired by [[dispenser]]s.}}
+{{History||1.6|snap=Test Build 3|Arrows could be used to stick in any [[block]] before this update, even some non-solid ones. For example, they could stick in [[torch]]es, [[sugar cane]], and [[nether portal]]s.}}
+{{History||1.8|snap=Pre-release|Arrows can no longer be rapid-fired from [[bow]]s; they must be charged first.
+|Arrows (with a bow at full strength) can now travel 120 blocks when fired from the optimal angle, and stick to [[mob]]s.}}
+{{History||Sound Update|Arrow firing [[sound]]s have been changed - see sounds section}}
+{{History|java}}
+{{History||November 21, 2011|link={{ytl|BES9EKK4Aw4}}|Exploding arrows are mentioned.}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease|Arrows no longer stick to [[mob]]s.
+|Arrows remain visible in players.{{verify|then when were they removed? bug fix in 1.4.3 implies it was removed for players as well in this version}}}}
+{{History|||snap=RC1|Arrow landing [[sound]]s have been changed.}}
+{{History||1.1|snap=release|Arrows on [[fire]] now set the [[entity|entities]] they hit on fire. Before, arrows could be on fire (like other [[entities]]), but they did not set what they hit on fire, and there was no [[enchanting|enchantment]] to fire flaming arrows.}}
+{{History||1.3.1|snap=12w21a|Farmer [[villager]]s now [[trading|sell]] 9–12 arrows for 1 [[emerald]].}}
+{{History|||snap=12w22a|Arrows can now be found inside [[dispenser]]s in the newly added [[jungle temple]]s.}}
+{{History|||snap=12w23a|Arrows can now activate [[tripwire]] switches and wooden [[pressure plate]]s.}}
+{{History||1.4.2|snap=12w34a|Arrows can now activate wooden [[button]]s.}}
+{{History|||snap=12w34b|Arrows on [[fire]] can now ignite [[TNT]].}}
+{{History||1.4.4|snap=1.4.3|Arrows now stick to [[player]]s again, but not [[mob]]s.}}
+{{History||1.4.6|snap=pre|Arrows now make a "ding" sound when they hit a player.}}
+{{History||1.8|snap=14w02a|Farmer [[villager]]s no longer [[trading|sell]] arrows.
+|Fletcher villagers now sell 8–12 arrows for 1 [[emerald]].}}
+{{History|||snap=14w25a|An underwater arrow now loses all velocity after a few blocks and slowly falls.
+|A flaming arrow underwater now gets extinguished.}}
+{{History|||snap=14w26a|Fire arrows can now be used to detonate [[minecarts with TNT]].}}
+{{History||1.9|snap=15w31a|[[File:Tipped Arrow Revision 1.png|32px]] [[File:Tipped Arrow MC-84253.png|32px]] Added 14 new tipped arrows. Due to a bug<ref>{{bug|MC-84253}}</ref>, all tipped arrows except arrow of Splashing are black.
+|[[File:Spectral Arrow JE1.png|42px]] [[File:Spectral Arrow (item) JE1.png|32px]] Added spectral arrows. They show [[mob]] and [[player]] outlines in their team color when hit. They have no texture when shot.}}
+{{History|||snap=15w31b|[[File:Spectral Arrow JE2.png|42px]] Spectral arrows now use their intended texture.<ref>{{bug|MC-82809}}</ref>}}
+{{History|||snap=15w32a|[[File:Arrow of Night Vision JE1 BE1.png|32px]] [[File:Arrow of Invisibility JE1 BE1.png|32px]] [[File:Arrow of Leaping JE1 BE1.png|32px]] [[File:Arrow of Fire Resistance JE1 BE1.png|32px]] [[File:Arrow of Swiftness JE1 BE1.png|32px]] [[File:Arrow of Slowness JE1 BE1.png|32px]] [[File:Arrow of Water Breathing JE1 BE1.png|32px]] [[File:Arrow of Healing JE1 BE1.png|32px]] [[File:Arrow of Harming JE1 BE1.png|32px]] [[File:Arrow of Poison JE1 BE1.png|32px]] [[File:Arrow of Regeneration JE1 BE1.png|32px]] [[File:Arrow of Strength JE1 BE1.png|32px]] [[File:Arrow of Weakness JE1 BE1.png|32px]] 13 tipped arrows now have the correct textures.}}
+{{History|||snap=15w33c|Added [[shield]]s; though they fully block [[damage]] from arrows, arrows still visually stick into the [[player]].}}
+{{History|||snap=15w37a|Arrows now ricochet off of [[shield]]s.}}
+{{History|||snap=15w44b|Added the initial method for obtaining tipped arrows, which lasted until snapshot [[16w06a]] – firing arrows into a [[lingering potion]] cloud.
+|[[File:Arrow of Luck JE1 BE1.png|32px]] Added the Arrow of [[Luck]].
+|[[File:Tipped Arrow Revision 1.png|32px]] [[File:Tipped Arrow Revision 1.png|32px]] [[File:Tipped Arrow Revision 1.png|32px]] [[File:Tipped Arrow Revision 1.png|32px]] Add tipped arrows for uncraftable potions, mundane potions, thick potions, and awkward potions. These are all available in the creative inventory.
+|Add tipped arrows for all enhanced and extended potions
+|[[File:Tipped Arrow Revision 1.png|32px]] Arrow of Splashing has been added to the creative inventory.}}
+{{History|||snap=15w47b|Arrows now ricochet off of [[creative]] mode [[player]]s, whereas before they would pass straight through.}}
+{{History|||snap=15w49a|Arrows now take the archer's motion into account. For example, if the player is falling, an arrow fired upward travels slower than if the player was standing still, and an arrow fired downward flies faster.
+|Tipped and spectral arrows are no longer affected by the [[Infinity]] [[enchanting|enchantment]].}}
+{{History|||snap=16w06a|Tipped arrows have been given a crafting recipe, and are no longer obtained by shooting them into a [[lingering potion]] cloud.}}
+{{History||1.10|snap=16w20a|Arrows of [[slowness]] may now drop from [[stray]]s when they are killed by a [[player]].}}
+{{History||1.11|snap=16w32a|The [[entity]] IDs have been changed from {{cd|Arrow}} and {{cd|SpectralArrow}} to {{cd|arrow}} and {{cd|spectral_arrow}}.|Tipped arrows of instant healing and instant damage now function. Previously, the fact that tipped arrows have 1/8th the duration was reducing 1 game tick to zero game ticks.}}{{History|||snap=16w42a|Arrows now have a {{cd|crit}} tag that determines whether it deals [[critical hit|critical damage]].}}
+{{History||1.11|snap=16w39a|Tipped arrows without effects and the uncraftable tipped arrow have been removed from the creative inventory.<ref name="removed tipped arrow">https://bugs.mojang.com/browse/MC-92139</ref>}}
+{{History||1.11.1|snap=16w50a|The arrow [[entity]] now has a {{cd|Color}} integer tag, for displaying the custom [[potion]] color of a fired arrow item that has a {{cd|CustomPotionColor}} tag.}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], these [[item]]s' numeral IDs were 262, 439 and 440.}}
+{{History|||snap=18w07a|[[File:Arrow of the Turtle Master JE1 BE1.png|32px]] Added the Arrow of the Turtle Master.}}
+{{History|||snap=18w14a|[[File:Arrow of Slow Falling JE1 BE1.png|32px]] Added the Arrow of [[Slow Falling]].}}
+{{History||1.14|snap=18w43a|Arrows are now used as ammo for [[crossbow]]s.
+|Arrows can now break [[chorus flower]]s.
+|[[File:Uncraftable Tipped Arrow JE2.png|32px]] [[File:Arrow of Splashing JE2.png|32px]] [[File:Arrow of Night Vision JE2 BE2.png|32px]] [[File:Arrow of Invisibility JE2 BE2.png|32px]] [[File:Arrow of Leaping JE2 BE2.png|32px]] [[File:Arrow of Fire Resistance JE2 BE2.png|32px]] [[File:Arrow of Swiftness JE2 BE2.png|32px]] [[File:Arrow of Slowness JE2 BE2.png|32px]] [[File:Arrow of the Turtle Master JE2 BE2.png|32px]] [[File:Arrow of Water Breathing JE2 BE2.png|32px]] [[File:Arrow of Healing JE2 BE2.png|32px]] [[File:Arrow of Harming JE2 BE2.png|32px]] [[File:Arrow of Poison JE2 BE2.png|32px]] [[File:Arrow of Regeneration JE2 BE2.png|32px]] [[File:Arrow of Strength JE2 BE2.png|32px]] [[File:Arrow of Weakness JE2 BE2.png|32px]] [[File:Arrow of Luck JE2 BE2.png|32px]] [[File:Arrow of Slow Falling JE2 BE2.png|32px]] The [[item]] sprite textures of tipped arrows has been changed.
+|[[File:Spectral Arrow (item) JE2.png|32px]] The [[item]] sprite texture for spectral arrows has been changed.}}
+{{History|||snap=18w47a|Arrows can now be generated inside of [[pillager outpost]] chests.}}
+{{History|||snap=18w50a|Arrows can now be found in chests in fletcher houses.}}
+{{History|||snap=19w11a|Fletcher [[villager]]s now [[trading|sell]] tipped arrows.}}
+{{History|||snap=19w13a|Any regular or tipped arrow can be obtained as a reward [[item]] from fletcher villagers when the [[player]] has the [[Hero of the Village]] status effect.‌}}
+{{History||1.14.1|snap=Pre-Release 2|Flaming arrows can now light [[campfire]]s.}}
+{{History||1.16|snap=20w16a|Arrows and spectral arrows now generate in [[bastion remnant]] chests.}}
+{{History||1.16.2|snap=20w28a|Spectral arrows can now be obtained through [[bartering]] with [[piglin]]s.}}
+{{History|||snap=20w30a|The average yield of spectral arrows from bastion remnant chests have been substantially increased.}}
+{{History||1.17|snap=21w11a|[[File:Spectral Arrow JE3.png|42px]] The texture of the spectral arrow is now have been changed.}}
+{{History|||snap=21w13a|The unused original texture of the arrow<ref>[[File:Arrow (texture) JE2.png|48px]] <code>/asset/minecraft/textures/entity/arrow.png</code></ref> have been removed.}}
+{{History||1.19.3|snap=22w43a|Tipped arrows for mundane, thick, and awkward potions, and the no-effect tipped arrow, are now available again in the Creative inventory.}}
+{{History||1.19.4|snap=Pre-release 3|[[File:Arrow of Night Vision JE3.png|32px]] [[File:Arrow of Invisibility JE3.png|32px]] [[File:Arrow of Leaping JE3.png|32px]] [[File:Arrow of Fire Resistance JE3.png|32px]] [[File:Arrow of Swiftness JE3.png|32px]] [[File:Arrow of Slowness JE3.png|32px]] [[File:Arrow of the Turtle Master JE3.png|32px]] [[File:Arrow of Water Breathing JE3.png|32px]] [[File:Arrow of Harming JE3.png|32px]] [[File:Arrow of Poison JE3.png|32px]] [[File:Arrow of Strength JE3.png|32px]] Changed colors of the following tipped arrows: Night Vision, Invisibility, Leaping, Fire Resistance, Swiftness, Slowness, Turtle Master, Water Breathing, Harming, Poison, Strength, Resistance.}}
+{{History||1.20|snap=23w12a|Wither [[effect]] particle colors have been adjusted to make them more distinguishable.
+|The arrow of [[Slow Falling]] has had its color tweaked to make it more distinguishable from the arrow of [[Invisibility]].}}
+
+{{History|pocket alpha}}
+{{History||v0.2.0|[[File:Arrow (item) JE1 BE1.png|32px]] Added arrows. They are currently unobtainable and serve no purpose.}}
+{{History||v0.3.3|[[File:Arrow JE2 BE1.png|42px]] Arrows now serve as ammunition for bows.
+|Added skeletons, which drop arrows when they die.
+|Arrows are now craftable.}}
+{{History||v0.5.0|Arrows can now be obtained after activating the [[nether reactor]].}}
+{{History||v0.12.1|snap=build 1|Arrows on [[fire]] now set the [[entity|entities]] they hit on fire. Before, arrows could be on fire (like other entities), but they would not set what they hit on fire, and there was no [[enchantment]] to fire flaming arrows.
+|Arrows on fire can now ignite [[TNT]].
+|An underwater arrow now loses all velocity after a few [[block]]s and slowly falls.
+|Arrows are no longer available from the [[nether reactor]].}}
+{{History||v0.13.0|snap=build 1|Arrows now update [[sand]] and [[gravel]].}}
+{{History||v0.15.0|snap=build 1|[[File:Arrow of Night Vision JE1 BE1.png|32px]] [[File:Arrow of Invisibility JE1 BE1.png|32px]] [[File:Arrow of Leaping JE1 BE1.png|32px]] [[File:Arrow of Fire Resistance JE1 BE1.png|32px]] [[File:Arrow of Swiftness JE1 BE1.png|32px]] [[File:Arrow of Slowness JE1 BE1.png|32px]] [[File:Arrow of Water Breathing JE1 BE1.png|32px]] [[File:Arrow of Healing JE1 BE1.png|32px]] [[File:Arrow of Harming JE1 BE1.png|32px]] [[File:Arrow of Poison JE1 BE1.png|32px]] [[File:Arrow of Regeneration JE1 BE1.png|32px]] [[File:Arrow of Strength JE1 BE1.png|32px]] [[File:Arrow of Weakness JE1 BE1.png|32px]] Added tipped arrows.
+|Tipped arrows are made by using [[cauldron]]s filled with [[potion]]s.
+|Arrows can now be found inside [[dispenser]]s in [[jungle temple]]s.}}
+{{History||v0.16.0|snap=build 4|[[File:Arrow of Decay BE1.png|32px]] Added the Arrow of [[Wither (status effect)|Decay]].
+|Arrows of Decay currently have a white pixelated texture.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Tipped arrows are now [[crafting|craftable]], but they can still be obtained by using [[cauldron]]s filled with [[potion]]s.}}
+{{History||1.0.4|snap=alpha 1.0.4.0|Arrows are now [[trading|sold]] by fletcher [[villager]]s.}}
+{{History||1.1.0|snap=alpha 1.1.0.0|The [[entity]] ID has been changed from {{cd|arrow.skeleton}} to {{cd|arrow}}.}}
+{{History|||snap=alpha 1.1.0.9|[[File:Arrow of Decay BE2.png|32px]] The texture of arrows of [[Wither (status effect)|Decay]] has been changed.}}
+{{History|bedrock}}
+{{History||1.5.0|snap=beta 1.5.0.4|[[File:Arrow of the Turtle Master JE1 BE1.png|32px]] Added the Arrow of the Turtle Master.}}
+{{History||1.6.0|snap=beta 1.6.0.5|[[File:Arrow of Slow Falling JE1 BE1.png|32px]] Added the Arrow of [[Slow Falling]].}}
+{{History||1.8.0|snap=beta 1.8.0.10|Arrows can now be used as ammo for the new [[crossbow]]s.}}
+{{History||1.9.0|snap=beta 1.9.0.0|Added [[pillager]]s, which [[drops|drop]] arrows upon [[death]].}}
+{{History|||snap=beta 1.9.0.2|Arrows and tipped arrows can now be used to craft [[fletching table]]s.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Arrow of Night Vision JE2 BE2.png|32px]] [[File:Arrow of Invisibility JE2 BE2.png|32px]] [[File:Arrow of Leaping JE2 BE2.png|32px]] [[File:Arrow of Fire Resistance JE2 BE2.png|32px]] [[File:Arrow of Swiftness JE2 BE2.png|32px]] [[File:Arrow of Slowness JE2 BE2.png|32px]] [[File:Arrow of Water Breathing JE2 BE2.png|32px]] [[File:Arrow of Healing JE2 BE2.png|32px]] [[File:Arrow of Harming JE2 BE2.png|32px]] [[File:Arrow of Poison JE2 BE2.png|32px]] [[File:Arrow of Regeneration JE2 BE2.png|32px]] [[File:Arrow of Strength JE2 BE2.png|32px]] [[File:Arrow of Weakness JE2 BE2.png|32px]] [[File:Arrow of Decay BE3.png|32px]] [[File:Arrow of the Turtle Master JE2 BE2.png|32px]] [[File:Arrow of Slow Falling JE2 BE2.png|32px]] The [[item]] sprite textures of tipped arrows have been changed.
+|Arrows can now be found in [[pillager outpost]] chests.
+|Arrows can now break [[chorus flower]]s.}}
+{{History||1.11.0|snap=beta 1.11.0.1|Arrows can now be found in [[village]] fletcher [[chest]]s.
+|Flaming arrows can now light [[campfire]]s.}}
+{{History|||snap=beta 1.11.0.4|Fletcher [[villager]]s now [[trading|sell]] 5 arrows for one [[emerald]].
+|Various regular tipped arrows can now be obtained via [[trading]] with fletcher villagers.}}
+{{History|||snap=beta 1.11.0.7|Arrow no longer can be used to craft [[fletching table]].}}
+{{History||1.12.0|snap=beta 1.12.0.3|Novice-level fletcher villagers now [[trading|sell]] 16 regular arrows instead of 5 arrows.}}
+{{History||1.16.0|snap=beta 1.16.0.51|Added [[piglin]]s, which [[drops|drop]] arrows upon [[death]].}}
+{{History|||snap=beta 1.16.0.57|Arrows now generate in [[bastion remnants]] chests.
+|Master-level fletcher villager now always offer 1 of 15 tipped arrows.
+|Piglins no longer drop arrows upon death.}}
+{{History||1.16.100|snap=beta 1.16.100.54|Arrows can now be obtained through [[bartering]].}}
+{{History||1.19.80|snap=beta 1.19.80.21|Changed potion colors for the following tipped arrows: Fire Resistance, Harming, Invisibility, Leaping, Night Vision, Poison, Slowness, Strength, Swiftness, Turtle Master, and Water Breathing.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.00|wiiu=Patch 1|switch=1.0.1|[[File:Arrow JE2 BE1.png|42px]] [[File:Arrow (item) JE1 BE1.png|32px]] Added arrows.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|An underwater arrow now loses all velocity after a few [[block]]s and slowly falls.
+|A flaming arrow underwater now gets extinguished.}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|[[File:Arrow of Night Vision JE1 BE1.png|32px]] [[File:Arrow of Invisibility JE1 BE1.png|32px]] [[File:Arrow of Leaping JE1 BE1.png|32px]] [[File:Arrow of Fire Resistance JE1 BE1.png|32px]] [[File:Arrow of Swiftness JE1 BE1.png|32px]] [[File:Arrow of Slowness JE1 BE1.png|32px]] [[File:Arrow of Water Breathing JE1 BE1.png|32px]] [[File:Arrow of Healing JE1 BE1.png|32px]] [[File:Arrow of Harming JE1 BE1.png|32px]] [[File:Arrow of Poison JE1 BE1.png|32px]] [[File:Arrow of Regeneration JE1 BE1.png|32px]] [[File:Arrow of Strength JE1 BE1.png|32px]] [[File:Arrow of Weakness JE1 BE1.png|32px]] [[File:Arrow of Luck JE1 BE1.png|32px]] Added tipped arrows.
+|[[File:Spectral Arrow (item) JE1.png|32px]] Added spectral arrows.
+|Spectral arrows are currently unobtainable and do not any effects.}}
+{{History||xbox=TU57|xbone=CU49|ps=1.56|wiiu=Patch 27|switch=1.0.7|Spectral arrows now have effects but are not craftable. They can be obtained only via inventory editing.}}
+{{History||xbox=TU69|xbone=none|ps=1.76|wiiu=Patch 38|switch=none|[[File:Arrow of Decay BE2.png|32px]] [[File:Arrow of the Turtle Master JE1 BE1.png|32px]] [[File:Arrow of Slow Falling JE1 BE1.png|32px]] Added the Arrow of the [[Wither (status effect)|Decay]], Turtle Master, and [[Slow Falling]].}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Arrow of Night Vision JE2 BE2.png|32px]] [[File:Arrow of Invisibility JE2 BE2.png|32px]] [[File:Arrow of Leaping JE2 BE2.png|32px]] [[File:Arrow of Fire Resistance JE2 BE2.png|32px]] [[File:Arrow of Swiftness JE2 BE2.png|32px]] [[File:Arrow of Slowness JE2 BE2.png|32px]] [[File:Arrow of Water Breathing JE2 BE2.png|32px]] [[File:Arrow of Healing JE2 BE2.png|32px]] [[File:Arrow of Harming JE2 BE2.png|32px]] [[File:Arrow of Poison JE2 BE2.png|32px]] [[File:Arrow of Regeneration JE2 BE2.png|32px]] [[File:Arrow of Strength JE2 BE2.png|32px]] [[File:Arrow of Weakness JE2 BE2.png|32px]] [[File:Arrow of Luck JE2 BE2.png|32px]] [[File:Arrow of Decay BE3.png|32px]] [[File:Arrow of the Turtle Master JE2 BE2.png|32px]] [[File:Arrow of Slow Falling JE2 BE2.png|32px]] The [[item]] sprite textures of tipped arrows have been changed.
+|[[File:Spectral Arrow (item) JE2.png|32px]] The [[item]] sprite texture for spectral arrow has been changed.}}
+
+{{History|3ds}}
+{{History||0.1.0|[[File:Arrow JE2 BE1.png|42px]] [[File:Arrow (item) JE1 BE1.png|32px]] Added arrows.
+|[[File:Arrow of Night Vision JE1 BE1.png|32px]] [[File:Arrow of Invisibility JE1 BE1.png|32px]] [[File:Arrow of Leaping JE1 BE1.png|32px]] [[File:Arrow of Fire Resistance JE1 BE1.png|32px]] [[File:Arrow of Swiftness JE1 BE1.png|32px]] [[File:Arrow of Slowness JE1 BE1.png|32px]] [[File:Arrow of Water Breathing JE1 BE1.png|32px]] [[File:Arrow of Healing JE1 BE1.png|32px]] [[File:Arrow of Harming JE1 BE1.png|32px]] [[File:Arrow of Poison JE1 BE1.png|32px]] [[File:Arrow of Regeneration JE1 BE1.png|32px]] [[File:Arrow of Strength JE1 BE1.png|32px]] [[File:Arrow of Weakness JE1 BE1.png|32px]] Added tipped arrows.}}
+{{History||1.3.12|[[File:Arrow of Decay BE2.png|32px]] Added arrows of [[Wither (effect)|Decay]].}}
+{{History|foot}}
+
+Historical sounds:
+
+{| class="wikitable"
+! Sound
+! From
+! to
+! Pitch
+|-
+| {{sound||Arrow Old.ogg}}
+| ?
+| ?
+| ?
+|}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* By default, arrows fly slightly offset to the right. If the player stands close to a wall and fires several arrows without moving the crosshair, the arrows cluster around a point slightly to the right of the crosshair. If the player switches their main hand to be the left hand in options, the arrows instead cluster to the left.
+* Arrows fired at [[Nether Portal]]s often skip through the portal block completely and fail to collide, thus continuing through to the opposite side of the block.
+* Arrows stuck in blocks vibrate upon a world reload.<ref>{{bug|MC-93992}} – "Arrow shakes when world loads" resolved as "Won't Fix"</ref>
+* Although [[enderman|endermen]] teleport when hit by any tipped arrow, they are still given the said effects while avoiding arrow damage.
+* {{IN|bedrock}}, even if a tipped arrow is blocked with a shield, while the direct damage from the arrows is negated, the player still gets the effect from the tipped arrow.<ref>{{bug|MCPE-52904}}</ref>
+
+== Gallery ==
+===Renders===
+<gallery>
+Arrow (item).png|Arrow
+Spectral Arrow (item) JE2.png|Spectral Arrow
+</gallery>
+;Tipped Arrows
+<gallery>
+Arrow of Splashing JE2.png|Splashing
+Arrow of Night Vision.png|Night Vision
+Arrow of Invisibility.png|Invisibility
+Arrow of Leaping.png|Leaping
+Arrow of Fire Resistance.png|Fire Resistance
+Arrow of Swiftness.png|Swiftness
+Arrow of Slowness.png|Slowness
+Arrow of the Turtle Master.png|Turtle Master
+Arrow of Water Breathing.png|Water Breathing
+Arrow of Healing.png|Healing
+Arrow of Harming.png|Harming
+Arrow of Poison.png|Poison
+Arrow of Regeneration.png|Regeneration
+Arrow of Strength.png|Strength
+Arrow of Weakness.png|Weakness
+Arrow of Slow Falling.png|Slow Falling
+Arrow of Luck.png|Luck
+Arrow of Decay.png|Decay
+Uncraftable Tipped Arrow JE2.png|Uncraftable
+</gallery>
+===Other Media===
+<gallery>
+Tipped Arrow Ultra High Resolution Screenshot.png|Teaser image from [[Searge]] showing tipped arrows.
+AllArrowTypes.png|All the arrow types present in [[Minecraft]].
+Custom arrows.png|Examples of custom arrow types using {{cmd|/give}}.
+Arrow in Sugar Cane.png|Some arrows stick into [[sugar cane]]s. This no longer works since Java Edition Beta 1.6.
+Arrow Burning.gif|An arrow caught on [[fire]].
+Flaming_stuck_spectral_arrow.png|A flaming spectral arrow stuck in a tree.
+arrows_in_player.png|Many arrows stuck in the player, seen through the [[inventory]] screen.
+Arrow Debugging.png|[[Searge]] with a bunch of arrows summoned above him.
+Inventory Tipped Arrows 1.jpg|Tipped arrows in the inventory.
+Inventory Tipped Arrows 2.jpg|Tipped arrows in the inventory.
+Inventory Tipped Arrows 3.jpg|Tipped arrows in the inventory.
+Inventory Tipped Arrows 4.jpg|Tipped arrows in the inventory.
+Tipped Arrow (empty texture) BE1.png|Unused old texture file for an empty tipped arrow on ''Bedrock Edition''.
+</gallery>
+
+== References ==
+{{reflist}}
+
+{{Items}}
+{{Entities}}
+
+[[Category:Combat]]
+[[Category:Renewable resources]]
+
+[[de:Pfeil]]
+[[es:Flecha]]
+[[fr:Flèche]]
+[[hu:Nyíl]]
+[[it:Freccia]]
+[[ja:矢]]
+[[ko:화살]]
+[[nl:Pijl]]
+[[pl:Strzała]]
+[[pt:Flecha]]
+[[ru:Стрела]]
+[[th:ลูกธนู]]
+[[zh:箭]]

@@ -1,0 +1,11 @@
+<div class="treeview">
+* {{nbt|compound}} Entity data
+** {{nbt inherit/arrow}}
+** {{nbt inherit/entity}}
+** {{nbt inherit/projectile}}
+** Note: An arrow entity is a tipped arrow if it has either the <code>Potion</code> or <code>CustomPotionEffects</code> tag.
+** {{nbt inherit/potion}}
+** {{nbt|integer|Color}}: Used by the arrow entity, for displaying the custom potion color of a fired arrow item that had a <code>CustomPotionColor</code> tag.  The numeric color code are calculated from the Red, Green and Blue components using this formula: '''<span style="color:red">Red</span>[[wikipedia:Logical shift|<<]]16 + <span style="color:green">Green</span><<8 + <span style="color:blue">Blue</span>'''. For positive values larger than 0x00FFFFFF, the top byte is ignored. All negative values remove the particles.
+</div><noinclude>
+[[Category:Entity data pages]]
+</noinclude>

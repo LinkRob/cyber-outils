@@ -1,0 +1,74 @@
+{{exclusive|java}}
+[[File:BuffetWorldCustomization.png|right|thumb|300px|The customization screen for Buffet.]]
+
+'''Buffet''' is a [[world type]] in which the entire Overworld consists of one [[biome]] ('''Single Biome'''). It is simple to customize, albeit very limited.
+
+== Generator types ==
+There is one generator type as part of Buffet: 
+* '''Single Biome:''' Uses the regular generation settings in [[Overworld]]: the world generates with a bedrock floor at the Y=-64 lower height limit, and the rest of the terrain is generated on top of it. However, there is only one biome in Overworld, which is selected by the player.
+
+=== Custom biomes ===
+Buffet world types allow the player to choose a biome that the world uses in generating terrain of Overworld. Biome choice determines things such as terrain, vegetation, generated structures (if applicable), and to some extent, mob spawning. Buffet worlds can be customized to use any one of the available biomes and use only that particular biome for the entire world. The player can choose any of the existing biomes, including technical biomes (such as different End island types).
+
+Attempting to use custom biomes from [[data pack]]s causes a crash.
+
+== History ==
+{{History|java}}
+{{History||1.13|snap=18w16a|Added Buffet world type. At this time, the world generation options were "Overworld" and "End".}}
+{{History|||snap=18w19a|Added the "Caves" generation option.
+|Changed the "Overworld" generator option to "Surface", and changed the "End" option to "Floating Islands".
+|Before this snapshot, players could change the [[level.dat]]'s {{nbt|string|generatorOptions}} tag to <code>{"biome_source":{"type":"minecraft:fixed","biomes":["minecraft:plains"]},"chunk_generator":{"type":"'''minecraft:nether'''<nowiki>"}}</nowiki></code> to create the "Caves" generation option.}}
+{{History|||snap=pre4|Biome names are now sorted alphabetically in the Buffet menu.}}
+{{History||1.16|snap=20w21a|The world generator types are now world type values instead of being an option in the Buffet world type.
+|Renamed "Surface" generator to "Single Biome".}}
+{{History||1.17|snap=21w06a|Cave and Floating Island worlds now generate up to y{{=}}319 and down to y{{=}}-64.}}
+{{History|||snap=21w07a|Cave and Floating Island worlds do not generate with grimstone.}}
+{{History|||snap=21w15a|Cave and Floating Island worlds now generate up to y{{=}}255 and down to y{{=}}0.}}
+{{History|||snap=21w17a|Cave and Floating Island worlds now once again generate as they did prior to 21w06a.}}
+{{History||1.18|snap=Experimental Snapshot 1|Cave and Floating Island worlds no longer generate surface features.
+|Floating Island worlds no longer generate terrain properly, and terrain generated above y{{=}}~64 now generates as end stone.}}
+{{History|||snap=21w43a|Cave worlds now generate with netherrack on the ceiling.}}
+{{History|||snap=21w44a|Cave worlds now once again generate with a bedrock ceiling, but now generate with netherrack instead of stone, and without a surface layer.
+|Floating Island worlds now generate as a single thick floating layer of end stone.}}
+{{History|||snap=Pre-release 1|[[Old Buffet world generators|Removed the "Caves" and "Floating Islands"]] generation options from the world creation screen.
+|Existing Cave and Floating Island worlds can still be opened, but still do not generate properly.}}
+{{History|||snap=Pre-release 5|Cave worlds once again generate with stone and a surface layer, and now generate down to y{{=}}-64.
+|Deepslate now generates in Cave worlds.
+|Floating Island worlds once again generate as they did in 21w16a.}}
+{{History|foot}}
+
+== Trivia ==
+* If the [[Nether]] or [[The End]] is used as the sole biome, then the sky would appear, as if it is a mixture of the Overworld and the [[dimension]]s.
+
+== Gallery ==
+<gallery widths="160px">
+Borderless Beach.png|A beach biome generated using Single Biome world type, showing a borderless beach that looks like a desert, but with naturally spawning [[turtle]]s.
+Borderless River.png|A river biome generated using Single Biome world type, showing a borderless river that looks like a shallow ocean.
+Voidland.png|A Void biome generated using Single Biome world type, resulting in terrain made entirely of stone with a single block of cobblestone generated on the player's spawn point.
+EndHighlandsoverworldgeneration.png|The End generated using the Single Biome generation.
+The End–Overworld Buffet.png|The End biome buffet world generated using Overworld terrain.
+Extreme Hills Edge Buffet.png|A [[mountain edge]] buffet world.
+Checkerboard Buffet.png|An example of the hidden "checkerboard" world type, which can be used to create worlds made up of a checkerboard pattern of multiple biomes.
+Nether_wastes_overworld.png|A Nether Wastes biome using Single Biome type. Although the terrain is that of the Overworld, Ghasts still spawn naturally.
+Buffet Mushroom Island Shore.png|A [[mushroom fields]] buffet world.
+Single Biome Desert.jpg|A desert buffet world.
+Single Biome Comparison.jpg|The same terrain in different biomes.
+</gallery>
+
+== See also ==
+* [[Old Buffet world generators]]
+* [[Custom]]
+
+{{Environment}}
+
+[[Category:World types]]
+
+[[de:Buffet]]
+[[fr:Buffet]]
+[[it:Buffet]]
+[[ja:ビュッフェ]]
+[[ko:뷔페]]
+[[pl:Bufet]]
+[[pt:Buffet]]
+[[ru:Ассорти]]
+[[zh:自选世界类型]]

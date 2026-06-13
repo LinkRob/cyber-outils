@@ -1,0 +1,162 @@
+{{Update|reason=Dried Ghast info}}
+{{merge|trading}}
+{{See also|Tutorials/Bartering farm}}
+[[File:Minecraft Bartering Guide for Java Edition 1.16.2 to 1.18.2.png|thumb|upright=1.5|A reference table of Piglin trading as of 1.16.2 and above. Bartered items may differ {{in|bedrock}}.]]
+'''Bartering''' is a gameplay mechanic in which players can exchange items with [[Piglin|piglins]] to acquire various items. This is similar to [[trading]] with [[Villager|villagers]].
+
+==Mechanics==
+
+<onlyinclude>To barter with a piglin, either throw by dropping a [[gold ingot]] near an adult piglin or {{ctrl|use}} a gold ingot on it. After the piglin takes the gold ingot and examines it for six seconds {{in|Java}} or eight seconds {{in|Bedrock}}<ref>{{bug|MCPE-99448||Piglins need 8 seconds to barter, while they only need 6 in java}}</ref>, it tosses a random [[Item (entity)|item]] to the player. [[Piglin brute]]s ignore gold ingots and do not barter. Baby piglins take the ingot without giving anything in return, instead holding the ingot, which is dropped when killed.
+
+Piglins pick up many other items that are made of gold; however, gold ingots are the only items that piglins accept for bartering. Baby piglins are incapable of bartering and treat gold ingots like any other gold item.
+
+Hitting a piglin while it is examining a gold ingot causes it to "confiscate" the ingot; the piglin does not complete the barter. It cannot be bartered with again unless it puts another item in its inventory. Piglins who are killed in one hit before they finish examining always drop the ingot.
+
+When a piglin is admiring a gold ingot, it can still be angered by the player breaking a container or a gold-related block nearby, although its behavior differs depending on the game edition. {{IN|java}}, the piglin finishes the barter on the original schedule, and only starts attacking the player once the barter finishes. {{IN|bedrock}}, the piglin immediately finishes the barter and starts attacking the player,<ref>{{bug|MCPE-94099||Piglins get angry when a player destroys a chest or a gold-related item while admiring a gold item}}</ref> leading to a bartering transaction much shorter than the default 8 seconds.<ref>{{bug|MCPE-91275||Piglin can skip bartering animation when being distracted by other activities}}</ref> This allows piglins {{in|bedrock}} to barter rapidly when gold-related blocks are repeatedly broken nearby, or when a gold-related block is repeatedly pushed and pulled by pistons.
+
+[[File:Piglin Admiring Item.png|thumb|right|upright=0.4|A piglin looking at a gold ingot.]]
+
+Bartering is controlled by the [[loot table]] {{cd|minecraft:gameplay/piglin_bartering}}. If the [[game rule]] <code>mobGriefing</code> is {{cd|false}}, piglins only barter when the player uses a gold ingot on them.
+
+If a piglin is zombified into a [[zombified piglin]] before the bartering is complete, the newly zombified piglin drops the gold ingot. 
+
+The player can only barter with piglins, not piglin brutes or zombified piglins, even if the zombified piglin was a piglin that was zombified in the [[Overworld]] or [[the End]].
+
+When a piglin is admiring a gold ingot while bartering, it does not run away from nearby [[zoglins]] or nearby zombified piglins.
+
+==Items bartered ==
+The item the piglin throws can be one of the following: 
+{| class="wikitable sortable" style="text-align:center"
+|+Bartering items
+|-
+!Item given 
+!Quantity
+! Chance
+!Ingots needed<br>per item (average)<!-- ½(min+max)÷chance -->
+|-
+|{{ItemLink|Enchanted Book}}<br>with [[Soul Speed]] (random level)
+| rowspan="6" |1
+|{{frac|5|459}}<br>(~1.09%)
+|91.8
+|-
+|{{ItemLink|Iron Boots}}<br>with [[Soul Speed]] (random level)
+| rowspan="3" |{{frac|8|459}}<br>(~1.74%)
+| rowspan="3" |57.375
+|-
+|{{ItemLink|Splash Potion of Fire Resistance}}
+|-
+|{{ItemLink|Potion of Fire Resistance}}
+|-
+|{{ItemLink|Water Bottle}}
+| rowspan="3" |{{frac|10|459}}<br>(~2.18%)
+| rowspan="2" |45.9
+|-
+|{{BlockLink|Dried Ghast}}
+(more info needed here)
+|-
+|{{ItemLink|Iron Nugget}}
+|10–36
+|1.996
+|-
+|{{ItemLink|Ender Pearl}}
+|2–4
+|{{frac|10|459}}<br>(~2.18%)
+|15.3
+|-
+|{{ItemLink|String}}
+|3–9
+| rowspan="2" |{{frac|20|459}}<br>(~4.36%)
+|3.825
+|-
+|{{ItemLink|Nether Quartz}}
+|5–12
+|2.7
+|-
+|{{BlockLink|Obsidian}}
+|1
+| rowspan="9" |{{frac|40|459}}<br>(~8.71%) 
+|11.475
+|-
+|{{BlockLink|Crying Obsidian}}
+|1–3
+|5.7375
+|-
+|{{ItemLink|Fire Charge}}
+|1
+|11.475
+|-
+|{{ItemLink|Leather}}
+|2–4
+|3.825
+|-
+|{{BlockLink|Soul Sand}}
+| rowspan="2" |2–8
+| rowspan="2" |2.295
+|-
+|{{ItemLink|Nether Brick}}
+|-
+|{{ItemLink|Spectral Arrow}}{{only|Java|short=1}}<br>{{ItemLink|Arrow}}{{only|Bedrock|short=1}}
+|6–12
+|1.275
+|-
+|{{BlockLink|Gravel}}
+| rowspan="2" |8–16
+| rowspan="2" |0.96
+|-
+|{{BlockLink|Blackstone}}
+|}
+
+Bartering is the only [[renewable]] source of nether quartz, crying obsidian, soul sand, nether brick{{only|java|short=1}}, gravel, blackstone, as well as the Soul Speed enchantment.
+
+==History ==
+{{see also|Bartering/Outdated loot tables in Java Edition|Bartering/Outdated loot tables in Bedrock Edition}}
+
+{{History|java}}
+{{History||1.16|snap=20w07a|Added bartering.}}
+{{History|||snap=20w09a|[[Soul sand]], [[mushroom]]s, [[crimson fungi]], [[flint]], [[rotten flesh]], and [[raw porkchop]]s have been removed from the possible barters.
+|[[Crying obsidian]], [[string]], [[Fire Resistance]] [[potion]]s and [[splash potion]]s, and [[netherite hoe]]s have been added to the possible barters.
+|Barter chances have been tweaked.
+|Due to a bug, all barters give stacks of 1–5 [[item]]s.<ref>{{bug|MC-173165}}</ref>}}
+{{History|||snap=20w10a|Barters now give the correct amounts of [[item]]s.
+|[[Warped nylium]], [[warped fungus]], and [[shroomlight]]s have been removed from the possible barters.
+|[[Iron nugget]]s have been added to the list of barters and [[soul sand]] has been re-added.
+|Barter chances have been tweaked.}}
+{{History|||snap=20w11a|[[Enchanted book]]s and [[iron boots]] with [[Soul Speed]] have been added to the possible barters.}}
+{{History|||snap=20w13a|[[Item]]s [[enchanted]] with [[Soul Speed]] are now slightly more common.}}
+{{History|||snap=20w20a|[[Netherite hoe]]s can no longer be obtained through bartering.}}
+{{History||1.16.2|snap=20w28a|[[Water bottle]]s, [[spectral arrow]]s, and [[blackstone]] have been added to the possible barters.
+|[[Magma cream]] and [[glowstone dust]] have been removed from the possible barters.
+|Barter chances have been tweaked.
+|Many barters give fewer items.}}
+{{History||1.21.6|snap=25w18a|[[Dried Ghast]] can now be obtained.}}
+
+{{History|bedrock}}
+{{History||1.16.0|snap=beta 1.16.0.51|Added bartering.}}
+{{History|||snap=beta 1.16.0.57|Updated the loot table to match ''Java Edition'' 20w13a. Previously, right-clicking the piglin would give the player [[obsidian]] or [[flint and steel]], while dropping gold onto the ground would result in a [[Nether wart block]]|Piglins now "inspect" the gold ingot before giving the player an item, as opposed to giving the item instantly.}}
+{{History||1.16.100|snap=beta 1.16.100.54|Updated the loot table to match ''Java Edition'' [[1.16.2]]. Arrows are used in place of spectral arrows.}}
+{{History||1.21.90|snap=beta 1.21.90.21|[[Dried Ghast]] can now be obtained.}}
+{{History|foot}}
+
+== Issues==
+{{Issue list}}
+
+==Trivia==
+*Piglins sometimes pick up and equip [[iron boots]] enchanted with [[Soul Speed]] that they have just offered while bartering. A player wanting to obtain the iron boots without killing the piglin can induce the piglin to discard the iron boots by offering a pair of [[golden boots]].
+
+==See also==
+*{{EntityLink|Piglin}}
+*{{ItemLink|Gold Ingot}}
+
+==References==
+{{Reflist}}
+
+{{Gameplay}}
+
+[[fr:Piglin#Troc]]
+[[it:Baratto]]
+[[ja:物々交換]]
+[[ko:물물교환]]
+[[pt:Troca]]
+[[ru:Товарообмен]]
+[[uk:Бартер]]
+[[zh:以物易物]]

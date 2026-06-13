@@ -1,0 +1,2134 @@
+[[File:biome_preview.png|350px|thumb|''[[Minecraft]]'' contains different kinds of biomes which can be traveled to.]]
+A '''biome''' is a region in a world with distinct geographical features, [[Plants|flora]], temperatures, humidities, and sky, water, fog, grass and foliage colors. Biomes separate every generated world into different environments, such as forests, deserts and taigas.
+
+The biome of a location is determined during world generation and by the current environment. If the player completely changes all the blocks in a large area to imitate the terrain of other biomes, the biome will not be affected. This can be only be done {{in|java}} with the {{cmd|fillbiome}} command, which can change the biome in an area.
+
+Biomes can be located using the {{cmd|locate biome}} command in the chat.
+<!--== Temperature and biome colors ==
+<ref>[https://bugs.mojang.com/browse/MC-128784 MC-128784 in the bug tracker]</ref>
+
+[[File:Mega.png|thumb|right|A river running through an old-growth pine taiga.]]
+
+[[File:Coral reef at night.png|thumb|left|A warm ocean biome with a coral reef visible.]]
+-->
+
+==List of biomes==
+===Biome types===
+{{IN|java}}, there are 64 different biome types: 53 for the [[Overworld]], 5 for [[the Nether]], and 5 for [[the End]], plus one used only for a [[superflat]] preset. {{IN|bedrock}} there are 90 biome types: 53 for the Overworld, 5 for the Nether, 5 for the End, and 27 unused.
+
+On this page, for convenience of description and reading, the biomes in Overworld are divided into 8 categories, which are not official. While in each category, biomes may be further divided into some sub-categories. Biomes in a sub-categories are placed in one page, such as [[plains]] and [[sunflower plains]], and are described as variants on this wiki.
+
+===Overworld===
+
+==== Off-land biomes====
+These biomes are used for the generation of [[ocean]]s and mushroom fields. They are large, open biomes made entirely of water going up to y=63, with underwater relief on the sea floor, such as small mountains and plains, usually including [[gravel]]. [[Squid]] and fish spawn frequently in the water.
+
+These biomes are further divided into three categories: [[Ocean]]s, Deep Oceans, and Mushroom Fields.
+
+{| class="wikitable collapsible" data-description="Offland biomes"
+! width="15%" |Biome name
+!Description
+!Screenshot
+
+|-
+| style="text-align:center;" |{{BiomeSprite|ocean}}<br>'''[[Ocean]]'''
+|{{anchor|Ocean}}
+The basic Ocean biome. Like its colder variants, its floor is made up of gravel. Sea grass, kelp, cod and salmon{{only|bedrock}} can spawn here.
+|[[File:Ocean.png|thumb|Ocean]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|deep-ocean}}<br>'''[[Deep Ocean]]'''
+|{{anchor|Deep Ocean}}
+A variant of the Ocean biome. In Deep Ocean biomes, the ocean can exceed 30 blocks in depth, making it twice as deep as the normal ocean. The ground is mainly covered with [[gravel]]. [[Ocean monument]]s generate in deep oceans, meaning [[guardian]] and [[elder guardian]] can spawn here. Underwater ravines often generate here, with the top layer of lava being replaced by magma blocks that create bubble columns.<br>
+|[[File:Deep Ocean.png|thumb|Deep Ocean]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|Warm Ocean}}<br>'''[[Warm Ocean]]'''
+|{{anchor|Warm Ocean}}
+A variant of the Ocean biome, with light teal water at the surface. Like the Lukewarm Ocean, it has a floor made of sand, and like all oceans, it is populated with seagrass. Unlike other ocean biomes, Warm Oceans allow for the generation of coral reefs and sea pickles. Kelp cannot spawn here. It is the only ocean biome that does not have a ''deep'' variant.
+|[[File:Warm Ocean.png|thumb|Warm Ocean]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|Lukewarm Ocean}}<br>'''[[Lukewarm Ocean]]'''
+|{{anchor|Lukewarm Ocean}}
+A variant of the Ocean biome, with light blue water at the surface. Its floor is made of sand with the occasional dirt or clay, kelp and seagrass spawn here. Unlike the Warm Ocean biome, cod and salmon{{only|bedrock|short=1}} can spawn here. Coral cannot spawn here.
+|[[File:Lukewarm Ocean.png|thumb|Lukewarm Ocean]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|Deep Lukewarm Ocean}}<br>'''[[Deep Lukewarm Ocean]]'''
+|{{anchor|Lukewarm Deep Ocean|Deep Lukewarm Ocean}}
+Similar to the Lukewarm Ocean biome, but twice as deep. Because they are a Deep Ocean variant, they can generate ocean monuments, resulting in the spawning of guardians, elder guardians, [[prismarine]], and [[sponge]]s.
+|[[File:Deep Lukewarm Ocean.png|thumb|Deep Lukewarm Ocean]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|Cold Ocean}}<br>'''[[Cold Ocean]]'''
+|{{anchor|Cold Ocean}}
+A variant of the Ocean biome, with dark blue water at the surface. Like the standard Ocean and Frozen Ocean biomes, its floor is made up of gravel, though occasional patches of dirt can be found. Salmon are able to spawn in Cold Ocean biomes.
+|[[File:Cold Ocean.png|thumb|Cold Ocean]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|Deep Cold Ocean}}<br>'''[[Deep Cold Ocean]]'''
+|{{anchor|Cold Deep Ocean|Deep Cold Ocean}}
+Similar to the Cold Ocean biome, but twice as deep. Like other Deep Oceans, ocean monuments are able to generate here, which contain guardians, elder guardians, [[prismarine]], and [[sponge]]s.
+|[[File:Deep Cold Ocean.png|thumb|Deep Cold Ocean]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|frozen-ocean}}<br>'''[[Frozen Ocean]]'''
+|{{anchor|Frozen Ocean|Ice Ocean}}
+A variant of the Ocean biome with dark indigo water at the surface. Like the Cold Ocean, it has a gravel seabed and squids swimming about. However, the water's surface is frequently broken up by patches of ice and large icebergs, consisting of packed ice and, occasionally, blue ice. Strays and polar bears can spawn here, but dolphins do not.<br>
+|[[File:Frozen Ocean.png|thumb|Frozen Ocean]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|Deep Frozen Ocean}}<br>'''[[Deep Frozen Ocean]]'''
+|{{anchor|Frozen Deep Ocean|Deep Frozen Ocean}}
+Like the frozen ocean biome, the only fish that spawn here are salmon and cod,{{only|bedrock|short=1}} and the floor consists of gravel. The frozen deep ocean biome also contains ocean monuments and a deeper floor than normal oceans, like other deep oceans. Frequent floating icebergs with blue ice generate here. Polar bears, rabbits, and strays can also spawn here, but dolphins do not.
+|[[File:Deep Frozen Ocean.png|thumb|Deep Frozen Ocean]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|mushroom-fields}}<br>'''[[Mushroom Fields]]'''
+|{{anchor|Mushroom Fields|Mushroom Fields}}
+This rare biome consists of a mostly flat island and has mycelium instead of grass as its surface. However, any grass placed appears in a bright green color, even brighter than in the jungle. Mushroom fields are always adjacent to a deep ocean and are isolated from other biomes, and they are typically a few hundred blocks wide. It is one of the few biomes where huge mushrooms can generate naturally, and where mushrooms can grow in full sunlight.
+
+No mobs other than [[mooshroom]]s spawn naturally in this biome, including the usual night-time hostile mobs. This also applies to caves, mineshafts, and other dark structures, meaning exploring underground is safe. However, [[monster spawner]]s still spawn mobs, [[wandering trader]]s along with their [[trader llama|llama]]s can spawn, [[creaking heart]]s can spawn [[creaking]]s, raids can still spawn [[illager]]s, the player can still breed animals and spawn mobs using [[spawn egg]]s, and insomnia still attracts [[phantom]]s<nowiki/>.
+|[[File:Mushroom Fields.png|thumb|Mushroom Fields]]
+
+|}
+
+====Highland biomes====
+
+Highland biomes are biomes with high Y-level, rugged terrain, and snow-covered peaks appear above the snow line.
+
+These biomes are further divided into two categories: [[Mountain]]s and [[Windswept Hills]].
+
+{| class="wikitable collapsible" data-description="Highland biomes"
+! width="15%" |Biome name
+!Description
+!Screenshot
+
+|-
+| style="text-align:center;" |{{BiomeSprite|jagged-peaks}}<br>'''[[Jagged Peaks]]'''
+|{{anchor|Jagged Peaks}}
+One of the three biomes that generate in the peaks of a mountain. This biome is found in taller and more jagged and pointy peaks that often pass the clouds and can peak at y=256. It is covered by a single layer of snow blocks with stone underneath often exposing ores such as coal, iron and emerald, and just like the snowy slopes, stone cliffs can generate in some sides of the mountain. Only goats spawn in this biome.
+|[[File:Jagged Peaks.png|thumb|Jagged Peaks]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|frozen-peaks}}<br>'''[[Frozen Peaks]]'''
+|{{anchor|Frozen Peaks}}
+The frozen peaks are covered by snow blocks and [[packed ice]] with occasional small blobs of ice. This biome usually generates in smoother and less jagged mountains compared to the jagged peaks biome. Only goats can spawn in this biome.
+|[[File:Snow Capped Peaks.png|thumb|Frozen Peaks]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|stony-peaks}}<br>'''[[Stony Peaks]]'''
+|{{anchor|Stony Peaks}}
+The stony peaks are a warmer variation of peak biomes that generates in warmer regions to avoid temperature clashes. It is mainly covered by stone with large [[strip]]s of [[calcite]] and exposed ores. No passive mobs spawn in this biome, and there's no snow.
+|[[File:Stony Peaks 1.18.png|thumb|Stony Peaks]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|meadow}}<br>'''[[Meadow]]'''
+|{{anchor|Meadow}}
+The meadow is an elevated grassy biome found in plateaus near mountain ranges. It is filled with patches of flowers and turquoise-green [[grass]] and [[tall grass]]. All small flowers generate except [[Blue orchid]]s, [[tulip]]s, [[lilies of the valley]] or [[wither rose]]s. Rarely, a lone oak or [[birch tree]] can generate and always has a [[bee nest]]. Both [[pillager outposts]] and [[Village|plains villages]] can generate in this biome. [[Sheep]], [[donkey]]s and [[rabbit]]s are the only passive mobs that spawn in this biome.
+|[[File:Mountain Meadows.png|thumb|Meadows]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|cherry-grove}}<br>'''[[Cherry Grove]]'''
+|{{anchor|Cherry Grove}}
+Cherry groves are grasslands with a lot of [[grass]], [[tall grass]] and, besides the traditional [[dandelion]]s and [[poppies]] flowers, there are [[pink petals]]. The main environmental feature of the cherry grove are [[cherry]] trees identified by their striking pink color. Their leaves drop petal particles. The cherry trees may generate densely enough create a cover of leaves. The cherry grove biome is good for surviving. The sparseness of trees can help the player not to get lost while collecting a great abundance of resources.
+|[[File:Cherry Grove.png|thumb|Cherry Grove]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|grove}}<br>'''[[Grove]]'''
+|{{anchor|Grove}}
+The grove creates a forest of spruce [[tree]]s beneath the mountain peaks when near a forested biome. It is quite reminiscent of the snowy taiga but the surface is covered with [[snow]] layers, [[snow block]]s, [[dirt]] and a lot of [[powder snow]] instead of grass blocks. [[Rabbit]]s, [[wolves]] and [[fox]]es can spawn in this biome.
+|[[File:Mountain Grove.png|thumb|Grove]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|snowy-slopes}}<br>'''[[Snowy Slopes]]'''
+|{{anchor|Snowy Slopes}}
+The snowy slopes generate on beneath the mountain peaks and are covered multiple layers of snow blocks and powder snow, with some sides also having stone cliffs. [[Goat]]s spawn in this biome alongside [[rabbit]]s. This is the only mountain biome where [[Igloo|igloos]] can generate, making it one of the three biomes where igloos naturally generate.
+|[[File:Snowy Slopes 1.18.png|thumb|Snowy Slopes]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|mountains}}
+'''[[Windswept Hills]]'''
+|{{anchor|Mountains|Mountains}}
+A highland biome with some steep hilltops. Cliffs, peaks, valleys, waterfalls, overhangs, floating islands, caverns and many other [[terrain features]] exist here, offering outstanding views. This is one of the few biomes where [[llama]]s can spawn naturally. Snowfall also occurs above certain heights up the mountain, thus creating snow layers on the top of the hills. Falling is a significant risk, as there are many steep ledges large enough to cause severe fall damage or even death. Windswept hills are one of a few biomes where [[emerald ore]] and infested stone can be found naturally. {{IN|Bedrock|Education}}, trees cannot generate here.<br>
+|[[File:Mountains.png|thumb|Windswept Hills]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|windswept-gravelly-hills}}
+'''[[Windswept Gravelly Hills]]'''
+|{{anchor|Windswept Gravelly Hills}}
+The windswept gravelly hills are mostly covered in gravel with occasional patches of grass and stone blocks. Due to the low amount of grass, the population of spruce and oak trees in this biome is sparse.<br>
+|[[File:Gravelly Mountains.png|thumb|Windswept Gravelly Hills]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|wooded-mountains}}
+'''[[Windswept Forest]]'''
+|{{anchor|Wooded Mountains|Wooded Mountains}}
+This biome is found when the windswept hills are located next to forested biomes. It doesn't generate stone patches so the floor is entirely covered by grass, and there are more spruce and oak trees in this biome, forming small forests with a lower tree density than the taiga biome.<br>
+|[[File:Wooded Mountains.png|thumb|Windswept Forest]]
+
+|}
+
+====Woodland biomes====
+Woodland biomes are rich in plants, with [[tree]]s, [[flower]]s and [[grass]]es constituting the flora on the surface. It is one of the ideal birthplaces where plenty of wood resources are available, but the dense vegetation makes it dangerous to move around the forest at night because the trees block the view.
+
+These biomes are further divided into 8 categories: [[forest]]s, [[taiga]]s, [[old growth taiga]]s, [[snowy taiga]]s, [[birch forest]]s, [[dark Forest|roofed forest]]s, [[pale garden]]s and [[jungle]]s.
+
+{| class="wikitable collapsible" data-description="Woodland biomes"
+! width="15%" |Biome name
+!Description
+!Screenshot
+
+|-
+| style="text-align:center;" |{{BiomeSprite|forest}}<br>'''[[Forest]]'''
+|{{anchor|Forest}}
+A common biome with many oak and birch trees and a fair amount of tall grass, mushrooms and flowers. This is one of the most preferred biomes to start out in, due to the abundance of wood. Like in taigas, wolves are found.
+|[[File:Forest.png|thumb|Forest]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|flower-forest}}<br>'''[[Flower Forest]]'''
+|{{anchor|Flower Forest}}
+This forest variant has fewer trees, but more than makes up for it - it is almost overflowing with nearly every type of flower and tall plant in the game, [[Flower#Flower biomes|several of which]] grow only in this biome. Therefore, this biome is optimal for harvesting and farming dyes. Wolves do not spawn in the flower forest, although rabbits spawn occasionally.
+|[[File:Flower Forest.png|thumb|Flower Forest]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|taiga}}<br>'''[[Taiga]]'''
+|{{anchor|Taiga}}
+A biome covered by a forest of spruce trees. Ferns, large ferns and berry bushes grow commonly on the forest floor. One can find packs of wolves here, along with small groups of foxes or rabbits. Villages may generate in this biome; the houses in these villages are built of spruce wood. Pillager outposts may also generate in this biome.
+|[[File:Taiga.png|thumb|Taiga]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|giant-tree-taiga}}
+'''[[Old Growth Pine Taiga]]'''
+|{{anchor|Giant Tree Taiga|Giant Tree Taiga}}
+The Old Growth Pine Taiga is a biome composed of spruce trees (despite it being called a pine taiga since there is no pine in the game), much like the standard Taiga biome. However, some trees are 2×2 thick and taller than normal, akin to large jungle trees. Mossy cobblestone boulders appear frequently, mushrooms are common, and [[podzol]] can be found on the forest floor. There are also patches of [[coarse dirt]] that do not grow grass, with some [[dead bush]]es. [[Wolves]] and foxes may also spawn here, as they do in normal Taiga biomes. Rabbits may also spawn here in ''Java Edition''.<br>
+|[[File:Giant Tree Taiga.png|thumb|Old Growth Pine Taiga]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|giant-spruce-taiga}}
+'''[[Old Growth Spruce Taiga]]'''
+|{{anchor|Giant Spruce Taiga|Giant Spruce Taiga}}
+At first glance, this biome may look almost exactly the same as its pine tree counterpart. However, the most striking feature of this biome is its giant spruce trees, which are essentially a scaled-up version of regular spruce trees. One can easily differentiate this from an old growth pine taiga by observing how the leaves almost completely cover the tree trunks, whereas in pine ones, leaves tend to cover only the top.
+|[[File:Giant Spruce Taiga.png|thumb|Old Growth Spruce Taiga]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|snowy-taiga}}<br>'''[[Snowy Taiga]]'''
+|{{anchor|Snowy Taiga|Snowy Taiga}}
+Much like the regular Taiga, the Snowy Taiga has large expanses of spruce trees, ferns, and their taller variants, generate here commonly, although grass can still be found. It is one of the few places where wolves and foxes spawn naturally. One may also find an igloo nestled between the trees from a more or less flat terrain, making it one of the three biomes where igloos naturally generate. Villages{{only|bedrock|short=y}} and outposts{{only|bedrock|short=y}} may also generate here. Villages use the same architecture as taiga villages but the villagers wear snowy biome outfits. <br>
+|[[File:Snowy Taiga.png|thumb|Snowy Taiga]]
+
+
+|-
+| style="text-align:center;" |{{BiomeSprite|birch-forest}}<br>'''[[Birch Forest]]'''
+|{{anchor|Birch Forest}}
+A forest where the grass is aqua and only birch trees generate. Unlike in the regular Forest, no wolves spawn in this forest.
+|[[File:Birch Forest.png|thumb|Birch Forest]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|old-growth-birch-forest}}<br>
+'''[[Old Growth Birch Forest]]'''
+|{{anchor|Old Growth Birch forest|Old Growth Birch Forest}}
+Birch trees grow much taller than usual in this uncommon variant of the Birch Forest biome. Whereas normal birch trees grow up to 7 blocks tall, these trees usually are 11 blocks in height. This makes deforestation a much more difficult task, although it provides the player with far more resources.
+
+|[[File:Tall Birch Forest.png|thumb|Old Growth Birch Forest]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|dark-forest}}<br>'''[[Dark Forest]]'''
+|{{anchor|Dark Forest|Dark Forest}}
+This biome is mainly composed of dark oak trees, a mostly closed roof of leaves, and occasional [[huge mushroom]]s. Trees in this forest are so packed together, that it's dark enough for hostile mobs to spawn, even during the day. On rare occasions, a woodland mansion may spawn, making the dark forest the only biome in which [[woodland mansion]]s can be found. This biome is also referred to as a roofed forest.
+|[[File:Dark Forest.png|thumb|Dark Forest]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|pale-garden}}<br>'''[[Pale Garden]]'''
+|{{anchor|Pale Garden}} A rare "pale" variant of a roofed forest, which is found near dark forests and [[Mountains|mountain]] biomes. However, pale gardens often generate near other forest biomes like [[birch forest]]s and [[old growth taiga]]s.
+Unlike the dark forest, the Pale Garden has no huge mushrooms, and dark oak trees are replaced with [[pale oak]] trees. The biome and sky is gray and desaturated, resulting in hostile mobs spawning during the day. No [[passive mob]]s spawn, and no [[music]] plays. The Pale Garden is the only natural habitat of the [[creaking]] and its [[creaking heart|heart]] and [[Resin Clump|resin]]. Pale gardens found commonly are small.
+|[[File:Pale Garden.png|thumb|Pale Garden]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|jungle}}<br>'''[[Jungle]]'''
+|{{anchor|Jungle}}
+A dense forested biome. It features ferns and large jungle trees that can reach up to 31 blocks tall with 2×2 thick trunks. Oak trees are also common, though. The landscape is lush green, leaves cover much of the forest floor—these "bush trees" have single-blocks of jungle wood for trunks, surrounded by oak or jungle leaves. Vines are found alongside most blocks and may cover the surface of caves. Ocelots, pyramids, melons, cocoa beans, pandas, and parrots exclusively generate in this biome. Melons generate in patches, similar to pumpkins, but are common.
+|[[File:Jungle.png|thumb|Jungle]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|jungle-edge}}<br>'''[[Sparse Jungle]]'''
+|{{anchor|Sparce Jungle}}
+In stark contrast to the wild and overgrown vegetation of the jungle biomes, the sparse jungle consists of a few small and isolated jungle trees, with patches of melons here and there. The terrain in which this biome can generate is often flat, with some small rises in elevation. All mobs that spawn in the jungle, including parrots, ocelots, and pandas{{only|bedrock}}, also spawn in the sparse jungle.<!-- Tested using a customized world containing only the sparse jungle biome. -->
+|[[File:Jungle Edge.png|thumb|Sparse Jungle]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|bamboo-jungle}}<br>'''[[Bamboo Jungle]]'''
+|{{anchor|Bamboo Jungle|Bamboo Jungle}}
+The terrain in this biome is covered by grass with some patches of podzol. Unlike the normal Jungle, bushes still generate but do not cover the floor. Additionally, large jungle trees can generate only here, along with large or balloon oak trees. The density of trees in this biome is much less compared to jungle edge, but massive amounts of bamboo shoots generate covering this biome. Jungle exclusive mobs such as ocelots and parrots can spawn in here, pandas have a higher spawn rate than in regular jungle. Jungle pyramids can also generate.{{only|java}}
+|[[File:Bamboo Jungle.png|thumb|Bamboo Jungle]]
+|}
+
+====Wetland biomes====
+
+Wetland biomes contains [[river]]s, [[swamp]]s and [[beach]]es. They have a large amount of water resources. Rivers separate other biomes; beaches generate as a transition between the [[ocean]] and land.
+
+{| class="wikitable collapsible" data-description="wetland biomes"
+! width="15%" |Biome name
+!Description
+!Screenshot
+|-
+| style="text-align:center;" |{{BiomeSprite|river}}<br>'''[[River]]'''
+|{{anchor|River}}
+A biome that consists of water blocks that form an elongated, curving shape similar to a real river. Unlike real rivers, however, they have no current. Rivers cut through terrain or separate the main biomes. They attempt to join up with Ocean biomes, but sometimes loop around to the same area of ocean. Rarely, they can have no connection to an ocean, instead of forming a loop. The grass has a dull aqua tone, much like the ocean, and trace amounts of oak trees tend to generate there as well. Rivers are also a reliable source of [[clay]]. These biomes are good for [[fishing]], but drowned can spawn at night. {{IN|bedrock}}, mobs other than salmon, squid and drowned cannot spawn in this biome, even underground, except in a monster spawner.
+|[[File:River.png|thumb|River]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|frozen-river}}<br>'''[[Frozen River]]'''
+|{{anchor|Frozen River}}
+A river with a layer of ice covering its surface. It generates when a river goes through snowy biomes. [[Salmon]] spawn underwater while rabbits and polar bears spawn on ice. At night, Drowned can spawn below the ice with Strays on the surface. {{IN|bedrock}}, no other hostile mobs can spawn here, even underground, except in a monster spawner.
+|[[File:Frozen River.png|thumb|Frozen River]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|swamp}}<br>'''[[Swamp]]'''
+|{{anchor|Swamp|Swamp}}
+A biome characterized by a mix of flat areas around sea level and shallow pools of green water with floating lily pads. Clay, sand, and dirt are commonly found at the bottom of these pools. Trees are covered with vines and can be found growing out from the water. Mushrooms and sugar canes are abundant, and blue orchids grow exclusively here. Frogs of the temperate variant can spawn here as well. Swamp Huts with a black [[cat]] and a [[witch]] generate exclusively in swamps. Slimes also spawn naturally at night, most commonly on full moons. Some zombies may end up underwater, which can transform them into drowned, making this an especially dangerous biome at night. Temperature varies within the biome, causing foliage and grass colors to vary. {{IN|bedrock}}, huge mushrooms also spawn in this biome. Visibility is also lower than other biomes when the player is underwater.
+|[[File:Swamp.png|thumb|Swamp]][[File:Swamp BE.jpg|thumb|Swamp in ''Bedrock Edition'']]
+
+|-
+| style="text-align:center;" | {{BiomeSprite|mangrove-swamp}}<br>'''[[Mangrove Swamp]]'''
+|{{anchor|Mangrove Swamp|Mangrove Swamp}}
+A biome characterized by a dense foliage, featuring plenty of mangrove trees which vary a lot in height. The floor is mainly composed of mud blocks with occasional grass patches. The grass has the same color as the normal swamp but leaves and vines have a unique light green tint and the water is teal rather than gray. Frogs often spawn in this biome and all frogs spawned here are warm frogs. Slimes also spawn naturally at night, most commonly on full moons. Just like in the swamp, some zombies may end up underwater, which can transform them into drowned, making this an especially dangerous biome at night, as well as visibility being lower than other biomes when the player is underwater.
+
+|[[File:Mangrove_Swamp.png|thumb|Mangrove Swamp]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|beach}}<br>'''[[Beach]]'''
+|{{anchor|Beach}}
+Generated where oceans meet other biomes, beaches are primarily composed of sand. Beaches penetrate the landscape, removing the original blocks and placing in sand blocks. These are also useful for fishing. Passive mobs other than [[turtle]]s do not spawn on beaches.
+|[[File:Beach.png|thumb|Beach]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|snowy-beach}}<br>'''[[Snowy Beach]]'''
+|{{anchor|Snowy Beach|Snowy Beach}}
+Like a regular beach, one can find plenty of sand in this biome and buried treasure can be found underground in this snowy beach. However, sand is covered in a layer of snow. Snowy beaches are found when a snowy biome borders a frozen ocean biome. No passive mobs other than rabbits {{only|bedrock}} spawn in this biome.<br>
+|[[File:Snowy Beach.png|thumb|Snowy Beach]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|stone-shore}}
+'''[[Stony Shore]]'''
+|{{anchor|Stony Shore}}
+True to its name, this stone-covered biome often appears where mountains meet the ocean. Depending on the height of the nearby land, Stony Shores may generate as medium slopes or huge cliffs, its tops tall enough to be covered by snow even when near warmer biomes.<ref name="MC-240697" /> No passive mobs spawn here. Buried treasure can generate here{{only|bedrock|short=y}}. [[Strip]]s of gravel can sometimes be found here.<br>
+|[[File:Stone Shore.png|thumb|Stony Shore]]
+
+|}
+
+====Flatland biomes====
+These biomes have a flat terrain and a wide view. [[Tree|Trees]] spawn less here, while lakes are more common here.
+
+These biomes are further divided into two categories: [[Plain]]s and [[Snowy Plain]]s.
+
+{| class="wikitable collapsible" data-description="Flatland biomes"
+! width="15%" |Biome name
+!Description
+!Screenshot
+
+|-
+| style="text-align:center;" |{{BiomeSprite|plains}}<br>'''[[Plains]]'''
+|{{anchor|Plains}}
+A flat and grassy biome with rolling hills and few oak trees. Villages are common. Cave openings, lava lakes and waterfalls are easily identifiable due to the flat unobstructed terrain. Farm mobs are easily found in Plains biomes; this biome and its variants are also of the few biomes where horses spawn naturally. Pillager outposts may also be generated.
+|[[File:Plains.png|thumb|Plains]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|sunflower-plains}}<br>'''[[Sunflower Plains]]'''
+|{{anchor|Sunflower Plains}}
+A fairly uncommon variation of the plains, this biome is the only place where sunflowers naturally generate, hence the name. They grow in abundance, making yellow dye a widely available resource.
+|[[File:Sunflower Plains.png|thumb|Sunflower Plains]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|snowy-tundra}}<br>'''[[Snowy Plains]]'''
+|{{anchor|Snowy Plains}}
+An expansive biome with a huge amount of snow layers. Sugar cane can generate in this biome, but can become uprooted when chunks load as the water sources freeze to ice. There are few spruce [[tree]]s in this biome. No animal mobs other than [[rabbit]]s and [[polar bear]]s are able to spawn, however, it is one of the few biomes where [[stray]]s appear, a hostile mob similar to skeletons, except they shoot [[arrow|arrows of slowness]]. In ''Bedrock Edition'', this biome doesn't spawn monsters other than strays and skeletons, but [[monster spawner]]s can still spawn monsters. Due to the biome's size and scarcity of wood and animals, initial survival becomes difficult in comparison to other biomes. This is one of the three biomes where igloos naturally generate. Villages and pillager outposts may also generate here.
+|[[File:Snowy Plains.png|thumb|Snowy Plains]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|ice-spikes}}<br>'''[[Ice Spikes]]'''
+|{{anchor|Ice Spikes|Ice Spikes}}
+A rare variation of the Snowy Plains biome that features large spikes and glaciers of [[packed ice]]. Usually, the spikes are 10 to 20 blocks tall, but some long, thin spikes can reach over 50 blocks in height. The floor in this biome is entirely covered in [[snow block]]s instead of grass, and [[ice patch]]s made of packed ice can generate on it. Like the regular snowy plains, no animal mobs other than [[rabbit]]s and [[polar bear]]s are able to spawn and [[stray]]s appear at night. 
+|[[File:Ice Spikes.png|thumb|Ice Spikes]]
+
+|}
+
+==== Arid-land biomes====
+In these biomes, it neither rains nor snows at all, but the sky still turns overcast during inclement weather. The surface is covered with sparse vegetation.
+
+These biomes are further divided into three categories: [[Desert]]s, [[Savanna]]s, and [[Badland]]s.
+
+{| class="wikitable collapsible" data-description="Arid-land biomes"
+! width="15%" |Biome name
+!Description
+!Screenshot
+
+|-
+| style="text-align:center;" |{{BiomeSprite|desert}}<br>'''[[Desert]]'''
+|{{anchor|Desert}}
+A barren and inhospitable biome consisting mostly of sand dunes, dead bushes, and cacti. Sandstone, and sometimes fossils, are found underneath the sand. The only passive mobs that spawn naturally in deserts are gold/creamy rabbits, their coloring well-camouflaged against the sand. At night, husks usually spawn in the place of normal zombies; the lack of visual obstruction makes hostile mobs highly visible. Sugar cane can be found if the desert is next to a river biome. Desert villages, desert wells, and desert pyramids are found exclusively in this biome. Pillager outposts can also generate here.<br>
+|[[File:Desert.png|thumb|Desert]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|savanna}}<br>'''[[Savanna]]'''
+|{{anchor|Savanna}}
+A relatively flat and dry biome with a dull-brown grass color and acacia trees scattered around the biome, though oak trees may generate now and then. Tall grass covers the landscape. [[Village]]s can generate in this biome, constructed of acacia wood, with some colored terracotta. [[Pillager outpost]]s can also generate here. [[Armadillo|Armadillos]], [[horse]]s and [[llama]]s{{only|bedrock|short=y}} can naturally spawn here.<br>
+|[[File:Savanna.png|thumb|Savanna]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|savanna-plateau}}<br>'''[[Savanna Plateau]]'''
+|{{anchor|Savanna Plateau}}
+Savanna plateau biomes generate when a savanna biome generates at high altitudes and near mountains. It is mostly indistinguishable from the standard savanna with the main differences being the fact that [[llama]]s can spawn and [[village]]s and [[pillager outpost]]s can't generate.
+|[[File:Savanna Plateau.png|thumb|Savanna Plateau]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|shattered-savanna}}
+'''[[Windswept Savanna]]'''
+|{{anchor|Shattered Savanna|Shattered Savanna}}
+Unlike the mostly flat and calm terrain of the savanna biome, this uncommon variant generates in chaotic terrain covered in gigantic mountains covered in coarse dirt and some patch of stone. The mountains in the windswept savanna biome are extremely steep, jutting out at 90-degree angles, making it almost impossible to climb. Ocean-like lakes also generate here. On top of that, they can reach heights comparable to the mountain peak biomes - they can rise above the clouds. Massive waterfalls and lavafalls are quite common here. The unforgiving terrain means villages and outposts do not generate in this biome. Surprisingly, llamas can naturally spawn here{{only|bedrock}}.
+|[[File:Shattered Savanna.png|thumb|Windswept Savanna]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|badlands}}<br>'''[[Badlands]]'''
+|{{anchor|Badlands|Badlands|Badlands|Badlands}}
+An uncommon biome where large mounds of terracotta and stained terracotta generate. [[Red sand]] also generates here instead of regular sand, with occasional [[cacti]] and [[dead bush]]es. This biome is usually found alongside desert biomes and it can generate in mountainous terrain. The only passive mobs which spawn in this biome are armadillos. Mineshafts generate at a higher altitude than normal - occasionally a player may come across a mineshaft jutting out of the Badlands. Gold ore also occurs more frequently, because additional blobs can generate within badlands up to y=256. The composition of this biome is useful when other sources of terracotta and gold are scarce.
+
+<br>
+|[[File:Badlands.png|thumb|Badlands]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|wooded-badlands-plateau}}
+'''[[Wooded Badlands]]'''
+|{{anchor|Wooded Badlands Plateau|Wooded Badlands}}
+The wooded badlands has layers of coarse dirt and forests of oak trees that generate atop the badlands in humid areas. The color of the grass and leaves is a dull green-brown hue, giving it a dried and dead appearance. These trees are a rare source of wood when living in the otherwise barren and lifeless badlands.<br>
+|[[File:Wooded Badlands Plateau.png|thumb|Wooded Badlands]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|eroded-badlands}}<br>'''[[Eroded Badlands]]'''
+|{{anchor|Eroded Badlands|Eroded Badlands|Eroded Badlands}}
+This rare variant generates unique terrain features that are similar to the [[Wikipedia:Hoodoo (geology)|structures in Utah's Bryce Canyon]]. Tall and narrow spires of colorful terracotta rise out of the floor of the canyon, which like all other badlands variants, is covered in red sand.<br>
+|[[File:Eroded Badlands.png|thumb|Eroded Badlands]]
+|}
+
+====Cave biomes====
+
+These biomes generates inside [[cave]]s in the [[Overworld]]. They're mostly found underground but can sometimes leak out of cave entrances.
+
+{| class="wikitable collapsible" data-description="Neutral and other biomes"
+! width="15%" |Biome name
+!Description
+!Screenshot
+|-
+| style="text-align:center;" |{{BiomeSprite|Deep Dark}}<br>'''[[Deep Dark]]'''
+|{{anchor|Deep Dark|Deep Dark}}
+A dimly lit cave biome that generates deep underground mostly within the deepslate layer. It is largely [[sculk]] blocks 1 block thick upon all surfaces, with frequent [[sculk sensor]]<nowiki/>s and occasional [[sculk shrieker]]s of which the latter can directly summon the [[warden]] (or multiple [[warden]]s). An [[ancient city]] is a large structure which can generate here, including a [[warden]]-like city Center generated structure (and valuable [[chest]]s with unique loot, including a high chance of finding [[enchanted golden apple]]s, which are widely considered to be the rarest item in the game). As with [[mushroom fields]], no other hostile mobs spawn here. While breaking [[sculk]] blocks, which can even be generated via [[mob]]s dying near a [[sculk catalyst]], can be a good source of [[experience]], the very high chance of instant death from a nearly unkillable [[warden]] (with a ranged attack) means that this is the most dangerous place in the Overworld to attempt this method for leveling-up.
+|[[File:Deep Dark.png|thumb|Deep Dark]]
+|-
+| style="text-align:center;" |{{BiomeSprite|Dripstone Caves}}<br>'''[[Dripstone Caves]]'''
+|{{anchor|Dripstone Caves|Dripstone Caves}}
+These are caves filled with [[Dripstone block|dripstone blocks]] and [[pointed dripstone]] both hanging as stalactites and growing from the ground as stalagmites and small [[water]] wells of 1 × 1 in the ground. Large [[dripstone cluster]] structures generate occasionally inside these caves. Copper [[Ore_(feature)|ore blob]]s found in this biome are much bigger compared to other biomes. [[Drowned]] are able to spawn in aquifers.
+|[[File:Dripstone Caves.png|thumb|Dripstone Caves]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|Lush Caves}}<br>'''[[Lush Caves]]'''
+|{{anchor|Lush Caves|Lush Caves}}
+Lush caves are often found underground below [[azalea tree]]s. As the name suggests, these caves are lush and covered by [[Moss Block|moss]], [[Moss carpet|moss carpets]], [[grass]] and [[azalea]] bushes on the floors. On the ceiling, [[Vine|vines]] and [[cave vines]] with [[glow berries]] grow down and light up the caves, and [[Spore blossom|spore blossoms]] grow from the ceiling and spore [[Particle|particles]]. There are also shallow lakes with [[clay]] where [[dripleaf]] plants grow out of them and [[axolotl]]s spawn, making this the only biome where they can spawn. Tropical fish can also spawn inside the aquifers in a lush cave. Azalea trees spawn above ground when there are lush caves underneath.
+|[[File:Lush Caves.png|thumb|Lush Caves]]
+|-
+| style="text-align:center;" |{{BiomeSprite|Sulfur Cave}}<br>'''[[Minecraft Wiki:Drafts/Sulfur Caves|Sulfur Caves]]'''
+|{{anchor|Sulfur Caves|Sulfur Caves}}
+Sulfur caves are an upcoming underground biome. As the name suggests, these caves mainly consist of [[sulfur]] and [[cinnabar]] blocks. This biome is the only biome where [[sulfur cube]]s naturally spawn. Sulfur pools also form in this biome, with [[Potent Sulfur|potent sulfur]] emitting sulfur gas particles beneath the water. Sulfur spikes naturally generate in sulfur caves, similarly to pointed dripstone.
+|[[File:Sulfur Pool - Taken from MC Live.png|thumb|Sulfur Caves]]
+|}
+
+====Void biomes====
+
+{| class="wikitable collapsible" data-description="Void biomes"
+! width="15%" |Biome name
+!Description
+!Screenshot
+
+|-
+| style="text-align:center;" |{{BiomeSprite|the-void}}<br>'''[[The Void]]'''{{only|java}} 
+|{{anchor|Void|The Void}}
+Can be accessed only through [[Buffet]] world selection or The Void [[Superflat#Presets|superflat preset]]. In a Buffet world, the landscape consists of stone, as well as water and bedrock depending on the generator type. In The Void superflat preset, the world is empty except for a single structure: a 33&times;33 stone platform with a single block of cobblestone in the center. No mobs (passive or hostile) can spawn without [[spawn egg]]s, [[monster spawner]]s, or [[commands]]. It doesn't rain in this biome.
+|[[File:The Void.png|thumb|The Void]]
+|}
+
+===The Nether===
+[[The Nether]] is considered a different [[dimension]]. It is a hellish place; all biomes in this dimension are dry and it is not possible to place [[water]] in these biomes; [[ice]] can still be placed, though it does not turn into [[water]] upon melting.
+
+{| class="wikitable collapsible" data-description="Nether biomes"
+! width="15%" |Biome name
+!Description
+!Screenshot
+
+|-
+| style="text-align:center;" |{{BiomeSprite|nether wastes}}<br>'''[[Nether Wastes]]'''
+|{{anchor|Nether|The Nether|Hell}}
+The nether wastes is a massive cave that carves through the majority of the dimension. The main terrain consists of netherrack, with glowstone clusters growing and lava leaking from the ceiling and gravel and soul sand lining its shores. It is the most barren Nether biome, but also the easiest to traverse as there is largely no terrain that could possibly block your path. The only real threats would be the monsters, the fire-breathing [[Ghast|ghasts]], the [[Piglin|piglins]] and their [[Zombified Piglin|undead versions]], the powerful [[Magma Cube|magma cubes]], and the rare [[enderman]].
+|[[File:Nether.png|thumb|Nether Wastes]]
+|-
+| style="text-align:center;" |{{BiomeSprite|soul-sand-valley}}<br>'''[[Soul Sand Valley]]'''
+|{{anchor|Soul Sand Valley}}
+The soul sand valley is a large grotto that is extensive and cuts through the Nether's usual terrain. Notable features of the biome are exposed [[nether fossil]]s in various shapes and sizes, large amounts of [[lava]], blue fog, large spires made of [[basalt]], [[Fire|soul fire]], and the occasional [[nether fortress]] or [[Bastion Remnant|Bastion remnant]]. The biome itself consists of [[Soul Sand|soul sand]], basalt and [[Soul Soil|soul soil]].
+This biome is extremely dangerous to traverse due to the combination of [[Ghast]]s and [[Skeleton]]s spawning here and [[soul sand]] slowing down the player's movement speed, making it easy for a player to get overwhelmed by projectile attacks. In addition, igniting soul sand or soul soil (especially since Ghast fireballs start fires near impact point) can create [[Fire|soul fire]], which does more damage/second than regular fire if players get caught in it. It is recommended to avoid this biome unless players have sufficient equipment/strategies to navigate the terrain. The [[Soul Speed]] enchantment is especially helpful for traveling through this biome. [[Dried Ghast]]s can be found near Nether fossils.
+
+|[[File:Soul Sand Valley.jpg|thumb|Soul Sand Valley]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|crimson-forest}}<br>'''[[Crimson Forest]]'''
+|{{anchor|Crimson Forest}}
+The Crimson Forest is a “red” crimson-themed biome, with warped and crimson fungus as well as huge crimson fungus scattered around the environment. 
+
+There are huge fungus structures that contain weeping vines hanging off them and may also have a few blocks of shroomlight. The floor of the biome is covered in crimson nylium, with crimson roots growing. Occasional patches of netherrack and red nether wart blocks are found scattered throughout the biome. In the ceiling, apart from glowstone clusters, there are sparse nether wart block stalactites with vines growing.
+
+[[Piglin]]s, [[zombified piglin]]s and [[hoglin]]s naturally spawn in this biome. As long as players equip at least one piece of [[gold armor]], piglins should not cause any trouble. Hoglins can also be repelled by staying close to [[Fungus|warped fungus]]. However, without these countermeasures, this biome can be fairly hostile to navigate. Nevertheless, the abundance of hoglins in this biome makes it a great source of food in the Nether, and the high population of piglins makes this biome an ideal location to [[Bartering|barter]] with them. 
+|[[File:Crimson Forest.png|thumb|Crimson Forest]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|warped-forest}}<br>'''[[Warped Forest]]'''
+|{{anchor|Warped Forest}}
+The Warped Forest is a contrasting cyan-themed biome, with warped fungus as well as huge warped fungus trees scattered around the environment.
+
+These huge fungus structures may have a few blocks of shroomlight scattered around them. The floor of the biome is covered in warped nylium, with warped roots and nether sprouts growing. Occasional patches of raw netherrack and warped wart blocks can be found scattered throughout the biome.
+
+Apart from [[Strider|striders]], [[Enderman|endermen]] are the only mobs that spawn in this biome, making the warped forest an ideal location to collect [[ender pearl]]s to access [[the End]]. This biome is also a relatively safe place to reside in the Nether, due to the fact that no hostile mobs spawn here. However, do note that other hostile mobs can still spawn from [[Bastion Remnant|bastion remnants]] that generate here, as well as from [[Nether Fortress|nether fortresses]] that have cut into a warped forest after generating in another biome.
+|[[File:Warped Forest.png|thumb|Warped Forest]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|basalt-deltas}}<br>'''[[Basalt Deltas]]'''
+|{{anchor|Basalt Deltas}}
+A gray biome, the basalt deltas are said to be the remnant of ancient volcanic eruptions.
+The ground consists of [[basalt]] and [[blackstone]] blocks, with small patches of [[netherrack]] and pools of [[lava]]. The shape of the terrain is chaotic and uneven, making it somewhat difficult to traverse and build on. Unlike the other biomes in the Nether, [[Bastion Remnant|bastion remnants]] do not generate in basalt deltas. When this biome borders a lava ocean, clusters of basalt form near the coast. 
+
+Magma cubes have a high spawn rate in this biome, making the basalt deltas the best place to [[Tutorials/Magma cube farming|farm magma cream]]. This biome also contains a much higher abundance of blackstone compared to other Nether biomes. 
+|[[File:BasaltDeltas.png|thumb|Basalt Deltas]]
+|}
+
+=== The End===
+[[The End]] is considered a different dimension.
+
+{| class="wikitable collapsible" data-description="The End biomes"
+! width="15%" |Biome name
+!Description
+!Screenshot
+|-
+| style="text-align:center;" |{{BiomeSprite|the-end}}<br>'''[[The End (biome)|The End]]'''
+|{{anchor|The End|End|The End}}
+This biome is used to generate the circle of radius 1000 centered at the 0,0 coordinates in [[the End]]. The End central island is generated at the center of this circle, and it's surrounded by a complete vacuum all the way to the edge of the biome. Most of the End features are exclusive to that island, including the [[ender dragon]], the obsidian pillars, the [[end crystal]]s, the 5x5 spawn platform, the exit portal and the 20 central [[end gateway]]s. Large amounts of [[endermen]] spawn in this biome. It does not rain or snow in this biome unlike the other low-temperature biomes. The outer islands in the End can be accessed using [[end gateway]]s after the ender dragon has been defeated. If the biome is used for a superflat world, the sky appears nearly black and an ender dragon spawns at the 0,0 coordinates in the Overworld. Only endermen spawn at night.
+|[[File:The End.png|thumb|The End]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|small-end-islands}}<br>'''[[Small End Islands]]'''
+|{{anchor|Small End Islands}}
+Generates as part of the outer islands of the End. This biome represents the empty expanse between the larger islands, populated by the smaller, circular islands.
+|[[File:Small End Islands.png|thumb|Small End Islands]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|end-midlands}}<br>'''[[End Midlands]]'''
+|{{anchor|End Midlands}}
+Generates as part of the outer islands of the End. This biome represents the gradual slope from the hilltops of each island down to the cliffs around the edge. [[End City|End cities]] generate here, but chorus trees do not.
+|[[File:End Midlands.png|thumb|End Midlands]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|end-highlands}}<br>'''[[End Highlands]]'''
+|{{anchor|End Highlands}}
+Generates as part of the outer islands of the End. This biome represents the hilltops of each island, and is the only biome in the End where both [[chorus tree]]s and [[End City|end cities]] generate. 
+|[[File:End Highlands.png|thumb|End Highlands]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|end-barrens}}<br>'''[[End Barrens]]'''
+|{{anchor|End Barrens}}
+Generates as part of the outer islands of the End. This biome represents the outer rims of each island, with steep cliffs below the edge. Neither end cities nor chorus trees generate in this biome.
+|[[File:End Barrens.png|thumb|End Barrens]]
+
+|}
+
+===Unused biomes===
+{{Exclusive|bedrock|section=yes}}
+{{main|Unused features}}
+{{main|Biome/Before 1.18}}
+
+These biomes don't generate in default worlds. They have been completely removed from the game {{in|java}}.
+
+{| class="wikitable collapsible" data-description="Unused biomes"
+! width="10%" |Biome name
+! width="15%" |Features
+!Description
+!Screenshot
+|-
+| style="text-align:center;" |{{BiomeSprite|Legacy Frozen Ocean}}<br>'''[[Ocean#Variants:Legacy Frozen Ocean|Legacy Frozen Ocean]]'''
+|{{anchor|Legacy Frozen Ocean|Legacy Frozen Ocean}}
+
+[[Polar Bear]]s, 
+[[Salmon]], 
+[[Cod]], 
+[[Stray]]s, 
+Cold [[underwater ruins]], 
+[[Gravel]], 
+[[Seagrass]], 
+[[kelp]], 
+[[Rabbit|Snowy Rabbit]]s, 
+[[Ice]], 
+[[shipwreck]]s
+|Similar to the Frozen Ocean biome, but without icebergs, it is completely flat. Because they are a Frozen Ocean variant, they can spawn polar bears and strays, but not dolphins. Unlike the regular frozen ocean, polar bears, drowned, squid, salmon, cod, rabbits, skeletons, and strays are the only mobs that spawn here<!-- no other passive/hostile mobs can spawn -->. Kelp also generates here. This biome doesn't generate naturally from [[Pocket Edition Alpha 0.9.0]] onward. When [[Bedrock Edition 1.4.0]] introduced the new frozen ocean, this biome was not removed or replaced by the new frozen ocean, although the id name changed from <code>frozen_ocean</code> to <code>legacy_frozen_ocean</code>.
+|[[File:Legacy Frozen Ocean.png|thumb|Legacy Frozen Ocean]]
+|-
+| style="text-align:center;" |{{BiomeSprite|desert-lakes}}<br>'''[[Desert Lakes]]'''
+|{{anchor|Desert Lakes|Desert Lakes}}
+[[Sand]],
+[[Cacti]],
+[[Water]],
+[[Sugar Cane]]s,
+Gold [[Rabbit]]s,
+[[Desert well]],
+[[Fossil]]s,
+[[Husk]]
+|In this biome, patches of water are more common, and the terrain is slightly more rough. Although desert wells can be found, desert pyramids, villages, and outposts do not generate in this biome.
+|[[File:Desert Lakes.png|thumb|Desert Lakes]]
+|-
+| style="text-align:center;" |{{BiomeSprite|mountain-edge}}<br>'''[[Mountain Edge]]'''
+|{{anchor|Extreme Hills Edge|Mountain Edge}}
+[[Grass Block|Grass]],
+[[Dirt]],
+[[Stone]],
+[[Llama]]s,
+[[Emerald ore]],
+[[Infested stone]],
+[[Spruce tree]]s,
+[[Oak tree]]s,
+[[Snow]]
+
+| Similar to the sparse jungle biome, the mountain edge used to generate exclusively at the edge of windswept hills biomes in order to smooth the transition between biomes. This biome has lots of trees, similar to windswept forests. While the terrain is lower and gentler in nature, some areas may reach high enough to be covered by snow. This biome doesn't generate naturally from [[Pocket Edition v0.9.0 alpha]] and [[Java Edition 1.7.2]] onward.
+|[[File:Mountain Edge.png|thumb|Mountain Edge]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|Deep Warm Ocean}}<br>'''[[Deep Warm Ocean]]'''
+|{{anchor|Warm Deep Ocean|Deep Warm Ocean}}
+
+[[Dolphin]]s, [[Pufferfish]], [[Tropical fish]]es, Warm [[underwater ruins]], [[Sand]], [[Seagrass]], [[Ocean monument]]s, [[Guardian]]s, [[Elder guardian]]s, [[shipwreck]]s
+|Similar to the Warm Ocean biome, but without coral reefs or sea pickles, and twice as deep. Because they are a deep ocean variant, they can generate ocean monuments, resulting in the spawning of guardians, elder guardians, [[prismarine]], and [[sponge]]s.
+|[[File:Deep Warm Ocean.png|thumb|Deep Warm Ocean]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|wooded-hills}} {{BiomeSprite|taiga-hills}} {{BiomeSprite|snowy-taiga-hills}} {{BiomeSprite|jungle-hills}} {{BiomeSprite|desert-hills}} {{BiomeSprite|birch-forest-hills}} {{BiomeSprite|tall-birch-hills}} {{BiomeSprite|giant-tree-taiga-hills}} {{BiomeSprite|giant-spruce-taiga-hills}} {{BiomeSprite|snowy-mountains}}<br>'''Hills'''
+|{{anchor|Hills}}
+
+|Hills are generated within certain biomes (including some of their variants) and are referred in the F3 menu with Hills added to their name (except Snowy Mountains).
+
+This includes: Wooded Hills, Taiga Hills, Snowy Taiga Hills, Jungle Hills, Desert Hills, Birch Forest Hills, Tall Birch Hills, Giant Tree Taiga Hills, Giant Spruce Taiga Hills, Snowy Mountains, and Bamboo Jungle Hills.
+
+Most hills are gentle rolling slopes on which the usual biome terrain generates, with some sharper cliffs here and there. Snowy Mountains have a lower chance of spawning passive mobs during world generation than other biomes (7% versus 10%).
+
+Giant Spruce Taiga Hills are a special case. {{IN|java}}, the game code sets the values <code>setBaseHeight</code> and <code>setHeightVariation</code> to define a "hilly" biome, but uses the same values as for its non-hill variant (giant spruce taiga), meaning there is absolutely no terrain difference between the two biomes. {{IN|bedrock}}, this biome generates as a hillier version of the giant spruce taiga, but uses the same trees as the giant tree taiga hills (with leaves only at the top), resulting in the differences between these biomes being non-terrain aspects like water color and temperature.
+|[[File:Giant Tree Taiga Hills.png|thumb|upright|Giant Tree Taiga Hills]][[File:Desert Hills.png|thumb|upright|Desert Hills]] [[File:Jungle Hills.png|thumb|upright|Jungle Hills]][[File:Snowy Mountains.png|thumb|upright|Snowy Mountains]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|badlands-plateau}}<br>'''[[Badlands Plateau]]'''
+|{{anchor|Plateau|Mesa Plateau|Badlands Plateau}}
+|Badlands plateaus generate as actual biomes<!-- standalone, with regular badlands as its hills biome--> within Badlands biomes, and are flattened at the top, much like real-life plateaus. They come to rest at an elevation of about 20 to 30 blocks above sea level. One may discover the entrance to a mineshaft within the tall slopes of a Badlands Plateau.<br>
+|[[File:Badlands Plateau.png|thumb|Badlands Plateau]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|modified-badlands-plateau}} {{BiomeSprite|shattered-savanna-plateau}}<br>'''Modified Plateaus'''
+|{{anchor|Plateau M|Mesa Plateau M|Savanna Plateau M|Shattered Savanna Plateau|Modified Badlands Plateau}}
+
+|Two rare variants of the plateau biomes, which are variants themselves. However, neither of these biomes closely resemble their counterparts.
+
+Compared to the average Badlands Plateau, the Modified Badlands Plateau features more variable terrain and smaller plateaus, as if a larger plateau was weathered down over time. It is the second-rarest biome in the game, after the Modified Jungle Edge.
+
+The terrain of the Shattered Savanna Plateau biome is much less tame than its normal counterpart. It features incredibly large and steep mountains that jut out of the terrain, similar to the Shattered Savanna biome, albeit slightly smaller and gentler in comparison. {{IN|be}}, shattered savanna plateaus are considered a temperate/lush biome, making foliage a vibrant green color and allowing rain to occur in them.<ref name="lush_savanna">{{bug|MCPE-34936}}</ref><br>
+|[[File:Modified Badlands Plateau.png|thumb|Modified Badlands Plateau]] [[File:Shattered Savanna Plateau.png|thumb|Shattered Savanna Plateau]]
+|
+
+|-
+| style="text-align:center;" |{{BiomeSprite|modified-wooded-badlands-plateau}}<br>'''[[Modified Wooded Badlands Plateau]]'''
+|{{anchor|Modified Wooded Badlands Plateau|Modified Wooded Badlands Plateau}}
+[[Tree#Oak tree|Oak tree]]s,
+[[Dead Bush]]es,
+[[Coarse Dirt]],
+[[Dirt]],
+[[Terracotta]]
+|This biome features grass and oak trees on top of plateaus, much like its counterpart. However, the plateaus that generate here are generally smaller, allowing far less foliage to generate. The terrain is more erratic, and can be compared to that of the similar Modified Badlands Plateau biome, having an old and eroded appearance. Eroded badlands generate instead of desert alongside this biome.<br>
+|[[File:Modified Wooded Badlands Plateau.png|thumb|Modified Wooded Badlands Plateau]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|mushroom-field-shore}}<br>'''[[Mushroom Field Shore]]'''
+|{{anchor|Mushroom Field Shore|Mushroom Field Shore}}
+[[Mushroom]]s,
+[[Huge Mushroom]]s,
+[[Mycelium]],
+[[Mooshroom]]s,
+[[Buried Treasure]],
+[[Shipwreck]]
+|Mushroom Field Shores represent the transition between mushroom fields and the ocean, forming long strips between the biomes as a "beach", hence the name. However, it does not generate if the ocean biome is a Deep Ocean. This biome also generates when a river meets a Mushroom Fields biome, similar to what Frozen Rivers do in Snowy Plains. The terrain of this biome is much more flat and shallow than the main Mushroom Fields biome, though it contains many of the same features, such as a mycelium surface layer, huge mushrooms, and lack of hostile mobs, but shipwrecks and buried treasure can generate here.
+|[[File:Mushroom Field Shore.png|thumb|Mushroom Field Shore]]
+|}
+
+===Removed biomes===
+{{main|Biome/Before Beta 1.8|Removed features}}
+
+These biomes no longer exist in current versions of the game.
+
+{| class="wikitable collapsible" data-description="Snowy biomes"
+! width="10%" |Biome name
+! width="15%" |Features
+!Description 
+!Screenshot
+
+|-
+| style="text-align:center;" |{{BiomeSprite|tundra}}<br>'''[[Tundra]]'''<br>
+|{{anchor|Tundra}}
+[[Snow]],
+[[Grass Block]],
+[[Ice]]
+|Snowy, barren terrain with few trees. The occasional trees do exist, although rarely. Ice can be found over water. Snow is common weather in tundras. It generates when the temperature is below 50% and the downfall is less than 20%.<br>
+|[[File:Tundra.jpg|thumb|Tundra]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|rain-forest}}<br>'''[[Rain Forest]]'''<br>
+|{{anchor|Rain Forest}}
+[[Grass Block]],
+[[Grass]],
+[[Oak tree]]s,
+[[Birch tree]]s
+|Rainforests are wet biomes with many trees, which have a 1 in 3 chance of being big, instead of 1 in 10 like all other biomes. They generate only oak trees and have a large amount of tall grass and ferns. A biome is classified as a rainforest if the temperature is greater than 97% and the downfall is more than 90%. This could be the biome with some of the most cliffs and hills because the world generator reduces height variation at lower downfalls.<br>
+|[[File:Rainforest.jpg|thumb|Rainforest]]
+|-
+| style="text-align:center;" |{{BiomeSprite|seasonal-forest}}<br>'''[[Seasonal Forest]]'''<br>
+|{{anchor|Seasonal Forest}}
+[[Grass Block]],
+[[Grass]],
+[[Oak tree]]s
+| Seasonal Forests spawn with a temperature of 97% or greater, and a downfall value between 45% and 90%. They are commonly found between forest and rain forests, and near plains biomes. They are identical to forests, except they have fewer trees and can spawn only oak trees. They have a little bit of tall grass.
+|[[File:SeasonalForest.jpg|thumb|Seasonal Forest]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|ice-desert}}<br>'''[[Ice Desert]]'''<br>
+|{{anchor|Ice Desert}}
+[[Sand]],
+[[Snow]],
+[[Ice]]s
+| An unused biome before Beta 1.8 that was in the code but never implemented into the temperature/downfall table and thus did not actually generate. It was a biome of sand with snow on top of it and had snowfall and ice (the player can create something similar using the buffet world option and choosing the snowy beach biome).<br>
+|[[File:Ice desert.png|thumb|Ice Desert Biome]]
+
+|-
+| style="text-align:center;" |{{BiomeSprite|shrubland}}<br>'''[[Shrubland]]'''<br>
+|{{anchor|Shrubland}}
+[[Grass Block]],
+[[Oak tree]]s,
+[[Birch tree]]s
+|A biome with few trees and no tall grass. It is identical to the savanna biome. It is one of the smallest biomes in the game. It can generate if the temperature is between 50% and 97%, and the downfall value is below 35%. It is too small to generate a forest.
+|[[File:Shrubland.jpg|thumb|Shrubland]]
+|}
+
+===Joke biomes===
+{{WIP}}
+These biomes can only appear in joke snapshots of the game.
+
+{| class="wikitable collapsible" data-description="Joke biomes"
+! width="10%" |Biome name
+! width="15%" |Features
+!Description
+!Screenshot
+
+|-
+|{{BiomeSprite|_generated:id}}<br>'''[[Java_Edition_20w14∞#World_generation|<code>_generated:id</code>]]'''
+|
+|
+|
+
+|-
+|{{BiomeSprite|Between}}<br>'''[[Between]]'''
+|[[:en:End_City#End_Ship|End Ships]]
+|Grid of End Ships. Generates in the fleet dimension. There is no elytra as loot. Chests generate, but contain only a book titled "orders"
+|[[File:Between.jpg|thumb|A between biome generated in a buffet world.]]
+
+|-
+|{{BiomeSprite|Biome For Player With No Time For Nonsense}}<br>'''[[Biome For Player With No Time For Nonsense]]'''
+|
+|Generates as Snowy Taiga, but all ores are mineral blocks or redstone components
+|[[File:Biome For Player With No Time For Nonsense.jpg|thumb|Biome For Player With No Time For Nonsense, generated in the busy dimension. You can see a redstone block in the mountain.]]
+
+|-
+|{{BiomeSprite|The Moon}}<br>'''[[The Moon (biome)|The Moon]]'''
+|[[Moon Cow]], [[Lunar Base]], [[Cheese]]
+|Generates flat terrain with craters. The only mob that spawns here is the moon cow. There is also the Lunar Base, the only [[feature]] in the moon.
+|[[File:Moon 1.png|thumb|The moon]]
+
+|-
+|{{BiomeSprite|Shapes}}<br>'''[[Shapes]]'''
+|[[Terracotta]], [[Glazed Terracotta]], [[Concrete]], [[Concrete Powder]], [[Wool]], [[Carpet]],  [[Glass|Stained Glass]], [[Glass Pane|Stained Glass Pane]]
+|Generates Spheres, Cubes, Octahedra, etc. of various colors and materials
+|[[File:Shapes biome.png|thumb|Shapes biome]]
+|}
+
+==Tint==
+===Plants===
+
+Biome grass and foliage colors are selected from two 256×256 colormap images: grass.png and foliage.png under {{cd|assets/minecraft/textures/colormap}}{{only|je|short=1}} or {{cd|textures/colormap}}{{only|be|short=1}}. The grass.png colormap sets the colors for [[grass block]], ferns in [[flower pot]]s, [[grass]], tall grass, [[sugar cane]]s, stems of [[pink petals]]. Meanwhile, the foliage.png colormap sets the colors for [[vines]] and tree leaves of oak, jungle, acacia, dark oak, and mangrove. Only the colors in the lower-left halfs of both images are used, even though the upper-right side of foliage.png is colored.
+
+<gallery>
+File:Grasscolor.png|grass.png
+File:Foliage.png|foliage.png
+</gallery>
+
+The adjusted temperature and adjusted downfall values (recognized as AdjTemp and AdjDownfall in the following, respectively) are used when determining the biome color to select from the colormap. They are computed as follows:
+
+<code>AdjTemp = clamp( Temperature, 0.0, 1.0 )
+
+AdjDownfall = clamp( Downfall, 0.0, 1.0 ) * AdjTemp</code>.
+
+"clamp" limits the range of the temperature and downfall to 0.0—1.0. The clamped downfall value is then multiplied by the adjusted temperature value, bringing its value to be inside the lower left triangle. Treating the bottom-right corner of the colormap as <code>AdjTemp = 0.0</code> and <code>AdjDownfall = 0.0</code>, the adjusted temperature increases to 1.0 along the X-axis, and the adjusted downfall increases to 1.0 along the Y-axis.
+
+==== Special plant tints ====
+In the following cases, the plants are not tinted exactly according to the colormap. {{IN|java}}, several of them are specified in [[custom biome|biome Json]]s in vanilla data pack.
+
+; Swamps
+In Swamp and Mangrove Swamp, the color for grass blocks, ferns, ferns in flower pots, grass, sugar cane, bushes, and the stems of pink petals and wildflowers is based on a noise on XZ plane. When the value of this noise is less than -0.1, it uses the color {{color|#4c763c}}. Otherwise using {{color|#6a7039}}. The color for vines and leaves of oaks, jungles, acacias, dark oaks, and mangroves is {{color|#6a7039}} in Swamp and {{color|#8db127}} in Mangrove Swamp, which are not affected by the colormap. The color for leaf litter is {{color|#7b5334}}, which also ignores the colormap.
+
+; Dark Forest
+In Dark Forest, the color for grass blocks, ferns, ferns in flower pots, grass, sugar cane, bushes, and the stems of pink petals and wildflowers is the result of the bitwise AND between the color in the colormap and {{color|#fefefe}}, and then averaging with {{color|#28340a}}. In vanilla, that is {{color|#507a32}}.
+
+; Badlands
+In Badland, Wooded Badland, and Erosion Badland, the color for grass blocks, ferns, ferns in flower pots, grass, sugar cane, bushes, and the stems of pink petals and wildflowers is {{color|#90814d}}. The color for vines and leaves of oaks, jungles, acacias, dark oaks, and mangroves is {{color|#9e814d}}. Both are not affected by the colormap.
+
+; Cherry Grove
+The color for plants in the Cherry Grove is always {{color|#b6db61}}, which is not affected by the colormap.
+
+;Pale Garden
+In Pale Garden, the color for grass blocks, ferns, ferns in flower pots, grass, sugar cane, bushes, and the stems of pink petals and wildflowers is {{color|#778272}}. The color for vines and leaves of oaks, jungles, acacias, dark oaks, and mangroves is {{color|#878d76}}. The color for leaf litter is {{color|#a0a69c}}. They are not affected by the colormap.
+
+; Other leaves
+The color for spruce leaves is {{color|#619961}} and the color for birch leaves is {{color|#80a755}}. Both are not affected by the biome.
+
+=== Environment ===
+The color of the sky in Overworld changes according to the basic temperature value of the biome. The basic temperature is first modified as <code>T = clamp( Temperature / 3 , -1.0, 1.0 )</code>. Then the triple <math>(0.62222224-0.05T, 0.5+0.1T, 1)</math > is the sky color. An exception to this formula is the color of the sky in the pale garden biome is {{color|#b9b9b9}}.
+
+In addition, the colors of water, underwater fog and fog in a biome are defined in the vanilla data pack{{only|je|short=1}} or vanilla resource packs{{only|be|short=1}}.
+
+See the [[#List of biome climates|List of biome climates]] for these colors.
+
+=== Transition ===
+When plants or water are at the borders between or among biomes, the color is affected by the biome of the surrounding blocks at the same Y-level. The range of the block involved in the calculation is determined by the biome blend radius in [[options]]. Takes the plant color or water color of the biomes within a square centered on this block and with the side length being the biome blend radius, and calculates their average value to get the final color for this block.
+
+The sky color {{only|je|short=1}} and the fog color use the color processed by {{w|Gaussian blur}} from colors of the biomes at each block in the range of 5×5×5 centered on the block the camera is in.
+
+== Climate ==
+A biome has three climate attributes: temperature, downfall, and precipitation.
+
+=== Temperature ===
+Each biome has a '''base temperature''' value (see the [[#List of biome climates|List of biome climates]]), but the actual temperature value at each location in the biome is also affected by the height of the location. Locations with Y≤80 use the base temperature as actual temperature. At Y=81, the actual temperature value randomly fluctuates up and down by -0.00875 — +0.01125 from the base temperature based on a noise on the XZ plane, and at Y≥81 the actual temperature decreases by 0.00125 ({{frac|1|800}}) every block up.
+
+{{IN|java}}, specially, in {{BiomeLink|Frozen Ocean}} and {{BiomeLink|Deep Frozen Ocean}}, it is also affected by another noise on XZ plane. In some regions according to the noise, the base temperature value is always regarded as 0.2. The actual temperature values for these regions are also calculated on this basis. This is detectable in {{BiomeLink|Frozen Ocean}}, as its base temperature is low enough to freeze or snow, so that only these regions do not freeze or snow at sea level.
+
+=== Downfall ===
+The downfall value is a number between 0.0 and 1.0 (see the [[#List of biome climates|List of biome climates]]). When the downfall value is greater than 0.85, the biome is marked as humid, which is related only to the random extinction of fire. This value doesn't affect the weather.
+
+=== Precipitation ===
+The precipitation value can be "true" or "false". If the precipitation of the biome is false, no rain or snow occur. Otherwise, a location is rainable when its temperature value is greater than 0.15, and snowable otherwise.
+
+So, if the base temperature is not greater than 0.15, it's snowable at any Y level. And if greater than 0.15, it can snow above a certain Y level, which are listed below:
+
+{| class="wikitable" style="text-align:center"
+|-
+! Biomes
+! Minimum height for snowfall
+|-
+| {{BiomeLink|Windswept Hills}}<br>{{BiomeLink|Windswept Gravelly Hills}}<br>{{BiomeLink|Windswept Forest}}<br>{{BiomeLink|Stony Shore}}<ref name="MC-240697">{{bug|MC-240697||It snows in the stony shore biomes from Y {{=}} 118 and above}}</ref><br>{{BiomeLink|Dripstone Caves}}{{only|be|short=1}}<ref>{{bug|MCPE-142225||Dripstone Caves biome temperature is too cold}}</ref><br>Some regions of {{BiomeLink|Frozen Ocean}} and {{BiomeLink|Deep Frozen Ocean}}
+| 120±8
+|-
+| {{BiomeLink|Old Growth Spruce Taiga}}<br>{{BiomeLink|Taiga}}
+| 160±8
+|-
+| {{BiomeLink|Old Growth Pine Taiga}}<br>{{BiomeLink|Meadow}}{{only|be|short=1}}<br>{{BiomeLink|Cherry Grove}}{{only|be|short=1}}
+| 200±8
+|-
+| Others
+| Out of world
+|}
+
+=== Snow accumulation ===
+{{IN|java}}, the maximum snow accumulation layer can be set by {{cd|snowAccumulationHeight}} [[game rule]]s. {{IN|bedrock}}, the maximum snow layer is based on the snow accumulation value of the biome. The value is a array of 2 numbers, representing the minimum and maximum snow heights, with 0.0 being no snow and 1.0 being the full height of one block.
+
+=== List of biome climates ===
+==== Overworld ==== 
+{| class="wikitable sortable mw-collapsible mw-collapsed" data-description="Climates of biomes in Overworld" style="text-align:center"
+! Biomes
+! Base temperature
+! Downfall
+! Precipitation
+! Snow Accumulation{{only|be|short=1}}
+! Grass color
+! Leaf color
+! Sky color
+! Fog color
+|-
+|{{BiomeLink|The Void}}{{only|je|short=1}}
+| rowspan=9 | 0.5
+| rowspan=9 | 0.5
+| FALSE
+| N/A
+| rowspan=9 | {{color|#8eb971}}
+| rowspan=9 | {{color|#71a74d}}
+| rowspan=9 | {{color|#7ba4ff}}
+| rowspan=64 | {{color|#c0d8ff}}{{only|JE|short=1}}<br>{{color|#abd2ff}}{{only|BE|short=1}}
+|-
+| {{BiomeLink|Warm Ocean}}
+| rowspan=33 | TRUE
+| rowspan=8 | 0.0-0.125
+|-
+|{{BiomeLink|Lukewarm Ocean}}
+|-
+|{{BiomeLink|Deep Lukewarm Ocean}}
+|-
+|{{BiomeLink|Ocean}}
+|-
+|{{BiomeLink|Deep Ocean}}
+|-
+|{{BiomeLink|Cold Ocean}}
+|-
+|{{BiomeLink|Deep Cold Ocean}}
+|-
+|{{BiomeLink|River}}
+|-
+| rowspan=2 |{{BiomeLink|Deep Frozen Ocean}}
+| 0.5{{only|je|short=1}}
+| rowspan=2 | 0.5
+| rowspan=2 | 0.125-0.25
+| {{color|#8eb971}}{{only|je|short=1}}
+| {{color|#71a74d}}{{only|je|short=1}}
+| {{color|#7ba4ff}}{{only|je|short=1}}
+|-
+| 0.0{{only|be|short=1}}
+| {{color|#80b497}}{{only|be|short=1}}
+| {{color|#60a17b}}{{only|be|short=1}}
+| {{color|#7fa1ff}}{{only|be|short=1}}
+|-
+| rowspan=2 |{{BiomeLink|Lush Caves}}
+| 0.5{{only|je|short=1}}
+| 0.5{{only|je|short=1}}
+| rowspan=8 | 0.0-0.125
+| {{color|#8eb971}}{{only|je|short=1}}
+| {{color|#71a74d}}{{only|je|short=1}}
+| {{color|#7ba4ff}}{{only|je|short=1}}
+|-
+| 0.9{{only|be|short=1}}
+| 0.0{{only|be|short=1}}
+| {{color|#b9b75b}}{{only|be|short=1}}
+| {{color|#a6a432}}{{only|be|short=1}}
+| {{color|#77a8ff}}{{only|be|short=1}}
+|-
+| {{BiomeLink|Plains}}
+| rowspan=4 | 0.8 
+| rowspan=4 | 0.4
+| rowspan=4 | {{color|#91bd59}} 
+| rowspan=4 | {{color|#77ab2f}} 
+| rowspan=4 | {{color|#78a7ff}}
+|-
+|{{BiomeLink|Beach}}
+|-
+|{{BiomeLink|Sunflower Plains}}
+|-
+|{{BiomeLink|Deep Dark}}
+|-
+| rowspan=2 | {{BiomeLink|Dripstone Caves}}
+| 0.8{{only|je|short=1}}
+| 0.4{{only|je|short=1}}
+| {{color|#91bd59}}{{only|je|short=1}}
+| {{color|#77ab2f}}{{only|je|short=1}}
+| {{color|#78a7ff}}{{only|je|short=1}}
+|-
+| 0.2{{only|be|short=1}}
+| 0.0{{only|be|short=1}}
+| {{color|#8db58a}}{{only|be|short=1}}
+| {{color|#70a26c}}{{only|be|short=1}}
+| {{color|#7da2ff}}{{only|be|short=1}}
+|-
+| {{BiomeLink|Frozen River}}
+| rowspan=5 | 0.0 
+| rowspan=3 | 0.5
+| rowspan=2 |0.125-0.25
+| rowspan=10 | {{color|#80b497}}
+| rowspan=10 | {{color|#60a17b}}
+| rowspan=5 | {{color|#7fa1ff}}
+|-
+|{{BiomeLink|Frozen Ocean}}
+|-
+| {{BiomeLink|Snowy Plains}}
+| 0.25-1.0
+|-
+| rowspan=2 | {{BiomeLink|Ice Spikes}}
+| 0.5{{only|je|short=1}}
+| rowspan=2 | 0.5-1.5
+|-
+| 1.0{{only|be|short=1}}
+|-
+| {{BiomeLink|Grove}}
+| -0.2
+| 0.8 
+| rowspan=3 | 0.125-0.25
+| {{color|#81a0ff}}
+|-
+| {{BiomeLink|Frozen Peaks}}
+| rowspan=2 | -0.7
+| rowspan=2 | 0.9
+| rowspan=2 | {{color|#859dff}}
+|-
+| {{BiomeLink|Jagged Peaks}}
+|-
+| {{BiomeLink|Snowy Slopes}}
+| -0.3
+| 0.9 
+| rowspan=2 | 0.125-0.5
+| {{color|#829fff}}
+|-
+| {{BiomeLink|Snowy Taiga}}
+| -0.5
+| 0.4
+| {{color|#839eff}}
+|-
+| {{BiomeLink|Snowy Beach}}
+| 0.05
+| 0.3
+| 0.125-0.25
+| {{color|#83b593}}
+| {{color|#64a278}}
+| {{color|#7fa1ff}}
+|-
+| rowspan=2| {{BiomeLink|Meadow}}
+| 0.5{{only|je|short=1}}
+| rowspan=4 | 0.8
+| rowspan=25 | 0.0-0.125
+| {{color|#83bb6d}}{{only|je|short=1}}
+| {{color|#63a948}}{{only|je|short=1}}
+| {{color|#7ba4ff}}{{only|je|short=1}}
+|-
+| 0.3{{only|be|short=1}}
+| {{color|#86b87f}}{{only|be|short=1}}
+| {{color|#68a55f}}{{only|be|short=1}}
+| {{color|#7ca3ff}}{{only|be|short=1}}
+|-
+| rowspan=2| {{BiomeLink|Cherry Grove}}
+| 0.5{{only|je|short=1}}
+| rowspan=2| {{color|#b6db61}}
+| rowspan=2| {{color|#b6db61}}
+| {{color|#7ba4ff}}{{only|je|short=1}}
+|-
+| 0.3{{only|be|short=1}}
+| {{color|#7ca3ff}}{{only|be|short=1}}
+|-
+| {{BiomeLink|Desert}}
+| 2.0
+| rowspan=5 | 0.0
+| rowspan=10 | FALSE
+| rowspan=5 | {{color|#bfb755}}
+| rowspan=5 | {{color|#aea42a}}
+| {{color|#6eb1ff}}
+|-
+| {{BiomeLink|Savanna}}
+| rowspan=2 | 2.0{{only|je|short=1}}
+| rowspan=2 | {{color|#6eb1ff}}{{only|je|short=1}}
+|-
+|{{BiomeLink|Savanna Plateau}}
+|-
+| {{BiomeLink|Savanna}}
+| 1.2{{only|be|short=1}}
+| {{color|#75aaff}}{{only|be|short=1}}
+|-
+| {{BiomeLink|Savanna Plateau}}
+| 1.0{{only|be|short=1}}
+| {{color|#76a8ff}}{{only|be|short=1}}
+|-
+| rowspan=2 | {{BiomeLink|Windswept Savanna}}
+| rowspan=2 | 2.0
+| rowspan=2 | 0.0
+| rowspan=2 | {{color|#bfb755}}
+| rowspan=2 | {{color|#aea42a}}
+| {{color|#6eb1ff}}{{only|je|short=1}}
+|-
+| {{color|#76a9ff}}{{only|be|short=1}}
+|-
+| {{BiomeLink|Badlands}}
+| rowspan=3| 2.0
+| rowspan=3| 0.0
+| rowspan=3| {{color|#90814d}}
+| rowspan=3| {{color|#9e814d}}
+| rowspan=3| {{color|#6eb1ff}}
+|-
+| {{BiomeLink|Wooded Badlands}}
+|-
+| {{BiomeLink|Eroded Badlands}}
+|-
+| {{BiomeLink|Forest}}
+| rowspan=4| 0.7
+| rowspan=4| 0.8
+| rowspan=22 | TRUE
+| rowspan=2| {{color|#79c05a}}
+| rowspan=3| {{color|#59ae30}}
+| rowspan=3| {{color|#79a6ff}}
+|-
+| {{BiomeLink|Flower Forest}}
+|-
+| {{BiomeLink|Dark Forest}}
+| {{color|#507a32}}
+|-
+| {{BiomeLink|Pale Garden}}
+| {{color|#778272}}
+| {{color|#878D76}}
+| {{color|#B9B9B9}}
+| {{color|#817770}}
+|-
+| {{BiomeLink|Birch Forest}}
+| rowspan=2| 0.6
+| rowspan=2| 0.6
+| rowspan=2| {{color|#88bb67}}
+| rowspan=2| {{color|#6ba941}}
+| rowspan=2| {{color|#7aa5ff}}
+|-
+| {{BiomeLink|Old Growth Birch Forest}}
+|-
+| {{BiomeLink|Old Growth Pine Taiga}}
+| 0.3 
+| 0.8 
+| {{color|#86b87f}}
+| {{color|#68a55f}} 
+| {{color|#7ca3ff}}
+|-
+| {{BiomeLink|Old Growth Spruce Taiga}}
+| rowspan=2| 0.25
+| rowspan=2| 0.8 
+| rowspan=2| {{color|#86b783}}
+| rowspan=2| {{color|#68a464}}
+| rowspan=2| {{color|#7da3ff}}
+|-
+| {{BiomeLink|Taiga}}
+|-
+| {{BiomeLink|Windswept Gravelly Hills}}
+| rowspan=4 | 0.2 
+| rowspan=4 | 0.3 
+| rowspan=4 | {{color|#8ab689}} 
+| rowspan=4 | {{color|#6da36b}} 
+| rowspan=4 | {{color|#7da2ff}}
+|-
+|{{BiomeLink|Windswept Forest}}
+|-
+| {{BiomeLink|Windswept Hills}}
+| rowspan=2| 0.0-0.25
+|-
+| {{BiomeLink|Stony Shore}}
+|-
+| {{BiomeLink|Jungle}}
+| rowspan=3 | 0.95
+| rowspan=2 | 0.9 
+| rowspan=8 | 0.0-0.125
+| rowspan=2 | {{color|#59c93c}}
+| rowspan=2 | {{color|#30bb0b}} 
+| rowspan=4 | {{color|#77a8ff}}
+|-
+|{{BiomeLink|Bamboo Jungle}}
+|-
+| {{BiomeLink|Sparse Jungle}}
+| 0.8
+| {{color|#64c73f}}
+| {{color|#3eb80f}}
+|-
+| {{BiomeLink|Mushroom Fields}}
+| 0.9
+| 1.0
+| {{color|#55c93f}}
+| {{color|#2bbb0f}}
+|-
+| {{BiomeLink|Stony Peaks}}
+| 1.0
+| 0.3
+| {{color|#9abe4b}}
+| {{color|#82ac1e}}
+| {{color|#76a8ff}}
+|-
+| {{BiomeLink|Mangrove Swamp}}
+| rowspan=3 | 0.8
+| 0.9
+| rowspan=3 | {{color|#6a7039}}<br>{{color|#4c763c}}
+| {{color|#6a7039}}
+| rowspan=3 | {{color|#78a7ff}}
+|-
+| rowspan=2 | {{BiomeLink|Swamp}}
+| 0.9{{only|je|short=1}}
+| rowspan=2 | {{color|#8db127}}
+|-
+| 0.5{{only|be|short=1}}
+|}
+
+{| class="wikitable sortable mw-collapsible mw-collapsed" data-description="Water and water fog" style="text-align:center"
+! Biome
+! Water color {{in|bedrock|short=1}}
+! Water fog color {{in|bedrock|short=1}}
+! Water color {{in|java|short=1}}
+! Water fog color {{in|java|short=1}}
+|-
+| {{BiomeLink|Swamp}}
+| {{color|#617b64}}
+| {{color|#232317}}
+| {{color|#4c6559}}
+| {{color|#4c6559}}
+|-
+| {{BiomeLink|Mangrove Swamp}}
+| {{color|#3a7a6a}}
+| {{color|#4d7a60}}
+| {{color|#3a7a6a}}
+| {{color|#4d7a60}}
+|-
+| {{BiomeLink|Warm Ocean}}
+| {{color|#02b0e5}}
+| {{color|#0289d5}}
+| {{color|#43d5ee}}
+| {{color|#041f33}}
+|-
+| {{BiomeLink|Lukewarm Ocean}}
+| rowspan=2 | {{color|#0d96db}}
+| {{color|#0a74c4}}
+| rowspan=2 | {{color|#45adf2}}
+| rowspan=2 | {{color|#041633}}
+|-
+| {{BiomeLink|Deep Lukewarm Ocean}}
+| {{color|#0e72b9}}
+|-
+| {{BiomeLink|Cold Ocean}}
+| rowspan=2 | {{color|#2080c9}}
+| {{color|#14559b}}
+| rowspan=4 | {{color|#3d57d6}}
+| rowspan=36 | {{color|#050533}}
+|-
+| {{BiomeLink|Deep Cold Ocean}}
+| {{color|#185390}}
+|-
+| {{BiomeLink|Snowy Beach}}
+| {{color|#1463a5}}
+| {{color|#1463a5}}
+|-
+| {{BiomeLink|Snowy Taiga}}
+| {{color|#205e83}}
+| {{color|#205e83}}
+|-
+| {{BiomeLink|Frozen Ocean}}
+| rowspan=2 | {{color|#2570b5}}
+| {{color|#174985}}
+| rowspan=3 | {{color|#3938c9}}
+|-
+| {{BiomeLink|Deep Frozen Ocean}}
+| {{color|#1a4879}}
+|-
+| {{BiomeLink|Frozen River}}
+| {{color|#185390}}
+| {{color|#185390}}
+|-
+| {{BiomeLink|Meadow}}
+| {{color|#44aff5}}
+| {{color|#44aff5}}
+| {{color|#0e4ecf}} 
+|-
+| {{BiomeLink|Cherry Grove}}
+| {{color|#5db7ef}}
+| {{color|#5db7ef}}
+| {{color|#5db7ef}}
+|-
+| {{BiomeLink|Ocean}}
+| rowspan=2 | {{color|#1787d4}}
+| {{color|#1165b0}}
+| rowspan=27 | {{color|#3f76e4}}
+|-
+| {{BiomeLink|Deep Ocean}}
+| {{color|#1463a5}}
+|-
+| {{BiomeLink|River}}
+| {{color|#0084ff}}
+| {{color|#0084ff}}
+|-
+| {{BiomeLink|Beach}}
+| {{color|#157cab}}
+| {{color|#157cab}}
+|-
+| {{BiomeLink|Stony Shore}}
+| {{color|#0d67bb}}
+| {{color|#0d67bb}}
+|-
+| {{BiomeLink|Snowy Plains}}<br>{{BiomeLink|Ice Spikes}}
+| {{color|#14559b}}
+| {{color|#14559b}}
+|-
+| {{BiomeLink|Taiga}}
+| {{color|#287082}}
+| {{color|#287082}}
+|-
+| {{BiomeLink|Old Growth Pine Taiga}}<br>{{BiomeLink|Old Growth Spruce Taiga}}
+| {{color|#2d6d77}}
+| {{color|#2d6d77}}
+|-
+| {{BiomeLink|Dark Forest}}
+| {{color|#3b6cd1}}
+| {{color|#3b6cd1}}
+|-
+| {{BiomeLink|Pale Garden}}
+| {{color|#76889D}}
+| {{color|#556980}}
+| {{color|#76889D}}
+| {{color|#556980}}
+|-
+| {{BiomeLink|Flower Forest}}
+| {{color|#20a3cc}}
+| {{color|#20a3cc}}
+|-
+| {{BiomeLink|Forest}}
+| {{color|#1e97f2}}
+| {{color|#1e97f2}}
+|-
+| {{BiomeLink|Birch Forest}}
+| {{color|#0677ce}}
+| {{color|#0677ce}}
+|-
+| {{BiomeLink|Old Growth Birch Forest}}
+| {{color|#0a74c4}}
+| {{color|#0a74c4}}
+|-
+| {{BiomeLink|Bamboo Jungle}}<br>{{BiomeLink|Jungle}}
+| {{color|#14a2c5}}
+| {{color|#14a2c5}}
+|-
+| {{BiomeLink|Sparse Jungle}}
+| {{color|#0d8ae3}}
+| {{color|#0d8ae3}}
+|-
+| {{BiomeLink|Savanna}}
+| {{color|#2c8b9c}}
+| {{color|#2c8b9c}}
+|-
+| {{BiomeLink|Windswept Savanna}}<br>{{BiomeLink|Savanna Plateau}}
+| {{color|#2590a8}}
+| {{color|#2590a8}}
+|-
+| {{BiomeLink|Desert}}
+| {{color|#32a598}}
+| {{color|#32a598}}
+|-
+| {{BiomeLink|Badlands}}
+| {{color|#4e7f81}}
+| {{color|#4e7f81}}
+|-
+| {{BiomeLink|Eroded Badlands}}
+| {{color|#497f99}}
+| {{color|#497f99}}
+|-
+| {{BiomeLink|Mushroom Fields}}
+| {{color|#8a8997}}
+| {{color|#8a8997}}
+|-
+| {{BiomeLink|Wooded Badlands}}
+| {{color|#55809e}}
+| {{color|#55809e}}
+|-
+| {{BiomeLink|Windswept Forest}}<br>{{BiomeLink|Windswept Gravelly Hills}}
+| {{color|#0e63ab}}
+| {{color|#0e63ab}}
+|-
+| {{BiomeLink|Windswept Hills}}
+| {{color|#007bf7}}
+| {{color|#007bf7}}
+|-
+| {{BiomeLink|Dripstone Caves}}<br>{{BiomeLink|Deep Dark}}<br>{{BiomeLink|Lush Caves}}<br>{{BiomeLink|Frozen Peaks}}<br>{{BiomeLink|Jagged Peaks}}<br>{{BiomeLink|Stony Peaks}}<br>{{BiomeLink|Plains}}<br>{{BiomeLink|Sunflower Plains}}<br>{{BiomeLink|Grove}}<br>{{BiomeLink|Snowy Slopes}}
+| {{color|#44aff5}}
+| {{color|#44aff5}}
+|-
+| {{BiomeLink|The Void}}{{only|JE|short=1}}
+| N/A
+| N/A
+|}
+
+==== The Nether ====
+{| class="wikitable sortable mw-collapsible mw-collapsed" data-description="Climates of biomes in the Nether" style="text-align:center"
+! Biome
+! Base temperature
+! Downfall
+! Precipitation
+! Grass color
+! Leaf color
+! Sky color
+! Water color
+! Water fog color
+! Fog color
+|-
+| {{BiomeLink|Nether Wastes}}
+| rowspan=5 | 2.0 
+| rowspan=5 | 0.0 
+| rowspan=5 | FALSE
+| rowspan=5 | {{color|#bfb755}}
+| rowspan=5 | {{color|#aea42a}}
+| rowspan=5 | {{color|#6eb1ff}}
+| rowspan=4 | {{color|#3f76e4}}{{only|je|short=1}}<br>{{color|#905957}}{{only|be|short=1}}
+| rowspan=4 | {{color|#050533}}{{only|je|short=1}}<br>{{color|#905957}}{{only|be|short=1}}
+| {{color|#330808}}
+|-
+| {{BiomeLink|Warped Forest}}
+| {{color|#1a051a}}
+|-
+| {{BiomeLink|Crimson Forest}}
+| {{color|#330303}}
+|-
+| {{BiomeLink|Soul Sand Valley}}
+| {{color|#1b4745}}
+|-
+| {{BiomeLink|Basalt Deltas}}
+| {{color|#3f76e4}}
+| {{color|#050533}}{{only|je|short=1}}<br>{{color|#423e42}}{{only|be|short=1}}
+| {{color|#685f70}}
+|}
+
+==== The End ====
+{| class="wikitable sortable mw-collapsible mw-collapsed" data-description="Climates of biomes in the End" style="text-align:center"
+! Biome
+! Base temperature
+! Downfall
+! Precipitation
+! Grass color
+! Leaf color
+! Sky color
+! Water color
+! Water fog color
+! Fog color
+|-
+| {{BiomeLink|The End}}<br>{{BiomeLink|End Highlands}}{{only|je|short=1}}<br>{{BiomeLink|End Midlands}}{{only|je|short=1}}<br>{{BiomeLink|Small End Islands}}{{only|je|short=1}}<br>{{BiomeLink|End Barrens}}{{only|je|short=1}}
+| 0.5
+| 0.5
+| FALSE
+| {{color|#8eb971}}
+| {{color|#71a74d}}
+| {{color|#000000}}
+| {{color|#3f76e4}}{{only|je|short=1}}<br>{{color|#62529e}}{{only|be|short=1}}
+| {{color|#050533}}{{only|je|short=1}}<br>{{color|#62529e}}{{only|be|short=1}}
+| {{color|#a080a0}}{{only|je|short=1}}<br>{{color|#0b080c}}{{only|be|short=1}}
+|}
+
+== Generation ==
+=== Overworld ===
+[[File:Biome and density functions.png|thumb|Biomes and density functions]][[Overworld]] biome generation is based on 6 parameters: '''Temperature''', '''Humidity''' (aka. Vegetation), '''Continentalness''' (aka. Continents), '''Erosion''', '''Weirdness''' (aka. Ridges) and '''Depth''', which are calculated with 6 [[density function]]s. They respectively correspond to T, V, C, E, W and D in the "NoiseRouter" line of [[debug screen]]{{only|je}}. Except "depth", the other 5 parameters are based on only horizontal coordinates.
+
+Thinking of them as a six-dimensional space, in the space a lot of intervals are defined for biomes, as described in the tables below. If the six parameters at a location fall into an interval, the corresponding biome is generated. If the six parameters at a location do not fall into a defined biome interval in these tables, it uses the closest biome interval to the 6D parameter point, in order to form a transition between biomes.
+
+==== Temperature ====
+The '''temperature''' parameter is a noise parameter used only in biome generation and do not affect terrain generation.
+
+The range of temperature is about from -2.31 to +2.31<!--(±20/9*RangeOf3DImprovedPerlinNoise, assuming that the range of 3D improved perlin noise is ±1.04)-->. But biome intervals are defined only from -1.0 to +1.0.
+
+Temperature values from -1 to +1 are divided into 5 levels. The corresponding ranges from level 0 to level 4 are: <!--use ~ rather than —, to avoid confusion with negative numbers-->-1~-0.45, -0.45~-0.15, -0.15~0.2, 0.2~0.55, 0.55~1. The level at a horizontal location can be found at the "T" in the "Biome builder" line on the debug screen. Temperature values less than -1 are displayed as level {{cd|0}}; higher than +1 are displayed as {{cd|?}}.
+
+Note that the temperature parameter is not the [[#Temperature|temperature]] of a biome, but they roughly correspond each other, e.g. if a location's temperature parameter is level 0, the base temperature of the biome here is usually low enough or the terrain is high enough, that the surface is covered in snow and ice.
+
+==== Humidity ====
+The '''humidity''' (also known as '''vegetation''') parameter is a noise parameter used only in biome generation and do not affect terrain generation.
+
+The range of humidity is about from -1.76 to +1.76<!--(±320/189*RangeOf3DImprovedPerlinNoise, assuming that the range of 3D improved perlin noise is ±1.04)-->. But biome intervals are defined only from -1.0 to +1.0.
+
+Humidity values from -1 to +1 are also divided into 5 levels. The corresponding ranges from level 0 to level 4 are: -1~-0.35, -0.35~-0.1, -0.1~0.1, 0.1~0.3, 0.3~1. The level at a horizontal location can be found at the "H" in the "Biome builder" line on the debug screen. Values less than -1 are displayed as level {{cd|0}}; higher than +1 are displayed as {{cd|?}}.
+
+==== Continentalness ====
+The '''continentalness''' (also known as '''continents''') parameter is used to decide between ocean/beach/land biomes. It affects the terrain height during terrain generation. The larger the continentalness, the higher the average terrain height. And when the continentality is extremely low, the terrain height also becomes higher, in order to generate mushroom fields in the center of the ocean.
+
+The range of continentalness is about from -3.80 to +3.80 <!--(±267/73*RangeOf3DImprovedPerlinNoise, assuming that the range of 3D improved perlin noise is ±1.04)-->. Biome intervals are defined only from -1.2 to +1.0.
+
+If the continentalness of a location is between -1.2~-1.05, the '''mushroom fields''' biome is generated; when it is between -1.05~-0.455, '''deep ocean''' biomes are generated; when -0.455~-0.19, '''ocean''' biomes are generated; when -0.19~1.0, '''inland biomes''' are generated. For '''inland biomes''', continentalness values are further subdivided into 4 types: '''coast''' (-0.19~-0.11), '''near-inland''' (-0.11~0.03), '''mid-inland''' (0.03~0.3) and '''far-inland''' (0.3~1.0). The level at a horizontal location can be found at the "C" in the "Biome builder" line on the debug screen. Values less than -1.2 are displayed as {{cd|Mushroom fields}}; higher than +1.0 are displayed as {{cd|Far inland}}.
+
+====Erosion====
+The '''erosion''' parameters mainly affect inland terrain during terrain generation. The higher the erosion at a location, the lower the terrain height and the flatter the terrain.
+
+The range of erosion is about from -2.52 to +2.52<!--(±75/31*RangeOf3DImprovedPerlinNoise, assuming that the range of 3D improved perlin noise is ±1.04)-->. Biome intervals are defined only from -1.0 to +1.0.
+
+Erosion values from -1 to +1 are divided into 7 levels. The corresponding intervals from level 0 to level 6 are: -1~-0.78, -0.78~-0.375, -0.375~-0.2225, -0.2225~0.05, 0.05~0.45, 0.45~0.55, 0.55~1. The level at a horizontal location can be found at the "E" in the "Biome builder" line of the debug screen. Values less than -1 are displayed as level {{cd|0}}; higher than +1 are displayed as {{cd|?}}.
+
+==== Weirdness ====
+The '''weirdness''' (also known as '''ridges''') parameter affects whether to generate a weirder biome or not. If the weirdness value is greater than 0, the generated biome becomes weirder. For example, using the variant of the [[Jungle]] biome — [[Bamboo Jungle]]; not using beach biomes when on the coast.
+
+The range of weirdness is about from -2.97 to +2.97<!--(±20/7*RangeOf3DImprovedPerlinNoise, assuming that the range of 3D improved perlin noise is ±1.04)-->,but biome intervals are defined only from -1.0 to +1.0.
+
+The '''PV''' ("peaks and valleys", aka. "ridges folded") value is calculated through the formula <math>1-\vert 3\vert weirdness \vert-2 \vert</math>, which is also shown at the "PV" in the "NoiseRouter" line of the debug screen.
+
+When the weirdness value is between -1.0 and 1.0, the PV values are divided into 5 levels:
+*If the PV is -1.0~-0.85, the PV level is "'''Valleys'''";
+*If -0.85~-0.6, "'''Low Slice'''";
+*If -0.6~0.2, "'''Mid Slice'''";
+*If 0.2~0.7, "'''High Slice'''";
+*If 0.7~1, "'''Peaks'''".
+Not that the PV value is defined no matter what the weirdness is, but these 5 PV levels are defined only when weirdness is between -1.0 and 1.0. The level at a horizontal location can be found at the "PV" in the "Biome builder" line on the debug screen. Though the five PV levels are defined only when weirdness is between -1.0 and 1.0, the PV level is always displayed even when weirdness is out of ±1.0, and PV values less than -1.0 are displayed as {{cd|Valleys}}. So, when weirdness is not between -1.0~1.0, the PV level in the "Biome builder" line often doesn't match the biome here.
+
+Both weirdness and PV affect the terrain height during terrain generation, especially the PV value has a more significant impact on the terrain height inland. The higher the PV value, the higher the terrain. Usually, at places with low continentalness or high erosion, when the PV level is "Valleys", the terrain is low enough to generate rivers. At high terrain, negative weirdness values lead to taller and more jagged and point peaks. When the erosion level is approximately 5, positive weirdness values result in weird inland terrain that is shattered and extremely precipitous and craggy. Since the weirdness value controls both whether the biome is a weird variant and whether the valley is generated, a biome and its variants often not appear on the same bank of a river.
+
+====Depth====
+Unlike other five parameters, depth is not based on a single noise. Depth corresponds approximately to the terrain height. It is roughly 0 when at surface, and increases by {{frac|1|128}} (0.0078125) for every 1 block down. The depth parameter affects whether a surface biome or a cave biome is placed. The table below lists the depth values for surface biomes and cave biomes.
+
+{| class="wikitable fandom-table mw-collapsible mw-collapsed" style="text-align:center"
+|-
+! Depth
+! Biomes
+|-
+| D=0
+| Surface biomes
+|-
+| D=0.2~0.9
+| {{BiomeLink|Dripstone Caves}}（Continentalness=0.8~1; Humidity=-1.0~1.0）<br>{{BiomeLink|Lush Caves}}（Continentalness=-1.0~1.0; Humidity=0.7~1)<br>See also <ref>{{bug|MC-262252}}</ref>
+|-
+| D=1
+| Surface biomes
+|-
+| D=1.1
+| {{BiomeLink|Deep Dark}}（E=0,1）
+|}
+
+====Non-inland surface biomes====
+The generation of non-inland biomes has nothing to do with humidity, erosion and weirdness. The following table lists the relation between non-inland surface biomes and continentalness and temperature. 
+
+{| class="wikitable fandom-table mw-collapsible mw-collapsed" style="text-align:center"
+|-
+! Temperature
+! Oceans
+! Deep oceans
+! Mushroom fields
+|-
+| T=0
+| {{BiomeLink|Frozen Ocean}}
+| {{BiomeLink|Deep Frozen Ocean}}
+| rowspan=5 | {{BiomeLink|Mushroom Fields}}
+|-
+| T=1
+| {{BiomeLink|Cold Ocean}}
+| {{BiomeLink|Deep Cold Ocean}}
+|-
+| T=2
+| {{BiomeLink|Ocean}}
+| {{BiomeLink|Deep Ocean}}
+|-
+| T=3
+| {{BiomeLink|Lukewarm Ocean}}
+| {{BiomeLink|Deep Lukewarm Ocean}}
+|-
+| T=4
+| colspan=2 | {{BiomeLink|Warm Ocean}}
+|}
+
+====Inland surface biomes====
+The following table lists the relation between inland surface biomes and continentalness. erosion, and PV.
+
+{| class="wikitable fandom-table stikitable mw-collapsible mw-collapsed" style="text-align:center"
+|-
+! PV
+! Erosion
+! Coast
+! Near-inland
+! Mid-inland
+! Far-inland
+|-
+| rowspan=3 | Valleys
+| E=0~1
+| rowspan="3" |{{BiomeLink|Frozen River}}（T=0）<br>{{BiomeLink|River}}（T>0)<!--The shore generation is defined incorrectly in code-->
+| rowspan="2" |{{BiomeLink|Frozen River}}（T=0）<br>{{BiomeLink|River}}（T>0）
+| colspan="2" |Middle biomes（T<4）<br>Badland biomes（T=4）
+|-
+|E=2~5
+| colspan="2" |{{BiomeLink|Frozen River}}（T=0）<br>{{BiomeLink|River}}（T>0）
+|-
+|E=6
+| colspan="3" |{{BiomeLink|Frozen River}}（T=0）<br>{{BiomeLink|Swamp}}（T=1,2）<br>{{BiomeLink|Mangrove Swamp}}（T=3,4）
+|-
+| rowspan="6" |Low Slice
+| E=0~1
+| rowspan="2" |{{BiomeLink|Stony Shore}}
+|Middle biomes（T<4）<br>Badland biomes（T=4）
+| colspan="2" |{{BiomeLink|Snowy Slopes}}（T=0; H=0,1）<br>{{BiomeLink|Grove}}（T=0; H=2,3,4）<br>Middle biomes（0<T<4）<br>Badland biomes（T=4）
+|-
+|E=2
+| rowspan="3" |Middle biomes
+| colspan="2" rowspan="2" |Middle biomes（T<4）<br>Badland biomes（T=4）
+|-
+|E=3
+| rowspan="2" |Beach biomes
+|-
+|E=4
+| colspan="2" rowspan="2" |Middle biomes
+|-
+|E=5
+|Beach biomes（W<0）<br>Middle biomes（W>0; T=0,1 OR H=4）<br>{{BiomeLink|Windswept Savanna}}（W>0; T=2,3,4; H=0,1,2,3）
+|Middle biomes（W<0 OR T=0,1 OR H=4）<br>{{BiomeLink|Windswept Savanna}}（W>0; T=2,3,4; H=0,1,2,3）
+|-
+|E=6
+|Beach biomes
+| colspan="3" |Middle biomes（T=0）<br>{{BiomeLink|Swamp}}（T=1,2）<br>{{BiomeLink|Mangrove Swamp}}（T=3,4）
+|-
+| rowspan="7" | Mid Slice
+|E=0
+| rowspan="3" |{{BiomeLink|Stony Shore}}
+| colspan="3" |{{BiomeLink|Snowy Slopes}}（T<3; H=0,1）<br>{{BiomeLink|Grove}}（T<3; H=2,3,4）<br>Plateau biomes（T=3,4）
+|-
+|E=1
+| colspan="2" |{{BiomeLink|Snowy Slopes}}（T=0; H=0,1）<br>{{BiomeLink|Grove}}（T=0; H=2,3,4）<br>Middle biomes（0<T<4）<br>Badland biomes（T=4）
+|{{BiomeLink|Snowy Slopes}}（T=0; H=0,1）<br>{{BiomeLink|Grove}}（T=0; H=2,3,4）<br>Plateau biomes（T>0）
+|-
+|E=2
+| rowspan="3" |Middle biomes
+| rowspan="2" |Middle biomes（T<4）<br>Badland biomes（T=4）
+|Plateau biomes
+|-
+|E=3
+|Middle biomes
+|Middle biomes（T<4）<br>Badland biomes（T=4）
+|-
+|E=4
+|Beach biomes（W<0）<br>Middle biomes（W>0）
+| colspan="2" |Middle biomes
+|-
+|E=5
+|Beach biomes（W<0）<br>Middle biomes（W>0; T=0,1 OR H=4）<br>{{BiomeLink|Windswept Savanna}}（W>0; T=2,3,4; H=0,1,2,3）
+|Middle biomes（W<0 OR T=0,1 OR H=4）<br>{{BiomeLink|Windswept Savanna}}（W>0; T=2,3,4; H=0,1,2,3）
+| colspan="2" |Shattered biomes
+|-
+|E=6
+|Beach biomes（W<0）<br>Middle biomes（W>0）
+| colspan="3" |Middle biomes（T=0）<br>{{BiomeLink|Swamp}}（T=1,2）<br>{{BiomeLink|Mangrove Swamp}}（T=3,4）
+|-
+| rowspan="7" |High Slice
+|E=0
+| rowspan="5" |Middle biomes
+|{{BiomeLink|Snowy Slopes}}（T<3; H=0,1）<br>{{BiomeLink|Grove}}（T<3; H=2,3,4）<br>Plateau biomes（T=3,4）
+| colspan="2" |{{BiomeLink|Jagged Peaks}}（T=0,1,2; W<0）<br>{{BiomeLink|Frozen Peaks}}（T=0,1,2; W>0）<br>{{BiomeLink|Stony Peaks}}（T=3）<br>Badland biomes（T=4）
+|-
+|E=1
+|{{BiomeLink|Snowy Slopes}}（T=0; H=0,1）<br>{{BiomeLink|Grove}}（T=0; H=2,3,4）<br>Middle biomes（0<T<4）<br>Badland biomes（T=4）
+| colspan="2" |{{BiomeLink|Snowy Slopes}}（T<3; H=0,1）<br>{{BiomeLink|Grove}}（T<3; H=2,3,4）<br>Plateau biomes（T=3,4）
+|-
+|E=2
+| rowspan="3" |Middle biomes
+|Plateau biomes
+| rowspan="2" |Plateau biomes
+|-
+|E=3
+|Middle biomes（T<4）<br>Badland biomes（T=4）
+|-
+|E=4
+| colspan="2" |Middle biomes
+|-
+|E=5
+| colspan="2" |Middle biomes（W<0 OR T=0,1 OR H=4）<br>{{BiomeLink|Windswept Savanna}}（W>0; T=2,3,4; H=0,1,2,3）
+| colspan="2" |Shattered biomes
+|-
+|E=6
+| colspan="4" |Middle biomes
+|-
+| rowspan="7" |Peaks
+|E=0
+| colspan="2" |{{BiomeLink|Jagged Peaks}}（T=0,1,2; W<0）<br>{{BiomeLink|Frozen Peaks}}（T=0,1,2; W>0）<br>{{BiomeLink|Stony Peaks}}（T=3）<br>Badland biomes（T=4）
+| colspan="2" rowspan="2" |{{BiomeLink|Jagged Peaks}}（T=0,1,2; W<0）<br>{{BiomeLink|Frozen Peaks}}（T=0,1,2; W>0）<br>{{BiomeLink|Stony Peaks}}（T=3）<br>Badland biomes（T=4）
+|-
+|E=1
+| colspan="2" |{{BiomeLink|Snowy Slopes}}（T=0; H=0,1）<br>{{BiomeLink|Grove}}（T=0; H=2,3,4）<br>Middle biomes（0<T<4）<br>Badland biomes（T=4）
+|-
+|E=2
+| colspan="2" rowspan="3" |Middle biomes
+|Plateau biomes
+| rowspan="2" |Plateau biomes
+|-
+|E=3
+|Middle biomes（T<4）<br>Badland biomes（T=4）
+|-
+|E=4
+| colspan="2" |Middle biomes
+|-
+|E=5
+| colspan="2" |Shattered biomes（W<0 OR T=0,1 OR H=4）<br>{{BiomeLink|Windswept Savanna}}（W>0; T=2,3,4; H=0,1,2,3）
+| colspan="2" |Shattered biomes
+|-
+|E=6
+| colspan="4" |Middle biomes
+|}
+
+In which, the specific biome generation of beach biomes, badland biomes, middle biomes, plateau biomes, and shattered biomes is determined by the temperature, humidity and weirdness values.
+
+'''Beach biomes''' generates in the low terrain along the coast, and the specific biome generation is only related to the temperature value.
+
+{| class="wikitable fandom-table mw-collapsible mw-collapsed" style="text-align:center"
+|-
+!Temperature
+!Biomes
+|-
+|T=0
+|{{BiomeLink|Snowy Beach}}
+|-
+|T=1,2,3
+|{{BiomeLink|Beach}}
+|-
+|T=4
+|{{BiomeLink|Desert}}
+|}
+
+'''Badland biomes''' usually generate inland with low erosion value, and can also generate along the coast with high terrain and low erosion. The specific biome generation is related to humidity and weirdness.
+
+{| class="wikitable fandom-table mw-collapsible mw-collapsed" style="text-align:center"
+|-
+!Humidity
+!Biomes
+|-
+|H=0,1
+|{{BiomeLink|Badlands}}（W<0）<br>{{BiomeLink|Eroded Badlands}}（W>0）
+|-
+|H=2
+|{{BiomeLink|Badlands}}
+|-
+|H=3,4
+|{{BiomeLink|Wooded Badlands}}
+|}
+
+'''Middle biomes''' are the most extensive biomes inland, and the specific biome generation is related to temperature, humidity, and weirdness.
+
+{| class="wikitable fandom-table mw-collapsible mw-collapsed" style="text-align:center"
+|-
+!Humidity
+!T=0
+!T=1
+!T=2
+!T=3
+!T=4
+|-
+|H=0
+|{{BiomeLink|Snowy Plains}}（W<0）<br>{{BiomeLink|Ice Spikes}}（W>0）
+| rowspan="2" |{{BiomeLink|Plains}}
+|{{BiomeLink|Flower Forest}}（W<0）<br>{{BiomeLink|Sunflower Plains}}（W>0）
+| rowspan="2" |{{BiomeLink|Savanna}}
+| rowspan="5" |{{BiomeLink|Desert}}
+|-
+|H=1
+|{{BiomeLink|Snowy Plains}}
+|{{BiomeLink|Plains}}
+|-
+|H=2
+|{{BiomeLink|Snowy Plains}}（W<0）<br>{{BiomeLink|Snowy Taiga}}（W>0）
+| colspan="2" |{{BiomeLink|Forest}}
+|{{BiomeLink|Forest}}（W<0）<br>{{BiomeLink|Plains}}（W>0）
+|-
+|H=3
+|
+{{BiomeLink|Snowy Taiga}}
+|{{BiomeLink|Taiga}}
+|{{BiomeLink|Birch Forest}}（W<0）<br>{{BiomeLink|Old Growth Birch Forest}}（W>0）
+|{{BiomeLink|Jungle}}（W<0）<br>{{BiomeLink|Sparse Jungle}}（W>0）
+|-
+|H=4
+|{{BiomeLink|Taiga}}
+|{{BiomeLink|Old Growth Spruce Taiga}}（W<0）<br>{{BiomeLink|Old Growth Pine Taiga}}（W>0）
+|{{BiomeLink|Dark Forest}}
+|{{BiomeLink|Jungle}}（W<0）<br>{{BiomeLink|Bamboo Jungle}}（W>0）
+|}
+
+'''Plateau biomes''' generate at inland high terrain with moderate erosion. The specific biome generation is related to temperature, humidity, and weirdness.
+
+{| class="wikitable fandom-table mw-collapsible mw-collapsed" style="text-align:center"
+|-
+!Humidity
+!T=0
+!T=1
+!T=2
+!T=3
+!T=4
+|-
+|H=0
+|{{BiomeLink|Snowy Plains}}（W<0）<br>{{BiomeLink|Ice Spikes}}（W>0）
+|{{BiomeLink|Meadow}}（W<0）<br>{{BiomeLink|Cherry Grove}}（W>0）
+| rowspan="2" |{{BiomeLink|Meadow}}（W<0）<br>{{BiomeLink|Cherry Grove}}（W>0）
+| rowspan="2" |{{BiomeLink|Savanna Plateau}}
+| rowspan="2" |{{BiomeLink|Badlands}}（W<0）<br>{{BiomeLink|Eroded Badlands}}（W>0）
+|-
+|H=1
+| rowspan="2" |{{BiomeLink|Snowy Plains}}
+|{{BiomeLink|Meadow}}
+|-
+|H=2
+|{{BiomeLink|Forest}}（W<0）<br>{{BiomeLink|Meadow}}（W>0）
+|{{BiomeLink|Meadow}}（W<0）<br>{{BiomeLink|Forest}}（W>0）
+| rowspan="2" |{{BiomeLink|Forest}}
+|{{BiomeLink|Badlands}}
+|-
+|H=3
+| rowspan="2" |{{BiomeLink|Snowy Taiga}}
+|{{BiomeLink|Taiga}}（W<0）<br>{{BiomeLink|Meadow}}（W>0）
+|{{BiomeLink|Meadow}}（W<0）<br>{{BiomeLink|Birch Forest}}（W>0）
+| rowspan="2" |{{BiomeLink|Wooded Badlands}}
+|-
+|H=4
+|{{BiomeLink|Old Growth Spruce Taiga}}（W<0）<br>{{BiomeLink|Old Growth Pine Taiga}}（W>0）
+|{{BiomeLink|Dark Forest}}
+| {{BiomeLink|Jungle}}
+|}
+
+'''Shattered biomes''' are generated at inland places with high erosion, and the specific biome generation is related to temperature, humidity, and weirdness.
+
+{| class="wikitable fandom-table mw-collapsible mw-collapsed" style="text-align:center"
+|-
+! Humidity
+!T=0~1
+!T=2
+!T=3
+! T=4
+|-
+|H=0~1
+|{{BiomeLink|Windswept Gravelly Hills}}
+| rowspan="2" |{{BiomeLink|Windswept Hills}}
+|{{BiomeLink|Savanna}}
+| rowspan="4" |{{BiomeLink|Desert}}
+|-
+|H=2
+|{{BiomeLink|Windswept Hills}}
+|{{BiomeLink|Forest}}（W<0）<br>{{BiomeLink|Plains}}（W>0）
+|-
+|H=3
+| colspan="2" rowspan="2" |{{BiomeLink|Windswept Forest}}
+|{{BiomeLink|Jungle}}（W<0）<br>{{BiomeLink|Sparse Jungle}}（W>0）
+|-
+|H=4
+|{{BiomeLink|Jungle}}（W<0）<br>{{BiomeLink|Bamboo Jungle}}（W>0）
+|}
+
+===The Nether===
+[[The Nether]] uses three parameters to generate biomes: temperature, humidity, and offset. Unlike the Overworld, the Nether biome specifies biomes with points, while the Overworld uses 6D intervals.
+
+The offset parameter isn't from density function. It is always 0 at any location in a world. This means that the parameter point of a location is always in the temperature-humidity-plane. The closer the offset (of a biome point) is to 0, the closer the point is to the T-H-plane, and the greater the advantage it has during biome generation.
+
+{| class="wikitable sortable" style="text-align:center"
+|-
+!Biomes
+!Temperature
+!Humidity
+!Offset
+|-
+|{{BiomeLink|Basalt Deltas}}
+| -0.5
+|0
+| 0.175
+|-
+| {{BiomeLink|Crimson Forest}}
+|0.4
+|0
+|0
+|-
+|{{BiomeLink|Nether Wastes}}
+| 0
+| 0
+|0
+|-
+|{{BiomeLink|Soul Sand Valley}}
+| 0
+| -0.5
+|0
+|-
+|{{BiomeLink|Warped Forest}}
+|0
+|0.5
+|0.375
+|}
+
+===The End===
+{{in|je}}, [[the End]] uses only one density function value: erosion. If the horizontal distance from the chunk origin of a chunk to the world origin is less than 1024, the locations in the chunk is {{BiomeLink|The End}}. Otherwise, the biome is determined by erosion.
+
+{| class="wikitable sortable" style="text-align:center"
+|-
+!Biome
+!Erosion
+|-
+|
+{{BiomeLink|End Barrens}}
+| -0.21875~-0.0625
+|-
+|{{BiomeLink|End Highlands}}
+|0.25~1
+|-
+|{{BiomeLink|End Midlands}}
+| -0.0625~0.25
+|-
+|{{BiomeLink|Small End Islands}}
+| -1~-0.21875
+|}
+
+{{in|be}}, in the End there's only one biome: {{BiomeLink|The End}}.
+
+==Biome IDs==
+
+{{/ID}}
+
+{{-}}
+
+==Biome colors==
+{{main|Color#Biome colors}}
+
+==Achievements==
+<table-progress-tracking table-id="2" unique-column-index="3">
+{{load achievements|Adventuring Time;Sail the 7 Seas;Hot tourist destination;Sound of Music}}
+</table-progress-tracking>
+
+==Advancements==
+<table-progress-tracking table-id="1" unique-column-index="2">
+{{load advancements|Hot Tourist Destinations;Adventuring Time;Sound Of Music}}
+</table-progress-tracking>
+{{notelist}}
+
+==History==
+{{see also|Biome/Before Beta 1.8|Biome/Before TU5|Biome/Before 1.18}}
+===Biome additions and changes===
+{{history|java alpha}}
+{{history||v1.0.4|Added [[Winter Mode]]. Maps now have a snowy or grassy theme randomly determined when creating the world.}}
+{{history||v1.2.0|snap=preview|Added true biomes; they were rain forest, seasonal forest, forest, shrubland, taiga, tundra, savanna, plains, swampland, desert, and frozen desert.
+|World saves remained unchanged, other than a change in the hue of the grass. If the player moves into ungenerated chunks, the new biomes would generate.}}
+{{history|java beta}}
+{{history||1.6|Added the Sky Dimension with its own biome. It could be viewed only through the use of modifications.}}
+{{history||1.8|snap=August 18, 2011|slink={{tweet|notch|104187327949176833}}|Notch tweeted a screenshot of a revamped river biome.}}
+{{history|||snap=September 2, 2011|slink={{tweet|notch|109713550209060864}}|Notch teases a screenshot of the new desert biome.}}
+{{history|||snap=September 3, 2011|slink={{tweet|notch|110053393850040320}}|Notch teases a screenshot of the new swamp biome.}}
+{{history|||snap=pre1|Biomes got an overhaul, removing some biomes, such as the tundra and the taiga, and others replaced with nine fractal-based biomes that were a mix of the previous biomes and new biomes. [[/Before Beta 1.8|See here for more details]].}}
+{{history|java}}
+{{history||1.0.0|snap=September 14, 2011|slink={{tweet|notch|113986669312622592}}|[[Notch]] mentions "snow biomes".}}
+{{history|||snap=September 15, 2011|slink={{tweet|notch|114323919279886336}}|Notch teases a screenshot of snow biomes.}}
+{{history|||snap=Beta 1.9 Prerelease|Re-added tundra (as ice plains).
+|Added mushroom islands and frozen ocean.}}
+{{history||1.1|snap=12w01a|Added hills and beaches.
+|Smoothed color transitions between biomes – swampland grass, foliage and water smoothly transition into other biomes.}}
+{{history||1.2.1|snap=January 18, 2012|slink={{tweet|jeb_|159616418575421440}}|[[Jens Bergensten]] tweeted a teaser screenshot of a new jungle biome.}}
+{{history|||snap=January 19, 2012|slink={{tweet|jeb_|159940561418199041}}|He tweeted another jungle screenshot, showcasing the bright green foliage.}}
+{{history|||snap=12w03a|Added the jungle biome.}}
+{{history|||snap=12w07a|The [[Anvil file format]] was introduced and it allows for biomes to be stored in the world data. In contrast, the [[Region file format]] relies on the [[Seed (level generation)|seed]] to dynamically calculate biome placement. This would cause biome placement in older worlds to change when the biome generation code was changed. With the current Anvil format, the biome data is stored along with the rest of the world data, meaning it does not change after the world is generated and can be edited by third-party map-editing tools. Furthermore, "edge" biomes allow for biomes to continue to extend beyond the edge chunks of an old world. This allows for smooth transitions in world generation after the generation code changes in an update.}}
+{{history||1.3.1|snap=?|Some sections of ice plains biomes were replaced with taiga biomes.}}
+{{history||1.7.2|snap=August 2, 2013|slink={{tweet|jeb_|363298862301470720}}|Jens tweeted the first image of the mesa biome. He jokingly referred to them as "disco mountains."}}
+{{history|||snap=August 7, 2013|slink={{tweet|jeb_|365099357625778177}}|Jens tweeted the first image of a mega taiga, unofficially dubbed the ''Redwood Forest''. The name was changed following 1.7's release.}}
+{{history|||snap=August 9, 2013|slink={{tweet|jeb_|365794828153389056}}|Jens tweeted the first image of a stone beach, which was then referred to as a "cliff" biome.}}
+{{history|||snap=13w36a|Mesa, mega taiga, roofed forest, birch forest, savanna, extreme hills+, deep ocean and snowless taiga biomes were added as well as variations for many of the biomes. Biomes were also separated by temperature, and snowing was added to extreme hills.
+|Biomes avoid getting placed next to a biome that is too different from itself, temperature-wise.
+|The frozen ocean and extreme hills edge biomes no longer generate naturally.
+|"Adventuring Time" achievement added, but it was broken until 1.8, making the goal of getting all achievements impossible in 1.7.}}
+{{history||1.8|snap=14w17a|The End's biome name is now "The End" instead of "Sky".
+|Adventuring Time is now available without commands. Before, the 38 biomes had to be visited without visiting any other biomes, which made the achievement unavailable because the End has to be visited for its prerequisite, The End?. The "no other biomes" restriction is now lifted.
+|Visiting the frozen ocean and extreme hills edge biomes, which no longer generate since 13w36a, is no longer required for Adventuring Time.}}
+{{history||1.9|snap=15w37a|Added new biome "The Void", which is used in Superflat preset "The Void".}}
+{{history|||snap=16w02a|A lot of M type biomes no longer generate due to {{bug|MC-95612}}.}}
+{{history|||snap=16w03a|M biomes generate again, with the exception of birch forest M (which messes with a lot of other things), see {{bug|MC-98995}}.}}
+{{history||1.11|snap=16w43a|Birch forest M biomes generate once again.}}
+{{history||1.13|snap=18w06a|The outer islands of the End biome are now divided up into four separate biomes: The End - Floating Islands, The End - Medium island, The End - High island, and The End - Barren island.
+|Slightly tweaked the placements of all modified biomes.}}
+{{history|||snap=18w08a|Added ocean variants, including warm ocean, lukewarm ocean, cold ocean, warm deep ocean, deep lukewarm ocean, deep cold ocean, and deep frozen ocean.
+|Frozen ocean now generates naturally again, for the first time since 13w36a.}}
+{{history|||snap=18w08b|Deep warm ocean biome no longer generates.}}
+{{history|||snap=18w16a|Biome names are now translatable.
+|Cleaned up several biome names, mainly by adding missing spaces and changing "Biome M" for "Mutated Biome".}}
+{{history|||snap=18w19a|Names of several biomes are changed. The exact name changes are listed [[18w19a#General 2|here]].}}
+{{history|||snap=pre5|Changed several biome IDs, mostly to comply with their names, listed [[1.13-pre5#Changes|here]].}}
+{{history||1.14|snap=18w43a|Added [[bamboo jungle]]s.}}
+{{history||1.15|snap=19w36a|Biome information now stores Y-coordinates, allowing biomes to be changed based on height. However, this is not yet implemented.}}
+{{history||September 28, 2019|link={{ytl|OZqNaEX8208|t=7993s}}|[[Nether]] biomes were shown at [[Minecon Live 2019]].}}
+{{history||1.16|snap=20w06a|Implemented vertical biomes in the Nether.
+|Added [[soul sand valley]]s, [[crimson forest]]s, and [[warped forest]]s.
+|"Nether" biome has been renamed to "Nether Wastes".
+|Added the {{cmd|locatebiome}} command that shows the coordinates of the nearest biomes.}}
+{{history|||snap=20w15a|Added the [[basalt deltas]].}}
+{{history|||snap=20w19a|Tweaked biome distribution in the [[Nether]].}}
+{{history||1.16.2|snap=20w28a|Experimental Support for Custom Biomes was added.}}
+{{history||October 3, 2020|link={{ytl|DBvZ2Iqmm3M|t=5m}}|[[Cave]] biomes and new [[mountains]] were shown at [[Minecraft Live 2020]].}}
+{{history||1.17|snap=20w46a|Biome-specific [[sky]] colors now blend more smoothly.}}
+{{history|||snap=20w49a|Added the [[dripstone caves]] biome. Currently accessible only using the buffet world options.}}
+{{history|||snap=21w10a|Added the [[lush caves]] biome. Currently accessible only using the buffet world options.}}
+{{history||October 16, 2021|link={{ytl|w6zLprHHZOk|t=7080s}}|New [[swamp]]s were shown and overhauls for other biomes were hinted at [[Minecraft Live 2021]].}}
+{{history||1.18|snap=Experimental Snapshot 1|Implemented multi-noise biome generation in the Overworld.
+|Biomes no longer control the terrain height.
+|Added the [[meadow]], [[grove]], [[snowy slopes]], [[lofty peaks]], and [[snowcapped peaks]] biomes.
+|Dripstone caves, lush caves, and deep warm ocean biomes can now generate naturally.
+|Several variant biomes no longer generate naturally. Affected biomes are listed [[Java_Edition_1.18_Experimental_Snapshot_1#World_generation_2|here]].
+|[[Swamp]] does not generate properly.}}
+{{history|||snap=Experimental Snapshot 2|[[Savanna plateau]], [[eroded badlands]] and [[ice spikes]] can now generate naturally once again.
+|[[Swamp]] now generates properly.}}
+{{history|||snap=Experimental Snapshot 3|Added the [[stony peaks]] biome.}}
+{{history|||snap=Experimental Snapshot 5|[[Jungle#Jungle Edge|Jungle edge]] now generates naturally once again.}}
+{{history|||snap=21w40a|Names of several biomes changed. The exact name changes are listed [[Java_Edition_21w40a#Biomes|here]].
+|Unused height variation sub-biomes have been removed and merged with their base counterparts. [[/Before 1.18|See here for more details]].
+|Non-cave biomes no longer change with height.
+|Increased biome sizes to better match pre-1.18 sizes.}}
+{{history|||snap=21w42a|[[Beach]]es are no longer created when a [[desert]] borders an [[ocean]].<ref>{{bug|MC-238582||Beaches generate between desert and ocean|Fixed}}</ref>}}
+{{history|||snap=21w43a|Removed the [[deep warm ocean]] biome.}}
+{{history||1.18.2|snap=22w03a|[[Eroded badlands]] now require positive weirdness instead of negative weirdness.}}
+{{history|||snap=22w05a|Temporarily reverted changes to badlands in the previous snapshot.}}
+{{history||1.19|snap=Deep Dark Experimental Snapshot 1|Added the [[deep dark]] biome.}}
+{{history|||snap=22w13a|[[Eroded badlands]] now require positive weirdness instead of negative weirdness.}}
+{{history|||snap=22w14a|Added the [[mangrove swamp]] biome.}}
+{{history||1.19.4|snap=23w03a|Now, whether it rains or snows are determined only by temperature. The Precipitation value of a biome can be only "true" or "false".<ref>To fix {{bug|MC-230678}}, {{bug|MC-233893}}, {{bug|MC-238904}}, {{bug|MC-247836}}, {{bug|MC-254132}}, and {{bug|MC-255811}}.</ref>}}
+{{history||1.20<br>(Experimental)|link=1.19.4|snap=23w07a|Added the [[cherry grove]] biome.}}
+{{history||1.20|snap=23w12a|Cherry groves are now available without using 1.20 (Experimental).}}
+{{history||1.21.2|snap=24w40a|Added the [[pale garden]] biome.}}
+
+{{history|pocket alpha}}
+{{history||v0.1.0|Added biomes, these 5 biomes include: [[snowy tundra]], [[snowy taiga]], [[plains]], [[forest]], and [[desert]], from Java Edition Alpha v1.2.0.}}
+{{history||v0.1.3|[[Cacti]] now generates in deserts.}}
+{{history||v0.8.0|snap=build 1|The color of the sky now changes slightly depending on the biome.}}
+{{history||v0.9.0|snap=build 1|All biomes as of Java Edition 1.7.2 have been added. These include: Jungles, mesa, roofed forests, savannas, extreme hills, mushroom islands, flower forest, mega taiga, mega spruce taiga, swampland, deep ocean, and legacy frozen ocean (unused).
+|Worlds created before this version have had all biomes in them converted into plains.}}
+{{history||v0.9.5|Added bryce mesa, extreme hills+, and jungle M.}}
+{{history||v0.10.0|snap=build 1|Mesa biomes have gold at every elevation and can generate [[mineshaft]]s on the surface.
+|Water in swamps is tinted dark gray.
+|[[Huge mushroom]]s generate in swamps.}}
+{{history||v0.11.0|snap=build 1|Added birch forest M, birch forest hills M, extreme hills M, and extreme hills+ M.}}
+{{history|||snap=build 8|Changed the default biome.}}
+{{history|||snap=build 10|Increased the amount of gravel on extreme hills M biome.}}
+{{history||v0.12.1|snap=build 1|Added [[the Nether]] biome.}}
+{{history|||snap=build 10|Leaves coloring shaders are now used only when the color for a biome actually changes.}}
+{{history||v0.16.0|snap=?|The biomes can now be viewed on [[map]]s based on the [[Tint|grass color]].}}
+{{history|pocket}}
+{{history||1.0.0|snap=alpha 0.17.0.1|Added [[End]] biome.}}
+{{history|bedrock}}
+{{history||1.2.0|snap=beta 1.2.0.2|Added [[snow]] covers to extreme hills.}}
+{{history||1.4.0|snap=beta 1.2.14.2|Added Warm Ocean, Lukewarm Ocean, Cold Ocean, and their deep variant, including new frozen ocean and frozen deep ocean.
+|Old Frozen Ocean id changed to <code>legacy_frozen_ocean</code> to avoid conflict with new frozen ocean names.}}
+{{history||1.9.0|snap=beta 1.9.0.0|Added Bamboo Jungle and Bamboo Jungle Hills biome.}}
+{{history||1.16.0|snap=beta 1.16.0.51|Added [[soul sand valley]]s, [[crimson forest]]s, and [[warped forest]]s.}}
+{{history||1.16.0|snap=beta 1.16.0.57|Added [[basalt deltas]].}}
+{{history||1.16.220|snap=beta 1.16.220.50|Added [[lofty peaks]], [[snow capped peaks]], [[snowy slopes]], [[mountain grove]] and [[mountain meadow]].}}
+{{history|||snap=release|New [[mountain]] biomes have been made inaccessible in the full release.}}
+{{history||1.17.0|snap=beta 1.17.0.50|Added [[dripstone caves]] and [[lush caves]] behind experimental gameplay toggle.}}
+{{history||1.18.30|snap=beta 1.18.30.28|Added [[deep dark]] behind experimental gameplay toggle.}}
+{{history||1.19.80|snap=Preview 1.19.80.20|Added the [[cherry grove]] biome.}}
+{{history||1.21.50|snap=Preview 1.21.50.20|Added the [[pale garden]] biome.}}
+{{history||1.21.60|snap=Preview 1.21.60.23|Updated many vegetation to [[Java Edition]].}}
+
+{{history|console}}
+{{history||xbox=TU1|Added true biomes; they were rain forest, seasonal forest, forest, shrubland, taiga, tundra, savanna, plains, swampland, desert.}}
+{{history||xbox=TU5|xbone=CU1|ps=1.00|wiiu=Patch 1|switch=1.0.1|Added swampland, ice plains, extreme hills and ocean biomes.
+|Removed rain forest, seasonal forest, savanna, shrubland and taiga.}}
+{{history||xbox=TU7|xbone=CU1|ps=1.00|Re-added tundra (as ice plains) and added Mushroom Islands.}}
+{{history||xbox=TU9|xbone=CU1|ps=1.00|Re-added beaches and snow in taigas, added hills.
+|Smoothed color transitions between biomes – swampland grass, foliage and water smoothly transition into other biomes.}}
+{{history||xbox=TU12|xbone=CU1|ps=1.00|Added jungle biome.}}
+{{history||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|Added mesa, mega taiga, roofed forest, birch forest, forest, savanna, extreme hills+, deep ocean, snowless taiga and 20 technical biomes.}}
+{{history||xbox=TU69|xbone=none|ps=1.76|wiiu=Patch 38|switch=none|Added warm, lukewarm, and cold oceans, as well as deep ocean variants for lukewarm, cold, and frozen oceans. Frozen oceans now generate naturally again.}}
+{{history||xbox=none|ps=1.91|wiiu=none|Added bamboo jungles.}}
+
+{{history|new3ds}}
+{{history||0.1.0|Added biomes including, but not limited to: jungles, savannas, rivers, and the [[Nether]].{{info needed}}}}
+{{history||1.7.10|Added [[End]] biome.}}
+{{history|foot}}
+
+===April Fools biomes===
+{{history|java}}
+{{history||20w14∞|Added [[Java_Edition_20w14∞#World_generation|<code>_generated:id</code>]], [[between]], [[Biome For Player With No Time For Nonsense|biome for player with no time for nonsense]], and [[shapes]] biomes}}
+{{history||23w13a or b|Added [[the Moon (biome)|the Moon]] biome.}}
+{{history|foot}}
+
+<gallery>
+Biomes Example.png|An old image of biomes work-in-progress, you can clearly see that biome grass colors have not been implemented at this point. 
+NotchBiomeGraph.png|The biomes graph prior to Java Edition Beta 1.8, drawn by [[Markus Persson]]. Notice the chicken scratch handwriting, as Notch was working quick to try to get the biomes added by the [[Halloween Update]] (Beta 1.2).
+BiomesGraph.png|The old biomes graph with linear axes that was applied before Java Edition Beta 1.8.
+Deep Oceans Overview.png|A biome map tweeted by Notch.
+Jeb Biomes 1.jpg|A biome map tweeted by Jeb.
+Jeb Biomes 2.jpg|A biome map tweeted by Jeb.
+NotchRiver.jpg|[[Notch]] took this screenshot while testing a revamped [[river]] biome.
+RedwoodBiome.jpg|The first image of a giant tree taiga, as tweeted by [[Jeb]].
+Ridgebiome.jpg|This is the first picture provided of the [[badlands]] biome (then called mesa).
+CliffBiome.jpg|The first image of a [[stony shore]] (then called cliff) biome, provided by Jeb.
+Jungle teaser screen.png|Jeb's first image of the [[jungle]] biome.
+JebJungle.jpg|Jeb's second jungle teaser screenshot.
+Biomes.png|Biome colors template for Java Edition 1.7 and 1.8.
+</gallery>
+
+==Issues==
+{{issue list}}
+
+== Trivia==
+*The term ''biome'' is analogous to its scientific usage: in real life, a biome is climatically and geographically defined by distinctive communities of plants, animals and soil organisms supported by similar climatic conditions. They are often referred to as {{w|ecosystem}}s.<ref>"[[Wikipedia:Biome|Biome]]" on Wikipedia</ref><ref>"[http://dictionary.com/browse/biome biome]" on Dictionary.com</ref>
+*Most biomes in the Overworld are based on real world counterparts. Dark forests or swamps parallel real world biomes except for the addition of giant mushrooms, which don't exist in reality. Biomes in the Nether and the End don't exist either.
+*It is possible for biomes to be a single block in size.<ref>{{bug|MC-69731||Random 1 block biome generating|WF}}</ref>
+
+==Gallery==
+===Screenshots===
+<gallery mode="nolines" widths="280" heights="200">
+Grass colors.png|The five general shades of green for grass blocks and leaves, clockwise from top right: aquamarine (cold, oceanic and birch forest), brown (for badlands, which is a rare dry biome), olive (dry), green (temperate), and blue-grey (snowy).
+Flower Forest Overview.png|An above view of a [[flower forest]] biome.
+Roofed forest.png|A dark forest bordering onto a [[lake]].
+RoofedForestMountains.jpg|A [[dark forest]] biome. The stone variants [[granite]], [[diorite]] and [[andesite]] can also be seen in the cliff.
+Snowy taiga.png|A large snowy [[taiga]] biome, with a beach off to the side.
+MushroomBiome.png|A mountainous [[mushroom island]].
+ExtremeHillsM.png|A variant of [[windswept hills]], where large swaths of [[gravel]] generate.
+Old Frozen Ocean.png|A frozen [[ocean]] biome, with fog obscuring the distance.
+Minecraft River.png|A large river separating a [[desert]] and a [[forest]].
+Sand in mesa biome.png|A badlands biome as seen from the ground.
+Mesa.png|A badlands biome with a small lake nearby. A wooded variant can be seen in the upper corner.
+Miscoloured-Jungle.png|A small area of a jungle with desert biome coloring data.
+Mine craft light.png|A desert with a jungle right beside it.
+Big Island.png|A relatively large island.
+OceanSwamp.jpg| A [[swamp]] generated in the middle of an ocean, causing miscolored [[water]] and [[lily pad]]s without any actual swampland.
+Mushroom Biome on the mainland.png|A rare occurrence of a mushroom fields biome touching the mainland.
+Not Mushroom Island.png|A section of a mushroom island that is a different biome.
+Seed 35267400 ice spikes.png|A rare biome transition of a colder biome touching a warmer biome (e.g. badlands and ice spikes).
+MesaJungle.jpg|A badlands and jungle biome generated together. Note the exposed mineshaft in the lower right.
+BiomesExample.png|A [[river]] runs through a flower forest, a [[sunflower plains]], a jungle and a sparse jungle biome.
+DoubleRiver.png|A river that splits off into two rivers.
+ExtremeHillsComparison.png|Two windswept hills variants. On the left is a normal windswept hills biome. On the right is windswept forest.
+MegaTaigaVsMegaSpruce.png|Comparison of old growth pine taiga and old growth spruce taiga biomes. Note how the giant spruce [[tree]]s are much thicker.
+Mesa Cave.png|A [[cave]] in a badlands biome.
+River in 1.16.png|A river biome in [[Java Edition 1.16]], with visible [[seagrass]] in it.
+Odd roofed forest.png|A dark forest that is cut off by [[water]].
+Roofed swamp.png|A swamp and dark forest connecting.
+Dripstone Caves.png|The [[Dripstone Caves]] biome.
+Biome replacement.png|When 1.7 update was released, old worlds were completely rewritten.
+JungleandBadlands.png|Jungle and Badlands biome generated next to each other.
+3biomesvillage.png|Village reaching into 3 biomes (Jungle, Desert and Plains).
+Massive lake system.png|Two large lakes in a plains biome, near a forest biome and a dark forest biome.
+Interesting biome blending.png|When savanna meets the snow.
+Basalt columns with many variations.png|With varying terrain, [[Basalt Deltas|basalt deltas]] biomes can be hard to navigate.
+Rare division.png|A badlands biome and an ice spikes biome generated next to each other.
+Biome Connection 1.png|Biomes connecting in a weird way. (Left to right) Mangrove Swamp, Jungle, Forest
+Biome Connection 2.png|Biomes connecting in a weird way.
+1.19 panorama.png|Showcase of 1.19 world generation.
+Villager View.png|A forest next to a lukewarm ocean.
+BiomeConnection.png|Mushroom Fields and Old Growth Taiga biomes connected together.
+Shroom Beach.png|A mushroom biome connected to a forest biome.
+Hot and Cold.png|A jungle between an ice spikes biome and a taiga.
+</gallery>
+
+==== Sunrises and sunsets====
+<gallery mode="nolines" widths="280" heights="200">
+Jungle at dawn.png|A picture of a [[jungle]] taken at dawn.
+JungleSunset.png|A jungle sunset.
+Redwood Sunset.png|The sun setting in a old growth pine [[taiga]].
+DesertView.png|A [[desert]] sunrise.
+</gallery>
+
+==See also==
+*[[Biome JSON format]]
+*[[Overworld]]
+*[[Structure]]s
+*[[Terrain Features]]
+*[[Weather]]
+*[[Large Biomes]]
+*[[Amplified]]
+
+==References==
+{{reflist}}
+
+{{Biomes}}
+{{Environment}}
+
+[[Category:Biomes| ]]
+
+[[cs:Biom]]
+[[de:Biom]]
+[[es:Bioma]]
+[[fr:Biome]]
+[[hu:Biom]]
+[[it:Bioma]]
+[[ja:バイオーム]]
+[[ko:생물 군계]]
+[[nl:Klimaat]]
+[[pl:Biom]]
+[[pt:Bioma]]
+[[ru:Биом]]
+[[th:ไบโอม]]
+[[uk:Біом]]
+[[zh:生物群系]]

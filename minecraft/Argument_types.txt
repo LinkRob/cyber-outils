@@ -1,0 +1,841 @@
+This page contains a list of all '''command argument types'''.
+{{TOC|right}}
+
+== ''Java Edition'' ==
+<!-- Note: This list's framework is generated with a Java application that dumps all argument types from the game. The headers and the official examples should be automated and User:Liachmodded will try to publish the software he used to generate this soon. -->
+=== brigadier:bool ===
+{{Arg desc|je=bool}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|true}}
+* {{cd|false}}
+</div></div>
+{{anchor|double}}
+=== brigadier:double ===
+{{Arg desc|je=double}}
+
+Each double argument may have a custom minimum and maximum value.
+
+Precision varies throughout number line; the maximum absolute value is about 1.8*10<sup>308</sup>.
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|0}}
+* {{cd|1.2}}
+* {{cd|.5}}
+* {{cd|-1}}
+* {{cd|-.5}}
+* {{cd|-1234.56}}
+</div></div>
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+JSON properties in command syntax output
+<div class="collapsible-content treeview">
+* {{nbt|compound|properties}}: The root properties object.
+** {{nbt|double|max}}: The maximum value of this double argument.
+** {{nbt|double|min}}: The minimum value of this double argument.
+</div></div>
+=== brigadier:float ===
+{{Arg desc|je=float}}
+
+Each float argument type may have a custom minimum and maximum value.
+
+Precision varies throughout number line; the maximum absolute value is about 3.4*10<sup>38</sup>.
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|0}}
+* {{cd|1.2}}
+* {{cd|.5}}
+* {{cd|-1}}
+* {{cd|-.5}}
+* {{cd|-1234.56}}
+</div></div>
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+JSON properties in command syntax output
+<div class="collapsible-content treeview">
+* {{nbt|compound|properties}}: The root properties object.
+** {{nbt|float|max}}: The maximum value of this float argument.
+** {{nbt|float|min}}: The minimum value of this float argument.
+</div></div>
+{{anchor|integer}}
+=== brigadier:integer ===
+{{Arg desc|je=integer}}
+
+Each integer argument type may have a custom minimum and maximum value.
+
+Maximum range is from −(2<sup>31</sup>) to (2<sup>31</sup> − 1), or from (−2,147,483,648) to (2,147,483,647).
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|0}}
+* {{cd|123}}
+* {{cd|-123}}
+</div></div>
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+JSON properties in command syntax output
+<div class="collapsible-content treeview">
+* {{nbt|compound|properties}}: The root properties object.
+** {{nbt|int|max}}: The maximum value of this integer argument.
+** {{nbt|int|min}}: The minimum value of this integer argument.
+</div></div>
+{{anchor|long}}
+
+=== brigadier:long ===
+{{Arg desc|je=long}}
+
+Note: Although a long argument type is present in [[brigadier]], it is not used by ''Minecraft''.
+
+Each long argument type may have a custom minimum and maximum value.
+
+Maximum range is from &minus;(2<sup>63</sup>) to (2<sup>63</sup>&minus;1), or from (&minus;9,223,372,036,854,775,808) to (9,223,372,036,854,775,807).
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|0}}
+* {{cd|123}}
+* {{cd|-123}}
+</div></div>
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+JSON properties in command syntax output
+<div class="collapsible-content treeview">
+* {{nbt|compound|properties}}: The root properties object.
+** {{nbt|long|max}}: The maximum value of this long argument.
+** {{nbt|long|min}}: The minimum value of this long argument.
+</div></div>
+{{anchor|string}}
+=== brigadier:string ===
+{{Arg desc|je=string}}
+
+Each string argument type can accept either a single word (no spaces), a quotable phrase (either single word or quoted string), or a greedy phrase (taking the rest of the command as the string argument).
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+Single word
+* {{cd|word}}
+* {{cd|word_with_underscores}}
+Quotable phrase
+* {{cd|"quoted phrase"}}
+* {{cd|word}}
+* {{cd|""}}
+Greedy phrase
+* {{cd|word}}
+* {{cd|words with spaces}}
+* {{cd|"and symbols"}}
+</div></div>
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+JSON properties in command syntax output
+<div class="collapsible-content treeview">
+* {{nbt|compound|properties}}: The root properties object.
+** {{nbt|string|type}}: The type of this string argument. Can be {{cd|word}}, {{cd|phrase}}, or {{cd|greedy}}
+</div></div>
+{{anchor|angle}}
+=== minecraft:angle ===
+{{Arg desc|je=angle}}
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|0}}
+* {{cd|~}}
+* {{cd|~-0.5}}
+</div></div>
+{{anchor|block_pos}}
+=== minecraft:block_pos ===
+{{Arg desc|je=block_pos}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|0 0 0}}
+* {{cd|~ ~ ~}}
+* {{cd|^ ^ ^}}
+* {{cd|^1 ^ ^-5}}
+* {{cd|~0.5 ~1 ~-5}}
+</div></div>
+{{anchor|block_predicate}}
+=== minecraft:block_predicate ===
+<!--{{Arg desc|je=block_predicate}}-->
+
+The format of block_predicate parameters is <code>''block_id''[''block_states'']{''data_tags''}</code>, in which block states and data tags can be omitted when they are not needed.
+* <code>block_id</code> is required, and it should be in the format of [[resource location]](if namespace isn't set it defaults to <code>minecraft:</code>).
+** It can also be the resource location of a [[Tags|block tag]] prefixed with <code>#</code>, such as <code>#minecraft:planks</code>.
+* [[Block state]]s are inside <code>[]</code>, comma-separated and must be properties/values supported by the blocks. They are optional.
+** <code>minecraft:stone[doesntexist=purpleberry]</code> is unparseable, because <code>stone</code> doesn't have <code>doesntexist</code>.
+** <code>minecraft:redstone_wire[power=tuesday]</code> is unparseable, because <code>redstone_wire</code>'s <code>power</code> is a number between 0 and 15.
+* [[NBT format|Data tags]] are inside <code>{}</code>. It's optional.
+* When test for block, only the states provided are tested.
+** If command tests <code>redstone_wire[power=15]</code>, it checks only power, but ignores other states such as <code>north</code>.
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|stone}}
+* {{cd|minecraft:stone}}
+* <code>stone[foo=bar]</code>
+* {{cd|#stone}}
+* <code>#stone[foo=bar]{baz:nbt}</code>
+</div></div>
+{{anchor|block_state}}
+=== minecraft:block_state ===
+<!--{{Arg desc|je=block_state}}-->
+
+The format of block_state parameters is <code>''block_id''[''block_states'']{''data_tags''}</code>, in which block states and data tags can be omitted when they are not needed.
+* <code>block_id</code> is required, and it should be in the format of [[resource location]] (if namespace isn't set it defaults to <code>minecraft:</code>).
+* [[Block state]]s are inside <code>[]</code>, comma-separated and must be properties/values supported by the blocks. They are optional.
+** <code>minecraft:stone[doesntexist=purpleberry]</code> is unparseable, because <code>stone</code> doesn't have <code>doesntexist</code>.
+** <code>minecraft:redstone_wire[power=tuesday]</code> is unparseable, because <code>redstone_wire</code>'s <code>power</code> is a number between 0 and 15.
+* [[NBT format|Data tags]] are inside <code>{}</code>. It's optional.
+* When placing blocks, any states provided are set, but anything omitted retain their default values, depending on the block type.
+** If command sets <code>redstone_wire[power=15]</code>, it is set <code>power</code> to 15, but <code>north</code> is a default value (in this case, set to <code>none</code>).
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|stone}}
+* {{cd|minecraft:stone}}
+* <code>stone[foo=bar]</code>
+* <code>foo{bar:baz}</code>
+</div></div>
+{{anchor|color}}
+=== minecraft:color ===
+{{Arg desc|je=color}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|red}}
+* {{cd|green}}
+</div></div>
+{{anchor|column_pos}}
+=== minecraft:column_pos ===
+{{Arg desc|je=column_pos}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|0 0}}
+* {{cd|~ ~}}
+* {{cd|~1 ~-2}}
+</div></div>
+{{anchor|component}}
+
+=== minecraft:component ===
+{{Arg desc|je=component}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|"hello world"}}
+* {{cd|""}}
+* {{cd|{"text":"hello world"} }}
+* {{cd|[""]}}
+</div></div>
+{{anchor|dimension}}
+=== minecraft:dimension ===
+{{Arg desc|je=dimension}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|minecraft:overworld}}
+* {{cd|minecraft:the_nether}}
+</div></div>
+{{anchor|entity}}
+=== minecraft:entity ===
+{{Arg desc|je=entity}}
+
+Each entity argument may place limits on the number of entities (single/multiple) selected or the type of entities (player/any entity) selected.
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|Player}}
+* {{cd|0123}}
+* {{cd|@e}}
+* <code>@e[type=foo]</code>
+* {{cd|dd12be42-52a9-4a91-a8a1-11c01849e498}}
+</div></div>
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+JSON properties in command syntax output
+<div class="collapsible-content treeview">
+* {{nbt|compound|properties}}: The root properties object.
+** {{nbt|string|amount}}: The amount of entities that can be selected. Can be {{cd|single}} or {{cd|multiple}}.
+** {{nbt|string|type}}: The target entity type. Can be {{cd|players}} or {{cd|entities}}. 
+</div></div>
+{{anchor|entity_anchor}}
+=== minecraft:entity_anchor ===
+{{Arg desc|je=entity_anchor}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|eyes}}
+* {{cd|feet}}
+</div></div>
+{{anchor|float_range}}
+=== minecraft:float_range ===
+{{Arg desc|je=float_range}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|0..5.2}}
+* {{cd|0}}
+* {{cd|-5.4}}
+* {{cd|-100.76..}}
+* {{cd|..100}}
+</div></div>
+{{anchor|function}}
+=== minecraft:function ===
+{{Arg desc|je=function}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|foo}}
+* {{cd|foo:bar}}
+* {{cd|#foo}}
+</div></div>
+{{anchor|game_profile}}
+=== minecraft:game_profile ===
+{{Arg desc|je=game_profile}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|Player}}
+* {{cd|0123}}
+* {{cd|dd12be42-52a9-4a91-a8a1-11c01849e498}}
+* {{cd|@e}}
+</div></div>
+{{anchor|gamemode}}
+=== minecraft:gamemode ===
+{{Arg desc|je=gamemode}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|survival}}
+* {{cd|creative}}
+</div></div>
+{{anchor|heightmap}}
+=== minecraft:heightmap===
+{{Arg desc|je=heightmap}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|world_surface}}
+* {{cd|ocean_floor}}
+</div></div>
+{{anchor|int_range}}
+=== minecraft:int_range ===
+{{Arg desc|je=int_range}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|0..5}}
+* {{cd|0}}
+* {{cd|-5}}
+* {{cd|-100..}}
+* {{cd|..100}}
+</div></div>
+{{anchor|item_predicate}}
+=== minecraft:item_predicate ===
+
+The format of item_predicate parameters is <code>''item_id''{''data_tags''}</code>, in which data tags can be omitted when not needed.
+* <code>item_id</code> is required, and it should be in the format of [[resource location]] (if namespace isn't set it defaults to <code>minecraft:</code>).
+** It can also be the resource location of a [[Tags|block tag or item tag]] with the prefix of <code>#</code>, such as <code>#minecraft:planks</code>.
+* [[#Data tags|Data tags]] are inside <code>{}</code>. It's optional.
+** When clear or test for item, only the states provided are tested.
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|stick}}
+* {{cd|minecraft:stick}}
+* {{cd|#stick}}
+* <code>#stick{foo:bar}</code>
+</div></div>
+{{anchor|item_slot}}
+=== minecraft:item_slot ===
+{{Arg desc|je=item_slot}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|container.5}}
+* {{cd|12}}{{sic}}
+* {{cd|weapon}}
+</div></div>
+{{anchor|item_stack}}
+
+=== minecraft:item_stack ===
+The format of item_stack parameters is <code>''item_id''{''data_tags''}</code>, in which data tags can be omitted when not needed.
+* <code>item_id</code> is required, and it should be in the format of [[resource location]] (if namespace isn't set it defaults to <code>minecraft:</code>).
+* [[#Data tags|Data tags]] are inside <code>{}</code>. It's optional.
+* When giving items, any states provided are set, but anything omitted retain their default values, depending on the item type.
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|stick}}
+* {{cd|minecraft:stick}}
+* <code>stick{foo:bar}</code>
+</div></div>
+{{anchor|message}}
+=== minecraft:message ===
+{{Arg desc|je=message}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|Hello world!}}
+* {{cd|foo}}
+* {{cd|@e}}
+* {{cd|Hello @p :)}}
+</div></div>
+{{anchor|nbt_compound_tag}}
+=== minecraft:nbt_compound_tag ===
+{{Arg desc|je=nbt_compound_tag}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* <code>{}</code>
+* <code>{foo:bar}</code>
+</div></div>
+{{anchor|nbt_path}}
+=== minecraft:nbt_path ===
+{{Arg desc|je=nbt_path}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+An example
+<div class="collapsible-content">
+{{cd|foo.bar[0]."A [crazy name]".baz.}}
+<div class="treeview">
+* {{cd|foo}}
+** {{cd|bar}}
+*** ''<the first list element>''
+**** {{cd|A [crazy name]}}
+***** '''{{cd|baz}}'''
+*** ''<the second list element>''
+</div></div></div>
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|foo}}
+* {{cd|foo.bar}}
+* {{cd|foo[0]}}
+* {{cd|[0]}}
+* <code>[]</code>
+* <code>{foo:bar}</code>
+</div></div>
+{{anchor|nbt_tag}}
+=== minecraft:nbt_tag ===
+{{Arg desc|je=nbt_tag}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|0}}
+* {{cd|0b}}
+* {{cd|0l}}
+* {{cd|0.0}}
+* {{cd|"foo"}}
+* <code>{foo:bar}</code>
+</div></div>
+{{anchor|objective}}
+=== minecraft:objective ===
+{{Arg desc|je=objective}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|foo}}
+* {{cd|*}}
+* {{cd|012}}
+</div></div>
+{{anchor|objective_criteria}}
+=== minecraft:objective_criteria ===
+{{Arg desc|je=objective_criteria}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|foo}}
+* {{cd|foo.bar.baz}}
+* {{cd|minecraft:foo}}
+</div></div>
+{{anchor|operation}}
+=== minecraft:operation ===
+{{Arg desc|je=operation}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* <code>=</code>
+* {{cd|>}}
+* {{cd|<}}
+</div></div>
+{{anchor|particle}}
+=== minecraft:particle ===
+{{Arg desc|je=particle}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|foo}}
+* {{cd|foo:bar}}
+* {{cd|particle with options}}
+</div></div>
+{{anchor|resource}}
+=== minecraft:resource ===
+{{Arg desc|je=resource}}
+ 
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|foo}}
+* {{cd|foo:bar}}
+* {{cd|012}}
+</div></div>
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+JSON properties in command syntax output
+<div class="collapsible-content treeview">
+* {{nbt|compound|properties}}: The root properties object.
+** {{nbt|string|registry}}: The registry ID. 
+</div></div>
+{{anchor|resource_key}}
+=== minecraft:resource_key ===
+{{Arg desc|je=resource_key}}
+ 
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|foo}}
+* {{cd|foo:bar}}
+* {{cd|012}}
+</div></div>
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+JSON properties in command syntax output
+<div class="collapsible-content treeview">
+* {{nbt|compound|properties}}: The root properties object.
+** {{nbt|string|registry}}: The registry ID. 
+</div></div>
+{{anchor|resource_location}}
+=== minecraft:resource_location ===
+{{Arg desc|je=resource_location}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|foo}}
+* {{cd|foo:bar}}
+* {{cd|012}}
+</div></div>
+{{anchor|resource_or_tag}}
+=== minecraft:resource_or_tag ===
+{{Arg desc|je=resource_or_tag}}
+ 
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|foo}}
+* {{cd|foo:bar}}
+* {{cd|012}}
+* {{cd|#skeletons}}
+* {{cd|#minecraft:skeletons}}
+</div></div>
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+JSON properties in command syntax output
+<div class="collapsible-content treeview">
+* {{nbt|compound|properties}}: The root properties object.
+** {{nbt|string|registry}}: The registry ID. 
+</div></div>
+{{anchor|resource_or_tag_key}}
+=== minecraft:resource_or_tag_key ===
+{{Arg desc|je=resource_or_tag_key}}
+ 
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|foo}}
+* {{cd|foo:bar}}
+* {{cd|012}}
+* {{cd|#skeletons}}
+* {{cd|#minecraft:skeletons}}
+</div></div>
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+JSON properties in command syntax output
+<div class="collapsible-content treeview">
+* {{nbt|compound|properties}}: The root properties object.
+** {{nbt|string|registry}}: The registry ID. 
+</div></div>
+{{anchor|rotation}}
+=== minecraft:rotation ===
+{{Arg desc|je=rotation}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|0 0}}
+* {{cd|~ ~}}
+* {{cd|~-5 ~5}}
+</div></div>
+{{anchor|score_holder}}
+=== minecraft:score_holder ===
+{{Arg desc|je=score_holder}}
+
+Each score holder argument may specify if it can select only one score holder or multiple score holders.
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|Player}}
+* {{cd|0123}}
+* {{cd|*}}
+* {{cd|@e}}
+</div></div>
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+JSON properties in command syntax output
+<div class="collapsible-content treeview">
+* {{nbt|compound|properties}}: The root properties object.
+** {{nbt|string|amount}}: The amount of score holders that can be selected. Can be {{cd|single}} or {{cd|multiple}}.
+</div></div>
+{{anchor|scoreboard_slot}}
+=== minecraft:scoreboard_slot ===
+{{Arg desc|je=scoreboard_slot}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|sidebar}}
+* {{cd|foo.bar}}
+</div></div>
+{{anchor|swizzle}}
+=== minecraft:swizzle ===
+{{Arg desc|je=swizzle}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|xyz}}
+* {{cd|x}}
+</div></div>
+{{anchor|team}}
+=== minecraft:team ===
+{{Arg desc|je=team}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|foo}}
+* {{cd|123}}
+</div></div>
+{{anchor|template_mirror}}
+=== minecraft:template_mirror ===
+{{Arg desc|je=template_mirror}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|none}}
+* {{cd|left_right}}
+</div></div>
+{{anchor|template_rotation}}
+=== minecraft:template_rotation ===
+{{Arg desc|je=template_rotation}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|none}}
+* {{cd|clockwise_90}}
+</div></div>
+{{anchor|time}}
+=== minecraft:time ===
+{{Arg desc|je=time}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|0d}}
+* {{cd|0s}}
+* {{cd|0t}}
+* {{cd|0}}
+</div></div>
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+JSON properties in command syntax output
+<div class="collapsible-content treeview">
+* {{nbt|compound|properties}}: The root properties object.
+** {{nbt|int|min}}: The minimum time in game ticks.
+</div></div>
+{{anchor|uuid}}
+
+=== minecraft:uuid ===
+{{Arg desc|je=uuid}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|dd12be42-52a9-4a91-a8a1-11c01849e498}}
+</div></div>
+{{anchor|vec2}}
+=== minecraft:vec2 ===
+{{Arg desc|je=vec2}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|0 0}}
+* {{cd|~ ~}}
+* {{cd|0.1 -0.5}}
+* {{cd|~1 ~-2}}
+</div></div>
+{{anchor|vec3}}
+=== minecraft:vec3 ===
+{{Arg desc|je=vec3}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|0 0 0}}
+* {{cd|~ ~ ~}}
+* {{cd|^ ^ ^}}
+* {{cd|^1 ^ ^-5}}
+* {{cd|0.1 -0.5 .9}}
+* {{cd|~0.5 ~1 ~-5}}
+</div></div>
+
+=== Removed ===
+{{anchor|entity_summon}}
+==== minecraft:entity_summon ====
+{{Arg desc|je=entity_summon}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|minecraft:pig}}
+* {{cd|cow}}
+</div></div>
+{{anchor|item_enchantment}}
+==== minecraft:item_enchantment ====
+{{Arg desc|je=item_enchantment}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|unbreaking}}
+* {{cd|silk_touch}}
+</div></div>
+{{anchor|mob_effect}}
+==== minecraft:mob_effect ====
+{{Arg desc|je=mob_effect}}
+
+<div class="collapsible collapsed collapsetoggle-inline" data-expandtext="show" data-collapsetext="hide">
+Official examples
+<div class="collapsible-content">
+* {{cd|spooky}}
+* {{cd|effect}}
+</div></div>
+== Bedrock Edition ==
+<!-- Note: This list is from disassembly code of BDS. (CommandRegistry::parse<T>)-->
+{{update|section=1}}
+===BlockStateCommandParam===
+{{Arg desc|be=BlockStateCommandParam}}
+===CommandIntegerRange===
+{{Arg desc|be=CommandIntegerRange}}
+===CommandFilePath===
+{{Arg desc|be=CommandFilePath}}
+===CommandMessage===
+{{Arg desc|be=CommandMessage}}
+===CommandOperator===
+{{Arg desc|be=CommandOperator}}
+===CommandPosition===
+{{Arg desc|be=CommandPosition}}
+===CommandPositionFloat===
+{{Arg desc|be=CommandPositionFloat}}
+===CommandRawText===
+{{arg desc|be=rawtext}}
+
+===CommandSelector<Actor>===
+Represents entities. {{Arg desc|be=CommandSelector<Actor>}}
+===CommandSelector<Player>===
+Represents players. {{Arg desc|be=CommandSelector<Player>}}
+===CommandWildcardInt===
+Must be a 32-bit integer, or a asterisk ({{cd|*}}) to represent MIN_INT(-2,147,483,648),
+===float===
+{{Arg desc|be=float}}
+===int===
+{{Arg desc|be=int}}
+===Json::Value===
+{{Arg desc|be=Json::Value}}
+===RelativeFloat===
+Must be a {{nbt|float}} [[wikipedia:Single precision floating-point format|float]] or a [[Commands#Tilde and caret notation|tilde and caret notation]].
+{{anchor|basic_string}}
+===std::basic_string===
+{{Arg desc|be=basic_string}}
+===std::unique_ptr<Command>===
+Represents a complete command.
+===WildcardCommandSelector<Actor>===
+{{Arg desc|be=WildcardCommandSelector<Actor>}}
+{{anchor|enum}}
+===Enum===
+Must be an unquoted string without space.
+
+==History==
+
+{{History|java}}
+{{History||1.13|snap=17w45a|[[Command]] arguments are now handled with Brigadier.}}
+{{History||1.14|snap=19w08a|Now allows single quotes for strings in commands.<ref>{{Link|url=https://github.com/Mojang/brigadier/pull/52|title=Allow single quote in strings by boq · Pull Request #52 |website=Mojang/brigadier – GitHub}}</ref>}}
+{{History||1.16|snap=20w17a|Added <code>minecraft:uuid</code> argument type.}}
+{{History||1.16.2|snap=20w29a|Added angle arguments to {{cmd|spawnpoint}} and {{cmd|setworldspawn}}, with a argument type that is not registered.<ref name="MC-195052">{{Bug|MC-195052|resolution=Fixed}}</ref>}}
+{{History|||snap=20w30a|Added <code>minecraft:angle</code> argument type.
+|Now {{cmd|spawnpoint}} and {{cmd|setworldspawn}} use this argument type.<ref name="MC-195052"/>}}
+{{History|||snap=?|Now <code>minecraft:dimension</code> argument type checks whether the dimension exists during execution instead of parsing.}}
+{{History||1.17|snap=20w45a|Now <code>minecraft:angle</code> argument type does not accept NaN or Infinite.<ref>{{bug|MC-198414|resolution=Fixed}}</ref>}}
+{{History|||snap=21w10a|Now <code>minecraft:block_pos</code> arguments in {{cmd|spawnpoint}} and {{cmd|setworldspawn}} require <x> and <z> to be in the range of [-30000000, 30000000), and <y> to be in the range of [-20000000, 20000000) when executing.<ref>{{bug|MC-210408|resolution=Fixed}}</ref>}}
+{{History||1.18|snap=21w37a|Removed 16-character limit in <code>minecraft:objective</code> argument type.<ref>{{bug|MC-123277|resolution=Fixed}}</ref>}}
+{{History||1.18.2|snap=Pre-release 3|Added <code>minecraft:resource</code> and <code>minecraft:resource_or_tag</code> argument types.
+|Now <code>minecraft:resource_location</code> is used only for pack contents, while <code>minecraft:resource</code> is used for registry entries.}}
+{{History||1.19|snap=22w11a|Now <code>minecraft:item_predicate</code> and <code>minecraft:block_predicate</code> require tag to exist when parsing instead of executing.<ref>{{bug|MC-124984|resolution=Fixed}}</ref>}}
+{{History|||snap=22w19a|Added <code>minecraft:template_mirror</code> and <code>minecraft:template_rotation</code> argument types.}}
+{{History||1.19.3|snap=22w42a|Added <code>minecraft:resource_key</code> and <code>minecraft:resource_or_tag_key</code> argument types, which are used for reloadable registry entries (i.e. [[Resource location#Registered pack contents|registered pack contents]]).
+|Now <code>minecraft:resource</code> and <code>minecraft:resource_or_tag</code> are used only for un-reloadable registry entries.
+|Removed <code>minecraft:mob_effect</code>, <code>minecraft:entity_summon</code> and <code>minecraft:item_enchantment</code> argument types. Replaced by <code>minecraft:resource</code>.}}
+{{History|||snap=22w45a|Added <code>minecraft:gamemode</code> argument type.}}
+{{History||1.19.4|snap=23w03a|Added <code>min</code> property to <code>minecraft:time</code> argument type.<ref>{{bug|MC-122595|resolution=Fixed}}</ref>
+|The min value of <code>minecraft:time</code> is always 0 before this update.}}
+{{History|||snap=1.19.4-pre1|Added <code>minecraft:heightmap</code> argument type.}}
+{{History|foot}}
+
+== References ==
+<references/>
+{{Commands}}
+[[Category:Commands]]
+
+[[es:Tipos de argumento]]
+[[ja:引数の型]]
+[[pt:Tipos de argumento]]
+[[zh:参数类型]]

@@ -1,0 +1,16 @@
+<div class="treeview">
+*{{nbt|compound}} Block entity data
+** {{nbt inherit/blockentity}}
+** {{nbt|list|Bees}}: Entities currently in the hive.
+*** {{nbt|compound}} An entity in the hive.
+**** {{nbt|compound|EntityData}}: The NBT data of the entity in the hive.
+***** See [[Chunk format#Entity format|entity format]].
+**** {{nbt|int|MinOccupationTicks}}: The minimum amount of time in ticks for this entity to stay in the {{{1|hive}}}.
+**** {{nbt|int|TicksInHive}}: The amount of ticks the entity has stayed in the {{{1|hive}}}.
+**{{nbt|compound|FlowerPos}}: Stores the location of a flower, so other bees can go to it.
+***{{nbt|int|X}}: X coordinate of the flower.
+*** {{nbt|int|Y}}: Y coordinate of the flower.
+*** {{nbt|int|Z}}: Z coordinate of the flower.
+</div><noinclude>
+[[Category:Block entity pages]]
+</noinclude>

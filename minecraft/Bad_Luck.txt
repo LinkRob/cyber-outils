@@ -1,0 +1,47 @@
+{{for|the effect that causes raids|Bad Omen}}
+{{exclusive|java}}
+{{Effect
+|title={{EffectSprite|Bad Luck}} Bad Luck
+|image=Bad Luck.png
+|sources=See [[#Causes]]
+|particle= {{EffectSprite|particle-unluck}} #C0A44D (khaki)
+|type=Negative
+}}
+
+'''Bad Luck,''' also known as '''Unluck''', is a [[status effect]] that decreases the chance of the player getting high-quality loot, contrary to {{EffectLink|Luck}}.
+
+== Effect ==
+Bad Luck subtracts the effect level from the [[attribute]] <code>generic.luck</code>, making [[loot table]] entries with a high <code>quality</code> score less likely, and entries with negative <code>quality</code> more likely. It also makes the chance of <code>bonus_rolls</code> occurring less likely. [[Fishing]] is the only mechanism that uses <code>quality</code>. The new weight of each entry is <code>floor(base_weight + quality × generic.luck)</code>. Negative levels increase luck, similar to status effect [[Luck]].
+
+== Causes ==
+Bad Luck cannot be obtained except by the {{Code|Effect}} command.
+
+== Data values ==
+=== ID ===
+{{ID table
+|shownumericids=1
+|generatetranslationkeys=java
+|nameid=unluck
+|displayname=Bad Luck
+|spritetype=effect
+|id=27
+|foot=1}}
+
+== History ==
+{{Missing information|section|[[Legacy Console Edition]]|type=old}}{{History|java}}
+{{History||1.9|snap=15w44b|[[File:Bad Luck JE1.png|18px]] Added Bad Luck.
+|The effect was initially purely experimental and was intended to be removed later (hence its unobtainability in survival), but was ultimately kept in the game due to usage by mapmakers.<ref>https://twitter.com/jeb_/status/808229202176737287</ref>}}
+{{History||1.14|snap=18w43a|[[File:Bad Luck JE2.png|18px]] The effect icon texture of Bad Luck has now been changed.}}
+{{History|||snap=19w08a|[[File:Bad Luck JE3.png|18px]] The effect icon texture of Bad Luck has now been changed, once again.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+{{Effects}}
+{{Unused Features}}
+
+[[ja:不運]]
+[[lzh:蹇]]
+[[pt:Má Sorte]]
+[[zh:霉运]]

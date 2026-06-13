@@ -1,0 +1,711 @@
+{{Block
+| image = White Bed (N).png
+| invimage = Yes
+| extratext = View [[#Gallery|all renders]]
+| transparent = Yes
+| tntres = 25
+| hardness = 4
+| light = No
+| tool = any
+| renewable = Yes
+| stackable = No
+| flammable = No
+| lavasusceptible = {{jebe|Yes|No}}
+}}
+A '''bed''' is a [[Dye|dyeable]] [[block]] that allows a player to sleep and to reset their [[spawn]] point to within a few blocks of the bed in the [[Overworld]]. If the bed is obstructed or removed, the player spawns at the default world spawning location.
+
+== Obtaining ==
+=== Natural generation ===
+;Igloo
+A red bed naturally generates in each [[igloo]].
+;Village
+Beds of various colors generate in [[village]] houses, depending on the specific structure and [[biome]]:
+* [[Desert]] village houses have cyan, green, or lime beds.
+* [[Plains]] village houses have white or yellow beds.
+* [[Savanna]] village houses have orange, red, or yellow beds.
+* [[Snowy taiga]]{{only|bedrock|short=1}} and [[taiga]] village houses have blue or purple beds.
+* [[Snowy tundra]] village houses have blue, red, or white beds.
+
+=== Breaking ===
+Beds can be mined with any [[tool]], or without a tool.<ref>{{bug|MC-192722||Beds have no assigned tool}}</ref>
+
+{{breaking row|horizontal=1|Bed|sprite=red-bed|any}}
+
+A bed also drops itself as an item when pushed by a [[piston]].
+
+=== Crafting ===
+{{Crafting
+ |head=1
+ |showname=0
+ |showdescription=1
+ |A2=Matching Wool
+ |B2=Matching Wool
+ |C2=Matching Wool
+ |A3=Any Planks
+ |B3=Any Planks
+ |C3=Any Planks
+ |Output= Matching Bed
+ |type=Decoration block
+ |description=The wool color must match. The planks can be different.
+}}
+<!--recipe removed
+{{Crafting
+ |showdescription=1
+ |White Bed
+ |Matching Colored Dye
+ |Output= Matching Dyed Bed
+ |type=Decoration block
+ |description=White beds can be re-dyed using dyes.{{only|java}}{{until|JE 1.20}}
+}}-->
+{{Crafting
+ |showdescription=1
+ |Any Bed
+ |Matching Dye
+ |Output= Matching Bed
+ |type=Decoration block
+ |description=A bed of any color can be re-dyed using dyes.
+}}
+{{Crafting
+ |showdescription=1
+ |Any Dyed Bed
+ |Bleach
+ |Output=White Bed
+ |type=Decoration block
+ |description=This removes the color from the bed.{{only|bedrock|education}}
+ |foot=1
+}}
+<div style="display:none">
+<!--
+    This is so the pre-Village & Pillage dyes can have dye-related crafting recipes show on their respective pages.
+    They don't need to be displayed on this page because they already intuitively list "Any Matching Dye".
+-->
+{{Crafting
+ |showdescription=1
+ |Any Bed
+ |Bone Meal; Lapis Lazuli; Cocoa Beans; Ink Sac
+ |Output=White Bed; Blue Bed; Brown Bed; Black Bed
+ |type=Decoration block
+ |description={{only|bedrock|education}}
+}}
+</div>
+
+=== Trading ===
+Journeyman-level shepherd villagers sell 1 of 16 beds for 3 [[emerald]]s as part of their trades.
+
+== Usage ==
+=== Sleeping ===
+[[File:Sleep Animation.gif|240px|thumb|Player falling asleep.]]
+
+Beds are used by pressing the {{control|use item}} button while looking at the bed.
+
+A player sleeps by {{control|using|using}} a bed during a [[thunderstorm]], or at [[night]] (between 12542 and 23459 ticks in clear weather, when stars appear in the sky, or between 12010 and 23991 ticks in rainy weather). Players can sleep during a thunderstorm even if they are in a biome where it does not rain (i.e. Desert). Attempting to use a bed at any other time results in the message "You can only sleep  at night or during thunderstorms". A player sleeps in a bed for 101 in-game [[tick]]s, or 5.05 seconds before the time skips to the next day. Sleeping in a bed with the {{cmd|gamerule doDaylightCycle}} set to <code>false</code> results in the player being kicked out of the bed after the 101 ticks, but does not change time of the world to day.
+
+Sleeping in a bed is possible only in the [[Overworld]]. Attempting to sleep in a bed in [[the Nether]], [[the End]], and [[custom dimension]]s in which they are disabled causes it to [[explosion|explode]] and set [[fire]] to surrounding blocks; unless {{cmd|gamerule respawnBlocksExplode}}{{only|bedrock}} is set to {{cd|false}}.<ref>{{bug|MCPE-28723||Exploding bed in the Nether!?|WAI}} This is referenced {{in|je}} when a player is killed by "Intentional Game Design". </ref> The explosion has power 5, which is stronger than [[TNT]] (4), but not as strong as a charged [[creeper]] or [[End Crystal|end crystal]] (6). The explosion centers on the head part of the bed. [[Villager]]s can sleep normally in any dimension without the bed being blown up.<ref>{{bug|MC-146515|||WAI}}</ref> Upon death from a bed explosion, the [[death messages|message]] "'''(Player) was killed by [Intentional Game Design]'''" appears.
+
+The player must be close to the bed to sleep. If the player is close enough to click on the bed, but not close enough to sleep in it, the message "You may not rest now, the bed is too far away"{{only|java|short=1}}/"Bed is too far away"{{only|bedrock|short=1}} appears. A player must be within 2 blocks of the bed {{in|JE}} or 3 blocks {{in|BE}} to use the bed.
+
+If a "monster" is within 8 blocks of the bed horizontally (in the X- and Z-axis), and 5 blocks vertically (in the Y-axis), the message "You may not rest now, there are monsters nearby" appears and the player is prevented from sleeping until the monsters leave or are killed. Most hostile mobs, as well as some neutral mobs prevent players from sleeping, as shown in the table below.
+
+{| class="wikitable mw-collapsible"
+!Mob
+!Prevent the player from sleeping&nbsp;
+|-
+|{{EntityLink|Blaze}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Chicken Jockey}}
+|{{Tc|partial|when hostile{{Only|Java|short=1}}/Yes{{Only|Bedrock|short=1}}}}
+|-
+|{{EntityLink|Creeper}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Drowned}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Endermite}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Enderman}}
+|{{Tc|partial|when hostile}}
+|-
+|{{EntityLink|Ender Dragon}}
+|{{Tc|no}}
+|-
+|{{EntityLink|Evoker}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Ghast}}
+|{{Tc|no}}
+|-
+|{{EntityLink|Giant}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Guardian}}, {{EntityLink|Elder Guardian}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Hoglin}}
+|{{Tc|no}}
+|-
+|{{EntityLink|Illusioner}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Killer Bunny}}
+|{{Tc|no}}
+|-
+|{{EntityLink|Magma Cube}}
+|{{Tc|partial|no{{Only|Java|short=1}}/Yes{{Only|Bedrock|short=1}}}}
+|-
+|{{EntityLink|Piglin}}
+|{{Tc|no}}
+|-
+|{{EntityLink|Piglin Brute}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Pillager}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Phantom}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Ravager}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Shulker}}
+|{{Tc|no}}
+|-
+|{{EntityLink|Silverfish}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Skeleton}}, {{EntityLink|Skeleton Horseman}}, {{EntityLink|Stray}}, {{EntityLink|Wither Skeleton}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Spider}}, {{EntityLink|Cave Spider}}, {{EntityLink|Spider Jockey}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Slime}}
+|{{Tc|partial|no{{Only|Java|short=1}}/Yes{{Only|Bedrock|short=1}}}}
+|-
+|{{EntityLink|Vex}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Vindicator}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Warden}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Witch}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Wither}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Zoglin}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Zombie}}, {{EntityLink|Zombie Villager}}, {{EntityLink|Husk}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Zombified Piglin}}
+|{{Tc|partial|when hostile{{Only|Java|short=1}}/Yes{{Only|Bedrock|short=1}}}}
+|-
+|}
+{{notelist}}
+If the player has not entered a bed and didn't die for 3 in-game days, [[phantom]]s can spawn unless {{cmd|gamerule doInsomnia}} is set to {{cd|false}}. {{in|java}}, this can be verified by checking if the "Time Since Last Rest" [[statistic]] is greater than 1.00 h.
+
+A hostile mob can wake a player that is sleeping.
+
+The player also cannot sleep in a bed occupied by another player, resulting in the message, "This bed is occupied".
+
+A player can, however, sleep in a bed being used by a villager. The player may first wake the villager (pressing {{control|use}} on the villager) and then quickly enter the bed before the villager can lie down again. The villager reclaims the bed after the player wakes. The villager is kicked out of its bed when a player attempts to sleep there.
+
+A player also cannot sleep while on fire, while poisoned, or while starving.
+
+If all sleeping requirements are met and the player enters a bed, the player is positioned in the bed. The player falls asleep as the screen fades to black. {{IN|bedrock}}, the sleeping animation slowly lowers the player into bed.
+
+Once all players in a world are asleep, after 5 seconds (100 ticks) the time of day changes to sunrise. (time 0)
+
+During this time, the chat window is focused, and the player can leave the bed by clicking the {{btn|Leave Bed}} button.
+
+[[Waterlogging|Waterlogged]] beds{{only|bedrock}} cannot be slept in unless the player or villager has the {{EffectLink|Water Breathing}} or {{EffectLink|Conduit Power}} status effects. Attempting to use a waterlogged bed otherwise does not display any message.<ref>{{bug|MCPE-35802}}</ref>
+
+Beds displaying an error above the hotbar is a feature exclusive to beds; other blocks that cannot be used do not display such a message.<ref>{{bug|MC-160479}} resolved as "Works As Intended"</ref>
+
+If there are two or more blocks of space above the bed, then the player can wake up on the bed. If there is less than two blocks above the bed and there is room on the side, then the player wakes up on the side of the bed. If there is no space on the side of the bed and there is less than two blocks above the bed, then the player still wakes up on top of the bed, but suffocates if it's a solid block. 
+
+Villagers always wake up on top of the bed, meaning they can suffocate if there isn't enough room above the bed.
+
+====Passing the night====
+Sleeping changes the [[daylight cycle|time of day]] to sunrise and resets the [[weather]] cycle, changing the weather to clear conditions. {{IN|JE}}, the weather cycle is only reset if it is currently raining or snowing. The player wakes up next to the bed, facing the bed.
+
+Sleeping does not accelerate processes that take place over time such as the growth of [[crops]] or [[smelting]]. If {{cmd|gamerule doDaylightCycle}} is <code>false</code>, the player instead wakes up in the night.
+
+To skip the night in multiplayer, all players in the [[Overworld]] must be in bed at the same time. Pressing the {{btn|Leave Bed}} button is not necessary in this case. The percentage of players that need to sleep to skip the night can be customized with the game rule {{cd|playersSleepingPercentage}}.
+
+Villagers do not trigger the sleeping percentage, unlike players.
+
+If the bed is destroyed while the player is in it, due to for example an explosion or by another player, the player wakes prematurely and the night does not pass.
+
+====Setting the spawn point====
+Once a player has entered a bed (or right clicked the bed during daytime), their spawn point is set to the location of that bed. {{IN|java}}, multiple players can set their spawn point on a single bed. {{IN|bedrock}}, the last player to use a specific bed is the only player who can respawn there, and players who had previously slept there respawn at the world spawn.
+
+{{ctrl|Using}} a bed in the daytime likewise sets the spawn point, without actually entering the bed. 
+
+When a bed explodes, it does not set the spawn point. 
+
+The message "Respawn point set" is displayed in chat when the respawn point is successfully changed.
+
+The check for a bed is made only when the player respawns. This means that the bed can be destroyed and replaced or even reoriented, but as long as there is a bed present in the same location, the player can respawn there. If a player's bed is absent, or if the area around the bed is made unsuitable for respawning (see below), a message is displayed saying ''You have no home bed or charged respawn anchor, or it was obstructed''{{only|je}}/''Your home bed was missing or obstructed''{{only|be}}, and the player respawns at the [[Spawn#World spawn|world spawn]] point. 
+
+When choosing where to respawn the player, the northwesternmost (lowest X- and Z-coordinates) location of the seven blocks adjacent to the head of the bed is chosen first. If this location is obstructed, the next choice is to its south (+Z), rather than the east (+X). Only when all seven locations around the head are obstructed are the three remaining ones adjacent to the foot then to be considered. 
+
+For a location to be unobstructed, the block at the level of the bed must be air or non-solid (e.g. torches, but not glass) and there must be a space with a solid block below it and two non-colliding blocks for the player to stand in 0-2 blocks below the bed. It does not matter if the bed itself has blocks above it. Putting a slab one block above a bed can act as a two block tall space, as the bed is half a block tall. The bed never spawns the player on or directly below itself even if all other locations are obstructed. If a bed is obstructed, the player's spawn point is cleared after they respawn. That is, even if the bed is subsequently made usable again, the player continues to respawn at the world spawn until interacting with the bed again. 
+
+Specifically, when interacting with it, the location of the ''head'' of the bed is saved as the spawn point, and if a bed is in that space (whether it is the foot or the head) then the respawn works. This can be observed by reorienting the bed with its head in the same location. Interacting with it does not produce a "Respawn point set" message as the game doesn't change the saved spawn point. If a bed is reoriented so that its foot is in this space, it still functions on the next respawn, but it can also be interacted with to update the spawn point to the new head of the bed and cause a "Respawn point set" message. Attempting the reverse, reorienting the bed so that it overlaps the original location of the foot, results in a respawn at world spawn. However, the location of the foot of the bed is also saved. If the bed is moved so that part of it overlaps the original location of the head, it can be observed that the same locations need to be obstructed to stop spawning. It is possible to respawn 2 blocks away from the bed this way.
+
+=== Bouncing===
+Falling onto a bed bounces the player with 66% strength – the bouncing-up velocity is 66% of the impact velocity. The player also takes 50% of normal fall damage.
+
+Baby villagers bounce on beds during the day.
+
+If the player is falling while sleeping requirements are met, and presses {{control|use}} on a bed within reach before hitting the ground, the fall damage is delayed until the player wakes.
+
+A player can bounce on a bed while another player or villager is sleeping on it without waking the player or the villager up.
+
+Villagers can be pushed onto beds, as the bed is half a block tall.
+
+=== Curing===
+Each bed in the vicinity of a zombie villager has a chance to speed up the [[Zombie_Villager#Curing|process of curing the zombie villager]]. Iron bars (such as in a prison cell) also have this effect.
+
+=== Placement===
+Beds require two blocks of floor space. Placement requires at least 2 blocks from the player's facing direction. When placed, the foot of the bed is placed on the block selected and the head of the bed on the block farther away from the player. {{IN|bedrock}}, beds require solid blocks below them when placed. However, the bed remains in place if its supporting blocks are later removed. {{IN|java}}, beds do not require supporting blocks and can be placed anywhere, provided there is enough room. 
+
+==Sounds ==
+===Generic===
+{{Sound table/Block/Wood}}
+
+===Unique===
+{{edition|java}}:
+{{Sound table
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|subtitle=Explosion
+|source=block
+|description=When a player attempts to sleep while not in the Overworld
+|id=entity.generic.explode
+|translationkey=subtitles.entity.generic.explode
+|volume=4.0
+|pitch=0.56-0.84
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|source=block
+|description=When a player attempts to sleep while not in the Overworld
+|id=random.explode
+|volume=4.0
+|pitch=1.0
+|foot=1}}
+
+==Data values==
+===ID===
+{{edition|java}}:
+{{ID table|
+|edition=java
+|showblocktags=y
+|showitemtags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=White Bed
+|spritetype=block
+|nameid=white_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Orange Bed
+|spritetype=block
+|nameid=orange_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Magenta Bed
+|spritetype=block
+|nameid=magenta_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Light Blue Bed
+|spritetype=block
+|nameid=light_blue_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Yellow Bed
+|spritetype=block
+|nameid=yellow_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Lime Bed
+|spritetype=block
+|nameid=lime_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Pink Bed
+|spritetype=block
+|nameid=pink_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Gray Bed
+|spritetype=block
+|nameid=gray_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Light Gray Bed
+|spritetype=block
+|nameid=light_gray_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Cyan Bed
+|spritetype=block
+|nameid=cyan_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Purple Bed
+|spritetype=block
+|nameid=purple_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Blue Bed
+|spritetype=block
+|nameid=blue_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Brown Bed
+|spritetype=block
+|nameid=brown_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Green Bed
+|spritetype=block
+|nameid=green_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Red Bed
+|spritetype=block
+|nameid=red_bed
+|blocktags=beds
+|itemtags=beds}}
+{{ID table
+|displayname=Black Bed
+|spritetype=block
+|nameid=black_bed
+|blocktags=beds
+|itemtags=beds
+|foot=1}}
+{{ID table
+|displayname=Block entity
+|spritename=beds
+|spritetype=block
+|nameid=bed
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|firstcolumnname=Bed
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Block
+|spritename=Beds
+|spritetype=block
+|nameid=bed
+|id=26
+|form=block
+|itemform=item.bed}}
+{{ID table
+|displayname=Item
+|spritename=bed
+|spritetype=item
+|nameid=bed
+|id=418
+|form=item
+|translationkey=item.bed.black.name,item.bed.red.name,item.bed.green.name,item.bed.brown.name,item.bed.blue.name,item.bed.cyan.name,item.bed.silver.name,item.bed.gray.name,item.bed.pink.name,item.bed.lime.name,item.bed.yellow.name,item.bed.lightBlue.name,item.bed.magenta.name,item.bed.orange.name,item.bed.white.name
+|foot=1}}
+{{ID table
+|notnamespaced=y
+|displayname=Block entity
+|spritename=beds
+|spritetype=block
+|nameid=Bed
+|foot=1}}
+
+===Metadata===
+{{see also|Data values}}
+{{IN|be}}, bed items use the following data values:
+{{/DV}}
+
+===Block states===
+{{see also|Block states}}
+{{/BS}}
+
+===Block data===
+A bed has a block entity associated with it that holds additional data about the block.
+
+{{el|java}}:
+{{see also|Block entity format}}
+{{/BE}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Block entity format]].
+
+==Advancements==
+<table-progress-tracking table-id="1" unique-column-index="2">
+{{load advancements|Sweet Dreams}}
+</table-progress-tracking>
+
+==History==
+''For a more in-depth breakdown of changes to textures and models, including a set of renders for each state combination, see [[/Asset history]]''
+{{History|java beta}}
+{{History||November 26, 2011|link={{tweet|jeb|140410431394160640}}|Originally, [[crying obsidian]] was intended to act as a block to reset spawn points, until beds were introduced.}}
+{{History||1.3|[[File:Red Bed JE1 BE1.png|32px]] [[File:Red Bed (item) JE1 BE1.png|32px]] Added beds. 
+|The only color for beds is red.
+|Beds can currently be crafted using any color combination of wool.
+|Sleeping in an area potentially exposed to monsters can cause [[player]]s to wake up early, with a [[skeleton]] or [[zombie]] spawned next to them.
+|Trying to sleep in a bed in [[the Nether]] does nothing.}}
+{{History||1.4|Sleeping in a bed now resets the player's spawn position, though it does not work for most users. The spawn point unintentionally changes only if ''Leave Bed'' is clicked and the function is limited to [[multiplayer]].}}
+{{History||1.4_01|Beds now act as a respawn point as intended.}}
+{{History||1.6|snap=Test Build 3|Trying to sleep in a bed in the Nether now causes the bed to [[explosion|explode]].}}
+{{History||1.7|As blocks now pull textures from the expected places for model application, this has resulted in the bed texture shifting downward in <samp>[[terrain.png]]</samp>. No visual difference has resulted for the actual bed.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 4|Bed explosions in the Nether now light nearby blocks on fire.}}
+{{History|||snap=Beta 1.9 Prerelease 5|The bottom textures of beds have been changed to the texture of the new [[oak]] planks from [[File:Red Bed JE1 (facing NWU).png|32px]] to [[File:Red Bed JE2 BE1 (facing NWU).png|32px]].}}
+{{History|||snap=Beta 1.9 Prerelease 6|Beds no longer spawn monsters. Instead, trying to sleep when monsters are around displays a message saying ''You may not rest now, there are monsters nearby''.}}
+{{History||1.2.4|snap=release|[[Cat]]s while in standing position now purposely go and sit on beds.
+|[[Spruce]], [[birch]], and [[jungle tree|jungle]] planks can now be used to craft beds.}}
+{{History||1.5|snap=?|Beds now check their [[biome]] for detonation rather than just their dimension.}}
+{{History||1.7.2|snap=1.7.1|[[Acacia]] planks and [[dark oak]] planks can now be used to craft beds.}}
+{{History||1.8|snap=14w29a|Beds now display the cracking animation on top and bottom.}}
+{{History|||snap=14w33a|Beds now make [[sound]]s when placed, and play logical sounds when stepped on and [[breaking|broken]].<ref>{{bug|MC-66347||Beds make incorrect sounds|Fixed}}</ref>}}
+{{History||1.9|snap=15w43a|Bed now generates inside [[igloo]]s.}}
+{{History||1.11|snap=16w32a|The messages "You can only sleep at night", "You may not rest now, there are monsters nearby", and "This bed is occupied" now appear on top of the hotbar, the place that the message "Press <whatever your sneak key is> to dismount" also appears when the player is riding a [[mob]].}}
+{{History|||snap=16w33a|If the player is close enough to click on the bed, but not close enough to sleep in it, the message "You may not rest now, the bed is too far away" is now displayed.}}
+{{History||1.12|snap=17w06a|Neutral [[zombie pigmen]] no longer prevent the player from sleeping in a bed.}}
+{{History|||snap=March 13, 2017|slink={{tweet|jeb_|841311279784591361}}|[[Jeb]] mentions colored beds for [[Java Edition 1.12|1.12]].}}
+{{History|||snap=17w15a|[[File:White Bed JE1.png|32px]] [[File:Light Gray Bed JE1.png|32px]] [[File:Gray Bed JE1.png|32px]] [[File:Black Bed JE1.png|32px]] [[File:Brown Bed JE1.png|32px]] [[File:Orange Bed JE1.png|32px]] [[File:Yellow Bed JE1.png|32px]] [[File:Lime Bed JE1.png|32px]] [[File:Green Bed JE1.png|32px]] [[File:Cyan Bed JE1.png|32px]] [[File:Light Blue Bed JE1.png|32px]] [[File:Blue Bed JE1.png|32px]] [[File:Purple Bed JE1.png|32px]] [[File:Magenta Bed JE1.png|32px]] [[File:Pink Bed JE1.png|32px]] [[Dye]]d beds have been added.
+|The "Bed" has been renamed to "Red Bed".
+|Beds can now only be crafted using wool of the same color.
+|[[File:Red Bed JE2.png|32px]] The texture of red beds has been changed. The top of the beds are no longer mirrored. <!--- the numbers appear out of order but it is correct since it orders all beds in the current order in the Java Creative inventory --->
+|{{Sprite|pos=1|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=9|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=8|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=16|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=13|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=15|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=2|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=5|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=6|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=14|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=10|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=4|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=12|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=11|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=3|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=7|image=Bed Icons 1.12.png|size=32|sheetsize=512}} Beds now appear 3D in the [[inventory]].
+|[[File:Red Bed JE3 (facing NWU).png|32px]] Beds now have 3D legs.<ref>{{bug|MC-11963||bed hind legs not rendered|Fixed}}</ref>
+|Beds have been made bouncy, though they do not completely reduce all [[fall damage]].
+|Beds are now a [[block entity]].}}
+{{History|||snap=17w17a|[[File:Red Bed JE4 BE2 (facing NWU).png|32px]] The four legs of a bed are now each textured separately, and their [[model]] is different.
+|[[File:White Bed JE2 BE2.png|32px]] [[File:Light Gray Bed JE2 BE2.png|32px]] [[File:Gray Bed JE2 BE2.png|32px]] [[File:Black Bed JE2 BE2.png|32px]] [[File:Brown Bed JE2 BE2.png|32px]] [[File:Red Bed JE3 BE2.png|32px]] [[File:Orange Bed JE2 BE2.png|32px]] [[File:Yellow Bed JE2 BE2.png|32px]] [[File:Lime Bed JE2 BE2.png|32px]] [[File:Green Bed JE2 BE2.png|32px]] [[File:Cyan Bed JE2 BE2.png|32px]] [[File:Light Blue Bed JE2 BE2.png|32px]] [[File:Blue Bed JE2 BE2.png|32px]] [[File:Purple Bed JE2 BE2.png|32px]] [[File:Magenta Bed JE2 BE2.png|32px]] [[File:Pink Bed JE2 BE2.png|32px]]<br> <!--- the numbers appear out of order but it is correct since it orders all beds in the current order in the Java Creative inventory --->
+{{Sprite|pos=17|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=25|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=24|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=32|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=29|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=31|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=18|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=21|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=22|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=30|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=26|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=20|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=28|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=27|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=19|image=Bed Icons 1.12.png|size=32|sheetsize=512}} {{Sprite|pos=23|image=Bed Icons 1.12.png|size=32|sheetsize=512}} The textures of beds have now also been changed.}}
+{{History||1.13|snap=17w47a|Beds now require solid blocks below them, or they break into an item. Previously, a bed needed to be placed on solid blocks, but the blocks could later be removed.}}
+{{History|||snap=18w07a|Sleeping in a bed is now important to keep [[phantom]]s from spawning.}}
+{{History|||snap=18w20a|Players in [[Creative]] mode can now sleep even if monsters are nearby.}}
+{{History|||snap=18w22a|Beds no longer require supporting blocks below them; they do not break into an [[item (entity)|item]] if said blocks are removed, and can be directly placed on top of non-solid blocks.}}
+{{History|||snap=pre2|The "You can only sleep at night" message when using a bed has been changed to "You can sleep only at night and during [[thunderstorm]]s."}}
+{{History||1.14|snap=18w43a|[[File:White Bed JE3 BE3.png|32px]] [[File:Light Gray Bed JE3 BE3.png|32px]] [[File:Gray Bed JE3 BE3.png|32px]] [[File:Black Bed JE3 BE3.png|32px]] [[File:Brown Bed JE3 BE3.png|32px]] [[File:Red Bed JE4 BE3.png|32px]] [[File:Orange Bed JE3 BE3.png|32px]] [[File:Yellow Bed JE3 BE3.png|32px]] [[File:Lime Bed JE3 BE3.png|32px]] [[File:Green Bed JE3 BE3.png|32px]] [[File:Cyan Bed JE3 BE3.png|32px]] [[File:Light Blue Bed JE3 BE3.png|32px]] [[File:Blue Bed JE3 BE3.png|32px]] [[File:Purple Bed JE3 BE3.png|32px]] [[File:Magenta Bed JE3 BE3.png|32px]] [[File:Pink Bed JE3 BE3.png|32px]]<br>{{InvSprite|White Bed}} {{InvSprite|Light Gray Bed}} {{InvSprite|Gray Bed}} {{InvSprite|Black Bed}} {{InvSprite|Brown Bed}} {{InvSprite|Red Bed}} {{InvSprite|Orange Bed}} {{InvSprite|Yellow Bed}} {{InvSprite|Lime Bed}} {{InvSprite|Green Bed}} {{InvSprite|Cyan Bed}} {{InvSprite|Light Blue Bed}} {{InvSprite|Blue Bed}} {{InvSprite|Purple Bed}} {{InvSprite|Magenta Bed}} {{InvSprite|Pink Bed}} The textures of all beds have been changed.
+|[[File:Red Bed JE5 (facing NWU).png|32px]] The bottom textures of beds have been changed to new oak planks texture.}}
+{{History|||snap=18w44a|Cats can now sleep in empty beds or sit on their owner when their owner is sleeping.}}
+{{History|||snap=18w47a|[[File:Red Bed JE6 BE3 (facing NWU).png|32px]] The bottom textures of beds have been changed to the new oak planks to texture, once again.}}
+{{History|||snap=18w48a|Beds now generate in the updated [[plains]] [[village]]s.}}
+{{History|||snap=18w49a|Beds now generate in the updated [[savanna]] villages and the new [[snowy tundra]] villages.}}
+{{History|||snap=18w50a|Beds now generate in the updated [[desert]] and [[taiga]] villages.}}
+{{History|||snap=19w08a|All mobs can now sleep in beds using [[command]]s.}}
+{{History|||snap=19w11a|[[Villager]]s now claim beds and sleep in them during the night.
+|Shepherd villagers now [[trading|sell]] beds.}}
+{{History||1.15|snap=19w35a|If a player tries to sleep in a bed that is occupied by a villager, that villager is now kicked out of the bed.}}
+{{History|||snap=19w36a|Trying to sleep in a bed during the daytime now sets the player's spawn location to that bed.}}
+{{History|||snap=pre2|Successfully changing a spawn point using a bed now displays a message in [[chat]].}}
+{{History||1.16|snap=20w06a|Crimson and warped planks can now be used to craft beds.}}
+{{History|||snap=20w12a|The message "Your home bed was missing or obstructed" has been changed to "You have no home bed or respawn anchor, or it was obstructed" due to the addition of the [[respawn anchor]], used to set the player's spawn in [[the Nether]].}}
+{{History||1.16.2|snap=20w30a|Beds now prioritize the side of the bed the player or villager entered from and then spaces circling around the foot of the bed up to the head of the bed.}}
+{{History||1.17|snap=20w51a|Added gamerules for sleeping in multiplayer.}}
+{{History||1.18|snap=21w44a|Sleeping now only resets the weather cycle if it is currently raining or snowing.<ref>{{bug|MC-63340||Sleeping always resets time until rain|Fixed}}</ref>}}
+{{History||1.19|snap=22w11a|[[Mangrove]] planks can now be used to craft beds.}}
+{{History||1.19.3|snap=22w43a|Bed explosions can now be properly [[blocking|blocked]] by [[shield]]s.<ref>{{bug|MC-200006|||Fixed}}</ref>}}
+{{History||1.20|snap=Pre-release 1|Beds of any color can now be dyed into any other color.}}
+
+{{History|pocket alpha}}
+{{History||v0.4.0|[[File:Red Bed JE1 BE1.png|32px]] [[File:Red Bed (item) JE1 BE1.png|32px]] Added beds.}}
+{{History||v0.5.0|Beds can now be obtained after activating the [[nether reactor]].}}
+{{History||v0.9.0|snap=build 1|Beds no longer restore [[health]] in normal difficulty, making [[food]] a more required [[Survival]]-needed resource.
+|Added smooth lighting to beds.}}
+{{History||v0.11.0|snap=build 8|The lighting on beds has been improved.}}
+{{History||v0.12.1|snap=build 1|Tamed [[cat|ocelots]] while standing now purposely go and sit on beds.
+|Beds are no longer available from the [[nether reactor]].}}
+{{History||v0.16.0|snap=build 1|Beds now make a [[sound]] when placed, identical to [[block]]s like [[stone]].<ref name="lazilycodedsounds">{{bug|MCPE-10077}} – "Incorrect sounds on beds" resolved as "Fixed".</ref>}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Beds are now generated in [[igloo]]s.}}
+{{History|||snap=alpha 0.17.0.2|[[File:Leave Bed 1.0.jpg|36px]] The ''Leave Bed'' button now has a new texture.}}
+{{History|||snap=alpha 1.0.0.0|Sleeping now ends [[weather]].}}
+{{History||1.1.0|snap=alpha 1.1.0.0|[[File:White Bed JE2 BE2.png|32px]] [[File:Light Gray Bed JE2 BE2.png|32px]] [[File:Gray Bed JE2 BE2.png|32px]] [[File:Black Bed JE2 BE2.png|32px]] [[File:Brown Bed JE2 BE2.png|32px]] [[File:Orange Bed JE2 BE2.png|32px]] [[File:Yellow Bed JE2 BE2.png|32px]] [[File:Lime Bed JE2 BE2.png|32px]] [[File:Green Bed JE2 BE2.png|32px]] [[File:Cyan Bed JE2 BE2.png|32px]] [[File:Light Blue Bed JE2 BE2.png|32px]] [[File:Blue Bed JE2 BE2.png|32px]] [[File:Purple Bed JE2 BE2.png|32px]] [[File:Magenta Bed JE2 BE2.png|32px]] [[File:Pink Bed JE2 BE2.png|32px]]<br>[[File:White Bed (item) BE1.png|32px]] [[File:Light Gray Bed (item) BE1.png|32px]] [[File:Gray Bed (item) BE1.png|32px]] [[File:Black Bed (item) BE1.png|32px]] [[File:Brown Bed (item) BE1.png|32px]] [[File:Orange Bed (item) BE1.png|32px]] [[File:Yellow Bed (item) BE1.png|32px]] [[File:Lime Bed (item) BE1.png|32px]] [[File:Green Bed (item) BE1.png|32px]] [[File:Cyan Bed (item) BE1.png|32px]] [[File:Light Blue Bed (item) BE1.png|32px]] [[File:Blue Bed (item) BE1.png|32px]] [[File:Purple Bed (item) BE1.png|32px]] [[File:Magenta Bed (item) BE1.png|32px]] [[File:Pink Bed (item) BE1.png|32px]] Added the other 15 colors of beds.
+|The "Bed" has been renamed to "Red Bed".
+|[[File:Red Bed JE3 BE2.png|32px]] The texture of red beds has been changed.
+|A new animation when sleeping has been added to beds.
+|Beds in [[igloo]]s are now white in [[ice plains]] and brown in [[cold taiga]]s.
+|Beds now bounce the [[player]] two [[block]]s up, and have 3D legs.
+|Placement, stepping and breaking [[sound]]s for beds are now correctly wooden.<ref name="lazilycodedsounds"/>}}
+{{History|bedrock}}
+{{History||1.4.0|snap=beta 1.2.14.2|Beds can now be [[waterlogging|waterlogged]] and require [[Water Breathing]] to sleep in.}}
+{{History|||snap=beta 1.2.20.1|Colored beds can now be turned into white beds by adding [[bleach]]. This works only if {{el|ee}} features are turned on.}}
+{{History||1.6.0|snap=beta 1.6.0.1|Sleeping in a bed is now important to keep [[phantom]]s from spawning.}}
+{{History||1.8.0|snap=beta 1.8.0.8|[[Cat]]s can now sleep in empty beds or sit on their [[player|owner]] when their owner is sleeping.}} 
+{{History||1.10.0|snap=beta 1.10.0.3|Various beds now generate in the new [[village]]s.
+|[[Villager]]s can now sleep by occupying a bed, which prevent [[player]]s from using it.
+|[[Igloo]]s now generate with red beds.
+|Beds are now used to count the number of available houses in [[village]]s.
+|[[File:White Bed JE3 BE3.png|32px]] [[File:Light Gray Bed JE3 BE3.png|32px]] [[File:Gray Bed JE3 BE3.png|32px]] [[File:Black Bed JE3 BE3.png|32px]] [[File:Brown Bed JE3 BE3.png|32px]] [[File:Red Bed JE4 BE3.png|32px]] [[File:Orange Bed JE3 BE3.png|32px]] [[File:Yellow Bed JE3 BE3.png|32px]] [[File:Lime Bed JE3 BE3.png|32px]] [[File:Green Bed JE3 BE3.png|32px]] [[File:Cyan Bed JE3 BE3.png|32px]] [[File:Light Blue Bed JE3 BE3.png|32px]] [[File:Blue Bed JE3 BE3.png|32px]] [[File:Purple Bed JE3 BE3.png|32px]] [[File:Magenta Bed JE3 BE3.png|32px]] [[File:Pink Bed JE3 BE3.png|32px]] The textures of all beds have been changed.}}
+{{History||1.11.0|snap=beta 1.11.0.4|Beds can now be [[trading|bought]] from shepherd [[villager]]s.}}
+{{History||1.13.0|snap=?|[[Player]]s now succeed in attempting to sleep on villager-occupied beds, kicking the villager off.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.00|wiiu=Patch 1|switch=1.0.1|[[File:Red Bed JE1 BE1.png|32px]] [[File:Red Bed (item) JE1 BE1.png|32px]] Added beds.}}
+{{History||xbox=TU12|xbone=CU1|ps=1.00|wiiu= Patch 1|[[Cat]]s in standing position now purposely go and sit on beds, preventing [[player]]s from using them.}}
+{{History||xbox=TU43|xbone=CU33|ps=1.36|wiiu=Patch 13|The sleeping animation while in beds has been changed.}}
+{{History||xbox=TU54|xbone=CU44|ps=1.52|wiiu=Patch 24|switch=1.0.4|[[File:White Bed JE2 BE2.png|32px]] [[File:Light Gray Bed JE2 BE2.png|32px]] [[File:Gray Bed JE2 BE2.png|32px]] [[File:Black Bed JE2 BE2.png|32px]] [[File:Brown Bed JE2 BE2.png|32px]] [[File:Orange Bed JE2 BE2.png|32px]] [[File:Yellow Bed JE2 BE2.png|32px]] [[File:Lime Bed JE2 BE2.png|32px]] [[File:Green Bed JE2 BE2.png|32px]] [[File:Cyan Bed JE2 BE2.png|32px]] [[File:Light Blue Bed JE2 BE2.png|32px]] [[File:Blue Bed JE2 BE2.png|32px]] [[File:Purple Bed JE2 BE2.png|32px]] [[File:Magenta Bed JE2 BE2.png|32px]] [[File:Pink Bed JE2 BE2.png|32px]]<br>[[File:White Bed (item) LCE.png|32px]] [[File:Light Gray Bed (item) LCE.png|32px]] [[File:Gray Bed (item) LCE.png|32px]] [[File:Black Bed (item) LCE.png|32px]] [[File:Brown Bed (item) LCE.png|32px]] [[File:Orange Bed (item) LCE.png|32px]] [[File:Yellow Bed (item) LCE.png|32px]] [[File:Lime Bed (item) LCE.png|32px]] [[File:Green Bed (item) LCE.png|32px]] [[File:Cyan Bed (item) LCE.png|32px]] [[File:Light Blue Bed (item) LCE.png|32px]] [[File:Blue Bed (item) LCE.png|32px]] [[File:Purple Bed (item) LCE.png|32px]] [[File:Magenta Bed (item) LCE.png|32px]] [[File:Pink Bed (item) LCE.png|32px]] Added the other 15 colors of beds. 
+|The "Bed" has been now renamed to "Red Bed".
+|[[File:Red Bed JE3 BE2.png|32px]] [[File:Red Bed (item) LCE.png|32px]] The textures of red beds has been changed. 
+|Beds are now [[dye]]able and bounce the [[player]] two [[block]]s up, and have a single 3D legs.}}
+{{History||xbox=TU60|xbone=CU51|ps=1.64|wiiu=Patch 30|switch=1.0.11|The sleeping animation in beds has been changed again.}}
+{{History||xbox=TU69|xbone=none|ps=1.76|wiiu=Patch 38|switch=none|Sleeping in a bed is now important to keep [[phantom]]s from spawning.
+|Beds can now be [[waterlogging|waterlogged]] and require {{EffectLink|Water Breathing}} to sleep in.}}
+{{History||xbox=none|xbone=none|ps=1.83|wiiu=none|switch=none|The sleeping animation for beds has been reverted to how it was before [[Legacy Console Edition version history#ps-1.64|1.64]].}}
+{{History||xbox=none|xbone=none|ps=1.91|wiiu=none|switch=none|Various beds now generate in the new [[village]]s.
+|[[Villager]]s can now sleep by occupying a bed, which prevents [[player]]s from using it.
+|Beds are now used to count the number of available houses in villages.
+|Beds can now be [[trading|bought]] from shepherd [[villager]]s.}}
+
+{{History|New 3DS}}
+{{History||0.1.0|[[File:Red Bed JE1 BE1.png|32px]] [[File:Red Bed (item) JE1 BE1.png|32px]] Added beds.}}
+{{History||1.9.19|[[File:White Bed JE2 BE2.png|32px]] [[File:Light Gray Bed JE2 BE2.png|32px]] [[File:Gray Bed JE2 BE2.png|32px]] [[File:Black Bed JE2 BE2.png|32px]] [[File:Brown Bed JE2 BE2.png|32px]] [[File:Orange Bed JE2 BE2.png|32px]] [[File:Yellow Bed JE2 BE2.png|32px]] [[File:Lime Bed JE2 BE2.png|32px]] [[File:Green Bed JE2 BE2.png|32px]] [[File:Cyan Bed JE2 BE2.png|32px]] [[File:Light Blue Bed JE2 BE2.png|32px]] [[File:Blue Bed JE2 BE2.png|32px]] [[File:Purple Bed JE2 BE2.png|32px]] [[File:Magenta Bed JE2 BE2.png|32px]] [[File:Pink Bed JE2 BE2.png|32px]]<br>[[File:White Bed (item) BE1.png|32px]] [[File:Light Gray Bed (item) BE1.png|32px]] [[File:Gray Bed (item) BE1.png|32px]] [[File:Black Bed (item) BE1.png|32px]] [[File:Brown Bed (item) BE1.png|32px]] [[File:Orange Bed (item) BE1.png|32px]] [[File:Yellow Bed (item) BE1.png|32px]] [[File:Lime Bed (item) BE1.png|32px]] [[File:Green Bed (item) BE1.png|32px]] [[File:Cyan Bed (item) BE1.png|32px]] [[File:Light Blue Bed (item) BE1.png|32px]] [[File:Blue Bed (item) BE1.png|32px]] [[File:Purple Bed (item) BE1.png|32px]] [[File:Magenta Bed (item) BE1.png|32px]] [[File:Pink Bed (item) BE1.png|32px]] Added the other 15 colors of beds.
+|The "Bed" has been renamed to "Red Bed".
+|[[File:Red Bed JE3 BE2.png|32px]] The texture of red beds has been changed.
+|Beds now bounce the [[player]] two [[block]]s up and have 3D legs.}}
+
+{{History|Education}}
+{{History||1.0|[[File:Red Bed JE1 BE1.png|32px]] [[File:Red Bed (item) JE1 BE1.png|32px]] Added beds.}}
+{{History||1.0.1|[[File:White Bed JE2 BE2.png|32px]] [[File:Light Gray Bed JE2 BE2.png|32px]] [[File:Gray Bed JE2 BE2.png|32px]] [[File:Black Bed JE2 BE2.png|32px]] [[File:Brown Bed JE2 BE2.png|32px]] [[File:Orange Bed JE2 BE2.png|32px]] [[File:Yellow Bed JE2 BE2.png|32px]] [[File:Lime Bed JE2 BE2.png|32px]] [[File:Green Bed JE2 BE2.png|32px]] [[File:Cyan Bed JE2 BE2.png|32px]] [[File:Light Blue Bed JE2 BE2.png|32px]] [[File:Blue Bed JE2 BE2.png|32px]] [[File:Purple Bed JE2 BE2.png|32px]] [[File:Magenta Bed JE2 BE2.png|32px]] [[File:Pink Bed JE2 BE2.png|32px]]<br>[[File:White Bed (item) BE1.png|32px]] [[File:Light Gray Bed (item) BE1.png|32px]] [[File:Gray Bed (item) BE1.png|32px]] [[File:Black Bed (item) BE1.png|32px]] [[File:Brown Bed (item) BE1.png|32px]] [[File:Orange Bed (item) BE1.png|32px]] [[File:Yellow Bed (item) BE1.png|32px]] [[File:Lime Bed (item) BE1.png|32px]] [[File:Green Bed (item) BE1.png|32px]] [[File:Cyan Bed (item) BE1.png|32px]] [[File:Light Blue Bed (item) BE1.png|32px]] [[File:Blue Bed (item) BE1.png|32px]] [[File:Purple Bed (item) BE1.png|32px]] [[File:Magenta Bed (item) BE1.png|32px]] [[File:Pink Bed (item) BE1.png|32px]] Added the other 15 colors of beds.
+|The "Bed" has been renamed to "Red Bed".
+|[[File:Red Bed JE3 BE2.png|32px]] The texture of red beds has been changed.
+|Beds now bounce the [[player]] two [[block]]s up, and have 3D legs.}}
+{{History||1.0.27|Colored beds can now be turned into white beds by adding [[bleach]].}}
+{{History||1.12|[[File:White Bed JE3 BE3.png|32px]] [[File:Light Gray Bed JE3 BE3.png|32px]] [[File:Gray Bed JE3 BE3.png|32px]] [[File:Black Bed JE3 BE3.png|32px]] [[File:Brown Bed JE3 BE3.png|32px]] [[File:Red Bed JE4 BE3.png|32px]] [[File:Orange Bed JE3 BE3.png|32px]] [[File:Yellow Bed JE3 BE3.png|32px]] [[File:Lime Bed JE3 BE3.png|32px]] [[File:Green Bed JE3 BE3.png|32px]] [[File:Cyan Bed JE3 BE3.png|32px]] [[File:Light Blue Bed JE3 BE3.png|32px]] [[File:Blue Bed JE3 BE3.png|32px]] [[File:Purple Bed JE3 BE3.png|32px]] [[File:Magenta Bed JE3 BE3.png|32px]] [[File:Pink Bed JE3 BE3.png|32px]] The textures of all beds have been changed.}}
+{{History|foot}}
+
+=== Data history ===
+{{History|java}}
+{{History||1.13|snap=17w47a|The different block states for the <code>bed</code> ID have been split up into their own IDs.
+|Prior to [[1.13/Flattening|''The Flattening'']], this block's numeral ID was 26, and the item's 355.}}
+{{History|foot}}
+
+=== Bed "item"===
+{{:Technical blocks/Bed}}
+
+==Issues==
+{{Issue list}}
+
+== Trivia==
+* The reason beds explode in the Nether and the End is because Notch found it was the easiest solution to dimension-unique respawning.<ref>{{tweet|Notch|1259681657793077250|duh|11 May 2020}}, in response to {{tweet|NoahBandito|1259681319392550912|So you're telling me the "Inteded Game Design" should actually be "Sorry, I was too lazy to code"?|11 May 2020}}</ref>
+** Dimension-unique respawning was eventually implemented via the [[respawn anchor]], and gained command support at the same time. Despite this, beds and respawn anchors still explode in invalid dimensions.
+* If the player quits the game while sleeping, upon return the player wakes up beside the bed.
+* Using the {{cmd|teleport}} command while another player is sleeping still teleports the sleeping player, but the player wakes immediately.{{only|java}}
+* If the player places a bed on [[ice]], running over the bed acts like running over ice, similar to slabs.
+* When placed using the {{cmd|setblock}} command, only one half of a bed is placed, because beds are two blocks long. A single half can be slept in like a whole bed.
+* Villagers can sleep in the Nether and the End without causing the bed to explode.<ref>{{bug|MC-146515}} Resolved as Works As Intended</ref>
+* While the block state used to determine the half of a two-block block such as [[door]]s and double-tall [[flower]]s is called ''half'', in the case of beds this is called ''part''.
+* Players and villagers do not drown or take damage from lava while in a bed, even if the bed is covered in lava.
+*The red bed was the original default bed color. In [[Java Edition 1.12]] and [[Pocket Edition 1.1.0]] version of the game, the default color was changed to white.
+
+== Gallery ==
+
+=== All renders ===
+<gallery>
+White Bed.png|White
+Light Gray Bed.png|Light gray
+Gray Bed.png|Gray
+Black Bed.png|Black
+Brown Bed.png|Brown
+Red Bed.png|Red
+Orange Bed.png|Orange
+Yellow Bed.png|Yellow
+Lime Bed.png|Lime
+Green Bed.png|Green
+Cyan Bed.png|Cyan
+Light Blue Bed.png|Light blue
+Blue Bed.png|Blue
+Purple Bed.png|Purple
+Magenta Bed.png|Magenta
+Pink Bed.png|Pink
+</gallery>
+
+=== Screenshots ===
+<gallery>
+Multiplayer Sleeping.png|A sleeping player in multiplayer.
+Missing Bed.png|The message that can be seen after a failed attempt to respawn at the spawn point set by a bed.
+Nether Bed.png|A crater created by attempting to sleep in the Nether.
+Ender Bed.png|A crater created by attempting to sleep in the End.
+16 color beds.png|All the different color variants.
+Old Village New Village VillagerSleeping MCEE.png|An unemployed [[villager]] and a [[butcher]] villager goes to sleep, unaware of the zombies outside.
+Stackedbeds.png|A stack of beds.
+Mob wakeup.png|Player being awakened by a [[zombie]].
+Day Sleeping.png|The message that can be seen when any players attempt to sleep during daytime.
+Sleeping.png|A player going to sleep in a bed on the first day of a ''Minecraft'' world.
+CobwebVillage.png|A bed in an abandoned village has its bottom half replaced by wheat crops.
+File:Sleepwalking glitch.jpg|A glitch in beta multiplayer where players could see a player walking lying down.
+</gallery>
+
+=== In other media ===
+<gallery>
+File:Rainbow Bed.png|The [[MCE:Rainbow Bed|rainbow bed]], a unique coloration featured in [[Minecraft Earth]].
+File:The Sham.jpg|The Sham, a villainous, sentient bed featured in the [[skin pack|Campfire Tales]] skin pack.
+</gallery>
+
+==References==
+{{Reflist}}
+
+{{Blocks|Utility}}
+{{Items}}
+
+[[Category:Utility blocks]]
+[[Category:Manufactured blocks]]
+[[Category:Generated structure blocks]]
+[[Category:Block entities]]
+
+[[cs:Postel]]
+[[de:Bett]]
+[[es:Cama]]
+[[fr:Lit]]
+[[hu:Ágy]]
+[[it:Letto]]
+[[ja:ベッド]]
+[[ko:침대]]
+[[nl:Bed]]
+[[pl:Łóżko]]
+[[pt:Cama]]
+[[ru:Кровать]]
+[[th:เตียง]]
+[[uk:Ліжко]]
+[[zh:床]]

@@ -1,0 +1,89 @@
+<div class="treeview" style="margin-top: 0;">
+* {{nbt|compound}} Entity data
+** {{nbt inherit/entity}}
+** Tags common to mobs except LeftHanded, DeathLootTable, DeathLootTableSeed, NoAI, Leash, CanPickUpLoot and PersistenceRequired.
+** {{nbt inherit/mob}}
+** {{nbt|int|DisabledSlots}}: Bit field allowing disable place/replace/remove of armor elements. For example, the value {{code|16191}} or{{code|4144896}} disables placing, removing and replacing of all equipment. These can be found using the bitwise OR operator.
+** {{nbt|byte|Invisible}}: 1 or 0 (true/false) - if true, ArmorStand is invisible, although items on it still display.
+** {{nbt|byte|Marker}}: 1 or 0 (true/false) - if true, ArmorStand's size is set to 0, has a tiny hitbox, and disables interactions with it. May not exist.
+** {{nbt|byte|NoBasePlate}}: 1 or 0 (true/false) - if true, ArmorStand does not display the base beneath it.
+** {{nbt|compound|Pose}}: Rotation values for the ArmorStand's pose.
+*** {{nbt|list|Body}}: Body-specific rotations.
+**** {{nbt|float}}: x-rotation.
+**** {{nbt|float}}: y-rotation.
+**** {{nbt|float}}: z-rotation.
+*** {{nbt|list|Head}}: Head-specific rotations.
+**** {{nbt|float}}: x-rotation.
+**** {{nbt|float}}: y-rotation.
+**** {{nbt|float}}: z-rotation.
+*** {{nbt|list|LeftArm}}: Left Arm-specific rotations.
+**** {{nbt|float}}: x-rotation.
+**** {{nbt|float}}: y-rotation.
+**** {{nbt|float}}: z-rotation.
+*** {{nbt|list|LeftLeg}}: Left Leg-specific rotations.
+**** {{nbt|float}}: x-rotation.
+**** {{nbt|float}}: y-rotation.
+**** {{nbt|float}}: z-rotation.
+*** {{nbt|list|RightArm}}: Right Arm-specific rotations.
+**** {{nbt|float}}: x-rotation.
+**** {{nbt|float}}: y-rotation.
+**** {{nbt|float}}: z-rotation.
+*** {{nbt|list|RightLeg}}: Right Leg-specific rotations.
+**** {{nbt|float}}: x-rotation.
+**** {{nbt|float}}: y-rotation.
+**** {{nbt|float}}: z-rotation.
+** {{nbt|byte|ShowArms}}: 1 or 0 (true/false) - if true, ArmorStand displays full wooden arms. If false, also place and replace interactions with the hand item slot are disabled.
+** {{nbt|byte|Small}}: 1 or 0 (true/false) - if true, ArmorStand is much smaller, similar to the size of a baby zombie.
+</div>
+
+==== Disabled slots ====
+{| class="wikitable"
+|-
+! Binary || Integer number || Result
+|-
+| 2^0 || 1 || Disable adding or changing mainhand item
+|-
+| 2^1 || 2 || Disable adding or changing boots item
+|-
+| 2^2 || 4 || Disable adding or changing leggings item
+|-
+| 2^3 || 8 || Disable adding or changing chestplate item
+|-
+| 2^4 || 16 || Disable adding or changing helmet item
+|-
+|2^5
+|32
+|Disable adding or changing offhand item
+|-
+| 2^8 || 256 || Disable removing or changing mainhand item
+|-
+| 2^9 || 512 || Disable removing or changing boots item
+|-
+| 2^10 || 1024 || Disable removing or changing leggings item
+|-
+| 2^11 || 2048 || Disable removing or changing chestplate item
+|-
+| 2^12 || 4096 || Disable removing or changing helmet item
+|-
+|2^13
+|8192
+|Disable removing or changing offhand item
+|-
+| 2^16 || 65536 || Disable adding mainhand item
+|-
+| 2^17 || 131072 || Disable adding boots item
+|-
+| 2^18 || 262144 || Disable adding leggings item
+|-
+| 2^19 || 524288 || Disable adding chestplate item
+|-
+| 2^20 || 1048576 || Disable adding helmet item
+|-
+|2^21
+|2097152
+|Disable adding offhand item
+|}<noinclude>
+[[Category:Entity data pages]]
+[[ja:防具立て/ED]]
+[[zh:盔甲架/ED]]
+</noinclude>
