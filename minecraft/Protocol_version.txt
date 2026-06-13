@@ -1,0 +1,66 @@
+A '''protocol version''' number<ref><samp>[https://minecraft.net/download/server server.jar]</samp>, located in class <samp>com.mojang.bridge.game.GameVersion</samp></ref><ref>https://wiki.vg/Protocol_version_numbers</ref> ('''PVN''') is an integer used to check for incompatibilities between the player's client and the server they are trying to connect to.
+
+== Usage ==
+[[File:Outdated client.png|thumb|An outdated client attempting to connect to a server on a newer version.]]
+Client and server versions with the same protocol version are compatible with each other. For example, a client running [[Java Edition 1.8.9]] can connect to a server running [[Java Edition 1.8]], as both have a protocol version of 47.
+
+Upon attempting to join a [[multiplayer]] server, the game checks if the client has a protocol version newer or older than the selected server; if it does, the game then alerts the player that their client (or the server) is outdated.
+
+== Versioning ==
+All versions, including minor releases and development versions on both {{els|je|be}}, have their own protocol version. The version takes the form of an ever-increasing positive integer unlike client versions. Since 1.16.4-pre1, protocol versions of {{edition|Java}} development releases take the form of very large numbers best represented using hexadecimal (represented by the prefix "0x" in the protocol version tables, starting from 0x40000001 (1073741825 in hexadecimal)). Protocol versions may occasionally be skipped between major releases.
+
+== Storage location ==
+
+=== Java Edition ===
+Each ''Minecraft'' build since 18w47b specifies its current protocol version in the <samp>[[version.json]]</samp> file, found in the root directory of the [[Client.jar|client]] and [https://minecraft.net/download/server server] jars.
+<div class="treeview">
+* {{nbt|compound}} version.json
+** {{nbt|int|protocol_version}}: The protocol version of this build.
+</div>
+
+=== Bedrock Edition ===
+Since beta 1.2.0.22, the protocol version can be viewed by going into Profile Settings and scrolling down to the bottom. The protocol version appears in front of the text saying "Protocol Version:". It can also appears on the beta text in front of the text saying "cli-p''n''".
+
+== List of protocol versions ==
+
+{{Protocol version/Latest}}
+
+The tables below are sorted by [[data version]].
+
+{{collapse|expanded=1|content=<nowiki/>
+{{Protocol version/Table}}
+}}
+
+== History ==
+{{History|java classic}}
+{{History||0.0.15a|Added protocol versions.}}
+{{History|java indev}}
+{{History||0.31|snap=20091223-1|Removed protocol versions.}}
+{{History|java alpha}}
+{{History||v1.0.5|Re-added protocol versions.}}
+{{History||v1.0.17_02<!--Between .17 and .17_02-->|Reset the protocol version number to 1.}}
+{{History|java}}
+{{History||1.7.2|snap=13w41a|Rewrote the protocol to use Netty, resetting protocol versions back to 0. Protocol versions before this update are not compatible with server versions with the same protocol number after this update.}}
+{{History||1.16.4|snap=pre1|New network protocol scheme, with a high bit (bit 30) set for snapshots. The protocol version will increase by 1 for each snapshot, but full releases may keep the same protocol version as the previous full release in cases where the network protocols are compatible.}}
+
+{{History|pocket alpha}}
+{{History||0.1.0|Added protocol versions.}}
+{{History|foot}}
+
+== See also ==
+* [[Data version]]
+* [[al_version]]
+
+== References ==
+{{Reflist}}
+
+{{Java Edition}}
+{{Bedrock Edition}}
+
+[[es:Versión de protocolo]]
+[[ja:プロトコルバージョン]]
+[[ko:프로토콜 버전]]
+[[pt:Versão do protocolo]]
+[[ru:Версия протокола]]
+[[uk:Версія протоколу]]
+[[zh:协议版本]]

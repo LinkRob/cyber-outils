@@ -1,0 +1,684 @@
+{{update|Add missing atlas source type {{code|paletted_permutations}} (atlases).}}
+
+{{about|the current system to customize assets|other uses|Texture Pack (disambiguation)}}
+
+[[File:TexturesComparison.png|thumb|right|350px|The default textures at the left side with a custom resource pack (Rodrigo's Pack 8x8) in the right side.]]
+
+'''Resource packs''' are packs of files that can be applied to any [[world]]. They provide a way for players to customize [[textures]], [[model]]s, [[music]], [[sound]]s, [[language]]s, texts such as the [[end poem]], [[splash]]es, credits, and fonts without any [[Mods|code modification]]. Resource packs are available in both [[Java Edition|''Java Edition'']] and [[Bedrock Edition|''Bedrock Edition'']].
+
+== Java Edition ==
+
+=== Behavior ===
+[[File:Select resource pack.png|thumb|The default resource pack settings.]]
+Resource packs can be placed in the folder {{code|resourcepacks}} within the {{code|[[.minecraft]]}} folder. Each resource pack is either a sub-folder or a [[wp:Zip (file format)|{{code|.zip}} file]] within the {{code|resourcepacks}} folder. Once in the folder, a resource pack can be added from the [[options]], where resource packs can be moved between "Available resource packs" and "Selected resource packs". "Selected resource packs" also contain the default assets on the bottom, which cannot be removed.
+
+Resource packs load their assets based on the order of the packs on the list. The bottom-most pack loads first, then each pack placed above it replaces assets of the same name with its assets.
+
+==== Default resource packs ====
+A resource pack can be bundled with a [[world]] by saving it as a {{code|.zip}} file under the name {{code|resources.zip}} and placing it directly in the world's folder. When playing the world, that resource pack appears as the default right above the default resource pack.
+A resource pack can be set on a server by adding a link to a {{code|.zip}} file download after the line {{code|resource-pack{{=}}}} in the [[server.properties]] file. Users then have an option of whether to download the resource pack or not. Resource packs can also be forced on a server using {{code|resource-pack-required{{=}}true}} in the server.properties file. Rejecting the resource pack disconnects the player from the server.
+
+The old (pre-[[Java Edition 1.14|1.14]]) textures are available in a resource pack titled "Programmer Art". These textures are not updated when the game receives new textures.
+
+=== Folder structure ===
+{{Collapse|title=Resource packs use the following folder structure:|content=<div class="toccolours treeview">
+*''(resource pack name)''
+**pack.mcmeta
+**pack.png
+**assets
+***icons
+****icon_16x16.png
+****icon_32x32.png
+****minecraft.icns
+***''(namespace)''
+****sounds.json
+****blockstates
+*****''(blockstate)''.json
+**** gpu_warnlist.json
+****font
+*****''(font)''
+****icons
+*****icon_16x16.png
+*****icon_32x32.png
+*****minecraft.icns
+****lang
+*****''(lang)''.json
+****models
+*****block
+******''(model)''.json
+*****item
+******''(model)''.json
+****particles
+*****''(particle)''.json
+**** regional_compliancies.json
+****sounds
+*****''(sound)''.ogg
+****shaders
+*****post
+******''(post)''.json
+*****program
+******''(fragment shader)''.fsh
+******''(program)''.json
+******''(vertex shader)''.vsh
+****texts
+*****''(text)''.txt
+****textures
+*****block
+******''(texture)''.png
+*****colormap
+******''(texture)''.png
+*****effect
+******''(texture)''.png
+*****entity
+******''(texture)''.png
+******''(entity type)''
+*******''(texture)''.png
+*****environment
+******''(texture)''.png
+*****font
+******''(texture)''.png
+*****gui
+******''(texture)''.png
+******advancements
+*******''(texture)''.png
+*******backgrounds
+********''(texture)''.png
+******container
+*******''(texture)''.png
+*******creative_inventory
+********''(texture)''.png
+******presets
+*******''(texture)''.png
+******title
+*******''(texture)''.png
+*******background
+********''(texture)''.png
+*****item
+******''(texture)''.png
+*****map
+******''(texture)''.png
+*****misc
+******''(texture)''.png
+*****mob_effect
+******''(texture)''.png
+*****models
+******armor
+*******''(texture)''.png
+*****painting
+******''(texture)''.png
+*****particle
+******''(texture)''.png
+</div>}}
+
+More than one directory for different namespaces may exist under the {{cd|assets}} directory.
+
+=== Contents ===
+A resource pack is identified by ''Minecraft'' based on the presence of the file {{code|pack.mcmeta}} in the root directory, which contains a [[wikipedia:JSON|JSON]] file with the following information:
+
+<div class="treeview">
+* {{nbt|compound}} The root tag
+**{{nbt|compound|pack}}: Holds the resource pack information
+***{{nbt|int|pack_format}}: Pack version. If this number does not match the current required number, the resource pack displays an error and requires additional confirmation to load the pack. See [[Pack format]] for a full list of pack format numbers.
+*** {{nbt|string|description}}: Text shown below the pack name in the resource pack menu. The text is shown on two lines. If the text is too long it is truncated.<!-- add an exact length -->
+*** {{nbt|compound|description}}: Contains a [[Raw JSON text format|raw JSON text]] object that is shown instead as the pack description in the resource pack menu. Same behavior as the {{code|string}} version of the {{code|description}} tag, but they cannot exist together.
+** {{nbt|compound|language}}: Contains additional languages to add to the language menu
+*** {{nbt|compound}} Language code for a language, corresponding to a {{mono|.json}} file with the same name in the folder {{mono|assets/''<[[namespace]]>''/lang}}.
+**** {{nbt|string|name}}: The full name of the language
+**** {{nbt|string|region}}: The country or region name
+**** {{nbt|bool|bidirectional}}: If true, the language reads right to left.
+** {{nbt|compound|filter}}: Section for filtering out files from resource packs applied below this one. Any file that matches one of the patterns inside {{mono|block}} will be treated as if it was not present in the pack at all.
+*** {{nbt|list|block}}: List of patterns
+****{{nbt|compound}} Pattern entry.
+*****{{nbt|string|namespace}}: A [https://en.wikipedia.org/wiki/Regular_expression regular expression] for the namespace of files to be filtered out. If unspecified, it applies to every namespace.
+*****{{nbt|string|path}}: A [https://en.wikipedia.org/wiki/Regular_expression regular expression] for the paths of files to be filtered out. If unspecified, it applies to every file.
+</div>
+
+The root directory also contains an optional image called {{mono|pack.png}}, which appears as the thumbnail for the pack on the resource pack selection menu.
+
+==== Pack format ====
+{{main|pack_format#Resource Pack}}
+
+==== Language ====
+
+Resource packs can create language files of the type {{code|.json}} in the folder {{code|assets/''<[[namespace]]>''/lang}}. Each file either replaces information from a file of the same name in the default or a lower pack, or it creates a new language as defined by {{code|pack.mcmeta}}.
+
+Each line in the {{code|.json}} file is in the standard json format of {{code|"''identifier''":"''name''"}} followed by a comma in case it is followed by another value in the next line. {{code|''identifier''}} is what the game uses to look up the name for something, and as such it should not be translated or changed. {{code|''name''}} is the name that is displayed. For example, stone in the default language file is {{code|"block.minecraft.stone":"Stone"}}, with {{code|block.minecraft.stone}} being the identifier, and {{code|Stone}} being the displayed name.  Blank lines are ignored. The file needs to be valid JSON syntax, meaning it starts with a <code>{</code>, has a comma after every key value pair except the last one, and ends with a <code>}</code>.
+
+Language files need to add only those lines that are changed by the pack. Any names that are not in the pack are loaded from the pack below, or default if no pack changes the names.
+
+==== Models ====
+{{main|Model}}
+
+Models are files in JSON format with the extension {{code|.json}}, which determine the shape and textures of blocks and items.
+
+Blocks use a block state file from {{code|assets/minecraft/blockstates}} to determine which model is loaded for each variant from the folder {{code|assets/minecraft/models/block}}. Meanwhile, each item has an item model in {{code|assets/minecraft/models/item}} to determine its model, which either loads from a block's model, contains data for its own custom model, or uses the default "flat" or "entity" model.
+
+Models and block states used in packs below the top one are still loaded unless overridden in the top pack, which may cause some textures and models used by the top pack to no longer be loaded.
+
+==== Sounds ====
+
+Resource packs load additional sounds with the file type of {{code|.ogg}}. Each sound placed in the pack overrides the sounds from packs below, and packs also contain a file called {{code|[[sounds.json]]}}, which is placed within {{code|assets/minecraft}}. Unlike most other files in resource packs, {{code|sounds.json}} merges sound information from packs below the top pack, rather than each {{code|sounds.json}} file overriding the previous completely.
+
+==== Textures ====
+[[File:Missing Model.png|thumb|The "missing model" for invalid or missing models, prominently using the black and magenta "missing texture".]]
+
+For block or item textures to function, they must have equal width and height (or height that is a multiple of the width if [[#Animation|animated]]); otherwise it appears as a magenta and black checkerboard. For most other textures, the file is stretched to fit the required dimensions.
+
+Most solid blocks turn any transparent area fully opaque. Some other blocks, which have "cutout" transparency (like glass) turn all pixels that are less than 10% opaque fully transparent and all other pixels completely opaque. Every other block renders textures with semi-transparency as-is. All items and any blocks or entities that are semi-transparent by default support semi-transparency.
+
+If a file does not exist in any resource pack, including the default, the [[missing texture]] appears in its place. As of 1.19.1, six such cases exist in the vanilla resource pack, all particle-related.
+
+==== Atlases ====
+Atlases are configuration files, located in <samp>atlases</samp> directory, that control which images are included in the atlases. That directory contains following JSON entries for configuring atlases:
+<div class="treeview">
+*{{nbt|compound}} The root tag 
+**{{nbt|list|sources}}: Contains a list of sources. Every entry runs in during load, in order of definition, adding or removing new files to the texture list.
+***{{nbt|compound}} Source element
+****{{nbt|string|type}}: The type of the atlas source. Can be one of the following:
+*****''directory'': Lists all files in a directory and its subdirectories, across all namespaces.
+******{{nbt|string|source}}: Directory in pack to be listed (relative to {{code|textures}} directory).
+******{{nbt|string|prefix}}: String to be preprended to the sprite name when loaded.
+*****''single'': Adds a single file.
+******{{nbt|string|resource}}: Location of a resource within the pack (relative to textures directory, implied {{code|.png}} extension).
+******{{nbt|string|sprite}}: Sprite name (optional, defaults to {{code|resource}}).
+*****''filter'': Removes sprites matching the given pattern (only works for entries already in the list).
+******{{nbt|string|namespace}}: [https://en.wikipedia.org/wiki/Regular_expression Regular expression] of the namespace indentificator to be removed, if omitted, any value will be matched.
+******{{nbt|string|path}}: [https://en.wikipedia.org/wiki/Regular_expression Regular expression] of the path to be removed, if omitted, any value will be matched.
+*****''unstitch'': Copies rectangular regions from other images.
+******{{nbt|string|resource}}: Location of a resource within the pack (relative to {{code|textures}} directory, implied {{code|.png}} extension).
+******{{nbt|double|divisor_x}}: Used for determining the units used by in the {{code|x}} coordinate of regions.
+******{{nbt|double|divisor_y}}: Used for determining the units used by in the {{code|y}} coordinate of regions.
+******{{nbt|list|regions}}: List of regions to copy from the source image.
+*******{{nbt|string|sprite}}: Specifies the sprite name.
+*******{{nbt|double|x}}: Specifies the {{code|x}} coordinate of the top-left corner of the region.
+*******{{nbt|double|y}}: Specifies the {{code|y}} coordinate of the top-left corner of the region.
+*******{{nbt|double|width}}: Specifies the width of the region.
+*******{{nbt|double|height}}: Specifies the height of the region.
+
+====Animation====
+Block, item, particle, painting, item frame, and status effect icon ({{code|assets/minecraft/textures/mob_effect}}) textures support animation by placing each additional frame below the last. The animation is then controlled using a {{code|.mcmeta}} file in JSON format with the same name and {{code|.png}} at the end of the filename, in the same directory. For example, the {{code|.mcmeta}} file for {{code|stone.png}} would be {{code|stone.png.mcmeta}}.
+
+<div class="treeview">
+*{{nbt|compound}} The root tag 
+**{{nbt|compound|animation}}: Contains data for the animation
+***{{nbt|boolean|interpolate}}: If true, ''Minecraft'' generates additional frames between frames with a frame time greater than 1 between them. Defaults to {{code|false}}.
+***{{nbt|int|width}}: The width of the tile, as a direct ratio rather than in pixels.<!--Dinnerbone originally stated it was in pixels, but later corrected himself on IRC--> This is unused in vanilla's files but can be used by resource packs to have frames that are not perfect squares.
+***{{nbt|int|height}}: The height of the tile as a ratio rather than in pixels. This is unused in vanilla's files but can be used by resource packs to have frames that are not perfect squares.
+***{{nbt|int|frametime}}: Sets the default time for each frame in increments of one game tick. Defaults to {{code|1}}.
+***{{nbt|list|frames}}: Contains a list of frames. Defaults to displaying all the frames from top to bottom.
+****{{nbt|int}} A number corresponding to position of a frame from the top, with the top frame being 0.
+****{{nbt|compound}} A frame specifies a frame with additional data.
+*****{{nbt|int|index}}: A number corresponding to position of a frame from the top, with the top frame being 0.
+*****{{nbt|int|time}}: The time in ticks to show this frame, overriding "frametime" above.
+</div>
+
+If the {{code|.mcmeta}} file does not exist in the pack and the texture does, the game assumes the texture is not animated, rather than loading a {{code|.mcmeta}} file from a pack below that pack. If no {{code|.mcmeta}} file exists for a texture with unequal dimensions, the texture appears as a purple and black checkerboard.
+
+====Villagers====
+Textures from {{code|assets/minecraft/textures/entity/villager}} and {{code|assets/minecraft/textures/entity/zombie_villager}} support a {{code|.mcmeta}} file in JSON format containing additional effects to apply to the hat layer. The file is contained in the same directory as the texture, and has the same name as the texture, except appended with {{code|.mcmeta}}. For example, the file {{code|profession/farmer.png}} can have a properties file called {{code|profession/farmer.png.mcmeta}}
+
+<div class="treeview">
+*{{nbt|compound}} The root tag 
+**{{nbt|compound|villager}}: Contains data for the texture
+***{{nbt|string|hat}}: Can be {{code|full}}, {{code|partial}}, or default (no {{code|.mcmeta}} file). Determines whether the villager's 'profession' hat layer should allow the 'type' hat layer to render or not. {{More info|What does each do exactly?}}
+</div>
+
+If the {{code|.mcmeta}} file does not exist in the pack and the texture does, the game loads the default settings, rather than loading a {{code|.mcmeta}} file from a pack below that pack.
+
+====Colormaps====
+Colormaps are 256×256 pixel images which tell the game which color to use in each biome. They are located in {{code|assets/minecraft/textures/colormap}}. The game contains two colormaps: {{code|foliage.png}} colors plants such as [[leaves]] (except birch and spruce) and [[vines]], and {{code|grass.png}} colors [[grass]] and [[grass blocks]]. Colormaps can be disabled on individual blocks by removing the {{code|tintindex}} tag from the block model.
+
+====Properties====
+:Textures from {{code|assets/minecraft/textures/misc}} support a {{code|.mcmeta}} file in JSON format containing additional effects to apply to the texture. The file is contained in the same directory as the texture, and has the same name as the texture, except appended with {{code|.mcmeta}}. For example, the file {{code|pumpkinblur.png}} can have a properties file called {{code|pumpkinblur.png.mcmeta}}
+
+<div class="treeview">
+*{{nbt|compound}} The root tag 
+**{{nbt|compound|texture}}: Contains data for the texture
+***{{nbt|boolean|blur}}: Causes the texture to blur when viewed from close up. Defaults to {{code|false}}
+***{{nbt|boolean|clamp}}: Causes the texture to stretch instead of tiling in cases where it otherwise would, such as on the shadow. Defaults to {{code|false}}
+***{{nbt|int-array|mipmaps}}: Custom mipmap values for the texture
+</div>
+
+If the {{code|.mcmeta}} file does not exist in the pack and the texture does, the game loads the default settings, rather than loading a {{code|.mcmeta}} file from a pack below that pack.
+
+====Texts====
+Two {{code|.txt}} files in UTF-8 format and one {{code|.json}} file exist in {{code|assets/minecraft/texts}}. They are used by the game to determine the text to display.
+
+The file {{code|end.txt}} contains the text of the end poem, using [[formatting codes]] to apply the colors to the two speakers, and with the text {{code|PLAYERNAME}} being replaced with the player's name. After that file is shown, the contents of {{code|credits.json}} are shown.{{info needed|Please add the format description of credits.json}}
+
+The file {{code|splashes.txt}} contains lines of text separated using line breaks to determine the splashes to display in-game. Any splash can be replaced with different text.
+
+====Fonts====
+A font file is a JSON file located at {{code|assets/<namespace>/font}} within a resource pack and contains a list of providers that each tie a character set to a resource location along with some extra information. The default font is defined by the font {{code|minecraft:default}} while the default font used by enchantment tables is defined by the font {{code|minecraft:alt}}. 
+The resource locations given in font providers should also include the file extensions.
+
+<div class="treeview">
+*{{nbt|compound}} The root tag 
+**{{nbt|list|providers}}: A list of providers that are merged onto this font.
+***{{nbt|compound}} A font provider. The contents depend on the value of the {{code|"type"}} tag.
+****{{nbt|string|type}}: The type of the font provider. Can be one of the following:
+*****''bitmap'': A bitmap font.
+******{{nbt|string|file}}: The resource location of the used file, starting from {{code|assets/minecraft/textures}} by default. Prefacing the location with {{code|<namespace>:}} changes the location to {{code|assets/<namespace>/textures}}.
+******{{nbt|int|height}}: Optional. The height of the character, measured in pixels. Can be negative. This tag is separate from the area used in the source texture and just rescales the displayed result. Default is 8.
+******{{nbt|int|ascent}}: The ascent of the character, measured in pixels. This value adds a vertical shift to the displayed result.
+******{{nbt|list|chars}}: A list of strings containing the characters replaced by this provider, as well as their order within the texture. All elements must describe the same number of characters. The texture is split into one equally sized row for each element of this list. Each row is split into one equally sized character for each character within one list element.
+*****''legacy_unicode'': A legacy unicode font. This format is deprecated, prioritized only when the "Force Unicode Font" option is turned on.
+******{{nbt|string|sizes}}: The resource location of a binary file describing the horizontal start and end positions for each character from 0 to 15. The file extension of the target file should be {{code|.bin}}. The resource location path is relative to the namespace root.
+******{{nbt|string|template}}: The resource location inside {{code|assets/<namespace>/textures}} that leads to the texture files that should be used for this provider. The game replaces {{code|%s}} from the value of this tag with the first two characters of the hex code of the replaced characters, so a single provider of this type can point into multiple texture files.
+*****''ttf'': A [[wikipedia:TrueType|TrueType font]] or [[wikipedia:OpenType|OpenType font]]. Despite its name, it supports both TTF and OTF.
+******{{nbt|string|file}}: The resource location of the TrueType/OpenType font file within {{code|assets/<namespace>/font}}.
+******{{nbt|list|shift}}: The distance by which the characters of this provider are shifted.
+*******{{nbt|float}} Left shift, negative values are allowed.
+*******{{nbt|float}} Downward shift, negative values are allowed.
+******{{nbt|float|size}}: Font size to render at.
+******{{nbt|float|oversample}}: Resolution to render at, increasing anti-aliasing factor.
+******{{nbt|string|skip}}: String of characters or array of characters to exclude.
+*****''space'': Show chosen characters as spaces
+******{{nbt|compound|advances}}
+*******{{nbt|float|A character}}: The amount of pixels that the following characters are moved to the right. Can be negative. Decimal numbers can be used for precise movement on higher gui scales.
+</div>
+
+Font texture sheets automatically resize based on the amount of characters in each array line, and some sheets may use a 16-character wide sheet, in order to conform with a Unicode block. This is how Vanilla formats the default font JSON.
+
+=====Default textures=====
+The texture files of the default fonts contain a grid of white characters, which are automatically colored by ''Minecraft'' as needed in-game. The character sizes are automatically determined based on the last line of pixels containing any alpha value. Due to the way fonts are detected, filling the background of a character with a color containing a 5% alpha background causes the full width to render without generally having a visible background to the character. The default font character is 8×8 pixels, while {{code|accented.png}} is 9×12 pixels.
+*Glyphs 0x20 (space) through 0x7E (tilde) display the standard ASCII characters
+*Glyphs 0x7F (<control>) through 0xFF (y with diaeresis) display the [[Wikipedia:Code page 437|Code page 437]] characters
+
+The default texture is located in {{code|assets/minecraft/textures/font/ascii.png}}. It contains these characters:
+
+  !"#$%&'()*+,-./
+ 0123456789:;<=>?
+ @ABCDEFGHIJKLMNO
+ PQRSTUVWXYZ[\]^_
+ `abcdefghijklmno
+ pqrstuvwxyz{|}~ 
+                 
+             £  ƒ
+       ªº  ¬   «»
+ ░▒▓│┤╡╢╖╕╣║╗╝╜╛┐
+ └┴┬├─┼╞╟╚╔╩╦╠═╬╧
+ ╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀
+              ∅∈ 
+ ≡±≥≤⌠⌡÷≈°∙ √ⁿ²■ 
+
+A texture sheet in {{code|assets/minecraft/textures/font/nonlatin_european.png}} contains many accented characters and most of the symbols ''Minecraft'' supports. Contrary to its name, it also includes characters that are non-European<ref>{{bug|MC-199249}}</ref> and some obscure Latin script characters. It contains these characters:
+
+ ¡‰­·₴≠¿×ØÞһðøþΑΒ
+ ΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣ
+ ΤΥΦΧΨΩαβγδεζηθικ
+ λμνξοπρςστυφχψωЂ
+ ЅІЈЉЊЋАБВГДЕЖЗИК
+ ЛМНОПРСТУФХЦЧШЩЪ
+ ЫЬЭЮЯабвгдежзикл
+ мнопрстуфхцчшщъы
+ ьэюяєѕіјљњ–—‘’“”
+ „…⁊←↑→↓⇄＋ƏəɛɪҮүӨ
+ өʻˌ;ĸẞß₽€ѢѣѴѵӀѲѳ
+ ⁰¹³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁱ™
+ ʔʕ⧈⚔☠ҚқҒғҰұӘәҖҗҢ
+ ңҺאבגדהוזחטיכלמם
+ נןסעפףצץקר¢¤¥©®µ
+ ¶¼½¾·‐‚†‡•‱′″‴‵‶
+ ‷‹›※‼‽⁂⁈⁉⁋⁎⁏⁑⁒⁗℗
+ −∓∞☀☁☈Є☲☵☽♀♂⚥♠♣♥
+ ♦♩♪♫♬♭♮♯⚀⚁⚂⚃⚄⚅ʬ⚡
+ ⛏✔❄❌❤⭐⸘⸮⸵⸸⹁⹋⥝ᘔƐ߈
+ ϛㄥⱯᗺƆᗡƎℲ⅁ꞰꞀԀꝹᴚ⟘∩
+ Ʌ⅄ɐɔǝɟᵷɥᴉɾʞꞁɯɹʇʌ
+ ʍʎԱԲԳԴԶԷԹԺԻԼԽԾԿՀ
+ ՁՂՃՄՅՆՇՈՉՋՌՍՎՏՐՑ
+ ՒՓՔՕՖՙաբգդեզէըթժ
+ իլխծկհձղճմյնշոչպ
+ ջռսվտրցւփքօֆևשתԸ
+ ՚՛՜՝՞՟ՠֈ֏¯ſƷʒǷƿȜ
+ ȝȤȥ˙Ꝛꝛ‑⅋⏏⏩⏪⏭⏮⏯⏴⏵
+ ⏶⏷⏸⏹⏺⏻⏼⏽⭘▲▶▼◀●◦◘
+ ⚓⛨ĲĳǉꜨꜩꜹꜻﬀﬁﬂﬃﬅ�Ե
+ Պᚠᚢᚣᚤᚥᚦᚧᚨᚩᚪᚫᚬᚭᚮᚯ
+ ᚰᚱᚲᚳᚴᚶᚷᚸᚹᚺᚻᚼᚽᚾᚿᛀ
+ ᛁᛂᛃᛄᛅᛆᛇᛈᛉᛊᛋᛌᛍᛎᛏᛐ
+ ᛑᛒᛓᛔᛕᛖᛗᛘᛙᛚᛛᛜᛝᛞᛟᛠ
+ ᛡᛢᛣᛤᛥᛦᛧᛨᛩᛪ᛫᛬᛭ᛮᛯᛰ
+ ᛱᛲᛳᛴᛵᛶᛷᛸ☺☻¦☹ך׳״װ
+ ױײ־׃׆´¨ᴀʙᴄᴅᴇꜰɢʜᴊ
+ ᴋʟᴍɴᴏᴘꞯʀꜱᴛᴜᴠᴡʏᴢ§
+ ɱɳɲʈɖɡʡɕʑɸʝʢɻʁɦʋ
+ ɰɬɮʘǀǃǂǁɓɗᶑʄɠʛɧɫ
+ ɨʉʊɘɵɤɜɞɑɒɚɝƁƉƑƩ
+ ƲႠႡႢႣႤႥႦႧႨႩႪႫႬႭႮ
+ ႯႰႱႲႳႴႵႶႷႸႹႺႻႼႽႾ
+ ႿჀჁჂჃჄჅჇჍაბგდევზ
+ თიკლმნოპჟრსტუფქღ
+ ყშჩცძწჭხჯჰჱჲჳჴჵჶ
+ ჷჸჹჺ჻ჼჽჾჿתּשׂפֿפּכּײַיִ
+ וֹוּבֿבּꜧꜦɺⱱʠʗʖɭɷɿʅʆ
+ ʓʚ₪₾֊ⴀⴁⴂⴃⴄⴅⴆⴡⴇⴈⴉ
+ ⴊⴋⴌⴢⴍⴎⴏⴐⴑⴒⴣⴓⴔⴕⴖⴗ
+ ⴘⴙⴚⴛⴜⴝⴞⴤⴟⴠⴥ⅛⅜⅝⅞⅓
+ ⅔✉☂☔☄⛄☃⌛⌚⚐✎❣♤♧♡♢
+ ⛈☰☱☳☴☶☷↔⇒⇏⇔⇵∀∃∄∉
+ ∋∌⊂⊃⊄⊅∧∨⊻⊼⊽∥≢⋆∑⊤
+ ⊥⊢⊨≔∁∴∵∛∜∂⋃⊆⊇□△▷
+ ▽◁◆◇○◎☆★✘₀₁₂₃₄₅₆
+ ₇₈₉₊₋₌₍₎∫∮∝⌀⌂⌘〒ɼ
+ ƄƅẟȽƚƛȠƞƟƧƨƪƸƹƻƼ
+ ƽƾȡȴȵȶȺⱥȻȼɆɇȾⱦɁɂ
+ ɃɄɈɉɊɋɌɍɎɏẜẝỼỽỾỿ
+ Ꞩꞩ𐌰𐌱𐌲𐌳𐌴𐌵𐌶𐌷𐌸𐌹𐌺𐌻𐌼𐌽
+ 𐌾𐌿𐍀𐍁𐍂𐍃𐍄𐍅𐍆𐍇𐍈𐍉𐍊🌧🔥🌊
+ ⅐⅑⅕⅖⅗⅙⅚⅟↉🗡🏹🪓🔱🎣🧪⚗
+ ⯪⯫Ɑ🛡✂🍖🪣🔔⏳⚑₠₡₢₣₤₥
+ ₦₩₫₭₮₰₱₲₳₵₶₷₸₹₺₻
+ ₼₿
+
+A secondary texture is located in {{code|assets/minecraft/textures/font/accented.png}}. It supports most basic accented characters, Greek letters, Cyrillic characters, as well as some enclosed alphanumerics and other symbols. It contains these characters:
+
+ ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏ
+ ÐÑÒÓÔÕÖÙÚÛÜÝàáâã
+ äåæçìíîïñòóôõöùú
+ ûüýÿĀāĂăĄąĆćĈĉĊċ
+ ČčĎďĐđĒēĔĕĖėĘęĚě
+ ĜĝḠḡĞğĠġĢģĤĥĦħĨĩ
+ ĪīĬĭĮįİıĴĵĶķĹĺĻļ
+ ĽľĿŀŁłŃńŅņŇňŊŋŌō
+ ŎŏŐőŒœŔŕŖŗŘřŚśŜŝ
+ ŞşŠšŢţŤťŦŧŨũŪūŬŭ
+ ŮůŰűŲųŴŵŶŷŸŹźŻżŽ
+ žǼǽǾǿȘșȚțΆΈΉΊΌΎΏ
+ ΐΪΫάέήίΰϊϋόύώЀЁЃ
+ ЇЌЍЎЙйѐёђѓїћќѝўџ
+ ҐґḂḃḊḋḞḟḢḣḰḱṀṁṖṗ
+ ṠṡṪṫẀẁẂẃẄẅỲỳèéêë
+ ŉǧǫЏḍḥṛṭẒỊịỌọỤụ№
+ ȇƔɣʃ⁇ǱǲǳǄǅǆǇǈǊǋǌ
+ ℹᵫꜲꜳꜴꜵꜶꜷꜸꜺꜼꜽꝎꝏꝠꝡ
+ ﬄﬆᚡᚵƠơƯưẮắẤấẾếốỚ
+ ớỨứẰằẦầỀềồỜờỪừẢả
+ ẲẳẨẩẺẻổỞỂểỈỉỎỏỔở
+ ỦủỬửỶỷẠạẶặẬậẸẹỆệ
+ ỘộỢợỰựỴỵỐƕẪẫỖỗữ☞
+ ☜☮ẴẵẼẽỄễỒỠỡỮỸỹҘҙ
+ ҠҡҪҫǶ⚠⓪①②③④⑤⑥⑦⑧⑨
+ ⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳ⒶⒷⒸⒹⒺ
+ ⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊ
+ ⓋⓌⓍⓎⓏⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚ
+ ⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ◌̧
+ ʂʐɶǍǎǞǟǺǻȂȃȦȧǠǡḀ
+ ḁȀȁḆḇḄḅᵬḈḉḐḑḒḓḎḏ
+ ḌᵭḔḕḖḗḘḙḜḝȨȩḚḛȄȅ
+ ȆᵮǴǵǦḦḧḨḩḪḫȞȟḤẖḮ
+ ḯȊȋǏǐȈȉḬḭǰȷǨǩḲḳḴ
+ ḵḺḻḼḽḶḷḸḹⱢḾḿṂṃᵯṄ
+ ṅṆṇṊṋǸǹṈṉᵰǬǭȬȭṌṍ
+ ṎṏṐṑṒṓȎȏȪȫǑǒȮȯȰȱ
+ ȌȍǪṔṕᵱȒȓṘṙṜṝṞṟȐȑ
+ ṚᵳᵲṤṥṦṧṢṣṨṩᵴṰṱṮṯ
+ ṬẗᵵṲṳṶṷṸṹṺṻǓǔǕǖǗ
+ ǘǙǚǛǜṴṵȔȕȖṾṿṼṽẆẇ
+ ẈẉẘẌẍẊẋȲȳẎẏẙẔẕẐẑ
+ ẓᵶǮǯẛꜾꜿǢǣᵺỻᴂᴔꭣȸʣ
+ ʥʤʩʪʫȹʨʦʧꭐꭑ₧Ỻאַאָƀ
+ ƂƃƇƈƊƋƌƓǤǥƗƖɩƘƙƝ
+ ƤƥɽƦƬƭƫƮȗƱƜƳƴƵƶƢ
+ ƣȢȣʭʮʯﬔﬕﬗﬖﬓӐӑӒӓӶ
+ ӷҔҕӖӗҼҽҾҿӚӛӜӝӁӂӞ
+ ӟӢӣӤӥӦӧӪӫӰӱӮӯӲӳӴ
+ ӵӸӹӬӭѶѷӔӺԂꚂꚀꚈԪԬꚄ
+ ԄԐӠԆҊӃҞҜԞԚӅԮԒԠԈԔ
+ ӍӉԨӇҤԢԊҨԤҦҎԖԌꚐҬꚊ
+ ꚌԎҲӼӾԦꚔҴꚎҶӋҸꚒꚖꚆҌ
+ ԘԜӕӻԃꚃꚁꚉԫԭꚅԅԑӡԇҋ
+ ӄҟҝԟԛӆԯԓԡԉԕӎӊԩӈҥ
+ ԣԋҩԥҧҏԗԍꚑҭꚋꚍԏҳӽӿ
+ ԧꚕҵꚏҷӌҹꚓꚗꚇҍԙԝἈἀἉ
+ ἁἊἂἋἃἌἄἍἅἎἆἏἇᾺὰᾸ
+ ᾰᾹᾱΆάᾈᾀᾉᾁᾊᾂᾋᾃᾌᾄᾍ
+ ᾅᾎᾆᾏᾇᾼᾴᾶᾷᾲᾳἘἐἙἑἚ
+ ἒἛἓἜἔἝἕῈΈὲέἨἠῊὴἩ
+ ἡἪἢἫἣἬἤἭἥἮἦἯἧᾘᾐᾙ
+ ᾑᾚᾒᾛᾓᾜᾔᾝᾕᾞᾖᾟᾗΉήῌ
+ ῃῂῄῆῇῚὶΊίἸἰἹἱἺἲἻ
+ ἳἼἴἽἵἾἶἿἷῘῐῙῑῒΐῖ
+ ῗῸὸΌόὈὀὉὁὊὂὋὃὌὄὍ
+ ὅῬῤῥῪὺΎύὙὑὛὓὝὕὟὗ
+ ῨῠῩῡϓϔῢΰῧὐὒὔῦὖῺὼ
+ ΏώὨὠὩὡὪὢὫὣὬὤὭὥὮὦ
+ Ὧὧᾨᾠᾩᾡᾪᾢᾫᾣᾬᾤᾭᾥᾮᾦ
+ ᾯᾧῼῳῲῴῶῷ☯☐☑☒ƍƺⱾȿ
+ ⱿɀᶀꟄꞔᶁᶂᶃꞕᶄᶅᶆᶇᶈᶉᶊ
+ ᶋᶌᶍꟆᶎᶏᶐᶒᶓᶔᶕᶖᶗᶘᶙᶚ
+ ẚ⅒⅘₨₯
+
+The default texture used when displaying the [[wikipedia:Standard Galactic Alphabet|Standard Galactic Alphabet]] (a.k.a. the enchanting text or "alien font") is {{code|assets/minecraft/textures/font/ascii_sga.png}}.
+
+There is another currently unused texture called {{code|illageralt}}, which is the rune-like font from ''[[Minecraft Dungeons]]''. It is located at {{code|assets/minecraft/textures/font/asciillager.png}}.
+
+=====Legacy Unicode=====
+As a fallback for untextured characters, ''Minecraft'' uses [[Wikipedia:Unifont|GNU Unifont]]. Each sheet of characters is stored following the format of {{code|unicode_page_##}}, where {{code|##}} are the hexadecimal numbers '''00''' through '''FF'''. These pages are 16×16 pixels, and appear small and rough in-game. The version of GNU Unifont used is 9.0.04<ref>{{bug|MC-108045}}</ref>, and is outdated as of 1.17.1. It provides the support for the [[Wikipedia:CJK|CJK]] characters as well as a fallback for every character not provided by any loaded font.
+
+The Unifont entries use a {{code|glyph_sizes.bin}} for recording glyph widths. Each entry is one byte large; the higher nibble records the starting position while the lower records the ending position in the 16×16 glyph grid. For example, a square character occupying the entire grid (pixel #0 through #15) would have a byte of {{code|0F}}.
+
+Codepoints beyond U+FFFF are not handled and are ignored.
+
+=====Emoji=====
+Since [[Java Edition 1.15|1.15]], ''Minecraft'' can support UTF-16 sequences for emojis, or any character in the [[Wikipedia:Supplementary Multilingual Plane|Unicode SMP]] plane. 
+
+For the emoji to be read properly in the {{nbt|list|char}} array of the font file, the character can either:
+*be split from its' UTF-16 codepoint into two UTF-8 codepoints ''(surrogates)''; for example, {{code|1=1F603 = D83D DE03}}
+* be input directly
+
+The first method is used in the Vanilla font file, but either works equally well.
+To convert a character into a surrogate pair, one can use the following equations, where ''C'' is the codepoint in '''decimal''': 
+
+*High Surrogate (first): {{Math|((C - 65536) - (C % 1024)) / 1024 + 55296}}
+*Low Surrogate (second): {{Math|(C % 1024) + 56320}}
+
+As of [[Java Edition 1.17.1|1.17.1]], ''Minecraft'' has default support for the following emojis:
+<!-- Emoji does not mean it displays with colors. Don't remove a character from here if it doesn't look like an emoji to you.
+"Emoji" is not the same as Emoji Presentation, see [[Wikipedia:Emoji#Modifiers]]. Text presentation characters are still included because they are classified as emoji. Because fonts can change these, do not modify this list without consulting the Unicode charts, as your system is different. -->
+<!-- Please consult https://unicode.org/emoji/charts/full-emoji-list.html -->
+<!-- Do not append variation selector 16 (U+FE0F) to these, as copying and pasting them in Minecraft has unintended side effects -->
+ ☀ ☁ ☂ ☃ ☄ ☑ ☔ ☠ ☮ ☯ ☹ ☺ ♀ ♂ ♠ ♣ ♥ ♦ ⚓ ⚔ ⚗ ⚠ ⚡ ⛄ ⛈ ⛏ ✉ ✔ ❣ ❄ 🔥 🌊 🗡 🏹 🪓 🔱 🎣 🧪 ✂ 🍖 🪣 🔔 ⏳
+
+=====Shadows=====
+In most places text is rendered, a shadow appears beneath every character. This shadow is a copy of the character's bitmap, with the r, g and b values divided by 4, and positioned 12.5% south-east of the character, relative to its spacing. Regardless of the resolution of the character's texture, the shadow is always moved by 12.5%; whether there exists any way to change this value using resource packs is unknown. In the default font ({{code|assets/minecraft/textures/font/ascii.png}}), the shadow is equivalent to being moved 1 pixel down and to the right.
+
+=====Glowing text=====
+[[Glow Ink Sac|Glow ink]] on a sign causes a character to create eight copies of itself, similar to the shadows, but in all eight directions. This results in the font appearing to have a thick outline.
+
+====Texture sheets====
+{{main|Texture atlas}}
+Minecraft generally does not store multiple different textures on sheets and instead stores them on separate files. Two current exceptions are [[map]] icons<ref>https://feedback.minecraft.net/hc/en-us/community/posts/360058199792-Split-up-map-icon-textures-into-individual-files</ref> and [[experience orb]]s.<ref>https://feedback.minecraft.net/hc/en-us/community/posts/360058097892-Split-up-the-experience-orb-texture-file-into-individual-sprites</ref>
+
+====Shaders====
+{{main|Shaders}}
+
+Shaders are a way for resource packs to change how the game renders. They are written in OpenGL Shading Language (GLSL).
+
+====Regional compliancies warnings====
+Regional compliancies warnings can be customized at {{mono|assets/''<[[namespace]]>''/regional_compliancies.json}}.
+
+<div class="treeview"> 
+*{{nbt|compound}} The root tag
+**{{nbt|list|''Region''}}: Contains a list of warnings. Note that the key itself is an {{wikipedia|ISO 3166-1 alpha-3}} region code determined by the device's locale setting.  
+***{{nbt|int|delay}}: Optional. Defines how long should the game wait until showing this message in minutes. This can not be zero.
+***{{nbt|int|period}}: The time interval this message should be shown in minutes. This can not be zero.
+***{{nbt|string|title}}: The translation identifier of the title of the message. A slot is provided for the translation string, containing how many times this warning has been shown.
+***{{nbt|string|message}}: The translation identifier of the message. A slot is provided for the translation string, how many times this warning has been shown.
+</div>
+
+===Template===
+The folder structure of Vanilla Resource Pack:
+{{/Folders}}
+
+==Bedrock Edition==
+Many resource packs for ''Bedrock Edition'' can be obtained from the [[Marketplace]], either for free or for a price of Minecoins (Tokens on PS4).
+
+===Behavior===
+Similarly to [[skin]]s, resource packs can be bought or made {{in|be}}. Users can download resource packs on the system itself with the {{cd|.mcpack}} file names, if the game platform allows file importation. When these files are opened, they are automatically imported into the game without any need for file system access. Resource packs can also be put manually in the {{code|resource_packs}} folder in the {{code|[[com.mojang]]}} folder. Each resource pack must either be a sub-folder or a {{code|.zip}} file.
+
+Resource packs can be applied on the Global Resources option from the [[settings]] menu from the main menu screen. Resource packs can be moved between "Active" and "My Packs". "Active" also contains the default assets at the bottom, and cannot be removed.
+
+Resource packs load their assets based on the order of the packs on the list. The bottom-most pack loads first, then each pack placed above it replaces assets of the same name with its assets.
+
+====Default packs====
+One or more resource packs can be bundled with a world in the world settings. When playing the world, that resource pack appears as the default right above the default resource pack. A resource pack can be set on a server by bundling the resource pack in the world, and then re-uploading the world folder to the server. Users then have an option whether to use the resource pack or not if the {{cd|texturepack-required}} option is disabled in the [[server.properties|server settings]] and if the world has the "Require players to accept resource packs to join" option disabled. Resource packs can also be forced on a server by using the {{code|texturepack-required{{=}}true}} property on the [[server.properties|server settings]].
+
+===Folder Structure===
+{{Collapse|title=Resource packs use the following folder structure:|content=<div class="toccolours treeview">
+*''(resource pack name)''
+** biomes_client.json
+** blocks.json
+** manifest.json
+** pack_icon.png
+** sounds.json
+** animation_controllers
+*** <entity>.animation_controllers.json
+** animations
+*** <entity>.animation.json
+** attachables
+*** <attachable>.json
+** entities
+*** <entity>.entity.json
+** fogs
+*** <biome>_fog_settings.json
+** models
+*** mobs.json
+*** <model>.geo.json{{fn|File may be inside a folder.|name=May be inside a folder}}
+** particles
+*** <particle>.json
+** render_controllers
+*** <entity>.render_controllers.json
+** sounds
+*** music_definitions.json
+*** sound_definitions.json
+*** <sound>.fsb{{fn|File may be inside a folder.|name=May be inside a folder}}
+*** <sound>.ogg{{fn|File may be inside a folder.|name=May be inside a folder}}
+*** <sound>.wav{{fn|File may be inside a folder.|name=May be inside a folder}}
+*** <sound>.mp3{{fn|File may be inside a folder.|name=May be inside a folder}}{{fn|.mp3 files aren't fully supported.}}
+** texts
+*** languages.json
+*** language_names.json
+*** <languagecode>_<COUNTRYCODE>.lang
+*** <languagecode>_<COUNTRYCODE>{{fn|For languages using a different font.}}
+**** font
+***** glyph_<<span></span>code>.png
+** texture_sets{{fn|Unused.}}
+** textures
+*** flipbook_textures.json
+*** item_texture.json
+*** terrain_texture.json
+*** <texture>.png{{fn|File may be inside a folder.|name=May be inside a folder}}
+*** <texture>.tga{{fn|File may be inside a folder.|name=May be inside a folder}}
+** ui
+*** <ui>.json{{fn|File may be inside a folder.|name=May be inside a folder}}
+</div>
+{{fnlist}}|}}
+
+==History==
+{{History|java}}
+{{History||1.6.1|snap=13w24a|Added resource packs, replacing the functionality of [[texture pack]]s.
+|[http://s3.amazonaws.com/Minecraft.Download/utilities/TextureEnder.jar Minecraft Texture Ender] is available from Mojang to automatically convert 1.5 compatible texture packs to resource packs. See [[Java Edition 1.6.1/Resource pack changes]] for the list of file names changed.}}
+{{History||1.6.2|snap=reupload|slink=Java Edition 1.6.2#Reuploads|Fixed distorted font when HD font is used.<ref>{{bug|MC-17673||Distorted fonts when using a converted texturepack on startup|Fixed}}</ref>}}
+{{History||1.7.2|snap=13w36a|Added the ability to apply multiple resource packs at once.
+|Servers can now recommend a default resource pack via the server-side resource packs system.<ref>{{Bug|MC-18569||Server resourcepacks not implemented yet|Fixed}}</ref><ref>https://mcupdate.tumblr.com/post/65040832258/minecraft-172</ref>}}
+{{History|||snap=13w42a|Moved files from {{cd|assets/minecraft/music}} to {{cd|assets/minecraft/sounds/music}} and files from {{cd|assets/minecraft/sound}} to {{cd|assets/minecraft/sounds}}.}}
+{{History||1.7.4|snap=13w47a|The {{code|description}} value of {{code|pack.mcmeta}} can now be [[raw JSON text format]].}}
+{{History|||snap=13w48a|Removed the ability to change the Mojang logo.}}
+{{History||1.8|snap=14w06a|Added the ability to change the [[block models]].}}
+{{History|||snap=14w07a|Resource packs can now be bundled with a map.}}
+{{History|||snap=14w25a|The model format now supports custom item models.
+|Textures can now be specified for blocks and items.
+|Added the {{cd|interpolate}} tag for animations.}}
+{{History||1.8.8|snap=pre|Resource packs now display an error if the format number is wrong. At this time, it requires a format number of {{cd|1}}.}}
+{{History||1.9|snap=15w31a|Changed format number to {{cd|2}}, due to changes in the [[model]] system, such as [[Model#Item tags|item tags]], [[Model#Block states|multipart]], and changes to display tags.
+|Using resource packs with outdated display tags causes the models to seem abnormally up-scaled and the wielded block cannot be rotated in the hand, along with blocks in the inventory replaced with a 2D texture. This is similar to what happens when a model has no display tags. See [https://web.archive.org/web/20190710004554/http://i.imgur.com/7wilQfO.png here] for an example.}}
+{{History||1.11|snap=16w32a|Resource packs version number changed to {{cd|3}}, due to the change that all files should have lowercase letters.}}
+{{History||1.13|snap=17w43a|The default resource pack can now be moved up and down, just like other resource packs.}}
+{{History|||snap=17w48a|Changed format number to {{cd|4}}, due to ''[[The Flattening]]''. See [[Java Edition 1.13/Resource pack changes]] for the list of file names changed.}}
+{{History|||snap=pre7|Several punctuation characters in {{code|ascii.png}} were shortened by one pixel, either vertically or horizontally. A stray pixel on the {{key|Ø}} character was also removed.}}
+{{History|||snap=pre8|Several more punctuation characters in {{code|ascii.png}} were shortened and the {{key|@}} was lowered by one pixel.}}
+{{History||1.14|snap=18w45a|Added "Programmer Art – The classic look of Minecraft" to the resource pack menu, due to the old textures being replaced by new ones in the ''[[Texture Update]]''.}}
+{{History|||snap=19w06a|Significantly improved resource pack loading speed.<ref>{{tweet|Dinnerbone|1093575528794214400|It should have already affected resource pack loading! It's all the same thing internally.|February 7th, 2019}}</ref>
+|[[Particles]] textures are now split into individual files.}}
+{{History|||snap=19w07a|[[Painting]] textures are now split into individual files.}}
+{{History|||snap=19w08a|[[Status effect]] textures are now split into individual files.}}
+{{History|||snap=19w09a|Particles are now configurable.}}
+{{History||1.15|snap=Pre-release 1|Changed format number to {{cd|5}}, due to texture mechanic changes in earlier snapshots.}}
+{{History||1.16.2|snap=Release Candidate 1|Changed format number to {{cd|6}}, due to changes to wall blocks made in 1.16 according to {{bug|MC-197275}}.}}
+{{History||1.17|snap=20w45a|Changed format number to {{cd|7}}.}}
+{{History|||snap=21w05a|Improved performance when using many overrides on an item model.
+|toasts.png GUI texture has a new icon for the bundle tutorial.}}
+{{History|||snap=pre1|The file {{code|credits.txt}} in {{code|assets/minecraft/texts}} was changed to {{code|credits.json}}, and the format also changed from plain text to structured JSON format.}}
+{{History||1.18|snap=21w37a|Added {{cd|illageralt}}, the rune-like font from ''[[Minecraft Dungeons]]'' (currently usable only via commands).}}
+{{History|||snap=21w39a|Changed format number to {{cd|8}}, because [[inventory.png]] now contains an extra sprite for a thin-layout version of the effect list in the inventory.}}
+{{History||1.18.2|snap=22w06a|Added {{code|assets/minecraft/regional_compliancies.json}} to control the gameplay timer and in-game notice strings as to respect the compliance requirements in South Korea. For South Korea only by default.}}
+{{History||1.19|snap=22w11a|Changed format number to {{cd|9}}, due to new {{cd|filter}} section in pack.mcmeta.}}
+{{History||1.19.3|snap=22w42a|Changed format number to {{cd|11}}, due to the removal of "fixers" for resource packs with format numbers {{cd|3}} and {{cd|4}}.}}
+{{History|||snap=22w45a|Changed format number to {{cd|12}}.}}
+{{History||1.19.4|snap=23w07a|The vanilla resource pack <code>en_us</code> language file is now sorted alphanumerically by key.}}
+{{History|||snap=1.19.4-pre1|Added a built-in "High Contrast" resource pack that enhances the contrast of UI elements.|Changed format number to {{cd|13}}, due to the enchantment glint now being separate between entities and items.}}
+{{History||1.20|snap=23w14a|Changed the pack format to {{cd|14}} due to updates to the layout of {{cd|minecraft.png}} and {{cd|invite_icon.png}}.}}
+{{History|||snap=23w17a|Changed the pack format to {{cd|15}} due to updates to the font and the credits.|{{cd|uniform}} font has been updated to use Unifont 15.0.01.}}
+{{History|||snap=Pre-release 5|{{cd|uniform}} font has been updated to use Unifont 15.0.03.}}
+{{History||1.20.2|snap=23w31a|Changed the pack format to {{cd|16}}.
+|The process of upgrading a pack can now be assisted by using an automated Slicer tool.<ref>https://github.com/Mojang/slicer/releases/tag/v1.1</ref>}}
+{{History|||snap=23w32a|The version is now <code>17</code>.|The text field background is now a nine-sliced sprite at <code>idget/text_field</code> and <code>widget/text_field_highlighted</code>.|The scroll bar in lists and text fields is now a nine-sliced sprite at <code>widget/scroller</code>.}}
+{{History|||snap=1.20.2 Pre-release 2|The version is now <code>18</code>.}}
+{{History||1.20.3|snap=release|The pack format is now <code>21</code>.}}
+{{History|pocket alpha}}
+{{History||v0.15.0|snap=release|Added the first custom in-game resource packs, Plastic and City.}}
+{{History|bedrock}}
+{{History||1.10.0|snap=beta 1.10.0.3|Resource packs are now separate from world templates and can be updated independently in existing worlds.}}
+{{History|foot}}
+
+==Trivia==
+[[File:Alpha v1.2.2 pack.png|thumb|The world that the {{mono|pack.png}} screenshot was taken in, loaded in Alpha v1.2.2.]] 
+
+*The old {{mono|pack.png}} file was screenshotted from [[Java Edition Alpha v1.2.2|Alpha v1.2.2]], the [[Seed (level generation)|seed]] being {{cd|3257840388504953787}}.<ref>{{ytl|ea6py9q46QU|Pack.PNG has been FOUND! - Here's how they did it.|SalC1|September 7, 2020}}</ref>
+**The screenshot was taken approximately at X=49.16, Z=0.72, facing RX=-119.23, RY=-8.297.
+**How to generate the exact same world and make the exact same screenshot: https://pastebin.com/CmsEKDev.<ref>https://www.reddit.com/r/MinecraftAtHome/comments/iocx6f/packpng_seed_was_found_explanation_tutorial_and</ref>
+** It was referenced in the video "[https://web.archive.org/web/20211215041724/https://www.youtube.com/watch?v=YXY74kWderc One Trillion Minecraft Views on YouTube and Counting]".
+
+==Gallery==
+<gallery>
+Pack.png|The old pack.png file.
+Unknown server.png|The grayscale variant currently still in the game. Used for icons for unknown servers.
+NotchTexturePacks.png|The first image released by Notch of the texture pack selection menu.
+Default pack.png|The default resource pack icon.
+Programmer Art pack.png|The programmer art resource pack icon.
+Unknown pack.png|The unknown resource pack icon.
+Pack 64x64.png|64x64 version of pack.png that is used in server icons and resource packs by default.
+Custom splash.png|A splash screen in Minecraft version 1.6.1 saying '''''Also try Tomodachi Life!'''''
+Custom biome with missing texture blocks.png|Missing texture blocks seen in a custom biome in Bedrock edition 1.17.2 Hotfix (iOS).
+Dinnerbone Select Resource Packs.png|The "select resource packs" screen.
+Dinnerbone Resource Packs.gif|Resource packs being ordered.
+Block Alternatives.png|Unimplemented "block alternatives" option for resource packs.
+Resource Packs Button.jpg|The resource packs button.
+</gallery>
+
+==See also== 
+*[[Tutorials/Creating a resource pack]] {{only|java}}
+*[https://learn.microsoft.com/en-us/minecraft/creator/documents/resourcepack Introduction to Resource Packs] {{only|bedrock}}
+*[[Programs and editors/Resource pack creators]]
+
+==References==
+{{reflist}}
+
+{{Minecraft}}
+
+[[cs:Balíček modifikací]]
+[[de:Ressourcenpaket]]
+[[es:Paquete de recursos]]
+[[fr:Pack de ressources]]
+[[it:Pacchetto di risorse]]
+[[ja:リソースパック]]
+[[ko:리소스 팩]]
+[[nl:Bronpakket]]
+[[pl:Paczki zasobów]]
+[[pt:Pacote de recursos]]
+[[ru:Пакет ресурсов]]
+[[th:รีซอร์ซแพ็ก]]
+[[uk:Пакет ресурсів]]
+[[zh:资源包]]

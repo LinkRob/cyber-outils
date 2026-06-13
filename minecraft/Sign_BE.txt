@@ -1,0 +1,28 @@
+[[Java Edition 1.20|Before 1.20]]：
+<div class="treeview">
+*{{nbt|compound}} Block entity data
+** {{nbt inherit/blockentity}}
+** {{nbt|byte|GlowingText}}: 1 or 0 (true/false) - true if the sign has been dyed with a [[glow ink sac]].
+** {{nbt|string|Color}}: The color that has been used to dye the sign. The default value is "black". One of "white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", or "black".
+** {{nbt|string|Text1}}: First row of text.
+** {{nbt|string|Text2}}: Second row of text.
+** {{nbt|string|Text3}}: Third row of text.
+** {{nbt|string|Text4}}: Fourth row of text.
+</div>
+
+[[Java Edition 1.20|After 1.20]]：
+: The sign and Hanging Sign share the same structure.
+<div class="treeview">
+*{{nbt|compound}} Block entity data
+** {{nbt inherit/blockentity}}
+** {{nbt|byte|is_waxed}}: 1 or 0 (true/false) - true if the text is locked with [[honeycomb]].
+** {{nbt|compound|front_text}}: A compound which discribes front text.
+*** {{nbt|byte|has_glowing_text}}: 1 or 0 (true/false) - true if the sign has been dyed with a [[glow ink sac]].
+*** {{nbt|string|color}}: The color that has been used to dye the sign. The default value is {{cd|black}} One of {{cd|d=and|white|orange|magenta|light_blue|yellow|lime|pink|gray|light_gray|cyan|purple|blue|brown|green|red|black}}.
+*** {{nbt|list|messages}}: A list of text for each line.
+**** {{nbt|string}}: Text for each line. Must be [[Raw JSON text format]].
+** {{nbt|compound|back_text}}: A compound which discribes back text.　The same structure as {{nbt|compound|front_text}}.
+</div>
+The character limit for the Text tags depends on the width of the characters. Although the Text tags are string objects, they should contain [[Raw JSON text format|JSON text]] which are evaluated as compound objects. <noinclude>
+[[Category:Block entity pages]]
+</noinclude>

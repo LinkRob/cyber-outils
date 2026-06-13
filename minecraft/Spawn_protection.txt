@@ -1,0 +1,21 @@
+{{wip}}
+{{exclusive|java}}
+'''Spawn protection''' prevents players from building in spawn, undoing any attempts at placing or breaking [[block]]s. Players who have any [[permission level]] except for level 0 are able to bypass it and build anyway. There are several indirect <!--indirect, using commands and cheats--> ways to bypass spawn protection, namely activating pistons, dispensers, explosives and using mob griefing. If there are no ops on the server<!-- as in defined, not as in online-->, then spawn protection does not apply. Spawn protection only applies in the [[Overworld]]<!-- as a world, not as a dimension-->. Spawn protection does not apply in singleplayer.
+
+The <code>spawn-protection</code> field in <samp>[[server.properties]]</samp> determines the side length of the square spawn protection area as 2''x''+1. Setting this to 0 or a negative value disables the spawn protection. A value of 1 protects a 3×3 square centered on the spawn point, 2 protects 5×5, 3 protects 7×7, etc. The area that it protects is (spawn-protection×2 + 1)×(spawn-protection×2 + 1).
+
+== History ==
+
+{{History|java beta}}
+{{History||?<!-- Beta 1.8 or earlier -->|Added spawn protection. The radius is always 16 (protecting a 33×33 area).}}
+{{History|java}}
+{{History||1.4.2|snap=12w40a|Added <code>spawn-protection</code> to [[server.properties]].
+|Spawn protection no longer applies if the server does not have any ops.}}
+{{History||1.5|snap=13w05a|Setting <code>spawn-protection</code> to 0 now disables spawn protection, instead of protecting a 1×1 area.<ref>{{bug|MC-666}}</ref>}}
+{{History||1.8|snap=14w17a|Added the [[world border]]. It is stated that terrain outside of this border should be treated the same as spawn protection, although the implementation is flawed.}}
+{{History|foot}}
+
+==References==
+{{reflist}}
+
+[[Category:Server]]

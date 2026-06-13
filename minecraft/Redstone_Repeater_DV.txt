@@ -1,0 +1,23 @@
+{| class="wikitable"
+! Bits !! Values
+|-
+| 0x1<br>0x2
+| A two-bit field storing a value from 0 to 3 specifying the direction the redstone repeater is facing:
+*0: Facing north.
+*1: Facing east.
+*2: Facing south.
+*3: Facing west.
+|-
+| 0x4<br>0x8
+| A two-bit field storing a value from 0 to 3 specifying the redstone repeater's delay:
+*0: Delay of 1 redstone tick.
+*1: Delay of 2 redstone tick.
+*2: Delay of 3 redstone tick.
+*3: Delay of 4 redstone tick.
+|}<noinclude>
+[[Category:Data value pages]]
+
+[[zh:红石中继器/DV]]
+</noinclude>
+
+Effectively, add the repeater's facing value (0 to 3) to 4×(delay-1). For example, a repeater facing west with a delay of 3 redstone ticks would have a block data value of 3 + 4×(3-1) = 11.

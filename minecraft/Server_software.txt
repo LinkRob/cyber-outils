@@ -1,0 +1,168 @@
+{{stub|This page currently focuses on ''Java Edition'' server software. Bedrock Edition third-party server software is missing}}
+{{about|third-party server software for running multiplayer worlds|the default server software distributed by Mojang Studios|Server|setting up a server|Tutorials/Setting up a server}}
+{{TOC|right}}
+
+'''Server software''' (also called '''custom server software''' or '''third-party server software''') is any [[server]] implementation for ''Minecraft'' that is not the default one distributed by [[Mojang Studios]]. These are community-developed alternatives that typically extend the vanilla server with plugin APIs, mod support, performance optimizations, or the ability to network multiple servers together.
+
+Custom server software is '''not officially supported by Mojang Studios''', and using it is not permitted on the realms service. Most large public servers use some form of custom server software, usually to add plugin support, optimize performance, or enable cross-server networks. For instructions on running the default (vanilla) server, see [[Tutorials/Setting up a server]].
+
+== Warning ==
+
+{{msgbox
+|title=Note
+|text=Third-party server software runs arbitrary code on your machine and typically loads community-written plugins or mods. You should only run software from sources you trust, and you should only install plugins and mods from reputable repositories.
+|bgcol=#F00
+|linecol=#FAA
+}}
+
+Because third-party server software is not distributed by Mojang Studios:
+* Security updates, EULA compliance and license terms are the responsibility of the upstream project, not Mojang Studios.
+* Vulnerabilities in plugins and mods are a common source of server compromise. Check plugins and mods for known vulnerabilities before installing them, and keep both the server jar and its plugins up to date.
+* Some projects are [[wikipedia:Fork (software development)|forks]] of other projects. Forks inherit the parent's API, meaning a plugin for the parent usually also runs on the fork, but the reverse is often not true.
+* Support in the official [[Minecraft Forum]] and from Mojang Studios is limited to vanilla. Questions about custom software should be directed to the project's own community.
+
+== Categories ==
+
+Server software for ''Java Edition'' generally falls into one of four broad categories:
+
+; Plugin-based servers
+: Servers built on the [[wikipedia:CraftBukkit|Bukkit]] API. Plugins run only on the server and do not need to be installed by clients. These servers maintain vanilla-compatible protocol so any unmodified client can connect. Examples: Spigot, Paper, Purpur, Pufferfish, Folia.
+; Mod loaders
+: Servers that load ''mods'', which modify both server and client. Players must install the same loader and matching mods on their own computer to connect. Examples: [[Mod#Minecraft Forge|Forge]], NeoForge, Fabric, Quilt.
+; Hybrids
+: Servers that attempt to run both Bukkit-style plugins ''and'' Forge/Fabric mods on the same jar. Compatibility is never guaranteed because the two ecosystems were not designed to coexist. Examples: Mohist, Arclight, Magma (discontinued).
+; Proxies
+: Not full servers by themselves. A proxy sits in front of one or more backend servers and routes players between them, enabling server networks, lobbies and cross-server features. Examples: BungeeCord, Waterfall, Velocity.
+
+Clean-room re-implementations that do not include any Mojang code (such as [[#Minestom|Minestom]], [[#Glowstone|Glowstone]] or [[#Cuberite|Cuberite]]) form a small fifth category and are covered separately below.
+
+== Plugin-based servers ==
+
+=== Bukkit ===
+Bukkit was the original plugin API for ''Minecraft: Java Edition'', first released in 2010. It defined the ''Bukkit API'' — the plugin interface — and ''CraftBukkit'', an implementation of that API on top of the vanilla server. Almost every plugin-based server since has been built on or descended from this codebase.
+
+After the DMCA takedown of CraftBukkit in 2014, active development moved to its downstream fork Spigot, and the standalone Bukkit project is no longer maintained. The Bukkit API itself, however, survives as the shared foundation that Spigot, Paper, Purpur and every other server in this section still extend.
+
+=== Spigot ===
+{{code|Spigot}} is a fork of CraftBukkit with additional performance improvements and configuration options. It is maintained by the [https://www.spigotmc.org/ SpigotMC] team and continues to publish the Bukkit API used by most plugin-based servers. Spigot is distributed as a ''BuildTools'' program rather than a ready-to-run jar, to comply with its license.
+
+Spigot remains widely supported by plugin authors, but most server administrators now run one of its downstream forks (most commonly Paper) rather than Spigot itself, because the forks include significant additional performance work.
+
+=== Paper ===
+{{code|Paper}}, developed by the [https://papermc.io/ PaperMC] team, is a high-performance fork of Spigot. It is currently the most widely used server software for plugin-based servers. Paper includes a large number of patches that target server performance, fix long-standing vanilla bugs, and harden the server against common exploits such as block duplication and bedrock breaking.
+
+Paper extends the Bukkit and Spigot APIs with its own additions ({{code|paper-api}}), and is backwards compatible with plugins written for either of them. PaperMC also maintains the [https://hangar.papermc.io/ Hangar] plugin repository, Velocity proxy and Folia fork.
+
+=== Purpur ===
+{{code|Purpur}} is a fork of Paper that exposes additional gameplay configuration. It integrates Pufferfish's performance patches on top of Paper and adds hundreds of config options for things Paper leaves locked down — including mob behavior toggles, villager lobotomization for lag reduction, and the ability to re-enable some patched vanilla bugs. Purpur is fully plugin-compatible with Paper.
+
+=== Pufferfish ===
+{{code|Pufferfish}} is a performance-focused fork of Paper. Its main additions are DAB (Dynamic Activation of Brains), which cuts the per-tick cost of entity AI, and a number of smaller optimizations targeting hot paths in the server loop. Plugin compatibility with Paper is complete. Pufferfish aims to remain close to vanilla behavior and exposes fewer gameplay config options than Purpur.
+
+=== Folia ===
+{{code|Folia}} is an experimental PaperMC fork that introduces ''regionized multithreading''. Instead of running the entire world on one tick thread, Folia partitions loaded chunks into independent regions and ticks each region on its own worker. This allows the server to scale with CPU cores in a way the vanilla tick loop cannot.
+
+The trade-off is that Folia breaks the main-thread assumption on which much of the Bukkit API was built. Plugins that schedule work with methods such as {{code|scheduleSyncRepeatingTask}} will not run unmodified on Folia; they need to be rewritten against Folia's region scheduler API. For this reason, Folia is only suitable for very large servers where the plugin set can be audited (or rewritten) to match.
+
+== Mod loaders ==
+
+=== Minecraft Forge ===
+{{code|Minecraft Forge}}, usually just called ''Forge'', is the longest-running modding platform for ''Java Edition'', first released in 2011. It provides a common set of hooks, APIs and compatibility fixes that allow many mods to run together on the same server. Forge is the platform on which most well-known modpacks — ''Feed The Beast'', ''All The Mods'', ''RLCraft'', ''SkyFactory'' and others — are built.
+
+For installation, see [[Tutorials/Setting up a Minecraft Forge server]].
+
+=== NeoForge ===
+{{code|NeoForge}} is a community fork of Forge that split off in 2023 following a disagreement over the direction of the upstream project. It aims to modernize Forge's internals while maintaining practical compatibility with existing Forge mods, and many mod authors have migrated new projects to it. Forge and NeoForge jars are not interchangeable — a given mod must be built for one or the other — but the two ecosystems overlap substantially.
+
+=== Fabric ===
+{{code|Fabric}} is a lighter, more modular mod loader introduced in 2016 and widely adopted from version [[Java Edition 1.14|1.14]] onward. It is designed around fast version updates and a minimal base, with most functionality provided by separate libraries such as ''Fabric API'' and ''Mixin''. Fabric tends to update to new ''Minecraft'' versions much sooner than Forge does, and is the home of most performance-oriented mods, including ''Sodium'', ''Lithium'', ''Starlight'' and ''Krypton''.
+
+Fabric mods are not compatible with Forge mods, and Fabric does not natively run Bukkit plugins (see [[#Hybrids|Hybrids]] below for bridging projects).
+
+=== Quilt ===
+{{code|Quilt}} is a fork of Fabric started in 2022. It aims to address perceived gaps in Fabric's governance and tooling while remaining compatible with most Fabric mods. Quilt is smaller than Fabric in both mod selection and server adoption.
+
+=== Sponge ===
+{{code|Sponge}} is a plugin API distinct from Bukkit, developed by the [https://spongepowered.org/ SpongePowered] team. It ships in two forms: ''SpongeForge'', which runs as a Forge mod and supports both Forge mods and Sponge plugins, and ''SpongeVanilla'', a standalone jar that provides only the Sponge API. Sponge plugins are not interchangeable with Bukkit plugins.
+
+== Hybrids ==
+{{msgbox|title=Compatibility notice|text=Hybrid servers combine ecosystems that were not designed to work together. Some plugins or mods will misbehave, and neither upstream project provides support for issues encountered on hybrids.|class=msgbox-yellow}}
+
+=== Mohist ===
+{{code|Mohist}} combines Forge (and more recently Fabric/NeoForge) mods with Bukkit/Spigot plugins on a single server. It is the most widely known hybrid and is maintained actively.
+
+=== Arclight ===
+{{code|Arclight}} is a similar project to Mohist, supporting Forge, NeoForge or Fabric mods alongside Spigot plugins. Its focus is on closer parity with upstream Paper/Spigot behavior than Mohist offers.
+
+=== Magma ===
+{{code|Magma}} was another Forge + Spigot hybrid covering a wide range of ''Minecraft'' versions. The project was shut down by its owner in November 2023 and is no longer maintained.
+
+== Proxies ==
+
+=== BungeeCord ===
+{{code|BungeeCord}}, developed by the SpigotMC team, is the original ''Minecraft'' proxy. It allows a player to connect to a single address and be routed to one of several backend servers, enabling hub/lobby networks, minigame networks, and cross-server teleportation. It has its own plugin API separate from Bukkit.
+
+=== Waterfall ===
+{{code|Waterfall}} was a PaperMC-maintained fork of BungeeCord with performance and stability improvements. It has since been discontinued in favor of Velocity.
+
+=== Velocity ===
+{{code|Velocity}} is PaperMC's modern replacement for BungeeCord and Waterfall, with a rewritten connection model, its own plugin API and substantially better performance at high player counts. Velocity is the recommended proxy for new network deployments.
+
+== Other implementations ==
+
+A handful of projects re-implement the ''Minecraft'' server protocol from scratch without any Mojang code. They trade off feature completeness (they are not feature-equivalent to vanilla) for extreme flexibility or performance.
+
+=== Glowstone ===
+{{code|Glowstone}} is a clean-room ''Minecraft'' server written in Java, implementing the Bukkit and Spigot APIs. Development has slowed in recent years and it lags behind current ''Minecraft'' versions.
+
+=== Minestom ===
+{{code|Minestom}} is not a server but a library for building custom servers. It provides the network protocol, chunk handling and entity system, and leaves world generation and game rules up to the developer. It is aimed at authors of heavily customized minigame or lobby servers where the vanilla game loop is not wanted.
+
+=== Cuberite ===
+{{code|Cuberite}} is a lightweight server written in C++ with its own Lua plugin API. It is considerably lighter on resources than the Java server but supports only a subset of modern ''Minecraft'' features.
+
+== Choosing server software ==
+There is no single best choice; the right software depends on what the server is for.
+
+* For a small survival server with only vanilla gameplay, the [[Tutorials/Setting up a server|default Mojang server]] is sufficient.
+* For a plugin-based server (commands, economy, protection, minigames), '''Paper''' is the usual default.
+* For a modpack-based server, use whichever loader the pack was built for — typically '''Forge''', '''NeoForge''' or '''Fabric'''.
+* For a network of multiple servers, pair backend servers with a '''Velocity''' proxy.
+* Hybrids, Folia and clean-room implementations are specialized tools and should only be chosen when their particular trade-offs are understood.
+
+== See also ==
+* [[Server]]
+* [[Tutorials/Setting up a server]]
+* [[Tutorials/Setting up a Minecraft Forge server]]
+* [[Tutorials/Setting up a Spigot server]]
+* [[Mods]]
+* [[Plugin]]
+* [[server.properties]]
+
+== External links ==
+* [https://www.spigotmc.org/ SpigotMC] — home of Spigot and BungeeCord
+* [https://papermc.io/ PaperMC] — home of Paper, Velocity and Folia
+* [https://purpurmc.org/ PurpurMC] — home of Purpur
+* [https://pufferfish.host/ Pufferfish] — home of Pufferfish
+* [https://files.minecraftforge.net/ Minecraft Forge] — downloads
+* [https://neoforged.net/ NeoForge] — downloads
+* [https://fabricmc.net/ Fabric] — home of Fabric
+* [https://quiltmc.org/ Quilt] — home of Quilt
+* [https://spongepowered.org/ SpongePowered] — home of Sponge
+* [https://mohistmc.com/ MohistMC] — home of Mohist
+* [https://github.com/IzzelAliz/Arclight Arclight] — GitHub
+* [https://minestom.net/ Minestom] — home of Minestom
+* [https://cuberite.org/ Cuberite] — home of Cuberite
+
+{{tutorials}}
+
+[[Category:Server]]
+[[Category:Minecraft]]
+
+[[de:Server-Software]]
+[[es:Software de servidor]]
+[[fr:Logiciel de serveur]]
+[[ja:サーバーソフトウェア]]
+[[ko:서버 소프트웨어]]
+[[ru:Программное обеспечение сервера]]
+[[zh:服务端软件]]

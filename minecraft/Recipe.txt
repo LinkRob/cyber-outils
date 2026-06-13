@@ -1,0 +1,252 @@
+{{About|the Java and Bedrock Edition recipe system|crafting recipes|Crafting#Complete recipe list|smelting recipes|Smelting#Recipes|brewing recipes|Brewing#Recipes|the command|Commands/recipe}}
+
+'''Recipes''' are a way to gradually guide new players into ''Minecraft'' by assisting them with the usage of crafting, smelting, and other block and item transformations in-game.<!-- This description fits things like the tutorial hints better; recipes are mainly to provide ways to obtain items. -->
+
+Recipes are data driven and can be configured by [[data pack]]s {{in|java}} or [[add-on]]s {{in|bedrock}}. Every [[crafting]], [[smelting]], [[Blast Furnace#Usage|blasting]], [[Campfire#Cooking|campfire cooking]], [[Smoker#Smoking|smoking]], [[Stonecutter#Usage|stonecutting]] and [[Upgrade|smithing]] recipe uses this system. {{IN|bedrock}}, [[cartography table]]s and [[brewing]] recipes also use this system. [[Cartography table]]{{only|java}} and [[loom]] recipes cannot currently be controlled.
+
+== Obtaining ==
+
+Recipes can be obtained in various ways. Using the recipe automatically makes the player discover it. Recipes can also be granted using the {{cmd|recipe}} command or as a reward for completing an [[advancement]]. Vanilla survival has multiple advancements that grant recipes, which trigger when for example the player obtains an item required in the recipe.{{only|java}}
+
+Once a recipe has been discovered, it is added to the player's [[recipe book]].{{only|java}} Discovered recipes are stored in the player's {{nbt|compound|recipeBook}} [[Player.dat format#NBT structure|NBT]].
+
+== Usage ==
+{{main|Recipe book}}
+
+Discovered recipes can be found in the player's recipe book. However, recipes do not need to be discovered for the player to be able to use them, unless {{cmd|gamerule doLimitedCrafting}} is set to <code>true</code>.
+
+Recipes appear only if the player is using the recipe book in a block associated to the recipe's type; for example, furnace recipes only show up when the player use the recipe book in the furnace GUI. When the player is using the recipe book in the inventory, crafting recipes appear that can fit into the player's 2×2 inventory crafting grid.
+
+== JSON format ==
+
+Custom recipes in the <code>data/(namespace)/recipes</code> folder of a [[data pack]] store the recipe data for that world as separate JSON files.
+
+A recipe with ID <code>foo:path/to/file</code> would have its JSON file located at <code>data/foo/recipes/path/to/file.json</code> within a [[data pack]].
+
+Recipe JSON files have different structures dependent on their type, but they all have a {{nbt|string|type}} tag in its root tag.
+
+=== List of recipe types ===
+
+==== blasting ====
+Represents a recipe in a [[blast furnace]].
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+** {{nbt inherit/recipe/serializers/common}}
+** {{nbt inherit/recipe/serializers/cooking}}
+</div>
+
+The default cooking time is 100 ticks, or 5 seconds.
+
+==== campfire_cooking ====
+Represents a recipe in a [[campfire]].
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+** {{nbt inherit/recipe/serializers/common}}
+** {{nbt inherit/recipe/serializers/cooking}}
+</div>
+
+The default cooking time is 100 ticks, or 5 seconds, even though all vanilla campfire cooking recipes have a cook time of 600 ticks, or 30 seconds. Campfire recipes do not trigger the recipe_unlocked criteria.
+
+==== crafting_shaped ====
+Represents a shaped crafting recipe in a [[crafting table]].
+
+The key used in the pattern may be any single character except <code> </code>, the space character, which is reserved for empty slots in a recipe.
+
+Custom [[NBT]] data tags are not allowed for the recipe's output item.
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+** {{nbt inherit/recipe/serializers/common}}
+** {{nbt|list|pattern}}: A list of single-character keys used to describe a pattern for shaped crafting. Each row in the crafting grid is one string in this list containing 3 or less keys. All strings in this list need to have the same amount of keys. A space can be used to indicate an empty spot.
+** {{nbt|compound|key}}: All keys used for this shaped crafting recipe.
+*** {{nbt|compound|(A key)}}: The ingredient corresponding to this key.
+**** {{nbt|string|item}}: An [[Java Edition data values#Items|item ID]].
+**** {{nbt|string|tag}}: An [[Tag#Item tags|item tag]].
+*** {{nbt|list|(A key)}}: The list of ingredients corresponding to this key.
+**** {{nbt|compound}}: An accepted ingredient.
+***** {{nbt|string|item}}: An [[Java Edition data values#Items|item ID]].
+***** {{nbt|string|tag}}: An [[Tag#Item tags|item tag]].
+** {{nbt|compound|result}}: The output item of the recipe.
+*** {{nbt|int|count}}: Optional. The amount of the item. Falls back to 1 if the field is absent.
+*** {{nbt|string|item}}: An [[Java Edition data values#Items|item ID]].
+</div>
+
+==== crafting_shapeless ====
+Represents a shapeless crafting recipe in a [[crafting table]].
+
+The ingredients list must have at least one and at most nine entries.
+
+Custom [[NBT]] data tags are not allowed for the recipe's output item.
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+** {{nbt inherit/recipe/serializers/common}}
+** {{nbt|list|ingredients}}: A list of entries for this shapeless crafting recipe. Must have 1 to 9 entries.
+*** {{nbt|compound}}: An entry made of a single ingredient.
+**** {{nbt|string|item}}: An [[Java Edition data values#Items|item ID]].
+**** {{nbt|string|tag}}: An [[Tag#Item Tags|item tag]].
+*** {{nbt|list}}: An entry made of a list of acceptable ingredients.
+**** {{nbt|compound}}: An acceptable ingredient.
+***** {{nbt|string|item}}: An [[Java Edition data values#Items|item ID]].
+***** {{nbt|string|tag}}: An [[Tag#Item Tags|item tag]].
+** {{nbt|compound|result}}: The output item of the recipe.
+*** {{nbt|int|count}}: Optional. The amount of the item. Falls back to 1 if the field is absent.
+*** {{nbt|string|item}}: An [[Java Edition data values#Items|item ID]].
+</div>
+
+==== crafting_special_* ====
+Represents a crafting recipe in a [[crafting table]] that is handled with builtin logic instead of being data-driven.
+
+When the <code>"vanilla"</code> [[data pack]] is disabled, they can be used to reenable desired builtin crafting recipes.
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+** {{nbt|string|type}}: A resource location indicating the type of serializer of the recipe.
+</div>
+Unlike most other recipe types, they do not have a <code>"group"</code> field and cannot be displayed in [[recipe book]]s.
+
+* <code>armordye</code>
+:The [[Dye#Dyeing armor|armor dyeing]] recipe. 
+:Regular recipes cannot handle multiple dyes.
+* <code>bannerduplicate</code>
+:The [[Banner#Copying|banner copying]] recipe.
+:Regular recipes cannot copy [[NBT]] data associated to the [[banner]] item.
+* <code>bookcloning</code>
+:The [[Written Book#Copying|written book copying]] recipe.
+:Regular recipes cannot copy [[NBT]] data associated to the [[written book]] item and cannot control the generation of copies.
+* <code>firework_rocket</code>
+:The [[Firework Rocket#Crafting|firework rocket]] recipe using [[firework star]]s.
+:Regular recipes cannot handle inputs flexibly or add [[NBT]] data from a [[firework star]] to the [[firework rocket]].
+* <code>firework_star</code>
+* <code>firework_star_fade</code>
+:The [[Firework Star#Crafting|firework star crafting and its fade addition]] recipes.
+:Regular recipes cannot handle inputs flexibly or add [[NBT]] data to the [[firework star]].
+* <code>mapcloning</code>
+:The [[Map#Cloning|map copying]] recipe.
+:Regular recipes cannot copy [[NBT]] data associated to the [[map]] item.
+* <code>mapextending</code>
+:The [[Map#Zoom out|map zooming]] recipe.
+:Regular recipes cannot update [[NBT]] data associated to the [[map]] item.
+* <code>repairitem</code>
+:The [[item repair]] recipe.
+:Regular recipes cannot update damage data associated to the tool item.
+* <code>shielddecoration</code>
+:The [[Shield#Applying patterns|shield pattern application]] recipe.
+:Regular recipes cannot add [[NBT]] data from a [[banner]] item to a [[shield]] item.
+* <code>shulkerboxcoloring</code>
+:The [[Dye#Dyeing shulker boxes|shulker box dyeing]] recipe.
+:Regular recipes cannot copy [[NBT]] data from a [[shulker box]] item to a dyed shulker box item.
+* <code>tippedarrow</code>
+:The [[tipped arrow]] [[Arrow#Crafting|recipe]].
+:Regular recipes cannot copy [[NBT]] data from a [[lingering potion]] item to a [[tipped arrow]] item.
+* <code>suspiciousstew</code>
+:The [[Suspicious Stew#Crafting|suspicious stew]] recipe.
+:Regular recipes cannot determine [[Suspicious Stew#Food|the status effect from the type of flower given]].
+
+==== smelting ====
+Represents a recipe in a [[furnace]].
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+** {{nbt inherit/recipe/serializers/common}}
+** {{nbt inherit/recipe/serializers/cooking}}
+</div>
+
+The default cooking time is 200 ticks, or 10 seconds.
+
+==== smithing ====
+Represents a recipe in a [[smithing table]].
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+** {{nbt inherit/recipe/serializers/common}}
+** {{nbt|compound|base}} Ingredient specifying an item to be upgraded.
+*** {{nbt|string|item}}: An [[Java Edition data values#Items|item ID]].
+*** {{nbt|string|tag}}: An [[Tag#Item Tags|item tag]].
+** {{nbt|compound|addition}} Ingredient specifying an item to be added
+*** {{nbt|string|item}}: An [[Java Edition data values#Items|item ID]].
+*** {{nbt|string|tag}}: An [[Tag#Item Tags|item tag]].
+** {{nbt|compound|result}} Item specifying the resulting upgraded item.
+*** {{nbt|string|item}}: An [[Java Edition data values#Items|item ID]].
+** {{nbt|compound|template}} Ingredient specifying an item to act as the template.
+*** {{nbt|string|item}}: An [[Java Edition data values#Items|item ID]].
+*** {{nbt|string|tag}}: An [[Tag#Item Tags|item tag]].
+</div>
+The resulting item copies the NBT tags of the base item.
+
+==== smoking ====
+Represents a recipe in a [[smoker]].
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+** {{nbt inherit/recipe/serializers/common}}
+** {{nbt inherit/recipe/serializers/cooking}}
+</div>
+
+The default cooking time is 100 ticks, or 5 seconds.
+
+==== stonecutting ====
+Represents a recipe in a [[stonecutter]].
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+** {{nbt inherit/recipe/serializers/common}}
+** {{nbt|compound|ingredient}}: The ingredient for the recipe.
+*** {{nbt|string|item}}: An [[Java Edition data values#Items|item ID]].
+*** {{nbt|string|tag}}: An [[Tag#Item Tags|item tag]].
+** {{nbt|list|ingredient}}: The list of ingredients for the recipe.
+*** {{nbt|compound}}: An accepted ingredient.
+**** {{nbt|string|item}}: An [[Java Edition data values#Items|item ID]].
+**** {{nbt|string|tag}}: An [[Tag#Item Tags|item tag]].
+** {{nbt|string|result}}: An [[Java Edition data values#Items|item ID]]. The output item of the recipe.
+** {{nbt|int|count}}: The amount of the output item.
+</div>
+
+Unlike the {{nbt|int|count}} field in shaped and shapeless crafting recipes, this {{nbt|int|count}} field here is required.
+
+== History ==
+{{History|java}}
+{{History||1.12|snap=17w13a|Introduced the recipe system for most crafting recipes.}}
+{{History|||snap=17w16a|Added 'group' key to the recipe json format.}}
+{{History||1.13|snap=17w47a|Removed 'data' key from the recipe json format.}}
+{{History|||snap=17w48a|Custom recipes can now be added to data packs.
+|Added {{tooltip|these 13 recipe types|crafting_special_armordye, crafting_special_banneraddpattern, crafting_special_bannerduplicate, crafting_special_bookcloning, crafting_special_firework_rocket, crafting_special_firework_star, crafting_special_firework_star_fade, crafting_special_mapcloning, crafting_special_mapextending, crafting_special_repairitem, crafting_special_shielddecoration, crafting_special_shulkerboxcoloring, crafting_special_tippedarrow}}.
+|Converted various special crafting recipes to the recipe system using the special recipe types.}}
+{{History|||snap=17w49a|Added 'tag' key to the recipe json format.}}
+{{History|||snap=18w06a|Smelting recipes now use the recipe system.
+|Added <code>smelting</code> to <code>type</code>.
+|Added a string <code>result</code>.
+|Added <code>experience</code>.
+|Added <code>cookingtime</code>.}}
+{{History||1.14|snap=18w43a|Added a recipe type <code>crafting_special_suspiciousstew</code>.}}
+{{History|||snap=18w48a
+|Removed {{tooltip|these 2 recipe types|crafting_special_banneraddpattern, crafting_special_repairitem}}.}}
+{{History|||snap=18w50a
+|Added recipe types <code>blasting</code> and <code>smoking</code>.}}
+{{History|||snap=19w02a
+|Added a recipe type <code>campfire_cooking</code>.}}
+{{History|||snap=19w04a
+|Added a recipe type <code>stonecutting</code>.}}
+{{History||1.14.3|snap=pre3
+|Re-added the recipe type <code>crafting_special_repairitem</code>.}}
+{{History||1.16|snap=pre1
+|Added the recipe type <code>smithing</code>.}}
+{{History||1.20<br>(Experimental)|link=1.19.4|snap=23w07a|Added a new recipe serializer <code>crafting_decorated_pot</code> for the new [[decorated pot]] recipe.|Added <code>show_notification</code> field to recipes.}}
+{{History||1.20|snap=Pre-release 2|{{cd|"item": "minecraft:air"}} can now be used to denote an ingredient that will match an empty slot.}}
+{{History|||snap=Pre-release 6|{{cd|"item": "minecraft:air"}} can no longer be used in data pack recipes.|Ingredients in array form are now also allowed in {{cd|d=and|smithing_trim|smithing_transform}} recipes on fields template, base and addition.}}
+
+{{History|bedrock}}
+{{History||1.12.0|snap=beta 1.12.0.2|Introduced the recipe system for most crafting recipes.}}
+{{History||1.19.40|snap=beta 1.19.40.22|Added <code>tag</code> key to the recipe JSON format.}}
+{{History||1.20.10|snap=beta 1.20.10.20|Added <code>unlock</code> field to the recipe JSON format.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list}}
+
+== References ==
+{{reflist}}
+
+{{Data packs}}
+
+[[de:Rezeptdaten]]
+[[es:Receta]]
+[[fr:Recette]]
+[[ja:レシピ (システム)]]
+[[ru:Рецепт]]
+[[pt:Receita]]
+[[tr:Tarif]]
+[[zh:配方]]

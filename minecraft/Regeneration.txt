@@ -1,0 +1,262 @@
+{{about|the status effect|health regeneration in general|Healing}}
+{{For|the feature in ''Minecraft Dungeons''|MCD:Regeneration}}
+{{Effect
+|title={{EffectSprite|regeneration}} Regeneration
+|image=Regeneration.png
+|sources=See [[#Causes]]
+|particle= {{EffectSprite|particle-regeneration}} #CD5CAB (pink)
+|type=Positive
+|group=Potion
+|group2=Splash Potion
+|group3=Lingering Potion
+|group4=Arrow
+|1-1=Potion of Regeneration.png
+|2-1=Splash Potion of Regeneration.png
+|3-1=Lingering Potion of Regeneration.png
+|4-1=Arrow of Regeneration.png
+}}
+
+'''Regeneration''' is a [[status effect]] that restores a [[player]]'s (or [[mob]]'s) health over time without interference from [[hunger]].
+
+== Effect ==
+The amount of [[health]] healed over time is shown in the table below:
+{| class="wikitable" style="text-align:right"
+ ! Level !! Ticks per {{hp|1|notag=1}} !! {{hp|1|notag=1}} per second
+ |-
+ | 1 || 50 || {{hp|0.4}}
+ |-
+ | 2 || 25 || {{hp|0.8}}
+ |-
+ | 3 || 12 || {{hp|1.67}}
+ |-
+ | 4 || 6 || {{hp|3.33}}
+ |-
+ | 5 || 3 || {{hp|6.67}}
+ |-
+ | 6+ || 1 || {{hp|20}}
+|}
+Amplifiers outside the range 0–31 (corresponding to levels 1–32) are used [[Wikipedia:Modulo operation|modulo]] 32, making level 33 the same as level 1, etc.
+
+== Causes ==
+{| class="wikitable" data-description="Causes"
+ ! Cause
+ ! Potency
+ ! Length
+ ! Notes
+ |-
+ | {{ItemLink|Potion of Regeneration}}
+ | I
+ | 0:45
+ |{{hp|18}} is regenerated.
+ |-
+ | {{ItemLink|Potion of Regeneration}} (extended)
+ | I
+ | 1:30{{only|java|short=1}}<br> 2:00{{only|bedrock|short=1}}
+ |{{hp|36}} {{in|java}} or {{hp|48}}  {{in|bedrock}}
+ |-
+ | {{ItemLink|Potion of Regeneration}} II
+ | II
+ | 0:22
+ |{{hp|17.6}}
+ |-
+ | {{ItemLink|Splash Potion of Regeneration}}
+ | I
+ | 0:45{{only|java|short=1}}<br> 0:33{{only|bedrock|short=1}} 
+ |{{hp|18}} {{in|java}} or {{hp|13.2}} {{in|bedrock}}
+ |-
+ | {{ItemLink|Splash Potion of Regeneration}} (extended)
+ | I
+ | 1:30
+ |{{hp|36}}
+ |-
+ | {{ItemLink|Splash Potion of Regeneration}} II
+ | II
+ | 0:22{{only|java|short=1}}<br> 0:16{{only|bedrock|short=1}} 
+ |{{hp|17.6}} {{in|java}} or {{hp|12.8}} {{in|bedrock}}
+ |-
+ | {{ItemLink|Lingering Potion of Regeneration}}
+ | I
+ | 0:11
+ |The health regenerated depends how long the entity spent in the cloud.
+ |-
+ | {{ItemLink|Lingering Potion of Regeneration}} (extended)
+ | I
+ | 0:22{{only|java|short=1}}<br> 0:30{{only|bedrock|short=1}} 
+ |The health regenerated depends how long the entity spent in the cloud.
+ |-
+ | {{ItemLink|Lingering Potion of Regeneration}} II
+ | II
+ | 0:05
+ |The health regenerated depends how long the entity spent in the cloud.
+ |-
+ | {{ItemLink|Arrow of Regeneration}}
+ | I
+ | 0:05
+ | {{hp|2}}
+ |-
+ | {{ItemLink|Arrow of Regeneration}} (extended)
+ | I
+ | 0:11{{only|java|short=1}}<br> 0:15{{only|bedrock|short=1}} 
+ | {{hp|4.4}} {{in|java}} or {{hp|6}} {{in|bedrock}}
+ |-
+ | {{ItemLink|Arrow of Regeneration}} II
+ | II
+ | 0:02
+ | {{hp|1.6}}
+ |-
+ | {{BlockLink|Beacon}} set to Regeneration
+ | I
+ | 0:17
+ | Replenishes when in range. Requires beacon pyramid level 4. Due to a bug{{note|{{Bug|MC-30946}}}}, beacon regeneration works at only {{frac|5|8}} the normal regeneration speed.
+ |- 
+ | {{ItemLink|Suspicious Stew}}
+ | I
+ | 0:08{{only|java|short=1}}<br>0:06{{only|bedrock|short=1}} 
+ | Must be made with {{BlockLink|Oxeye Daisy}}. Regenerates {{hp|3.2}} {{in|java}} or {{hp|2.4}} {{in|bedrock}}
+ |-
+ | {{ItemLink|Golden Apple}}
+ | II
+ | 0:05
+ | {{hp|4}} is regenerated.
+ |-
+ | {{ItemLink|Enchanted Golden Apple}}
+ | II{{only|java|short=1}}<br>V{{only|bedrock|short=1}}
+ | 0:20{{only|java|short=1}}<br>0:30{{only|bedrock|short=1}}
+ |{{hp|16}} {{in|java}} or {{hp|200}}  {{in|bedrock}}
+ |-
+ |{{ItemLink|Totem of Undying}}
+ |II
+ |0:45{{only|java|short=1}}<br>0:40{{only|bedrock|short=1}}
+ |When being revived by it. Regenerates {{hp|36}} {{in|java}} or {{hp|32}} {{in|bedrock}}.
+ |-
+ |Spawning within the world
+ |I
+ | ∞
+ | Applies only to {{EntityLink|spider}}s on Hard difficulty.{{only|java|short=1}}
+ |-
+ | Unlocking [[trade]]s
+ |I
+ | 0:10
+ |Applies only to {{EntityLink|villager}}s. Regenerates {{hp|4}}
+ |-
+ | Having low [[health]]
+ |I
+ | 0:10
+ | Applies only to {{EntityLink|axolotl}}s.
+ |-
+ | Killing a mob
+ |I
+ | +0:05 * number of {{EntityLink|axolotl}}s nearby
+ | When killing a mob that can be targeted by an axolotl while an axolotl is nearby
+ |-
+ |}
+
+== Brewing ==
+{| class="wikitable" style="text-align: center;" data-description="Positive effect potions"
+!width="90px"| Potion
+! Reagent, Base
+!width="90px"| {{ItemSprite|Redstone Dust}} Extended
+!width="90px"| {{ItemSprite|Glowstone Dust}} Enhanced
+! Effects
+|-
+! {{Slot|Potion of Regeneration[&9Regeneration (<nowiki>0:45</nowiki>)]}}<br>Potion of Regeneration
+| {{Brewing Stand
+ |Input= Ghast Tear
+ |Output2= Awkward Potion
+ }}
+| {{Slot|Potion of Regeneration[&9Regeneration (<nowiki>1:30</nowiki>)]}}<br>Potion of Regeneration (extended)
+| {{Slot|Potion of Regeneration[&9Regeneration II (<nowiki>0:22</nowiki>)]}}<br>Potion of Regeneration
+| [[Regeneration]]<br>Restores health by {{healthbar|1|9px}} every 2.5 seconds.
+'''Enhanced:'''<br>[[Regeneration]] '''II'''<br>Restores health by {{healthbar|1|9px}} every 1.2 seconds.
+|}
+
+==Immune mobs==
+[[Undead]] mobs and [[ender dragon]]s are unaffected by Regeneration.
+
+==Data values==
+===ID===
+{{EffectIDLink}}
+{{edition|java}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=java
+|displayname=Regeneration
+|spritetype=effect
+|nameid=regeneration
+|id=10
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Regeneration
+|spritetype=effect
+|nameid=regeneration
+|id=10
+|foot=1}}
+
+==Advancements==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load advancements|A Furious Cocktail;How Did We Get Here?;The Healing Power of Friendship}}
+</table-progress-tracking>
+
+== History ==
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|Added Regeneration. This effect can be obtained through [[golden apple]]s.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|[[File:Regeneration JE1 BE1.png|18px]] Regeneration now has a dedicated icon.
+|Added some potions. Some would give the regeneration effect.
+|Milk now clears regeneration.}}
+{{History|||snap=Beta 1.9 Prerelease 3|Completely reworked potions and made them more intuitive. Regeneration now comes from a different potion.}}
+{{History||1.3.1|snap=12w21a|Added [[enchanted golden apple]]s, which can give the player Regeneration IV for 30 seconds.
+|Villagers can now receive regeneration after unlocking new trades.{{verify|edition=java|type=change}}}}
+{{History||1.4.2|snap=12w32a|Added the [[Beacon]], which can give the player Regeneration.{{verify|edition=java|type=change}}}}
+{{History||1.6.1|snap=13w23a|Regeneration nerfed by 50% (takes 50 ticks/2.5 seconds to restore {{hp|1}} at level I).}}
+{{History|||snap=13w24a|[[Spider]]s now have a chance of spawning with the Regeneration status effect on Hard [[difficulty]].}}
+{{History|||snap=13w24b|The Regeneration effect from golden apples has been has been increased from IV to V.}}
+{{History||1.9|snap=15w31a|Added the [[Arrow of Regeneration]].}}
+{{History|||snap=15w33a|Added the [[Lingering Potion of Regeneration]].}}
+{{History|||snap=15w37a|The Regeneration effect from [[golden apple]]s has been reduced to Regeneration I (from II in [[Java Edition 1.8]]).
+|Enchanted golden apples now give Regeneration II (down from V) for 20 seconds (down from 30 seconds).}}
+{{History|||snap=15w44a|The Regeneration effect from golden apples has been returned to Regeneration II, as it had been in 1.8.}}
+{{History||1.11|snap=16w39a|Added the [[Totem of Undying]], which can give the player regeneration.}}
+{{History||1.14|snap=18w43a|[[Suspicious stew]] added, which can give the player regeneration.
+|[[File:Regeneration JE2.png|18px]] Changed effect icon texture.}}
+{{History|||snap=18w43b|[[File:Regeneration JE3 BE2.png|18px]] Regeneration's effect icon was fixed.}}
+{{History||1.17|snap=20w51a|[[Axolotl]]s now receive Regeneration I when they have low health.}}
+
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=build 1|[[File:Regeneration JE1 BE1.png|18px]] Added Regeneration, which is currently unobtainable.}}
+{{History||v0.12.1|snap=build 1|Regeneration can now be obtained from [[golden apple]]s, [[enchanted apple]]s, and [[potion of Regeneration]] as well as its splash potion variant.}}
+{{History||v0.15.0|snap=build 1|Added the [[arrow of Regeneration]], which inflicts Regeneration.}}
+{{History||v0.16.0|snap=build 4|Regeneration can now be obtained via [[beacon]]s.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Regeneration can now be obtained from lingering potions of Regeneration.}}
+{{History||1.0.4|snap=alpha 1.0.4.0|Villagers can now receive regeneration after unlocking new trades.}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Regeneration can now be obtained from a [[totem of undying]].}}
+{{History|bedrock}}
+{{History||?|Enchanted apples now give Regeneration V rather than IV.}} 
+{{History||1.11.0|snap=beta 1.11.0.5|[[File:Regeneration JE3 BE2.png|18px]] Changed effect icon texture.}} 
+{{History||1.13.0|snap=beta 1.13.0.9|Regeneration can now be obtained from [[suspicious stew]].}} 
+
+{{History|console}}
+{{History||xbox=TU5|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Regeneration JE1 BE1.png|18px]] Added Regeneration, which can be obtained from golden apples.}}
+{{History||xbox=TU7|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|Added the [[Potion of Regeneration]] and [[Splash Potion of Regeneration]].}}
+{{History||xbox=TU14|xbone=CU1|ps=1.04|wiiu=Patch 1|switch=1.0.1|Villagers can now receive regeneration after unlocking new trades.{{verify|type=change}}}}
+{{History||xbox=TU19|xbone=CU7|ps=1.12|wiiu=Patch 1|switch=1.0.1|Regeneration can now be obtained from a beacon.}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|switch=1.0.1|Added the [[Lingering Potion of Regeneration]].
+|Added the [[Arrow of Regeneration]].}}
+{{History||xbox=TU54|xbone=CU44|ps=1.52|wiiu=Patch 24|switch=1.0.4|Added the [[totem of undying]], which grants Regeneration.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Regeneration JE3 BE2.png|18px]] Changed effect icon texture.}}
+{{History|foot}}
+
+==Notes==
+{{notelist}}
+
+{{Effects}}
+
+[[it:Rigenerazione]]
+[[ja:再生能力]]
+[[pt:Regeneração]]
+[[zh:生命恢复]]

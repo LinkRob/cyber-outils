@@ -1,0 +1,72 @@
+{{about|the mechanic in Java Edition that keeps certain chunks loaded all the time|the similar game mechanic in Bedrock Edition|Ticking area}}
+{{cleanup}}
+{{outdated}}
+{{exclusive|java}}
+'''Spawn chunks''' are chunks found at the world [[spawn]] point which are always loaded in memory, unlike normal chunks which unload when no players are nearby.
+
+== Introduction ==
+Note: Update 1.20.5 reduced the default spawn chunks to a radius of 2, effectively a 3x3 chunk area around spawn point. This setting can still be changed via commands, so players have the option to set the spawn chunk size to the one prior to the 1.20.5 version.
+
+Normally, old [[chunk]]s beyond player's chunk loading distance get unloaded from the memory and new chunks get loaded into the memory. Because of this, events such as [[redstone]] mechanisms and farms in unloaded chunks stop processing. Since spawn chunks remain loaded, events occurring in them continue to process, even if no players are nearby. If the world spawn is set to a laggy area using commands, such as an area with many redstone clocks, lag is present wherever the player is in the world.
+
+== Behavior ==
+{{main|Chunk}}
+[[File:Spawn chunks range.png|thumb|Illustration of chunk propagation.]]
+
+The so-called "spawn chunks" behavior arises from a [[chunk#Ticket types|start ticket]] which is created for the [[Spawn#World spawn|world spawn]] chunk. This ticket has a level of 22 which "propagates," or flows, to neighboring chunks. Each time the level flows, it increases its level by 1 until the maximum of 34 is reached. This behavior is illustrated by the picture to the right.
+
+Different levels of propagation have different behaviors. These levels are divided into 4 load types.
+{| class="wikitable"
+!Load Type
+!Level
+!Properties
+|-
+|Entity Ticking
+|31 and below
+| In the spawn chunks, this consists of a 19&times;19 chunk area. All game aspects are active.
+|-
+|Ticking
+|32
+|The margin of the 21&times;21 area. All game aspects are active except that entities are not processed (do not move) and [[Tick|chunk ticks]] aren't either.
+|-
+|Border
+|33
+| The margin of the 23&times;23 area. Only some game aspects are active (redstone and command blocks do not work).
+|-
+|Inaccessible
+|34 and above
+|No game aspects are active, but [[world generation]] still occurs.
+|} 
+
+=== Limitations ===
+{{main|Chunk#Limitations}}
+There are some limitations which may affect the behavior of spawn chunks.
+
+;Idle timeout
+Each [[Dimensions|dimension]] has its own "idle timeout." Without a [[player]] or [[Commands/forceload|forceloaded]] chunks in the overworld, this timeout eventually expires. When the timeout expires, some behaviors such as entity processing stop for spawn chunks and the rest of the dimension. The timeout can be reset by frequently sending entities through a portal.
+
+;Chunk tick
+{{see also|Tick}}
+Only chunks with horizontal distance between its center and a player less than 128 blocks are ticked on every game tick. This stops events caused by random ticking, such as crop growth.
+
+;Entities
+{{see also|Spawn}}
+* Hostile mobs more than 128 blocks from a player despawn.
+* Passive mobs only spawn inside a 240&times;240 block area around the player.
+* Passive mobs present in the spawn chunks count toward the mob cap. This often prevents friendly mobs from naturally spawning elsewhere in the world.
+
+== Changing location ==
+A new world spawn point can be set using {{cmd|setworldspawn}}. If no coordinates are provided, the block position that the player is currently standing on becomes the spawn point. The chunk where the world spawn is located is then given a start ticket with a level of 22 and the ticket for the old spawn chunks is cleared.
+
+== History ==
+{{section needed}}
+{{info needed section|When was the concept of spawn chunks introduced?}}
+
+{{Java Edition}}
+
+[[ja:スポーンチャンク]]
+[[ko:스폰 청크]]
+[[pl:Chunk spawnu]]
+[[ru:Спаун чанков]]
+[[pt:Geração de pedaço]]
+[[zh:出生点区块]]

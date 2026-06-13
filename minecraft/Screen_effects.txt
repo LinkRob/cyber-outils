@@ -1,0 +1,298 @@
+{{conjecture}}
+{{wip}}
+'''Screen effects''' encompass a variety of effects applied alongside or beneath the [[heads-up display]] as augmentations to the [[player]]'s point of view as a method of conveying further information about a player's current state.
+
+== Summary ==
+{| class="wikitable" data-description="Screen effects overview, conditions and parity issues"
+! rowspan="2" | Effect
+! colspan="3" | ''[[Java Edition]]''
+! colspan="3" | [[Bedrock Edition]]
+|-
+! Image
+! Visible in [[third-person view]]?
+! Visible with {{key|F1}}?
+! Image
+! Visible in third-person view?
+! Visible with {{key|F1}}?
+|-
+! colspan="7" | Overlays and vignettes
+|-
+| [[Suffocation]] inside a block
+| align="center" | [[File:Inside of a block.png|64px]]
+! {{tc|no}}
+! {{tc|yes}}
+|
+! {{tc|no}}
+! {{tc|yes}}
+|-
+| When on [[fire]]
+| align="center" | [[File:On fire.png|64px]]
+! {{tc|no}}
+! {{tc|yes}}
+|
+! {{tc|no}}
+! {{tc|yes}}
+|-
+| When in a [[nether portal]]
+| align="center" | [[File:Nether portal overlay.png|64px]]
+! {{tc|yes}}<ref>{{bug|MC-177524||Nether portal camera effect still applies when in third person mode|WAI}}</ref>
+! {{tc|no}}<ref>{{bug|MC-83353||Pressing F1 while in nether portal deletes purple texture.|WAI}}</ref>
+|
+! {{tc|no}}
+! {{tc|yes}}
+|-
+| When underwater
+| align="center" | [[File:Underwater overlay.png|64px]]
+! {{tc|no}}
+! {{tc|yes}}
+|
+! {{tc|no}}
+! {{tc|yes}}
+|-
+| Distortion effect overlay
+| align="center" | [[File:Distortion overlay.png|64px]]
+! {{tc|yes}}
+! {{tc|yes}}<ref>{{bug|MC-196469||F1 hides the nausea green tint|Fixed}}</ref>
+! colspan="3" | N/A
+|-
+| Darkness
+| align="center" | [[File:Vignette.png|64px]]
+! {{tc|yes}}
+! {{tc|no}}<ref>{{bug|MC-73730}}</ref>
+|
+! {{tc|yes}}
+! {{tc|no}}
+|-
+| When near the [[world border]]
+| align="center" | [[File:World border overlay.png|64px]]
+! {{tc|yes}}
+! {{tc|no}}<ref>{{bug|MC-197123||F1 hides the world border red effect}}</ref>
+! colspan="3" | N/A
+|-
+| When inside [[powder snow]]
+| align="center" | [[File:Frozen effect.png|64px]]
+! {{tc|yes}}
+! {{tc|no}}<ref>{{bug|MC-205029||The powder snow freezing overlay goes away when pressing F1|WAI}}</ref>
+|
+! {{tc|yes}}
+! {{tc|yes}}
+|-
+| When wearing a [[pumpkin]]
+| align="center" | [[File:Pumpkin blur.png|64px]]
+! {{tc|no}}
+! {{tc|no}}<ref>{{bug|MC-121536||The carved pumpkin overlay disappears when pressing F1|WAI}}</ref>
+|
+! {{tc|no}}
+! {{tc|yes}}
+|-
+| When using a [[spyglass]]
+| align="center" | [[File:Spyglass scope.png|64px]]
+! {{tc|no}}
+! {{tc|no}}<ref>{{bug|MC-203575||The spyglass overlay goes away when pressing F1|WAI}}</ref>
+|
+! {{tc|no}}
+! {{tc|yes}}
+|-
+! colspan="7" | Animated sprites
+|-
+| [[Totem of Undying]] when used
+| align="center" | [[File:Totem of Undying Animation.gif|64px]]
+! {{tc|yes}}
+! {{tc|no}}<ref>{{bug|MC-107476||Totem of undying doesn't show in F1 mode|WAI}}</ref>
+|[[File:Totem of Undying Bedrock Animation.gif|64x64px]]
+! {{tc|yes}}
+! {{tc|yes}}
+|-
+| [[Bad Omen]] when obtained
+! colspan="3" | N/A
+| align="center" | [[File:Bad Omen Bedrock Animation.gif|64px]]
+! {{tc|yes}}
+! {{tc|yes}}
+|-
+| [[Hero of the Village]] when obtained
+! colspan="3" | N/A
+| align="center" | [[File:Hero of the Village Bedrock Animation.gif|64px]]
+! {{tc|yes}}
+! {{tc|yes}}
+|-
+| [[Elder guardian]] ghost
+|align="center" | [[File:Elder guardian curse.gif|64px]]
+! {{tc|yes}}
+! {{tc|yes}}
+|
+! {{tc|yes}}
+! {{tc|yes}}
+|-
+! colspan="7" | Visual transformations
+|-
+| Screen tilting when damaged
+|
+! {{tc|yes}}<ref>{{bug|MC-214654}}</ref>
+! {{tc|yes}}
+|
+! {{tc|yes}}
+! {{tc|yes}}
+|-
+| View bobbing
+|
+! {{tc|yes}}
+! {{tc|yes}}
+|
+! {{tc|yes}}
+! {{tc|yes}}
+|-
+| Distortion effects
+|
+! {{tc|yes}}<ref>{{bug|MC-214655}}</ref>
+! {{tc|yes}}
+|
+! {{tc|yes}}
+! {{tc|yes}}
+|-
+| Speed-based FOV changes
+|
+! {{tc|yes}}<ref>{{bug|MC-214656}}</ref>
+! {{tc|yes}}
+|
+! {{tc|yes}}
+! {{tc|yes}}
+|-
+| Underwater FOV changes
+|
+! {{tc|yes}}
+! {{tc|yes}}
+|
+! {{tc|yes}}
+! {{tc|yes}}
+|}
+
+== Overlays ==
+
+=== Suffocation ===
+{{conjecture|section=1}}
+{{Screen effect
+|title=Suffocation overlay
+|image=Inside of a block.png
+|camera=No
+|hud=Yes
+|graphics={{needs testing}}
+|options=None
+}}
+This effect manifests when an applicable mob's eye level intersects specific [[block]]s; generally those that are full solid cubes and block both vision and movement, with the exception of [[ice]].
+
+{{iN|java}} this effect involves a darkened version of the block texture covering the entire area of the screen.
+
+{{iN|bedrock}}, the block's texture is instead arranged into a cube, and this cube is fixed around the player's point of view. This is the case regardless of the player's placement inside the block; they can be at the edge of it (such that their view is partially outside of it and the outside texture is clearly visible) and they are still rendered as if at the exact center of the cube.
+
+=== On fire ===
+{{conjecture|section=1}}
+{{Screen effect
+|title=Fire overlay
+|image=On fire.png
+|camera=No
+|hud=Yes
+|graphics={{needs testing}}
+|options=None
+}}
+When the player is on [[fire]], this effect is applied to the screen. This is caused by being inside of [[fire]] or [[lava]] (even in [[Creative]] mode, although not in [[Spectator]]), after exiting such a block (except in Creative/Spectator), or being set on fire through the attack of a burning mob or a burning arrow.
+
+This overlay always displays as fire, even if the player in question is inside of soul fire.
+
+{{IN|java}} this effect involves two intersecting texture planes being rendered across the bottom half of the screen with the fire texture.
+
+{{IN|bedrock}}, a single fire texture is stretched across the bottom two-thirds of the screen.
+
+=== Nether portal ===
+{{conjecture|section=1}}
+{{Screen effect
+|title=Nether Portal overlay
+|image=Nether portal overlay.png
+|camera={{jebe|Yes|No}}
+|hud={{jebe|No|Yes}}
+|graphics={{needs testing}}
+|options=None
+}}
+''Note: this section discusses the nether portal texture overlay. The nether portal/nausea effect is discussed in the Distortion effect/Distortion overlay sections.''
+
+When the player is inside of a [[nether portal]], this effect is applied to the screen. It always coincides with either the distortion effect and/or its overlay.
+
+{{iN|java}} this effect involves the nether portal texture being stretched across the entirety of the screen.
+
+{{iN|bedrock}}, the texture is instead arranged into a cube, fixed around the player's point of view much like the suffocation effect.
+
+=== Underwater ===
+{{section needed}}
+
+=== Distortion overlay ===
+{{section needed}}
+
+=== Darkness vignette ===
+{{section needed}}
+
+=== World border overlay ===
+{{section needed}}
+
+=== Freezing overlay ===
+{{section needed}}
+
+=== Pumpkin blur ===
+{{section needed}}
+
+=== Spyglass scope ===
+{{section needed}}
+
+== Animated sprites and models ==
+
+=== Elder guardian ghost ===
+{{conjecture|section=1}}
+{{Screen effect
+|title="Elder Guardian curse"
+|image=Elder guardian curse.gif
+|camera={{needs testing}}
+|hud={{needs testing}}
+|graphics={{needs testing}}
+|options=None
+}}
+
+=== Totem of Undying ===
+{{section needed}}
+
+=== Bad Omen ===
+{{section needed}}
+
+=== Hero of the Village ===
+{{section needed}}
+
+== Transformations ==
+
+=== Damage tilt ===
+{{section needed}}
+
+=== View bobbing ===
+{{section needed}}
+
+=== Distortion effects ===
+{{section needed}}
+
+=== Speed FOV changes ===
+{{section needed}}
+
+=== Underwater FOV changes ===
+{{section needed}}
+
+== History ==
+
+=== Overlays ===
+{{section needed}}
+
+=== Animated sprites ===
+{{section needed}}
+
+=== Transformations ===
+{{section needed}}
+
+== References ==
+{{reflist}}
+
+
+{{Gameplay}}

@@ -1,0 +1,220 @@
+{{For|the block|Suspicious Sand}}
+{{Item
+| title = Suspicious Stew
+| heals = {{hunger|6}}
+| renewable = Yes 
+| stackable = No
+|effects=See {{slink||Food}}
+}}
+'''Suspicious stew''' is a [[food]] item that can give the [[player]] a [[effect|status effect]] that depends on the [[flower]] used to craft it.
+
+== Obtaining ==
+{{IN|Bedrock}}, suspicious stew is the only food item in the game that can't be obtained from the [[Creative]] inventory only by searching. However, it can be crafted and can also be found in [[shipwreck]] chests. Suspicious stew can be given with [[commands]] like {{cmd|give}}, but {{in|java}}, unless NBT data like that listed in the data values section is included, consuming it has no effect and still restores the same hunger points as a normal suspicious stew. In [[Bedrock Edition]], giving the player a suspicious stew through commands causes the stew to choose an allowable status effect at random.
+
+=== Harvesting ===
+Suspicious stew can be obtained by "milking" a brown [[mooshroom]] with a [[bowl]] after using a small flower on it. When a small flower is used on a brown mooshroom, the brown mooshroom produces a suspicious stew related to that small flower the next time it is milked with a bowl. Red mooshrooms do not produce suspicious stew. The brown mooshroom returns to producing [[mushroom stew]] until fed another small flower.
+
+=== Crafting ===
+{{Crafting
+|Red Mushroom
+|Brown Mushroom
+|Bowl
+|Any Flower
+|Output=Suspicious Stew
+|shapeless=true
+|type=Foodstuff
+}}
+Suspicious stew is not listed in the recipe book. However, it can be quickly assembled by clicking the [[Mushroom Stew|mushroom stew]] recipe and adding one small flower to it.
+
+=== Chest loot ===
+{{LootChestItem|suspicious-stew}}
+
+=== Mob loot ===
+After being given a flower, a brown [[mooshroom]] can be "milked" for suspicious stew by {{control|using}} a [[bowl]] on it. The flower type determines the stew's effect using the same rule as a crafted stew. Milking a red mooshroom after feeding it a flower does not yield a suspicious stew specific to that flower.
+
+=== Trading ===
+{{IN|java}}, expert-level farmer [[villager]]s can offer either 1 or 2 suspicious stew trades, each stew for one [[emerald]].
+
+{{IN|bedrock}}, expert-level farmer villager offers to sell suspicious stew for one emerald as well.
+
+The [[trading]] interface does not indicate the type of suspicious stew being sold, but each trade entry consistently yields the same type of stew, so the player can remember or make a note of the types offered by a given villager, such as "this villager's first stew gives [[blindness]], and their second entry gives saturation".
+
+== Usage ==
+=== Food ===
+{{see also|Tutorials/Hunger management}}
+To eat suspicious stew, press and hold {{control|use}} while it is selected in the hotbar. Eating one restores {{hunger|6}} hunger and 7.2 hunger [[Hunger#Mechanics|saturation]] and gives a few seconds of a [[effect|status effect]] that varies depending on which flower was used to craft it. The effect is not displayed in the tooltip, texture, etc., meaning that the player cannot know in advance what the effect is without knowing which flower was used.
+
+{{/Effects}}
+The [[bowl]] is emptied and returned to the player after the suspicious stew has been eaten, and can be re-used to craft more stews. Unlike most foods, suspicious stew can be eaten even if the player's hunger bar is full.
+
+The Saturation effect from blue orchids and dandelions effectively makes those two stews a superfood: In those 6 or 7 ticks it can restore up to 6(7) hunger and 12(14) saturation points ''on top of'' their food value, for a total of at least {{hunger|12}} hunger, and effectively maximizing saturation. This is the largest amount of hunger and saturation the player can get from a single food item. Regeneration can restore up to {{Health|3}} health, and Poison or Wither can inflict up to {{Health|4}} damage.
+
+== Sounds ==
+=== Generic ===
+{{Sound table/Entity/Food}}
+
+=== Unique ===
+{{edition|java}}:
+{{Sound table
+|sound=Mooshroom eat1.ogg
+|sound2=Mooshroom eat2.ogg
+|sound3=Mooshroom eat3.ogg
+|sound4=Mooshroom eat4.ogg
+|subtitle=Mooshroom eats 
+|source=neutral
+|description=Plays when a brown mooshroom is fed a flower.
+|id=entity.mooshroom.eat
+|translationkey=subtitles.entity.mooshroom.eat
+|volume=2.0
+|pitch=''varies'' <ref group=sound>Can be 1.0, 0.95, or 1.05 for each sound</ref>
+|distance=16}}
+{{Sound table
+|sound=Mooshroom milk1.ogg
+|sound2=Mooshroom milk2.ogg
+|sound3=Mooshroom milk3.ogg
+|subtitle=Mooshroom gets milked suspiciously
+|source=neutral
+|description=Plays when a brown mooshroom is milked with a bowl after being fed a flower.
+|id=entity.mooshroom.suspicious_milk
+|translationkey=subtitles.entity.mooshroom.suspicious_milk
+|volume=1.0
+|pitch=''varies'' <ref group=sound>Can be 1.0, 0.9, or 1.1 for each sound</ref>
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Mooshroom eat1.ogg
+|sound2=Mooshroom eat2.ogg
+|sound3=Mooshroom eat3.ogg
+|sound4=Mooshroom eat4.ogg
+|subtitle=Mooshroom eats 
+|source=Friendly Creatures
+|description=When a brown mooshroom is fed a flower
+|id=mob.mooshroom.eat
+|volume=1.0/0.95/1.05
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Mooshroom milk1.ogg
+|sound2=Mooshroom milk2.ogg
+|sound3=Mooshroom milk3.ogg
+|subtitle=Mooshroom gets milked 
+|source=Friendly Creatures
+|description=When a mooshroom is milked with a bowl
+|id=mob.mooshroom.suspicious_milk
+|volume=1.0/0.9/1.1
+|pitch=1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Suspicious Stew
+|spritetype=item
+|nameid=suspicious_stew
+|form=item
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|notshowbeitemforms=y
+|generatetranslationkeys=y
+|displayname=Suspicious Stew
+|spritetype=item
+|nameid=suspicious_stew
+|id=590
+|form=item
+|foot=1}}
+
+=== Item data ===
+
+{{IN|je}}, suspicious stew uses the following NBT data:
+<div class="treeview">
+* {{nbt|compound|tag}}: The item's '''tag''' tag.
+{{:Player.dat format/Suspicious Stew}}
+</div>
+
+=== Metadata ===
+{{IN|be}}, suspicious stew uses the following data values:
+{{dvt|spritetype=item|sprite=suspicious-stew|{{EffectLink|Night Vision}} from {{BlockLink|Poppy}}}}
+{{dvt|sprite=suspicious-stew|{{EffectLink|Jump Boost}}}}
+{{dvt|sprite=suspicious-stew|{{EffectLink|Weakness}}}}
+{{dvt|sprite=suspicious-stew|{{EffectLink|Blindness}}}}
+{{dvt|sprite=suspicious-stew|{{EffectLink|Poison}}}}
+{{dvt|sprite=suspicious-stew|{{EffectLink|Saturation}} from {{BlockLink|Dandelion}}}}
+{{dvt|sprite=suspicious-stew|{{EffectLink|Saturation}} from {{BlockLink|Blue Orchid}}}}
+{{dvt|sprite=suspicious-stew|{{EffectLink|Saturation}} from {{BlockLink|Golden Dandelion}}}}
+{{dvt|spritetype=item|sprite=suspicious-stew|{{EffectLink|Fire Resistance}}}}
+{{dvt|sprite=suspicious-stew|{{EffectLink|Regeneration}}}}
+{{dvt|sprite=suspicious-stew|{{EffectLink|Wither}}}}
+{{dvt|sprite=suspicious-stew|{{EffectLink|Night Vision}} from {{BlockLink|Torchflower}}|foot=1}}
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Time for Stew}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="3">
+{{load advancements|A Furious Cocktail;How Did We Get Here;Husbandry;A Balanced Diet}}
+</table-progress-tracking>
+
+== History ==
+{{History|java}}
+{{History||1.14|snap=18w43a|[[File:Suspicious Stew JE1 BE1.png|32px]] Added suspicious stew.
+|Suspicious stew is not obtainable in the [[Creative inventory]].}}
+{{History|||snap=19w08a|Suspicious stew can be obtained by milking brown [[mooshroom]]s.}}
+{{History|||snap=19w11a|[[Trading]] has been changed, expert-level farmer villagers now sell suspicious stew for an [[emerald]].}}
+{{History||1.14.4|snap=Pre-Release 1|Suspicious stew made from [[poppies]] now gives [[Night Vision]] to the [[player]] instead of [[Speed]].}}
+{{History||1.16|snap=Pre-release 1|Mooshrooms can now be milked for suspicious stew in Creative mode.<ref>{{bug|MC-90969}}</ref>}}
+{{History||1.17|snap=21w13a|Suspicious stew can now be eaten even if the player is at full [[hunger]].}}
+{{History||1.19|snap=22w13a|Suspicious stew may now be found in [[ancient city]] [[chest]]s.}}
+{{History||1.19.3|snap=22w45a|Suspicious stew is now available in the [[Creative]] [[inventory]].}}
+{{History||1.20<br>(Experimental)|link=1.19.4|snap=23w07a|Suspicious stew now drops when brushing [[suspicious sand]] in [[desert well]]s.}}
+{{History|||snap=1.19.4-pre1|[[Torchflower]]s can now be used to make suspicious stew.}}
+{{History||1.20|snap=23w12a|The probability for the suspicious stew to generate in the [[suspicious sand]] in [[desert well]] has been changed from 1/7 to 1/8.}}
+
+{{History|bedrock}}
+{{History||1.13.0|snap=beta 1.13.0.9|[[File:Suspicious Stew JE1 BE1.png|32px]] Added suspicious stew.
+|Suspicious stew is not obtainable in the Creative inventory.}}
+{{History|||snap=beta 1.13.0.15|Master-level farmer [[villager]]s can now [[trading|sell]] suspicious stew.}}
+{{History||1.16.0|snap=beta 1.16.0.57|[[Trading]] has been changed, expert-level farmer villagers now sell suspicious stew for an [[emerald]].}}
+{{History||1.20.0<br>(Experimental)|link=Bedrock Edition 1.19.70|snap=beta 1.19.70.23|Suspicious stew now drops when brushing [[suspicious sand]] in [[desert well]]s.}}
+{{History||1.20.10|Added one type of suspicious stew to the Items tab in the Creative inventory.}}
+{{History||1.20.30|snap=beta 1.20.20.20|Suspicious stew can no longer be found in the Creative inventory.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list}}
+
+== Trivia ==
+* Suspicious stew was introduced because developers wanted a way of communicating that [[wikipedia:Lily_of_the_valley|lilies of the valley]] are poisonous.<ref>{{ytl|YUM7XiEX1DI|Items: Ten Things You Probably Didn't Know About Minecraft @ 3:32|Minecraft|November 29, 2019|t=212s}}</ref>
+
+== References ==
+{{Reflist}}
+<references group="loot"/>
+
+{{Items}}
+
+[[Category:Food]]
+
+[[de:Seltsame Suppe]]
+[[es:Estofado sospechoso]]
+[[fr:Soupe suspecte]]
+[[ja:怪しげなシチュー]]
+[[ko:수상한 스튜]]
+[[nl:Geheimzinnige stoofpot]]
+[[pl:Podejrzana potrawka]]
+[[pt:Ensopado suspeito]]
+[[ru:Подозрительный суп]]
+[[th:สตูว์พิศวง]]
+[[zh:迷之炖菜]]
+[[Category:Renewable resources]]

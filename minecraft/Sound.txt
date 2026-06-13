@@ -1,0 +1,97 @@
+{{distinguish}}
+{{stub}}
+{{See also|Tutorials/Sound directory}}
+'''Sounds''' are auditory outputs of the game intended to communicate the happening of certain events, as well as create atmosphere. Different objects such as [[mob]]s, [[weapon]]s or [[block]]s have sounds.
+
+== Gameplay ==
+
+=== Mood ===
+{{Main|Ambience#Cave ambience}}
+Mood is a special group of sounds that play after an internal counter reaches 100% visible on the [[debug screen]] only activating when the player is in [[light level]] 0.
+
+=== General ===
+{{IN|java}}, up to 255 sounds can be played at once but general sounds only can take 247 slots, with mood slots taking the remaining 8 slots. {{IN|bedrock}}, up to 32 sounds can be played at the same time.<ref>[https://learn.microsoft.com/en-us/minecraft/creator/documents/introductiontosound Introduction to Sounds | Microsoft Learn]</ref>
+
+=== Commands ===
+Sounds can be played and stopped with the {{cmd|playsound}} and {{cmd|stopsound}} [[commands]].
+
+=== Global sound events ===
+Although most sounds in ''Minecraft'' can only be heard up to 16 blocks away from the source, some events produce sounds that can be heard by all players regardless of their distance to the source of sound. These include:
+* When an [[end portal]] opens
+* When the [[ender dragon]] dies
+* When a [[wither]] finishes charging up<ref>{{bug|MC-177741}}</ref>
+* When a [[guardian]] attacks<ref>{{bug|MC-57057}}</ref>
+{{IN|java}}, these global sound events can be disabled by setting the [[game rule]] {{cd|globalSoundEvents}} to {{cd|false}}.
+
+== Accessibility ==
+=== Narrator ===
+{{Main|Narrator}}
+The narrator will speak everything on screen with the intention of assisting blind players.
+
+=== Subtitles ===
+{{Exclusive|java|section=1}}
+{{Main|Subtitles}}
+Displays text for in-game sounds in the bottom-right corner of the screen. Also adds arrows next to the sounds that show the general direction that the sound came from. It allows deaf people to not be at an extreme disadvantage, as well as to aid other players in knowing where sounds came from. Subtitles can be toggled in the Music & Sounds and Accessibility Settings [[option]] menus.
+
+== Data values ==
+{{Main|Sound events}}
+All sound events have names, such as "block.stone.hit" {{only|java}} or "step.stone" {{only|bedrock}}.
+
+== History ==
+{{History|java classic}}
+{{History||June 4, 2009|link=https://web.archive.org/web/20210705014707/https://www.youtube.com/watch?v=UIFkQMEz9X8|C418 uploaded a mockup video on June 4, 2009, showcasing his sound design for the game dubbed over footage of this version. This is not a developer version; the video is edited.}}
+{{History||0.0.22a|Added sounds.<ref>[[#logs|IRC logs]]: "''P4:58:39 <08Notch> yeah, this is very basic sound''". (21:58:39 UTC)</ref><ref>[[#logs|IRC logs]]: "''P4:59:46 <akuryo> SOUND IS HERE''" (21:59:46 UTC)</ref><ref>[[#logs|IRC logs]]: "''P5:00:04 <AlLnAtuRalX> I hear music?''" [...] "''P5:00:59 <Quatroking> what the hell is this music''" [...] "''P5:03:36 <Lmaoboat> Lol, I heared the music after a a while without it, and I was about to yell at my brother for playing the piano again''" (22:00:04 to 22:03:36 UTC)</ref><ref>[[#logs|IRC logs]]: "''P5:01:51 <C418> I should have made hard techno''" [...] "''P5:46:34 <08Notch> no, C418 did the music''" (22:01:51 & 22:46:34 UTC)</ref>}}
+{{History||0.0.23a|Added [[options]] for turning on/off sounds and music.}}
+{{History|java indev}}
+{{History||0.31 20100104|Added a new sound engine made by [https://web.archive.org/web/20140427013818/http://www.paulscode.com/ Paul Lamb].<ref>[[wordofnotch:316961243|New sound engine implemented]] – The Word of Notch, January 5, 2010</ref>}}
+{{History||20100207-1|Switched sound system to use [[wikipedia:OpenAL|OpenAL]].<ref>[[wordofnotch:375896290|And software sound is now gone]] – The Word of Notch, February 7, 2010</ref>}}
+{{History|java alpha}}
+{{History||v1.1.1|Added sliders for the volume of sounds and music.}}
+{{History||v1.1.2_01|Due to a change in how ''Minecraft'' downloads its resources, this is the oldest version in which sounds work using the modern ''[[Minecraft Launcher]]''.}}
+{{History|java}}
+{{History||1.4.2|snap=12w38b|Updated the sound engine.}}
+{{History||1.6.1|snap=release|Added {{cmd|playsound}}.}}
+{{History||1.7.2|snap=13w36a|Replaced the sounds volume slider with sliders for juke boxes and note blocks, hostile mobs, passive mobs, players, weather, blocks, ambient/environment, and the master volume.}}
+{{History|||snap=13w42a|Rewrote the sound system.|Added the ability for custom sounds using resource packs.}}
+{{History|||snap=1.7|Music now pauses while the game is paused.}}
+{{History||1.9|snap=15w43b|Added [[subtitles]].}}
+{{History|||snap=16w02a|Added the "Voice/Speech" volume slider.}}
+{{History||1.9.3|snap=pre2|Added {{cmd|stopsound}}.}}
+{{History||1.14|snap=19w12a|Rewrote the sound system.}}
+{{History|||snap=19w14a|Added a new sounds section to the debug screen.}}
+{{History||1.19|snap=22w11a|Added the "Directional Audio" option, which allows for more accurate 3D sound on HRTF-compatible software.}}
+{{History||1.19.3|snap=22w44a|Added the [[game rule]] {{cd|globalSoundEvents}}.}}
+{{History||1.20|snap=23w12a|Step sounds can now combine for blocks walked through and stepped on.}}
+{{History|||snap=23w18a|Walking on non-solid blocks with no collision no longer plays their walking sounds.<ref>{{bug|MC-2604|||Fixed}}</ref>
+|Walking on the edge of a block now properly plays step sounds for that block.<ref>{{bug|MC-1133|||Fixed}}</ref>}}
+
+{{History|pocket edition alpha}}
+{{History||Pre-release|Added sounds.<ref>{{YouTube_link|jxfj84mdfl8}}</ref>}}
+{{History||v0.1.2|Added a toggle for sounds.}}
+{{History||v0.7.0|Added a volume slider.}}
+{{History||v0.12.1|Updated the sound engine to allow for multiple sounds.}}
+{{History|pocket edition}}
+{{History||1.0.4|snap=alpha 1.0.4.1|Music and sounds can now be changed using resource packs.}}
+{{History||1.0.5|snap=alpha 1.0.5.0|Added {{cmd|playsound}} and {{cmd|stopsound}}.}}
+{{History|bedrock edition}}
+{{History||1.10.0|snap=beta 1.10.0.3|Added sound events to the scripting API.}}
+{{History||1.12.0|snap=beta 1.12.0.2|Sound effects can now be triggered by animation events.}}
+{{History||1.16.100|snap=beta 1.16.100.58|Added {{cmd|music}}.}}
+{{History||1.16.200|snap=beta 1.16.200.53|Added volume sliders for other sound categories.}}
+{{History||1.20.10|snap=beta 1.20.10.20|Sound positioning is now based on the camera's position, rather than the player's position and rotation. This means that audio is flipped when in the third-person front view.}}
+{{History|foot}}
+
+== Trivia ==
+* {{IN|java}}, The "OOF" sound effect can be found at <code>.minecraft/assets/objects/9d/9d485556b89bf776042080774679c37300bc744b</code> if the player has used a version with that sound.
+
+== Gallery ==
+<gallery>
+1.16.200.53 audio settings.jpg|Audio slider settings in ''Bedrock Edition''.
+Music & Sound Options.png|Audio slider settings in ''Java Edition''.
+Sound Options.png|First screenshot of the new sound volume sliders added in Java Edition [[13w36a]].
+</gallery>
+
+== References ==
+{{Reflist}}
+
+[[es:Sonido]]

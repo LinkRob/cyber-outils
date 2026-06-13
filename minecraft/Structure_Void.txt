@@ -1,0 +1,113 @@
+{{distinguish|Structure Block}}
+{{Block
+| image = Structure Void (shown) JE2.png
+| image2 = Structure Void (held) BE.png
+| transparent = Yes
+| tntres = 0{{only|java|short=1}}<br>3,600,000.8{{only|bedrock|short=1}}
+| hardness = 0{{only|java|short=1}}<br>-1{{only|bedrock|short=1}}
+| light = No
+| tool = None
+| renewable = No
+| flammable = No
+| lavasusceptible = No
+| stackable = Yes (64)
+| rarity = Epic
+}}
+A '''structure void''' is an [[invisible block]] that allows existing blocks to remain unchanged rather than be overridden when using the [[structure block]] to load a structure.
+
+== Obtaining ==
+Structure voids are available only using the {{cmd|setblock}}, {{cmd|fill}}, or {{cmd|give}} commands or by using the Operator Utilties.
+
+{{IN|Java}}, they are also available in the creative inventory if cheats are enabled.
+
+== Usage ==
+[[File:Shown Invisible Blocks.png|thumb|The difference between air (top left) and structure void (top right) when "show invisible blocks" is enabled.]]
+Structure voids can be placed as part of a structure and are ignored when the structure file is saved. This results in the blocks at the location where the structure is placed being maintained and not being overridden. For example, if a player saves a 2 block high structure with air at the top and a structure void at the bottom, and loads it into a 2 block high area of stone, the top block becomes air but the bottom stays stone.
+
+{{IN|JE}}, structure void blocks have no collision box but have a small hitbox. Additionally, they are invisible, but are displayed as red cubes when "Show invisible blocks" is turned on in Save mode inside a [[Structure Block]]. Blocks can also replace structure voids similarly to [[snow]] and [[grass]]. A [[piston]] can move a structure void, but the structure void pushed by the piston will turn into air.
+
+{{IN|BE}}, structure void block's hitboxes are the same as a full [[block]], and, similar to barriers, appear when held by the player. Unlike ''Java Edition'', they can support blocks such as [[sign]]s, [[torch]]es, [[rail]]s and [[redstone wire]]. A piston cannot move a structure void.
+
+As there is no collision box, [[entities]] can pass through, although [[liquid]]s cannot.
+
+<gallery>
+Structure Void Outline Box.png
+Structure Void Outline Box (shown).png
+</gallery>
+
+{{-}}
+
+== Sounds ==
+{{Sound table/Block/Normal}}
+
+== Data values ==
+=== ID ===
+{{el|je}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Structure Void
+|spritetype=block
+|nameid=structure_void
+|foot=1}}
+
+{{el|be}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Structure Void
+|spritetype=block
+|spritename=structure-void-be
+|nameid=structure_void
+|id=217
+|foot=1}}
+
+=== Block states === 
+{{see also|Block states}}
+
+{{/BS}}
+
+== History ==
+{{History|java}}
+{{History||1.10|snap=16w20a|[[File:Structure Void (shown) JE1.png|32px]][[File:Structure Void Outline Box (shown) JE1.png|32px]] [[File:Structure Void (item) JE1.png|32px]] Added structure voids. Originally, developers used [[barrier]] blocks for their purpose.}}
+{{History|||snap=pre1|Structure voids are no longer indestructible.
+|The blast resistance of structure voids has been reduced to 0 (was 18,000,003).}}
+{{History||1.13|snap=17w47a|Prior to [[Java Edition 1.13/Flattening|''The Flattening'']], this [[block]]'s numeral ID was 217.|Can now be directly replaced.}}
+{{History||1.14|snap=18w43a|[[File:Structure Void (item) JE2.png|32px]] The item texture of structure voids has been changed.}}
+{{History||1.15|snap=19w39a|[[File:Structure Void (shown) JE2.png|32px]][[File:Structure Void Outline Box (shown) JE2.png|32px]] Outlines of Structure Void shown by "show invisible blocks" by a [[Structure Block]] no longer have black outlines.}}
+{{History||1.17|snap=21w20a|[[File:Structure Void (shown) JE3.png|32px]][[File:Structure Void Outline Box (shown) JE3.png|32px]] Structure voids shown by structure blocks now appear pink rather than red.
+|Structure void [[Rarity|rarity color]] was changed from common to epic.}}
+{{History||1.19.3|snap=22w42a|Structure voids no longer emit block particles when broken.<ref>{{bug|MC-221568}}</ref>}}
+{{History|||snap=22w44a|Structure voids are now available in the creative inventory, but only if cheats are enabled.}}
+{{History|||snap=22w45a|Moved structure voids behind the Operator Utilities tab in the creative inventory. The tab is only available if cheats are enabled and the "Operator Items Tab" option in the controls menu is turned on.}}
+
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|"Added" structure void. Similarly to structure blocks, they have no assigned block ID and cannot be obtained in-game.}}
+{{History|be}}
+{{History||1.13.0|snap=beta 1.13.0.1|[[File:Structure Void (held) BE1.png|32px]] Added structure voids.
+|Structure voids are currently available only through [[Experimental Gameplay]].}}
+{{History|||snap=beta 1.13.0.4|[[File:Structure Void (held) BE2.png|32px]] All faces now have the same lighting.}}
+{{History|||snap=beta 1.13.0.6|[[File:Structure Void (held) BE3.png|32px]] All faces are brighter.}}
+{{History||1.16.0|snap=beta 1.16.0.57|The functionality of structure voids and structure blocks is no longer behind [[Experimental Gameplay]].}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* If Classic Textures are used, structure voids appear like [[File:Structure Void BE Classic Textures.png|30px]] instead of [[File:Structure Void BE.png|30px]].{{only|be}}
+
+{{Blocks|command}}
+
+[[Category:Non-solid blocks]]
+
+[[de:Konstruktionsblock]]
+[[fr:Vide de structure]]
+[[ja:ストラクチャーヴォイド]]
+[[pl:Blok struktur]]
+[[pt:Vazio estrutural]]
+[[ru:Структурный блок]]
+[[zh:结构空位]]

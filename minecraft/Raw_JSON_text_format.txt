@@ -1,0 +1,323 @@
+'''Raw JSON text''' is the format Minecraft uses to send and display rich text to players. It can also be sent by players themselves using commands and [[data pack]]s. Raw JSON text is written in {{wikipedia|JSON}}, a human-readable data format.
+
+== Java Edition ==
+Raw JSON text is made up of text components. There is a single root component, which can have child components, which can have their own children and so on. Components can also have formatting and interactivity added to them, which is inherited by their children.
+
+A raw JSON text component can be any JSON data type other than JSON null, including {{nbt|string}} JSON string, {{nbt|list}} JSON array, {{nbt|compound}} JSON object, {{nbt|boolean}} JSON boolean, and {{nbt|double}} JSON number. The game treats booleans and numbers as strings. Strings and arrays are both shorthand for longer object structures, as described below.
+
+<div class="treeview">
+* {{nbt|string}} A string containing plain text to display directly. This is the same as an object that only has a {{nbt|string|text}} tag. For example, <code>A</code> and <code>[text: A]</code> are equivalent.
+* {{nbt|boolean}} A boolean is converted to a string (<code>true</code> or <code>false</code>) to display directly. This is the same as an object that only has a {{nbt|string|text}} tag. For example, <code>true</code>, <code>true</code>, and <code>[text: true]</code> are equivalent.
+* {{nbt|double}} A number is converted to a string to display directly. This is the same as an object that only has a {{nbt|string|text}} tag. For example, <code>1.9E10</code>, <code>1.9E10</code>, and <code>[text: 1.9E10]</code> are equivalent.
+* {{nbt|list}} A list of raw JSON text components. Same as having all components after the first one appended to the first's {{nbt|list|extra}} array.<ref group="note">Note that because the later components are actually children of the first one, any formatting applied to the first component is inherited by the later ones. For example, <code>[[text: A, color: red], B, C]</code> would display all three letters with red text.</ref> For example, <code>[A, B, C]</code> is equivalent to <code>[text: A, extra: [B, C]]</code>.
+* {{nbt|compound}} A text component object. All non-content tags are optional.
+**'''''Content'''''
+** To be valid, an object must contain the tags for one content type. The different content types and their tags are described [[#Content types|below]]. Having more than one is allowed, but only one is used.<ref group=note>Content tags are checked in the order {{nbt|string|text}}, {{nbt|string|translate}}, {{nbt|compound|score}}, {{nbt|string|selector}}, {{nbt|string|keybind}}, {{nbt|string|nbt}}. If multiple are present, whichever one comes first in that list is used.</ref>
+** '''''Children'''''
+** {{nbt|list|extra}}: A list of additional raw JSON text components to be displayed after this one.
+*** A child text component. Child text components inherit all formatting and interactivity from the parent component, unless they explicitly override them.
+** '''''Formatting'''''
+** {{nbt|string|color}}: Optional. Changes the color to render the content in the text component object and its child objects. If not present, the parent color will be used instead. The color is specified as a color code or as a color name.
+***<code>#<i><hex></i></code>, where <code><i><hex></i></code> is a [[wikipedia:Web_colors#Hex_triplet|6-digit hexadecimal color]], changes the color to #<i><hex></i>
+***<code>black</code> changes the color to {{color|#000000}}
+***<code>dark_blue</code> changes the color to {{color|#0000AA}}
+***<code>dark_green</code> changes the color to {{color|#00AA00}}
+***<code>dark_aqua</code> changes the color to {{color|#00AAAA}}
+***<code>dark_red</code> changes the color to {{color|#AA0000}}
+***<code>dark_purple</code> changes the color to {{color|#AA00AA}}
+***<code>gold</code> changes the color to {{color|#FFAA00}}
+***<code>gray</code> changes the color to {{color|#AAAAAA}}
+***<code>dark_gray</code> changes the color to {{color|#555555}}
+***<code>blue</code> changes the color to {{color|#5555FF}}
+***<code>green</code> changes the color to {{color|#55FF55}}
+***<code>aqua</code> changes the color to {{color|#55FFFF}}
+***<code>red</code> changes the color to {{color|#FF5555}}
+***<code>light_purple</code> changes the color to {{color|#FF55FF}}
+***<code>yellow</code> changes the color to {{color|#FFFF55}}
+***<code>white</code> changes the color to {{color|#FFFFFF}}
+** {{nbt|string|font}}: Optional. The resource location of the [[Resource pack#Fonts|font]] for this component in the resource pack within <code>assets/<namespace>/font</code>. Defaults to <code>minecraft:default</code>.
+** {{nbt|boolean|bold}}: Optional. Whether to render the content in bold.
+** {{nbt|boolean|italic}}: Optional. Whether to render the content in italics. Note that text that is italicized by default, such as custom item names, can be unitalicized by setting this to <code>false</code>.
+** {{nbt|boolean|underlined}}: Optional. Whether to underline the content.
+** {{nbt|boolean|strikethrough}}: Optional. Whether to strikethrough the content.
+** {{nbt|boolean|obfuscated}}: Optional. Whether to render the content obfuscated.
+** '''''Interactivity'''''
+** {{nbt|string|insertion}}: Optional. When the text is shift-clicked by a player, this string is inserted in their chat input. It does not overwrite any existing text the player was writing. This only works in chat messages.
+** {{nbt|compound|clickEvent}}: Optional. Allows for events to occur when the player clicks on text. Only work in chat messages and [[written book]]s, unless specified otherwise.
+***{{nbt|string|action}}: The action to perform when clicked. Valid values are:
+**** <code>open_url</code>: Opens {{nbt|string|value}} as a URL in the user's default web browser.
+**** <code>open_file</code>: Opens the file at {{nbt|string|value}} on the user's computer. This is used in messages automatically generated by the game (e.g., on taking a screenshot) and cannot be used by players for security reasons.
+**** <code>run_command</code>: Works in signs, but ''only'' on the root text component, not on any children. Activated by {{control|using}} the sign. In chat and written books, this has {{nbt|string|value}} entered in chat as though the player typed it themselves and pressed enter. However, this can only be used to run commands that do not send chat messages directly (like {{cmd|say}}, {{cmd|tell}}, and{{cmd|teammsg}}). Since they are being run from chat, commands must be prefixed with the usual / slash, and player must have the required permissions. In [[sign]]s, the command is run by the server at the sign's location, with the player who {{control|used}} the sign as the command executor (that is, the entity selected by <code>@s</code>). Since they are run by the server, sign commands have the same permission level as a [[command block]] instead of using the player's permission level, are not restricted by chat length limits, and do not need to be prefixed with a / slash.
+**** <code>suggest_command</code>: Opens chat and fills in {{nbt|string|value}}. If a chat message was already being composed, it is overwritten. This does not work in books.<ref>{{bug|MC-70317|||Works as Intended}}</ref>
+**** <code>change_page</code>: Can only be used in written books. Changes to page {{nbt|string|value}} if that page exists.
+**** <code>copy_to_clipboard</code>: Copies {{nbt|string|value}} to the clipboard.
+*** {{nbt|string|value}}: The URL, file path, chat, command or book page used by the specified action.
+** {{nbt|compound|hoverEvent}}: Optional. Allows for a tooltip to be displayed when the player hovers their mouse over text.
+*** {{nbt|string|action}}: The type of tooltip to show. Valid values are:
+**** <code>show_text</code>: Shows a raw JSON text component.
+**** <code>show_item</code>: Shows the tooltip of an item as if it was being hovering over it in an inventory.
+**** <code>show_entity</code>: Shows an entity's name, type, and UUID. Used by {{nbt|string|selector}}.
+*** {{nbt|compound|contents}}: The formatting of this tag varies depending on the action.
+**** For <code>show_text</code>: Another raw JSON text component. Can be any valid text component type: string, array, or object. Note that {{nbt|compound|clickEvent}} and {{nbt|compound|hoverEvent}} do not function within the tooltip.
+**** For <code>show_item</code>: The item stack whose tooltip that should be displayed.
+***** {{nbt|string|id}}: The item's [[resource location]]. Defaults to {{code|minecraft:air}} if invalid.
+***** {{nbt|int|count}}: Optional. Size of the item stack. This typically does not change the content tooltip.
+***** {{nbt|string|tag}}: Optional. A string containing the [[serialized NBT]] of the additional information about the item stack (its {{nbt|compound|tag}} tag), discussed more in {{slink|Player.dat format|Item structure}}. Note that quotes within the serialized NBT need to be awkwardly escaped by prefixing them with a slash (e.g., <code>[Enchantments:<nowiki>[[id:\unbreaking\,lvl:1]]</nowiki>]</code>).
+**** For <code>show_entity</code>: The entity whose tooltip should be displayed.
+***** {{nbt|compound|name}}: Optional. Hidden if not present. A raw JSON text that is displayed as the name of the entity.
+***** {{nbt|string|type}}: A string containing the type of the entity, as a [[resource location]]. Defaults to {{code|minecraft:pig}} if invalid.
+***** {{nbt|string|id}}: A string containing the [[UUID]] of the entity in the hyphenated hexadecimal format. Should be a valid UUID.
+*** {{nbt|string|value}}: Deprecated, use {{nbt|compound|contents}} instead. The formatting and type of this tag varies depending on the action.
+**** For <code>show_text</code>: Another raw JSON text component. Can be any valid text component type: string, array, or object. Note that {{nbt|compound|clickEvent}} and {{nbt|compound|hoverEvent}} do not function within the tooltip.
+**** For <code>show_item</code>: A string containing the SNBT for an item stack. See {{slink|Player.dat format|Item structure}}.
+**** For <code>show_entity</code>: A string containing SNBT. The SNBT does not represent the full entity data, but only stores the name, type, and UUID of the entity.
+***** {{nbt|string|name}}: Optional. Hidden if not present. An NBT string containing some JSON that is parsed as a text component and displayed as the name of the entity. If the NBT string cannot be parsed as a text component, the entire tooltip is replaced with the text Invalid Entity!
+***** {{nbt|string|type}}: Optional. Hidden if not present. An NBT string containing some plain text that is displayed as the type of the entity. Can be any text.
+***** {{nbt|string|id}}: Optional. Shown as empty line if not present. An NBT string containing some plain text that is displayed as the UUID of the entity. Can be any text.
+</div>
+
+Due to the {{nbt|list|extra}} tag, the above format may be recursively nested to produce complex and functional text strings. However, a raw JSON text doesn't have to be complicated at all: virtually all properties are optional and may be left out.
+
+=== Content types ===
+Raw JSON text components can display several types of content. These tags should be included directly into the text component object.
+
+====Plain Text====
+Displays plain text.
+
+<div class="treeview">
+* {{nbt|compound}} The text component.
+** {{nbt|string|text}}: A string containing plain text to display directly. Can also be a number or boolean that is displayed directly.
+</div>
+
+====Translated Text====
+Displays a translated piece of text from the currently selected [[language]]. This uses the client's selected language, so if players with their games set to different languages are logged into the same server, each will see the component in their own language.
+
+Translations are defined in [[Resource pack#Language|language files]] in [[resource pack]]s, including the built-in resource pack.
+
+Translations can contain slots for text that is not known ahead of time, such as player names. When displaying the translated text, slots will be filled from a provided list of text components. The slots are defined in the language file, and generally take the form <code>%s</code> (displays the next component in the list), or <code>%3$s</code> (displays the third component in the list; replace <code>3</code> with whichever index is desired).<ref group=note>Selecting the "next" argument ignores slots that specify an index explicitly. So if the translation text "Hello %s, %2$s, and %s." was given the components "John" and "Becky", it would display "Hello John, Becky, and Becky."</ref> For example, the built-in English language file contains the translation <code>chat.type.advancement.task: %s has made the advancement %s,</code>.
+
+<div class="treeview">
+* {{nbt|compound}} The text component.
+** {{nbt|string|translate}}: A translation identifier, corresponding to the identifiers found in loaded language files. Displayed as the corresponding text in the player's selected language. If no corresponding translation can be found, the identifier itself is used as the translated text.
+** {{nbt|string|fallback}}: Optional. If no corresponding translation can be found, this is used as the translated text. Ignored if {{nbt|string|translate}} is not present.
+** {{nbt|list|with}}: Optional. A list of raw JSON text components to be inserted into slots in the translation text. Ignored if {{nbt|string|translate}} is not present.
+*** A raw JSON text component. If no component is provided for a slot, the slot is displayed as no text.
+</div>
+
+====Scoreboard Value====
+Displays a score from the [[scoreboard]].
+
+{| class="wikitable collapsible collapsed" style="text-align:left;margin:0px;max-width:800px;"
+|- 
+!Requires [[#Component resolution|component resolution]].
+|- 
+|This component is resolved into a {{nbt|string|text}} component containing the scoreboard value.
+|-
+|}
+
+<div class="treeview">
+* {{nbt|compound}} The text component.
+**{{nbt|compound|score}}: Displays a score holder's current score in an objective. Displays nothing if the given score holder or the given objective do not exist, or if the score holder is not tracked in the objective. 
+***{{nbt|string|name}}: The name of the score holder whose score should be displayed. This can be a [[selector]] like @p or an explicit name. If the text is a selector, the selector must be guaranteed to never select more than one entity, possibly by adding <code>limit=1</code>. If the text is <code>*</code>, it shows the reader's own score (for example, <code>/tellraw @a [score:[name:*,objective:obj]]</code> shows every online player their own score in the obj objective).<ref group="note">Showing the reader's own score only works in situations where a message has one singular reader. That is chat messages, [[Commands/title|<code>/title</code>]]s, and [[written book]]s. It does not work for blocks like signs.</ref>
+*** {{nbt|string|objective}}: The internal name of the objective to display the player's score in.
+*** {{nbt|string|value}}: Optional. If present, this value is displayed regardless of what the score would have been.
+</div>
+
+====Entity Names====
+Displays the name of one or more entities found by a [[selector]].
+
+If exactly one entity is found, the entity's name is displayed by itself. If more are found, their names are displayed in the form Name1, Name2, Name3, with gray commas. If none are found, the component is displayed as no text.
+
+Hovering over a name shows a tooltip with the name, type, and [[UUID]] of the target. Clicking a player's name suggests a command to whisper to that player. Shift-clicking a player's name inserts that name into chat. Shift-clicking a non-player entity's name inserts its UUID into chat.
+
+{| class="wikitable collapsible collapsed" style="text-align:left;margin:0px;max-width:800px;"
+|- 
+!Requires [[#Component resolution|component resolution]].
+|- 
+|
+* If the selector finds a single entity,
+** If the entity is a player, the component is resolved into a {{nbt|string|text}} component containing their name.
+** If it is an entity with a [[Name Tag|custom name]], it is resolved into the raw JSON text component of the custom name. In all vanilla survival scenarios ([[name tag]], [[anvil]]) this will be a {{nbt|string|text}} component.
+** If it is a non-player entity with no custom name, it is resolved into a {{nbt|string|translate}} component containing the translation key for the entity type's name.
+: The resolved component also has an {{nbt|string|insertion}} tag, a {{nbt|compound|hoverEvent}} tag with the <code>show_entity</code> action, and a {{nbt|compound|clickEvent}} tag with the <code>suggest_command</code> action (if the entity is a player) added to it to provide the functionality described above. If any of these tags are already present on the original component being resolved, the tag on the original component will be used.
+* If more than one entity is found by the selector, the component is resolved into an empty {{nbt|string|text}} component, with an {{nbt|list|extra}} list containing the individual entity name components (each resolved as in the single entity case) separated by copies of the {{nbt|any|separator}} component (or its default, if not present).
+* If no entities are found by the selector, the component is resolved into an empty {{nbt|string|text}} component.
+|-
+|}
+
+<div class="treeview">
+* {{nbt|compound}} The text component.
+**{{nbt|string|selector}}: A string containing a [[selector]].
+** {{nbt|compound|separator}}: Optional, defaults to <code>[color: gray, text:]</code>. A raw JSON text component. Used as the separator between different names, if the component selects multiple entities.
+</div>
+
+====Keybind====
+Displays the name of the button that is currently bound to a certain [[Controls#Configurable controls|configurable control]]. This uses the client's own control scheme, so if players with different control schemes are logged into the same server, each will see their own keybind.
+
+<div class="treeview">
+* {{nbt|compound}} The text component.
+** {{nbt|string|keybind}}: A [[Controls#Configurable controls|keybind identifier]], to be displayed as the name of the button that is currently bound to that action. For example, <code>[keybind: key.inventory]</code> displays e if the player is using the default control scheme.
+</div>
+
+====NBT Values====
+Displays [[NBT format|NBT]] values from [[Entity|entities]], [[Block entity|block entities]], or [[Commands/data#Storage|command storage]].
+
+NBT strings display their contents. Other NBT values are displayed as SNBT, with no spacing between symbols. If {{nbt|boolean|interpret}} is set to true, the game will instead attempt to parse and display that text as its own raw JSON text component. That usually only works on strings, since JSON and SNBT are not compatible. If {{nbt|boolean|interpret}} is true and parsing fails, the component is displayed as no text. If more than one NBT value is found, either by selecting multiple entities or by using a multi-value path, they are displayed in the form Value1, Value2, Value3, Value4.
+
+{| class="wikitable collapsible collapsed" style="text-align:left;margin:0px;max-width:800px;"
+|- 
+!Requires [[#Component resolution|component resolution]].
+|- 
+|
+* If {{nbt|boolean|interpret}} is false, the component is resolved into a {{nbt|string|text}} component containing the display text.
+** If multiple values are selected and {{nbt|any|separator}} is not present, the entire component is still resolved into a single {{nbt|string|text}} component, with the text ,  between the display text of each value.
+** If multiple values are selected and {{nbt|any|separator}} is present, each value is resolved into an individual {{nbt|string|text}} component, and all values after the first will be added to the first's {{nbt|list|extra}} list, separated by copies of the {{nbt|any|separator}} component.
+* If {{nbt|boolean|interpret}} is true, the component is resolved into the parsed text component. For any non-content tags that are present on both the parsed text component and the component being resolved, the tag on the component being resolved will be used.
+** If multiple values are selected, all values after the first will be added to the first's {{nbt|list|extra}} list, separated by copies of the {{nbt|any|separator}} component (or its default, if not present). This means that all values after the first will inherit the first value's formatting tags, if any.
+|-
+|}
+
+<div class="treeview">
+* {{nbt|compound}} The text component.
+**{{nbt|string|nbt}}: The [[NBT path format|NBT path]] used for looking up NBT values from an entity, block entity, or storage. Requires one of {{nbt|string|block}}, {{nbt|string|entity}}, or {{nbt|string|storage}}. Having more than one is allowed, but only one is used.<ref group=note>NBT sources are checked in the order {{nbt|string|block}}, {{nbt|string|entity}}, {{nbt|string|storage}}. If multiple are present, whichever one comes first in that list is used.</ref>
+** {{nbt|boolean|interpret}}: Optional, defaults to false. If true, the game attempts to parse the text of each NBT value as a raw JSON text component. Ignored if {{nbt|string|nbt}} is not present.
+** {{nbt|compound|separator}}: Optional, defaults to <code>[text: , ]</code>. A raw JSON text component. Used as the separator between different tags, if the component selects multiple tags.
+** {{nbt|string|block}}: A string specifying the coordinates of the block entity from which the NBT value is obtained. The coordinates can be absolute, [[Commands#Tilde and caret notation|relative]], or local. Ignored if {{nbt|string|nbt}} is not present.
+** {{nbt|string|entity}}: A string specifying the [[Selector|target selector]] for the entity or entities from which the NBT value is obtained. Ignored if {{nbt|string|nbt}} is not present.
+** {{nbt|string|storage}}: A string specifying the [[resource location]] of the [[command storage]] from which the NBT value is obtained. Ignored if {{nbt|string|nbt}} is not present.
+</div>
+
+=== Component resolution ===
+Certain text content types ({{nbt|compound|score}}, {{nbt|string|selector}}, and {{nbt|string|nbt}}) do not work in all contexts. These content types need to be ''resolved'', which involves retrieving the appropriate data from the world, rendering it into simple text components, and replacing the advanced text component with that. This resolution can be done by [[signs]], by [[written book]]s when they are first opened, by [[boss bar]] names, and by commands such as [[Commands/tellraw|<code>/tellraw</code>]] and [[Commands/title|<code>/title</code>]]. It can also be done by the [[Item modifier|item modifers]] '''set_name''' and '''set_lore''', but only if their {{nbt|string|entity}} tag is set. Custom item names, custom entity names and [[scoreboard]] objective names cannot by themselves resolve these components.
+
+Additionally, resolution fixes a single value in place. Therefore, these content types are not dynamic, and don't update to reflect changes in their environment, while simple components usually do.
+
+== Bedrock Edition ==
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+**{{nbt|list|rawtext}}: A list contains all text object.
+***{{nbt|compound}} To be valid, an object must contain one '''''content''''' tag: {{nbt|string|text}}, {{nbt|string|translate}}, {{nbt|compound|score}}, or {{nbt|string|selector}}. Having more than one is allowed, but only one is used.<ref group=note>Content tags are checked in the order {{nbt|string|translate}}, {{nbt|string|text}}, {{nbt|string|selector}}, {{nbt|compound|score}}. If multiple are present, whichever one comes first in that list is used.</ref>
+****'''''Content:'' Plain Text'''
+**** {{nbt|string|text}}: A string containing plain text to display directly.
+**** '''''Content:'' Translated Text'''
+**** {{nbt|string|translate}}: A translation identifier, to be displayed as the corresponding text in the player's selected language. If no corresponding translation can be found, the identifier itself is used as the translation text. This identifier is the same as the identifiers found in [[Resource pack#Language|lang files]] from assets or resource packs.
+**** {{nbt|list|with}}: Optional. A list of raw JSON text component arguments to be inserted into slots in the translation text. Ignored if {{nbt|string|translate}} is not present.
+***** Translations can contain slots for text that is not known ahead of time, such as player names. These slots are defined in the translation text itself, not in the JSON text component, and generally take the form <code>%%1</code> (displays the first argument; replace <code>1</code> with whichever index is desired). If no argument is provided for a slot, the slot is not displayed.
+**** '''''Content:'' Scoreboard Value''' ''[[#Component resolution|(requires resolution)]]''
+**** {{nbt|compound|score}}: Displays a score holder's current score in an objective. Displays nothing if the given score holder or the given objective do not exist, or if the score holder is not tracked in the objective. 
+*****{{nbt|string|name}}: The name of the score holder whose score should be displayed. This can be a [[selector]] like @p or an explicit name. If the text is <code>*</code>, it shows the reader's own score (for example, <code>/tellraw @a [ rawtext : [ [ score : [ name : * , objective : obj] ] ] ]</code> shows every online player their own score in the obj objective).<ref group="note">Showing the reader's own score only works in situations where a message has one singular reader. That is chat messages, [[Commands/titleraw|<code>/titleraw</code>]]s, and [[written book]]s.{{verify}} It doesn't work for things like signs that can have more than one "reader".{{verify}}</ref>
+***** {{nbt|string|objective}}: The internal name of the objective to display the player's score in.
+**** '''''Content:'' Entity Names''' ''[[#Component resolution|(requires resolution)]]''
+**** {{nbt|string|selector}}: A string containing a [[selector]]. Displayed as the name of the player or entity found by the selector. If more than one player or entity is found by the selector, their names are displayed in either the form Name1 and Name2 or the form Name1, Name2, Name3, and Name4. Hovering over a name shows a tooltip with the name, type, and [[UUID]] of the target. Clicking a player's name suggests a command to whisper to that player. Shift-clicking a player's name inserts that name into chat. Shift-clicking a non-player entity's name inserts its UUID into chat.
+</div>
+
+;Basic raw text example:
+:{{cmd|tellraw @a [ rawtext : [ [ text : Hello world ] ] ] }}
+
+This sends a message to all players saying Hello World in English only. See the Translate action to see how to send localized texts.
+
+=== Appending ===
+Raw text takes in an array of text objects. Each object in the list is added to the previous object. For example, {{cmd|tellraw @a [ rawtext : [ [ text:Hello ], [ text :  World ] ] ] }}
+outputs the same Hello World as the first example. Appending text can be useful to combine 2 different localized texts, or apply different colors to each word etc.
+
+=== Breaking lines ===
+You can go down a line by using \n. For example,
+
+{{cmd|tellraw @a [ rawtext : [ [ text : Hello\nNext line ] ] ] }}
+
+=== Translate ===
+The translate object allows creators to provide localized text to users. If translate is specified along with text, translate overrides the text object. The string to provide to translate is the name of the string in the language files. For example, in Vanilla Minecraft commands.op.success is the string that displays when /op is used on a player successfully.
+
+{{cmd|tellraw @a [ rawtext: [ [ translate: commands.op.success ] ] ] }}
+
+This outputs Opped %s to all players. Note that because of text being ignored with translate specified, the following example outputs the same text:
+
+{{cmd|tellraw @a [ rawtext : [ { text:Hello World, translate:commands.op.success ] ] ] }}
+
+=== With ===
+In the translate example above, it outputs Opped %s. To have a name or other text show up instead of %s, with needs to be specified as well. Note that with only works with translate and also requires an array {{cd|[]}} instead of curly brackets {{cd|{} }}.
+
+{{cmd|/tellraw @a [ rawtext: [ [ translate : commands.op.success, with: [ Steve ] ] ] ] }}
+
+If you want to use a translated text inside the with component, instead of an array it needs to be another rawtext component (which consists of an array of JSON texts). The following example outputs Opped Apple.
+
+{{cmd|/tellraw @a [ rawtext: [ [ translate : commands.op.success, with: [ rawtext: [ [ translate : item.apple.name ] ] ] ] ] ] }}
+
+=== %%s ===
+translate and %s can be used without needing a corresponding string in the localization files. For example:
+
+{{cmd|/tellraw @a [ rawtext: [ [ translate : Hello %%s, with: [ Steve ] ] ] ] }}
+
+This outputs Hello Steve to all players.
+
+=== Multiple %s ===
+%%s can be used multiple times. They are filled in, in the order specified
+
+{{cmd|/tellraw @a [ rawtext: [ [ translate : Hello %%s and %%s, with: [ Steve, Alex ] ] ] ] }}
+
+Outputs: Hello Steve and Alex
+
+You can again use a rawtext component to replace the plain string array, like so
+
+{{cmd|/tellraw @a [ rawtext: [ [ translate : Hello %%s and %%s, with: [ rawtext : [ [ text : Steve ], [ translate : item.apple.name ] ] ] ] ] ] }}
+
+Outputs: Hello Steve and Apple
+
+=== Ordering with %%# ===
+The order to fill in %s to be filled in can be changed by instead specifying it with %%#, replacing # with an actual number. For example, to swap the position of Steve and Alex in the above example, instead run the following:
+
+{{cmd|/tellraw @a [ rawtext : [ [translate : Hello %%2 and %%1, with: [ Steve, Alex] ] ] ] }}
+
+Outputs: Hello Alex and Steve
+
+=== Formatting ===
+String formatting is still possible, but not using the JSON tags used in Java Edition.  Instead, [[Formatting codes]] are used to change text color and style.
+
+== History ==
+{{History|java}}
+
+{{History||1.7.2|snap=13w37a|Added {{cmd|tellraw}}, the raw JSON text used to support this command.}}
+{{History||1.8|snap=14w02a|Added text component {{code|insertion}}.}}
+{{History|||snap=14w07a|Added text component {{code|score}}.}}
+{{History|||snap=14w20a|Added {{cmd|title}}, that supported by raw JSON text.
+|Added text component {{code|selector}}.}}
+{{History|||snap=14w25a|Now supports the [[sign]]s and the [[written book]]s.}}
+{{History||1.12|snap=17w16a|Added text component {{code|keybind}}.}}
+{{History||1.13|snap=18w01a|Now supports the custom names.}}
+{{History|||snap=18w05a|Added {{cmd|bossbar}}, The argument {{code|<name>}} supported by raw JSON text.}}
+{{History||1.14|snap=18w43a|Added text component {{code|nbt}}, {{code|block}} and {{code|entity}}.
+|Now supports the item lore tag.}}
+{{History|||snap=18w44a|Added text component {{code|interpret}}.}}
+{{History||1.15|snap=19w39a|Added text component {{code|storage}}.}}
+{{History|||snap=19w41a|Added the action {{code|copy_to_clipboard}} for the text component {{code|clickEvent}}.}}
+{{History||1.16|snap=20w17a|Added text component {{code|font}}.
+|Added argument {{code|contents}} for {{code|hoverEvent}}, replacing {{code|value}}, which is now deprecated but still supported.
+|The {{code|color}} component can now contain a hexadecimal RGB value prefixed by {{code|#}} (Example: <code>"color":"#ff0088"</code>).}}
+
+{{History||1.19.4|snap=23w03a|Added text component {{code|fallback}}.}}
+
+{{History|bedrock}}
+{{History||1.9.0|snap=beta 1.9.0.0|Added {{cmd|tellraw}}, the raw JSON text used to support this command.}}
+{{History||1.16.100|snap=beta 1.16.100.55|Added text component {{code|score}} and {{code|selector}}.}}
+
+{{History|foot}}
+
+== See also ==
+* [[JSON]]
+* [[Commands]]
+* [[Formatting code]]
+
+== Notes ==
+{{Notelist}}
+
+== References ==
+{{Reflist}}
+
+[[Category:Development]]
+
+{{Java Edition}}
+{{Bedrock Edition}}
+
+[[de:JSON-Text]]
+[[ja:Raw JSONテキストフォーマット]]
+[[zh:原始JSON文本格式]]

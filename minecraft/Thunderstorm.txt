@@ -1,0 +1,283 @@
+[[File:Lightning.png|thumb|250px|Lightning during a thunderstorm.]]
+[[File:LightningStrike.gif|frame|right|A lightning bolt strikes a tree, making it potentially flammable. A [[creeper]] can be seen walking through the woods; if it had been closer to the strike, it would have become [[Creeper#Charged Creepers|charged]].]]
+A '''thunderstorm''' is a somewhat uncommon and dangerous [[weather]] condition.
+
+== Behavior ==
+
+Thunderstorms are an uncommon temporary, global occurrence<ref>{{tweet|notch|55984678875836416|It's temporal and global|April 07, 2011}}</ref> that can happen randomly at any time, within the [[Overworld]]. The exact type of precipitation during a thunderstorm varies depending on the [[Biome#Temperature|temperature of the current biome]], as well as the current [[altitude]].
+
+* While the clear counter is counting down, the weather is always clear. This counter is used only when the "/weather clear" command is issued, setting the counter to a value given by the player or 5 minutes (see [[Commands/weather]])
+* The rain counter counts down to zero, and each time it reaches zero, the rain is toggled on or off. When the rain is turned on, the counter is reset to a value between 12,000-24,000 ticks (0.5-1 game days), and when the rain is turned off the counter is reset to a value of 12,000-180,000 ticks (0.5-7.5 game days).
+* Like the rain counter, the thunder counter also toggles thunder on and off when it reaches zero, but clear weather overrides the "on" state. When thunder is turned on, the thunder counter is reset to 3,600-15,600 ticks (3-13 minutes), and when thunder is turned off the counter resets to 12,000-180,000 ticks (0.5-7.5 days).
+* Thunder can occur in the game only when the rain and thunder states both happen to be "on" at the same time. The random combinations of the states toggled by the rain and thunder counters result in a 1.44% chance for a thunderstorm to occur, or an approximate average real-time duration of 9 hours between thunderstorms.
+*  The values in each range are uniformly distributed.
+
+Thunderstorms can be skipped entirely with the use of a [[bed]], regardless of the time of day.
+
+== Effects ==
+
+As with rain and snow, the sky is darkened and the [[sun]], [[moon]], and [[Moon#Stars|stars]] are no longer visible. Thunderstorms darken the world, causing the [[light]] level from the sky to visually decrease to 10. The clouds darken from white to dark gray, although clouds themselves do not precipitate or create lightning. While the sun is not visible during rain, the glow associated with sunrise and sunset is still visible.
+
+Unlike during regular rainstorms or snowstorms, the light level from the sky is treated as if it were 0 for the purposes of hostile mob spawning, which allows hostile [[mobs]] to spawn at any time of the day.
+
+=== Lightning ===
+{{Distinguish|Lighting}}
+{{anchor|Lightning Bolt}}
+
+'''Lightning''' is a lethal element to thunderstorms. Lightning momentarily increases the sky light's brightness to slightly greater than full daylight.
+
+[[File:Lightning fire.png|thumb|left|200px|The fire that a lightning bolt creates.]]
+
+Lightning strikes randomly and creates [[fire]]s (only on normal and hard difficulty) in a 2 block radius where it strikes. Such fires act normally, igniting all flammable materials, detonating [[TNT]], and even activating [[nether portal]]s. The lightning itself, however, is not destructive and does not destroy blocks. While most fires are extinguished by the rain, areas that block rain can allow the fire to spread, and any [[netherrack]], [[Magma Block|magma blocks]], [[Soul Sand|soul sand]], or [[Soul Soil|soul soil]] lit by lightning is not extinguished by the rain.
+
+Most [[entities]] struck by lightning are dealt {{hp|5}} damage (sometimes twice in succession) and are set on fire, which may cause additional damage.
+
+If the player is killed by a lightning strike, the [[death message]] appears: "<player> was struck by lightning". This message does not display if the player was killed by the fire created by a lightning bolt.
+
+Lightning {{in|bedrock}} changes color from white to orange at sunset, and appears brighter during the daytime.
+
+Lightning may be manually summoned with the {{cmd|summon|lightning_bolt}} command. It is summoned as an entity, and it can be referred to by [[commands]] or [[Command#Selectors|selectors]]. 
+
+[[File:SkeletonRiderGroup.png|thumb|250px|A group of skeletal horsemen spawned during a thunderstorm.]]
+[[File:Charged Creeper.png|thumb|255x255px|[[Creeper#Charged Creeper|Charged Creeper]]]]
+[[File:Villager becoming Witch.gif|thumb|A villager gets struck by lightning.]]
+
+Lightning is also spawned when a [[trident]] enchanted with [[Channeling]] is thrown and strikes a mob or a [[lightning rod]] during a thunderstorm.
+
+==== Effects on mobs ====
+A lightning strike affects certain mobs differently:
+* Lightning may randomly spawn a [[Skeleton Horse#Spawning|"skeleton trap" horse]].
+* A [[pig]] struck by lightning turns into a [[zombified piglin]]. 
+* A [[creeper]] becomes [[Creeper#Charged Creeper|charged]]. 
+* A [[villager]] gets replaced by a [[witch]]. 
+* A red [[mooshroom]] changes into a [[Mooshroom|brown mooshroom]] and vice versa.
+* A lightning strike on a [[turtle]] instantly kills it, and it drops 1 [[bowl]] instead of its normal drops.<ref>{{bug|MC-125562|||Works as Intended}}</ref>
+
+==== Lightning mechanics ====
+
+For each loaded chunk, every tick there is a {{frac|1|100,000}} chance of an attempted lightning strike during a thunderstorm. From this probability, if ≈201 chunks are loaded (from a radius of 128 blocks from the player to the center of each chunk) then 90% of the time up to 5 lightning strikes occur in the world each minute, with an average of approximately 2.4 lightning strikes each minute.
+
+When lightning is to strike, random X and Z coordinates within the chunk are chosen, and the block just above the highest block that is liquid or obstructs movement is chosen for the lightning strike. If a [[lightning rod]] is nearby, it strikes the rod instead. Then if there are any living entities that can see the sky in a 3×''h''×3 region from 3 below the target block up to the world height, one such entity is selected at random and the lightning target is moved to the block the entity stands in.
+
+The target block is checked again for the following conditions:
+* Target block can see the sky.
+* Rain (not snow) is falling in the target block.
+** Thus, lightning does not naturally strike within cold biomes or biomes where it does not rain.
+
+If these conditions pass, lightning strikes.
+
+When lightning strikes, all entities within a 6×12×6 region horizontally centered on the northwest corner of the target block with the bottom edge 3 below the target block are struck by lightning. Multiple passes are made over this region, so items dropped during an earlier pass may be destroyed during a subsequent pass; [[Damage#Damage immunity|damage immunity]] usually prevents struck mobs from taking more than {{hp|5}} damage. [[Opacity|Non-solid]] blocks (such as [[redstone]], [[torch]]es, and [[snow layer]]s) are not directly affected by lightning.
+
+==== Thunder ====
+{{Redirect|Thunder|the ''Minecraft Dungeons'' enchantment|MCD:Thundering}}
+'''Thunder''' is a sound event that occurs every time lightning strikes. Every player within 160 thousand blocks and the same dimension hears the thunder. <!-- Source: [[Special:Diff/1578428]] -->
+
+The ability to hear thunder affects multiplayer, as it is possible to hear lightning strike at someone else's base or use a modded Minecraft client to determine the direction of every strike in the world the player is in. Using the direction of strikes, it is possible to [[wikipedia:Triangulation (surveying)|triangulate]] the coordinates of lightning strikes.
+
+==== Lightning rods ====
+Lightning strikes within a radius of 128 blocks (''Java Edition'') or 64 blocks (Bedrock Edition) of a [[lightning rod]] are redirected to the rod, emitting a [[Redstone Dust|Redstone]] signal. This can be used to prevent flammable structures from being struck by lightning, or intentionally direct lightning toward or away from mobs. When lightning strikes, all entities within a 7x12x7 region centered on the lightning rod, with the bottom affected block being 2 below the lightning rod and the topmost affected block being 9 above the lightning rod, are affected. During a thunderstorm, they emit spark-like particles, even in biomes where lightning doesn't strike.<gallery>
+File:Pigconversion-MadewithClipchamp-ezgif.com-crop.gif|Mob conversion region of lightning hitting lightning rod.
+</gallery>
+
+== Sounds ==
+{{Edition|Java}}:<br>
+{{Sound table
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|subtitle=Lightning strikes
+|source=weather
+|description=When lightning strikes near a player
+|id=entity.lightning_bolt.impact
+|translationkey=subtitles.entity.lightning_bolt.impact
+|volume=2.0
+|pitch=0.5-0.7
+|distance=16}}
+{{Sound table
+|sound=Thunder1.ogg
+|sound2=Thunder2.ogg
+|sound3=Thunder3.ogg
+|subtitle=Thunder roars
+|source=weather
+|description=When lightning strikes in the world
+|id=entity.lightning_bolt.thunder
+|translationkey=subtitles.entity.lightning_bolt.thunder
+|volume=10000.0
+|pitch=0.8-1.0
+|distance=16 (technical) / 160K (effective)}}
+{{Sound table
+|rowspan=2
+|sound=Trident thunder1.ogg
+|sound2=Trident thunder2.ogg
+|subtitle=Trident thunder cracks
+|source=neutral
+|description=When a Channeling trident hits a mob
+|id=item.trident.thunder
+|translationkey=subtitles.item.trident.thunder
+|volume=5.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|subtitle=Trident thunder cracks
+|source=weather
+|description=When a trident with Channeling strikes a lightning rod
+|id=item.trident.thunder
+|translationkey=subtitles.item.trident.thunder
+|volume=5.0
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|source=weather
+|description=When lightning strikes near a player
+|id=ambient.weather.lightning.impact
+|volume=1000.0
+|pitch=0.3-0.7}}
+{{Sound table
+|sound=Thunder1.ogg
+|sound2=Thunder2.ogg
+|sound3=Thunder3.ogg
+|source=weather
+|description=When lightning strikes in the world
+|id=ambient.weather.thunder
+|volume=1000.0
+|pitch=0.6-1.0}}
+{{Sound table
+|sound=Trident thunder1.ogg
+|sound2=Trident thunder2.ogg
+|source=player
+|description=When a trident with Channeling strikes a mob<wbr><ref group="sound">{{Bug|MCPE-43402}}</ref><wbr><ref group=sound>{{bug|MCPE-173931||Tridents don't make channeling sounds when striking a lightning rod}}</ref><wbr>{{Upcoming|BE 1.20.30}}
+|id=item.trident.thunder
+|volume=1.0<wbr>{{Until|BE 1.20.30}}<br>1000.0<wbr>{{Upcoming|BE 1.20.30}}
+|pitch=1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|displayname=Lightning Bolt
+|spritetype=entity
+|nameid=lightning_bolt
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Lightning Bolt
+|spritetype=entity
+|nameid=lightning_bolt
+|id=93
+|foot=1}}
+
+=== Entity data ===
+
+Lightning bolts have entity data associated with them that contain various properties.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+==Advancements==
+<table-progress-tracking table-id="1" unique-column-index="2">
+{{load advancements|Very Very Frightening;Surge Protector}}
+</table-progress-tracking>
+
+== History ==
+
+{{History|java beta}}
+{{History||1.5|Added thunderstorms and lightning.
+|The ability for lightning to charge [[creeper]]s and transform [[pig]]s into [[zombified piglin|Zombie Pigmen]] has been added.
+|In [[multiplayer]], the sky during a thunderstorm looks identical to when [[rain]]ing.}}
+{{History|java}}
+{{History||1.3.1|snap=12w18a|As a result of singleplayer being changed to an internal server, the sky during a thunderstorm now looks the same as when raining.<ref name="MC-673">{{bug|MC-673}}</ref>}}
+{{History||1.7.2|snap=13w39a|The clouds and the sky again appear much darker during thunderstorms.
+|The rendering brightness is now decreased during thunderstorms. Previously, the sky would darken, but the ground wouldn't appear to get darker, even though monsters could spawn.}}
+{{History||1.8|snap=14w03a|Lightning now transforms [[villager]]s into [[witch]]es.}}
+{{History|||snap=14w30a|Lightning can now be manually summoned with the {{cmd|summon LightningBolt}} [[commands|command]].}}
+{{History|||snap=14w32a|Lightning now damages [[Nether]] mobs and [[mob]]s with the [[Fire Resistance]] status effect.}}
+{{History||1.9|snap=15w38a|There is a now chance (depending on [[regional difficulty]]) that a lightning strike spawns a [[Skeleton Horse|"skeleton trap" skeletal horse]].}}
+{{History||1.11|snap=16w32a|The [[entity]] ID has been changed from <code>LightningBolt</code> to <code>lightning_bolt</code>.}}
+{{History||1.13|snap=18w07a|If a [[player]] throws a [[trident]] enchanted with [[Channeling]] at a [[mob]] during a thunderstorm, a lightning bolt is summoned and strikes that mob. This is the first time that a player can manipulate lightning without [[commands]].}}
+{{History||1.14|snap=19w08a|If lightning strikes near a red [[mooshroom]], it turns into a brown mooshroom and vice versa.}}
+{{History||1.16|snap=Pre-release 1|Lightning bolts can now be targeted by selectors and save to the world.}}
+{{History||1.17|snap=20w45a|Lightning bolts can be led into a [[lightning rod]] within a 16x16 range.}}
+{{History||1.18|snap=21w44a|[[Bed#Sleeping|Sleeping]] now only resets the weather cycle during rain or a thunderstorm.<ref>{{bug|MC-63340||Sleeping always resets time until rain|Fixed}}</ref> Therefore, sleeping frequently no longer prevents rain or a thunderstorm from happening.}}
+{{History|||snap=20w46a|Lightning bolts can now be caught within a 32x32 range.}}
+{{History|||snap=21w11a|Lightning bolts now clean oxidation off copper blocks.
+|Lightning bolts no longer spawn skeleton horses when striking [[lightning rod]]s.}}
+
+{{History|pocket alpha}}
+{{History||v0.12.1|snap=build 1|Added thunderstorms.}}
+{{History||v0.14.0|snap=build 1|Lightning now transforms [[villager]]s into [[witch]]es.}} 
+{{History||v0.16.0|snap=build 1|There is now a chance (depending on [[regional difficulty]]) for a lightning strike to spawn a [[Horse#Skeleton trap|"skeleton trap" skeletal horse]].
+|Lightning can now be manually summoned with the {{cmd|summon LightningBolt}} [[commands|command]].}} 
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|The [[entity]] ID has been changed from <code>lightningBolt</code> to <code>lightning_bolt</code>.}}
+{{History|bedrock}}
+{{History||1.4.0|snap=beta 1.2.13.8|If a [[player]] throws a [[trident]] enchanted with [[Channeling]] at a [[mob]], a lightning bolt is summoned and strikes that mob.}}
+{{History||1.13.0|snap=beta 1.13.0.9|If lightning strikes near a red [[mooshroom]], it turns into a brown mooshroom and vice versa.}}
+{{History||1.16.100|snap=beta 1.16.100.51|Hostile mobs can now spawn during thunderstorms in the day.}}
+{{History||1.16.210|snap=beta 1.16.210.57|Lightning bolts can now be caught within a 64x64 range.}}
+{{History||1.16.220|snap=beta 1.16.220.52|Lightning bolts now clean oxidation off copper blocks.}}
+{{History||1.17.10|snap=beta 1.17.10.20|Thunderstorms now occur as often as in ''Java Edition''.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.00|wiiu=Patch 1|Added thunderstorms.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list|Lightning|Thunder}}
+
+== Trivia ==
+* Lightning, unlike other weather effects, does not have an image file associated with it. It is an entity, coded directly into the game engine, allowing for dynamic, realistic lightning.
+* {{IN|be}}, lightning strikes closer to the player more often than in Java Edition, due to spawn distance limits.
+* Because lightning is an entity, [[commands]] and [[command block]]s can be used to kill and remove them from the world.
+
+== Gallery ==
+===Images===
+<gallery widths="200px">
+File:Void Thunder.png|The void during a lightning strike.
+File:Witch Brawl.png|Witches fighting during a thunderstorm.
+File:ThunderClouds.png|Thunderclouds appearing in a hot biome with no rain.
+File:Largelake.png|Forest lake during the thunderstorm.
+</gallery>
+
+===Animations===
+<gallery widths="200px">
+File:lightning_redstone_anim.gif|Lightning hitting a lightning rod and sending a redstone signal.
+File:lightning_oxidizing_anim.gif|A lightning-struck lightning rod decreasing the oxidizing level of nearby copper blocks.
+</gallery>
+
+== References ==
+
+{{reflist}}
+
+{{Environment}}
+
+{{Entities}}
+
+[[de:Gewitter]]
+[[es:Tormenta]]
+[[fr:Orage]]
+[[ja:雷雨]]
+[[ko:뇌우#번개]]
+[[nl:Onweersbui]]
+[[pl:Burza]]
+[[pt:Tempestade]]
+[[ru:Сущности:Молния]]
+[[zh:雷暴]]

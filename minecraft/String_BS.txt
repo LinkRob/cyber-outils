@@ -1,0 +1,14 @@
+{{edition|java}}:
+{{bst|attached|false|false,true|True if the tripwire is connected to a valid tripwire circuit.}}
+{{bst|disarmed|false|false,true|True if the tripwire is disarmed, that is, broken using [[shears]].}}
+{{bst|east|false|false,true|True if the tripwire connects to other tripwire or tripwire hooks to the east.}}
+{{bst|north|false|false,true|True if the tripwire connects to other tripwire or tripwire hooks to the north.}}
+{{bst|powered|false|false,true|True if the tripwire is active.}}
+{{bst|south|false|false,true|True if the tripwire connects to other tripwire or tripwire hooks to the south.}}
+{{bst|west|false|false,true|True if the tripwire connects to other tripwire or tripwire hooks to the west.|foot=1}}
+
+{{edition|bedrock}}:
+{{bst|showaux=1|bits=0x4|attached_bit|false|false,true|True if the tripwire is connected to a valid tripwire circuit.|0,1}}
+{{bst|bits=0x8|disarmed_bit|false|false,true|True if the tripwire is disarmed, that is, broken using [[shears]].|0,1}}
+{{bst|bits=0x1|powered_bit|false|false,true|True if the tripwire is active.|0,1}}
+{{bst|bits=0x2|suspended_bit|true|false,true|True if the tripwire hasn't connected to a valid tripwire circuit. (makes [[hitbox]] larger when true)|0,1|foot=1}}

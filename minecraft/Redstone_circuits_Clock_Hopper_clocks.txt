@@ -1,0 +1,516 @@
+<!--
+= THIS IS A STAGIN/TEST PAGE =
+I want to re-organize the hopper timer page/circuits.
+Currently, with only nearly all schematics separated in a single sub-page, it's terrible and I for one wont add any new variations in this mess.
+
+My aim is a small general technical overview of hopper clocks on the clocks page with image gallery of the clocks and this subpage either just as a subpage or in a loadbox (or both?)
+
+== Hopper clocks ==
+-->
+
+
+== Single-item hopper clocks ==
+
+A '''single-item hopper clock''' simply moves a single item in a loop of hoppers.
+
+=== Hopper-Loop Clock ===
+{{Schematic
+ | caption =
+'''Hopper-Loop Clock'''
+The left hopper contains 1 item.
+ | input+rd-ew | ho-e | ho-w | rc-e | output+rd-ew |-
+}}
+
+:* ''1×3×2 (6 block volume), 1-wide, flat, silent''
+:* ''clock output:'' 4 ticks on, 4 ticks off
+:* ''clock period:'' 8 ticks
+
+:This clock just bounces an item back and forth between the two hoppers every 4 ticks. This clock runs while the input is off, and turns its clock signal output off when the input turns on.
+
+:Technically, the pulse is only 3.5 ticks long (and 4.5 ticks off), but for most purposes this can be treated as a simple 4-clock.
+
+:''Variations:'' Another comparator can be added to the other hopper to get another clock signal inverted from the other.
+{{-}}
+
+=== N-Hopper-Loop Clock ===
+{{Schematic
+ | caption =
+'''N-Hopper-Loop Clock'''
+The bottom-right hopper contains 1 item.
+ | input+rd-ew | ho-e | ellipsis-ew | ho-s | rc-e | output+rd-ew |-
+ | | ho-n | ellipsis-ew | ho-w | |
+}}
+
+:* ''2×(N/2+1)×2 (2×N+4 block volume), flat, silent''
+:* ''clock output:'' 4 ticks on, 4×N-4 ticks off
+:* ''clock period:'' 4×N ticks
+
+:An n-hopper-loop clock consists of a loop of hoppers moving a single item around which occasionally powers a comparator output. This clock runs while the input is off, and turns its clock signal output off when the input turns on. The clock period will be N × 0.4 seconds, where N is the number of hoppers.
+
+:''Variations:'' Other comparators can be added to the other hoppers to get other clock signals out-of-phase with each other.
+{{-}}
+
+=== Cooldown Hopper Clock ===
+{{msgbox | mini = 1 | icon = 2 | text =
+''Note:'' This circuit uses [[command block]]s which cannot be obtained legitimately in [[survival]] mode. This circuit is intended for server ops and adventure map builds.
+}}
+
+{{Schematic
+ | caption =
+'''Cooldown Hopper Clock (Torch Output)'''
+ |ho-$e|ho-$w|rc-$e!|CB|rt-$w|rd-$+&rarr;|-
+ |GB-$|GB-$|SB|GB-$|GB-$|output
+}}
+
+{{Schematic
+ |caption =
+'''Cooldown Hopper Clock (Adjustable Pulse)'''
+ |ho-$e|ho-$w|rc-$e!|CB+A|rt-$w|rd-$+&rarr;|-
+ |GB-$|GB-$|SB|GB-$|CB+B|output
+}}
+
+{{Schematic
+ | caption =
+'''Cooldown Hopper Clock'''
+ |CB|rc-$w!|ho-$e|ho-$w|rc-$e|rd-$+&rarr;|-
+ |GB-$|SB|GB-$|GB-$|SB|output
+}}
+
+:* 1×5×2 (10 block volume)
+:* ''clock output:'' up to 27 minutes off, 4 ticks on
+
+:This clock uses a command block to slow the hopper transfer rate. The exact command will depend on the direction the clock is facing, but for clocks facing the positive X direction it will look something like this: <code>blockdata ~2 ~ ~ {TransferCooldown:X}</code>, where X is the number of game ticks (up to 32,767) to hold the item in the back hopper.
+
+:Hoppers usually have an 8 game tick cooldown between transfers (4 redstone ticks). The command block gets activated 2 game ticks after the item enters the back hopper (due to the comparator delay), so setting X to 6 would produce no change. Thus, this clock will have a clock period of 8 game ticks for the front hopper, plus X+2 game ticks for the back hopper, for a total of X+10 game ticks (X/2+5 redstone ticks).
+
+:''Variations:'' The output comparator can be replaced with a redstone torch on the command block, producing a signal strength 15 output. An additional command block can then be activated by the torch to set the cooldown of the other hopper to change the pulse length.
+
+:''Earliest known publication:'' February 2, 2014<ref>"Pertsa2000" (February 2, 2014 — {{ytl|spQna30E3Zg|Minecraft: Fully Adjustable Hopper Clock (command block)}}</ref>
+{{-}}
+
+== Multi-item hopper clocks ==
+
+{| class="wikitable collapsible collapsed" style="float: right" data-description="Ingredients required"
+! colspan="3" | Items Required for Common Clock (Half-)Periods
+|-
+|0,4 seconds||1 item (0,4s per item)
+|-
+|1 second||2,5 items (2,5 items per second)
+|-
+|20 seconds||50 items
+|-
+|1 minute||150 items (2 stacks + 22 items)
+|-
+|2 minutes||300 items (4 stacks + 44 items)
+|}
+A '''multi-item hopper clock''' achieves longer clock periods by using multiple items in the hoppers, and using a latch to keep the items flowing first one way then the other (rather than just bouncing back and forth between two hoppers).
+
+For most of the multi-item hopper clocks, see the ''Items Required for Common Clock Periods'' table (right).
+{{-}}
+
+
+=== Ethonian Hopper Clock (EHC) ===
+
+{{Schematic
+ | caption =
+'''Ethonian Hopper Clock'''
+The right hopper contains multiple items.
+ | rd-nsew! | sp-e! | se-e | BR | sp-w | rd-nsew! |-
+ | SB | rc-w! | ho-e | ho-w | rc-e! | SB
+}}
+
+This compact timer was invented by ''Minecraft'' YouTuber [[w:c:wikitubia:EthosLab|EthosLab]] (also known as Etho), hence the name.
+
+:* 2×6×2 (24 block volume)
+:* flat
+:* ''clock period:'' 8 ticks to 256 seconds (4m16s) <ref group="note" name="multitimes"/>
+
+:When the items finish moving in one direction, the empty hopper's comparator turns off, allowing the associated sticky piston to pull the block of redstone to the other hopper, reversing the direction of item movement. The movement of the block of redstone also updates the other sticky piston (which has been powered for a while) causing it to extend and prevent the first sticky piston from extending again when its comparator turns back on.
+
+:Powering the hoppers will freeze the clock. Powering one of the blocks or the redstone dust will allow the clock to finish its current cycle before halting.
+
+:With a single item in the hoppers, the clock has a period of 7.5 ticks (0.75 seconds). Each additional item adds 8 ticks (0.8 seconds) to the clock period.
+
+:There are a number of useful outputs from this clock:
+:* ''Clock:'' A regular on/off clock signal can be taken from one position of the block of redstone. The signal will last for half the clock period.
+:* ''Cycle Off-Pulse:'' Either block faced by a comparator stays powered most of the time, but will turn off for 3.5 ticks every full cycle (but at half-cycle intervals from each other). The power level of the block may vary, so an output repeater may be needed to keep the power level constant.
+:* ''Cycle Pulse:'' By placing a torch on one of the blocks powered by a comparator, the off-pulse is turned into a regular 3.5-tick on-pulse, once per cycle.
+:* ''Half-Cycle Off-Pulse:'' By placing two redstone dust alongside or under the positions of the block of redstone, a 1.5-tick off-pulse is generated every half-cycle when the block of redstone moves.
+:* ''Multi Clock'': by attaching 4 interconnected hoppers next to the redstone block, every full cycle will run an item(s) through these hoppers once, before stopping by the redstone block. Attaching a comparator and then a repeater to the other end of these added hoppers makes a signal that is 1 tick on, N×2-1 tick off, where N is the amount of items in the Ethonian clock. The amount in the clock×2 equals the total clock ticks. The amount of items in the 4 hoppers determines how much of that time is powered.
+
+ 
+''Earliest known publication:'' January 19, 2013<ref name="Hopper Timer">"Ethoslab" (January 19, 2013) — {{ytl|bYwzd62cLSw|Minecraft - Tutorial: Hopper Timer}}</ref> (note that hopper transfer rates were changed soon after this video was made)
+
+==== EHC Variations ====
+{{Schematic
+ |float=right
+ |caption=
+'''Smoothed EHC'''
+ |SB|rc-w!|ho-e|ho-w|SB|rc-e!|SB|-
+ |rd-nsew!|sp-e!|se-e|BR|sp-w|rr-w3!|rd-ew!
+}}
+
+{{Schematic
+ | clear=right
+ | float=left
+ | caption =
+'''Modified EHC (No sticky pistons)'''
+<br />''1x8x3 (24 block volume)
+<br />1-wide, tileable''
+The right hopper contains multiple items.
+ | pi-e | MB | BR | MB | BR | MB | | pi-w |-
+ | rt-$e | SB | rc-$w! | ho-$e | ho-$w | rc-$e! | SB | rt-$w |-
+ | GB-$ | GB-$ | SB | GB-$ | GB-$ | SB | GB-$ | GB-$
+}}
+
+{{Schematic
+ | clear=right
+ | float=left
+ | caption =
+'''1-Wide "Upside-Down" EHC'''
+<br />''1x8x3 (24 block volume)''
+The right hopper contains multiple items.
+ | SB | rc-$w! | SB | ho-$e | ho-$w | SB | rc-$e! | SB |-
+ | rd-$ew! | SB | sp-e! | se-e | BR | sp-w | SB | rd-$ew! |-
+ | SB | GB-$ | GB-$ | GB-$ | GB-$ | GB-$ | GB-$ | SB
+}}
+
+{{Schematic
+ | clear=right
+ | float=left
+ | caption =
+'''1-Wide Tileable EHC'''
+<br />''1x8x3 (24 block volume)''
+The right hopper contains multiple items.
+ | SB | rt-$w! | sp-e! | se-e | BR | sp-w | rt-$e! | SB |-
+ | rt-$e | SB | rc-$w! | ho-$e | ho-$w | rc-$e! | SB | rt-$w |-
+ | GB-$ | GB-$ | SB | GB-$ | GB-$ | SB | GB-$ | GB-$
+}}
+
+{{Schematic
+ | clear=right
+ | float=left
+ | caption =
+'''1-Wide Compact EHC'''
+<br />''1x6x3 (18 block volume)''
+<br />The right hopper contains multiple items.
+Smallest hopper clock.
+ | rd-$ew! | sp-e! | se-e | BR | sp-w | rd-$ew! |-
+ | SB | rc-$w! | ho-$e | ho-$w | rc-$e! | SB |-
+ | GB-$ | SB | GB-$ | GB-$ | SB | GB-$
+}}
+
+:''Variations:'' For highly precise hopper clocks, the missing half-tick of the first item can be smoothed out with a repeater set to 3 ticks or more. Additional repeaters can change the clock period to something other than a multiple of 8 ticks.
+
+:Other configurations are possible. The "1-Wide Compact" version is 1×6×3 (18 block volume). The "1-Wide Tileable" and "1-Wide Upside-Down" versions are both 1×8×3 (24 block volume).
+{{-}}
+
+==== Hopper timer ====
+{{Schematic
+ | caption =
+'''Hopper timer'''
+ | SB   | rd-nsew | SB       | rc-w    | ho-e  | ho-w   | rc-e! | SB       | rt-w  |
+-| rr-s1 |  SB    | rd-nsew  | sp-e!    | se-e  | BR     | sp-w | rd-nsew! | obs-s |
+-| rd-ne! | rt-n! | obs-s    | rd-ns!    |       | rd-ns! |    | obs-s    | output+H |
+-| obs-s   |      | output+P | rt-s!      |       | SB    |   | output+p | |
+-| output+F |     | le-e     | input+wb-$n | rd-ew | rt-n |   | |
+}}
+
+:Specs:
+:* 9x5x2 (90 block volume)
+:* flat
+:* ''clock period:'' 8 ticks to 256 seconds (4m16s) <ref group="note" name="multitimes"/>
+:* the right hopper contains the counter items (of the stackable-to-64 type).
+:* four different pulse outputs possible:
+:** '''F''' once after the whole timer period.
+:** '''H''' at the half way point.
+:** '''P'''/'''p''' every time the related comparator measures a level change in its hopper.
+
+:This Hopper timer is basically just a self-locking EHC with trigger input and a [[Redstone circuits/Pulse#Falling_edge_detector|FED]] to detect the end of the full timer period.
+:So it needs to be started by activating the input (= interrupting the self-locking circuit) and will stop on its own after one full clock period. Unless of course the input is powered continuously which will turn it into a regular EHC but with trigger outputs.
+
+:<small>(improved by [[UserProfile:Nilbadimo|Nilbadimo]])</small>
+
+{{-}}
+
+==== Quick reset EHC ====
+[[File:Quick reset hopper timer 1.png|thumb|'''Quick Reset Hopper Timer''']]
+
+<blockquote>Using the Ethonian clock as a base, a timer can be created to allow a shorter cool-down time than the clock period.</blockquote><blockquote>Normally, a hopper timer would require all items to be transferred back to the original container to be triggered again.</blockquote><blockquote>This design uses both sides of the Ethonian clock and a T flip-flop to create a timer that will be available to use again almost immediately after it has stopped.</blockquote><blockquote>Thus, a "quick reset" effect is achieved, without actually resetting the position of the items.</blockquote>
+
+{{-}}
+
+=== RS NOR Latch Hopper Clock ===
+{{Schematic
+ | caption =
+'''RS NOR Latch Hopper Clock'''
+The right hopper contains multiple items.
+ | SB | rc-w! | ho-e | ho-w | rc-e! | SB |-
+ | rt-n | rr-e1 | SB | rt-w! | | rt-n |-
+ | | | rr-n1 | rr-s1! | | rd-ns |-
+ | | | rt-e | SB | rr-w1 | rd-nw
+}}
+
+:* 4×6×2 (48 block volume)
+:* flat, silent
+:* ''clock period:'' 8 ticks to 256 seconds (4m16s) <ref group="note" name="multitimes">Time varies depending on how many items are in the hopper.</ref>
+
+:A silent multi-item hopper clock which uses an RS NOR Latch to control the direction of item movement.
+
+:''Earliest known publication:'' January 19, 2013<ref name="Hopper Timer" />
+{{-}}
+
+==== 1-Wide RS NOR Latch Hopper Clock ====
+<!--
+{{Schematic
+ | caption =
+'''1-Wide RS NOR Latch Hopper Clock'''
+1×8×4 (32 block volume)<br>
+1-wide, silent<br>
+''clock period:'' 8 ticks to 256 seconds (4m16s).
+<ref>http://www.youtube.com/watch?v=8vm9Q41PQl0</ref>
+ |rt-$e|SB|rc-$w!|SB|ho-$e|ho-$w|rc-$e!|SB|-
+ |rd-$|rr-$e1|SB|rr-$e1!|SB|rt-$w|ts-$|rd-$!|-
+ |SB|SB|rt-$e!|SB|rr-$w1|rd-$|rt-$e|SB|-
+ |GB-$|GB-$|GB-$|GB-$|SB|SB|GB-$|GB-$
+ | style = display: inline-block; test-align: vertical;
+}}-->
+
+{{Schematic
+ | caption =
+'''1-Wide RS NOR Latch Hopper Clock'''
+The right hopper contains multiple items.
+ | | | | rd-$ew! | rd-$ew! | | |-
+ | SB | rd-$ew | rt-$e | SB | SB | rd-$ew! | SB |-
+ | rt-$d | SB | rd-$ew | SB | rt-$w! | SB | rt-$d |-
+ | SB | rc-$w! | SB | ho-$e | ho-$w | rc-$e! | SB |-
+}}
+
+:* 1×7×5 (35 block volume)
+:* 1-wide, silent
+:* ''clock period:'' 8 ticks to 256 seconds (4m16s) <ref group="note" name="multitimes"/>
+
+:A 1-wide version of the RS NOR Latch hopper clock.
+
+{{-}}
+
+=== Hopper-Latch Hopper Clock ===
+{| class="wikitable" style="float: right" data-description="Hopper-latch hopper clock"
+! colspan=2 | Hopper-Latch Hopper Clock
+|-
+| style="max-width:133px;" |
+{{Schematic
+ | ho-s | SB | rc-e! | SB |-
+ | ho-n | SB | rc-e | SB
+}}
+Level 1<br />(bottom layer)
+| style="vertical-align:top;" |
+{{Schematic
+ | SB | rc-w! | ho-s | rt |-
+ | SB | rc-w! | ho-n | rt-!
+}}
+Level 2<br />(top layer)
+|}
+
+:* 2×4×3 (24 block volume)
+:* silent
+:* ''clock period:'' 8 ticks to 256 seconds (4m16s)
+:* The top hopper in the bottom layer contains 1 item.
+:* The top hopper in the top layer contains multiple items.
+
+:A silent multi-item hopper clock which uses a hopper latch to control the direction of item movement.
+
+:''Earliest Known Publication:'' March 18, 2013.<ref>"TitiSurMinecraft" (March 18, 2013) {{ytl|DjjKJWGP6y8|Minecraft Tutorial - Silent Hopper Timer}}</ref>
+{{-}}
+
+=== SethBling's Hopper Clock ===
+{{Schematic
+ | caption =
+'''SethBling's Hopper Clock ("Amputated")'''
+''2×6×2 (24 block volume)<br />flat, silent<br />clock period: 1.6 seconds to 256 seconds (4 minutes, 16 seconds)''<ref group="note" name="multitimes"/>
+The bottom-left hopper contains multiple items.
+ | rd-nsew! | SB | ho-e | ho-s | rc-e | SB |-
+ | SB | rc-w! | ho-n | ho-w | SB | rd-nsew
+}}
+
+{{Schematic
+ | caption =
+'''SethBling's Hopper Clock (Simplified)'''
+''6×6×2 (72 block volume)<br />flat, silent<br />clock period: 1.6 seconds to 512 seconds (8 minutes, 32 seconds)''<ref group="note" name="multitimes"/>
+The top-left hopper contains multiple items.
+ | | | SB | rd-nsew! | | |-
+ | | | rc-n! | SB | | |-
+ | rd-nsew | SB | ho-e | ho-s | rc-e | SB |-
+ | SB | rc-w | ho-n | ho-w | SB | rd-nsew |-
+ | | | SB | rc-s | | |-
+ | | | rd-nsew | SB | |
+}}
+
+{{Schematic
+ | caption =
+'''SethBling's Hopper Clock'''
+''6×6×2 (72 block volume)<br />flat, silent<br />clock period: 1.6 seconds to 512 seconds (8 minutes, 32 seconds)''<ref group="note" name="multitimes"/>
+The top-left hopper contains multiple items.
+ | | | SB | rd-ns! | | |-
+ | | | rc-n! | rr-s1! | | |-
+ | rd-ew | rr-e1 | ho-e | ho-s | rc-e | SB |-
+ | SB | rc-w | ho-n | ho-w | rr-w1 | rd-ew |-
+ | | | rr-n1 | rc-s | | |-
+ | | | rd-ns | SB | |
+}}
+
+:* 6×6×2 (72 block volume)
+:* flat, silent
+:* ''clock period:'' 1.6 seconds to 512 seconds (8m32s)
+
+:A loop of hoppers with multiple items, where each hopper prevents the next hopper from pushing items further until the previous hopper has emptied.
+
+:This clock can create a clock signal twice as long as the other multi-item hopper clocks. However, in less space players could build a [[#mhdc|multiplicative hopper-dropper clock]] with a clock period hundreds of times longer.
+
+:''Variations:'' The "simplified" version uses slightly fewer resources, by simply replacing the repeaters with blocks. The "amputated" version (two "arms" have been removed) only goes up to 256 seconds, but is one-third the size.
+
+:''Earliest known publication:'' January 22, 2013<ref>"SethBling" (January 22, 2013) — {{ytl|ThsaI0iOZGg "7.5 Minute Hopper Timer -- Minecraft Tutorial}}</ref>
+{{-}}
+
+== Multiplicative hopper clocks ==
+
+A multiplicative hopper clock uses a hopper clock to regulate the item flow of secondary stages to produce very long clock periods (the secondary stages "multiply" the clock period of the first hopper clock).
+
+=== Multiplicative Hopper Clock (MHC) ===
+{{Schematic
+ | caption =
+'''Multiplicative Hopper Clock'''
+ | SB | rc-w! | ho-e | ho-w | rc-e! | SB |-
+ | rd-! | sp-e! | se-e | BR | sp-w | rd-! |-
+ | SB | rr-e1! | SB | SB | rr-w1! | SB |-
+ | SB | rc-w! | ho-e | ho-w | rc-e! | SB |-
+ | rd-! | sp-e! | se-e | BR | sp-w | rd-!
+}}
+
+:* 5×6×2 (60 block volume)
+:* flat
+:* ''clock period:'' up to 45 hours
+
+: The repeaters in the middle keep the bottom hopper clock from transferring items except for the brief period when the top hopper clock reverses direction. Thus, the bottom hopper clock will transfer 1 item every time the top hopper clock completes a full cycle (except when the bottom clock reverses direction, when the bottom clock transfers an item after only half a cycle).
+
+: The bottom clock will have a clock period of X × (2Y - 1) × 0.8 seconds, where X is the number of items in the top clock and Y is the number of items in the bottom clock (both max. 320 items).
+{{-}}
+
+
+=== Multiplicative Hopper-Dropper Clock (MHDC) ===
+{{Schematic
+ | caption =
+'''2-Stage MHDC (Without Sticky Pistons, Compressed)'''
+''10x4x1 (40 block volume)<br />flat<br />clock period: up to 81.9 hours (3.4 real-life days)''<ref group="note" name="multitimes"/>
+The right hopper and right dropper contain multiple items.
+ | | rt-e! | SB | rc-w | ho-e | ho-w | rc-e | SB | rt-w | |-
+ | | pi-e! | pe-e | MB | BR | MB | BR | MB | pi-w | |-
+ | SB | rr-w1 | rd-ew | rc-w | Dr-e | Dr-w | rc-e! | rd-ew! | rr-e1! | SB |-
+ | rt-n! | pi-e! | pe-e | MB | BR | MB | BR | MB | pi-w | rt-n |-
+}}
+
+{{Schematic
+ | caption =
+'''2-Stage MHDC'''
+''5×6×2 (60 block volume)<br />flat<br />clock period: up to 81.9 hours (3.4 real-life days)''<ref group="note" name="multitimes"/>
+The right hopper and right dropper contain multiple items.
+ | SB | rc-w! | ho-e | ho-w | rc-e! | SB |-
+ | rd-! | sp-e! | se-e | BR | sp-w | rd-! |-
+ | | | rd | | | |-
+ | SB | rc-w! | Dr-e | Dr-w | rc-e! | SB |-
+ | rd-! | sp-e! | se-e | BR | sp-w | rd-!
+}}
+
+:* 5×6×2 (60 block volume)
+:* flat
+:* ''clock period:'' up to 81.9 hours (3.4 real-life days)
+
+: The top part is a regular [[#ethonian_hopper_clock|ethonian hopper clock]]. Once per cycle, the block of redstone will move left and activate both of the droppers in the second stage (the left dropper is powered directly, while the right dropper is activated because it's next to a powered block: the left dropper). The block of redstone in the second stage ensures that only one dropper will actually push an item, forcing the items to move in one direction until the block of redstone moves.
+
+: The dropper clock multiplier will have a clock period of X × Y × 1.6 seconds, where X is the number of items in the hoppers (max. 320 items) and Y is the number of items in the droppers (max. 576 items).
+
+:{| class="wikitable collapsible collapsed" data-description="Ingredients required"
+! colspan="3" | Items Required for Useful Clock Periods
+|-
+! Period !! Hoppers !! Droppers
+|-
+|10 minutes||75||5
+|-
+|20 minutes||75||10
+|-
+|30 minutes||75||15
+|-
+|1 hour||225||10
+|-
+|2 hours||300||15
+|-
+|3 hours||225||30
+|-
+|6 hours||300||45
+|-
+|12 hours||300||90
+|-
+|24 hours||300||180
+|-
+|48 hours||300||360
+|-
+|72 hours||300||540
+|}
+
+: ''Variations:'' The most compact version of this circuit (2×6×4 = 48 block volume) can be achieved by moving the first stage above the second stage, and rotated 180°, with a single piece of redstone on one of the droppers. Each additional dropper stage should be rotated 180° to the one above.
+
+: Each additional dropper stage can multiply the previous stage's clock period by up to 1,152 (twice the number of items a dropper can hold). Adding just one additional dropper stage increases the maximum clock period to over 10 years. In practice, this may only be needed for clock periods measured in weeks or months (longer than the 2-stage version can provide), generally on servers.
+
+{| class="wikitable" data-description="2-stage MHDC (without Sticky Pistons)"
+! colspan=2 | 2-Stage MHDC (without Sticky Pistons)
+|-
+| |
+{{Schematic
+ | caption = Level 1<br />(bottom layer)
+ | rt-e! | SB | rc-w | ho-e | ho-w | rc-e! | SB | rt-w |- 
+ | | | | SB | SB | | | |-
+ | rt-e! | SB | rc-w | Dr-e | Dr-w | rc-e! | SB | rt-w |-
+ | pi-e! | pe-e | MB | BR | MB | BR | MB | pi-w |-
+ | | | | | output+Q | | | |-
+}}
+| style="vertical-align:top;" |
+{{Schematic
+ | caption = Level 2<br />(top layer)
+ | pi-e! | pe-e | MB | BR | MB | BR | MB | pi-w |-
+ | | | | rr-s1! | rr-s1 | | | |-
+ | | | | rd-ne! | rd-nw! | | | |-
+ | | | | | | | | |-
+ | | | | | | | | |-
+}}
+|-
+| colspan=2 |
+''8x4x2 (64 block volume)
+<br />2 high, no sticky piston, multiplicative
+<br />clock period: up to 81.9 hours (3.4 real-life days)''<ref group="note" name="multitimes"/>
+The right hopper and right dropper contain multiple items.
+<br />(This is a combination of the 2-Stage MHDC and the Modified Ethonian Hopper Clock)
+|}
+
+
+
+{{-}}
+
+
+=== Multiplicative Hopper-Latch Clock (MHLC) ===
+[[File:2-stage mhlc.png|thumb|'''Multiplicative Hopper-Latch Clock''']]
+: 4×5×3 (60 block volume)
+: silent
+: ''clock period:'' up to 81.9 hours (3.4 real-life days)
+
+: The MHLC uses [[#hopper-latch_hopper_clock|hopper-latch hopper clocks]] for each stage, replacing the top hoppers in the secondary stage with droppers, and connecting the stages with a comparator to pulse the secondary stage.
+
+: The MHLC uses the same number of items as the [[#mhdc|MHDC]] for the same clock periods, with a similar volume, but is silent.
+
+: ''Variations:'' Each additional dropper stage can multiply the previous stage's clock period by up to 1,152 (twice the number of items a dropper can hold).
+{{-}}
+<br>
+
+<references group="note"/>
+
+[[Category:Ajax loaded pages]]
+[[Category:Redstone circuits]]

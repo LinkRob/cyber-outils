@@ -1,0 +1,14 @@
+<div class="treeview">
+* {{nbt|compound}} Block entity data
+** {{nbt inherit/blockentity}}
+** {{nbt|list|cursors}}: List of charges associated with the sculk catalyst.
+*** {{nbt|compound}}: A charge.
+**** {{nbt|int|charge}}: How much power is in the charge.
+**** {{nbt|list|pos}}: List of three integers representing the coordinates of the charge.
+**** {{nbt|integer|decay_delay}}: Does not relate to delay. Be 1 if the charge was spread from a sculk or sculk vein, 0 otherwise. The charge can spread to any block if this tag is 1. If it is 0, all the powers in the charge disappear when it spreads to a block not in sculk family.
+**** {{nbt|integer|update_delay}}: Delay in ticks until the charge begins to travel after being created.
+**** {{nbt|list|facings}}: If the block to replace is an [[air]] or [[water]], replace the block at its position with sculk vein, and store the facings of this sculk vein. If the charge is not at an air or water, or this tag is null, attempt to replace a block next to it with sculk vein. Can be any combination of <code>north</code>, <code>south</code>, <code>east</code>, <code>west</code>, <code>up</code>, <code>down</code>.
+</div><noinclude>
+[[zh:幽匿感测体/BE]]
+</noinclude>
+[[Category:Java Edition]]

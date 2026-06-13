@@ -1,0 +1,172 @@
+{{about|the status effect}}
+{{Effect
+|title={{EffectSprite|resistance}} Resistance
+|image=Resistance.png
+|sources=See [[#Causes]]
+|particle= {{EffectSprite|particle-resistance}} #8f45ed (lavender indigo)
+|type=Positive
+}}
+
+'''Resistance''' is a [[status effect]] that reduces incoming [[damage]].
+
+== Effect ==
+Resistance reduces incoming [[damage]] by 20% × level from all sources except for [[starvation]], the [[void]], {{command|kill}}, and [[explosion]]s with extreme power values (negative values (128 to 255 (mod 256) or -128 to -1 (mod 256)) stored in an NBT, see [[entity format]]) such as [[creeper]]s and [[ghast]] fireballs.
+
+Resistance is applied only to the remaining damage after all other damage reductions ([[Armor#Damage protection|armor]] and [[Armor#Enchantments|enchantments]]), but ''before'' rounding down to a whole number. This means any equipped armor pieces still lose the usual amount of durability, even at level 5+ where the potion effect grants complete immunity to most sources.
+
+== Causes ==
+{| class="wikitable" data-description="Causes"
+ ! Cause
+ ! Potency
+ ! Length
+ ! Notes
+ |-
+ | {{BlockLink|Beacon}} set to Resistance
+ | I
+ | 0:08 – 0:17
+ | Replenishes when in range. Requires beacon pyramid level 2.
+ |-
+ | {{BlockLink|Beacon}} set to Resistance II
+ | II
+ | 0:17
+ | Replenishes when in range. Requires beacon pyramid level 4.
+ |-
+ | {{ItemLink|Enchanted Golden Apple}}
+ | I
+ | 5:00
+ | 
+ |-
+ | {{ItemLink|Potion of the Turtle Master}}
+ | III
+ | 0:20
+ | 
+ |-
+ | {{ItemLink|Potion of the Turtle Master}} (extended)
+ | III
+ | 0:40
+ | 
+ |-
+ | {{ItemLink|Potion of the Turtle Master}} II
+ | IV
+ | 0:20
+ | 
+ |- 
+ | {{ItemLink|Splash Potion of the Turtle Master}}
+ | III
+ | 0:20{{only|java|short=1}}<br> 0:15{{only|bedrock|short=1}}
+ | 
+ |-
+ | {{ItemLink|Splash Potion of the Turtle Master}} (extended)
+ | III
+ | 0:40{{only|java|short=1}}<br> 0:30{{only|bedrock|short=1}} 
+ | 
+ |-
+ | {{ItemLink|Splash Potion of the Turtle Master}} II
+ | IV
+ | 0:20{{only|java|short=1}}<br> 0:15{{only|bedrock|short=1}} 
+ | 
+ |-  
+ | {{ItemLink|Lingering Potion of the Turtle Master}}
+ | III
+ | 0:05
+ | 
+ |- 
+ | {{ItemLink|Lingering Potion of the Turtle Master}} (extended)
+ | III
+ | 0:10
+ | 
+ |- 
+ | {{ItemLink|Lingering Potion of the Turtle Master}} II
+ | IV
+ | 0:05
+ | 
+ |-
+ | {{ItemLink|Arrow of the Turtle Master}}
+ | III
+ | 0:02
+ | 
+ |-
+ | {{ItemLink|Arrow of the Turtle Master}} (extended)
+ | III
+ | 0:05
+ | 
+ |-
+ | {{ItemLink|Arrow of the Turtle Master}} II
+ | IV
+ | 0:02
+ |
+ |}
+
+== Immune mobs ==
+[[Wither]]s and [[ender dragon]]s are immune to Resistance; it grants no benefit to them.
+
+== Notes ==
+* Level 5+ gives the player or mob full immunity to all [[damage]], with the exceptions mentioned earlier.
+
+== Data values ==
+=== ID ===
+{{EffectIDLink}}
+{{edition|java}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=java
+|displayname=Resistance
+|spritetype=effect
+|nameid=resistance
+|id=11
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Resistance
+|spritetype=effect
+|nameid=resistance
+|id=11
+|foot=1}}
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load advancements|How Did We Get Here?;A Furious Cocktail}}
+</table-progress-tracking>
+
+== History ==
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|Resistance is added along with 18 other status effects but is currently unobtainable in regular gameplay.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|[[File:Resistance JE1 BE1.png|18px]] The effect sprite for Resistance has been added to <samp>[[inventory.png]]</samp>.}}
+{{History||1.3.1|snap=12w21a|Added [[enchanted golden apple]]s, which give the Resistance effect for five minutes when eaten.}}
+{{History||1.4.2|snap=12w36a|Beacons are now functional and can give the Resistance effect.}}
+{{History||1.6.2|snap=?|Resistance no longer reduces starvation damage.}}
+{{History||1.13|snap=18w07a|Added the potion of the Turtle Master (along with all typical potion variants), which gives Resistance IV.
+|Level 2 potions of the Turtle Master give Resistance VI.}}
+{{History|||snap=18w16a|Potions of the Turtle Master have been nerfed to give only Resistance III.
+|Level 2 potions of the Turtle Master now give Resistance IV.}}
+{{History||1.14|snap=18w43a|[[File:Resistance JE2 BE2.png|18px]] The effect icon texture for Resistance has now been changed.}}
+
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=build 1|[[File:Resistance JE1 BE1.png|18px]] Added Resistance, which is unobtainable.}}
+{{History||v0.12.1|snap=build 1|Resistance can now be obtained from eating enchanted [[golden apple]]s.}}
+{{History||v0.16.0|snap=build 1|Resistance can now be obtained from [[beacon]]s.}}
+{{History|bedrock}}
+{{History||1.5.0|snap=beta 1.5.0.4|Resistance can now be obtained from [[potions of the Turtle Master]], as well from the [[splash potion]], [[lingering potion]] and tipped [[arrow]] variants.}}
+{{History||1.11.0|snap=beta 1.11.0.5|[[File:Resistance JE2 BE2.png|18px]] The effect icon texture for Resistance has now been changed.}} 
+
+{{History|console}}
+{{History||xbox=TU14|xbone=CU1|ps=1.04|wiiu=Patch 1|switch=1.0.1|[[File:Resistance JE1 BE1.png|18px]] Added resistance, which can be obtained from enchanted golden apples.}}
+{{History||xbox=TU19|xbone=CU7|ps=1.12|wiiu=Patch 1|switch=1.0.1|Resistance can now be obtained from a beacon.}}
+{{History||xbox=TU69|xbone=none|ps=1.76|wiiu=Patch 38|switch=none|Added [[Potion of the Turtle Master]], [[Splash Potion of the Turtle Master]], and [[Lingering Potion of the Turtle Master]] which grants resistance.
+|Added the [[Arrow of the Turtle Master]].}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Resistance JE2 BE2.png|18px]] Changed effect icon texture.}}
+{{History|foot}}
+
+== Issues ==
+
+{{Issue list}}
+
+{{Effects}}
+
+[[ja:耐性]]
+[[pt:Resistência]]
+[[zh:抗性提升]]

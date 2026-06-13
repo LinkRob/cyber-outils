@@ -1,0 +1,42 @@
+{{Schematic|caption=Basic NOR Gate (A)
+|float=left
+||input|||-
+|input|SB|rt-w!|rd-ew|output|-
+||input||
+}}
+[[File:Basic NOR Gate.webp|none|thumb|Basic NOR Gate]]
+{{Schematic|caption=4-input NOR Gate, levels 1-2 (B-1)
+|float=left
+|||input||||-
+|||rd-ns+SB-u||||-
+|input|rd-ew+SB-u|SB+rd-se|rt-w!|rd-ew!|output|-
+|||rd-ns+SB-u||||-
+|input|SB+rd-ew|rd-ne+SB-u|rd-ew|input|
+}}
+
+{{Schematic|caption=4-input NOR Gate, levels 2-3 (B-2)
+|float=left
+|||input+lighter||||-
+|||SB||||-
+|input+lighter|SB|rd-se|||output+lighter|-
+|||SB+rd-ns||||-
+|input+lighter|rd-ew|SB+rd-nw||input+lighter|
+}}
+{{-}}
+
+{| class="wikitable collapsible" style="float: left"
+! Design !! A !! B
+|-
+| Size || 2×1×1 || 2×3×3
+|-
+| Torches || 1 || 1
+|-
+| Redstone || 0 || 5
+|-
+| Inputs || 3 || 4
+|-
+| Inputs isolated? || Yes || Yes
+|}
+{{-}}
+[[Category:Ajax loaded pages]]
+[[Category:Redstone circuits]]

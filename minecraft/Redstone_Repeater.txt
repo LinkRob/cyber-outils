@@ -1,0 +1,296 @@
+{{Block
+| image = <gallery>
+Redstone Repeater.png|Redstone Repeater
+Redstone Repeater BE.png|Redstone Repeater (BE)
+</gallery>
+| extratext = View [[#Renders|all renders]]
+| transparent = Yes
+| light = No
+| tool = any
+| stackable = Yes (64)
+| flammable = No
+| lavasusceptible = No
+| renewable = Yes
+}}
+{{about|the block|repeater circuits|Transmission circuit#Repeater|other topics related to redstone|Redstone (disambiguation)}}
+A '''redstone repeater''' is a [[block]] that produces a full-strength [[Redstone Dust|output signal]] from its front when its back is powered, with four configurable delay settings. It can also be locked into a power state by its side being directly powered by a repeater or a [[Redstone Comparator|comparator]].
+
+== Obtaining ==
+=== Breaking ===
+A redstone repeater can be broken instantly using any [[tool]], or without a tool, and drops itself as an item. To remove a redstone repeater, {{control|mine}} it.
+
+A redstone repeater is removed and drops as an item if:
+* its attachment block is moved, removed, or destroyed;
+* [[water]] or [[lava]] flows into its space;{{only|java}}
+* a [[piston]] tries to push it or moves a block into its space.
+
+=== Natural generation ===
+[[File:Redstone Repeater naturally generated.png|thumb|A redstone repeater generated in the jungle temple's hidden room.]]
+A single redstone repeater is generated naturally in each [[jungle temple]].
+They also generate in [[Ancient City|ancient cities]].
+
+=== Crafting ===
+{{Crafting
+|A2= Redstone Torch
+|B2= Redstone Dust
+|C2= Redstone Torch
+|B3= Stone
+|C3= Stone
+|A3= Stone
+|Output= Redstone Repeater
+|type= Redstone
+}}
+
+== Usage ==
+{{see also|Redstone circuit}}
+A redstone repeater can be used in four different ways: to "repeat" redstone signals back to full strength, delay signals, prevent signals moving backwards, or to "lock" signals in one state.
+
+A repeater can be placed only on top of [[opaque]] blocks (dirt, stone, etc.), on top of upside-down [[slab]]s, upside-down [[stairs]], furnaces, and glass. {{IN|be}}, a repeater can also be placed on fences and stone walls. They can also be placed on some transparent blocks. See [[Opacity/Placement]] for more information. To place a repeater, use the {{control|Place Block}} [[control]].
+
+A redstone repeater has a front and back – An extremly faint light gray arrow on the top points to the repeater's front. A repeater also has two small redstone torches on its top – the color of the torches indicates whether its output is on (dark red when off, bright red when on) and the distance between them indicates the delay the repeater adds to the signal transmission.
+
+A repeater is 0.125 ({{frac|1|8}}) blocks high.
+
+=== Signal transmission ===
+A repeater transmits signals only from its back to its front, but its behavior can be modified from the side (see [[#Signal locking|signal locking]], below).
+
+[[File:Redstone Torch Power.png|Different ways to power a repeater|thumb]]
+A redstone repeater can be powered by any of the following components at its back:
+* an active [[power component]] (redstone torch, lever, block of redstone, etc.)
+* powered [[redstone dust]]
+* a powered [[redstone comparator]] or another powered redstone repeater facing the repeater
+* a powered opaque block (including any opaque [[mechanism component]]s, such as [[dispenser]]s, [[redstone lamp]]s, etc.)
+
+A redstone repeater can power any of the following components at its front:
+* redstone dust
+* a redstone comparator or another redstone repeater facing away from the repeater
+* any opaque block (including any opaque [[mechanism component]]s)
+
+A redstone repeater can activate any [[mechanism component]] it is facing.
+
+An opaque block powered by a redstone repeater is called "strongly-powered" (as opposed to an opaque block "weakly-powered" by redstone dust). A strongly-powered opaque block can power adjacent redstone dust, as well as other redstone components.
+
+=== Signal repeating ===
+{{see also|Transmission circuit#Repeater}}
+A redstone repeater can "repeat" a [[Redstone Dust|redstone]] signal, boosting it back up to power level 15.
+
+Redstone signals have a maximum power level of 15 and that level drops by 1 for every block of [[redstone dust]] the signal travels through. If a signal must travel through more than 15 [[block]]s of redstone dust, a redstone repeater can be used to boost the signal back up to full strength. An extra two blocks of distance can be achieved by placing solid opaque blocks before and after the repeater.
+
+While redstone repeaters can allow signals to travel great distances, each always adds some delay to the transmission since the minimum amount of delay is 1 redstone tick (0.1 seconds, barring lag).
+
+=== Signal delay ===
+When initially placed, a redstone repeater has a delay of one [[redstone tick]] (equivalent to two game ticks, or 0.1 seconds barring lag).
+
+A repeater's delay can be modified by using the {{control|Use Item}} control. Each use increases the repeater's delay by one redstone tick, to a maximum of four redstone ticks, then back to one redstone tick. Longer delays can be made with multiple repeaters – for example, a repeater set to 'four' and another to 'one' provides a half-second delay (0.4s + 0.1s = 0.5s).
+
+A repeater set to a delay of two to four redstone ticks increases the length of any shorter [[Pulse circuit#Pulses|on-pulse]] to match the length of the repeater's delay, and suppress any shorter off-pulse. For example, a repeater set to a 4-tick delay changes a 1-tick, 2-tick, or 3-tick on-pulse into a 4-tick on-pulse, and does not allow through any off-pulse shorter than 4 ticks.
+
+Although a repeater cannot be set to have a delay of zero, [[Transmission circuit#Instant repeater|instant repeater circuits]] are possible (circuits that repeat a signal with no delay).
+
+In Bedrock Edition, the first repeater have a delay of zero but the repeater is still showing 1-tick{{info needed}}
+
+=== {{anchor|diode}} Signal direction ===
+{{see also| Mechanics/Redstone/Transmission circuit#Diode}}
+
+A redstone repeater acts as a diode – it allows redstone signals through in one direction (unlike [[redstone dust]] or opaque blocks that can transmit redstone signals in any direction).
+
+A diode can be used to protect a [[redstone circuit]] from redstone signals feeding back into the circuit from its output, or can be used to isolate one part of a circuit from another.
+
+=== {{anchor|lock}} Signal locking ===
+{{see also| Mechanics/Redstone/Memory circuit}}
+[[File:Latch.png|thumb|The left repeater has been locked in an unpowered output state by the right repeater.]]
+A redstone repeater can be "locked" by another powered redstone repeater facing its side. When locked, the repeater does not change its output (whether powered or unpowered), no matter what the input does. When the side repeater turns back off, the repeater returns to its normal behavior.
+
+A repeater can also be locked by a powered [[redstone comparator]] facing its side. This offers additional possibilities for locking signals because a comparator's output can be affected from 3 sides as well as by containers.
+
+If a repeater is locked again too quickly after unlocking (e.g. the lock is controlled by a fast clock circuit), or the lock and the input are changed only on the same tick (e.g. because they're fed by the same clock and both repeaters have the same delay), the repeater does not switch states.
+
+== Sounds ==
+{{Edition|java}}:
+{{Sound table/Block/Stone/JE}}
+{{Edition|bedrock}}:
+{{Sound table/Block/Wood/BE}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Redstone Repeater
+|spritetype=block
+|nameid=repeater
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|firstcolumnname=Redstone Repeater
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Unpowered block
+|spritename=unpowered-repeater
+|spritetype=block
+|nameid=unpowered_repeater
+|id=93
+|form=block
+|translationkey=-}}
+{{ID table
+|displayname=Powered block
+|spritename=powered-repeater
+|spritetype=block
+|nameid=powered_repeater
+|id=94
+|form=block
+|translationkey=-}}
+{{ID table
+|displayname=Item
+|spritename=redstone-repeater
+|spritetype=item
+|nameid=repeater
+|id=419
+|form=item
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+{{/BS}}
+
+== Video ==
+<div style="text-align:center">{{yt|0Ij_qMLiRzE}}</div>
+
+== History ==
+''For a more in-depth breakdown of changes to repeater textures and models, including a set of renders for each state combination, see [[/Asset history]]''
+{{History|java beta}}
+{{History||1.3|[[File:Redstone Repeater (S) JE1.png|32px]] [[File:Redstone Repeater (item) JE1.png|32px]] Added redstone repeaters.
+|Originally, the four possible settings were "1, 2, 5 and 7",<ref>http://twitter.com/jeb_/status/33888465502339073</ref> but [[Jeb]] decided to change the settings to "1, 2, 3, and 4".<ref>http://www.reddit.com/r/Minecraft/comments/fmdtp/teammojang_redstone_repeater_video/c1gzrn6</ref>
+|The particles when [[breaking]] redstone repeaters erroneously use the [[pumpkin]] top texture.}}
+{{History||unknown|The breaking particles of redstone repeaters now use the smooth stone [[slab]] top texture, even though none of the elements on the [[model]] use it.}}
+{{History||1.7|[[File:Redstone Repeater (S) JE2.png|32px]] The side texture of redstone repeaters has been changed to the previous bottom part of the texture.
+|[[Redstone dust]] now automatically connects to the input of a redstone repeater. Previously, it needed to be specifically pointed towards the repeater like with other blocks.}}
+{{History||unknown|Redstone dust now visually connects to the output of redstone repeaters, though this does not change its behavior.}}
+{{History|java}}
+{{History||unknown|The breaking particles of redstone repeaters have been changed to an unlit [[redstone torch]] when unpowered and a lit redstone torch when powered.}}
+{{History||1.3.1|snap=12w22a|Redstone repeaters now naturally generate inside [[jungle temple]]s.}}
+{{History|||snap=1.3|[[File:Redstone Repeater (item) JE2 BE1.png|32px]] The texture of redstone repeater [[item]]s have been changed.}}
+{{History||1.4.2|snap=12w42a|[[File:Redstone Repeater (S) JE3.png|32px]] The top texture of redstone repeaters has now been changed.
+|[[File:Locked Redstone Repeater (S) JE1.png|32px]] Added repeater locking to redstone repeaters. Interestingly, the smallest face of the bedrock cuboid's texture changes depending on the delay, but the other two faces remain the same. When/if this changed is unknown.}}
+{{History||1.5|snap=13w02a|[[File:Redstone Repeater (S) JE4.png|32px]] The side textures of redstone repeaters have been changed to use the top texture of stone [[slab]]s.}}
+{{History||unknown|The breaking [[particles|particle]] of redstone repeaters has been changed once again and now matches the top texture of redstone repeaters.}}
+{{History||1.8|snap=14w06a|Repeaters no longer produce block [[light]] when powered.}}
+{{History|||snap=14w10a|[[File:Powered Redstone Repeater (S) JE5.png|32px]] Torches on repeaters now no longer have protruding features.
+|The torches underneath redstone repeaters have now been shortened, which has changed the underside textures from [[File:Redstone Repeater JE2 BE1 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 2 JE2 BE1 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 3 JE2 BE1 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 4 JE2 BE1 (facing NWU).png|32px]] [[File: Active Redstone Repeater JE2 BE1 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 2 JE2 BE1 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 3 JE2 BE1 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 4 JE2 BE1 (facing NWU).png|32px]] [[File: Locked Redstone Repeater JE2 BE1 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 2 JE2 BE1 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 3 JE2 BE1 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 4 JE2 BE1 (facing NWU).png|32px]] [[File: Active Locked Redstone Repeater JE2 BE1 (facing NWU).png|32px]] [[File: Active Locked Redstone Repeater Delay 2 JE2 BE1 (facing NWU).png|32px]] [[File: Active Locked Redstone Repeater Delay 3 JE2 BE1 (facing NWU).png|32px]] [[File: Active Locked Redstone Repeater Delay 4 JE2 BE1 (facing NWU).png|32px]] to [[File:Redstone Repeater JE3 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 2 JE3 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 3 JE3 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 4 JE3 (facing NWU).png|32px]] [[File: Active Redstone Repeater JE3 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 2 JE3 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 3 JE3 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 4 JE3 (facing NWU).png|32px]] [[File: Locked Redstone Repeater JE3 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 2 JE3 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 3 JE3 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 4 JE3 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater JE3 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater Delay 2 JE3 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater Delay 3 JE3 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater Delay 4 JE3 (facing NWU).png|32px]].}}
+{{History|||snap=14w10b|[[File:Powered Redstone Repeater (S) JE4.png|32px]] Repeater torches now have protruding features again.<ref>{{bug|MC-50242}}</ref>}}
+{{History|||snap=?|[[File:Powered Redstone Repeater (S) JE7.png|32px]] The torches on redstone repeaters are now affected by directional shading.}}
+{{History||1.13|snap=17w47a|All 3 IDs for the redstone repeater have now been merged into 1 ID: <code>repeater</code>.
+|Added powered block state to redstone repeaters.
+|Redstone repeaters now render their underside, which has changed their undersides from [[File:Redstone Repeater JE3 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 2 JE3 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 3 JE3 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 4 JE3 (facing NWU).png|32px]] [[File: Active Redstone Repeater JE3 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 2 JE3 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 3 JE3 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 4 JE3 (facing NWU).png|32px]] [[File: Locked Redstone Repeater JE3 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 2 JE3 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 3 JE3 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 4 JE3 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater JE3 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater Delay 2 JE3 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater Delay 3 JE3 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater Delay 4 JE3 (facing NWU).png|32px]] to [[File:Redstone Repeater JE4 BE2 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 2 JE4 BE2 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 3 JE4 BE2 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 4 JE4 BE2 (facing NWU).png|32px]] [[File: Active Redstone Repeater JE4 BE2 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 2 JE4 BE2 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 3 JE4 BE2 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 4 JE4 BE2 (facing NWU).png|32px]] [[File: Locked Redstone Repeater JE4 BE2 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 2 JE4 BE2 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 3 JE4 BE2 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 4 JE4 BE2 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater JE4 BE2 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater Delay 2 JE4 BE2 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater Delay 3 JE4 BE2 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater Delay 4 JE4 BE2 (facing NWU).png|32px]].
+|Prior to [[1.13/Flattening|''The Flattening'']], these [[block]]s' numeral IDs were 93 and 94, and the [[item]]'s 356.}}
+{{History||1.14|snap=18w43a|[[File:Redstone Repeater (S) JE5.png|32px]] [[File:Powered Redstone Repeater (S) JE9.png|32px]] [[File:Locked Redstone Repeater (S) JE5.png|32px]] [[File:Powered Locked Redstone Repeater (S) JE6.png|32px]] [[File:Redstone Repeater (item) JE3 BE2.png|32px]] The textures of redstone repeaters have now been changed.}}
+{{History|||snap=18w50a|[[File:Locked Redstone Repeater (S) JE6.png|32px]] [[File:Powered Locked Redstone Repeater (S) JE7.png|32px]] As the texture of [[bedrock]] has been changed, the textures of locked redstone repeaters have also now been changed.}}
+{{History|||snap=19w12b|Redstone repeaters can now be placed on [[glass]], [[ice]], [[glowstone]] and [[sea lantern]]s.}}
+{{History||1.19|snap=22w13a|Redstone repeaters now generate in [[Ancient City|ancient cities]].}}
+{{History||1.20.2|snap=23w33a|Redstone repeaters now use stone sounds instead of wood sounds.<ref>{{bug|MC-182820|||Fixed}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.14.0|snap=build 1|[[File:Redstone Repeater (S) JE3.png|32px]] [[File:Redstone Repeater (item) JE2 BE1.png|32px]] Added redstone repeaters.}}
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|Redstone repeaters now render their underside, which has changed their undersides from [[File:Redstone Repeater JE2 BE1 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 2 JE2 BE1 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 3 JE2 BE1 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 4 JE2 BE1 (facing NWU).png|32px]] [[File: Active Redstone Repeater JE2 BE1 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 2 JE2 BE1 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 3 JE2 BE1 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 4 JE2 BE1 (facing NWU).png|32px]] [[File: Locked Redstone Repeater JE2 BE1 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 2 JE2 BE1 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 3 JE2 BE1 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 4 JE2 BE1 (facing NWU).png|32px]] [[File: Active Locked Redstone Repeater JE2 BE1 (facing NWU).png|32px]] [[File: Active Locked Redstone Repeater Delay 2 JE2 BE1 (facing NWU).png|32px]] [[File: Active Locked Redstone Repeater Delay 3 JE2 BE1 (facing NWU).png|32px]] [[File: Active Locked Redstone Repeater Delay 4 JE2 BE1 (facing NWU).png|32px]] to [[File:Redstone Repeater JE4 BE2 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 2 JE4 BE2 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 3 JE4 BE2 (facing NWU).png|32px]] [[File: Redstone Repeater Delay 4 JE4 BE2 (facing NWU).png|32px]] [[File: Active Redstone Repeater JE4 BE2 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 2 JE4 BE2 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 3 JE4 BE2 (facing NWU).png|32px]] [[File: Active Redstone Repeater Delay 4 JE4 BE2 (facing NWU).png|32px]] [[File: Locked Redstone Repeater JE4 BE2 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 2 JE4 BE2 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 3 JE4 BE2 (facing NWU).png|32px]] [[File: Locked Redstone Repeater Delay 4 JE4 BE2 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater JE4 BE2 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater Delay 2 JE4 BE2 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater Delay 3 JE4 BE2 (facing NWU).png|32px]] [[File: Locked Active Redstone Repeater Delay 4 JE4 BE2 (facing NWU).png|32px]].}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Redstone Repeater (S) BE2.png|32px]] [[File:Powered Redstone Repeater (S) BE2.png|32px]] [[File:Redstone Repeater (item) JE3 BE2.png|32px]] The textures of redstone repeaters have now been changed.}}
+{{History||1.20.30|snap=beta 1.20.30.20|Redstone Repeaters now use the <code>minecraft:cardinal_direction</code> [[block state]] instead of <code>direction</code>.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Redstone Repeater (S) JE3.png|32px]]{{verify|Was this model actually used here?}} [[File:Redstone Repeater (item) JE2 BE1.png|32px]] Added redstone repeaters.}}
+{{History||xbox=TU19|xbone=CU7|ps=1.12|wiiu=Patch 1|switch=1.0.1|[[File:Locked Redstone Repeater (S) JE1.png|32px]]{{verify|Was this model actually used here?}} Added repeater locking to redstone repeaters.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Redstone Repeater (S) JE4.png|32px]]{{verify|Was this model actually used here?}} [[File:Redstone Repeater (item) JE3 BE2.png|32px]] The textures of redstone repeaters have now been changed.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Redstone Repeater (S) JE3.png|32px]]{{verify|Was this model actually used here?}} [[File:Redstone Repeater (item) JE2 BE1.png|32px]] Added redstone repeaters and repeater locking.}}
+{{History|foot}}
+
+=== Redstone repeater "items" ===
+{{:Technical blocks/Redstone Repeater}}
+
+== Issues ==
+{{Issue list}}
+
+== Trivia ==
+* The recipe and appearance of redstone repeaters are a likely reference to the old method of repeating signals, which would also use two torches at a time, inverting each other
+
+== Gallery ==
+<gallery>
+Repeater clock.gif|A redstone clock formed from a redstone torch and a repeater.
+Repeater feedback.gif|A redstone clock formed from two repeaters.
+Two way repeater.gif|MCRedstoneSim diagram of a two-way repeater.
+Repeater bridge.png|Crossing redstone wires using repeaters.
+Jeb Repeaters 1.png|
+Jeb Repeaters 2.png|
+Jeb Repeaters 3.png|
+</gallery>
+
+=== Renders ===
+<gallery>
+Redstone Repeater.png
+Redstone Repeater Delay 2.png
+Redstone Repeater Delay 3.png
+Redstone Repeater Delay 4.png
+Powered Redstone Repeater.png
+Powered Redstone Repeater Delay 2.png
+Powered Redstone Repeater Delay 3.png
+Powered Redstone Repeater Delay 4.png
+Locked Redstone Repeater.png
+Locked Redstone Repeater Delay 2.png
+Locked Redstone Repeater Delay 3.png
+Locked Redstone Repeater Delay 4.png
+Powered Locked Redstone Repeater.png
+Powered Locked Redstone Repeater Delay 2.png
+Powered Locked Redstone Repeater Delay 3.png
+Powered Locked Redstone Repeater Delay 4.png
+Redstone Repeater BE.png
+Redstone Repeater Delay 2 BE.png
+Redstone Repeater Delay 3 BE.png
+Redstone Repeater Delay 4 BE.png
+Powered Redstone Repeater BE.png
+Powered Redstone Repeater Delay 2 BE.png
+Powered Redstone Repeater Delay 3 BE.png
+Powered Redstone Repeater Delay 4 BE.png
+Locked Redstone Repeater BE.png
+Locked Redstone Repeater Delay 2 BE.png
+Locked Redstone Repeater Delay 3 BE.png
+Locked Redstone Repeater Delay 4 BE.png
+Powered Locked Redstone Repeater BE.png
+Powered Locked Redstone Repeater Delay 2 BE.png
+Powered Locked Redstone Repeater Delay 3 BE.png
+Powered Locked Redstone Repeater Delay 4 BE.png
+</gallery>
+
+== References ==
+{{Reflist}}
+
+{{Redstone}}
+{{Blocks|Utility}}
+{{Items}}
+
+[[Category:Mechanics]]
+[[Category:Redstone mechanics]]
+[[Category:Redstone]]
+[[Category:Mechanisms]]
+[[Category:Manufactured blocks]]
+[[Category:Generated structure blocks]]
+[[Category:Non-solid blocks]]
+
+[[de:Redstone-Verstärker]]
+[[es:Repetidor de redstone]]
+[[fr:Répéteur de redstone]]
+[[hu:Redstone-jelismétlő]]
+[[it:Ripetitore di redstone]]
+[[ja:レッドストーンリピーター]]
+[[ko:레드스톤 중계기]]
+[[nl:Redstoneversterker]]
+[[pl:Przekaźnik]]
+[[pt:Repetidor de redstone]]
+[[ru:Красный повторитель]]
+[[tr:Kızıltaş tekrarlayıcı]]
+[[zh:红石中继器]]

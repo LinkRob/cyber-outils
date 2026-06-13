@@ -1,0 +1,398 @@
+{{For|the command|Commands/scoreboard}}
+[[File:Scoreboard.png|thumb|350px|A screenshot of a scoreboard on the right side of the screen.]]
+
+The '''scoreboard''' system is a complex gameplay mechanic utilized through [[commands]]. Mainly intended for mapmakers and [[server]] operators, scoreboards are used to track, set, and list the scores of [[entities]] in a myriad of different ways.
+
+== Objectives ==
+
+Objectives each have three main variables: A name, a criterion, and a display name. Objectives track a number of points for entities, and are stored and displayed as integers with a full score range of ''-2,147,483,648'' to ''2,147,483,647''.
+
+An objective's '''name''' is used internally for referencing in commands, target arguments, and the file format. {{IN|java}}, the allowed character set for it includes all lowercase and uppercase letters, numbers, underscore, period, minus and plus. {{IN|bedrock}}, it can contain any character.
+
+An objective's '''display name''' is a [[raw JSON text]] and is displayed publicly in various situations. It does not have to be unique.
+
+An objective's '''criterion''' determines its behavior&mdash;primarily what to track. Lists of valid criteria are provided below.
+
+An entity's '''score''' in any objective can be changed via [[#Command reference|commands]] unless it's read-only (see [[#Criteria]]). It can be increased by, decreased by, or set to a given amount with commands.
+
+A '''score holder''' is a player's name or an entity's UUID that has scores in an objective. The player name doesn’t need to belong to an actual [[player]]. Scores of non-player entities can be changed only by commands, and not by game system. Unlike players, when a non-player entity dies, its scores are deleted.
+
+Commands can check entity scores by using [[target selector]] with the <code>scores</code> argument (syntaxed <code>@e[scores={<name>=<min>..<max>}]</code>. This argument uses <name> to specify the internal name of the tested-for objective.
+
+: For example, {{in|java}}, inputting {{cmd|1=execute if entity @a[scores={deaths=1..}]}} into a [[command block]] triggers a [[comparator]] or [[Command Block#Modification|conditional command block]] if any player has died at least once, assuming "deaths" is an objective of the "deathCount" criterion.
+
+=== Criteria ===
+
+==== Java Edition ====
+
+===== <small>Single criteria</small> =====
+
+:These criteria's names consist of a single alphabetical string.
+
+:{| class="wikitable" style="width:100%" data-description="Criteria"
+! Criterion name
+! Description
+! Can be modified
+|-
+| dummy
+| Score is only changed by commands, and not by game events such as death. This is useful for event flags, state mappings, currencies,...
+| {{tc|yes|style=text-align:center}}
+|-
+| trigger
+| Score is only changed by commands, and not by game events such as death. The {{cmd|trigger}} command can be used by a player to set or increment/decrement their own score in an objective with this criterion. The {{cmd|trigger}} command fails if the objective has not been "enabled" for the player using it, and the objective is disabled for the player after using the {{cmd|trigger}} command on it. Note that the {{cmd|trigger}} command can be used by ordinary players even if Cheats are off and they are not an Operator. This is useful for player input via {{cmd|tellraw}} interfaces.
+| {{tc|yes|style=text-align:center}}
+|-
+| deathCount
+| Score increments automatically for a player when they die.
+| {{tc|yes|style=text-align:center}}
+|-
+| playerKillCount
+| Score increments automatically for a player when they kill another player.
+| {{tc|yes|style=text-align:center}}
+|-
+| totalKillCount
+| Score increments automatically for a player when they kill another player or a mob.
+| {{tc|yes|style=text-align:center}}
+|-
+| health
+| Ranges from 0 to 20 on a normal player; represents the amount of half-hearts the player has. May appear as 0 for players before their health has changed for the first time. Extra hearts and absorption hearts also count to the health score, meaning that with [[Attribute]]s/Modifiers or the [[Health Boost]] or [[Absorption]] status effects, health can far surpass 20.
+| {{tc|no|style=text-align:center}}
+|-
+| xp
+| Matches the total amount of experience the player has collected since their last death (or in other words, their [[score]]).
+| {{tc|no|style=text-align:center}}
+|-
+| level
+| Matches the current experience level of the player.
+| {{tc|no|style=text-align:center}}
+|-
+| food 
+| Ranges from 0 to 20; represents the amount of hunger points the player has. May appear as 0 for players before their foodLevel has changed for the first time.
+| {{tc|no|style=text-align:center}}
+|-
+| air
+| Ranges from 0 to 300; represents the amount of air the player has left from swimming under water, matches the air nbt tag of the player.
+| {{tc|no|style=text-align:center}}
+|-
+| armor
+| Ranges from 0 to 20; represents the amount of armor points the player has. May appear as 0 for players before their armor has changed for the first time.
+| {{tc|no|style=text-align:center}}
+|}
+
+===== <small>Compound criteria</small> =====
+
+:Compound criteria's names are divided into parts, delimited with periods (.). For example, <code>minecraft.killed_by:minecraft.zombie</code> is a valid compound criterion, under which player scores would increment whenever they're killed by zombie.
+
+:All objectives based on compound criteria is writable and can be modified with commands.
+{{#VARDEFINE:VALID_TEAM_COLOURS|
+"black", "dark_blue", "dark_green", "dark_aqua", "dark_red", "dark_purple", "gold", "gray", "dark_gray", "blue", "green", "aqua", "red", "light_purple", "yellow", "white"}}<!--
+-->
+:All '''[[statistic]]s''' can be used as a compound criterion whose name is its [[Statistics#Resource location|identifier]]. Player statistics are stored separately from the scoreboard, and as they update, scores in these objectives are updated in parallel.
+
+:In addition, there are some other compound criteria:
+
+{| class="wikitable" style="width:100%" data-description="Compound criteria"
+! Criteria base name
+! Description
+! Number of sub-criteria
+
+|-
+| teamkill.
+| Sub-criteria include team colors. Player scores increment when a player kills a member of the given colored team.
+
+These criteria follow the complete format <code>teamkill.&lt;team></code>, where <code>&lt;team></code> is a color from the list:
+ {| class="collapsible collapsed collapse-button-none" data-description="Valid team colors"
+ |-
+ ! style="text-align:left" | Accepted ID Names
+ |-
+ |
+{{#VAR:VALID_TEAM_COLOURS}}
+ |}
+| style="text-align:center"|16
+
+|-
+| killedByTeam.
+| Sub-criteria include team colors. Player scores increment when a player has been killed by a member of the given colored team.
+
+These criteria follow the complete format <code>killedByTeam.&lt;team></code>, where <code>&lt;team></code> is a color from the list:
+ {| class="collapsible collapsed collapse-button-none" data-description="Valid team colors"
+ |-
+ ! style="text-align:left" | Accepted ID Names
+ |-
+ |
+{{#VAR:VALID_TEAM_COLOURS}}
+ |}
+| style="text-align:center"|16
+|}
+
+==== Bedrock Edition ====
+
+Currently, <code>dummy</code> is the only criterion supported. As such, score can only be changed by commands.
+
+== Display slots ==
+[[File:Scoreboard Display.png|thumb|250px|An objective with two points to the player is displayed in the "list" slot, while an objective with the display name "Quest Points" with 0 points to the player is displayed in the "sidebar" slot.]]
+
+Via the {{cmd|scoreboard objectives setdisplay}} command ([[#Command reference|see command reference]]), players' scores in specific objectives can be displayed in certain 'slots' in-game. Each 'display slot' can show one objective at a time, and multiple 'display slots' may be used for the same or different objectives.
+
+{| class="wikitable" style="width:100%" data-description="Display slots"
+! width="140" |Slot
+! Description
+|-
+|list|| Displays a yellow number or some hearts ({{cmd|scoreboard objectives modify ? rendertype ?}}) without a heading on the tab menu, where online players are shown.{{only|java}} 
+Displays a white number without a heading on the Pause Menu, where online players are shown.{{only|bedrock}}
+
+Visible even in singleplayer. 
+|-
+|sidebar|| Shows on the right hand side of the screen. Shows up to 15 entities with the highest score of that objective with a heading labeled with the objective's <DisplayName>. Note that players are shown even if offline, and untracked players are not shown. In addition, fake players with names starting with a # do not show up in the sidebar under any circumstances. 
+|-
+|{{nohtml|sidebar.team.<color>}} {{only|java}}|| There are 16 team-specific sidebar display slots. These operate the same as the standard sidebar slot, but only display to players who are on teams which use the specified color (for example, "sidebar.team.green" displays to players on "green" teams). Valid colors are: {{#VAR:VALID_TEAM_COLOURS}}.
+|-
+|belowName|| Shows the <Score> followed by the objective's <DisplayName> below the player's nametag above their head. This is hidden beyond ~10 blocks and when the player is [[sneaking]]. Not visible in singleplayer.
+|-
+|}
+
+== Tags ==
+{{main|Commands/tag}}
+Tags are a simple list of single-word strings stored directly in the [[Chunk format#Entity format|{{nbt|list|Tags}}]] [[Commands#Data tags|data tag]] of an entity. As with objectives, tags are case-sensitive.
+
+Target selectors can be used to check whether an entity has a tag with the [[Target selectors#Selecting targets by tag|"tag" argument]].
+
+== Teams ==
+{{redirect|team|the command|Commands/team}}
+{{exclusive|java|section=1}}
+
+A team's all variables are: a name, a display name, a member name prefix, a member name suffix, a boolean allow friendly fire option, and a list of players who are on the team.
+
+A team's '''Name''' is used internally for reference in commands, target arguments, and the file format. It is a single, case-sensitive word.
+
+A team's '''DisplayName''' is a JSON text component of one or more case-sensitive word, and is displayed publicly in various situations.
+
+A team's '''Member Name Prefix''' & '''Member Name Suffix''' are inserted before and after the names of players on the team, respectively. Prefixes and suffixes are used in the chat, the active players list, the sidebar, and above team members' heads. These can be edited with respective commands.
+
+The '''AllowFriendlyFire''' option controls whether or not members of a team are able to damage each other. This defaults to ''true'', leaving [[PvP]] mechanics unchanged&mdash;ergo, players can harm their teammates. When set to ''false'', however, players on the same team are prevented from directly damaging each other with melee attacks, bows, and Splash Potions of Harming. Note that players on the same team may still inflict negative status effects on each other with potions, even if <AllowFriendlyFire> is false. Some non-player entities in a team are also affected by this.
+
+It is important to note that each individual team member can only be on one team; teams cannot share entities.
+
+Commands can be used to check whether team members exist by using target selection with the "team" argument. (The '!' character may be placed before a name to check for entities ''not'' on a team.) For example, inputting {{cmd|1=execute if entity @a[team=red]}} into a [[command block]] provides [[comparator]] output if any player exists on the red team. Conversely, {{cmd|1=execute if entity @a[team=!red]}} provides output when there are ''no'' players on the red team. {{cmd|1=execute if entity @a[team=!]}} allows output when ''any'' player is on at least one team, and {{cmd|1=execute if entity @a[team=]}} allows output when ''no'' players are on any teams.
+
+== Command reference ==
+
+'''For more details, see [[Commands/scoreboard]].'''
+
+=== Objectives commands ===
+{| class="wikitable" style="width:100%" data-description="Objectives commands"
+! width="35%" | Commands
+! width="65%" | Description
+|-
+| '''scoreboard objectives list''' || List all existing objectives with their display names and criteria. 
+|-
+| '''scoreboard objectives add''' <objective> <criteria> [<displayName>]{{only|java}}<br> '''scoreboard objectives add''' <objective: string> dummy [displayName: string]{{only|bedrock}} || Create a new objective with the given internal objective name, specified criterion, and the optional display name. {{IN|bedrock}}, "dummy" is the only criterion currently supported. <code><displayName></code> defaults to <code><objective></code> when unspecified. See [[#Objectives|above section]] for more on these arguments.
+|-
+| '''scoreboard objectives remove''' <objective>{{only|java}}<br> '''scoreboard objectives remove''' <objective: string>{{only|bedrock}} || Delete all references to the named objective in the scoreboard system. Data is deleted from the objectives list and score holders' scores, and if it was on a display list it is no longer displayed.
+|-
+| '''scoreboard objectives setdisplay''' <slot > [<objective ]{{only|java}}<br> '''scoreboard objectives setdisplay''' <list|<nowiki>sidebar> [objective: string] [ascending|descending]</nowiki>{{only|bedrock}}<br> '''scoreboard objectives setdisplay''' belowname [objective: string]{{only|bedrock}} || Display score info for the objective in the given slot. Valid slots are listed and described in [[#Display_slots|Display Slots]]. {{IN|bedrock}}, if slot is <code>list</code> or <code>sidebar</code>, there is an additional optional argument <code>ascending|descending</code> to specify the sort order. Note that the objective parameter is optional; if no objective is provided, this display slot is cleared (returned to its default state).
+|-
+| '''scoreboard objectives modify''' <objective> '''displayname''' <displayName> {{only|java}}|| Change the display name of the scoreboard in display slots.
+|-
+| '''scoreboard objectives modify''' <objective> '''rendertype''' (hearts<nowiki>|</nowiki>integer) {{only|java}}|| Change the display format of the player list.
+|-
+|}
+
+=== Players commands ===
+
+{| class="wikitable" style="width:100%" data-description="Players commands"
+! width="35%" | Commands
+! width="65%" | Description
+|-
+| '''scoreboard players list''' [<target>]{{only|java}}<br> '''scoreboard players list''' [playername: target]{{only|bedrock}} || Lists all score holders which are tracked in some way by the scoreboard system. The optional <code><target></code> or <code>playername: target</code> parameter is used to list the scores of particular score holders.
+|-
+| '''scoreboard players get''' <target> <objective> {{only|java}} || Return the scoreboard value.
+|-
+|'''scoreboard players set''' <targets> <objective> <score>{{only|java}}<br>'''scoreboard players set''' <player: targets> <objective: string> <count: int>{{only|bedrock}} || Set the targets' scores of the given objective, overwriting any previous score.
+|-
+| '''scoreboard players add''' <targets> <objective> <score>{{only|java}}<br>'''scoreboard players add''' <player: targets> <objective: string> <count: int>{{only|bedrock}} || Increments the targets' scores in that objective by the given amount.
+|-
+| '''scoreboard players remove''' <targets> <objective> <score>{{only|java}}<br>'''scoreboard players remove''' <player: targets> <objective: string> <count: int>{{only|bedrock}} || Decrements the targets' scores in that objective by the given amount.
+|-
+|'''scoreboard players random''' <player: target> <objective: string> <min: int> <max: int> {{only|bedrock}}||Sets the targets' scores in that objective to a random number between min and max, both inclusive.
+|-
+| '''scoreboard players reset''' <targets> [<objective>]{{only|java}}<br>'''scoreboard players reset''' <player: target> [objective: string]{{only|bedrock}} || Deletes score or all scores for the target. If <code><objective></code> is specified, then only that objective is cleared. Otherwise, this applies to all objectives. Note that this does not merely set the score(s) to 0: it removes the targets from the scoreboard altogether (or for the given objective).
+|-
+| '''scoreboard players test''' <player: target> <objective: string> <min: wildcard int> [<max: wildcard int>] {{only|bedrock}} || Tests if targets' scores are within <code>min: wildcard int</code> and <code>max: wildcard int</code> (Defaults to 2,147,483,647). <code>min: wildcard int</code> can be replaced with asterisk (*) to represent -2,147,483,648, and <code>max: wildcard int</code> can be replaced with asterisk (*) to represent 2,147,483,647.
+|-
+| '''scoreboard players enable''' <targets> <objective> {{only|java}} || Enables the target player(s) to use the {{cmd|trigger}} command on the specified objective. This command accepts non-player entities, but only players are able to actually use the {{cmd|trigger}} command. Until this has been done, players that attempt to {{cmd|trigger}} that objective fail. Using the {{cmd|trigger}} command disables it again. Note that if the target(s) did not previously have a score for the specified objective, this command will set their score to 0.
+|-
+| '''scoreboard players operation''' <targets> <targetObjective> <operation> <source> <sourceObjective>{{only|java}}<br>'''scoreboard players operation''' <player: target> <targetObjective: string> <operation: operator> <selector: target> <objective: string>{{only|bedrock}} || Applies an arithmetic operation altering the targets' score(s) in the target objective, using sources' scores in the source objective as input.
+
+<operation> may be:
+* "+=" Addition: Add source's score to that of target
+* "-=" Subtraction: Subtract source's score from that of target
+* "*=" Multiplication: Set target's score to the product of target's and source's scores
+* "/=" (Integer) Division: Divide target's score by source's score, and use the result (rounded down) to set the target score.
+* "%=" Modulus: Divide target's score by source's score, and use the remainder to set the target score
+* "=" Assign: Set target's score to that of source
+* "<" Min: Set target's score to source's score only if source has the lesser score.
+* ">" Max: Set target's score to source's score only if source has the greater score.
+* "><" Swaps target's and source's scores
+In all cases except "><", source's score remains unchanged. If target or source isn't tracked by the specified objective, it will be set to 0. If more than one score holder is specified as sources, performs the operation once with each source's score. If more than one target score holder is specified, performs the operation for each target one by one.
+|}
+
+=== Tags commands ===
+{{main|Commands/tag}}
+
+=== Teams commands ===
+{{exclusive|java|section=1}}
+{{main|Commands/team}}
+
+== NBT format ==
+{{exclusive|java|section=1}}
+
+The file '''scoreboard.dat''' in the 'data' folder of a Minecraft world stores the scoreboard data for that world as a GZip'd [[NBT]] file:
+
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+**{{nbt|compound|data}}: The scoreboard data.
+***{{nbt|list|Objectives}}: A list of compound tags representing objectives.
+**** {{nbt|compound}} An objective.
+***** {{nbt|string|CriteriaName}}: The '''criterion''' of this objective.
+***** {{nbt|string|DisplayName}}: The '''display name''' of this objective in JSON. If none was specified during the objective's creation, this is set to <code>{"text":"''Value of Name''"}</code>.
+***** {{nbt|string|Name}}: The internal '''name''' of this objective.
+***** {{nbt|string|RenderType}}: The way the score is displayed. Can be "integer" or "hearts", but defaults to "integer".
+*** {{nbt|list|PlayerScores}}: A list of compound tags representing scores tracked by the scoreboard system.
+**** {{nbt|compound}} A tracked player/objective pair with a score.
+***** {{nbt|int|Score}}: The score this player has in this objective.
+***** {{nbt|string|Name}}: The name of the player who has this score in this objective.
+***** {{nbt|string|Objective}}: The internal '''name''' of the objective which this player has this score in.
+***** {{nbt|byte|Locked}}: 1 or 0 (true/false) - false if this objective is "enabled". Only meaningful for objectives with the criteria "trigger", where this must be false before a player can use the /trigger command on it.
+*** {{nbt|list|Teams}}: A list of compound tags representing teams.
+**** {{nbt|compound}} A Team.
+***** {{nbt|byte|AllowFriendlyFire}}: 1 or 0 (true/false) - true if players on this team can harm each other.
+***** {{nbt|byte|SeeFriendlyInvisibles}}: 1 or 0 (true/false) - true if players on this team can see invisible teammates.
+***** {{nbt|string|NameTagVisibility}}: The value of the nametagVisibility option of this team.
+***** {{nbt|string|DeathMessageVisibility}}: The value of the deathMessageVisibility option of this team. Valid options are: never, hideForOtherTeams, hideForOwnTeam, always
+***** {{nbt|string|CollisionRule}}: The value of the collisionrule option of this team. Valid options are: always, pushOwnTeam, never, pushOtherTeams
+***** {{nbt|string|DisplayName}}: The '''display name''' of this team in JSON. If none was specified during the team's creation, this is set to <code>{"text":"''Value of Name''"}</code>.
+***** {{nbt|string|Name}}: The internal '''name''' of this team.
+***** {{nbt|string|MemberNamePrefix}}: The '''prefix''' prepended to names of players on this team. In JSON format.
+***** {{nbt|string|MemberNameSuffix}}: The '''suffix''' appended to names of players on this team. In JSON format
+***** {{nbt|string|TeamColor}}: The text-based color ("black", "dark_blue", etc.) given to the team. Does not exist if no color is set.
+***** {{nbt|list|Players}}: A list of names of players on this team.
+****** {{nbt|string}} The name of a player on this team.
+*** {{nbt|compound|DisplaySlots}}: A set of slots which are displaying specific objectives. If a slot is empty, its tag is not present.
+****{{nbt|string|slot_''n''}}: The internal '''name''' of the objective displayed (see below).
+</div>
+
+{| class="wikitable"
+|+Display slots
+! No.!!Type!!Name
+|-
+|0||Player list|| list
+|-
+| 1||On the sidebar||sidebar
+|-
+|2 ||Below the player's username||belowName
+|-
+|3|| rowspan="16" | Team color||sidebar.team.black
+|-
+|4||sidebar.team.dark_blue
+|-
+|5 || sidebar.team.dark_green
+|-
+|6||sidebar.team.dark_aqua
+|-
+|7||sidebar.team.dark_red
+|-
+|8||sidebar.team.dark_purple
+|-
+|9||sidebar.team.gold
+|-
+| 10||sidebar.team.gray
+|-
+| 11||sidebar.team.dark_gray
+|-
+|12||sidebar.team.blue
+|-
+|13||sidebar.team.green
+|-
+|14|| sidebar.team.aqua
+|-
+| 15||sidebar.team.red
+|-
+|16||sidebar.team.light_purple
+|-
+| 17|| sidebar.team.yellow
+|-
+|18||sidebar.team.white
+|}
+
+==History==
+
+{{History|java}}
+{{History||1.5|snap=13w04a|Added scoreboard.}}
+{{History|||snap=13w05a|Added team-based functionality.}}
+{{History||1.7.2|snap=13w36a|Added statistic-based objective criteria.}}
+{{History||1.8|snap=14w02a|Entities other than players can now be part of teams and have objective scores.}}
+{{History|||snap=14w06a|Added the <code>trigger</code> and team kill-based objective criteria.
+|Added <code>/scoreboard players enable</code>.
+|"*" can be used in a player name argument to represent all players tracked by the scoreboard.
+|Added the "objective" argument to <code>/scoreboard players reset</code>.
+|Statistic objective criteria now use named IDs instead of numerical IDs.
+|Added the <code>achievement.overpowered</code> objective criterion.}}
+{{History|||snap=14w07a|Added <code>/scoreboard players operation</code> and <code>/scoreboard players test</code>.
+|Scores for fake players that have a name beginning with "#" won't appear in the sidebar.
+|Added team-specific sidebar display slots.|Added the <code>nametagVisibility</code> team option.}}
+{{History|||snap=14w10a|Added the <code>deathMessageVisibility</code> team option.
+|Added a <code>dataTag</code> argument to  <code>/scoreboard players set</code>, <code>/scoreboard players add</code>, and <code>/scoreboard players remove</code>.
+|Added the <code>stat.crouchOneCm</code>, <code>stat.sprintOneCm</code>, and <code>stat.timeSinceDeath</code> objective criteria.}}
+{{History|||snap=14w25a|Added <code><nowiki>=</nowiki></code>, <code><</code>, and <code>></code> to <code>/scoreboard players operation</code>.}}
+{{History|||snap=14w29a|Player/entity names in the sidebar are now secondarily sorted by alphabetical order.}}
+{{History|||snap=14w30a|Added the <code>stat.talkedToVillager</code> and <code>stat.tradedWithVillager</code> objective criteria.}}
+{{History|||snap=unknown|Added <code>><</code> to <code>/scoreboard players operation</code>.}}
+{{History||1.8.2|Added the <code>stat.cauldronFilled</code>, <code>stat.cauldronUsed</code>, <code>stat.armorCleaned</code>, <code>stat.bannerCleaned</code>, <code>stat.brewingstandInteraction</code>, <code>stat.beaconInteraction</code>, <code>stat.dropperInspected</code>, <code>stat.hopperInspected</code>, <code>stat.dispenserInspected</code>, <code>stat.noteblockPlayed</code>, <code>stat.noteblockTuned</code>, <code>stat.flowerPotted</code>, <code>stat.trappedChestTriggered</code>, <code>stat.enderchestOpened</code>, <code>stat.itemEnchanted</code>, <code>stat.recordPlayed</code>, <code>stat.furnaceInteraction</code>, <code>stat.craftingTableInteraction</code>, <code>stat.chestOpened</code> objective criteria.}}
+{{History||1.9|snap=15w32a|Added the <code>stat.sneakTime</code> objective criteria.}}
+{{History|||snap=15w32b|Added <code>/scoreboard players tag</code>.
+|Added the <code>xp</code>, <code>food</code>, and <code>air</code> objective types.}}
+{{History|||snap=15w33a|Added the <code>stat.pickup</code> and <code>stat.drop</code> objective criteria.
+|Added the <code>armor</code>, <code>level</code> objective types.}}
+{{History|||snap=15w36a|Added <code>collisionRule</code>.}}
+{{History|||snap=15w49a|Added the <code>stat.aviateOneCm</code> objective criteria.}}
+{{History||1.13|snap=pre7|Added {{cmd|scoreboard objectives modify}}.}}
+{{History|||snap=pre8|Added {{cmd|scoreboard|objectives|modify|<''objectiveName''>|rendertype|''hearts''|link=none}}, which makes health bars display as hearts, like this: {{Healthbar|12|total=20}}.
+|Added {{cmd|scoreboard|objectives|modify|<objectiveName>|rendertype|''integer''|link=none}}, which makes health bars display as yellow numbers.
+|Objective names are now text components, not raw strings.}}
+{{History||1.13.1|snap=18w31a|Changed the scoreboard operator {{code|%{{=}}}} from using {{code|%}} to {{code|Math.floorMod}}.}}{{History||1.18|snap=21w37a|Removed 16-character length limits for scoreboards, score holders and team names.}}
+{{History|upcoming java}}
+{{History||1.20.2|snap=23w31a|The {{cd|belowName}} display slot selector is now {{cd|below_name}}.}}
+{{History|bedrock}}
+{{History||1.7.0|snap=beta 1.7.0.2|Added basic scoreboard mechanics.
+|Added dummy scoreboards.}}
+{{History|foot}}
+
+==Issues==
+{{issue list}}
+
+==Gallery==
+<gallery>
+Dirt Dug Dinnerbone.png|A "dirt dug" scoreboard.
+Pigs Killed Dinnerbone.png|A "pigs killed" scoreboard.
+Deaths by Zombie Dinnerbone.png|A "deaths by zombie" scoreboard.
+Scoreboard Objectives.png|A long list of scoreboard objectives.
+</gallery>
+
+==References==
+{{reflist}}
+
+{{Gameplay}}
+{{Java Edition}}
+
+[[de:Anzeigetafel]]
+[[es:Marcador]]
+[[fr:Tableau de score]]
+[[ja:スコアボード]]
+[[ko:스코어보드]]
+[[nl:Scorebord]]
+[[pl:Tablica wyników]]
+[[pt:Placar]]
+[[ru:Система счёта игровых событий]]
+[[uk:Табло]]
+[[zh:记分板]]

@@ -1,0 +1,270 @@
+{{about|the throwable item|the enchantment in ''Minecraft Dungeons''|MCD:Snowball}}
+{{ItemEntity
+|image=Snowball.png
+|renewable=Yes
+|stackable=Yes (16)<br>
+Yes (64){{upcoming|java Combat Tests}}
+|size=Height: 0.25 Blocks<br>Width: 0.25 Blocks
+}}
+
+'''Snowballs''' are throwable combat items that hit but do not damage most [[Mob|mobs]] on impact.
+
+== Obtaining ==
+{{see also|Tutorials/Snow farming}}
+
+=== Mining ===
+A [[shovel]] without the [[Silk Touch]] enchantment can get 4 snowballs by breaking a [[snow block]], and 1–8 snowballs by breaking or blasting [[snow layer]]s – one per layer. The [[Fortune]] enchantment does not affect these amounts.
+
+{{IN|bedrock}}, snowballs are dropped from snow layers even when mined with a Silk Touch shovel.<ref>{{bug|MCPE-59729||Snow layers don't drop themselves when mined with a silk touch enchanted shovel}}</ref>
+
+==== Explosions ====
+Creeper and TNT [[explosion]]s leave snowballs in the resulting debris field if near snow.
+
+==== Ravagers ====
+{{IN|BE}}, Ravagers destroy snow layers, dropping snowballs.
+
+==== Pistons ====
+{{IN|BE}}, a block or piston head pushed into the position of snow layers destroys the snow layers, dropping snowballs. 1-3 layers drops 1 snowball, 4-5 layers drops 2 snowballs, 6-7 layers drops 3 snowballs and 8 layers drops 4 snowballs.
+
+=== Mob loot ===
+[[Snow golem]]s drop 0–15 snowballs upon death, unaffected by [[Looting]].
+
+=== Chest loot ===
+{{LootChestItem|snowball}}
+
+== Usage ==
+
+=== Crafting ingredient ===
+{{crafting usage}}
+
+=== Combat ===
+[[File:Throwing a snowball on a pig.gif|300px|thumbnail|right|Throwing a snowball on a pig animation.]]
+Snowballs can be thrown by {{control|using}} them. There is no charging time or cooldown for firing them,{{Until|java Combat Tests}} meaning they can be thrown as fast as the player can click.
+
+Like other projectiles, snowballs are affected by gravity: their range is the same as those of [[egg]]s and [[ender pearl]]s, less than that of [[arrow]]s fired from [[bow]]s, and more than that of [[splash potion]]s. In [[Bedrock Edition]], players will receive damage and will be knockbacked.
+
+Snowballs deal {{hp|3}} each to [[blaze]]s but they deal no damage to other mobs. Mobs still receive knockback and act the same as if they were being damaged (for example, [[zombified piglin]]s who are hit by snowballs become aggressive). Players {{in|BE}} receive knockback, while players {{in|JE}} are unaffected.<ref>{{bug|MC-3179|||WAI}}</ref>{{Until|java Combat Tests}}
+
+When fighting the [[ender dragon]], [[end crystal]]s are able to be destroyed by snowballs being thrown at them.
+
+Snowball, like other projectiles, can be used to distract the [[warden]]. A warden walks towards the location where the snowball lands to inspect it, giving the player time to escape. However, if snowballs are fired too frequently (at least twice in 5 seconds), the warden walks straight to the player instead.
+
+In [[Bedrock Edition]], snowballs fired at a target through [[fire]] or [[lava]] will hurt and burn the target.
+
+=== Dispenser ===
+Snowballs can be fired from [[dispenser]]s.
+
+=== Feeding ===
+[[Happy Ghast|ghastlings]] can be fed with snowballs, in order to grow up into happy ghasts in a short amount of time. Like all [[Animal|animals]], holding snowballs will attract any nearby ghastlings and happy ghasts towards the player.
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Thrown snowballs use the Friendly Creatures sound category for entity-dependent sound events.
+{{Sound table
+|rowspan=3
+|sound=Bow shoot.ogg
+|subtitle=Snowball flies
+|source=neutral
+|description=When a player throws a snowball
+|id=entity.snowball.throw
+|translationkey=subtitles.entity.snowball.throw
+|volume=0.5
+|pitch={{frac|1|3}}-0.5
+|distance=16}}
+{{Sound table
+|subtitle=Snowball flies
+|source=neutral
+|description=When a snow golem shoots a snowball
+|id=entity.snow_golem.shoot
+|translationkey=subtitles.entity.snowball.throw
+|volume=1.0
+|pitch={{frac|1|3}}-0.5
+|distance=16}}
+{{Sound table
+|subtitle=Dispensed item
+|source=block
+|description=When a dispenser shoots a snowball
+|id=block.dispenser.launch
+|translationkey=subtitles.block.dispenser.dispense
+|volume=1.0
+|pitch=1.2
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|rowspan=3
+|sound=Bow shoot.ogg
+|source=player
+|description=When a player throws a snowball
+|id=random.bow
+|volume=0.5
+|pitch=0.33-0.5}}
+{{Sound table
+|source=neutral
+|description=When a snow golem shoots a snowball
+|id=mob.snowgolem.shoot
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|source=player
+|description=When a dispenser shoots a snowball
+|id=random.bow
+|volume=1.0
+|pitch=0.83-1.25
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|firstcolumnname=Item
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Snowball
+|spritetype=item
+|nameid=snowball
+|form=item
+|foot=1}}
+{{ID table
+|edition=java
+|firstcolumnname=Entity
+|showentitytags=y
+|generatetranslationkeys=y
+|displayname=Snowball
+|spritetype=entity
+|nameid=snowball
+|entitytags=impact_projectiles
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|firstcolumnname=Item
+|shownumericids=y
+|showforms=y
+|notshowbeitemforms=y
+|generatetranslationkeys=y
+|displayname=Snowball
+|spritetype=item
+|nameid=snowball
+|id=374
+|form=item
+|foot=1}} 
+{{ID table
+|edition=bedrock
+|firstcolumnname=Entity
+|shownumericids=y
+|generatetranslationkeys=y
+|displayname=Snowball
+|spritetype=entity
+|nameid=snowball
+|id=81
+|foot=1}}
+
+=== Entity Data ===
+Snowballs have entity data that define various properties of the entity.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{Load advancements|Bullseye}}
+</table-progress-tracking>
+
+== Video ==
+<div style="text-align:center">{{yt|2E-c9P8kyfg}}</div>
+
+==History==
+{{History|java alpha}}
+{{History||v1.0.5|[[File:Snowball JE1 BE1.png|32px]] Added snowballs.
+|Snowballs are used to craft [[snow block]]s.
+|Snowballs could stack up to 64.}}
+{{History||v1.0.5_01|Snowballs now stack to 8.
+|Added a new snowball [[sound]] effect.
+|Harvesting snowballs now requires a [[shovel]].}}
+{{History||v1.0.6|Snowballs now stack up to 16.
+|Thrown snowballs no longer disappear.}}
+{{History||v1.1.1|It is no longer possible to obtain more than four snowballs from a solid [[snow block]] (the [[player]] was previously able to obtain 4-6 snowballs per snow block allowing an infinite number of snowballs to be made).}}
+{{History||v1.2.0|snap=preview|[[Fireball]]s use the same texture as the snowball.}}
+{{History|java beta}}
+{{History||1.2|Snowballs can now be fired by [[dispenser]]s.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease|[[Fireball]]s no longer use the snowball texture.}}
+{{History|||snap=RC1|Snowball throwing sound was changed.}}
+{{History||1.9|snap=15w32a|Snowballs no longer damage the [[ender dragon]].}}
+{{History|||snap=15w36b|Snowballs now produce particles when thrown at an entity.}}
+{{History|||snap=15w49a|Snowballs, as well as all projectiles, now take the thrower's motion into account when fired.}}
+{{History||1.11|snap=16w32a|The entity ID has been changed from <code>Snowball</code> to <code>snowball</code>.}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], this [[item]]'s numeral ID was 332.}}
+{{History||1.14|snap=18w43a|[[File:Snowball JE2 BE2.png|32px]] The texture of snowballs has been changed.}}
+{{History|||snap=18w49a|Snowballs can now be found in [[chest]]s in [[snowy tundra]] [[village]] houses.}}
+{{History|||snap=19w08a|[[File:Snowball JE3 BE3.png|32px]] The texture of snowballs has been changed, once again.}}
+{{History||1.16.2|snap=Pre-Release 1|Snowballs are now affected by [[bubble column]]s.}}
+{{History||1.19|snap=Deep Dark Experimental Snapshot 1|Snowballs now generate in [[ancient city]] chests.}}
+{{History||1.21|Snowballs now generate in some [[Dispenser|dispensers]] in [[Trial Chambers]].}}
+{{History||1.21.6|Snowballs can now be fed to grow [[Happy Ghast|ghastlings]] into [[Happy Ghast|Happy Ghasts]].}}
+{{History|upcoming java}}
+{{History||Combat Tests|snap=Combat Test 4|Snowballs now stack to 64, once again.
+|Snowballs now have 4-tick cooldown and are not rendered for the first 2 ticks to prevent screen flickering.}}
+
+{{History|pocket alpha}}
+{{History||v0.2.0|[[File:Snowball JE1 BE1.png|32px]] Added snowballs. They are currently unobtainable and serve no purpose.}}
+{{History||v0.3.0|Snowballs now drop as an item when mining [[snow block]]s and [[snow layer]]s.
+|Snowballs can be used to craft [[snow block]]s.}}
+{{History||v0.4.0|Snowballs can now be thrown.}}
+{{History||v0.11.0|snap=build 14|Snowballs are now available in the [[creative]] inventory.}}
+{{History||v0.12.0|Snowballs now deal [[damage]] to [[blaze]]s.}}
+{{History||v0.12.1|snap=build 1|Added [[snow golem]]s, which [[drops|drop]] snowballs.}}
+{{History|bedrock}}
+{{History||1.2.0|Snowballs now deal knockback to [[player]]s.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Snowball JE2 BE2.png|32px]] The texture of snowballs has been changed.}}
+{{History||1.11.0|snap=beta 1.11.0.1|Snowballs can now be found in some [[snowy tundra]] [[village]] house [[chest]]s.}}
+{{History|||snap=beta 1.11.0.5|[[File:Snowball JE3 BE3.png|32px]] The texture of snowballs has been changed, once again.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|switch=1.0.1|wiiu=Patch 1|[[File:Snowball JE1 BE1.png|32px]] Added snowballs.}}
+{{History||xbox=none|xbone=none|ps=1.90|switch=none|wiiu=none|[[File:Snowball JE3 BE3.png|32px]] The texture of snowballs has been changed.}}
+
+{{History|3DS}}
+{{History||0.1.0|[[File:Snowball JE1 BE1.png|32px]] Added snowballs.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* A thrown snowball faces the player in the first-person view, while it appears horizontally rotated in third-person view. This is the case for all throwable items ([[ender pearl]]s, [[egg]]s, snowballs, and all throwable [[potion]]s).
+
+== References ==
+{{reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/taking-inventory--snowball Taking Inventory: Snowball] – Minecraft.net on August 3, 2019
+
+{{Items}}
+{{entities}}
+
+[[Category:Combat]]
+
+[[cs:Sněhová koule]]
+[[de:Schneeball]]
+[[es:Bola de nieve]]
+[[fr:Boule de neige]]
+[[hu:Hógolyó]]
+[[ja:雪玉]]
+[[ko:눈덩이]]
+[[nl:Sneeuwbal]]
+[[pl:Śnieżka]]
+[[pt:Bola de neve]]
+[[ru:Снежок]]
+[[th:บอลหิมะ]]
+[[uk:Сніжок]]
+[[zh:雪球]]

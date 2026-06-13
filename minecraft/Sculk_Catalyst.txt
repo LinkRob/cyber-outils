@@ -1,0 +1,205 @@
+{{Block
+| image = Sculk Catalyst.png
+| invimage = Sculk Catalyst
+| invimage2 = ----
+| invimage3 = Sculk Catalyst
+| transparent = No
+| light = Yes (6)
+| tool = hoe
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = No
+| lavasusceptible = No
+}}
+A '''sculk catalyst''' is a block that converts blocks around it to blocks in the [[sculk family]] (except for more sculk catalysts) when a [[mob]] that drops [[experience]] dies nearby.
+
+== Obtaining ==
+=== Natural generation ===
+Sculk catalysts are generated within the [[deep dark]] biome.
+
+=== Chest loot ===
+
+{{LootChestItem|sculk-catalyst}}
+
+=== Mob loot ===
+A [[warden]] drops a single sculk catalyst upon death, unaffected by [[Looting]].
+
+=== Breaking ===
+Sculk catalysts can be mined with any tool, but [[hoe]]s are the quickest. It drops 5 [[experience]] and no item if mined without [[Silk Touch]]. It drops itself if mined with any Silk Touch tool.
+{{Breaking row|Sculk Catalyst|Hoe|horizontal=1}}
+
+== Usage ==
+[[File:Sculk Catalyst Bloom BE1.gif|thumb|upright|Sculk catalyst blooming.|alt=Sculk catalyst blooming.]]
+[[File:Sculk Catalyst bloom and spread sculks.gif|thumb|upright|It turns the blocks around the dead Mob into Sculk or Sculk Vein.]]
+If a mob dies near a sculk catalyst, it can cause a sculk bloom. The catalyst's texture will react, causing a blooming animation. The sculk bloom produces [[sculk]] blocks, [[Sculk Vein|sculk veins]], and [[Sculk Shrieker|sculk shriekers]]. These blocks can be used as decoration or harvested for experience. The sculk bloom also produces [[Sculk Sensor|sculk sensors]], which are useful in redstone contraptions.
+
+For more information, see [[Sculk Growth]].
+
+=== Light source ===
+Sculk catalysts emit a [[light level]] of 6.
+
+== Sounds ==
+=== Generic ===
+{{Sound table/Block/Sculk catalyst}}
+
+=== Unique ===
+{{Edition|Java}}:
+{{Sound table
+|sound=soulspeed1.ogg
+|sound2=soulspeed2.ogg
+|sound3=soulspeed3.ogg
+|sound4=soulspeed4.ogg
+|sound5=soulspeed5.ogg
+|sound6=soulspeed6.ogg
+|sound7=soulspeed7.ogg
+|sound8=soulspeed8.ogg
+|sound9=soulspeed9.ogg
+|sound10=soulspeed10.ogg
+|sound11=soulspeed11.ogg
+|sound12=soulspeed12.ogg
+|sound13=soulspeed13.ogg
+|subtitle=Sculk Catalyst blooms
+|source=block
+|description=When a mob is killed near a sculk catalyst
+|id=block.sculk_catalyst.bloom
+|translationkey=subtitles.block.sculk_catalyst.bloom
+|volume=0.5
+|pitch=0.6-1.0
+|distance=12
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=soulspeed1.ogg
+|sound2=soulspeed2.ogg
+|sound3=soulspeed3.ogg
+|sound4=soulspeed4.ogg
+|sound5=soulspeed5.ogg
+|sound6=soulspeed6.ogg
+|sound7=soulspeed7.ogg
+|sound8=soulspeed8.ogg
+|sound9=soulspeed9.ogg
+|sound10=soulspeed10.ogg
+|sound11=soulspeed11.ogg
+|sound12=soulspeed12.ogg
+|sound13=soulspeed13.ogg
+|source=block
+|description=When a mob is killed near a sculk catalyst
+|id=bloom.sculk_catalyst
+|volume=2.0
+|pitch=0.6-1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Sculk Catalyst
+|spritetype=block
+|nameid=sculk_catalyst
+|foot=1}}
+{{ID table
+|displayname=Block entity
+|spritename=sculk-catalyst
+|spritetype=block
+|nameid=sculk_catalyst
+|foot=1}}
+
+{{el|be}}:
+{{ID table
+|edition=bedrock
+|showforms=y
+|shownumericids=y
+|generatetranslationkeys=y
+|displayname=Sculk Catalyst
+|nameid=sculk_catalyst
+|spritetype=block
+|id=715
+|foot=1}}
+{{ID table
+|notnamespaced=y
+|displayname=Block entity
+|spritename=sculk-catalyst
+|spritetype=block
+|nameid=SculkCatalyst
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+{{/BS}}
+
+=== Block data ===
+A sculk catalyst has a block entity associated with it that holds additional data about the block.
+
+{{el|java}}:
+{{see also|Block entity format}}
+{{/BE}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Block entity format]].
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load advancements|It Spreads}}
+</table-progress-tracking>
+
+== History ==
+{{H||October 3, 2020|link={{ytl|https://youtu.be/DWZIfsaIgtE?|t=2424s}}|[[File:Sculk Catalyst (pre-release).png|32px]] Sculk catalysts are shown at [[Minecraft Live 2020]].}}
+{{H||November 13, 2020|link={{tweet|kingbdogz|1327265084352180224}}|[[File:Sculk Catalyst BE1.png|32px]] The sculk catalyst has a new texture in a tweet from [[Brandon Pearce]].}}
+{{H||April 26, 2021|link={{Tweet|kingbdogz|1386776067046785025}}|[[Kingbdogz]] states that sculk features aren't coming in [[Java Edition 1.17|1.17]].}}
+{{H||October 16, 2021|link={{ytl|https://youtu.be/w6zLprHHZOk}}|Sculk features were delayed to [[Java Edition 1.19|1.19]].
+|[[File:Sculk Catalyst Bloom BE1.gif|32px]] New sculk catalyst functions were shown.}}
+{{H|java}}
+{{H||1.19|snap=Deep Dark Experimental Snapshot 1|[[File:Sculk Catalyst BE1.png|32px]] [[File:Sculk Catalyst Bloom BE1.gif|32px]] Added sculk catalysts.}}
+{{H|||snap=22w11a|Implemented sculk catalysts into normal snapshot.}}
+{{H|||snap=22w17a|[[Warden]]s now drop a single sculk catalyst upon death, making them renewable.}}
+{{H||1.19.1|snap=Pre-release 6|Sculk catalysts now drop five experience instead of 20.}}
+
+{{H|bedrock}}
+{{H||1.17.30|snap=beta 1.17.30.22|"Sculk Catalyst" was mentioned in Bedrock Beta documentation.}}
+{{H|||snap=beta 1.17.30.23|[[File:Sculk Catalyst (top texture) BE1.png|32px]] [[File:Sculk Catalyst (side texture) BE1.png|32px]] [[File:Sculk Catalyst (bottom texture) BE1.png|32px]] [[File:Sculk Catalyst (top bloom texture) BE1.png|16px]] [[File:Sculk Catalyst (side bloom texture) BE1.png|16px]] Sculk Catalyst textures were shown in internal [[Caves & Cliffs]] textures.}}
+{{H||Vanilla Experiments<br>(Experimental)|link=Bedrock Edition 1.19.0|snap=beta 1.18.0.22|[[File:Sculk Catalyst BE1.png|32px]] [[File:Sculk Catalyst Bloom BE1.gif|32px]] Added sculk catalysts.}}
+{{H||Wild Update<br>(Experimental)|link=Bedrock Edition 1.19.0|snap=beta 1.18.10.21|Moved sculk catalysts to the "Wild Update" experimental toggle.}}
+{{H|||snap=beta 1.18.30.22|Sculk catalysts were updated to match Java Edition's behavior.}}
+{{History||1.19.0|snap=beta 1.19.0.20|Sculk catalysts are now available without enabling experimental gameplay.}}
+{{H|||snap=beta 1.19.0.28|Wardens now drop a single sculk catalyst upon death.}}
+{{H||1.19.20|snap=beta 1.19.20.23|Sculk catalysts now drop five experience instead of 20.}}
+{{H|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Gallery ==
+<gallery>
+Slicedlime video sculk catalyst.gif|[[Mikael Hedberg|Slicedlime]] "corrupting" a canyon into sculk block by using sculk catalyst and dying [[skeleton]] in his video.
+Sculk Charge on blocks.png|Sculk charges appear on blocks when mobs' essence (recollected by sculk catalysts) travel on them.
+Sculk catalyst generated in the side of a wall.png|A sculk catalyst generated in a wall.
+Sculk Catalyst (bottom texture) JE1 BE1.png|The bottom texture of the sculk catalyst.
+Sculk Apocalypse.jpg|Lots of sculk from a catalyst.
+Lots of Sculk 1.jpg|Lots of sculk from a catalyst.
+Lots of Sculk 2.jpg|Lots of sculk from a catalyst.
+Lots of Sculk 3.jpg|Lots of sculk from a catalyst.
+</gallery>
+
+== References ==
+{{reflist}}
+
+{{Blocks|utility}}
+
+[[Category:Experimental The Wild Update]]
+[[Category:Natural blocks]]
+[[Category:Utility blocks]]
+[[Category:Light sources]]
+[[Category:Block entities]]
+
+[[de:Sculk-Katalysator]]
+[[es:Catalizador de sculk]]
+[[ja:スカルクカタリスト]]
+[[pl:Sculkowy katalizator]]
+[[pt:Catalisador de sculk]]
+[[ru:Скалк-катализатор]]
+[[zh:幽匿催发体]]

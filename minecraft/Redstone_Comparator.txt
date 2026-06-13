@@ -1,0 +1,553 @@
+{{Block
+| image = 
+| image2 = 
+| transparent = Yes
+| light = No
+| tool = any
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = No
+| lavasusceptible = No
+| group = Redstone Comparator
+| group2 = Subtracting
+| group3 = Powered
+| group4 = Powered+Subtracting
+| 1-1 = Redstone Comparator.png
+| 2-1 = Subtracting Redstone Comparator.png
+| 3-1 = Powered Redstone Comparator.png
+| 4-1 = Powered Subtracting Redstone Comparator.png
+}}
+{{Many images}}
+A '''redstone comparator''' is a [[block]] that can produce an [[Redstone Dust|output signal]] from its front by reading [[chest]]s, [[lectern]]s, [[beehive]]s and similar blocks, or repeat a signal without changing its strength. It can also be set to either stop outputting a signal when its side input receives a stronger one (front torch off), or subtract its side input's signal strength from its output (front torch on).
+
+== Obtaining ==
+=== Natural generation ===
+Redstone comparators generate in [[Ancient City|ancient cities]].
+
+=== Breaking ===
+A redstone comparator can be broken instantly with any [[tool]], or by hand, and drops itself as an item.
+
+{{Breaking row|Redstone Comparator|horizontal=y}}
+
+A redstone comparator is removed and dropped as an item if:
+* its attachment block is moved, removed, or destroyed;
+* [[water]] flows into its space;{{only|java}}
+* a [[piston]] tries to push it or moves a block into its space.
+
+If [[lava]] flows into a redstone comparator's space, the redstone comparator is destroyed without dropping as an item.
+
+=== Crafting ===
+{{Crafting
+|B1=Redstone Torch
+|A2=Redstone Torch
+|B2=Nether Quartz
+|C2=Redstone Torch
+|A3=Stone
+|B3=Stone
+|C3=Stone
+|Output= Redstone Comparator
+|type=Redstone
+}}
+
+== Usage ==
+A redstone comparator can be placed on the top of any [[opaque]] block with a solid full-height top surface (including upside-down [[slab]]s and upside-down [[stairs]]). {{IN|be}}, a comparator can also be placed on [[wall]]s and fences. For more information about placement on transparent blocks, see [[Opacity/Placement]].
+
+The redstone comparator has a front and a back — the arrow on the top of the comparator points to the front. When placed, the comparator faces away from the player. The comparator has two miniature redstone torches at the back and one at the front. The back torches turn on when the comparator's output is greater than zero (the arrow on top also turns red). The front torch has two states that can be toggled by {{control|using}} the comparator:
+* Down and unpowered (indicating the comparator is in "comparison mode")
+* Up and powered (indicating the comparator is in "subtraction mode")
+
+The redstone comparator can take a signal strength input from its rear as well as from both sides. Side inputs are accepted only from [[redstone dust]], [[block of redstone]], [[redstone repeater]]s, other comparators, and [[observer]]s in specific scenarios. The redstone comparator's front is its output.
+
+It takes 1 [[redstone tick]] (2 game ticks, or 0.1 seconds barring lag) for signals to move through a redstone comparator, either from the rear or from the sides. This applies to changing signal strengths as well as simply to turning on and off. 
+
+Redstone comparators check their power state before their scheduled ticks update. This results in redstone comparators not usually responding to 1-tick fluctuations of power or signal strength — for example, a [[clock circuit|1-clock]] input is treated as always off from the side, and always on from the rear. This happens because the signal changes back to its original state before the redstone comparator checks its input states. However, certain setups such as powering any input with two separate observer pulses at the same time will cause a redstone comparator to respond to 2 gametick pulses.
+
+The redstone comparator has four functions: maintain signal strength, compare signal strength, subtract signal strength, and measure certain block states (primarily the fullness of containers).
+
+=== Maintain signal strength ===
+A redstone comparator with no powered sides outputs the same signal strength as its rear input.
+
+=== Compare signal strength ===
+[[File:Comparators Explained.png|Comparators in comparison mode.|thumb]]
+A redstone comparator in comparison mode (front torch down and unpowered) compares its rear input to its two side inputs. If either side input is greater than the rear input, the comparator output turns off. If neither side input is greater than the rear input, the comparator outputs the same signal strength as its rear input.
+
+The formula for calculating the output signal strength is as follows:
+
+<code>output = rear × [[Wikipedia:Iverson bracket|[]]'''''left''''' ≤ '''''rear''''' AND '''''right''''' ≤ '''''rear'''''[[Wikipedia:Iverson bracket|<nowiki>]</nowiki>]]</code>
+{{-}}
+
+=== Subtract signal strength ===
+[[File:Redstone comparator.png|thumb|The greatest of the side inputs A and C is subtracted from the rear input B, outputting 1. If either A or C were greater than B, it would output 0.]]
+A redstone comparator in subtraction mode (front torch up and powered) subtracts the signal strength of the higher side input from the signal strength of the rear input.
+
+<code>output = max('''''rear''''' − max('''''left''', '''right'''''), 0)</code>
+
+For example: if the signal strength is 6 at the left input, 7 at the right input and 4 at the rear, the output signal has a strength of ''max(4 − max(6, 7), 0) = max(4−7, 0) = max(−3, 0) = 0''.
+
+If the signal strength is 9 at the rear, 2 at the right input and 5 at the left input, the output signal has a strength of ''max(9 − max(2, 5), 0) = max(9−5, 0) = 4''.
+
+=== Measure block state ===
+{{Schematic | caption = A redstone comparator can measure the fullness of a chest, as well as other block states, even through an opaque block.
+ |rd-ew!|rc-w!|ch|SB|rc-e!|rd-ew!
+}}
+A redstone comparator treats certain blocks behind it as power sources and outputs a signal strength proportional to the block's state. The comparator may be separated from the measured block by an opaque block. However, {{in|je}}, if the opaque block is powered to signal strength 15, then the comparator outputs 15 no matter the fullness of the container.<ref>{{bug|MC-64394}} (resolved as "Works As Intended")</ref>
+[[Category:Java Edition specific information]]
+{{-}}
+
+==== Fullness of containers ====
+{| class="wikitable floatright" style="margin-left: 0.5em; margin-right: 0; text-align: center;"
+|+ Minimum Items for Container Signal Strength
+|-
+!Containers
+!{{BlockSprite|Furnace|link=Furnace}}<br>{{BlockSprite|Blast Furnace|link=Blast Furnace}}<br>{{BlockSprite|Smoker|link=Smoker}}
+!{{BlockSprite|Hopper|link=Hopper}}<br>{{EntitySprite|Minecart with Hopper|link=Minecart with Hopper}}<br>{{BlockSprite|Brewing Stand|link=Brewing Stand}}
+!{{BlockSprite|Dispenser|link=Dispenser}}<br>{{BlockSprite|Dropper|link=Dropper}}
+!{{BlockSprite|Chest|link=Chest}}<br>{{EntitySprite|Minecart with Chest|link=Minecart with Chest}}<br>{{BlockSprite|Shulker Box|link=Shulker Box}}<br>{{BlockSprite|Barrel|link=Barrel}}
+![[Double Chest|{{Schematic|size=16|ch-s|-|ch-n}}
+]]
+!{{BlockSprite|Jukebox|link=Jukebox}}
+|-
+!Total Slots
+!3!!5!!9!!27!!54!!1
+|-
+!Power Level
+! colspan="5" |Number of Items
+!Music Disc
+|-
+|0||0||0||0||0||0||No disc
+|-
+|1||1||1||1||1||1||"13"
+|-
+|2||14||23||42||1s 60||3s 55||"cat"
+|-
+|3||28||46||1s 19||3s 55||7s 46||"blocks"
+|-
+|4||42||1s 5||1s 60||5s 51||11s 37||"chirp"
+|-
+|5||55||1s 28||2s 37||7s 46||15s 28||"far"
+|-
+|6||1s 5||1s 51||3s 14||9s 42||19s 19||"mall"
+|-
+|7||1s 19||2s 10||3s 55||11s 37||23s 10||"mellohi"
+|-
+|8||1s 32||2s 32||4s 32||13s 32||27s||"stal"
+|-
+|9||1s 46||2s 55||5s 10||15s 28||30s 55||"strad"
+|-
+|10||1s 60||3s 14||5s 51||17s 23||34s 46||"ward"
+|-
+|11||2s 10||3s 37||6s 28||19s 19||38s 37||"11"
+|-
+|12||2s 23||3s 60||7s 5||21s 14||42s 28||"wait"
+|-
+|13||2s 37||4s 19||7s 46||23s 10||46s 19||"Pigstep" 
+"Precipice"
+|-
+|14||2s 51||4s 42||8s 23||25s 5||50s 10||"Otherside"<br>"Relic"
+|-
+|15||3s||5s||9s||27s||54s||"5"
+|}
+A redstone comparator can output a signal indicating how full a container is. (0 for empty, 15 for full, etc.) The table on the right is described more in detail, later in this section.
+
+Containers that can be measured by a comparator include:
+* {{BlockLink|Furnace}}
+* {{BlockLink|Blast Furnace}}
+* {{BlockLink|Smoker}}
+* {{BlockLink|Brewing Stand}}
+* {{BlockLink|Hopper}}
+* {{ItemLink|Minecart with Hopper}} on top of a [[detector rail]]
+* {{BlockLink|Dispenser}}
+* {{BlockLink|Dropper}}
+* {{BlockLink|Chest}}
+* {{BlockLink|Trapped Chest}}
+* {{ItemLink|Minecart with Chest}} on top of a [[detector rail]]
+* {{BlockLink|Barrel}}
+* {{SchematicSprite|size=16|ch-e}}{{SchematicSprite|size=16|ch-w}} Large chest
+* {{SchematicSprite|size=16|ch-e}}{{SchematicSprite|size=16|ch-w}} Large trapped chest
+* {{BlockLink|Shulker Box}} (any color)
+
+Generally speaking, the comparator output signal strength represents the average fullness of the slots, based on how many of that item form a full stack (64, 16, or 1 for non-stackable items).
+
+The ''Minimum Items for Container Signal Strength'' table (right) shows the minimum '''''full-stack-equivalent (FSE)''''' to produce different signal strengths from common containers. A '''''full-stack-equivalent''''' quantifies how many normal 64-stackable items are needed to output a corresponding signal strength. The 's' is a constant 64, with the additional amount needed following after.
+
+One may also consider the terms: '''c''umulative-weight''''' or '''''weighted-sum''''' instead of '''''full-stack-equivalent'''''.
+
+Items that stack to a max of 16  ([[snowball]]s, [[sign]]s, [[ender pearl]]s, etc.), contribute +4 to the ''full-stack-equivalent'' for each unity (count of 1 item). Similarly, items that stack to 1 ([[minecart]], [[boat]], etc.) contribute +64, and items that stack to 64 contribute +1.
+
+Example 1: 3 ender pearls will contribute a 3 x 4 = 12 ''full-stack-equivalent''.
+
+Example 2: 16 ender pearls and 60 redstone dust contributes a 16x4 + 60x1 = 124 ''full-stack-equivalent''.
+
+Example 3: 1 minecart and 60 redstone dust contributes a 1x64 + 60x1 = 124 ''full-stack-equivalent''.
+
+Example 4: To produce a signal strength of 10 from a hopper, one requires a ''full-stack-equivalent'' of at least 3s + 14 = 206 but strictly less than than 3s + 37 = 229. This can be done with 3 minecarts, and 14 dirt.
+
+When a comparator measures a large chest or large trapped chest, it measures the entire large chest (54 slots), not just the half directly behind the comparator. A chest or trapped chest that cannot be opened (either because it has an opaque block, [[ocelot]], or [[cat]] above it) always produces an output of 0 no matter how many items are in the container — shulker boxes can always be measured, even if they cannot open.
+
+;Calculating signal strength from items
+
+:When a container is empty, the output is off.
+
+:When it is not empty, the output signal strength is calculated as follows:
+
+:<code>'''''signal strength''''' = floor(1 + (('''''sum of all slots' fullnesses''''') / ('''''number of slots in container''''')) × 14)</code>
+
+:<code>fullness of a slot = '''''number of items in slot''''' / '''''max stack size for this type of item'''''</code>
+
+:''Example:'' 300 blocks in a dispenser (which has 9 slots), where each block stacks to a maximum of 64 has a 300 ''full-stack-equivalent.'' This produces an output with a signal strength of 8:
+<blockquote>
+1 + ((300 items / 64 items per slot) / 9 slots) × 14 = 8.292, floored is 8
+</blockquote>
+
+;Calculating items from signal strength
+
+:It can be useful in redstone circuits to use containers with comparators to create signals of a specific strength. The number of items required in a container to produce a signal of desired strength is calculated as follows:
+
+:<code>items required = max('''''desired signal strength''''', roundup(('''''total slots in container''''' × 64 / 14) × (desired signal strength − 1)))</code>
+
+:''Example:'' To use a furnace (which has 3 slots) to create a strength 9 signal, players need 110 items:
+<blockquote>
+max(9, (3×64/14) × (9−1)) = 109.714, rounded up is 110
+</blockquote>
+{{-}}
+
+==== Miscellaneous ====
+[[File:Comparator storage.png|Comparators used to measure containers.|thumb]]
+Some non-container blocks can also be measured by a redstone comparator:
+
+;{{BlockLink|Beehive}} and {{BlockLink|Bee nest}}
+
+: A hive or nest outputs a signal strength equal to the amount of honey in the hive/nest.
+
+;{{BlockLink|Cake}}
+
+: A cake outputs a signal strength relative to the amount of cake remaining.  Each slice is worth 2 signal strength, with 7 total slices, for an output of 14 for a full cake.
+
+[[File:Cauldron Redstone Strength Values.png|Cauldron signal strength|thumb]]
+;{{BlockLink|Cauldron}}
+
+: A cauldron outputs different signal strengths depending on how much water or powdered snow is inside. From completely empty to completely full, the output values are 0, 1, 2, and 3. If lava or powder snow is inside, the strength is always 3.
+
+[[File:Composter Redstone Strength Values.png|Composter signal strength|thumb]]
+;{{BlockLink|Composter}}
+
+: A composter outputs different signal strengths depending on the level inside. From completely empty to completely full, the output values are 0, 1, 2, 3, 4, 5, 6, 7 and 8.
+
+;{{Anchor|CommandBlock}}{{BlockLink|Command Block}}
+
+: A command block stores the "success count" of the last command executed, which represents the number of times the most recently used command of this command block succeeded. A "success" is defined by the [[command]]'s success conditions: if a red error message is returned in the chat, the command was not successful.
+
+: Most commands can succeed once per execution, but certain commands (such as those that accept players as arguments) can succeed multiple times, and the comparator outputs the number of times it succeeded (maximum 15 when sent to redstone dust, but in the code it is able to go up to the 32-bit integer limit, and can be used in contraptions with no redstone dust with those values).
+
+: A command block continues to store the success count of the last command executed until it executes its command again, thus the comparator continues to output the same signal strength even after the command block is no longer being activated (it doesn't turn off when the signal to the command block turns off).
+
+;{{BlockLink|End Portal Frame}}
+
+: An end portal frame outputs a full signal of 15 if it contains an [[eye of ender]] and zero otherwise.
+
+[[File:Item frame and comparator.png|A comparator can measure the presence and rotation of an item frame's contents.|thumb]]
+
+;{{EntityLink|Item Frame}}
+
+: A comparator can measure the state of an [[item frame]]'s contents. An item frame comparator outputs 0 if the item frame is empty, or 1 to 8 for any item depending on its rotation: 1 at initial placement, plus 1 for each 45° of rotation for a maximum of 8.
+
+: For an item frame that holds a map, a unit of rotation is 90° instead of 45°, but a comparator still outputs power levels 1 to 8. It takes two full rotations to cycle through all comparator outputs, and each orientation of the map corresponds to two output levels that differ by 4.
+
+: The comparator must be placed behind the block the item frame is attached to, facing away from the item frame. The block must be a full block, and the item frame cannot be submerged in water. Having a sign in the same block as the item frame will prevent the frame from sending a signal as well.{{only|java}}
+
+;{{BlockLink|Jukebox}}
+
+: A jukebox outputs a signal strength indicating which music disc is currently playing. See the ''Minimum Items for Container Signal Strength'' table above.
+
+;{{BlockLink|Lectern}}
+
+: A lectern outputs a signal strength that depends on what page the player is currently on. The calculation used is:
+:<code>'''''signal strength''''' = floor(1 + (('''''current page''''' - 1) / ('''''number of pages in book''''' - 1)) × 14)</code>
+:This results in page 1 having a signal strength of 1, and the last page having a signal strength of 15. The exception is a single page book, which will output a signal strength of 15.
+:For example, a book with 15 pages will output a signal equal to the current page number.  A book with 5 pages will output signal strengths of 1, 4, 8, 11 and 15 for the different pages. A book with 100 pages will have the signal strength increase to the next level on pages 1, 9, 16, 23, 30, 37, 44, 51, 58, 65, 72, 79, 86, 93 and 100.
+:
+
+;{{BlockLink|Respawn Anchor}}
+
+: A respawn anchor outputs a signal strength of 0, 3, 7, 11, or 15, depending on the "charged" value.
+
+;{{BlockLink|Sculk Sensor}}
+
+: A sculk sensor outputs a signal strength depending on the type of vibration that is detected.
+
+;{{BlockLink|Chiseled Bookshelf}}
+
+: A chisled bookshelf outputs a signal strength between 1 and 6 indicating the last slot interacted with. When no slot has been interacted with yet, it outputs 0.
+{{-}}
+
+== Sounds ==
+=== Generic ===
+{{Edition|Java}}:
+{{Sound table/Block/Stone/JE}}
+{{Edition|Bedrock}}:
+{{Sound table/Block/Wood/BE}}
+
+=== Unique ===
+{{edition|java}}:
+{{Sound table
+|rowspan=2
+|sound=Click.ogg
+|subtitle=Comparator clicks
+|source=block
+|description=When a comparator is set to subtraction mode
+|id=block.comparator.click
+|translationkey=subtitles.block.comparator.click
+|volume=0.3
+|pitch=0.55
+|distance=16}}
+{{Sound table
+|subtitle=Comparator clicks
+|source=block
+|description=When a comparator is set to comparison mode
+|id=block.comparator.click
+|translationkey=subtitles.block.comparator.click
+|volume=0.3
+|pitch=0.5
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|rowspan=2
+|sound=Click.ogg
+|source=block
+|description=When a comparator is set to subtraction mode
+|id=block.click
+|volume=0.2
+|pitch=0.55}}
+{{Sound table
+|source=block
+|description=When a comparator is set to comparison mode
+|id=block.click
+|volume=0.2
+|pitch=0.5
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Redstone Comparator
+|spritetype=block
+|nameid=comparator
+|foot=1}}
+{{ID table
+|displayname=Block entity
+|spritename=redstone-comparator
+|spritetype=block
+|nameid=comparator
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|firstcolumnname=Redstone Comparator
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Unpowered block
+|spritename=unpowered-comparator
+|spritetype=block
+|nameid=unpowered_comparator
+|id=149
+|form=block
+|translationkey=-}}
+{{ID table
+|displayname=Powered block
+|spritename=powered-comparator
+|spritetype=block
+|nameid=powered_comparator
+|id=150
+|form=block
+|translationkey=-}}
+{{ID table
+|displayname=Item
+|spritename=redstone-comparator
+|spritetype=item
+|nameid=comparator
+|id=522
+|form=item
+|foot=1}}
+{{ID table
+|notnamespaced=y
+|displayname=Block entity
+|spritename=redstone-comparator
+|spritetype=block
+|nameid=Comparator
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+{{/BS}}
+
+=== Block data ===
+A redstone comparator has a block entity associated with it that holds additional data about the block.
+
+{{el|je}}:
+{{see also|Block entity format}}
+{{/BE}}
+
+{{el|be}}:
+: See [[Bedrock Edition level format/Block entity format]].
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{Load advancements|the power of books}}
+</table-progress-tracking>
+
+== Video ==
+
+<div style="text-align:center">{{yt|J7Z20Zzz3yU}}</div>
+
+== History ==
+{{info needed section|If {{bug|MC-50242}} also affected comparators?}}
+''For a more in-depth breakdown of changes to repeater textures and models, including a set of renders for each state combination, see [[/Asset history]]''
+{{History|java}}
+{{History||November 24, 2012|link=https://youtube.com/watch?v=YG9RNyRhIow&t=6m56s|[[Jeb]] stated that there may be a "capacitor" in [[Minecraft]]. }}
+{{History||December 27, 2012|link={{tweet|Dinnerbone|284388625595125760}}|[[Dinnerbone]] released [https://web.archive.org/web/20190710120115/https://imgur.com/a/FBKed pictures] of the first version of the "comparator", stating it was a replacement for the "capacitor" idea that has variable, alternate inputs.}}
+{{History||January 2, 2013|link={{tweet|Dinnerbone|286428595423965184}}|Dinnerbone released one more [http://dinnerbone.com/media/uploads/2013-01/screenshots/2013-01-02_12.06.47.png picture] of the comparator. The picture itself showing a digital-to-analog converter, using the comparator as the main [[block]].}}
+{{History||1.5|snap=13w01a|[[File:Redstone Comparator (S) JE1.png|32px]] [[File:Powered Redstone Comparator (S) JE1.png|32px]] [[File:Subtracting Redstone Comparator (S) JE1.png|32px]] [[File:Powered Subtracting Redstone Comparator (S) JE1.png|32px]] [[File:Redstone Comparator (item) JE1 BE1.png|32px]] Added redstone comparators.
+|Redstone comparators have 0 delay.
+At this point, block ID 149 was used for unpowered comparators, and block ID 150 for powered comparators.}}
+{{History|||snap=13w01b|A delay of 1 game tick ({{frac|1|2}} redstone tick) has now been added to redstone comparators to fix bugs.
+|The ability to measure containers to redstone comparators has now been added.}}
+{{History|||snap=13w02a|[[File:Redstone Comparator (S) JE2.png|32px]] [[File:Powered Redstone Comparator (S) JE2.png|32px]] [[File:Subtracting Redstone Comparator (S) JE2.png|32px]] [[File:Powered Subtracting Redstone Comparator (S) JE2.png|32px]] The appearance of redstone comparators has now been changed - the top texture has changed to show [[quartz]] in the middle and the sides now use the [[smooth stone]] texture rather than the smooth stone slab side texture.
+|The algorithm for measuring containers has now been changed so that redstone comparators output a signal with as few as 1 [[item]] in the container.}}
+{{History|||snap=13w02b|Redstone comparators now treat large [[chest]]s as a single container.}}
+{{History|||snap=13w03a|Redstone comparators now output success count of [[command block]]s.
+|Redstone comparators now measure container [[minecart]]s on [[detector rail]]s.}}
+{{History|||snap=13w04a|Redstone comparators now measure [[jukebox]]es.}}
+{{History|||snap=13w05a|Redstone comparators no longer cause constant [[block]] updates. The delay has now been made consistent, and side input no longer causes a pulse output.
+|Block 150 (later <code>powered_comparator</code>) is no longer used; powered state is now represented by the 8s bit on block 149 (later <code>unpowered_comparator</code>).}}
+{{History|||snap=13w05b|Redstone comparator delay has now been changed from 1 game tick (1/2 [[redstone]] tick) to 2 game ticks (1 redstone tick).}}
+{{History|||snap=13w09c|The redstone signal strength from a redstone comparator next to a [[brewing stand]] with 3 [[water bottle]]s in it is now the same as one with 3 water bottles and 1 ingredient in it.}}
+{{History||1.6.1|snap=13w18a|Redstone comparators now measure [[cauldron]]s and [[end portal frame]]s.}}
+{{History||1.8|snap=14w04a|Redstone comparators now measure [[item frame]]s.}}
+{{History|||snap=14w10a|The torches under redstone comparators have now been shortened, which has changed the underside appearance from [[File:Redstone Comparator UNKVER1 (facing NWU).png|32px]] [[File:Powered Redstone Comparator UNKVER1 (facing NWU).png|32px]] [[File:Subtracting Redstone Comparator UNKVER1 (facing NWU).png|32px]] [[File:Powered Subtracting Redstone Comparator UNKVER1 (facing NWU).png|32px]] to [[File:Redstone Comparator UNKVER2 (facing NWU).png|32px]].}}
+{{History|||snap=14w25a|[[File:Redstone Comparator (S) JE3.png|32px]] [[File:Powered Redstone Comparator (S) JE3.png|32px]] [[File:Subtracting Redstone Comparator (S) JE3.png|32px]] [[File:Powered Subtracting Redstone Comparator (S) JE3.png|32px]] The torches on comparators are now subject to ambient occlusion.
+|Comparators set to subtract mode appear to be powered as well regardless of incoming power. The subtracting-only model still exists and can be achieved through {{cmd|setblock}}.}}
+{{History|||snap=14w25b|[[File:Subtracting Redstone Comparator (S) JE4.png|32px]] [[File:Powered Subtracting Redstone Comparator (S) JE4.png|32px]] The powered front torch when in subtraction mode is now lower.
+|Comparators set to subtract by hand now appear normally again.}}
+{{History|||snap=14w28a|Redstone comparators now measure [[cake]]s.}}
+{{History||1.9|snap=15w42a|With the addition of the [[blaze powder]] fuel slot, [[brewing stand]]s now have 5 slots instead of 4. Their original comparative power values from redstone comparators are listed below:
+{{{!}} class{{=}}"wikitable collapsible collapsed" data-description{{=}}"Original values"
+! Original values
+{{!}}-
+{{!}}
+*0: 0
+*1: 1
+*2: 19
+*3: 37
+*4: 55
+*5: 1s 10
+*6: 1s 28
+*7: 1s 46
+*8: 2s
+*9: 2s 19
+*10: 2s 37
+*11: 2s 55
+*12: 3s 10
+*13: 3s 28
+*14: 3s 46
+*15: 4s
+{{!}}}
+}}
+{{History|||snap=15w47a|Redstone comparators' side inputs now take power from [[redstone block]]s.}}
+{{History||1.13|snap=17w47a|All 3 IDs for the redstone comparator have now been merged into one ID: <code>comparator</code>.
+|Redstone comparators now render their underside, which has changed their undersides from [[File:Redstone Comparator UNKVER2 (facing NWU).png|32px]] to [[File:Redstone Comparator UNKVER3 (facing NWU).png|32px]].
+|Prior to [[1.13/Flattening|''The Flattening'']], these blocks' numeral IDs were 149 and 150, and the [[item]]'s 404.
+|As a result, the formerly unused comparator ID is now technically used again, due to both unpowered and powered versions being merged into a single comparator block ID.}}
+{{History||1.14|snap=18w43a|[[File:Redstone Comparator (S) JE4.png|32px]] [[File:Powered Redstone Comparator (S) JE4.png|32px]] [[File:Subtracting Redstone Comparator (S) JE5.png|32px]] [[File:Powered Subtracting Redstone Comparator (S) JE5.png|32px]] [[File:Redstone Comparator (item) JE2 BE2.png|32px]] The textures of redstone comparators have now been changed.}}
+{{History|||snap=19w02a|Redstone comparators now measure [[lectern]]s.}}
+{{History|||snap=19w03a|Redstone comparators now measure [[composter]]s.}}
+{{History|||snap=19w12b|Redstone comparators can now be placed on [[glass]], [[ice]], [[glowstone]] and [[sea lantern]]s.}}
+{{History||1.15|snap=19w34a|Redstone comparators now measure how much honey is inside [[beehive|bee hive]]s and [[bee nest]]s.}}
+{{History||1.16|snap=20w06a|The way to calculate the input signals of redstone comparators has now been changed.}}
+{{History|||snap=20w11a|The changes to the way of calculating the input signals of redstone comparators from [[Java Edition 20w06a|20w06a]] have now been reverted.}}
+{{History|||snap=20w16a|Redstone comparators now measure [[Pigstep music disc]]s in [[jukebox]]es.}}
+{{History||1.17|snap=20w45a|Redstone comparators now measure [[lava cauldron]]s.}}
+{{History|||snap=20w46a|Redstone comparators now measure [[Cauldron#Holding powder snow|powder snow cauldron‌]]s.}}
+{{History||1.18|snap=21w41a|[[File:Powered Redstone Comparator (S) JE5.png|32px]] [[File:Powered Subtracting Redstone Comparator (S) JE6.png|32px]] The texture of powered redstone comparator have now been changed.}}
+{{History||1.19|snap=22w13a|Redstone comparators now generate as part of [[ancient cities]].}}
+{{History||1.20<br>(Experimental)|link=1.19.3|snap=22w42a|Redstone comparators now measure [[chiseled bookshelves]].}}
+{{History||1.20.2|snap=23w33a|Redstone comparators now use stone sounds instead of wood sounds.<ref>{{bug|MC-182820|||Fixed}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.14.0|snap=build 1|[[File:Redstone Comparator (S) JE2 BE1.png|32px]] [[File:Powered Redstone Comparator (S) JE2 BE1.png|32px]] [[File:Subtracting Redstone Comparator (S) JE2 BE1.png|32px]] [[File:Powered Subtracting Redstone Comparator (S) JE2 BE1.png|32px]]{{verify|Was this the model used?}} [[File:Redstone Comparator (item) JE1 BE1.png|32px]] Added redstone comparators.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Redstone comparators now measure [[end portal frame]]s.}}
+{{History||1.0.5|snap=alpha 1.0.5.0|Redstone comparators now output success count of [[command block]]s.}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Redstone comparators now measure [[shulker box]]es.}}
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|Redstone comparators now measure [[jukebox]]es.
+|Redstone comparators now render their underside, which has changed their undersides from [[File:Redstone Comparator UNKVER1 (facing NWU).png|32px]] to [[File:Redstone Comparator UNKVER3 (facing NWU).png|32px]]}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Redstone Comparator (S) BE.png|32px]] [[File:Powered Redstone Comparator (S) BE.png|32px]] [[File:Subtracting Redstone Comparator (S) BE.png|32px]] [[File:Powered Subtracting Redstone Comparator (S) BE.png|32px]] [[File:Redstone Comparator (item) JE2 BE2.png|32px]] The textures of redstone comparators have now been changed.}}
+{{History||1.11.0|snap=beta 1.11.0.1|Redstone comparators now measure [[smoker]]s, [[blast furnace]]s, [[lectern]]s and [[composter]]s.}}
+{{History||1.18.10|snap=beta 1.18.10.20|[[File:Powered Redstone Comparator (S) JE5.png|32px]] [[File:Powered Subtracting Redstone Comparator (S) JE6.png|32px]] The texture of powered redstone comparator have now been changed.}}
+{{History||1.20.30|snap=beta 1.20.30.20|Redstone comparators now use the <code>minecraft:cardinal_direction</code> [[block state]] instead of <code>direction</code>.}}
+
+{{History|console}}
+{{History||xbox=TU19|xbone=CU7|ps=1.12|wiiu=Patch 1|switch=1.0.1|[[File:Redstone Comparator (S) JE2 BE1.png|32px]] [[File:Powered Redstone Comparator (S) JE2 BE1.png|32px]] [[File:Subtracting Redstone Comparator (S) JE2 BE1.png|32px]] [[File:Powered Subtracting Redstone Comparator (S) JE2 BE1.png|32px]]{{verify|Was this the model used?}} [[File:Redstone Comparator (item) JE1 BE1.png|32px]] Added redstone comparators.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|switch=1.0.1|Redstone comparators can now measure [[item frame]]s.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Redstone Comparator (S) BE.png|32px]] [[File:Powered Redstone Comparator (S) BE.png|32px]] [[File:Subtracting Redstone Comparator (S) BE.png|32px]] [[File:Powered Subtracting Redstone Comparator (S) BE.png|32px]]{{verify|Was this the model used?}} [[File:Redstone Comparator (item) JE2 BE2.png|32px]] The textures of redstone comparators have now been changed.}}
+
+{{History|3ds}}
+{{History||0.1.0|[[File:Redstone Comparator (S) JE2 BE1.png|32px]] [[File:Powered Redstone Comparator (S) JE2 BE1.png|32px]] [[File:Subtracting Redstone Comparator (S) JE2 BE1.png|32px]] [[File:Powered Subtracting Redstone Comparator (S) JE2 BE1.png|32px]]{{verify|Was this the model used?}} [[File:Redstone Comparator (item) JE2 BE2.png|32px]] Added redstone comparators.}}
+{{History|foot}}
+
+=== Redstone comparator "items" ===
+{{:Technical blocks/Redstone Comparator}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* Comparators do not emit redstone particles when powered, unlike redstone torches and repeaters.<ref>{{bug|MC-51692|||WAI}}</ref>
+
+== Gallery ==
+<gallery>
+Dinnerbone Comparator 1.png|Dinnerbone showing how comparators work.
+Dinnerbone Comparator 2.png|Dinnerbone showing how comparators work.
+Dinnerbone Comparator 3.png|Dinnerbone showing how comparators work.
+Dinnerbone Comparators 1.png|A contraption incorporating comparators.
+Dinnerbone Comparators 2.png|Comparators in action.
+Dinnerbone Comparators 3.png|Output specific signals.
+Dinnerbone Comparator Thing.png|Another comparator in use.
+Item Frame Comparator.png|Rotating the torch in the item frame adjusts the comparator's output.
+</gallery>
+
+== References ==
+{{reflist}}
+
+{{Redstone}}
+{{Blocks|Utility}}
+{{Items}}
+
+[[Category:Mechanics]]
+[[Category:Block entities]]
+[[Category:Redstone mechanics]]
+[[Category:Mechanisms]]
+[[Category:Manufactured blocks]]
+[[Category:Non-solid blocks]]
+
+[[de:Redstone-Komparator]]
+[[es:Comparador de redstone]]
+[[fr:Comparateur de redstone]]
+[[hu:Redstone-komparátor]]
+[[ja:レッドストーンコンパレーター]]
+[[ko:레드스톤 비교기]]
+[[nl:Redstonevergelijker]]
+[[pl:Komparator]]
+[[pt:Comparador de redstone]]
+[[ru:Компаратор]]
+[[uk:Редстоуновий компаратор]]
+[[zh:红石比较器]]

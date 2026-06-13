@@ -1,0 +1,180 @@
+{{Dungeons hatnote|type=enchantment}}
+{{enchantment
+| maxlevel = III
+| primaryitems = {{ItemSprite|Chestplate|link=Chestplate}}
+| secondaryitems = {{ItemSprite|Helmet|link=Helmet}}{{ItemSprite|Leggings|link=Leggings}}{{ItemSprite|Boots|link=Boots}}{{ItemSprite|Turtle Shell|link=Turtle Shell}}
+| weight = 1
+}}
+
+'''Thorns''' is an [[armor]] [[enchantment]] that causes attackers to be damaged when they deal damage to the wearer.
+
+[[Guardians]] and [[elder guardians]] have a Thorns-like effect which inflicts damage when their spikes are out. However, this only affects melee damage, whereas the enchantment applies to all direct attacks, including ranged.
+
+== Usage ==
+While wearing any piece of armor with the Thorns enchantment, the wearer has a <code>Level × 15%</code> chance of inflicting {{hp|1}}&ndash;{{hp|4}} damage on anyone who attacks them, regardless of whether they were hit by a melee attack, arrow, or other projectile. If the entity dies as a result of this damage, the death message, <code><player> was killed trying to hurt <entity></code> is displayed. The entity also gets knocked back when being attacked by the enchantment.{{only|java|short=1}}<ref>{{bug|MCPE-56212}}</ref>
+
+Multiple worn armor items with the Thorns enchantment do stack. Each piece confers an independent chance to deal damage to the attacker as described above. The total amount of damage that can be dealt this way is capped at {{hp|4}}. 
+
+Probabilities of inflicting maximum damage and average damage dealt depending on the number of items with Thorns III worn are as follows: 
+{| class="wikitable"
+|+
+!Items with Thorns III
+!Probability of max. damage {{hp|4}}
+!Average damage dealt
+|-
+|1
+|11.25%
+|{{hp|1.125}}
+|-
+|2
+|28.83%
+|{{hp|1.997}}
+|-
+|3
+|46.33%
+|{{hp|2.637}}
+|-
+|4
+|61.18%
+|{{hp|3.09}}
+|}
+Thorns applies a durability penalty to the armor. It reduces durability by an additional 2 points when inflicting damage. If multiple armor pieces are enchanted with Thorns, the durability penalty is applied to one piece chosen at random, regardless of what level of Thorns that piece has. If the item is also enchanted with [[Unbreaking]], the damage penalty has a chance of being ignored. 
+
+If a projectile is launched toward an opponent equipped with Thorns, using a shield damages the shield instead of the player when the projectile hits the opponent.
+
+Using [[command]]s, the enchantment level can be increased. The maximum possible chance of dealing damage is 100% (at level 7). If the level of Thorns exceeds 10, then it deals <code>Level - 10</code> damage.
+
+== Obtaining ==
+In addition to normal [[enchanting]], Thorns I and II can be obtained naturally from drops, fishing, [[Trading#Librarian|trading]] with a [[villager]] or as loot from [[generated structures]].
+
+Thorns III cannot be directly obtained using an [[enchanting table]], but can be obtained by using an anvil to combine two Thorns II enchantments. It is also possible to obtain Thorns III as a trade from a [[Trading#Librarian|Librarian]].
+
+A Thorns III enchanted book can be found within the following structures:
+
+'''Underground structures''' 
+
+* [[Mineshaft]] 
+* [[Stronghold]] 
+
+'''Underwater structures'''
+
+* [[Ocean Ruins]]
+
+'''Aboveground structures'''
+
+* [[Desert Pyramid]]
+* [[Jungle pyramid|Jungle Pyramid]]{{only|java|short=1}} or [[Jungle pyramid|Jungle Temple]]{{only|bedrock|short=1}} 
+* [[Pillager Outpost]]
+* [[Woodland Mansion]]
+
+'''Miscellaneous structures'''
+
+* [[Dungeon]] 
+
+Pieces of armor enchanted with Thorns III can be found within the following structures: 
+
+'''Underwater structures''' 
+
+* [[Shipwreck]] 
+
+'''Small structures''' 
+
+* [[Ruined Portal]] 
+
+'''The Nether''' 
+
+* [[bastion remnant|Bastion Remnant]] 
+
+* [[ruined portal|Ruined Portal]] 
+
+'''The End'''
+
+* [[end city|End City]]
+
+==Unaffected mobs==
+
+[[Evoker]] fangs,<ref>{{bug|MC-225312}}</ref> [[llama]]s,<ref>{{bug|MC-234880}}</ref> [[goat]]s<ref>{{bug|MC-223301}}</ref> and [[warden]]s with sonic boom attacks are not affected by this enchantment.<ref>{{bug|MC-250157|||Works As Intended }}</ref>
+
+== Sounds ==
+{{edition|java}}:
+{{Sound table
+|sound=Thorns1.ogg
+|sound2=Thorns2.ogg
+|sound3=Thorns3.ogg
+|sound4=Thorns4.ogg
+|subtitle=Thorns prick
+|source=player
+|description=When a player<wbr>{{more info|is it other entities too?}} is damaged by something with Thorns
+|id=enchant.thorns.hit
+|translationkey=subtitles.enchant.thorns.hit
+|volume=1.0 <ref group=sound>Dependent upon the entity being damaged, but it is usually 1.0</ref>
+|pitch=0.8-1.2
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Thorns1.ogg
+|sound2=Thorns2.ogg
+|sound3=Thorns3.ogg
+|sound4=Thorns4.ogg
+|source=player
+|description=When an entity is damaged by something with Thorns<wbr>{{Upcoming|BE 1.20.30}}<wbr><ref group=sound>{{Bug|MCPE-37335|||Invalid}}</ref>
+|id=damage.thorns
+|volume=0.5
+|pitch=1.0
+|foot=1}}
+
+== Data values ==
+
+=== ID ===
+
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|nameid=thorns
+|displayname=Thorns
+|translationtype=enchantment
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=1
+|generatetranslationkeys=bedrock
+|nameid=thorns
+|displayname=Thorns
+|id=5
+|translationtype=enchantment
+|foot=1}}
+
+== Video ==
+{{yt|gaYww0HMLyA|align=inline}}
+
+== History ==
+
+{{History|java}}
+{{History||1.4.6|snap=12w50a|Added Thorns.}}
+{{History||1.9|snap=15w42a|When multiple pieces of Thorns [[armor]] are worn, one is chosen at random to lose [[item durability|durability]] instead of always using the "bottommost" piece.}}
+{{History|||snap=15w47b|[[Sound]]s for Thorns have been added.}}
+{{History||1.16.2|snap=20w28a|Thorns now takes away less durability.<ref>{{bug|MC-34661}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.12.1|snap=build 1|Added Thorns.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== References ==
+
+{{Reflist}}
+
+{{Enchantments}}
+
+[[de:Dornen]]
+[[es:Espinas]]
+[[ja:棘の鎧]]
+[[pt:Espinhos]]
+[[th:สะท้อน]]
+[[zh:荆棘]]

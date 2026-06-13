@@ -1,0 +1,2124 @@
+{{Exclusive|bedrock}}
+
+A '''spawn event''', also known as a '''mob event''', is a way to spawn entities under certain event conditions. Spawn events are used in commands such as [[Commands/summon|/summon]] and [[Commands/event|/event]].
+
+== List of spawn events ==
+{| class="wikitable sortable" data-description="List of entity Spawn events (bedrock only)"
+! Event !! class="unsortable" | Explanation !! Can be applied to
+|-
+| {{cd|abort_sheltering}}
+| Entity is no longer seeking shelter
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|admire_item_started_event}}
+| Entity starts admiring item
+|{{flatlist|
+* {{EntityLink|Piglin}}
+}}
+|-
+| {{cd|admire_item_stopped_event}}
+| Entity stops admiring item
+|{{flatlist|
+* {{EntityLink|Piglin}}
+}}
+|-
+| {{cd|ageable_grow_up}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Dolphin}}
+* {{EntityLink|Tadpole}}
+}}
+|-
+| {{cd|attack_cooldown_complete_event}}
+| Entity has completed attack cooldown
+|{{flatlist|
+* {{EntityLink|Axolotl}}
+* {{EntityLink|Goat}}
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Piglin}}
+}}
+|-
+| {{cd|attacked}}
+| Entity is attacked
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|become_angry}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Dolphin}}
+}}
+|-
+| {{cd|become_angry_event}}
+| Entity has become angry
+|{{flatlist|
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Piglin}}
+* {{EntityLink|Piglin Brute}}
+}}
+|-
+| {{cd|become_calm_event}}
+| Entity has become calm
+|{{flatlist|
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Piglin}}
+* {{EntityLink|Piglin Brute}}
+}}
+|-
+| {{cd|become_cow}}
+| The entity becomes a cow.
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|become_pregnant}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Frog}}
+}}
+|-
+| {{cd|become_stray_event}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Skeleton}}
+}}
+|-
+| {{cd|become_witch}}
+| The entity becomes a witch.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|become_zombie}}
+| The entity becomes a zombie.
+|{{flatlist|
+* {{EntityLink|Pig}}
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|become_zombie_event}}
+| Entity is transforming into zombified version
+|{{flatlist|
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Piglin}}
+* {{EntityLink|Piglin Brute}}
+}}
+|-
+| {{cd|calmed_down}}
+| Entity has calmed down
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|change_to_skeleton}}
+| The entity changes to a skeleton.
+|{{flatlist|
+* {{EntityLink|Stray}}
+}}
+|-
+| {{cd|collected_nectar}}
+| Entity has collected nectar
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|countdown_to_perish_event}}
+| Countdown to entity perishing
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|dried_out}}
+| Entity has dried out.
+|{{flatlist|
+* {{EntityLink|Axolotl}}
+* {{EntityLink|Dolphin}}
+}}
+|-
+| {{cd|enter_water}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Axolotl}}
+}}
+|-
+| {{cd|escaped_event}}
+| Entity has escaped
+|{{flatlist|
+* {{EntityLink|Hoglin}}
+}}
+|-
+| {{cd|find_flower_timeout}}
+| Timeout for entity finding flower
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|find_hive_event}}
+| Entity has found hive
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|find_hive_timeout}}
+| Timeout for entity finding hive
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|from_egg}}
+| Entity is from an egg.
+|{{flatlist|
+* {{EntityLink|Chicken}}
+}}
+|-
+| {{cd|from_explosion}}
+| The entity got triggered by an explosion.
+|{{flatlist|
+* {{EntityLink|Tnt}}
+}}
+|-
+| {{cd|from_village}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Zombie Villager}}
+}}
+|-
+| {{cd|go_back_to_spawn_failed}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Piglin Brute}}
+}}
+|-
+| {{cd|got_in_powder_snow}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Skeleton}}
+}}
+|-
+| {{cd|got_out_of_powder_snow}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Skeleton}}
+}}
+|-
+| {{cd|grow_up}}
+| The entity spawns as an adult.
+|{{flatlist|
+* {{EntityLink|Rabbit}}
+}}
+|-
+| {{cd|hive_destroyed}}
+| Entity's hive has been destoyed
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|important_block_destroyed_event}}
+| Entity has noticed an important block has been destroyed
+|{{flatlist|
+* {{EntityLink|Piglin}}
+* {{EntityLink|Piglin Brute}}
+}}
+|-
+| {{cd|in_desert}}
+| The entity spawns in a desert skin.
+|{{flatlist|
+* {{EntityLink|Rabbit}}
+}}
+|-
+| {{cd|in_snow}}
+| The entity spawns in a snow skin.
+|{{flatlist|
+* {{EntityLink|Rabbit}}
+}}
+|-
+| {{cd|killed_enemy_event}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Axolotl}}
+}}
+|-
+| {{cd|laid_egg}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Frog}}
+}}
+|-
+| {{cd|minecraft:add_attributes}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Llama}}
+* {{EntityLink|Trader Llama}}
+}}
+|-
+| {{cd|minecraft:add_biome_and_skin}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Zombie Villager}}
+}}
+|-
+| {{cd|minecraft:ageable_grow_up}}
+| Entity has grown up (entity is an adult).
+|{{flatlist|
+* {{EntityLink|Axolotl}}
+* {{EntityLink|Bee}}
+* {{EntityLink|Cat}}
+* {{EntityLink|Chicken}}
+* {{EntityLink|Cow}}
+* {{EntityLink|Donkey}}
+* {{EntityLink|Fox}}
+* {{EntityLink|Goat}}
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Horse}}
+* {{EntityLink|Llama}}
+* {{EntityLink|Mooshroom}}
+* {{EntityLink|Mule}}
+* {{EntityLink|Ocelot}}
+* {{EntityLink|Panda}}
+* {{EntityLink|Pig}}
+* {{EntityLink|Polar Bear}}
+* {{EntityLink|Sheep}}
+* {{EntityLink|Strider}}
+* {{EntityLink|Trader Llama}}
+* {{EntityLink|Turtle}}
+* {{EntityLink|Villager}}
+* {{EntityLink|Wolf}}
+* {{EntityLink|Zombie Horse}}
+}}
+|-
+| {{cd|minecraft:ageable_set_baby}}
+| The entity is a baby.
+|{{flatlist|
+* {{EntityLink|Wolf}}
+}}
+|-
+| {{cd|minecraft:ambient_night}}
+| Entity is displaying behavior for ambient sleep.
+|{{flatlist|
+* {{EntityLink|Fox}}
+}}
+|-
+| {{cd|minecraft:ambient_normal}}
+| Entity is displaying behavior for ambient normal.
+|{{flatlist|
+* {{EntityLink|Fox}}
+}}
+|-
+| {{cd|minecraft:ambient_sleep}}
+| Entity is displaying behavior for ambient sleep.
+|{{flatlist|
+* {{EntityLink|Fox}}
+}}
+|-
+| {{cd|minecraft:as_adult}}
+| Entity is an adult.
+|{{flatlist|
+* {{EntityLink|Drowned}}
+* {{EntityLink|Zoglin}}
+* {{EntityLink|Zombie}}
+}}
+|-
+| {{cd|minecraft:as_baby}}
+| Entity is a baby.
+|{{flatlist|
+* {{EntityLink|Drowned}}
+* {{EntityLink|Zoglin}}
+* {{EntityLink|Zombie}}
+}}
+|-
+| {{cd|minecraft:ate_allium}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:ate_bluet}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:ate_cornflower}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:ate_daisy}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:ate_dandelion}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:ate_lily}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:ate_orchid}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:ate_poppy}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:ate_rose}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:ate_tulip}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:baby_on_calm}}
+| The entity is a baby and calm.
+|{{flatlist|
+* {{EntityLink|Panda}}
+* {{EntityLink|Polar Bear}}
+}}
+|-
+| {{cd|minecraft:become_aggressive}}
+| The entity becomes aggressive.
+|{{flatlist|
+* {{EntityLink|Magma Cube}}
+* {{EntityLink|Slime}}
+}}
+|-
+| {{cd|minecraft:become_aggro}}
+| The entity becomes aggro.
+|{{flatlist|
+* {{EntityLink|Vindicator}}
+}}
+|-
+| {{cd|minecraft:become_anenonme}}
+| The entity becomes an anenonme.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_angry}}
+| Entity has become angry.
+|{{flatlist|
+* {{EntityLink|Cave Spider}}
+* {{EntityLink|Enderman}}
+* {{EntityLink|Llama}}
+* {{EntityLink|Panda}}
+* {{EntityLink|Silverfish}}
+* {{EntityLink|Spider}}
+* {{EntityLink|Trader Llama}}
+* {{EntityLink|Wolf}}
+* {{EntityLink|Zombie Pigman}}
+}}
+|-
+| {{cd|minecraft:become_armorer}}
+| The entity becomes an armorer.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:become_black_tang}}
+| The entity becomes a black tang.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_blue_dory}}
+| The entity becomes a blue dory.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_brown}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:become_brown_adult}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:become_butcher}}
+| The entity becomes a butcher.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:become_butterfly_fish}}
+| The entity becomes a butterfly fish.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_calm}}
+| The entity becomes calm.
+|{{flatlist|
+* {{EntityLink|Magma Cube}}
+* {{EntityLink|Slime}}
+* {{EntityLink|Spider}}
+* {{EntityLink|Wandering Trader}}
+}}
+|-
+| {{cd|minecraft:become_cartographer}}
+| The entity becomes a cartographer.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:become_cc_betta}}
+| The entity becomes a cc betta.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_charged}}
+| Entity has become charged.
+|{{flatlist|
+* {{EntityLink|Creeper}}
+}}
+|-
+| {{cd|minecraft:become_cichlid}}
+| The entity becomes a cichlid.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_cleric}}
+| The entity becomes a cleric.
+|{{flatlist|
+* {{EntityLink|Villager}}
+* {{EntityLink|Zombie Villager}}
+}}
+|-
+| {{cd|minecraft:become_clownfish}}
+| The entity becomes a clownfish.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_dog_fish}}
+| The entity becomes a dog fish.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_e_red_snapper}}
+| The entity becomes a e red snapper.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_farmer}}
+| The entity becomes a farmer.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:become_fisherman}}
+| The entity becomes a fisherman.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:become_fletcher}}
+| The entity becomes a fletcher.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:become_goat_fish}}
+| The entity becomes a goat fish.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_hostile}}
+| Entity is becoming hostile.
+|{{flatlist|
+* {{EntityLink|Cave Spider}}
+* {{EntityLink|Spider}}
+}}
+|-
+| {{cd|minecraft:become_leatherworker}}
+| The entity becomes a leatherworker.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:become_librarian}}
+| The entity becomes a librarian.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:become_mason}}
+| The entity becomes a mason.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:become_moorish_idol}}
+| The entity becomes a moorish idol.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_neutral}}
+| Entity is becoming neutral.
+|{{flatlist|
+* {{EntityLink|Cave Spider}}
+* {{EntityLink|Spider}}
+}}
+|-
+| {{cd|minecraft:become_ornate_butterfly}}
+| The entity becomes an ornate butterfly.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_parrot_fish}}
+| The entity becomes a parrot fish.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_pregnant}}
+| The entity becomes pregnant.
+|{{flatlist|
+* {{EntityLink|Turtle}}
+}}
+|-
+| {{cd|minecraft:become_queen_angel_fish}}
+| The entity becomes a queen angel fish.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_red}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:become_red_adult}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:become_red_cichlid}}
+| The entity becomes a red cichlid.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_red_lipped_benny}}
+| The entity becomes a red lipped benny.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_red_snapper}}
+| The entity becomes a red snapper.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_scared}}
+| The entity becomes scared.
+|{{flatlist|
+* {{EntityLink|Wandering Trader}}
+}}
+|-
+| {{cd|minecraft:become_sheperd}}
+| The entity becomes a shepherd.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:become_stunned}}
+| The entity becomes stunned.
+|{{flatlist|
+* {{EntityLink|Ravager}}
+}}
+|-
+| {{cd|minecraft:become_threadfin}}
+| The entity becomes a threadfin.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_tomato_clown}}
+| The entity becomes a tomato clown.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_toolsmith}}
+| The entity becomes a toolsmith.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:become_triggerfish}}
+| The entity becomes a triggerfish.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_unskilled}}
+| The entity becomes unskilled.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:become_weaponsmith}}
+| The entity becomes a weaponsmith.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:become_yellow_tail_parrot}}
+| The entity becomes a yellow tail parrot.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:become_yellow_tang}}
+| The entity becomes a yellow tang.
+|{{flatlist|
+* {{EntityLink|Tropical Fish}}
+}}
+|-
+| {{cd|minecraft:born_default}}
+| Entity spawn as a normal goat.
+|{{flatlist|
+* {{EntityLink|Goat}}
+}}
+|-
+| {{cd|minecraft:born_screamer}}
+| Entity spawn as a screaming goat.
+|{{flatlist|
+* {{EntityLink|Goat}}
+}}
+|-
+| {{cd|minecraft:calm}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Pillager}}
+}}
+|-
+| {{cd|minecraft:cat_gifted_owner}}
+| Entity has gifted the owner.
+|{{flatlist|
+* {{EntityLink|Cat}}
+}}
+|-
+| {{cd|minecraft:clear_add_bad_omen}}
+| The entity stops getting bad omen.
+|{{flatlist|
+* {{EntityLink|Player}}
+}}
+|-
+| {{cd|minecraft:command_block_activate}}
+| Activates the command block from entity.
+|{{flatlist|
+* {{EntityLink|Minecart with Command Block}}
+}}
+|-
+| {{cd|minecraft:command_block_deactivate}}
+| Deactivates the command block from entity.
+|{{flatlist|
+* {{EntityLink|Minecart with Command Block}}
+}}
+|-
+| {{cd|minecraft:convert_to_drowned}}
+| Starts to transform the entity to a drowned.
+|{{flatlist|
+* {{EntityLink|Zombie}}
+}}
+|-
+| {{cd|minecraft:convert_to_zombie}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Husk}}
+}}
+|-
+| {{cd|minecraft:crystal_explode}}
+| The entity explodes.
+|{{flatlist|
+* {{EntityLink|Ender Crystal}}
+}}
+|-
+| {{cd|minecraft:defend_wandering_trader}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Trader Llama}}
+}}
+|-
+| {{cd|minecraft:donkey_saddled}}
+| Entity is saddled.
+|{{flatlist|
+* {{EntityLink|Donkey}}
+}}
+|-
+| {{cd|minecraft:donkey_unsaddled}}
+| Entity is not saddled.
+|{{flatlist|
+* {{EntityLink|Donkey}}
+}}
+|-
+| {{cd|minecraft:emerged}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Warden}}
+}}
+|-
+| {{cd|minecraft:end_roar}}
+| The entity ends its roar.
+|{{flatlist|
+* {{EntityLink|Ravager}}
+}}
+|-
+| {{cd|minecraft:entered_bubble_column_down}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Boat}}
+* {{EntityLink|Boat with Chest}}
+}}
+|-
+| {{cd|minecraft:entered_bubble_column_up}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Boat}}
+* {{EntityLink|Boat with Chest}}
+}}
+|-
+| {{cd|minecraft:entity_born}}
+| Entity has been born (entity is a baby). If it is an axolotl it will turn blue.
+|{{flatlist|a
+* {{EntityLink|Axolotl}}
+* {{EntityLink|Bee}}
+* {{EntityLink|Cat}}
+* {{EntityLink|Chicken}}
+* {{EntityLink|Cow}}
+* {{EntityLink|Donkey}}
+* {{EntityLink|Fox}}
+* {{EntityLink|Goat}}
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Horse}}
+* {{EntityLink|Llama}}
+* {{EntityLink|Mooshroom}}
+* {{EntityLink|Mule}}
+* {{EntityLink|Ocelot}}
+* {{EntityLink|Panda}}
+* {{EntityLink|Pig}}
+* {{EntityLink|Piglin}}
+* {{EntityLink|Polar Bear}}
+* {{EntityLink|Rabbit}}
+* {{EntityLink|Sheep}}
+* {{EntityLink|Strider}}
+* {{EntityLink|Trader Llama}}
+* {{EntityLink|Turtle}}
+* {{EntityLink|Villager}}
+* {{EntityLink|Wolf}}
+}}
+|-
+| {{cd|minecraft:entity_born_wild}}
+| The entity is born wild.
+|{{flatlist|
+* {{EntityLink|Ocelot}}
+}}
+|-
+| {{cd|minecraft:entity_spawned}}
+| Entity has spawned.
+|{{flatlist|
+* {{EntityLink|Allay}}
+* {{EntityLink|Arrow|Shot Arrow}}
+* {{EntityLink|Axolotl}}
+* {{EntityLink|Bee}}
+* {{EntityLink|Blaze}}
+* {{EntityLink|Cat}}
+* {{EntityLink|Cave Spider}}
+* {{EntityLink|Chicken}}
+* {{EntityLink|Cow}}
+* {{EntityLink|Dolphin}}
+* {{EntityLink|Donkey}}
+* {{EntityLink|Drowned}}
+* {{EntityLink|Ender Dragon}}
+* {{ItemLink|Ender Pearl|Thrown Ender Pearl}}
+* {{EntityLink|Enderman}}
+* {{EntityLink|link=Fishing Rod|Fishing Bobber}}
+* {{EntityLink|Fox}}
+* {{EntityLink|Frog}}
+* {{EntityLink|Glow Squid}}
+* {{EntityLink|Goat}}
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Horse}}
+* {{EntityLink|Husk}}
+* {{EntityLink|Llama}}
+* {{EntityLink|Magma Cube}}
+* {{EntityLink|Minecart with Command Block}}
+* {{EntityLink|Minecart with Hopper}}
+* {{EntityLink|Minecart with TNT}}
+* {{EntityLink|Mooshroom}}
+* {{EntityLink|Mule}}
+* {{EntityLink|Ocelot}}
+* {{EntityLink|Panda}}
+* {{EntityLink|Parrot}}
+* {{EntityLink|Pig}}
+* {{EntityLink|Piglin}}
+* {{EntityLink|Piglin Brute}}
+* {{EntityLink|Pillager}}
+* {{EntityLink|Polar Bear}}
+* {{EntityLink|Pufferfish}}
+* {{EntityLink|Rabbit}}
+* {{EntityLink|Ravager}}
+* {{EntityLink|Salmon}}
+* {{EntityLink|Sheep}}
+* {{EntityLink|Shulker}}
+* {{EntityLink|Silverfish}}
+* {{EntityLink|Skeleton}}
+* {{EntityLink|Skeleton Horse}}
+* {{EntityLink|Slime}}
+* {{EntityLink|Spider}}
+* {{EntityLink|Squid}}
+* {{EntityLink|Stray}}
+* {{EntityLink|Strider}}
+* {{EntityLink|Trader Llama}}
+* {{EntityLink|Tropical Fish}}
+* {{EntityLink|Turtle}}
+* {{EntityLink|Villager}}
+* {{EntityLink|Vindicator}}
+* {{EntityLink|Warden}}
+* {{EntityLink|Wither}}
+* {{EntityLink|Wither Skeleton}}
+* {{EntityLink|Wolf}}
+* {{EntityLink|Zoglin}}
+* {{EntityLink|Zombie}}
+* {{EntityLink|Zombie Horse}}
+* {{EntityLink|Zombie Pigman}}
+* {{EntityLink|Zombie Villager}}
+}}
+|-
+| {{cd|minecraft:entity_transformed}}
+| Entity has transformed.
+|{{flatlist|
+* {{EntityLink|Cow}}
+* {{EntityLink|Frog}}
+* {{EntityLink|Villager}}
+* {{EntityLink|Zoglin}}
+* {{EntityLink|Zombie Pigman}}
+* {{EntityLink|Zombie Villager}}
+}}
+|-
+| {{cd|minecraft:exited_bubble_column}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Boat}}
+* {{EntityLink|Boat with Chest}}
+}}
+|-
+| {{cd|minecraft:exited_disturbed_hive}}
+| Entity has exited a disturbed hive
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|minecraft:exited_hive}}
+| Entity has exited hive
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|minecraft:exited_hive_on_fire}}
+| Entity has exited hive that is on fire
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|minecraft:explode}}
+| Exploding entity.
+|{{flatlist|
+* {{EntityLink|Fireball}}
+* {{EntityLink|Wither Skull|link=Wither#Wither skull|text={{EntityLink|id=Dangerous Wither Skull|Wither Skull|link=none}}}}
+}}
+|-
+| {{cd|minecraft:flowerless}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Mooshroom}}
+}}
+|-
+| {{cd|minecraft:fox_configure_day}}
+| Entity has day behavior.
+|{{flatlist|
+* {{EntityLink|Fox}}
+}}
+|-
+| {{cd|minecraft:fox_configure_defending}}
+| Entity is defending.
+|{{flatlist|
+* {{EntityLink|Fox}}
+}}
+|-
+| {{cd|minecraft:fox_configure_docile_day}}
+| Entity is docile (day).
+|{{flatlist|
+* {{EntityLink|Fox}}
+}}
+|-
+| {{cd|minecraft:fox_configure_docile_night}}
+| Entity is docile (night).
+|{{flatlist|
+* {{EntityLink|Fox}}
+}}
+|-
+| {{cd|minecraft:fox_configure_night}}
+| Entity has night behavior.
+|{{flatlist|
+* {{EntityLink|Fox}}
+}}
+|-
+| {{cd|minecraft:fox_configure_thunderstorm}}
+| Entity has thunderstorm behavior.
+|{{flatlist|
+* {{EntityLink|Fox}}
+}}
+|-
+| {{cd|minecraft:from_full_puff}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Pufferfish}}
+}}
+|-
+| {{cd|minecraft:from_player}}
+| The entity is from a player.
+|{{flatlist|
+* {{EntityLink|Iron Golem}}
+}}
+|-
+| {{cd|minecraft:from_village}}
+| The entity is from a village.
+|{{flatlist|
+* {{EntityLink|Iron Golem}}
+}}
+|-
+| {{cd|minecraft:from_wandering_trader}}
+| The entity is from a wandering trader.
+|{{flatlist|
+* {{EntityLink|Trader Llama}}
+}}
+|-
+| {{cd|minecraft:gain_bad_omen}}
+| The entity gains bad omen.
+|{{flatlist|
+* {{EntityLink|Player}}
+}}
+|-
+| {{cd|minecraft:go_lay_egg}}
+| The entity goes to lay an egg.
+|{{flatlist|
+* {{EntityLink|Turtle}}
+}}
+|-
+| {{cd|minecraft:has_target}}
+| Entity has a target.
+|{{flatlist|
+* {{EntityLink|Drowned}}
+}}
+|-
+| {{cd|minecraft:hive_full}}
+| Entity's hive is full
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|minecraft:hopper_activate}}
+| The entity spawns with an activated hopper.
+|{{flatlist|
+* {{EntityLink|Minecart with Hopper}}
+}}
+|-
+| {{cd|minecraft:hopper_deactivate}}
+| The entity spawns with a deactivated hopper.
+|{{flatlist|
+* {{EntityLink|Minecart with Hopper}}
+}}
+|-
+| {{cd|minecraft:horse_saddled}}
+| The entity is saddled.
+|{{flatlist|
+* {{EntityLink|Horse}}
+}}
+|-
+| {{cd|minecraft:horse_unsaddled}}
+| The entity is not saddled.
+|{{flatlist|
+* {{EntityLink|Horse}}
+}}
+|-
+| {{cd|minecraft:join_caravan}}
+| The entity joins a caravan.
+|{{flatlist|
+* {{EntityLink|Llama}}
+* {{EntityLink|Trader Llama}}
+}}
+|-
+| {{cd|minecraft:laid_egg}}
+| The entity laid an egg.
+|{{flatlist|
+* {{EntityLink|Turtle}}
+}}
+|-
+| {{cd|minecraft:leave_caravan}}
+| The entity leaves a caravan.
+|{{flatlist|
+* {{EntityLink|Llama}}
+* {{EntityLink|Trader Llama}}
+}}
+|-
+| {{cd|minecraft:lost_target}}
+| Entity lost the target.
+|{{flatlist|
+* {{EntityLink|Drowned}}
+}}
+|-
+| {{cd|minecraft:mad_at_wolf}}
+| The entity is mad at a wolf.
+|{{flatlist|
+* {{EntityLink|Llama}}
+* {{EntityLink|Trader Llama}}
+}}
+|-
+| {{cd|minecraft:make_black}}
+| Makes the entity a black color.
+|{{flatlist|
+* {{EntityLink|Horse}}
+}}
+|-
+| {{cd|minecraft:make_brown}}
+| Makes the entity a brown color.
+|{{flatlist|
+* {{EntityLink|Horse}}
+}}
+|-
+| {{cd|minecraft:make_chestnut}}
+| Makes the entity a chestnut color.
+|{{flatlist|
+* {{EntityLink|Horse}}
+}}
+|-
+| {{cd|minecraft:make_creamy}}
+| Makes the entity a creamy color.
+|{{flatlist|
+* {{EntityLink|Horse}}
+}}
+|-
+| {{cd|minecraft:make_darkbrown}}
+| Makes the entity a darkbrown color.
+|{{flatlist|
+* {{EntityLink|Horse}}
+}}
+|-
+| {{cd|minecraft:make_gray}}
+| Makes the entity a gray color.
+|{{flatlist|
+* {{EntityLink|Horse}}
+}}
+|-
+| {{cd|minecraft:make_white}}
+| Makes the entity a white color.
+|{{flatlist|
+* {{EntityLink|Horse}}
+}}
+|-
+| {{cd|minecraft:melee_mode}}
+| The entity goes into melee mode.
+|{{flatlist|
+* {{EntityLink|Pillager}}
+* {{EntityLink|Skeleton}}
+* {{EntityLink|Stray}}
+}}
+|-
+| {{cd|minecraft:mule_saddled}}
+| The entity is saddled.
+|{{flatlist|
+* {{EntityLink|Mule}}
+}}
+|-
+| {{cd|minecraft:mule_unsaddled}}
+| The entity is not saddled.
+|{{flatlist|
+* {{EntityLink|Mule}}
+}}
+|-
+| {{cd|minecraft:on_anger}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Polar Bear}}
+}}
+|-
+| {{cd|minecraft:on_calm}}
+| Entity is calm.
+|{{flatlist|
+* {{EntityLink|Cave Spider}}
+* {{EntityLink|Enderman}}
+* {{EntityLink|Llama}}
+* {{EntityLink|Panda}}
+* {{EntityLink|Polar Bear}}
+* {{EntityLink|Silverfish}}
+* {{EntityLink|Trader Llama}}
+* {{EntityLink|Wolf}}
+* {{EntityLink|Zombie Pigman}}
+}}
+|-
+| {{cd|minecraft:on_chest}}
+| Entity is wearing a chest.
+|{{flatlist|
+* {{EntityLink|Donkey}}
+* {{EntityLink|Llama}}
+* {{EntityLink|Mule}}
+* {{EntityLink|Trader Llama}}
+}}
+|-
+| {{cd|minecraft:on_deflate}}
+| The entity gets deflated.
+|{{flatlist|
+* {{EntityLink|Pufferfish}}
+}}
+|-
+| {{cd|minecraft:on_eat_block}}
+| The entity eats a block.
+|{{flatlist|
+* {{EntityLink|Sheep}}
+}}
+|-
+| {{cd|minecraft:on_full_puff}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Pufferfish}}
+}}
+|-
+| {{cd|minecraft:on_half_puff}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Pufferfish}}
+}}
+|-
+| {{cd|minecraft:on_hurt_event}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Blaze}}
+}}
+|-
+| {{cd|minecraft:on_instant_prime}}
+| The entity spawns instantly primed.
+|{{flatlist|
+* {{EntityLink|Minecart with TNT}}
+}}
+|-
+| {{cd|minecraft:on_leash}}
+| The entity is leashed.
+|{{flatlist|
+* {{EntityLink|Ocelot}}
+}}
+|-
+| {{cd|minecraft:on_normal_puff}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Pufferfish}}
+}}
+|-
+| {{cd|minecraft:on_not_riding_player}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Parrot}}
+}}
+|-
+| {{cd|minecraft:on_prime}}
+| The entity spawns primed.
+|{{flatlist|
+* {{EntityLink|Minecart with TNT}}
+}}
+|-
+| {{cd|minecraft:on_riding_player}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Parrot}}
+}}
+|-
+| {{cd|minecraft:on_saddled}}
+| The entity is saddled.
+|{{flatlist|
+* {{EntityLink|Pig}}
+* {{EntityLink|Strider}}
+}}
+|-
+| {{cd|minecraft:on_scared}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Panda}}
+* {{EntityLink|Polar Bear}}
+}}
+|-
+| {{cd|minecraft:on_sheared}}
+| The entity is sheared.
+|{{flatlist|
+* {{EntityLink|Sheep}}
+* {{EntityLink|id=sheared-snow-golem|Snow Golem}}
+}}
+|-
+| {{cd|minecraft:on_tame}}
+| Entity is tame.
+|{{flatlist|
+* {{EntityLink|Cat}}
+* {{EntityLink|Donkey}}
+* {{EntityLink|Horse}}
+* {{EntityLink|Llama}}
+* {{EntityLink|Mule}}
+* {{EntityLink|Parrot}}
+* {{EntityLink|Trader Llama}}
+* {{EntityLink|Wolf}}
+}}
+|-
+| {{cd|minecraft:on_trust}}
+| The entity is trusting.
+|{{flatlist|
+* {{EntityLink|Ocelot}}
+}}
+|-
+| {{cd|minecraft:on_unleash}}
+| The entity is unleashed.
+|{{flatlist|
+* {{EntityLink|Ocelot}}
+}}
+|-
+| {{cd|minecraft:panda_aggressive}}
+| The entity is aggressive.
+|{{flatlist|
+* {{EntityLink|Panda}}
+}}
+|-
+| {{cd|minecraft:panda_brown}}
+| The entity is brown.
+|{{flatlist|
+* {{EntityLink|Panda}}
+}}
+|-
+| {{cd|minecraft:panda_lazy}}
+| The entity is lazy.
+|{{flatlist|
+* {{EntityLink|Panda}}
+}}
+|-
+| {{cd|minecraft:panda_playful}}
+| The entity is playful.
+|{{flatlist|
+* {{EntityLink|Panda}}
+}}
+|-
+| {{cd|minecraft:panda_weak}}
+| The entity is weak.
+|{{flatlist|
+* {{EntityLink|Panda}}
+}}
+|-
+| {{cd|minecraft:panda_worried}}
+| The entity is worried.
+|{{flatlist|
+* {{EntityLink|Panda}}
+}}
+|-
+| {{cd|minecraft:pet_slept_with_owner}}
+| Entity has slept with owner.
+|{{flatlist|
+* {{EntityLink|Cat}}
+}}
+|-
+| {{cd|minecraft:promote_to_illager_captain}}
+| The entity gets promoted to illager captain.
+|{{flatlist|
+* {{EntityLink|Pillager}}
+* {{EntityLink|Vindicator}}
+}}
+|-
+| {{cd|minecraft:promote_to_patrol_captain}}
+| The entity gets promoted to patrol captain.
+|{{flatlist|
+* {{EntityLink|Pillager}}
+* {{EntityLink|Vindicator}}
+}}
+|-
+| {{cd|minecraft:raid_expired}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Evoker}}
+* {{EntityLink|Pillager}}
+* {{EntityLink|Ravager}}
+* {{EntityLink|Vindicator}}
+* {{EntityLink|Witch}}
+}}
+|-
+| {{cd|minecraft:ranged_mode}}
+| The entity goes into ranged mode.
+|{{flatlist|
+* {{EntityLink|Pillager}}
+* {{EntityLink|Skeleton}}
+* {{EntityLink|Stray}}
+}}
+|-
+| {{cd|minecraft:remove_persistence}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Trader Llama}}
+}}
+|-
+| {{cd|minecraft:remove_raid_trigger}}
+| The "trigger raid" event gets removed from the entity.
+|{{flatlist|
+* {{EntityLink|Player}}
+}}
+|-
+| {{cd|minecraft:resupply_trades}}
+| The entity resupplies its trades.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:schedule_bed_villager}}
+| The entity schedules a bed villager.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:schedule_gather_villager}}
+| The entity schedules a gather villager.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:schedule_home_villager}}
+| The entity schedules a home villager.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:schedule_play_villager}}
+| The entity schedules a play villager.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:schedule_wander_villager}}
+| The entity schedules a wander villager.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:schedule_work_farmer}}
+| The entity schedules a work farmer villager.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:schedule_work_fisher}}
+| The entity schedules a work fisher.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:schedule_work_librarian}}
+| The entity schedules a work librarian.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:schedule_work_pro_villager}}
+| The entity schedules a work pro villager.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:scheduled}}
+| The entity schedules.
+|{{flatlist|
+* {{EntityLink|Wandering Trader}}
+}}
+|-
+| {{cd|minecraft:set_trap}}
+| The entity sets a trap.
+|{{flatlist|
+* {{EntityLink|Skeleton Horse}}
+}}
+|-
+| {{cd|minecraft:sink}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Boat}}
+* {{EntityLink|Boat with Chest}}
+}}
+|-
+| {{cd|minecraft:spawn_adult}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Chicken}}
+* {{EntityLink|Cow}}
+* {{EntityLink|Llama}}
+* {{EntityLink|Pig}}
+* {{EntityLink|Trader Llama}}
+}}
+|-
+| {{cd|minecraft:spawn_armorer}}
+| The entity spawns as an armorer.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:spawn_as_illager_captain}}
+| The entity spawns as an illager captain.
+|{{flatlist|
+* {{EntityLink|Pillager}}
+* {{EntityLink|Vindicator}}
+}}
+|-
+| {{cd|minecraft:spawn_as_patrol_follower}}
+| The entity spawns as a patrol follower.
+|{{flatlist|
+* {{EntityLink|Pillager}}
+* {{EntityLink|Vindicator}}
+}}
+|-
+| {{cd|minecraft:spawn_as_strider_jockey}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Zombie Pigman}}
+}}
+|-
+| {{cd|minecraft:spawn_baby}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Llama}}
+* {{EntityLink|Trader Llama}}
+}}
+|-
+| {{cd|minecraft:spawn_butcher}}
+| The entity spawns as a butcher.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:spawn_cleric}}
+| The entity spawns as a cleric.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:spawn_emerging}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Warden}}
+}}
+|-
+| {{cd|minecraft:spawn_farmer}}
+| The entity spawns as a farmer.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:spawn_for_raid}}
+| Entity has spawned for a raid.
+|{{flatlist|
+* {{EntityLink|Evoker}}
+* {{EntityLink|Pillager}}
+* {{EntityLink|Ravager}}
+* {{EntityLink|Vindicator}}
+* {{EntityLink|Witch}}
+}}
+|-
+| {{cd|minecraft:spawn_for_raid_with_evoker_rider}}
+| The entity spawns for a raid with an evoker rider.
+|{{flatlist|
+* {{EntityLink|Ravager}}
+}}
+|-
+| {{cd|minecraft:spawn_for_raid_with_pillager_rider}}
+| The entity spawns for a raid with a pillager rider.
+|{{flatlist|
+* {{EntityLink|Ravager}}
+}}
+|-
+| {{cd|minecraft:spawn_from_village}}
+| Entity has spawned from a village.
+|{{flatlist|
+* {{EntityLink|Cat}}
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:spawn_librarian}}
+| The entity spawns as a librarian.
+|{{flatlist|
+* {{EntityLink|Villager}}
+}}
+|-
+| {{cd|minecraft:spawn_midnight_cat}}
+| Entity has spawned black in color.
+|{{flatlist|
+* {{EntityLink|Cat}}
+}}
+|-
+| {{cd|minecraft:spawn_skilled_adult}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Zombie Villager}}
+}}
+|-
+| {{cd|minecraft:spawn_with_pillager_captain_rider}}
+| The entity spawns with a pillager captain rider.
+|{{flatlist|
+* {{EntityLink|Ravager}}
+}}
+|-
+| {{cd|minecraft:spawn_with_pillager_rider}}
+| The entity spawns with a pillager rider.
+|{{flatlist|
+* {{EntityLink|Ravager}}
+}}
+|-
+| {{cd|minecraft:spawn_with_vindicator_captain_rider}}
+| The entity spawns with a vindicator captain rider.
+|{{flatlist|
+* {{EntityLink|Ravager}}
+}}
+|-
+| {{cd|minecraft:spawn_with_vindicator_rider}}
+| The entity spawns with a vindicator rider.
+|{{flatlist|
+* {{EntityLink|Ravager}}
+}}
+|-
+| {{cd|minecraft:spring_trap}}
+| The entity turns into a spring trap.
+|{{flatlist|
+* {{EntityLink|Skeleton}}
+* {{EntityLink|Skeleton Horse}}
+}}
+|-
+| {{cd|minecraft:start_celebrating}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Evoker}}
+* {{EntityLink|Pillager}}
+* {{EntityLink|Ravager}}
+* {{EntityLink|Villager}}
+* {{EntityLink|Vindicator}}
+* {{EntityLink|Witch}}
+}}
+|-
+| {{cd|minecraft:start_death}}
+| Entity initiates death behavior.
+|{{flatlist|
+* {{EntityLink|Ender Dragon}}
+}}
+|-
+| {{cd|minecraft:start_despawn}}
+| The entity starts despawning.
+|{{flatlist|
+* {{EntityLink|Wandering Trader}}
+}}
+|-
+| {{cd|minecraft:start_exploding}}
+| Entity has started to explode.
+|{{flatlist|
+* {{EntityLink|Creeper}}
+}}
+|-
+| {{cd|minecraft:start_exploding_forced}}
+| Entity has started to force explode.
+|{{flatlist|
+* {{EntityLink|Creeper}}
+}}
+|-
+| {{cd|minecraft:start_fly}}
+| Entity is starting to fly.
+|{{flatlist|
+* {{EntityLink|Ender Dragon}}
+}}
+|-
+| {{cd|minecraft:start_full_puff}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Pufferfish}}
+}}
+|-
+| {{cd|minecraft:start_half_puff}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Pufferfish}}
+}}
+|-
+| {{cd|minecraft:start_johnny}}
+| The entity starts being johnny.
+|{{flatlist|
+* {{EntityLink|Vindicator}}
+}}
+|-
+| {{cd|minecraft:start_land}}
+| Entity is starting to land.
+|{{flatlist|
+* {{EntityLink|Ender Dragon}}
+}}
+|-
+| {{cd|minecraft:start_roar}}
+| The entity starts its roar.
+|{{flatlist|
+* {{EntityLink|Ravager}}
+}}
+|-
+| {{cd|minecraft:start_transforming}}
+| Starts to transform the entity.
+|{{flatlist|
+* {{EntityLink|Husk}}
+* {{EntityLink|Zombie}}
+}}
+|-
+| {{cd|minecraft:stop_aggro}}
+| The entity stops being aggro.
+|{{flatlist|
+* {{EntityLink|Vindicator}}
+}}
+|-
+| {{cd|minecraft:stop_celebrating}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Evoker}}
+* {{EntityLink|Pillager}}
+* {{EntityLink|Ravager}}
+* {{EntityLink|Villager}}
+* {{EntityLink|Vindicator}}
+* {{EntityLink|Witch}}
+}}
+|-
+| {{cd|minecraft:stop_exploding}}
+| Entity has stopped exploding.
+|{{flatlist|
+* {{EntityLink|Creeper}}
+}}
+|-
+| {{cd|minecraft:stop_johnny}}
+| The entity stops being johnny.
+|{{flatlist|
+* {{EntityLink|Vindicator}}
+}}
+|-
+| {{cd|minecraft:stop_transforming}}
+| Stops to transform the entity.
+|{{flatlist|
+* {{EntityLink|Husk}}
+* {{EntityLink|Zombie}}
+}}
+|-
+| {{cd|minecraft:switch_to_melee}}
+| Entity switches to melee.
+|{{flatlist|
+* {{EntityLink|Drowned}}
+}}
+|-
+| {{cd|minecraft:switch_to_ranged}}
+| Entity switches to ranged.
+|{{flatlist|
+* {{EntityLink|Drowned}}
+}}
+|-
+| {{cd|minecraft:target_far_enough}}
+| The target is far enough for the entity.
+|{{flatlist|
+* {{EntityLink|Guardian}}
+}}
+|-
+| {{cd|minecraft:target_too_close}}
+| The target is too close for the entity.
+|{{flatlist|
+* {{EntityLink|Guardian}}
+}}
+|-
+| {{cd|minecraft:to_full_puff}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Pufferfish}}
+}}
+|-
+| {{cd|minecraft:trigger_raid}}
+| The entity triggers a raid.
+|{{flatlist|
+* {{EntityLink|Player}}
+}}
+|-
+| {{cd|minecraft:turn_black}}
+| The entity turns black.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_blue}}
+| The entity turns blue.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_brown}}
+| The entity turns brown.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_cyan}}
+| The entity turns cyan.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_gray}}
+| The entity turns gray.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_green}}
+| The entity turns green.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_light_blue}}
+| The entity turns light blue.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_lime}}
+| The entity turns lime.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_magenta}}
+| The entity turns magenta.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_orange}}
+| The entity turns orange.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_pink}}
+| The entity turns pink.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_purple}}
+| The entity turns purple.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_red}}
+| The entity turns red.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_silver}}
+| The entity turns silver.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_white}}
+| The entity turns white.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|minecraft:turn_yellow}}
+| The entity turns yellow.
+|{{flatlist|
+* {{EntityLink|Shulker}}
+}}
+|-
+| {{cd|navigation_off_land}}
+| Entity is navigating off land.
+|{{flatlist|
+* {{EntityLink|Dolphin}}
+}}
+|-
+| {{cd|navigation_on_land}}
+| Entity is navigating on land.
+|{{flatlist|
+* {{EntityLink|Dolphin}}
+}}
+|-
+| {{cd|on_calm}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Dolphin}}
+}}
+|-
+| {{cd|on_digging_event}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Warden}}
+}}
+|-
+| {{cd|perish_event}}
+| Entity is perishing
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|pickup_item_delay}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Allay}}
+}}
+|-
+| {{cd|pickup_item_delay_complete}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Allay}}
+}}
+|-
+| {{cd|recover_after_dried_out}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Axolotl}}
+* {{EntityLink|Dolphin}}
+}}
+|-
+| {{cd|seek_shelter}}
+| Entity is seeking shelter
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|spawn_adult}}
+| Entity spawns as an adult
+|{{flatlist|
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Piglin}}
+* {{EntityLink|Sheep}}
+* {{EntityLink|Strider}}
+}}
+|-
+| {{cd|spawn_adult_melee}}
+| Entity spawns as adult in melee mode
+|{{flatlist|
+* {{EntityLink|Piglin}}
+}}
+|-
+| {{cd|spawn_adult_melee_no_hunting}}
+| Entity spawns as adult in melee mode that won't hunt
+|{{flatlist|
+* {{EntityLink|Piglin}}
+}}
+|-
+| {{cd|spawn_adult_no_hunting}}
+| Entity spawns that won't hunt
+|{{flatlist|
+* {{EntityLink|Piglin}}
+}}
+|-
+| {{cd|spawn_adult_parent_jockey}}
+| Entity is spawned as an adult with it's child riding it
+|{{flatlist|
+* {{EntityLink|Strider}}
+}}
+|-
+| {{cd|spawn_adult_piglin_jockey}}
+| Entity is spawned as an adult with a piglin riding it
+|{{flatlist|
+* {{EntityLink|Strider}}
+}}
+|-
+| {{cd|spawn_adult_ranged}}
+| Entity spawn as adult in ranged mode
+|{{flatlist|
+* {{EntityLink|Piglin}}
+}}
+|-
+| {{cd|spawn_adult_ranged_no_hunting}}
+| Entity spawns as adult in ranged mode that won't hunt
+|{{flatlist|
+* {{EntityLink|Piglin}}
+}}
+|-
+| {{cd|spawn_adult_unhuntable}}
+| Entity spawn as an unhuntable adult
+|{{flatlist|
+* {{EntityLink|Hoglin}}
+}}
+|-
+| {{cd|spawn_baby}}
+| Entity spawns as a baby
+|{{flatlist|
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Piglin}}
+* {{EntityLink|Sheep}}
+* {{EntityLink|Strider}}
+}}
+|-
+| {{cd|spawn_cold}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Frog}}
+}}
+|-
+| {{cd|spawn_large}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Magma Cube}}
+* {{EntityLink|Slime}}
+}}
+|-
+| {{cd|spawn_medium}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Magma Cube}}
+* {{EntityLink|Slime}}
+}}
+|-
+| {{cd|spawn_small}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Magma Cube}}
+* {{EntityLink|Slime}}
+}}
+|-
+| {{cd|spawn_temperate}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Frog}}
+}}
+|-
+| {{cd|spawn_warm}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Frog}}
+}}
+|-
+| {{cd|start_drying_out}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Axolotl}}
+}}
+|-
+| {{cd|start_dryingout}}
+| Entity is starting to dry out.
+|{{flatlist|
+* {{EntityLink|Dolphin}}
+}}
+|-
+| {{cd|start_event}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Goat}}
+}}
+|-
+| {{cd|start_suffocating}}
+| Entity starts suffocating
+|{{flatlist|
+* {{EntityLink|Strider}}
+}}
+|-
+| {{cd|start_zombification_event}}
+| Entity starts zombification
+|{{flatlist|
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Piglin}}
+* {{EntityLink|Piglin Brute}}
+}}
+|-
+| {{cd|stop_drying_out}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Axolotl}}
+}}
+|-
+| {{cd|stop_dryingout}}
+| Entity is stopping to dry out.
+|{{flatlist|
+* {{EntityLink|Dolphin}}
+}}
+|-
+| {{cd|stop_panicking_after_fire}}
+| Entity has stopped panicking after fire
+|{{flatlist|
+* {{EntityLink|Bee}}
+}}
+|-
+| {{cd|stop_suffocating}}
+| Entity stops suffocating
+|{{flatlist|
+* {{EntityLink|Strider}}
+}}
+|-
+| {{cd|stop_zombification_event}}
+| Entity stops zombification
+|{{flatlist|
+* {{EntityLink|Hoglin}}
+* {{EntityLink|Piglin}}
+* {{EntityLink|Piglin Brute}}
+}}
+|-
+| {{cd|switch_to_melee}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Blaze}}
+}}
+|-
+| {{cd|switch_to_ranged}}
+| style="text-align:center;" | &ndash;
+|{{flatlist|
+* {{EntityLink|Blaze}}
+}}
+|-
+| {{cd|villager_converted}}
+| The entity gets converted to a villager.
+|{{flatlist|
+* {{EntityLink|Zombie Villager}}
+}}
+|-
+| {{cd|wololo}}
+| The entity spawns red.
+|{{flatlist|
+* {{EntityLink|Sheep}}
+}}
+|}
+
+[[zh:生成事件]]
+[[Category:Data driven id lists in Bedrock Edition]]

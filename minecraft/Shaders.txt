@@ -1,0 +1,540 @@
+{{wip}}
+{{About|the in-game shaders|the shaders provided by the modification|ftb:Optifine}}
+
+'''Shaders''' are used to define the game's rendering of certain elements.
+
+== Java Edition ==
+Two distinct kinds of shaders exist: '''core shaders''' and '''post-processing shaders'''.
+
+'''Core shaders''' are used to render fundamental parts of the game.
+
+'''Post-processing shaders''' are used for certain minor visual effects:
+* [[Spectator#Mob view|Certain mob vision types]] as seen in the [[Spectator]] gamemode{{info needed|also Super Secret Settings shaders in general, despite being inaccessible?}}
+* The ''Fabulous!'' [[graphics setting]]'s fixed handling of translucent objects
+* The [[glowing]] status effect
+
+Shaders are written in the OpenGL Shading Language (GLSL). Each single render program comes in two parts, "vertex" and "fragment"; vertex shaders modify the positions of individual vertices, whereas fragment shaders are applied to every pixel. For example, vertex shaders are often used to create waving foliage and water, and fragment shaders can be used to add effects like bloom, god rays, and blur.
+
+Shaders are stored in the <samp>assets/minecraft/shaders/</samp> directory of [[minecraft.jar]], and can be replaced with a [[resource pack]]. Note that if any error occurs when loading the shaders, the resource pack is disabled and fabulous graphics mode is turned off.
+
+=== Core shaders ===
+Core shaders are responsible for rendering parts of the game. They are used to render not only blocks and entities when playing the game, but also menu and inventory screens.
+
+Each core shader is a single [[#Render program|render program]] defined by a JSON file, in which vertex and fragment shader files are specified.
+
+Core shaders are stored in the <samp>assets/minecraft/shaders/core</samp> directory of minecraft.jar.
+
+==== List of core shaders ====
+A list of all core shaders can be found by expanding the header below, listing descriptions of what each shader is responsible for, with images highlighting each element in red:
+
+{{long section}}
+
+==== Non-rendertype ====
+
+{| class="wikitable" data-description="Non-rendertype shaders"
+! Name
+! Used for
+! Sample Images
+|-
+
+| blit_screen
+| Blit copies one buffer to another, however this cannot be overridden in a resource pack.
+|
+
+|-
+
+| particle
+| All particles.
+|
+
+|-
+
+| position
+|
+* Top sky and stars in the overworld
+* Dark fog when the player is in the void
+* The highlight color when selecting a world.
+| [[File:Core shader position highlight.png|475px]]
+
+|-
+
+| position_color
+| Used for solid color-block, including:
+* Sunrise and Sunset
+* Chunk border
+* Sleep overlay
+
+|
+
+|-
+
+|position_color_lightmap
+|Unknown.
+|
+
+|-
+
+|position_color_normal
+|Unknown; does not seem to be referenced anywhere in code.
+|
+
+|-
+
+|position_color_tex
+|
+*Suffocation overlay screen effect
+*On fire overlay
+
+|[[File:Core shader position color tex highlight 2.png|474x474px]]
+
+|-
+
+|position_color_tex_lightmap
+|Unknown.
+|
+
+|-
+
+|position_tex
+|Used to render a texture:
+*The sun and the moon
+*World border
+*Underwater screen effect
+*Spyglass texture overlay
+*Carved pumpkin overlay
+*Powder snow freezing overlay
+*Portal overlay
+*Darkness and world border vignette effects
+*Distortion effect overlay for nausea effect when "Distortion Effects" less than 100%
+*Hotbar
+*Crosshair
+*Bossbar overlay
+*Health bar, Armor bar, Hunger bar, Oxygen bar, Jump bar, Experience bar
+*Effect icons
+*Normal GUIs
+*Button in GUI
+*Game logo and Mojang logo
+|
+
+|-
+
+|position_tex_color
+|
+*Skybox with the {{code|minecraft:the_end}} [[Effect (dimension)|dimension effect]].
+*Dirt background of GUIs
+*The panorama view in the title screen
+|[[File:Core shader position tex color highlight.png|475px]]
+
+|-
+
+|position_tex_color_normal
+|Clouds.
+|[[File:Core shader position tex color normal highlight.png|475px]]
+
+|-
+
+|position_tex_lightmap_color
+|Unknown.
+|
+
+|-
+
+|}
+
+==== Rendertype ====
+
+; Blocks
+{| class="wikitable"
+!Name
+!Description
+!Sample Image
+|-
+|rendertype_beacon_beam
+|The beam of the beacon and end gateway.
+|
+|-
+|rendertype_crumbling
+|The block cracks when mining a block.
+|
+|-
+|rendertype_cutout
+|All blocks with partially transparent textures (with the exception of those listed in <code>rendertype_cutout_mipped</code> and <code>rendertype_translucent</code>)
+|
+|-
+|rendertype_cutout_mipped
+|Some blocks: grass blocks, iron bars, glass panes, tripwire hooks, hoppers, chains (leaves when using fancy or fabulous graphics)
+|
+|-
+|rendertype_end_gateway
+|The inside of an end gateway, reuses the same shader as {{code|rendertype_end_portal}}.
+|
+|-
+|rendertype_end_portal
+|The inside of an end portal, as well as the insides of end gateways.
+|[[File:Core shader rendertype end portal highlight.png|475x475px]]
+|-
+|rendertype_solid
+|All solid blocks, lava, and when in fast mode, leaves.
+|[[File:Core shader rendertype solid highlight.png|475x475px]]
+|-
+|rendertype_translucent
+|Translucent blocks: water (still and flowing), ice, nether portal, stained and tinted glass, slime and honey, bubbles.
+|[[File:Core shader rendertype translucent highlight.png|475x475px]]
+|-
+|rendertype_translucent_moving_block
+|Blocks that are translucent and are being moved by a piston. The one below is stained glass.
+|[[File:Core shader rendertype translucent moving block hightlight.png|475x475px]]
+|-
+|rendertype_translucent_no_crumbling
+|Unknown.
+|
+|-
+|rendertype_tripwire
+|Tripwire (sections connected to tripwire hooks are instead rendered completely solid<ref>{{bug|MC-214692}}</ref>
+|[[File:Core shader rendertype tripwire highlight.png|475x475px]]
+|-
+|rendertype_water_mask
+|Used to mask out water surface inside a boat to to prevent it from appearing flooded.
+|
+|}
+
+;Entities
+{| class="wikitable"
+!Name
+!Desciption
+!Sample Image
+|-
+|rendertype_armor_cutout_no_cull
+|Armor and armor trims on entities.
+|
+|-
+|rendertype_armor_entity_glint
+|Enchantment glint on equipped armor.
+|
+|-
+|rendertype_armor_glint
+|Unknown.
+|
+|-
+|rendertype_energy_swirl
+|Charged Creeper swirling outline and Wither armor.
+|[[File:Core shader rendertype energy swirl highlight.png|276x276px]]
+|-
+|rendertype_entity_alpha
+|Ender Dragon death disintegration effect.
+|
+|-
+|rendertype_entity_cutout
+|Items in the inventory, head (e.g. of armor stands) hand that are blocks (not flat textures)? Doesn’t seem to work with shulker boxes.
+|
+|-
+|rendertype_entity_cutout_no_cull
+|All entities and guardian beams.
+|
+|-
+|rendertype_entity_cutout_no_cull_z_offset
+|Skulls on entities and as an item.
+|
+|-
+|rendertype_entity_decal
+|Dying Ender Dragon.
+|
+|-
+|rendertype_entity_glint
+|Unknown.
+|
+|-
+|rendertype_entity_glint_direct
+|Enchantment glint on trident model.
+|
+|-
+|rendertype_entity_no_outline
+|Banner patterns (banners and shields).
+|
+|-
+|rendertype_entity_shadow
+|The ''blocks that are affected by an entity's shadow'', but not the shadow itself.
+|[[File:Core shader rendertype entity shadow highlight.png|250x250px]]
+|-
+|rendertype_entity_smooth_cutout
+|End crystal beams.
+|[[File:Core shader rendertype entity smooth cutout highlight.png|250x250px]]
+|-
+|rendertype_entity_solid
+|Certain entities or entity-style objects: banners, shulker heads, books on lecterns/enchantment tables, shields, beds, bell part of bells, capes, shells of conduits, paintings, tridents, the ears on the Deadmau5 skin.
+With item frames, the item frame entity itself is part of the shader, however items on it are not. Only non-filled in parts of maps placed on an item frame where the underlying frame is exposed are part of the shader.
+
+Also includes the first person bottom skin layer.
+|
+|-
+|rendertype_entity_translucent
+|Translucent entities and parts of entities: slimes, players (all layers) along with player heads with custom skins on them, markings on horses, shulker bullets, piglins, zombified piglins, elder guardian particle effect.
+|
+|-
+|rendertype_entity_translucent_cull
+|
+*Flat texture items (in world and inventory).
+*Translucent blocks in the inventory.
+*Totem of Undying use animation.
+|
+|-
+|rendertype_entity_translucent_emissive
+|Glowing parts of Warden texture.
+|
+|-
+|rendertype_eyes
+|A shader for the ''entire body'' of an entity that has glowing eyes (not the eyes themselves). This is not fully opaque.
+|
+|-
+|rendertype_item_entity_translucent_cull
+|Handles dropped translucent items in Fabulous graphics. Also affects invisible entities while using spectator mode or the gamerule seeFriendlyInvisibles, as well as experience orbs in all graphics settings.
+|
+|-
+|rendertype_leash
+|A leash on an entity. Applies when on a fence too.
+|[[File:Core shader rendertype leash highlight.png|250x250px]]
+|-
+|rendertype_outline
+|Glowing effect on entities. This buffer draws the already-outlined and semi-transparent glowing, not covering the entire entity like pre-snapshot.
+|[[File:Core shader rendertype outline highlight.png|250x250px]]
+|}
+
+;Miscellaneous
+{| class="wikitable"
+!Name
+!Description
+!Sample Image
+|-
+|rendertype_glint
+|Enchanted glint for items. used only when graphics settings are below fabulous if the item is seen in-world  (not in inventory or hand from first person) and either a stained glass pane or a non fully transparent block like honey, ice, slime or any glass block
+|
+|-
+|rendertype_glint_direct
+|Enchanted glint for items. used when the item is in inventory, in hand in first person or the item is opaque(see {{code|rendertype_glint}} or {{code|rendertype_glint_translucent}} for list of all blocks that are not considered opaque as of version 1.17.1)
+|
+|-
+|rendertype_glint_translucent
+|Enchanted glint for items. used only when graphics settings are on fabulous if the item is seen in-world  (not in inventory or hand from first person) and either a stained glass pane or a non fully transparent block like honey, ice, slime or any glass block
+|
+|-
+|rendertype_gui
+|
+* Mojang Studios loading screen bar
+* Text background
+* Text box in UI
+* Black background on UI elements
+* Inventory tooltips
+|
+|-
+|rendertype_gui_ghost_recipe_overlay
+|The "ghost items" that appear when clicking on a recipe in the recipe book without the required materials.
+|
+|-
+|rendertype_gui_overlay
+|
+* Mojang Studios loading screen background
+* Item durability bars
+* Item cooldown animation
+* Hovering over item slots
+* Black background of spyglass overlay
+* Fade effect in the columns of the resource pack menu
+|
+|-
+|rendertype_gui_text_highlight
+|Highlighting text
+|
+|-
+|rendertype_lightning
+|Lightning bolts, Ender Dragon death beams
+|
+|-
+|rendertype_lines
+|Outline when hovering over a block, Fishing rod line, Debug crosshair, Hitboxes
+|[[File:Core shader rendertype lines highlight.png|475x475px]]
+|
+|-
+|rendertype_text
+|All parts of text, including the shadow. This encompasses all text rendered including: F3 Menu, Menu button text, Entity names, Item names, descriptions & amounts in the inventory and the Chat etc.
+
+Also includes the filled in parts of maps placed in item frames and the entirety of non-empty map items held in hand.
+|[[File:Core shader rendertype text highlight.png|394x394px]]
+|-
+|rendertype_text_background
+|The background of text_display entities when 'see-through' is set to false.
+|
+|-
+|rendertype_text_background_see_through
+|The background of text_display entities when 'see-through' is set to true.
+|
+|-
+|rendertype_text_intensity
+|TTF fonts in resource packs.
+|
+|-
+|rendertype_text_intensity_see_through
+|TTF fonts in resource packs on text_display entities when 'see-through' is set to true.
+|
+|-
+|rendertype_text_see_through
+|The background nameplate of an entity’s custom name.
+|[[File:Core shader rendertype text see through highlight.png|295x295px]]
+|}
+{{long section|foot}}
+
+=== Include shaders ===
+Include shaders should be invoked by other shader files; they are not standalone shader programs. 
+
+Include shaders contain commonly used helper functions. To import a glsl file in a shader, use <code>#moj_import <FILENAME.glsl></code> or <code>#moj_import "FILENAME.glsl"</code>. ''The imported file needs to end with an empty line, otherwise the shader does not load.''
+
+Include shaders are stored in the <samp>assets/minecraft/shaders/include</samp> directory of minecraft.jar.
+
+{| class="wikitable"
+! Name
+! Description
+|-
+| fog
+| Contains the <code>linear_fog</code> function to calculate the color based on the vertex distance.
+|-
+| light
+| Contains the <code>minecraft_mix_light</code> function.
+|-
+| matrix
+| Contains the <code>mat2_rotate_z</code> function that returns the rotation matrix for a vec2 around the z-axis.
+|-
+| projection
+| Contains the <code>projection_from_position</code> function.
+|}
+
+=== Post-processing shaders ===
+As mentioned previously, post-processing shaders are used for special Spectator mode mob vision types, the Fabulous! graphics setting, and for rendering the outline associated with Glowing.
+
+Post-processing shaders use "post" files to define a [[#Render pipeline|pipeline]] made up of applying a sequence of "programs". Each "program" is then defined by another JSON file, in which a single [[#Render program|render program]] is defined.
+
+"post" files are stored in the <samp>assets/minecraft/shaders/post</samp> directory of the jar file, while "program" files are stored in <samp>assets/minecraft/shaders/program</samp>.
+
+Only five post-processing shaders are currently used in the game:
+* <samp>creeper.json</samp>: Used when spectating a creeper
+* <samp>invert.json</samp>: Used when spectating an enderman
+* <samp>spider.json</samp>: Used when spectating a spider
+* <samp>entity_outline.json</samp>: Used when a glowing entity is on screen
+* <samp>transparency.json</samp>: Used when in "Fabulous!" graphics mode.
+
+In these two directories, there are also many unused shaders, which were used for "Super Secret Settings" before 1.9 ([[15w31a]]). See [[Shaders/Before 1.9]].
+
+=== Render process ===
+{{expand section}}
+=== File format ===
+==== Render program ====
+<div class="treeview">
+* {{nbt | compound}} The root tag
+**{{nbt | list | blend}}: Settings for OpenGL blending.
+*** {{nbt | string | func}}: Operator to be used when blending. Can be <code>add</code>, <code>subtract</code>, <code>reversesubtract</code>, <code>reverse_subtract</code>, <code>min</code>, or <code>max</code>. Not case sensitive. Defaults to <code>add</code>. Used as <code>mode</code> parameter of <code>[https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBlendEquation.xhtml glBlendEquation]</code>
+*** {{nbt | string | srcrgb}}: Used as <code>sfactor</code> parameter of <code>[http://docs.gl/gl4/glBlendFunc glBlendFunc]</code> or <code>srcRGB</code> parameter of <code>[http://docs.gl/gl4/glBlendFuncSeparate glBlendFuncSeparate]</code>. Can be <code>0</code>, <code>1</code>, <code>srccolor</code>, <code>1-srccolor</code>, <code>dstcolor</code>, <code>1-dstcolor</code>, <code>srcalpha</code>, <code>1-srcalpha</code>, <code>dstalpha</code>, or<code>1-dstalpha</code>. Case insensitive. Ignores "_". "1", "0", "-" can be replaced by "one", "zero", "minus".
+*** {{nbt | string | dstrgb}}: Used as <code>dfactor</code> parameter of <code>[http://docs.gl/gl4/glBlendFunc glBlendFunc]</code> or <code>dstRGB</code> parameter of <code>[http://docs.gl/gl4/glBlendFuncSeparate glBlendFuncSeparate]</code>. Can be <code>0</code>, <code>1</code>, <code>srccolor</code>, <code>1-srccolor</code>, <code>dstcolor</code>, <code>1-dstcolor</code>, <code>srcalpha</code>, <code>1-srcalpha</code>, <code>dstalpha</code>, or<code>1-dstalpha</code>. Case insensitive. Ignores "_". "1", "0", "-" can be replaced by "one", "zero", "minus".
+*** {{nbt | string | srcalpha}}: Used as <code>srcalpha</code> parameter of <code>[http://docs.gl/gl4/glBlendFuncSeparate glBlendFuncSeparate]</code>. Can be <code>0</code>, <code>1</code>, <code>srccolor</code>, <code>1-srccolor</code>, <code>dstcolor</code>, <code>1-dstcolor</code>, <code>srcalpha</code>, <code>1-srcalpha</code>, <code>dstalpha</code>, or<code>1-dstalpha</code>. Case insensitive. Ignores "_". "1", "0", "-" can be replaced by "one", "zero", "minus".
+*** {{nbt | string | dstalpha}}: Used as <code>dstalpha</code> parameter of [http://docs.gl/gl4/glBlendFuncSeparate glBlendFuncSeparate]. Can be <code>0</code>, <code>1</code>, <code>srccolor</code>, <code>1-srccolor</code>, <code>dstcolor</code>, <code>1-dstcolor</code>, <code>srcalpha</code>, <code>1-srcalpha</code>, <code>dstalpha</code>, or<code>1-dstalpha</code>. Case insensitive. Ignores "_". "1", "0", "-" can be replaced by "one", "zero", "minus".
+** {{nbt | boolean | cull}}: If true, run <code>[http://docs.gl/gl4/glEnable glEnable(GL_CULL_FACE)]</code>. If false, run <code>[http://docs.gl/gl4/glDisable glDisable(GL_CULL_FACE)]</code>. Defaults to true.
+** {{nbt | string | vertex}}: The name (without file extension) of the vertex shader to be used.
+** {{nbt | string | fragment}}: The name (without file extension) of the fragment shader to be used.
+** {{nbt | list | attributes}}: Attributes to be used by the vertex shader.
+*** {{nbt | string}}: An attribute. Available values are hard-coded.
+** {{nbt | list | samplers}}: A list of samplers that may be used in the shaders.
+*** {{nbt | compound}}: A sampler.
+**** {{nbt | string | name}}: The samplers name.
+** {{nbt | list | uniforms}}: A list of uniforms that can be used in the shaders.
+***{{nbt | compound}}: A uniform.
+****{{nbt | string | name}}: The name of the uniform as referenced in the GLSL code. Some names give a uniform special behavior(Note that these following special uniform does not work in all shader programs):
+*****(float) '''Time''': A value from 0 to 1, representing time in seconds. Resets every second. Valid only in post-processing shaders.
+*****(vec2) '''InSize''': The width and height of the input buffer in pixels. Valid only in post-processing shaders.
+*****(vec2) '''OutSize''': The width and height of the output buffer in pixels. Valid only in post-processing shaders.
+*****(vec2) '''AuxSize<nowiki><i></nowiki>''': The width and height of the auxiliary buffer in pixels. <nowiki><i></nowiki> should be replaced by the order of the auxtarget in the render pass. Valid only in post-processing shaders.
+*****(matrix4x4) '''ModelViewMat''': The model-view matrix. Valid only in core shaders.
+*****(matrix4x4) '''ProjMat''': The projection matrix.
+*****(matrix4x4) '''TextureMat''': 4D matrix used to transform UV's for item glint effects. Valid only in core shaders.
+*****(vec2) '''ScreenSize''': vec2 containing the current framebuffer width and height, in that order.
+*****(vec4) '''ColorModulator''': A global vec4 of multipliers that can be set from the game code as a color multiplier. Valid only in core shaders.
+*****(vec3) '''Light0_Direction''': First light direction as vec3 for entity rendering. Valid only in core shaders.
+*****(vec3) '''Light1_Direction''': Second light direction, see Light0_Direction. Valid only in core shaders.
+*****(float) '''FogStart''': Fog start distance from the camera. Valid only in core shaders.
+*****(float) '''FogEnd''': Fog end distance from the camera. Valid only in core shaders.
+*****(vec4) '''FogColor''': vec4 fog color. Valid only in core shaders.
+*****(float) '''LineWidth''': Line width, used for rendering wireframe lines such as the block selection frame and debug hitboxes. Valid only in core shaders.
+*****(float) '''GameTime''': Global time of the world, in fractional days. Valid only in core shaders.
+*****(vec3) '''ChunkOffset''': When rendering a chunk section, the offset from the camera world position to the chunk section's base point. Valid only in core shaders.
+**** {{nbt | string | type}}: The type of the uniform. Can be one of <code>int</code>, <code>float</code>, <code>matrix4x4</code>, <code>matrix3x3</code> and <code>matrix2x2</code>. <code>int</code> can also be interpreted as <code>ivec2</code>, <code>ivec3</code> or <code>ivec4</code> depending on how many values are actually included in <code>values</code>. <code>float</code> can also be interpreted as <code>vec2</code>, <code>vec3</code> or <code>vec4</code> depending on how many values are actually included in <code>values</code>.
+**** {{nbt | int | count}}: The number of values included in <code>values</code>.
+**** {{nbt | list | values}}: The value of the uniform, given as a list of floats. The length of the list should be the same as <code>count</code>.
+</div>
+
+==== Render pipeline ====
+Here's the process of how a post-processing shader is used in game: first, the shader initializes all of the render targets specified in the "targets" list with the proper width and height. After that, the shader goes through each render pass specified in the "passes" list from first in the list to last in the list. Each pass applies the program shader on the render target specified by "intarget" (with any extra data provided by other auxiliary render targets) and output the end result on the render target specified by "outtarget".
+
+<div class="treeview">
+* {{nbt|compound}} The root tag
+** {{nbt|list|targets}}: A list of render targets. They can be buffer provided by the game, or new buffer with any name.
+*** {{nbt|string}}: The name of a render target. The size defaults to screen resolution. Post-processing shader <code>transparency</code> must contain render targets named <code>translucent</code>, <code>itemEntity</code>, <code>particles</code>, <code>weather</code> and <code>clouds</code>. Post-processing shader  <code>entity_outline</code> must contain a render target named <code>final</code>.
+*** {{nbt|compound}}: A render target to add.
+**** {{nbt|string|name}}: The name of the render target to add.
+**** {{nbt|int|width}}: The width of the render target.
+**** {{nbt|int|height}}: The height of the render target.
+** {{nbt|list|passes}}: A list of passes.
+*** {{nbt|compound}}: A render pass.
+**** {{nbt|string|name}}: The name of a program shader to apply on the input and post into the output. Use "blit" to copy the data from intarget to outtarget.
+**** {{nbt|string|intarget}}: The name of a render target to use as an input. Use <code>minecraft:main</code> to specify the main screen.
+**** {{nbt|string|outtarget}}: The name of a render target to output to. It should not be the same as intarget. Use <code>minecraft:main</code> to specify the main screen.
+**** {{nbt|list|auxtargets}}: A list of auxiliary targets.
+***** {{nbt|compound}} An auxiliary target.
+****** {{nbt|string|name}}: The auxiliary target's name that is passed into the "Program" JSON.
+****** {{nbt|string|id}}: The auxiliary target's id. Either points into the name of a buffer that is defined in <code>targets</code> or into the location of a texture under <code>assets/<namespace>/textures/effect</code> (use a [[resource location]] to reference it). Append <code>:depth</code> after the name of the buffer to access its depth buffer. For example, to access the depth buffer of <code>minecraft:main</code>, use <code>minecraft:main:depth</code>.
+****** {{nbt|int|width}}: Required if <code>id</code> references a texture. Describes the width of the texture in pixels.
+****** {{nbt|int|height}}: Required if <code>id</code> references a texture. Describes the height of the texture in pixels.
+****** {{nbt|bool|bilinear}}: Required if <code>id</code> references a texture. Determines whether the scaling algorithm used for the image is bilinear or nearest neighbor.
+**** {{nbt|list|uniforms}}: A list of overrides that change the values in the <code>uniforms</code> list in the "Program" JSON.
+***** {{nbt|compound}}: A uniform.
+****** {{nbt|string|name}}: The name of the field that should be changed.
+****** {{nbt|list|values}}: The values that the field should be changed to.
+</div>
+
+=== Tutorials and useful docs ===
+Here are some guides with additional information on creating shaders:
+
+* [https://docs.google.com/document/d/15TOAOVLgSNEoHGzpNlkez5cryH3hFF3awXL5Py81EMk/edit?usp=sharing Minecraft Vanilla Shaders Guide]
+*[https://github.com/ShockMicro/Minecraft-Shaders/wiki/ Vanilla Shaders Wiki]
+
+== Bedrock Edition ==
+{{stub section}}
+
+Since [[Bedrock Edition 1.18.30]], third party shader resource packs are no longer supported on all devices except Fire OS.
+
+== History ==
+{{History|java}}
+{{History||1.7.2|snap=13w38a|Shaders were added for Super Secret Settings.}}
+{{History||1.8|snap=14w05a|The Creeper and Spider shaders were added. Shaders are automatically applied in [[spectator]] mode when viewing the world as a [[Creeper]], [[Spider]] or [[Enderman]].}}
+{{History|||snap=14w05b|Shaders have been removed from view when changing perspective while spectating a mob.<ref name="NoBug">{{bug|MC-46727#comment-219617}}</ref>|{{key|F4}} toggles different shaders rather than turning them off.<ref name="NoBug"/>}}
+{{History|||snap=14w06a|The Entity Outline shader was added.}}
+{{History||1.9|snap=15w31a|Removed the Super Secret Settings button for an internal rewrite.<ref>{{tweet|_grum|627141591942209536|nah just rewriting it all :p They are still in the game, the button is just gone atm. It would make more sense to keybind imho|July 31, 2015}}</ref>}}
+{{History||1.16|snap=20w22a|The Transparency shader was added for ''Fabulous!'' graphics mode.}}
+{{History||1.17|snap=21w10a|Core shaders were added.}}
+{{History|foot}}
+
+==Gallery==
+<gallery>
+SpiderVision.png|The spider vision shader
+CreeperVision.png|The creeper vision shader
+</gallery>
+
+== Issues ==
+{{issue list}}
+
+== References ==
+{{reflist}}
+
+[[de:Shaders]]
+[[es:Filtros]]
+[[fr:Filtres]]
+[[pl:Shadery]]
+[[pt:Shaders]]
+[[ru:Шейдеры]]
+[[zh:着色器]]
+
+[[Category:Gameplay]]

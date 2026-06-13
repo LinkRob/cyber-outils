@@ -1,0 +1,419 @@
+{{about|the throwable potions|the drinkable potions|Potion|the throwable potions that leave a lingering area of effect|Lingering Potion}}
+{{Item
+| image = <gallery>
+Splash Water Bottle.png | Water Bottle
+Uncraftable Splash Potion.png | Uncraftable
+</gallery>
+| extratext = View [[#Gallery|all renders]]
+| renewable = '''Uncraftable, Luck{{only|je|short=1}}, Decay{{only|be|short=1}}''': No<br>
+'''All others''': Yes
+| stackable = No
+}}
+
+'''Splash potions''' are a variant of [[potion]]s that can be thrown.
+
+== Obtaining ==
+
+=== Brewing ===
+{{main|Brewing}}
+{{brewing
+  |Gunpowder
+  |Any Splash Potion
+  |base= Any Potion
+}}
+
+Splash potions are brewed by adding gunpowder to a normal potion, including uncraftable potions of luck{{only|java|short=1}} and decay{{only|be|short=1}}.
+
+=== Natural generation ===
+One splash potion of weakness can be found in a [[brewing stand]] inside an [[igloo]] basement.
+
+=== Filling bottles ===
+Using a glass bottle on a [[cauldron]] that contains splash potion turns it into a bottle of that splash potion, this also removes {{frac|1|3}} of the cauldron's content.{{only|bedrock}}
+
+=== Bartering ===
+[[Piglin]]s have a 1.74% chance of [[barter]]ing a splash potion of Fire Resistance when given a [[gold ingot]].
+
+{{anchor|Area of effect}} <!-- compatibility anchor -->
+
+== Usage ==
+
+===Brewing===
+{{Brewing
+|Dragon's Breath
+|Any Lingering Potion
+|ingredients=[[Dragon's Breath|Dragon's breath]] + <br>any splash potion
+}}
+
+[[Lingering potions]] are brewed by adding dragon's breath to a splash potion.
+
+===Using===
+
+Splash potions are thrown by {{control|using}} them. On impact they explode, applying [[status effect]]s to nearby entities. When thrown by the player, they have a range of 8 blocks if thrown at the best angle. The bottle is lost, unlike drinkable [[potion]]s. Entities within an 8.25×8.25×4.25 cuboid centered on the thrown potion at impact and within 4 blocks euclidean distance of the thrown potion<ref group="n">Specifically its lower-north-west corner; the potion entity like most thrown entities is 0.25×0.25×0.25 blocks.</ref> at impact are affected.
+
+{{IN|Bedrock}}, splash potions' effects have only three-fourths of the duration of the drinkable form. {{IN|Java}}, splash and drinkable forms have the same duration.
+
+If the potion directly collides with an entity, the entity gets the full duration and potency of the effect. Otherwise, the farther away the entity is from the center of the impact, the lesser the imbued effect. For instant effects (i.e. Healing or Harming), the potency of the effect reduces linearly from 100% on a direct hit to 0% at 4 blocks' distance. For other effects, the potency is unchanged, but the duration decreases linearly on the same scale (rounded to the nearest {{frac|1|20}} second), with no effect being applied if the duration would be 1 second or less.
+
+=== Splash water bottles ===
+
+Splash water bottles have no effect on almost all entities, but they extinguish fire in the block hit and the four blocks horizontally surrounding it.
+
+A splash water bottle deals {{hp|1}} damage to [[endermen]], [[strider]]s, [[snow golem]]s, and [[blaze]]s; however, endermen have a chance of teleporting away if hit with one.
+
+Splash water bottles can extinguish a burning entity.
+
+==== Mud ====
+
+Splash water bottles can be {{control|used}} on [[dirt]], [[coarse dirt]], or [[rooted dirt]] to turn it into [[mud]].
+
+=== Filling cauldrons ===
+
+{{IN|bedrock}}, using a splash potion on a cauldron adds one level of that potion to the cauldron. Attempting to add a splash potion to a cauldron with water, dyed water or a non-matching potion empties the cauldron and creates an explosion sound (but no actual explosion).
+
+=== Uncraftable splash potion ===
+
+{{IN|java}}, the uncraftable potion is a splash potion with no effect that is unobtainable in regular gameplay. It is also available in potion and lingering potion forms, as well as for tipped arrows.
+
+It can be obtained in two distinct (though functionally identical) variants, using the following commands: {{cmd|give @s minecraft:splash_potion{Potion:"minecraft:empty"} }} or {{cmd|give @s minecraft:splash_potion }}. It is also obtained any time a potion has invalid or missing potion effect tags, and thus serves as a placeholder.
+
+{| class="wikitable" style="text-align: center;" data-description="Unused potions"
+! Icon
+! Name
+|-
+| {{Slot|Uncraftable Splash Potion|link=none}}
+! Uncraftable Splash Potion
+|}
+
+== Custom effects ==
+
+{{IN|java}}, splash potions can be obtained with any status effect using {{cmd|give}} and the tag <code>CustomPotionEffects</code>, which is an array of effects for the potion. See [[Item format#Potion Effects]] for more information, and [[status effect]] for a list of effects and IDs.
+
+== Sounds ==
+{{edition|java}}:<br>
+Splash potions use the Friendly Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Glass dig1.ogg
+|sound2=Glass dig2.ogg
+|sound3=Glass dig3.ogg
+|subtitle=Bottle smashes
+|source=neutral
+|description=When a splash potion impacts something
+|id=entity.splash_potion.break
+|translationkey=subtitles.entity.potion.splash
+|volume=1.0
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|sound=Bow shoot.ogg
+|subtitle=Bottle thrown
+|source=player
+|description=When a splash potion is thrown by a player
+|id=entity.splash_potion.throw
+|translationkey=subtitles.entity.potion.throw
+|volume=0.5
+|pitch={{frac|1|3}}-0.5
+|distance=16}}
+{{Sound table
+|sound=Witch throw1.ogg
+|sound2=Witch throw2.ogg
+|sound3=Witch throw3.ogg
+|subtitle=Witch throws
+|description=When a splash potion is thrown by a [[witch]]
+|source=hostile
+|id=entity.witch.throw
+|translationkey=subtitles.entity.witch.throw
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Bow shoot.ogg
+|subtitle=Dispensed item
+|source=block
+|description=When a splash potion is dispensed from a [[dispenser]]
+|id=block.dispenser.launch
+|translationkey=subtitles.block.dispenser.dispense
+|volume=1.0
+|pitch=1.2
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Glass dig1.ogg
+|sound2=Glass dig2.ogg
+|sound3=Glass dig3.ogg
+|source=block
+|description=When a splash potion impacts something
+|id=random.glass
+|volume=1.0
+|pitch=1.0}}
+{{Sound table
+|sound=Bow shoot.ogg
+|source=player
+|description=When a splash potion is thrown by a player
+|id=random.bow
+|volume=0.5
+|pitch=0.33-0.5}}
+{{Sound table
+|sound=Witch throw1.ogg
+|sound2=Witch throw2.ogg
+|sound3=Witch throw3.ogg
+|source=hostile
+|description=When a splash potion is thrown by a witch
+|id=mob.witch.throw
+|volume=1.0
+|pitch=1.0}}
+{{Sound table
+|sound=Bow shoot.ogg
+|source=player
+|description=When a splash potion is dispensed from a dispenser
+|id=random.bow
+|volume=1.0
+|pitch=0.83-1.25
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Splash Potion
+|spritetype=item
+|nameid=splash_potion
+|form=item
+|translationkey=item.minecraft.splash_potion,item.minecraft.splash_potion.effect.empty,item.minecraft.splash_potion.effect.water,item.minecraft.splash_potion.effect.mundane,item.minecraft.splash_potion.effect.thick,item.minecraft.splash_potion.effect.awkward,item.minecraft.splash_potion.effect.night_vision,item.minecraft.splash_potion.effect.invisibility,item.minecraft.splash_potion.effect.leaping,item.minecraft.splash_potion.effect.fire_resistance,item.minecraft.splash_potion.effect.swiftness,item.minecraft.splash_potion.effect.slowness,item.minecraft.splash_potion.effect.water_breathing,item.minecraft.splash_potion.effect.healing,item.minecraft.splash_potion.effect.harming,item.minecraft.splash_potion.effect.poison,item.minecraft.splash_potion.effect.regeneration,item.minecraft.splash_potion.effect.strength,item.minecraft.splash_potion.effect.weakness,item.minecraft.splash_potion.effect.levitation,item.minecraft.splash_potion.effect.luck,item.minecraft.splash_potion.effect.turtle_master,item.minecraft.splash_potion.effect.slow_falling,item.minecraft.splash_potion.effect.infested,item.minecraft.splash_potion.effect.oozing,item.minecraft.splash_potion.effect.weaving,item.minecraft.splash_potion.effect.wind_charged
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|notshowbeitemforms=y
+|generatetranslationkeys=y
+|displayname=Splash Potion
+|spritetype=item
+|nameid=splash_potion
+|id=561
+|form=item
+|translationkey=potion.emptyPotion.splash.name,potion.mundane.splash.name,potion.mundane.extended.splash.name,potion.thick.splash.name,potion.awkward.splash.name,potion.nightVision.splash.name,potion.invisibility.splash.name,potion.jump.splash.name,potion.fireResistance.splash.name,potion.moveSpeed.splash.name,potion.moveSlowdown.splash.name,potion.heal.splash.name,potion.harm.splash.name,potion.poison.splash.name,potion.regeneration.splash.name,potion.damageBoost.splash.name,potion.weakness.splash.name,potion.wither.splash.name,potion.turtleMaster.splash.name,potion.slowFalling.splash.name
+|foot=1}}
+
+=== Item data ===
+
+<div class="treeview">
+* {{nbt|compound|tag}}: The item's '''tag''' tag.
+{{:Player.dat_format/Potion}}
+</div>
+
+=== Entity ===
+
+{{Entity
+| title = Thrown splash potion
+| networkid = '''JE:''' 73
+}}
+
+==== ID ====
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|displayname=Splash Potion
+|spritetype=entity
+|nameid=potion
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Splash Potion
+|spritetype=entity
+|nameid=splash_potion
+|id=86
+|foot=1}}
+
+==== Entity data ====
+{{see also|Chunk format|Potions#Data values|title2=Potion data values}}
+Splash potions when thrown have entity data that define various properties of the entity.
+
+{{/ED}}
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Stayin' Frosty;Zombie Doctor;Taste of your own Medicine;Free Diver}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|Zombie Doctor;A Furious Cocktail;How Did We Get Here}}
+</table-progress-tracking>
+
+== Video ==
+
+<div style="text-align:center">{{yt|cuN6VdcUfLE}}</div>
+
+== History ==
+{{Info needed section|Splash Potion of Weakness; }}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 4|[[File:Splash Potion of Fire Resistance JE1 BE1.png|32px]] [[File:Splash Potion of Swiftness JE1 BE1.png|32px]] [[File:Splash Potion of Slowness JE1 BE1.png|32px]] [[File:Splash Potion of Healing JE1 BE1.png|32px]] [[File:Splash Potion of Harming JE1 BE1.png|32px]] [[File:Splash Potion of Poison JE1 BE1.png|32px]] [[File:Splash Potion of Regeneration JE1 BE1.png|32px]] [[File:Splash Potion of Strength JE1 BE1.png|32px]] [[File:Splash Potion of Weakness JE1 BE1.png|32px]] Added splash potions.}}
+{{History||link=http://www.reddit.com/r/Minecraft/comments/lbrqq/water_balloons/c2rey4s?context=3|Oct 14, 2011|[[Jeb]] had commented that while splash water bottles should logically harm [[endermen]] and [[blaze]]s, its coding would be more difficult to implement than is worthwhile.}}
+{{History||1.3.1|snap=12w17a|Splash potions are no longer depleted from the [[player]]'s [[inventory]] when used in [[creative]].}}
+{{History|||snap=12w22a|Splash potions have been added to the new creative item selection from [[Java Edition 12w21b|12w21b]]. This includes extended-enhanced potions with both extended duration and enhanced effect for four potion effects.}}
+{{History||1.4.2|snap=12w32a|[[File:Splash Potion of Night Vision JE1 BE1.png|32px]] Added splash potions of [[Night Vision]].
+|Splash potions of Night Vision are currently not yet [[brewing|brewable]].}}
+{{History|||snap=12w34a|[[File:Splash Potion of Invisibility JE1 BE1.png|32px]] Added splash potions of [[Invisibility]].
+|Splash potions of Night Vision are now brewable.}}
+{{History|||snap=12w38a|[[Witch]]es now use splash potions for attacking.}}
+{{History|||snap=12w39b|Custom [[potion]]s can now be created with a world editor.<ref>http://www.youtube.com/watch?v=2D8OcQ1zyzY</ref>}}
+{{History||1.5|snap=?|Extended-enhanced potions are no longer available in the Creative inventory for all four potion effects. {{info needed}}{{verify}}<!--only checked v1.4.7 and v1.5.2, but did not check any version in between, please check all-->}}
+{{History||1.7.2|snap=13w36a|[[File:Splash Potion of Water Breathing JE1 BE1.png|32px]] Added splash potions of [[Water Breathing]].}}
+{{History||1.8|snap=14w27a|[[File:Splash Potion of Leaping JE1 BE1.png|32px]] Added splash potions of [[Leaping]].}}
+{{History||1.8.1|snap=pre1|Splash potions of Leaping can now be extended.}}
+{{History||1.9|snap=15w31a|[[File:Splash Water Bottle JE1 BE1.png|32px]] [[File:Splash Water Bottle JE1 BE1.png|32px]] [[File:Splash Water Bottle JE1 BE1.png|32px]]  Added splash water bottles, thick, and awkward splash potions.
+|Splash potions no longer only have 75% of the durations from their corresponding normal potions.}}
+{{History|||snap=15w33a|Splash potions are now used to brew [[lingering potion]]s.}}
+{{History|||snap=15w33c|Splash potions can now be placed in [[brewing stand]]s.}}
+{{History|||snap=15w34a|Splash water bottles now just extinguish [[fire]], without placing flowing [[water]].}}
+{{History|||snap=15w43a|A splash potion of weakness can now be found in the [[brewing stand]] in an [[igloo]] basement.}}
+{{History|||snap=15w44b|[[File:Uncraftable Splash Potion JE1.png|32px]] [[File:Splash Potion of Luck JE1.png|32px]] Added uncraftable splash potions and splash potions of [[Luck]].}}
+{{History|||snap=15w49a|Splash potions, like all throwable projectiles, now take the thrower's motion into account.}}
+{{History||1.11|snap=16w32a|The [[entity]] ID has been changed from <code>ThrownPotion</code> to <code>potion</code>.}}
+{{History|||snap=16w35a|Splash water bottles now deal {{hp|1}} [[damage]] to [[endermen]] and [[blaze]]s.}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], this [[item]]'s numeral ID was 438.}}
+{{History|||snap=18w07a|[[File:Splash Potion of the Turtle Master JE1 BE1.png|32px]] Added splash potions of the Turtle Master.}}
+{{History|||snap=18w14a|[[File:Splash Potion of Slow Falling JE1 BE1.png|32px]] Added splash potions of [[Slow Falling]].}}
+{{History||1.14|snap=18w43a|[[File:Uncraftable Splash Potion JE2.png|32px]] [[File:Splash Water Bottle JE2 BE2.png|32px]] [[File:Splash Potion of Night Vision JE2 BE2.png|32px]] [[File:Splash Potion of Invisibility JE2 BE2.png|32px]] [[File:Splash Potion of Leaping JE2 BE2.png|32px]] [[File:Splash Potion of Fire Resistance JE2 BE2.png|32px]] [[File:Splash Potion of Swiftness JE2 BE2.png|32px]] [[File:Splash Potion of Slowness JE2 BE2.png|32px]] [[File:Splash Potion of the Turtle Master JE2 BE2.png|32px]] [[File:Splash Potion of Water Breathing JE2 BE2.png|32px]] [[File:Splash Potion of Healing JE2 BE2.png|32px]] [[File:Splash Potion of Harming JE2 BE2.png|32px]] [[File:Splash Potion of Poison JE2 BE2.png|32px]] [[File:Splash Potion of Regeneration JE2 BE2.png|32px]] [[File:Splash Potion of Strength JE2 BE2.png|32px]] [[File:Splash Potion of Weakness JE2 BE2.png|32px]] [[File:Splash Potion of Luck JE2.png|32px]] [[File:Splash Potion of Slow Falling JE2 BE2.png|32px]] The textures of splash potions have been changed.}}
+{{History||1.16|snap=20w09a|[[Fire resistance]] splash potions can now be obtained through [[bartering]].}}
+{{History||1.19|snap=22w11a|Splash water bottles can now be {{control|used}} on [[dirt]], [[coarse dirt]], or [[rooted dirt]] to turn it into [[mud]].}}
+{{History||1.19.3|snap=22w43a|Splash water bottles can now extinguish burning entities.<ref>{{bug|MC-189911|||Fixed}}</ref>}}
+{{History||1.19.4|snap=Pre-release 1|Splash potions no longer have an enchantment glint.}}
+{{History|||snap=Pre-release 3|[[File:Splash Potion of Night Vision JE3.png|32px]] [[File:Splash Potion of Invisibility JE3.png|32px]] [[File:Splash Potion of Leaping JE3.png|32px]] [[File:Splash Potion of Fire Resistance JE3.png|32px]] [[File:Splash Potion of Swiftness JE3.png|32px]] [[File:Splash Potion of Slowness JE3.png|32px]] [[File:Splash Potion of the Turtle Master JE3.png|32px]] [[File:Splash Potion of Water Breathing JE3.png|32px]] [[File:Splash Potion of Harming JE3.png|32px]] [[File:Splash Potion of Poison JE3.png|32px]] [[File:Splash Potion of Strength JE3.png|32px]] Changed colors of the following splash potions: Night Vision, Invisibility, Leaping, Fire Resistance, Swiftness, Slowness, Turtle Master, Water Breathing, Harming, Poison, Strength, Resistance.}}
+{{History||1.20|snap=23w12a|Wither [[effect]] particle colors have been adjusted to make them more distinguishable.
+|The splash potion of [[Slow Falling]] has had its color tweaked to make it more distinguishable from the splash potion of [[Invisibility]].}}
+
+{{History|pocket alpha}}
+{{History||v0.12.1|snap=build 1|[[File:Splash Water Bottle JE1 BE1.png|32px]] [[File:Splash Potion of Night Vision JE1 BE1.png|32px]] [[File:Splash Potion of Invisibility JE1 BE1.png|32px]] [[File:Splash Potion of Leaping JE1 BE1.png|32px]] [[File:Splash Potion of Fire Resistance JE1 BE1.png|32px]] [[File:Splash Potion of Swiftness JE1 BE1.png|32px]] [[File:Splash Potion of Slowness JE1 BE1.png|32px]] [[File:Splash Potion of Water Breathing JE1 BE1.png|32px]] [[File:Splash Potion of Healing JE1 BE1.png|32px]] [[File:Splash Potion of Harming JE1 BE1.png|32px]] [[File:Splash Potion of Poison JE1 BE1.png|32px]] [[File:Splash Potion of Regeneration JE1 BE1.png|32px]] [[File:Splash Potion of Strength JE1 BE1.png|32px]] [[File:Splash Potion of Weakness JE1 BE1.png|32px]] Added splash potions.
+|Splash water bottles, mundane, long mundane, thick, and awkward splash potions are all available in the Creative inventory.}}
+{{History||v0.13.0|snap=build 1|Splash potions of [[Leaping]] are now obtainable in [[survival]].}}
+{{History||v0.14.0|snap=build 1|Splash potions can now be used to fill [[cauldron]]s.
+|A cauldron now can be filled by splash potions and can be emptied using a [[glass bottle]], which turn into the corresponding splash potion.
+|[[Witch]]es now use splash potions for attacking.}}
+{{History||?|Splash water bottles now deal {{hp|1}} [[damage]] to [[endermen]] and [[blaze]]s.
+|Splash water bottles now just extinguish [[fire]], without placing flowing [[water]].}}
+{{History||v0.16.0|snap=build 4|[[File:Splash Potion of Decay BE1.png|32px]] As a version exclusive, added splash potions of [[Decay]].}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Splash potions can now be used to brew [[lingering potion]]s.
+|A splash potion of weakness can now be found in the [[brewing stand]] in an [[igloo]] basement.}}
+{{History|bedrock}}
+{{History||1.5.0|snap=beta 1.5.0.4|[[File:Splash Potion of the Turtle Master JE1 BE1.png|32px]] Added splash potions of the Turtle Master.}}
+{{History||1.6.0|snap=beta 1.6.0.5|[[File:Splash Potion of Slow Falling JE1 BE1.png|32px]] Added splash potions of [[Slow Falling]].}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Splash Water Bottle JE2 BE2.png|32px]] [[File:Splash Potion of Night Vision JE2 BE2.png|32px]] [[File:Splash Potion of Invisibility JE2 BE2.png|32px]] [[File:Splash Potion of Leaping JE2 BE2.png|32px]] [[File:Splash Potion of Fire Resistance JE2 BE2.png|32px]] [[File:Splash Potion of Swiftness JE2 BE2.png|32px]] [[File:Splash Potion of Slowness JE2 BE2.png|32px]] [[File:Splash Potion of Water Breathing JE2 BE2.png|32px]] [[File:Splash Potion of Healing JE2 BE2.png|32px]] [[File:Splash Potion of Harming JE2 BE2.png|32px]] [[File:Splash Potion of Poison JE2 BE2.png|32px]] [[File:Splash Potion of Regeneration JE2 BE2.png|32px]] [[File:Splash Potion of Strength JE2 BE2.png|32px]] [[File:Splash Potion of Weakness JE2 BE2.png|32px]] [[File:Splash Potion of Decay BE2.png|32px]] [[File:Splash Potion of the Turtle Master JE2 BE2.png|32px]] [[File:Splash Potion of Slow Falling JE2 BE2.png|32px]] The textures of splash potions have been changed.}}
+{{History||1.16.0|snap=beta 1.16.0.57|[[Fire resistance]] splash potions can now be obtained through [[bartering]].}}
+{{History||1.19.80|snap=beta 1.19.80.21|Changed potion colors for the following splash potions: Fire Resistance, Harming, Invisibility, Leaping, Night Vision, Poison, Slowness, Strength, Swiftness, Turtle Master, and Water Breathing.
+|Removed enchantment glint from splash potions.}}
+
+{{History|console}}
+{{History||xbox=TU7|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Splash Potion of Fire Resistance JE1 BE1.png|32px]] [[File:Splash Potion of Swiftness JE1 BE1.png|32px]] [[File:Splash Potion of Slowness JE1 BE1.png|32px]] [[File:Splash Potion of Healing JE1 BE1.png|32px]] [[File:Splash Potion of Harming JE1 BE1.png|32px]] [[File:Splash Potion of Poison JE1 BE1.png|32px]] [[File:Splash Potion of Regeneration JE1 BE1.png|32px]] [[File:Splash Potion of Strength JE1 BE1.png|32px]] [[File:Splash Potion of Weakness JE1 BE1.png|32px]] Added splash potions.}}
+{{History||xbox=TU14|ps=1.04|[[File:Splash Potion of Night Vision JE1 BE1.png|32px]] [[File:Splash Potion of Invisibility JE1 BE1.png|32px]] Added splash potions of [[Night Vision]] and splash potions of [[Invisibility]].
+|Extended-enhanced potions are now listed individually for four potion effects.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|[[File:Splash Potion of Leaping JE1 BE1.png|32px]] [[File:Splash Potion of Water Breathing JE1 BE1.png|32px]] Added splash potions of [[Leaping]] and splash potions of [[Water Breathing]]. These are both available in four variants unlike ''Java'' and ''Bedrock'' where the latter group only added two variants of water breathing and three variants for leaping.}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|switch=1.0.1|[[File:Splash Water Bottle JE1 BE1.png|32px]] Added splash [[water bottle]]s.
+|[[File:Splash Potion of Luck JE1.png|32px]] Added splash potions of [[Luck]].
+|Added [[lingering potion]]s, which can be [[brewing|brewed]] with splash potions to create [[dragon's breath]].
+|Added dragon's breath, which can be brewed from lingering potions and splash potions.
+|Splash potions no longer only have 75% of the durations from their corresponding normal potions.
+|Removed all types of extended-enhanced potions for all five potion effects.}}
+{{History||xbox=TU54|xbone=CU44|ps=1.52|wiiu=Patch 24|switch=1.0.4|Splash water bottles now deal {{hp|1}} [[damage]] to [[endermen]] and [[blaze]]s.}}
+{{History||xbox=TU57|xbone=CU49|ps=1.56|wiiu=Patch 27|switch=1.0.7|Splash potions once again only have 75% of the duration from their corresponding normal potions.}}
+{{History||xbox=TU69|xbone=none|ps=1.76|wiiu=Patch 38|switch=none|[[File:Splash Potion of Decay BE1.png|32px]] [[File:Splash Potion of the Turtle Master JE1 BE1.png|32px]] [[File:Splash Potion of Slow Falling JE1 BE1.png|32px]] Added splash potions of [[Decay]], Turtle Master, and [[Slow Falling]].}}
+
+{{History|New 3DS}}
+{{History||0.1.0|[[File:Splash Water Bottle JE1 BE1.png|32px]] [[File:Splash Potion of Night Vision JE1 BE1.png|32px]] [[File:Splash Potion of Invisibility JE1 BE1.png|32px]] [[File:Splash Potion of Leaping JE1 BE1.png|32px]] [[File:Splash Potion of Fire Resistance JE1 BE1.png|32px]] [[File:Splash Potion of Swiftness JE1 BE1.png|32px]] [[File:Splash Potion of Slowness JE1 BE1.png|32px]] [[File:Splash Potion of Water Breathing JE1 BE1.png|32px]] [[File:Splash Potion of Healing JE1 BE1.png|32px]] [[File:Splash Potion of Harming JE1 BE1.png|32px]] [[File:Splash Potion of Poison JE1 BE1.png|32px]] [[File:Splash Potion of Regeneration JE1 BE1.png|32px]] [[File:Splash Potion of Strength JE1 BE1.png|32px]] [[File:Splash Potion of Weakness JE1 BE1.png|32px]] Added splash potions.
+|Splash water bottles, mundane, thick, and awkward splash potions are all available in the Creative inventory.}}
+{{History||1.3.12|[[File:Splash Potion of Decay BE1.png|32px]] Added splash potions of [[Decay]].}}
+{{History|foot}}
+
+==Issues==
+{{issue list}}
+
+==Trivia==
+*If an enderman is targeted directly by a splash potion, it teleports away before the potion can affect it. However, if an enderman is caught in the splash radius of a potion not aimed at it, it takes damage from the potion.
+*If killed by a splash potion of harming, the death message would be: ''<player> was killed by <attacker> using magic''
+*A thrown splash potion faces toward the [[player]] in first-person view, while it appears rotated horizontally in third-person view. This is the case for all throwable [[item]]s ([[ender pearl]]s, [[eggs]], [[snowball]]s, and all throwable potions).
+
+==Unused splash potions==
+[[Bedrock Edition]] has [[History of textures/Unused textures#Unused potions|unused splash potion textures]] for several [[effect]]s, along with their [[Potion#Unused potions|normal variants]]. These effects are: [[Absorption]], [[Blindness]], [[Haste]], [[Health Boost]], [[Hunger]], [[Mining Fatigue]], [[Nausea]], [[Resistance]], [[Saturation]], and [[Levitation]], as well as the [[Luck]] potion textures also present in [[Java Edition]]. These unused textures were added along with the other potion textures in [[Pocket Edition v0.12.1 alpha]], except for the potion of levitation, which was added in [[Pocket Edition 1.0.0]]. The textures were changed along with the other potion textures during the [[texture update]] in [[Bedrock Edition 1.10.0]]. Strangely, the potion of levitation texture is a duplicate of the splash potion of levitation texture.
+<gallery>
+Splash Potion of Absorption BE2.png|Splash Potion of Absorption
+Splash Potion of Blindness BE2.png|Splash Potion of Blindness
+Splash Potion of Haste BE2.png|Splash Potion of Haste
+Splash Potion of Health Boost BE2.png|Splash Potion of Health Boost
+Splash Potion of Hunger BE2.png|Splash Potion of Hunger
+Splash Potion of Mining Fatigue BE2.png|Splash Potion of Mining Fatigue
+Splash Potion of Nausea BE2.png|Splash Potion of Nausea
+Splash Potion of Resistance BE2.png|Splash Potion of Resistance
+Splash Potion of Saturation BE2.png|Splash Potion of Saturation
+Potion of Levitation BE2.png|Splash Potion of Levitation
+</gallery>
+
+== Gallery ==
+<gallery>
+Splash Water Bottle.png|Splash water bottle
+Splash Potion of Night Vision.png|Night Vision
+Splash Potion of Invisibility.png|Invisibility
+Splash Potion of Leaping.png|Leaping
+Splash Potion of Fire Resistance.png|Fire Resistance
+Splash Potion of Swiftness.png|Swiftness
+Splash Potion of Slowness.png|Slowness
+Splash Potion of the Turtle Master.png|Turtle Master
+Splash Potion of Water Breathing.png|Water Breathing
+Splash Potion of Healing.png|Healing
+Splash Potion of Harming.png|Harming
+Splash Potion of Poison.png|Poison
+Splash Potion of Regeneration.png|Regeneration
+Splash Potion of Strength.png|Strength
+Splash Potion of Weakness.png|Weakness
+Splash Potion of Slow Falling.png|Slow Falling
+Splash Potion of Luck.png|Luck
+Splash Potion of Decay.png|Decay
+Uncraftable Splash Potion.png|Uncraftable splash potion
+</gallery>
+=== Other ===
+<gallery>
+Splash Potion Weakness.png|A splash potion hovered over in a brewing stand
+Splash Potion Radius.png|Splash potions' area of effect
+</gallery>
+
+== See also==
+* {{ItemLink|Glass Bottle}}
+* {{ItemLink|Lingering Potion}}
+* {{ItemLink|Bottle o' Enchanting}}
+
+== Notes ==
+{{notelist|n}}
+
+== References ==
+{{reflist}}
+
+== External links ==
+* [http://www.minecraftforum.net/topic/673147-all-about-potions-and-brewing-19-reference-guidepics-and-a-mod-download-to-make-them-usable/ Minecraft Forum: All About Potions And Brewing - 1.9 Reference Guide]
+* [http://potioncraft.net/ Minecraft Potions - A Visual Guide]
+
+{{Items}}
+{{entities}}
+
+[[Category:Combat]]
+
+[[cs:Vrhací lektvar]]
+[[de:Wurftrank]]
+[[fr:Potion jetable]]
+[[ja:スプラッシュポーション]]
+[[ko:투척용 물약]]
+[[nl:Spattende dranken]]
+[[pl:Mikstury miotane]]
+[[pt:Poção arremessável]]
+[[ru:Взрывающиеся зелья]]
+[[zh:喷溅药水]]

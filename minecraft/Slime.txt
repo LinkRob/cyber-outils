@@ -1,0 +1,490 @@
+{{about|the mob|the item it drops|Slimeball|the block created with slimeballs|Slime Block|other uses}}
+{{Entity
+| title = Slime
+| image = Slime.png
+| health = '''Big:''' {{hp|16}}<br/>'''Medium:''' {{hp|4}}<br/>'''Small:''' {{hp|1}}<br/>
+| behavior = Hostile
+| damage = Easy:<br/>'''Big:''' {{hp|3}} <br/>'''Medium:''' {{hp|2}}<br/>'''Small:''' {{hp|0}}<br/>Normal:<br/>'''Big:''' {{hp|4}}<br/>'''Medium:''' {{hp|2}}<br/>'''Small:''' {{hp|0}}<br/>Hard:<br/>'''Big:''' {{hp|6}}<br/>'''Medium:''' {{hp|3}}<br/>'''Small:''' {{hp|0}}<br/>
+| size = '''Big:'''<br/>Height: 2.08 Blocks<br/>Width: 2.08 Blocks <br/> '''Medium:'''<br/>Height: 1.04 Blocks<br/>Width: 1.04 Blocks <br/> '''Small:'''<br/>Height: 0.52 Blocks<br/>Width: 0.52 Blocks
+| spawn = see {{slink||Spawning}}
+}}
+'''Slimes''' are green, bouncy, cube-shaped [[hostile mob]]s that spawn deep underground in particular [[chunk]]s, or in [[swamp]] biomes. They attack by jumping at their targets. They come in three sizes, the larger slimes can split into smaller ones when they die.
+
+== Spawning ==
+Slimes spawn in the [[Overworld]] in specific "slime chunks" below [[altitude|layer]] 40, regardless of [[Light#Light level|light level]]s. They can also spawn in swamp biomes between layers 51 and 69 (inclusive) in light levels of 7 or less, with these layers tending to be near the surface. Slimes spawn regardless of weather conditions.
+
+Only sizes 1, 2, and 4 (NBT <code>Size</code> tag values 0, 1 and 3 respectively) spawn naturally. With use of {{command|summon}}, slimes can potentially range from size 1 to 127 (NBT <code>Size</code> tag 0–126).{{verify|edition=bedrock|Is there a different maximum size in Bedrock, and if so what is it?}}
+
+Like most other hostile mobs, slimes do not spawn within 24 blocks (spherical) of any player, despawn over time if no player is within 32 blocks, and despawn instantly if no player is within the despawn radius (128 blocks {{in|java}}, 44 to 128 blocks {{in|bedrock}} depending on [[simulation distance]]{{verify|Uncertain what the was actually changed to fix MCPE-79359}}).
+
+A slime needs roughly a 3×2.1x3 free space to spawn. The area in which the slime spawns must be clear of solid or liquid obstructions. When a slime attempts to spawn, the game checks for the space requirement of a large slime, and the size is determined later. Therefore, since large slimes are slightly taller than 2 blocks, no slimes, regardless of size, are able to spawn at all in 2-block-high areas. Also, since large slimes are slightly wider than 2 blocks, and mobs spawn at the center of a block, having any block within the 3×2.1x3 area, even as thin as a [[Glass Pane|glass pane]], can prevent a slime of any size from spawning.
+<!-- 
+These are the old spawning rules for slimes.
+Depending on their size, slimes require two to three vertical, transparent blocks (such as air, signs, or torches, but excluding Redstone-related items{{more info|What else?}}) to spawn in, with an opaque block underneath. The space they spawn in must also be clear of solid obstructions and liquids.{{more info|clarify: list which blocks from [[Opaque#Types of transparent blocks]] count as solid}} Big slimes require a {{tooltip|3×2.5×3|3 blocks on x and z-axis, 2.5 blocks on y axis}} space to spawn, medium slimes require a {{tooltip|3×2×3|3 blocks on x and z-axis, 2 blocks on y axis}} space, and small slimes require a {{tooltip|1×2×1|1 block on x and z-axis, 2 blocks on y axis}} space (or {{tooltip|1×1×1|1 block on all axis}} if the upper block is not opaque).<ref>http://www.minecraftforum.net/topic/385523-slime-spawning/</ref>
+-->
+
+Slime size is affected by [[regional difficulty]]: chances range from 33% for each size at the low difficulty to 16% small, 33% medium, and 50% big with higher difficulty.
+
+Slimes can spawn on some light-emitting blocks:
+{{columns-list|
+* {{BlockLink|Amethyst Bud}}
+* {{BlockLink|Blast Furnace}}
+* {{BlockLink|Brown Mushroom}}
+* {{BlockLink|Cave Vines}}
+* {{BlockLink|Crying Obsidian}}
+* {{BlockLink|Furnace}}
+* {{BlockLink|Glow Lichen}}
+* {{BlockLink|Glowing Obsidian}}
+* {{BlockLink|Jack o'Lantern}}
+* {{BlockLink|Redstone Lamp}}
+* {{BlockLink|Redstone Torch}}
+* {{BlockLink|Respawn Anchor}} (0-3 charges only)
+* {{BlockLink|Smoker}}
+* {{BlockLink|Soul Torch}}
+* {{BlockLink|Torch}}
+}}
+
+=== Swamps ===
+
+In swamps and mangrove swamps, slimes may spawn between the heights of 51 and 69 (inclusive) when the provided light level is 7 or less. They spawn most often on a [[Moon#Phases|full moon]], and never on a new moon.
+
+More precisely, the game checks two factors:
+
+# If the light level is equal to or less than a random integer (from 0 to 7)
+# If the fraction of the moon that is bright is greater than a random number (from 0 to 1)
+
+If these conditions are met and the altitude is acceptable, there is a 50% chance of spawning a slime.
+
+The light level requirement for slime spawning in swamps is different from that of most hostile mobs, which only spawn at light level 0.<ref>{{bug|MC-252424||Slimes spawn at light levels greater then 0 in Swamps|WAI}}</ref>
+
+=== "Slime chunks" ===
+{{anchor|Low layers}}
+
+Slimes spawn throughout the world (except [[Mushroom Fields|mushroom fields]] and [[Deep Dark|deep dark]] biomes) below level Y=40 ''regardless'' of light level, but only in certain [[chunk]]s; {{frac|1|10}} of all chunks. 
+
+==== Java Edition ====
+{{IN|java}}, these "slime chunks" are determined pseudo-randomly by combining their chunk coordinates with the [[Seed (level generation)|seed of the world]]:
+<syntaxhighlight lang="java">
+import java.util.Random; 
+
+public class checkSlimechunk {
+    public static boolean isSlimeChunk(long worldSeed, int xPosition, int zPosition) {
+        Random rnd = new Random(worldSeed
+                   + (int) (xPosition * xPosition * 0x4c1906)
+                   + (int) (xPosition * 0x5ac0db)
+                   + (int) (zPosition * zPosition) * 0x4307a7L
+                   + (int) (zPosition * 0x5f24f) ^ 0x3ad8025fL);
+        return rnd.nextInt(10) == 0;        
+    }
+
+    public static void main(String args[]) { 
+        long seed = 12345L; // the seed from /seed as a 64bit long literal
+        int xPosition = 123;
+        int zPosition = 456;
+        System.out.println(isSlimeChunk(seed, xPosition, zPosition));
+    } 
+}
+</syntaxhighlight>
+That is, using the chunk coordinates to help generate a seed, a random number between 0 and 9 inclusive is generated. If that number is 0, the chunk can spawn slimes. To convert world coordinates to chunk coordinates, divide by 16 and round down. Note that {{cd|xPosition|d=and|zPosition}} are 32-bit integers (<samp>int</samp>s).
+
+==== Bedrock Edition ====
+
+The slime chunk algorithm {{in|bedrock}} is different from {{in|java}}. The algorithm doesn't depend on the world seed, thus the chunks that slimes can naturally spawn in inhabit the same coordinates for every world.<ref>The Bedrock Edition slime chunk algorithm was reverse engineered by @protolambda and @jocopa3 and can be found on GitHub:[https://github.com/depressed-pho/slime-finder-pe]</ref>
+
+=== Post generation ===
+2 slimes can spawn whenever any entity affected by [[Oozing]] is killed.
+
+== Drops ==
+If a slime's size is 1, it drops 0-2 [[slimeball]]s unless killed by a [[frog]]. This can be increased by 1 per level of [[Looting]], for a maximum of 5 slimeballs. When killed by a frog, it always drops 1 slimeball.
+
+Slimes also drop experience points equal to their size: {{xp|4}} for large slimes, {{xp|2}} for medium slimes, or {{xp|1}} for small slimes. Because slimes split into 2-4 smaller slimes when they die, a player can earn a possible maximum of 28 [[experience]] points from killing one large slime and all the slimes that split from it.
+
+== Behavior ==
+[[File:Slime.gif|160px|thumb|A slime jumping.]]
+Slimes move by hopping, which they do every 10 to 30 [[tick]]s ({{fraction|1|2}} to {{fraction|1|1|2}} seconds), and can swim in water and climb ladders and scaffolding. Unlike other mobs, slimes continue moving when no players are nearby. Their exact routine is as follows:
+
+The slime searches for a [[player]] (or, failing that, an [[iron golem]]) within 16 blocks (spherical) distance.
+* If no target is found, the slime waits 10 to 30 ticks ({{frac|1|2}} to {{frac|1|1|2}} seconds) between jumps, and changes direction randomly every 40 to 100 ticks (2 to 5 seconds).
+* If a target is found, the delay before jumping is {{fraction|1|3}} as long (3 to 10 ticks), and the slime's direction is set directly toward the target before jumping.
+
+Unlike most [[mobs]], slimes do not pathfind towards their target, always approaching their target in a straight line, without avoiding environmental hazards such as [[lava]], [[cactus]] or dangerous falls. This means they can easily get stuck in corners or behind walls, not knowing how to circumvent them. This behavior is shared by [[magma cube]]s.
+
+A slime's maximum health is equal to its size squared, and its dimensions are 0.51 [[blocks]] times its size in each dimension. When a slime attacks, it deals damage equal to its size, except for size 1 (smallest) slimes, which do no damage, and do not prevent [[bed|sleeping]]. Because small slimes still have a hostile AI, they continuously attack the player.
+
+A slime's jump distance also depends on its size; a slime jumps a distance slightly farther than its length. When landing, a number (8 times the slime's size) of slime particles appear. Slimes will always, regardless of size, jump 1 block high.
+
+When a slime larger than 1 dies, it spawns 2-4 new slimes equivalent to its size divided by 2, rounding down. A slime that was named with a [[name tag]] produces smaller slimes with the same name when it dies.
+
+Slimes continuously damage all players and [[iron golems]]{{only|java|short=1}} they collide with (although [[damage immunity]] reduces the actual damage to 1 attack every half second), unlike other mobs that damage only those targets they specifically attack.<ref>{{bug|MC-131426}}</ref>
+
+Slimes in [[water]] attempt to swim to the surface if possible. If forced to stay submerged, they eventually drown, splitting into smaller slimes that drown and finally drop slimeballs.
+
+== Sounds ==
+{{el|je}}:<br>
+Slimes use the Hostile Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Slime attack1.ogg
+|sound2=Slime attack2.ogg
+|source=Hostile Creatures
+|overridesource=1
+|description=When a slime attacks something
+|subtitle=Slime attacks
+|id=entity.slime.attack
+|translationkey=subtitles.entity.slime.attack
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Slime big1.ogg
+|sound2=Slime big2.ogg
+|sound3=Slime big3.ogg
+|sound4=Slime big4.ogg
+|source=Hostile Creatures
+|overridesource=1
+|description=When a non-small slime dies
+|subtitle=Slime dies
+|id=entity.slime.death
+|translationkey=subtitles.entity.slime.death
+|volume=Large: 1.2<br>Medium: 0.4
+|pitch=0.64-0.96
+|distance=16}}
+{{Sound table
+|sound=Slime small1.ogg
+|sound2=Slime small2.ogg
+|sound3=Slime small3.ogg
+|sound4=Slime small4.ogg
+|sound5=Slime small5.ogg
+|source=Hostile Creatures
+|overridesource=1
+|description=When a small slime dies
+|subtitle=Slime dies
+|id=entity.slime.death_small
+|translationkey=subtitles.entity.slime.death
+|volume=0.0
+|pitch=1.12-1.68
+|distance=16}}
+{{Sound table
+|sound=Slime big1.ogg
+|sound2=Slime big2.ogg
+|sound3=Slime big3.ogg
+|sound4=Slime big4.ogg
+|source=Hostile Creatures
+|overridesource=1
+|description=When a non-small slime is damaged
+|subtitle=Slime hurts
+|id=entity.slime.hurt
+|translationkey=subtitles.entity.slime.hurt
+|volume=Large: 1.2<br>Medium: 0.4
+|pitch=0.64-0.96
+|distance=16}}
+{{Sound table
+|sound=Slime small1.ogg
+|sound2=Slime small2.ogg
+|sound3=Slime small3.ogg
+|sound4=Slime small4.ogg
+|sound5=Slime small5.ogg
+|source=Hostile Creatures
+|overridesource=1
+|description=When a small slime is damaged
+|subtitle=Slime hurts
+|id=entity.slime.hurt_small
+|translationkey=subtitles.entity.slime.hurt
+|volume=0.0
+|pitch=1.12-1.68
+|distance=16}}
+{{Sound table
+|sound=Slime big1.ogg
+|sound2=Slime big2.ogg
+|sound3=Slime big3.ogg
+|sound4=Slime big4.ogg
+|source=Hostile Creatures
+|overridesource=1
+|description=When a non-small slime jumps
+|subtitle=Slime squashes
+|id=entity.slime.jump
+|translationkey=subtitles.entity.slime.squish
+|volume=Large: 1.2<br>Medium: 0.4
+|pitch=0.64-0.96
+|distance=16}}
+{{Sound table
+|sound=Slime small1.ogg
+|sound2=Slime small2.ogg
+|sound3=Slime small3.ogg
+|sound4=Slime small4.ogg
+|sound5=Slime small5.ogg
+|source=Hostile Creatures
+|overridesource=1
+|description=When a small slime jumps
+|subtitle=Slime squashes
+|id=entity.slime.jump_small
+|translationkey=subtitles.entity.slime.squish
+|volume=0.0
+|pitch=1.12-1.68
+|distance=16}}
+{{Sound table
+|sound=Slime big1.ogg
+|sound2=Slime big2.ogg
+|sound3=Slime big3.ogg
+|sound4=Slime big4.ogg
+|source=Hostile Creatures
+|overridesource=1
+|description=When a non-small slime lands
+|subtitle=Slime squashes
+|id=entity.slime.squish
+|translationkey=subtitles.entity.slime.squish
+|volume=Large: 1.2<br>Medium: 0.4
+|pitch=1.0-1.5
+|distance=16}}
+{{Sound table
+|sound=Slime small1.ogg
+|sound2=Slime small2.ogg
+|sound3=Slime small3.ogg
+|sound4=Slime small4.ogg
+|sound5=Slime small5.ogg
+|source=Hostile Creatures
+|overridesource=1
+|description=When a small slime lands
+|subtitle=Slime squishes
+|id=entity.slime.squish_small
+|translationkey=subtitles.entity.slime.squish
+|volume=0.0
+|pitch=1.0-1.5
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|rowspan=2
+|sound=Slime small1.ogg
+|sound2=Slime small2.ogg
+|sound3=Slime small3.ogg
+|sound4=Slime small4.ogg
+|sound5=Slime small5.ogg
+|source=neutral
+|description=When a slime dies
+|id=mob.slime.small
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|source=neutral
+|description=When a slime is damaged
+|id=mob.slime.small
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Slime big1.ogg
+|sound2=Slime big2.ogg
+|sound3=Slime big3.ogg
+|sound4=Slime big4.ogg
+|source=hostile
+|description=When a non-small slime jumps or lands
+|id=mob.slime.big
+|volume=1.0
+|pitch=0.64-0.96}}
+{{Sound table
+|sound=Slime small1.ogg
+|sound2=Slime small2.ogg
+|sound3=Slime small3.ogg
+|sound4=Slime small4.ogg
+|sound5=Slime small5.ogg
+|source=neutral
+|description=When a small slime jumps or lands
+|id=mob.slime.small
+|volume=1.0
+|pitch=0.64-0.96}}
+{{Sound table
+|sound=-
+|source=-
+|description=When a slime attacks something
+|id=mob.attack
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Slime attack1.ogg
+|sound2=Slime attack2.ogg
+|source=hostile
+|description=''Unused sound event''
+|id=mob.slime.attack
+|volume=1.0
+|pitch=1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|displayname=Slime
+|spritetype=entity
+|nameid=slime
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Slime
+|spritetype=entity
+|nameid=slime
+|id=37
+|foot=1}}
+
+=== Entity data ===
+
+Slimes have entity data associated with them that contains various properties.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Monster Hunter}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|Adventure;Monster Hunter;Monsters Hunted;It Spreads}}
+</table-progress-tracking>
+
+== Video ==
+
+<div style="text-align:center">
+Note: This video is from 2012. Since then, slime spawning in swamps has been added to the game.{{yt|6ehmQyy_g1s}}</div>
+
+== History ==
+
+{{History|java alpha}}
+{{History||v1.0.11|[[File:Slime JE1.png|52px]] [[File:Slime JE1.png|42px]] [[File:Slime JE1.png|32px]] Added slimes.
+|Slimes are the fifth hostile [[mob]] added to the game.
+|There are three sizes of slimes: small, medium, and big. Their exact size values in comparison to modern slimes is unknown.
+|If slimes are dealt more damage than they have remaining health, they do not split or drop slimeballs.}}
+{{History||v1.0.12|Big slimes no longer spawn in [[Peaceful]].
+|Slimes now have [[sound]] effects.
+|The targeting and attacking of slimes has been fixed.}}
+{{History||v1.0.13|[[File:Slime JE2 BE1.png|52px]] [[File:Slime JE2 BE1.png|42px]] [[File:Slime JE2 BE1.png|32px]] The texture of slimes has been changed.}}
+{{History||v1.0.14|Slime spawning has been reduced as they now appear in abundance. 
+|A miscalculation in the new limit has now caused slimes to spawn only in strange locations, so natural slime spawning has been disabled.}}
+{{History||v1.0.17|Slimes now spawn in [[multiplayer]].}}
+{{History||v1.2.0|Slime spawning has been completely disabled.}}
+{{History|java beta}}
+{{History||1.2_01|Slimes have been returned to the game.
+|Small slimes now [[drops|drop]] 0 - 2 [[slimeball]]s.<ref>http://getsatisfaction.com/mojang/topics/will_slimes_ever_return_to_minecraft</ref> 
+|Slimes are currently rare.}}
+{{History||1.3|Slimes have now become more common.}}
+{{History||1.4|A [[multiplayer]] bug has been fixed where slimes split were visible only to the [[player]] that caused them to split and would not take any [[damage]].<ref>http://www.youtube.com/watch?v=wyNvBkn4E3U</ref> Because these slimes were client-side, the player could remove them only by exiting and logging back into the server.}}
+{{History||1.5|Slimes no longer spawn in Peaceful difficulty and attack only when provoked.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 5|Slimes now spawn on levels 0-39 rather than 0-16, making them much more common.}}
+{{History||1.1|snap=11w49a|Added slime [[spawn egg]], allowing the [[player]] to spawn slimes.}}
+{{History||1.3.1|snap=12w15a|The slime spawning rate in [[superflat]] worlds has been decreased.}}
+{{History|||snap=12w25a|The slime spawning rate in superflat worlds has been decreased, even more.}}
+{{History||1.4.2|snap=12w38a|Slimes now have a new mob [[sound]], the same as [[magma cube]]s, to make the sounds more realistic.}}
+{{History|||snap=12w40a|Slimes are now easier to find as they spawn in [[swamp]] [[biome]]s at low light level. Since slimes can't [[swimming|swim]], it is quite likely that they jump in deep [[water]] and eventually [[Damage#Drowning|drown]].}}
+{{History||1.5|snap=13w10a|Slime spawn rates in swamps now depend on the current [[moon]] phase.}}
+{{History||1.7.2|snap=?|Huge slimes can now spawn while summoning with a [[command block]].}}
+{{History||1.8|snap=14w06b|Slimes can now swim as a result of the update to the new AI.
+|Slimes now randomly change direction every so often, reducing the chance of them getting stuck in walls or corners.
+|Slimes now randomly despawn over time if no [[player]] is within a 32 [[block]] range.
+|The jumping mechanics of slimes have been changed. The distance they are able to jump corresponds to their size; they jump approximately the same distance as the length they are. They also turn and face their whole body to the player while attacking.}}
+{{History||1.11|snap=16w32a|The entity ID for slimes has been changed from <code>Slime</code> to <code>slime</code>.}}
+{{History||1.14|snap=18w43a|[[File:Slime JE4 BE2.png|52px]] [[File:Slime JE4 BE2.png|42px]] [[File:Slime JE4 BE2.png|32px]] The texture of slimes has been changed.}}
+{{History||1.16|snap=20w06a|Small slimes now make sounds again when moving.<ref>{{bug|MC-97958}}</ref>}}
+{{History||1.17|snap=21w10a|The maximum size of slimes is now 127.}}
+{{History||1.20|snap=23w18a|Slimes are now affected by the [[Jump Boost]] effect.<ref>{{bug|MC-48923||Slime/magma cubes not affected by jump boost potion effect|Fixed}}</ref>}}
+{{History||1.20.2|snap=23w33a|The sounds of slimes are now controlled by the "Hostile Creatures" instead of the "Friendly Creatures" sound slider.<ref>{{bug|MC-118616||The sounds of magma cubes and slimes aren't controlled by the "Hostile Creatures" sound slider|Fixed}}</ref>}}
+{{History||1.21|snap=|Slimes can now spawn when an entity with [[Oozing]] is killed.}}
+
+{{History|pocket alpha}}
+{{History||v0.9.0|snap=build 1|[[File:Slime JE2 BE1.png|52px]] [[File:Slime JE2 BE1.png|42px]] [[File:Slime JE2 BE1.png|32px]] Added slimes and slime [[spawn egg]]s.}}
+{{History|||snap=build 2|Slimes now have [[sound]]s.
+|Slimes now spawn naturally.}}
+{{History||v0.10.0|snap=build 1|Slimes now have bouncing animations.}}
+{{History||v0.12.1|snap=build 1|Slimes now have [[particles]] when jumping.
+|Slimes now drop [[slimeball]]s.{{verify}}}}
+{{History||v0.13.0|snap=build 3|The spawning of slimes has been improved.}}
+{{History|bedrock}}
+{{History||?|Slimes spawn commonly in flat worlds.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Slime JE3 BE2.png|52px]] [[File:Slime JE3 BE2.png|42px]] [[File:Slime JE3 BE2.png|32px]] The texture of slimes has been changed.}}
+{{History||1.16.201|Slimes no longer spawn naturally on [flat] worlds.}}
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Slime JE2 BE1.png|52px]] [[File:Slime JE2 BE1.png|42px]] [[File:Slime JE2 BE1.png|32px]] Added slimes.}}
+{{History||xbox=TU14|ps=1.04|The slime spawning rate in [[superflat]] worlds has been decreased.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Slime JE2 BE1.png|52px]] [[File:Slime JE2 BE1.png|42px]] [[File:Slime JE2 BE1.png|32px]] Added slimes.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+== Trivia ==
+
+* {{IN|java}}, with commands, the size of slimes can be customized. Sizes go from 1 up to 127; the size-127 slime is the largest of any mob in the game, bigger than the [[ender dragon]].
+* Because a slime's movement speed is tied to its size it becomes impossible for the player to outrun a size 8 slime on flat ground without potion effects.
+* When a slime searches for nearby targets or checks to see if it should despawn, it checks from a point at the center of its hitbox on the x and z-axis and the bottom of its y-axis. Therefore, a custom-size slime sufficiently huge can be right in front of the player and be completely passive, and it may even despawn if the slime is large enough.
+* The slime is the most effecient source of exp without farms, easy to kill, high spawn rates in swamps and slime chunks, and deal super low damage to you with armor.
+
+* Green-colored Slimes are also present in ''[[Minicraft]]'', a 2D ''Minecraft''-inspired game also created by Notch.
+*If a player walks inside a slime, they can see the slime itself inside of a slime block.
+*if the player looks at the corner of a glass block, the slime inside the slime block disappears, looking like the slime block is alive.
+
+== Gallery ==
+=== Screenshots ===
+<gallery>
+Smallslime.png|'''Small''': 0.6 block cube.
+Normalslime.png|'''Medium''': 1.2 block cube.
+Bigslime.png|'''Big''': 2.4 block cube.
+Underground Slimes.png|Slimes of various sizes [[cave|underground]].
+MinecartSlime.png|A big slime covering a [[minecart]].
+Slimes In Village.png|A group of slimes within a [[Superflat]] world.
+Close-up Slimes.png|A group of slimes within a [[village]].
+Slimee.png|A group of slimes within a [[swamp]].
+Size127Slime.png|The largest possible slime size: size 127.
+Size10Slime.png|A size 10 slime compared to an oak tree.
+Slimes-in-cave.jpg|A group of slimes within a cave.
+Threeslimes.png|A group of three slimes are led out of a cave onto the surface.
+Pocket Edition Slime.png|A slime within pocket edition alpha.
+</gallery>
+
+=== In other media ===
+<gallery>
+File:Caves & Cliffs cover art.png|A group of slimes within the promotional artwork for the first [[Caves & Cliffs]] update.
+File:Slime (Dungeons).png|A slime within ''[[Minecraft Dungeons]]''.
+File:Prison Slime.png|[[Minecraft Story Mode:Prison Slime|Prison Slimes]], a slime variant that can be found within [[Minecraft Story Mode Season 2]].
+File:SSBU spirit Slime (Minecraft).png|A Slime  Spirit within ''[[Super Smash Bros. Ultimate]]''.
+File:LEGO Large Slime.jpg|[[LEGO Minecraft]] large slime minfigure.
+File:LEGO Small Slime.png|[[LEGO Minecraft]] small slime minfigure.
+File:Frog Shirt.png|"Frogs," an official T-Shirt design featuring two slimes.
+</gallery>
+
+== See also ==
+
+* {{EntityLink|Magma Cube}} – A similar mob that spawns only in the Nether and drops magma cream
+* {{EntityLink|Tropical Slime}} - A variant that is found in Minecraft Earth
+
+== References ==
+{{reflist}}
+
+
+{{Entities}}
+
+[[Category:Hostile mobs]]
+[[Category:Monster mobs]]
+
+[[de:Schleim]]
+[[es:Slime]]
+[[fr:Slime]]
+[[hu:Nyálka]]
+[[ja:スライム]]
+[[ko:슬라임]]
+[[nl:Slijmkubus]]
+[[pl:Szlam]]
+[[ru:Слизень]]
+[[th:สไลม์]]
+[[zh:史莱姆]]

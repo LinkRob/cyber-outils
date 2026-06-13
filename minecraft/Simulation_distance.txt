@@ -1,0 +1,66 @@
+[[File:SimDistanceBedrock.png|thumb|right|300px|Simulation Distance control slider in Bedrock Edition.]]
+'''Simulation distance''' is a world-creation setting {{in|bedrock}} that controls mob spawning and despawning, and [[tick]] updates. {{IN|java}}, simulation distance is a [[Options#Video Settings|video setting]] related to render distance, to restrict tick update distance.
+
+== Bedrock Edition ==
+=== Control ===
+The simulation distance control appears in the settings page when creating a new world. The values that can be set range from 4 to 12 in increments of 2 (even numbers only).
+
+=== Tick updates ===
+[[File:Simulation distance 4.svg|thumb|right|Simulation Distance 4 chunks receiving ticks, as well as mob despawn radius from the corners of the central chunk]]
+[[File:Lightning distribution BE.png|thumb|right|Maximum distance of lightning strikes from a lightning rod is determined by simulation distance as [[taxicab distance]], in this case 12 chunks (192 blocks) from the player position at the center of the image.]]
+Simulation distance determines the maximum chunk distance in which entities get updated, and blocks and fluids are ticked. This is not a Euclidean distance, but [[taxicab distance]] in Bedrock Edition.
+
+These ticks include random ticking of crops, amethysts and such. The simulation distance is purely chunk based and has nothing to do with the player's position inside the chunk.
+
+Pure redstone circuits continue to function infinitely far away, but break down where they interact with hoppers, pistons, observers, and anything else that needs tick updates to function.
+
+=== Spawning and despawning ===
+Simulation distance restricts the maximum distance at which mobs spawn and despawn.
+
+The minimum spawning distance is 24 blocks (Euclidean distance) from the player. The maximum spawning distance and despawning distances are determined by the simulation distance, which is a quasi-spherical shell having the following ranges relative to the player:
+
+{| class="wikitable"
+|+
+!Simulation distance
+!Spawning range
+!Random despawn range
+!Instant despawn range
+|-
+!4
+|24-44 blocks
+|34-44 blocks
+| &gt;44 blocks from nearest player
+|-
+!6
+|24-128 blocks, except in chunks bordering unloaded chunks
+|rowspan=2|34-128 blocks if no damage taken within last 30 seconds
+|rowspan=2|&gt;128 blocks, or when entering a chunk on the edge of the simulation distance (technically a chunk not fully surrounded by 8 chunks that were simulated on the last game tick)
+|-
+!8-12
+|24-128 blocks, except in chunks bordering unloaded chunks and chunks with a center more than 96 blocks away<ref>The 96-block horizontal limit is reported as a bug at [[bugtracker:MCPE-102197|MCPE-102197]]</ref>
+|}
+
+Within the simulation distance, there is a {{frac|11|2000}} chance of the mob spawning algorithm attempting to run per chunk, per tick.
+
+[[Realms]] worlds use a simulation distance of 9 chunks {{in|JE}} and 4 chunks {{in|BE}}.<ref>{{tweet|cornerhardmc|1559308097125904384| Good question! Java is now at: Render {{=}} 12 chunks Simulation {{=}} 9 chunks Bedrock is now at: Render {{=}} 12 chunks Simulation {{=}} 4 chunks The games are quite different internally and have different CPU and RAM requirements for servers, but we are looking to improve things over time|August 15, 2022}}</ref>
+
+Regardless of simulation distance, mobs with [[persistence]] do not despawn, and [[fish]] always despawn when they are more than 40 blocks from the nearest player.
+
+=== Mob cap ===
+Mobs in chunks outside a ticking area still count toward the per-mob population control caps as long as they were previously loaded within the simulation distance at some time.
+
+== Java Edition ==
+In ''Java Edition'', the minimum value of simulation distance is 5. The maximum value is the same as for render distance: 32 for 64-bit Java installations with at least 1 gigabyte of memory, and 16 in all other cases. If render distance is set to a lower value than simulation distance, the lower value is used instead.
+
+Simulation distance defines a square region of chunks around the player where entities are ticked. Using distance of 6 for instance, entities may move normally within a 13×13 chunk column around the player chunk. One more chunk out, within a one-chunk-thick square frame surrounding this region, redstone may run, fluid may flow, and crops may grow (subject to normal [[Tick#Chunk_tick|chunk ticking rules]]). Beyond that nothing moves or changes. But these game aspects are also subject to [[Chunk#Chunk_loading|chunk loading rules]]. See also [[Chunk#Ticking]].
+
+The simulation distance setting is ideally less than render distance because updating all entities within the simulation distance is more taxing on performance than the equivalent level of render distance.
+
+=== Entity visibility ===
+
+Not all entities within the loaded and visible chunks are displayed to the player. There are three criteria that hide entities from view. First, the server does not send any information about an entity to the client if the entity is beyond a certain distance from the player, controlled by "entity-broadcast-range-percentage" in the [[server.properties]] file. Second, the client does not render entities depending on both "Render distance" and "Entity distance" [[Options#Video|video settings]]. Apparently, render distance (in chunks) multiplied by a magic number (about 8.5 for mobs, 2 for items) and scaled by the "entity distance" percentage gives the radius in blocks for a sphere around the player beyond which entities are hidden. For example, using render distance 10 and 100% entity distance, a skeleton disappears from view if the player stands more than 85 blocks directly above it. The magic number varies slightly for different types of mobs, such as being larger for spiders and ghasts, even though ghasts still frequently attack player from beyond visibility range. Finally, the client has a hard visibility limit of 128 blocks horizontally, defining another circular column. Entities are displayed only if they are inside the intersection of this sphere and two cylinders.
+
+== References ==
+{{reflist}}
+
+[[Category:UI]]

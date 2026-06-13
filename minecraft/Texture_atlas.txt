@@ -1,0 +1,140 @@
+{{wip}}
+A '''texture atlas''', also known as a '''spritesheet''', is an arrangement of game sprites on a single image file, used by the game to store and access associated sprites more efficiently than with individual files. ''Minecraft'' uses both procedurally-generated and predefined texture atlases for different purposes.
+
+== Procedurally-generated texture atlases ==
+Block and item textures are combined into the same atlas, minecraft_textures_atlas_blocks.png_0.png. This texture atlas is generated via F3 + S and is saved into a folder titled “debug” in .minecraft's screenshots folder.
+
+All other textures are also available in their own respective texture atlases in said ''.minecraft/screenshots/debug'' folder. For example, the particle atlas is minecraft_textures_atlas_particles.png_0.png, while the chest atlas is minecraft_textures_atlas_chest.png_0.png, minecraft_textures_atlas_decorated_pot.png_0.png.
+
+== Trivia ==
+There is a file in ''.minecraft/screenshots/debug'' called '''minecraft_missingno.png''', titled as a reference to the infamous ''missingno'' pokemon in the original Pokemon Red & Blue game. 
+
+Each texture – i.e. minecraft_textures_atlas_blocks.png_0.png – has an accompanying _1, _2, _3, and _4 texture (such as minecraft_textures_atlas_blocks.png_4.png), each texture starting at _1 being at progressively lower downscaled resolutions (_0, the original, is 1024x512 pixels, whilst _4 is only 64x32 pixels). It is currently unknown for what purpose this definitely serves, but it is hypothesized that it is for mipmap distance rendering as to lower the load on the CPU, GPU, and/or RAM, improving performance especially on lower-spec machines.
+
+== Predefined texture atlases ==
+
+=== Current ===
+{{info needed section|Moon phases}}
+==== <samp>bars.png</samp> ====
+{{info needed section|Bedrock Edition info}}
+<samp>bars.png</samp> is used for storing boss bar textures and their overlays. As of [[Java Edition 1.16.4]], this file is still in use.
+
+The file was compressed in 15w49a, 1.11-pre1 and 19w41a.
+
+{{History|java}}
+{{History||1.9|snap=15w31a|[[File:201507291523 bars.png|left|128px]] <samp>bars.png</samp> has been implemented.}}
+{{History|foot}}
+
+==== <samp>icons.png</samp> ====
+{{main|icons.png}}
+
+<samp>icons.png</samp> is used for storing the textures of certain UI elements.
+
+As of [[Java Edition 1.17]], this file is still used in the game.
+
+==== <samp>inventory.png</samp> ====
+{{main|inventory.png}}
+
+This file is only loosely defined as a texture atlas due to the small amount of auxiliary sprites surrounding the main inventory box. Nonetheless, it has a notable history of housing several [[status effect]] textures.
+
+==== <samp>kz.png</samp> ====
+{{main|kz.png}}
+{{exclusive|bedrock|section=1}}
+
+<samp>kz.png</samp> is used for storing the textures of [[painting]]s.
+
+==== <samp>map_icons.png</samp> ====
+This file is used for static icons on [[map]]s. Interestingly, it has many unused icons which have existed for many years.
+
+{{History|java beta}}
+{{History||1.6|snap=Test Build 3|[[File:201105101121 map_icons.png|128px]] Added <samp>mapicons.png</samp>.}}
+{{History||1.8|snap=Pre-release|[[File:201108191111 map_icons.png|128px]] Updated <samp>mapicons.png</samp>.}}
+{{History|java}}
+{{History||1.6.1|snap=13w24a|[[Java Edition 1.6.1/Resource pack changes|Renamed]] <samp>mapicons.png</samp> to <samp>map_icons.png</samp>.}}
+{{History||1.11|snap=16w39a|[[File:201609281531 map_icons.png|128px]] Updated <samp>map_icons.png</samp>.}}
+{{History||1.13|snap=18w10a|[[File:201803061454 map_icons.png|128px]] Updated <samp>map_icons.png</samp>.}}
+{{History|pocket alpha}}
+{{History||v0.14.0|snap=build 1|[[File:201108191111 map_icons.png|128px]] Added <samp>map_icons.png</samp>.}}
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|[[File:201609281531 map icons.png|128px]] Updated <samp>map_icons.png</samp>.}}
+{{History|||snap=alpha 1.1.0.5|[[File:Map icons BE3.png|128px]] Updated <samp>map_icons.png</samp>.}}
+{{History|bedrock}}
+{{History||1.4.0|snap=beta 1.2.14.2|[[File:Map icons BE4.png|128px]] Updated <samp>map_icons.png</samp>.}}
+{{History||1.5.0|snap=beta 1.5.0.7|[[File:Map icons BE5.png|128px]] Updated <samp>map_icons.png</samp>.}}
+{{History|||snap=beta 1.5.0.10|[[File:Map icons BE6.png|128px]] Updated <samp>map_icons.png</samp>.}}
+{{History|bedrock upcoming}}
+{{History||1.20.40|snap=beta 1.20.40.20|[[File:Map icons BE7.png|128px]] Updated <samp>map_icons.png</samp>.}}<!--
+{{History||?|[[File:map_icons BE.png|128px]] Updated <samp>map_icons.png</samp>.}}-->
+{{History|foot}}
+
+==== <samp>particles.png</samp> ====
+{{main|particles.png}}
+{{exclusive|bedrock|section=1}}
+
+<samp>particles.png</samp> is used for storing the textures of most [[particle]]s. Two other atlases, <samp>explosion.png</samp> and <samp>sweep.png</samp>, were used for respectively storing explosion and sweeping attack particles.{{only|java}}
+
+==== <samp>widgets.png</samp> ====
+{{main|widgets.png}}
+<samp>widgets.png</samp> (previously known as <samp>gui.png</samp>) is used for defining several types of menu buttons and icons. The file is still in use as of [[Java Edition 1.16.4]].
+
+=== Removed ===
+
+==== <samp>items.png</samp> ====
+{{main|items.png}}
+
+<samp>items.png</samp> was used for storing the textures of [[item]]s. It has been replaced with minecraft_textures_atlas_blocks.png_0.png in newer versions such as 1.19 (accessible via F3 + S and saved in the screenshots folder).
+
+==== <samp>terrain.png</samp> ====
+{{main|terrain.png}}
+
+<samp>terrain.png</samp> was used for storing the textures of [[block]]s. It has also been replaced with minecraft_textures_atlas_blocks.png_0.png in newer versions such as 1.19 (accessible via F3 + S).
+
+== History ==
+''Specific changes to texture files are documented in each texture file's dedicated section or page.''
+
+=== Additions ===
+{{History|java pre-classic}}
+{{History||rd-131655|Added <samp>terrain.png</samp>.}}
+{{History|java classic}}
+{{History||0.0.20a_01|Added <samp>gui.png</samp>.}}
+{{History||0.26 SURVIVAL TEST|Added <samp>particles.png</samp>.}}
+{{History|java indev}}
+{{History||0.31|snap=20091231-2|Added <samp>items.png</samp>.}}
+{{History||Minecraft Indev|snap=20100223|link=Minecraft Indev|slink=Java Edition Indev 20100223|Added <samp>kz.png</samp>.}}
+{{History|java beta}}
+{{History||1.6|snap=Test Build 3|Added <samp>mapicons.png</samp>.}}
+{{History||1.8|snap=Pre-release|Added <samp>explosion.png</samp>.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|<samp>inventory.png</samp> now contains an atlas of effect icons.}}
+{{History||1.9|snap=15w31a|Added <samp>bars.png</samp>.}}
+{{History|||snap=15w34c|Added <samp>sweep.png</samp>.}}
+{{History||1.20|snap=23w18a|<samp>minecraft_textures_atlas_blocks.png_0.png</samp> has been added (in this version or a previous version), accessible via F3 + S, which allows players to save all textures currently loaded in their game in a convenient texture atlas.}}
+{{History|pocket alpha}}
+{{History||v0.1.0|Added <samp>terrain.png</samp>, <samp>items.png</samp>, <samp>particles.png</samp> and <samp>gui_blocks.png</samp>.}}
+{{History||v0.8.0|snap=build 2|Added <samp>terrain_atlas.tga</samp> and <samp>items_opaque.tga</samp>.}}
+{{History|foot}}
+
+=== Removals ===
+
+{{History|java}}
+{{History||1.5|snap=13w02a|<samp>terrain.png</samp> and <samp>items.png</samp> have been split up into their constituent textures. A procedurally generated and manually saved texture atlas is still available, however: minecraft_textures_atlas_blocks.png_0.png, accessible via F3 + S in 1.19 and above.}}
+{{History||1.14|snap=19w06a|<samp>particles.png</samp>, <samp>explosion.png</samp> and <samp>sweep.png</samp> have been split up into their constituent textures.}}
+{{History|||snap=19w07a|<samp>paintings_kristoffer_zetterstrand.png</samp> has been split up into its constituent textures.}}
+{{History|||snap=19w08a|<samp>inventory.png</samp> has been partially split up to remove the status effect textures, which are now split into individual textures, leaving only the actual inventory textures.}}
+{{History|pocket alpha}}
+{{History||v0.8.0|snap=build 2|<samp>terrain.png</samp>, <samp>items.png</samp> and <samp>gui_blocks.png</samp> have been replaced with other atlases.}}
+{{History||v0.15.0|snap=build 1|<samp>terrain_atlas.tga</samp> and <samp>items_opaque.tga</samp> are no longer used.}}
+{{History|foot}}
+
+== See also ==
+* https://en.wikipedia.org/wiki/Texture_atlas
+*[[Resource Pack|Resource pack]]
+
+{{Texture atlases}}
+{{Minecraft}}
+{{Textures}}
+
+[[Category:Texture atlas|Texture atlas]]
+
+[[es:Atlas de texturas]]
+[[ja:テクスチャアトラス]]

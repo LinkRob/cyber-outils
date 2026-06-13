@@ -1,0 +1,608 @@
+<!--TO ALL: "sheared" and "shorn" are both perfectly acceptable. However, "sheared" is more commonly used, and is also more obviously the past participle of "shear". Therefore, for clarity and continuity's sakes, "sheared" should be used on this page. --> 
+{{For}}
+{{Entity
+| image = <gallery>
+White Sheep.png | Sheep
+Sheared White Sheep.png | Sheared Sheep
+Baby White Sheep.png | Lamb
+</gallery>
+| extratext = View [[#Gallery|all renders]]
+| health = {{hp|8}}
+| behavior = Passive
+| classification = [[Animal]]
+| size = '''Adult:'''<br>Height: 1.3 Blocks<br>Width: 0.9 Blocks<br>
+'''Baby:'''<br>Height: 0.65 Blocks<br>Width: 0.45 Blocks
+| spawn = [[Grass block]]s with at least two block spaces above them.
+| usableitems = {{drop|Item|Lead}}
+{{drop|Item|Shears}}
+{{drop|Item|Wheat}}
+{{drop|Item|id=red-dye|Dye}}
+}}
+'''Sheep''' are common [[passive mobs]] that supply [[wool]] and [[mutton]] and are found in many of the grassy [[biomes]]. Sheep can be attached to a [[lead]].
+
+== Spawning ==
+The majority of sheep are white, with an 81.836% chance of spawning. The light gray, gray and black sheep each have a 5% chance of spawning, or a 15% chance collectively. Brown sheep have an uncommon 3% chance to spawn. Pink sheep have a rare chance of 0.164% of spawning naturally.
+{| class="wikitable"
+|-
+! Sheep !! Chance
+|-
+|Adult Sheep
+|95%
+|-
+| {{EntityLink|White Sheep|Adult White Sheep}}
+| 77.7442%
+|-
+| {{EntityLink|Black Sheep|Adult Black Sheep}}<br>{{EntityLink|Gray Sheep|Adult Gray Sheep}}<br>{{EntityLink|Light Gray Sheep|Adult Light Gray Sheep}}
+| 14.25% (4.75% each)
+|-
+| {{EntityLink|Brown Sheep|Adult Brown Sheep}}
+| 2.85%
+|-
+|{{EntityLink|Pink Sheep|Adult Pink Sheep}}
+| 0.1558%
+|-
+| Lamb
+| 5%
+|-
+| White Lamb
+| 4.0918%
+|-
+| Black, Gray, and Light Gray Lamb
+| 0.75% (0.25% each)
+|-
+| Brown Lamb
+| 0.15%
+|-
+| Pink Lamb
+| 0.0082%
+|}
+
+If a sheep [[monster spawner]] is placed via {{cmd|setblock}}, the sheep model spinning inside appears with one of {{tooltip|the six naturally spawning colors|White, Black, Gray, Light Gray, Brown and Pink}}. Independently from the displayed color, all six variants are able to spawn, the usual chances apply. To guarantee that sheep always spawn with the desired color, additional NBT tags can be applied to the monster spawner, utilizing the <code>Color</code> tag.
+
+=== Natural generation ===
+{{IN|Java}}, 4 sheep may spawn above grass blocks, at a [[light level]] of 9 or higher, even on snowy taigas.
+
+{{IN|Bedrock}}, 2 to 3 sheep spawn during the world generation on [[grass block]]s at the surface at a [[light level]] of 7 or higher with at least a 2 block space above, except in [[snowy plains]], [[ice spikes]] or [[Badlands#Wooded badlands|wooded badlands]]. They later spawn individually on grassy biomes. 5% spawn as lambs.
+
+Two sheep sometimes spawn in shepherd houses, butcher houses and animal pens in [[village]]s.
+
+== Drops ==
+[[File:Wool Colors.png|1000px]]
+
+An adult sheep drops:
+*1 {{BlockLink|wool}} of the corresponding color. Sheep that have not regrown their wool do not drop wool.
+*1–2 {{ItemLink|raw mutton}} ({{ItemLink|cooked mutton}} if killed while on fire or when in water using a sword with fire aspect). The maximum amount is increased by 1 per level of [[Looting]], for a maximum of 1–5 with Looting III.
+*{{xp|1|3}} experience orbs if killed by a player or tamed [[wolf]].
+
+When [[Shears|sheared]], sheep give 1–3 wool and do not take any damage. This is not affected by [[Fortune]] or [[Looting]].
+
+Upon successful [[breeding]], {{xp|1|7}} is dropped.
+
+Killing a lamb yields no [[item]]s nor [[experience]].
+
+== Behavior ==
+Sheep wander aimlessly and individually or in small flocks of two to four. Sheep avoid cliffs and hazardous areas if it warrants [[damage]]. Sheep emit hoarse bleats in mostly random patterns and especially when attacked. If harmed, sheep flee for a few seconds, but make no special attempt to avoid [[wolves]].
+
+Sheep are nonchalant to players or other mobs, but follow a [[player]] holding [[wheat]] within a six blocks radius.
+
+Adult sheep can't fit through a gap if the 90-degree intersection of two [[fence]]s is removed whereas the player and most other mobs can get through easily.
+
+[[File:Sheep eating grass.gif|left]]
+Sheep graze [[grass]] (but not [[tall grass]]), making it disappear, and [[grass block]]s, changing them into [[dirt]] blocks. {{IN|Bedrock}}, they can also eat [[fern]]s. Lambs graze grass much more often than adults and mature 1 minute faster when grazing. Sheep can eat grass through [[Solid block#Height|blocks that are less than a full block thick]], including extremities such as [[honey block]]s, as well as from inside [[minecart]]s. A sheared sheep regrows its wool after grazing. Therefore, if no grass is available, a sheep cannot regrow its wool after being sheared. If an adult sheep has the opportunity, the chance of eating grass is {{frac|1|1000}} every other game [[tick]] ({{fraction|1|50}} for baby sheep). If {{cmd|gamerule mobGriefing}} is set to {{code|false}}, grass blocks remain, but the sheep still regrow their wool.<ref>{{Cite bug|MC|147444|Sheep eating grass does not turn grass into dirt when mobGriefing is disabled|date=April 4, 2019}}</ref>
+{{-}}
+
+== Dyeing ==
+Sheep's wool can be dyed by pressing the {{control|use}} key or the interact button while holding any [[dye]]. Sheared sheep cannot be dyed until their wool grows back after eating a grass block. Dyeing changes the color of the sheep's wool permanently or until the sheep is dyed again. The new wool colors will be inherited by baby sheep.
+
+If a sheep is dyed and then sheared, it retains its new dyed wool color after the wool regrows. {{IN|Java}}, the wool patches that are seen on a sheared sheep always appear white regardless of their actual color.<ref>{{bug|MC-1823||Sheared sheep are always white|WAI}}</ref> The wool texture on the sheep's face also always appear white regardless of their actual color.
+
+== Easter eggs ==
+{{see also|Easter eggs#Naming_mobs}}
+An [[evoker]] can also change a sheep's wool color if the evoker is unengaged in combat and {{cmd|gamerule mobGriefing}} is set to <code>true</code>. Then it can change the wool color of any blue sheep within 16 blocks to red. It signals the spell by producing orange color particles ({{EffectSprite|particle-evoker-wololo}}) and making a "wololo" sound. This is a reference to the priest unit of the 1997 game ''Age of Empires''.
+
+[[File:Jeb Sheep JE2.gif|thumb|left|A sheep named “jeb_”.]]
+If a sheep is named <code>jeb_</code>, its wool cycles through all dye colors in a similar manner to [[prismarine]]. This is purely a visual effect. A sheep named [[Jens Bergensten|jeb_]] can still be dyed without changing the rainbow effect and any wool obtained from one of these sheep has the most recent color as if the sheep was unnamed.
+{{-}}
+
+== Breeding ==
+[[File:SheepBreedingColor.png|thumb|left|An example of how a bred sheep inherits a mixture of its parents' colors when possible.]]
+{{See also|Breeding}}
+Sheep can be bred using wheat, after which they spawn a lamb. They cannot breed for five minutes after the lamb appears.
+ 
+If the parents have compatible wool colors (meaning that the corresponding [[dye]] items could be combined into a third dye color), the resulting lamb inherits a mix of their colors (e.g., blue sheep + white sheep = light blue baby sheep).
+If the dye colors cannot normally be mixed, the lamb  spawns with the same color as one of the parents, chosen randomly, regardless of whether one or both parents have been sheared.
+
+The 20-minute growth of lamb can be slightly accelerated using wheat. Each use takes 10% off the remaining time to grow up. It can also accelerate its own growth by eating grass.
+
+{{-|left}}
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Sheep use the Friendly Creatures sound category for entity-dependent sound events.
+{{Sound table
+|rowspan=3
+|sound=Sheep1.ogg
+|sound2=Sheep2.ogg
+|sound3=Sheep3.ogg
+|subtitle=Sheep baahs
+|source=neutral
+|description=Randomly
+|id=entity.sheep.ambient
+|translationkey=subtitles.entity.sheep.ambient
+|volume=1.0
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|subtitle=Sheep dies
+|source=neutral
+|description=When a sheep dies
+|id=entity.sheep.death
+|translationkey=subtitles.entity.sheep.death
+|volume=1.0
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|subtitle=Sheep hurts
+|source=neutral
+|description=When a sheep is damaged
+|id=entity.sheep.hurt
+|translationkey=subtitles.entity.sheep.hurt
+|volume=1.0
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|sound=Sheep step1.ogg
+|sound2=Sheep step2.ogg
+|sound3=Sheep step3.ogg
+|sound4=Sheep step4.ogg
+|sound5=Sheep step5.ogg
+|subtitle=Footsteps
+|source=neutral
+|description=While a sheep is walking
+|id=entity.sheep.step
+|translationkey=subtitles.block.generic.footsteps
+|volume=0.15
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Shear.ogg
+|subtitle=Shears click
+|source=Players<sup>(player)</sup><br>Blocks<sup>(dispenser)</sup>|overridesource=1
+|description=When a sheep is sheared
+|id=entity.sheep.shear
+|translationkey=subtitles.item.shear
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Grass dig1.ogg
+|sound2=Grass dig2.ogg
+|sound3=Grass dig3.ogg
+|sound4=Grass dig4.ogg
+|subtitle=Block broken
+|source=block
+|description=When a sheep grazes a grass block
+|id=block.grass.break
+|translationkey=subtitles.block.generic.break
+|volume=1.0
+|pitch=0.8
+|distance=16}}
+{{Sound table
+|sound=Dye.ogg
+|subtitle=Dye stains
+|source=neutral
+|description=When a sheep is dyed
+|id=item.dye.use
+|translationkey=subtitles.item.dye.use
+|volume=1.0
+|pitch=1.0/0.9/0.95/1.1
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|rowspan=3
+|sound=Sheep1.ogg
+|sound2=Sheep2.ogg
+|sound3=Sheep3.ogg
+|source=neutral
+|description=Randomly
+|id=mob.sheep.say
+|volume=1.0
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|source=neutral
+|description=When a sheep dies
+|id=mob.sheep.say
+|volume=1.0
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|source=neutral
+|description=When a sheep is damaged
+|id=mob.sheep.say
+|volume=1.0
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Sheep step1.ogg
+|sound2=Sheep step2.ogg
+|sound3=Sheep step3.ogg
+|sound4=Sheep step4.ogg
+|sound5=Sheep step5.ogg
+|source=neutral
+|description=While a sheep is walking
+|id=mob.sheep.step
+|volume=0.4
+|pitch=1.0}}
+{{Sound table
+|sound=Shear.ogg
+|source=neutral
+|description=When a sheep is sheared
+|id=mob.sheep.shear
+|volume=1.0
+|pitch=1.0}}
+{{Sound table
+|sound=Grass dig1.ogg
+|sound2=Grass dig2.ogg
+|sound3=Grass dig3.ogg
+|sound4=Grass dig4.ogg
+|source=block
+|description=When a sheep grazes a grass block
+|id=dig.grass
+|volume=0.7
+|pitch=0.8-1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|displayname=Sheep
+|spritetype=entity
+|nameid=sheep
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Sheep
+|spritetype=entity
+|nameid=sheep
+|id=13
+|foot=1}}
+
+=== Entity data ===
+Sheep have entity data associated with them that contain various properties.
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+== Achievements ==
+{{Main|Achievements}}
+
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{Load achievements|Rainbow Collection}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|The Parrots and the Bats;Two By Two;It Spreads}}
+</table-progress-tracking>
+
+== History ==
+{{needs render|type=old|
+* History of jeb baby sheep.
+* Jeb sheep for 17w06a and Pocket 1.1.0 Alpha 1.1.0.0.
+|section=1}}
+{{History|java classic}}
+{{History||October 25, 2009|link=https://notch.tumblr.com/post/223096913/hit-once-produce-cloth-hit-more-produce-food|First showcase of sheep on [[The Word of Notch]]. Red [[wool]] as a [[drops|drop]] can be seen.}}
+{{History||October 25, 2009|link={{ytl|2XDxbZjmGq4}}|[[Notch]] uploaded a video to [[wikipedia:Youtube|YouTube]] of a sheep test.}}
+{{History||0.28|[[File:White Sheep JE1.png|32px]] Added sheep.
+|Sheep currently drop [[mushroom]]s when killed. 
+|Sheep eat [[grass block]]s, turning them into [[dirt]]. After eating a random amount of [[block]]s, they regrow their wool.}}
+{{History|java indev}}
+{{History||0.31|snap=20091223-1|Sheep no longer spawn naturally.}}
+{{History|||snap=20100203|Sheep now spawn again.
+|[[File:Sheared White Sheep Revision 1.png|32px]] Sheep now spawn without [[wool]].
+|Sheep now drop either 1 [[Flint and Steel]], or 1-3 [[string]], [[gunpowder]], or [[feather]]s. These drops were the same for the other mobs.
+|Sheep no longer drop [[mushroom]]s.
+|Sheep no longer eat [[grass]].}}
+{{History||20100211|Sheep now have unique idle and hurt sounds. Previously, they have no idle sounds, and use the player's hurt sound.
+|[[File:White Sheep JE1.png|32px]] Sheep now spawn with [[wool]] again.
+|Sheep now [[drops|drop]] 1-3 white, gray and light gray wool upon being hit.}}
+{{History||20100219|Sheep now do not [[drops|drop]] anything.}}
+{{History||20100223|Sheep now only drop light gray wool when hit.}}
+{{History|java infdev}}
+{{History||20100624|Sheep now [[drops|drop]] white instead of light gray [[wool]].}}
+{{History|java alpha}}
+{{History||v1.2.2|In [[survival]] [[multiplayer]], hitting sheep [[drops]] unobtainable [[wool]]. However, casting a [[fishing rod]] drops obtainable wool, while the sheep still appears to have wool.}}
+{{History|java beta}}
+{{History||1.2|[[File:Light Gray Sheep JE1.png|32px]] [[File:Gray Sheep JE1.png|32px]] [[File:Black Sheep JE1.png|32px]] [[File:Brown Sheep JE1.png|32px]] [[File:Red Sheep JE1.png|32px]] [[File:Orange Sheep JE1.png|32px]] [[File:Yellow Sheep JE1.png|32px]] [[File:Lime Sheep JE1.png|32px]] [[File:Green Sheep JE1.png|32px]] [[File:Cyan Sheep JE1.png|32px]] [[File:Light Blue Sheep JE1.png|32px]] [[File:Blue Sheep JE1.png|32px]] [[File:Purple Sheep JE1.png|32px]] [[File:Magenta Sheep JE1.png|32px]] [[File:Pink Sheep JE1.png|32px]] Sheep can now be [[dye]]d - [[player]]s can now dye sheep to make light gray, gray, black, brown, red, orange, yellow, lime, green, cyan, light blue, blue, purple, magenta, and pink sheep.
+|Colored sheep now [[drops|drop]] their corresponding [[wool]] color.
+|Sheep can now spawn in the color gray, light gray, or black.}}
+{{History||1.4|Sheep can now rarely spawn in the color pink or brown.}}
+{{History||1.7|Sheep now drop 2-4 [[wool]] when [[shears|sheared]].
+|Sheep no longer drop [[wool]] when hit.
+|Sheep now drop one wool block when killed while not sheared.}}
+{{History||1.8|snap=Pre-release|Sheep now flee when attacked.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 3|[[File:Baby White Sheep JE1 BE4.png|32px]] [[File:Baby Light Gray Sheep JE1.png|32px]] [[File:Baby Gray Sheep JE1.png|32px]] [[File:Baby Black Sheep JE1.png|32px]] [[File:Baby Brown Sheep JE1.png|32px]] [[File:Baby Red Sheep JE1.png|32px]] [[File:Baby Orange Sheep JE1.png|32px]] [[File:Baby Yellow Sheep JE1.png|32px]] [[File:Baby Lime Sheep JE1.png|32px]] [[File:Baby Green Sheep JE1.png|32px]] [[File:Baby Cyan Sheep JE1.png|32px]] [[File:Baby Light Blue Sheep JE1.png|32px]] [[File:Baby Blue Sheep JE1.png|32px]] [[File:Baby Purple Sheep JE1.png|32px]] [[File:Baby Magenta Sheep JE1.png|32px]] [[File:Baby Pink Sheep JE1.png|32px]] Added lambs.
+|Sheep can now [[breeding|breed]].
+|Sheep now have 4 hearts of [[health]] (formerly 5 hearts).}}
+{{History|||snap=Beta 1.9 Prerelease 6|Lambs from dyed parents are now born dyed instead of always being white.}}
+{{History||1.1|snap=11w49a|Sheep now eat [[grass block]]s and [[tall grass]] in order to re-grow their wool again. 
+|[[shears|Shearing]] sheep now yields 1-3 [[wool]] blocks instead of 2-4.<ref>{{tweet|jeb_|144832220232826881|I decreased the amount of wool from 2-4 to 1-3 since wool regrows again|December 8, 2011}}</ref>
+|[[Spawn egg]]s are available for sheep in [[creative]] mode.}}
+{{History|||snap=11w50a|Lambs now eat more than adult sheep.}}
+{{History||1.2.1|snap=12w07b|The sheep eating animation in [[multiplayer]] has been fixed.
+|Sheep now have a new [[AI]].}}
+{{History||1.4.2|snap=12w32a|Sheep from [[spawn egg]]s can now spawn naturally-colored sheep (white, gray, brown, pink, etc.)}}
+{{History|||snap=12w38a|Added new step [[sound]]s to sheep.
+|Added a sound for shearing sheep.
+|Sheep idle sounds now play entirely. Previously, say3 was cut.}}
+{{History||1.4.4|snap=1.4.3|Lambs now have a mix of the parents' colors, if the parents' colors are 'compatible' (able to be crafted together as dyes).
+|[[File:White Sheep JE1.png|32px]] [[File:Light Gray Sheep JE2.png|32px]] [[File:Gray Sheep JE2.png|32px]] [[File:Black Sheep JE2.png|32px]] [[File:Brown Sheep JE2.png|32px]] [[File:Red Sheep JE2.png|32px]] [[File:Orange Sheep JE2.png|32px]] [[File:Yellow Sheep JE2.png|32px]] [[File:Lime Sheep JE2.png|32px]] [[File:Green Sheep JE2.png|32px]] [[File:Cyan Sheep JE2.png|32px]] [[File:Light Blue Sheep JE2.png|32px]] [[File:Blue Sheep JE2.png|32px]] [[File:Purple Sheep JE2.png|32px]] [[File:Magenta Sheep JE2.png|32px]] [[File:Pink Sheep JE2.png|32px]]<br>
+[[File:Baby White Sheep JE1 BE4.png|32px]] [[File:Baby Light Gray Sheep JE2.png|32px]] [[File:Baby Gray Sheep JE2.png|32px]] [[File:Baby Black Sheep JE2.png|32px]] [[File:Baby Brown Sheep JE2.png|32px]] [[File:Baby Red Sheep JE2.png|32px]] [[File:Baby Orange Sheep JE2.png|32px]] [[File:Baby Yellow Sheep JE2.png|32px]] [[File:Baby Lime Sheep JE2.png|32px]] [[File:Baby Green Sheep JE2.png|32px]] [[File:Baby Cyan Sheep JE2.png|32px]] [[File:Baby Light Blue Sheep JE2.png|32px]] [[File:Baby Blue Sheep JE2.png|32px]] [[File:Baby Purple Sheep JE2.png|32px]] [[File:Baby Magenta Sheep JE2.png|32px]] [[File:Baby Pink Sheep JE2.png|32px]] The colors of sheep have been changed.}}
+{{History||1.7.4|snap=13w48b|[[File:Jeb Sheep JE1.gif|32px]] [[File:Baby Jeb Sheep Revision 1.gif|32px]] Sheep named as 'jeb_' cycles now through all possible sheep colors in a fading rainbow effect. They still drop the color [[wool]] they were [[dye]]d last.}}
+{{History||1.8|snap=14w02a|Lamb growth can now be accelerated using [[wheat]].}}
+{{History|||snap=14w05b|Sheep's wool is no longer visible when they have the [[Invisibility]] effect.}}
+{{History|||snap=June 30, 2014|slink={{tweet|TheMogMiner|483640472905084928}}|[[Ryan Holtz]] announces that he's adding [[mutton]] as a new [[drops|drop]] from sheep.}}
+{{History|||snap=14w27a|Sheep now drop [[raw mutton]] and—if killed with [[fire]]—they drop [[cooked mutton]].}}
+{{History||1.10|snap=16w20a|Sheep no longer spawn in [[Snowy Plains|ice plains]] biomes.}}
+{{History||1.11|snap=16w32a|The entity ID has been changed from <code>Sheep</code> to <code>sheep</code>.}}
+{{History||1.12|snap=17w06a|[[File:White Sheep JE2 BE5.png|32px]] [[File:Light Gray Sheep JE3.png|32px]] [[File:Gray Sheep JE3.png|32px]] [[File:Black Sheep JE3.png|32px]] [[File:Brown Sheep JE3.png|32px]] [[File:Red Sheep JE3.png|32px]] [[File:Orange Sheep JE3.png|32px]] [[File:Yellow Sheep JE3.png|32px]] [[File:Lime Sheep JE3.png|32px]] [[File:Green Sheep JE3.png|32px]] [[File:Cyan Sheep JE3.png|32px]] [[File:Light Blue Sheep JE3.png|32px]] [[File:Blue Sheep JE3.png|32px]] [[File:Purple Sheep JE3.png|32px]] [[File:Magenta Sheep JE3.png|32px]] [[File:Pink Sheep JE3.png|32px]] Sheep now look different when dyed to comply with the wool color changes. 
+|[[File:Baby White Sheep JE2.png|32px]] [[File:Baby Light Gray Sheep JE3.png|32px]] [[File:Baby Gray Sheep JE3.png|32px]] [[File:Baby Black Sheep JE3.png|32px]] [[File:Baby Brown Sheep JE3.png|32px]] [[File:Baby Red Sheep JE3.png|32px]] [[File:Baby Orange Sheep JE3.png|32px]] [[File:Baby Yellow Sheep JE3.png|32px]] [[File:Baby Lime Sheep JE3.png|32px]] [[File:Baby Green Sheep JE3.png|32px]] [[File:Baby Cyan Sheep JE3.png|32px]] [[File:Baby Light Blue Sheep JE3.png|32px]] [[File:Baby Blue Sheep JE3.png|32px]] [[File:Baby Purple Sheep JE3.png|32px]] [[File:Baby Magenta Sheep JE3.png|32px]] [[File:Baby Pink Sheep JE3.png|32px]] The colors of lambs have been changed.}}
+{{History||1.14|snap=18w43a|[[File:White Sheep JE3 BE6.png|32px]] [[File:Light Gray Sheep JE4.png|32px]] [[File:Gray Sheep JE4.png|32px]] [[File:Black Sheep JE4.png|32px]] [[File:Brown Sheep JE4.png|32px]] [[File:Red Sheep JE4.png|32px]] [[File:Orange Sheep JE4.png|32px]] [[File:Yellow Sheep JE4.png|32px]] [[File:Lime Sheep JE4.png|32px]] [[File:Green Sheep JE4.png|32px]] [[File:Cyan Sheep JE4.png|32px]] [[File:Light Blue Sheep JE4.png|32px]] [[File:Blue Sheep JE4.png|32px]] [[File:Purple Sheep JE4.png|32px]] [[File:Magenta Sheep JE4.png|32px]] [[File:Pink Sheep JE4.png|32px]] The textures of sheep have been changed.
+|[[File:Jeb Sheep JE2.gif|32px]] The textures of sheep named 'jeb_' have been changed.
+|[[File:Baby White Sheep JE3 BE5.png|32px]] [[File:Baby Light Gray Sheep JE4.png|32px]] [[File:Baby Gray Sheep JE4.png|32px]] [[File:Baby Black Sheep JE4.png|32px]] [[File:Baby Brown Sheep JE4.png|32px]] [[File:Baby Red Sheep JE4.png|32px]] [[File:Baby Orange Sheep JE4.png|32px]] [[File:Baby Yellow Sheep JE4.png|32px]] [[File:Baby Lime Sheep JE4.png|32px]] [[File:Baby Green Sheep JE4.png|32px]] [[File:Baby Cyan Sheep JE4.png|32px]] [[File:Baby Light Blue Sheep JE4.png|32px]] [[File:Baby Blue Sheep JE4.png|32px]] [[File:Baby Purple Sheep JE4.png|32px]] [[File:Baby Magenta Sheep JE4.png|32px]] [[File:Baby Pink Sheep JE4.png|32px]] The textures of lambs have been changed.
+|Sheep can now be [[shears|sheared]] using [[dispenser]]s.}}
+{{History||1.15|snap=19w37a|5% of sheep now spawn as lambs.}}
+{{History||1.17|snap=21w03a|Added a sound for [[dye]]ing sheep.}}
+{{History||1.18|snap=experimental snapshot 2|Sheep now spawn in [[mountain meadow]]s.}}
+{{History|||snap=21w39a|Sheep now eat half as often, due to the chance to start eating being evaluated every other game tick rather than every game tick.<ref>{{bug|MC-257540}}</ref>}}
+{{History||1.20<br>(Experimental)|link=1.19.4|snap=23w07a|Sheep now spawn in [[cherry grove]]s.}}
+
+{{History|pocket alpha}}
+{{History||v0.2.0|[[File:White Sheep BE1.png|32px]] Added sheep.
+|[[File:Sheared Sheep BE1.png|32px]] Sheep can be [[shears|sheared]].
+|[[File:Baby White Sheep BE1.png|32px]] Lambs have also been added, though there is currently no way to get them to spawn.}}
+{{History||v0.6.0|Added the overlay part of the sheep with wool on its head and body.
+|[[File:White Sheep BE2.png|32px]] [[File:Light Gray Sheep BE1.png|32px]] [[File:Gray Sheep BE1.png|32px]] [[File:Black Sheep BE1.png|32px]] [[File:Brown Sheep BE1.png|32px]] [[File:Red Sheep BE1.png|32px]] [[File:Orange Sheep BE1.png|32px]] [[File:Yellow Sheep BE1.png|32px]] [[File:Lime Sheep BE1.png|32px]] [[File:Green Sheep BE1.png|32px]] [[File:Cyan Sheep BE1.png|32px]] [[File:Light Blue Sheep BE1.png|32px]] [[File:Blue Sheep BE1.png|32px]] [[File:Purple Sheep BE1.png|32px]] [[File:Magenta Sheep BE1.png|32px]] [[File:Pink Sheep BE1.png|32px]]<br>
+[[File:Baby White Sheep BE2.png|32px]] [[File:Baby Light Gray Sheep BE1.png|32px]] [[File:Baby Gray Sheep BE1.png|32px]] [[File:Baby Black Sheep BE1.png|32px]] [[File:Baby Brown Sheep BE1.png|32px]] [[File:Baby Red Sheep BE1.png|32px]] [[File:Baby Orange Sheep BE1.png|32px]] [[File:Baby Yellow Sheep BE1.png|32px]] [[File:Baby Lime Sheep BE1.png|32px]] [[File:Baby Green Sheep BE1.png|32px]] [[File:Baby Cyan Sheep BE1.png|32px]] [[File:Baby Light Blue Sheep BE1.png|32px]] [[File:Baby Blue Sheep BE1.png|32px]] [[File:Baby Purple Sheep BE1.png|32px]] [[File:Baby Magenta Sheep BE1.png|32px]] [[File:Baby Pink Sheep BE1.png|32px]] Sheep now display their colors and can be dyed.
+|Lambs now spawn naturally.}}
+{{History||v0.6.1|[[File:White Sheep BE3.png|32px]] [[File:Light Gray Sheep BE2.png|32px]] [[File:Gray Sheep BE2.png|32px]] [[File:Black Sheep BE2.png|32px]] [[File:Brown Sheep BE2.png|32px]] [[File:Red Sheep BE2.png|32px]] [[File:Orange Sheep BE2.png|32px]] [[File:Yellow Sheep BE2.png|32px]] [[File:Lime Sheep BE2.png|32px]] [[File:Green Sheep BE2.png|32px]] [[File:Cyan Sheep BE2.png|32px]] [[File:Light Blue Sheep BE2.png|32px]] [[File:Blue Sheep BE2.png|32px]] [[File:Purple Sheep BE2.png|32px]] [[File:Magenta Sheep BE2.png|32px]] [[File:Pink Sheep BE2.png|32px]]<br>
+[[File:Baby White Sheep BE3.png|32px]] [[File:Baby Light Gray Sheep BE2.png|32px]] [[File:Baby Gray Sheep BE2.png|32px]] [[File:Baby Black Sheep BE2.png|32px]] [[File:Baby Brown Sheep BE2.png|32px]] [[File:Baby Red Sheep BE2.png|32px]] [[File:Baby Orange Sheep BE2.png|32px]] [[File:Baby Yellow Sheep BE2.png|32px]] [[File:Baby Lime Sheep BE2.png|32px]] [[File:Baby Green Sheep BE2.png|32px]] [[File:Baby Cyan Sheep BE2.png|32px]] [[File:Baby Light Blue Sheep BE2.png|32px]] [[File:Baby Blue Sheep BE2.png|32px]] [[File:Baby Purple Sheep BE2.png|32px]] [[File:Baby Magenta Sheep BE2.png|32px]] [[File:Baby Pink Sheep BE2.png|32px]] The [[model]] of the sheep fur has been changed.<ref>{{Cite bug|MCPE|1376|Sheep feet texture missing|date=January 31, 2013}}</ref>}}
+{{History||v0.7.0|Sheep [[spawn egg]]s are now in [[creative]] mode.}}
+{{History||v0.8.0|snap=build 1|[[File:White Sheep BE4.png|32px]] [[File:Light Gray Sheep BE3.png|32px]] [[File:Gray Sheep BE3.png|32px]] [[File:Black Sheep BE3.png|32px]] [[File:Brown Sheep BE3.png|32px]] [[File:Red Sheep BE3.png|32px]] [[File:Orange Sheep BE3.png|32px]] [[File:Yellow Sheep BE3.png|32px]] [[File:Lime Sheep BE3.png|32px]] [[File:Green Sheep BE3.png|32px]] [[File:Cyan Sheep BE3.png|32px]] [[File:Light Blue Sheep BE3.png|32px]] [[File:Blue Sheep BE3.png|32px]] [[File:Purple Sheep BE3.png|32px]] [[File:Magenta Sheep BE3.png|32px]] [[File:Pink Sheep BE3.png|32px]]<br>
+[[File:Baby White Sheep JE1 BE4.png|32px]] [[File:Baby Light Gray Sheep BE3.png|32px]] [[File:Baby Gray Sheep BE3.png|32px]] [[File:Baby Black Sheep BE3.png|32px]] [[File:Baby Brown Sheep BE3.png|32px]] [[File:Baby Red Sheep BE3.png|32px]] [[File:Baby Orange Sheep BE3.png|32px]] [[File:Baby Yellow Sheep BE3.png|32px]] [[File:Baby Lime Sheep BE3.png|32px]] [[File:Baby Green Sheep BE3.png|32px]] [[File:Baby Cyan Sheep BE3.png|32px]] [[File:Baby Light Blue Sheep BE3.png|32px]] [[File:Baby Blue Sheep BE3.png|32px]] [[File:Baby Purple Sheep BE3.png|32px]] [[File:Baby Magenta Sheep BE3.png|32px]] [[File:Baby Pink Sheep BE3.png|32px]] If a sheep is [[dye]]d a color other than white, the wool color on its face also changes to match the rest of its body.
+|[[File:Sheared White Sheep Revision 1.png|32px]] [[File:Sheared Light Gray Sheep Revision 1.png|32px]] [[File:Sheared Gray Sheep Revision 1.png|32px]] [[File:Sheared Black Sheep Revision 1.png|32px]] [[File:Sheared Brown Sheep Revision 1.png|32px]] [[File:Sheared Red Sheep Revision 1.png|32px]] [[File:Sheared Orange Sheep Revision 1.png|32px]] [[File:Sheared Yellow Sheep Revision 1.png|32px]] [[File:Sheared Lime Sheep Revision 1.png|32px]] [[File:Sheared Green Sheep Revision 1.png|32px]] [[File:Sheared Cyan Sheep Revision 1.png|32px]] [[File:Sheared Light Blue Sheep Revision 1.png|32px]] [[File:Sheared Blue Sheep Revision 1.png|32px]] [[File:Sheared Purple Sheep Revision 1.png|32px]] [[File:Sheared Magenta Sheep Revision 1.png|32px]] [[File:Sheared Pink Sheep Revision 1.png|32px]] When a sheep is [[shears|sheared]], the spots on its body now also change color (currently an exclusive feature).
+|Sheep can now [[breeding|breed]].
+|The sheep AI has been improved.}}
+{{History||v0.9.0|snap=build 3|Sheep now graze on [[grass|tallgrass]].}}
+{{History||v0.11.0|snap=build 1|Sheep coloration is now applied through shaders, rather than different textures.}}
+{{History||v0.12.0|Sheep are no longer [[breeding|bred]] using a ''Feed'' button as of the release of the [[Windows 10 Edition]].{{verify|are we sure this isn't a v0.12.1 change?}}}}
+{{History||v0.14.0|snap=build 1|[[Zombie]] [[jockey]]s now check for nearby sheep to mount prior to attacking the player, villager or golem.
+|Sheep no longer spawn in the [[snowy plains]] biome and its variants.}}
+{{History||v0.15.0|snap=build 1|Sheep now drop [[raw mutton]] and if killed with fire, they drop [[cooked mutton]].
+|[[File:Jeb Sheep BE1.gif|32px]] [[File:Baby Jeb Sheep BE1.gif|32px]] Sheep named as 'jeb_' cycle now through all possible sheep colors in a fading rainbow effect. They still drop the color [[wool]] they were [[dye]]d last.
+|[[Husk]] children can now mount sheep.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Sheep are now [[dye]]d using a ''Dye'' button.}}
+{{History||1.1.0|snap=alpha 1.1.0.0|[[File:White Sheep JE2 BE5.png|32px]] [[File:Light Gray Sheep BE4.png|32px]] [[File:Gray Sheep BE4.png|32px]] [[File:Black Sheep BE4.png|32px]] [[File:Brown Sheep BE4.png|32px]] [[File:Red Sheep BE4.png|32px]] [[File:Orange Sheep BE4.png|32px]] [[File:Yellow Sheep BE4.png|32px]] [[File:Lime Sheep BE4.png|32px]] [[File:Green Sheep BE4.png|32px]] [[File:Cyan Sheep BE4.png|32px]] [[File:Light Blue Sheep BE4.png|32px]] [[File:Blue Sheep BE4.png|32px]] [[File:Purple Sheep BE4.png|32px]] [[File:Magenta Sheep BE4.png|32px]] [[File:Pink Sheep BE4.png|32px]] The textures of sheep have been changed. Sheep now look different when [[dye]]d to comply with the [[wool]] color changes.
+|[[File:Baby White Sheep JE1 BE4.png|32px]] [[File:Baby Light Gray Sheep BE4.png|32px]] [[File:Baby Gray Sheep BE4.png|32px]] [[File:Baby Black Sheep BE4.png|32px]] [[File:Baby Brown Sheep BE4.png|32px]] [[File:Baby Red Sheep BE4.png|32px]] [[File:Baby Orange Sheep BE4.png|32px]] [[File:Baby Yellow Sheep BE4.png|32px]] [[File:Baby Lime Sheep BE4.png|32px]] [[File:Baby Green Sheep BE4.png|32px]] [[File:Baby Cyan Sheep BE4.png|32px]] [[File:Baby Light Blue Sheep BE4.png|32px]] [[File:Baby Blue Sheep BE4.png|32px]] [[File:Baby Purple Sheep BE4.png|32px]] [[File:Baby Magenta Sheep BE4.png|32px]] [[File:Baby Pink Sheep BE4.png|32px]] The textures of lambs have been changed.}}
+{{History|bedrock}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:White Sheep JE3 BE6.png|32px]] [[File:Light Gray Sheep BE5.png|32px]] [[File:Gray Sheep BE5.png|32px]] [[File:Black Sheep BE5.png|32px]] [[File:Brown Sheep BE5.png|32px]] [[File:Red Sheep BE5.png|32px]] [[File:Orange Sheep BE5.png|32px]] [[File:Yellow Sheep BE5.png|32px]] [[File:Lime Sheep BE5.png|32px]] [[File:Green Sheep BE5.png|32px]] [[File:Cyan Sheep BE5.png|32px]] [[File:Light Blue Sheep BE5.png|32px]] [[File:Blue Sheep BE5.png|32px]] [[File:Purple Sheep BE5.png|32px]] [[File:Magenta Sheep BE5.png|32px]] [[File:Pink Sheep BE5.png|32px]] The textures of sheep have been changed.
+|[[File:Jeb Sheep BE2.gif|32px]] [[File:Baby Jeb Sheep BE2.gif|32px]] The textures of sheep named 'jeb_' have been changed.
+|[[File:Baby White Sheep JE3 BE5.png|32px]] [[File:Baby Light Gray Sheep BE5.png|32px]] [[File:Baby Gray Sheep BE5.png|32px]] [[File:Baby Black Sheep BE5.png|32px]] [[File:Baby Brown Sheep BE5.png|32px]] [[File:Baby Red Sheep BE5.png|32px]] [[File:Baby Orange Sheep BE5.png|32px]] [[File:Baby Yellow Sheep BE5.png|32px]] [[File:Baby Lime Sheep BE5.png|32px]] [[File:Baby Green Sheep BE5.png|32px]] [[File:Baby Cyan Sheep BE5.png|32px]] [[File:Baby Light Blue Sheep BE5.png|32px]] [[File:Baby Blue Sheep BE5.png|32px]] [[File:Baby Purple Sheep BE5.png|32px]] [[File:Baby Magenta Sheep BE5.png|32px]] [[File:Baby Pink Sheep BE5.png|32px]] The textures of lambs have been changed.
+|Sheep now spawn in [[desert]] [[village]] shepherd houses.}}
+{{History||1.11.0|snap=beta 1.11.0.1|Sheep can now spawn in [[plains]], [[savanna]], [[taiga]], [[snowy taiga]] and [[snowy tundra]] village shepherd houses, butcher houses, and animal pens.}}
+{{History||1.18.30|snap=beta 1.18.20.27|Sheep no longer spawn in snowy taigas.}}
+{{History|||snap=Release|Reverted the sheep spawning change made in beta 1.18.20.27.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:White Sheep JE1.png|32px]] [[File:Light Gray Sheep JE2.png|32px]] [[File:Gray Sheep JE2.png|32px]] [[File:Black Sheep JE2.png|32px]] [[File:Brown Sheep JE2.png|32px]] [[File:Red Sheep JE2.png|32px]] [[File:Orange Sheep JE2.png|32px]] [[File:Yellow Sheep JE2.png|32px]] [[File:Lime Sheep JE2.png|32px]] [[File:Green Sheep JE2.png|32px]] [[File:Cyan Sheep JE2.png|32px]] [[File:Light Blue Sheep JE2.png|32px]] [[File:Blue Sheep JE2.png|32px]] [[File:Purple Sheep JE2.png|32px]] [[File:Magenta Sheep JE2.png|32px]] [[File:Pink Sheep JE2.png|32px]] Added sheep.
+|[[File:Sheared White Sheep Revision 1.png|32px]] Sheep can be [[shears|sheared]].}}
+{{History||xbox=TU5|Sheep now run away when attacked.}}
+{{History||xbox=TU7|[[File:Baby White Sheep JE1 BE4.png|32px]] [[File:Baby Light Gray Sheep JE2.png|32px]] [[File:Baby Gray Sheep JE2.png|32px]] [[File:Baby Black Sheep JE2.png|32px]] [[File:Baby Brown Sheep JE2.png|32px]] [[File:Baby Red Sheep JE2.png|32px]] [[File:Baby Orange Sheep JE2.png|32px]] [[File:Baby Yellow Sheep JE2.png|32px]] [[File:Baby Lime Sheep JE2.png|32px]] [[File:Baby Green Sheep JE2.png|32px]] [[File:Baby Cyan Sheep JE2.png|32px]] [[File:Baby Light Blue Sheep JE2.png|32px]] [[File:Baby Blue Sheep JE2.png|32px]] [[File:Baby Purple Sheep JE2.png|32px]] [[File:Baby Magenta Sheep JE2.png|32px]] [[File:Baby Pink Sheep JE2.png|32px]] Added baby sheep.
+|Sheep can now be [[breeding|bred]] using [[wheat]].}}
+{{History||xbox=TU9|Sheep now eat [[grass block]]s and [[tall grass]] in order to re-grow their wool. As a counterbalance, [[shears|shearing]] sheep yields 1-3 [[wool]] blocks instead of 2-4.|[[Spawn egg]]s are now available for sheep in [[Creative]] mode.}}
+{{History||xbox=TU14|ps=1.04|Lambs can now be spawned by using {{xbtn|lt}} on an adult form of that [[mob]] using a [[spawn egg]].}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|Sheep now drop [[raw mutton]] and—if killed with fire—they drop [[cooked mutton]].
+|Lamb growth can now be accelerated using [[wheat]].}}
+
+{{History|New Nintendo 3DS Edition}}
+{{History||0.1.0|[[File:White Sheep BE4.png|32px]] [[File:Light Gray Sheep BE3.png|32px]]  [[File:Gray Sheep BE3.png|32px]] [[File:Black Sheep BE3.png|32px]] [[File:Brown Sheep BE3.png|32px]] [[File:Red Sheep BE3.png|32px]] [[File:Orange Sheep BE3.png|32px]] [[File:Yellow Sheep BE3.png|32px]] [[File:Lime Sheep BE3.png|32px]][[File:Green Sheep BE3.png|32px]] [[File:Cyan Sheep BE3.png|32px]] [[File:Light Blue Sheep BE3.png|32px]] [[File:Blue Sheep BE3.png|32px]] [[File:Purple Sheep BE3.png|32px]] [[File:Magenta Sheep BE3.png|32px]] [[File:Pink Sheep BE3.png|32px]] Added sheep.
+|[[File:Baby White Sheep JE1 BE4.png|32px]] [[File:Baby Light Gray Sheep BE4.png|32px]] [[File:Baby Gray Sheep BE4.png|32px]] [[File:Baby Black Sheep BE4.png|32px]] [[File:Baby Brown Sheep BE4.png|32px]] [[File:Baby Red Sheep BE4.png|32px]] [[File:Baby Orange Sheep BE4.png|32px]] [[File:Baby Yellow Sheep BE4.png|32px]] [[File:Baby Lime Sheep BE4.png|32px]]  [[File:Baby Green Sheep BE4.png|32px]] [[File:Baby Cyan Sheep BE4.png|32px]] [[File:Baby Light Blue Sheep BE4.png|32px]] [[File:Baby Blue Sheep BE4.png|32px]] [[File:Baby Purple Sheep BE4.png|32px]][[File:Baby Magenta Sheep BE4.png|32px]] [[File:Baby Pink Sheep BE4.png|32px]] Added lambs.}}
+{{History|foot}}
+
+{{loadPage|Sheep/Old colors|Prior colors|h3}}
+
+== Issues ==
+{{Issue list}}
+
+== Gallery ==
+=== Colors===
+{{hidden begin|Show all renders}}
+<gallery>
+White Sheep.png| White Sheep
+Light Gray Sheep.png| Light Gray Sheep (JE)
+Light Gray Sheep BE.png| Light Gray Sheep (BE)
+Gray Sheep.png| Gray Sheep (JE)
+Gray Sheep BE.png| Gray Sheep (BE)
+Black Sheep.png| Black Sheep (JE)
+Black Sheep BE.png| Black Sheep (BE)
+Brown Sheep.png| Brown Sheep (JE)
+Brown Sheep BE.png| Brown Sheep (BE)
+Red Sheep.png| Red Sheep (JE)
+Red Sheep BE.png| Red Sheep (BE)
+Orange Sheep.png| Orange Sheep (JE)
+Orange Sheep BE.png| Orange Sheep (BE)
+Yellow Sheep.png| Yellow Sheep (JE)
+Yellow Sheep BE.png| Yellow Sheep (BE)
+Lime Sheep.png| Lime Sheep (JE)
+Lime Sheep BE.png| Lime Sheep (BE)
+Green Sheep.png| Green Sheep (JE)
+Green Sheep BE.png| Green Sheep (BE)
+Cyan Sheep.png| Cyan Sheep (JE)
+Cyan Sheep BE.png| Cyan Sheep (BE)
+Light Blue Sheep.png| Light Blue Sheep (JE)
+Light Blue Sheep BE.png| Light Blue Sheep (BE)
+Blue Sheep.png| Blue Sheep (JE)
+Blue Sheep BE.png| Blue Sheep (BE)
+Purple Sheep.png| Purple Sheep (JE)
+Purple Sheep BE.png| Purple Sheep (BE)
+Magenta Sheep.png| Magenta Sheep (JE)
+Magenta Sheep BE.png| Magenta Sheep (BE)
+Pink Sheep.png| Pink Sheep (JE)
+Pink Sheep BE.png| Pink Sheep (BE)
+Sheared White Sheep.png| Sheared Sheep (JE) Sheared White Sheep (BE)
+Sheared Light Gray Sheep.png| Sheared Light Gray Sheep (BE)
+Sheared Gray Sheep.png| Sheared Gray Sheep (BE)
+Sheared Black Sheep.png| Sheared Black Sheep (BE)
+Sheared Brown Sheep.png| Sheared Brown Sheep (BE)
+Sheared Red Sheep.png| Sheared Red Sheep (BE)
+Sheared Orange Sheep.png| Sheared Orange Sheep (BE)
+Sheared Yellow Sheep.png| Sheared Yellow Sheep (BE)
+Sheared Lime Sheep.png| Sheared Lime Sheep (BE)
+Sheared Green Sheep.png| Sheared Green Sheep (BE)
+Sheared Cyan Sheep.png| Sheared Cyan Sheep (BE)
+Sheared Light Blue Sheep.png| Sheared Light Blue Sheep (BE)
+Sheared Blue Sheep.png| Sheared Blue Sheep (BE)
+Sheared Purple Sheep.png| Sheared Purple Sheep (BE)
+Sheared Magenta Sheep.png| Sheared Magenta Sheep (BE)
+Sheared Pink Sheep.png| Sheared Pink Sheep (BE)
+Baby White Sheep.png| White Lamb
+Baby Light Gray Sheep.png| Light Gray Lamb (JE)
+Baby Light Gray Sheep BE.png| Light Gray Lamb (BE)
+Baby Gray Sheep.png| Gray Lamb (JE)
+Baby Gray Sheep BE.png| Gray Lamb (BE)
+Baby Black Sheep.png| Black Lamb (JE)
+Baby Black Sheep BE.png| Black Lamb (BE)
+Baby Brown Sheep.png| Brown Lamb (JE)
+Baby Brown Sheep BE.png| Brown Lamb (BE)
+Baby Red Sheep.png| Red Lamb (JE)
+Baby Red Sheep BE.png| Red Lamb (BE)
+Baby Orange Sheep.png| Orange Lamb (JE)
+Baby Orange Sheep BE.png| Orange Lamb (BE)
+Baby Yellow Sheep.png| Yellow Lamb (JE) 
+Baby Yellow Sheep BE.png| Yellow Lamb (BE)
+Baby Lime Sheep.png| Lime Lamb (JE)
+Baby Lime Sheep BE.png| Lime Lamb (BE)
+Baby Green Sheep.png| Green Lamb (JE)
+Baby Green Sheep BE.png| Green Lamb (BE)
+Baby Cyan Sheep.png| Cyan Lamb (JE)
+Baby Cyan Sheep BE.png| Cyan Lamb (BE)
+Baby Light Blue Sheep.png| Light Blue Lamb (JE)
+Baby Light Blue Sheep BE.png| Light Blue Lamb (BE)
+Baby Blue Sheep.png| Blue Lamb (JE)
+Baby Blue Sheep BE.png| Blue Lamb (BE)
+Baby Purple Sheep.png| Purple Lamb (JE)
+Baby Purple Sheep BE.png| Purple Lamb (BE)
+Baby Magenta Sheep.png| Magenta Lamb (JE)
+Baby Magenta Sheep BE.png| Magenta Lamb (BE)
+Baby Pink Sheep.png| Pink Lamb (JE)
+Baby Pink Sheep BE.png| Pink Lamb (BE)
+</gallery>
+{{hidden end}}
+
+===Renders===
+<gallery>
+File:Sheared Baby White Sheep.png| A white baby sheep that has been sheared (sheared baby sheep are only available through commands)
+File:Jeb Sheep.gif|A jeb_ sheep.
+File:Baby Jeb Sheep.gif|A jeb_ baby sheep.
+File:Sheep (Trails & Tales Event).png|The Secret Sheep, featured in the [[Trails & Tales Event]].
+</gallery>
+
+===Screenshots===
+<gallery>
+File:NotchAnimalBreedingFirst.png|The first screenshot on [[breeding]] released by [[Notch]].
+File:Sheep Death.png|A dying sheep [[mob]].
+File:Natural Sheep.png|Brown, light gray, gray, pink and black are 5 of the naturally spawning colors of a sheep.
+File:SheepLand.png|A large flock of sheep, along with some chickens.
+File:Adult and Baby Sheep.png|A baby sheep and an adult sheep.
+File:Sheep Eating Grass.png|The sheep [[Grass block|grass]]-eating animation.
+File:BabySheepAni.png|The baby sheep grass-eating animation.
+File:DyedSheep.png|Sheep that have been [[dye]]d by the [[player]].
+File:Sheep probabilities.png|The relative probabilities of naturally spawned sheep colors.
+File:ShearedBabySheepAndParent.png|A [[Shears|sheared]] baby sheep next to its parent. (sheared baby sheep are available only via [[commands]])
+File:Snowy Grass vs Snowy Dirt.png|[[Grass|Snowy grass]] next to a patch of [[dirt]] that a sheep has eaten.
+File:Blueheadsheep.png|A sheep with a blue head.
+File:Coloured-sheep.png|alt=Four different colors of naturally spawning sheep: light gray, gray, brown, and black.
+File:Z-fighting shep.png|Z-fighting in the sheep's legs while invisible, in Spectator mode.
+File:Pink.png|Rare occurrence of a pink sheep.
+File:Sheepbug.png|Sheep bugged in a tree. This is on an old version of Minecraft.
+File:Flockofsheep.png|Flock of sheep in a swamp biome.
+File:Insidesheepsleg.png|The foot of a sheep.
+File:Sheep Color Overlay.jpg|The sheep's color around their face and overlay when sheared corresponds to their wool color in Bedrock Edition.
+File:AncientSheep.jpg|A sheep before [[Pocket Edition Alpha 0.6.0]].
+File:Pink sheep mcpe.jpg|Pink sheep before [[Pocket Edition Alpha 0.8.0]].
+File:All sheep color.png|All of the possible sheep wool colors ([[dye]]d by the [[player]].) Sheep have dyed wool remnants.
+File:OldSheepPE0.7.1.png|A yellow sheep during [[Pocket Edition Alpha 0.7.1]].
+File:New Baby Sheep.png|A new remodelled baby sheep dyed yellow.
+</gallery>
+
+===Cosmetics===
+<gallery>
+File:Sheep Man.png|Sheep Man, a skin included in the second [[Legacy Console]] [[skin pack]].
+File:Naked Sheep Man.png|A naked version of Sheep Man from the same pack.
+File:Top Hat Sheep.png|Top Hat Sheep, a skin featured in the [[Skin pack|1st Birthday skin pack]].
+File:Mummy Sheep.png|The "Mummy Sheep," featured in the [[Mash-up pack|Halloween Edition mash-up pack]] and [[Minecraft Mini-Series]].
+</gallery>
+
+===In other media===
+<gallery>
+Animals.png|Artwork of a sheep alongside [[Player|Steve]] and a [[pig]].
+World of Color Update.png|Various dyed sheep as shown in the [[World of Color Update]] artwork.
+Caves & Cliffs cover art.png|A brown sheep in promotional artwork for the first [[Caves & Cliffs]] update.
+Minecraft Education Edition Key Art.jpg|A sheep in official artwork for the [[Education Edition]].
+File:MCSM Sheep.png|A [[Minecraft Story Mode:Sheep|Sheep]] as it appears in [[Minecraft Story Mode]].
+File:Inky Sheep overview.jpg|Concept art of an [[MCE:Inky Sheep|Inky Sheep]], a unique variation of sheep featured in [[Minecraft Earth]].
+File:Sheep(Dungeons).png|A [[MCD:Sheep|Sheep]] as it appears in [[Minecraft Dungeons]].
+Sheep Mobestiary.jpg|Sheep pictured in the [[Minecraft: Mobestiary|Mobestiary]].
+LEGO Sheep.png|[[LEGO Minecraft]] white sheep minifigure.
+LEGO White Baby Sheep.png|[[LEGO Minecraft]] white lamb minifigure (old version).
+LEGO White Baby Sheep 2.png|[[LEGO Minecraft]] white lamb minifigure (new version).
+LEGO Black Sheep.png|[[LEGO Minecraft]] black sheep minifigure.
+LEGO Light Blue Sheep.png|[[LEGO Minecraft]] light blue sheep minifigure.
+LEGO Red Sheep.png|[[LEGO Minecraft]] red sheep minifigure.
+LEGO Yellow Sheep.png|[[LEGO Minecraft]] yellow sheep minifigure.
+LEGO Cyan Sheep.png|[[LEGO Minecraft]] cyan sheep minifigure.
+LEGO Purple Baby Sheep.png|[[LEGO Minecraft]] purple lamb minifigure.
+LEGO Pink Baby Sheep.png|[[LEGO Minecraft]] pink lamb minifigure.
+LEGO Minecraft Wool Farm Unboxed.png|[[LEGO Minecraft]] Wool Farm set.
+Sheep-Mini-Figure-Series-18.jpg|A "Super Cute" Sheep from the 18th line of Minecraft Mini-Figures.
+Baby Sheep Plush JINX.jpg|Baby sheep plush made by JINX.
+My Base Is Your Base.png|"My Base is Your Base," an official T-Shirt design featuring a build of a red sheep.
+</gallery>
+
+==References==
+{{Reflist}}
+
+{{Entities}}
+
+[[Category:Passive mobs]]
+[[Category:Animal mobs]]
+
+[[cs:Ovce]]
+[[de:Schaf]]
+[[es:Oveja]]
+[[fr:Mouton]]
+[[hu:Bárány]]
+[[it:Pecora]]
+[[ja:ヒツジ]]
+[[ko:양]]
+[[nl:Schaap]]
+[[pl:Owca]]
+[[pt:Ovelha]]
+[[ru:Овца]]
+[[th:แกะ]]
+[[tr:Koyun]]
+[[uk:Вівця]]
+[[zh:绵羊]]
+[[Category:Four legged mobs]]

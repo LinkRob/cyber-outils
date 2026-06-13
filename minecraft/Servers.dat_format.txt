@@ -1,0 +1,36 @@
+{{exclusive|java}}
+The '''servers.dat'''  is used to store information regarding the [[multiplayer]] [[servers]] that the player has added to their [[server list]]. It does not store the direct connect IP address (see [[options.txt]]), nor any LAN server information<!-- Where is LAN server information stored? Add a link to it. -->. It is stored as an uncompressed [[NBT Format|NBT]] file. It is possible to add color codes by editing the server name attribute with an [[NBT Format|NBT Editor]] through the use of [[formatting codes]].
+
+The file is located in the root of the directory specified in the [[launcher]] profile. By default, this would be ''[[.minecraft]]\servers.dat''.
+
+== NBT Structure ==
+
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+** {{nbt|list|servers}}: List of compound tags, one for each saved server.
+*** {{nbt|compound}} Information about the server.
+**** {{nbt|string|icon}}: Base64-encoded PNG data of the server icon.
+**** {{nbt|string|ip}}: The IP address of the server.
+**** {{nbt|string|name}}: The name of the server as defined by the player.
+**** {{nbt|byte|acceptTextures}}: 1 or 0 (true/false) - 0 if the player has selected ''Never'' when prompted to install a server [[resource pack]].
+</div>
+
+== History ==
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|Added <samp>server.dat</samp>, include tag <code>ip</code> and <code>name</code>, for saving server address and its name.}}
+{{History|java}}
+{{History||1.4.2|snap=12w42a|Added <code>hideAddress</code> tag, for the client shows the address or not in the server list.}}
+{{History||1.7.2|snap=13w41a|Added <code>icon</code> tag, for saving server icon cache.}}
+{{History||1.7.6|snap=pre1|Added <code>acceptTextures</code> tag, for the client to select a default action to a server resource pack.
+|Removed <code>hideAddress</code> tag.}}
+{{History||1.8|snap=14w17a|Added <code>acceptTextures</code> tag, for the client to select a default action to a server resource pack.
+|Removed <code>hideAddress</code> tag.}}
+{{History|foot}}
+
+{{Java Edition}}
+[[Category:Development]]
+
+[[de:Servers Format]]
+[[nl:Servers.dat formaat]]
+[[pt:Formato servers.dat]]
+[[zh:Servers.dat格式]]

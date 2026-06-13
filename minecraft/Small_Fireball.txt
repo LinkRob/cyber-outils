@@ -1,0 +1,118 @@
+{{for|similar projectiles|Fireball (disambiguation)}}
+{{Entity
+| image = Fire Charge.png
+|imagesize=75px
+| size = Height: 0.3125 blocks<br>Width: 0.3125 blocks
+|networkid='''[[JE]]''': 64
+}}
+A '''small fireball''' is a [[projectile]] produced by ranged attack of [[blaze]]s, and by [[fire charge]]s when shot from [[dispenser]]s.
+
+== Behavior ==
+If a small fireball hits a block, [[fire]] or [[soul fire]] is placed at that location if possible. It produces no [[Explosion|explosive]] effect. Small fireballs can light [[campfire]]s and [[nether portal]]s and can prime [[minecarts with TNT]].
+
+If it hits an [[entity]] that is not immune to fire and does not have the [[Fire Resistance]] effect, the entity takes {{hp|5}} of projectile damage regardless of [[difficulty]] level. The target is set on fire for 5 seconds, which does an additional {{hp|4}} fire damage over time; it can deal up to {{hp|9}} damage from these combined effects.
+
+A small fireball cannot be deflected by melee attacks or arrows, unlike regular [[fireball]]s. However, it can be blocked by [[shield]]s, which prevents the player from being damaged and lit on fire. They cannot be deflected.
+
+Small fireballs fired from a dispenser fly in a straight line (with a random offset from the dispenser's line of sight). It places fire when it hits a block. Blazes shoot small fireballs at players.
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Small fireballs use the Friendly Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Ghast fireball4.ogg
+|subtitle=Blaze shoots
+|source=hostile
+|description=When a small fireball is fired from a dispenser or a blaze
+|id=entity.blaze.shoot
+|translationkey=subtitles.entity.blaze.shoot
+|volume=2.0
+|pitch=0.8 – 1.2
+|distance=32
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Ghast fireball4.ogg
+|source=hostile
+|description=When a small fireball is fired from a dispenser or a blaze
+|id=mob.blaze.shoot
+|volume=3.0
+|pitch=0.8-1.2
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showentitytags=y
+|generatetranslationkeys=y
+|displayname=Small Fireball
+|spritetype=entity
+|nameid=small_fireball
+|entitytags=impact_projectiles
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|generatetranslationkeys=y
+|displayname=Small Fireball
+|spritetype=entity
+|nameid=small_fireball
+|id=94
+|foot=1}}
+
+=== Entity data ===
+
+{{el|java}}:
+{{main|Entity format}}
+Small fireballs have entity data associated with them that contains various properties.
+{{/ED}}
+
+== History ==
+{{for|information specifically pertaining to blazes and their shooting behavior|Blaze#History}}
+{{for|information specifically pertaining to fire charges as an item|Fire Charge#History}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease|[[File:Fire Charge JE1 BE1.png|32px]] Added small fireballs.}} 
+{{History||1.5|snap=13w02a|The texture of the small fireball has been changed from [[File:Fire Charge JE1 BE1.png|32px]] to [[File:Diamond Helmet (item)  JE1 BE1.png|32px]].<ref>{{bug|MC-6758}}</ref>}}
+{{History|||snap=13w02b|The texture of the small fireball has been changed from [[File:Diamond Helmet (item) JE1 BE1.png|32px]] back to [[File:Fire Charge JE1 BE1.png|32px]].}}
+{{history||1.6.1|snap=13w24a|The texture of the small fireball has been changed from [[File:Fire Charge JE1 BE1.png|32px]] to [[File:Ghast Fireball 13w24a.png|32px]].<ref>{{bug|MC-17827}}</ref>}}
+{{history|||snap=13w24b|The texture of the small fireball has been reverted from [[File:Ghast Fireball 13w24a.png|32px]] to [[File:Fire Charge JE1 BE1.png|32px]].}}
+{{History||1.11|snap=16w32a|The small fireball's entity ID has been changed from <code>SmallFireball</code> to <code>small_fireball</code>.}}
+{{History|||snap=16w40a|Tags <code>xTile</code>, <code>yTile</code>, <code>zTile</code>, <code>inTile</code> and <code>inGround</code> have been removed from the small fireball [[Chunk format#Projectiles|entity data]].}}
+{{History||1.14|snap=18w43a|[[File:Fire Charge JE2 BE2.png|32px]] The texture of the small fireball has been changed.}}
+
+{{History|pocket alpha}}
+{{History||v0.12.1|snap=build 1|[[File:Fire Charge JE1 BE1.png|32px]] Added small fireballs.}} 
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|The [[entity]] ID for the fireball has been changed from <code>smallfireball</code> to <code>small_fireball</code>.}}
+{{History|bedrock}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Fire Charge JE2 BE2.png|32px]] The texture of the small fireball has been changed.}}
+
+{{History|console}}
+{{History||xbox=TU7|xbone=CU1|ps=1.00|wiiu=Patch 1|switch=1.0.1|[[File:Fire Charge JE1 BE1.png|32px]] Added small fireballs}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Fire Charge JE2 BE2.png|32px]] The texture of the small fireball has been changed.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Fire Charge JE1 BE1.png|32px]] Added small fireballs.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* Small fireballs share the same texture as regular fireballs, visually differing primarily in size.
+* When a dispenser with a fire charge is placed with a block directly in front of it, the dispenser shoots through it and lights a fire on the other side.{{verify|Is this still the case? I remember upwards facing dispensers doing this (from Etho's series), but they then stopped}}
+* A small fireball flies infinitely far until it hits a block or an entity, even if it is outside the player's render distance.
+* When shot from a dispenser, the fire charge starts out stationary and accelerates, as though it is falling rather than being launched. Fireballs shot by blazes, however, maintain the same speed all the way to the target.
+
+== References ==
+{{reflist}}
+
+{{Entities}}
+
+[[pt:Bola de fogo pequena]]

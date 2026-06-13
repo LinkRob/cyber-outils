@@ -1,0 +1,400 @@
+{{about|the thin cover caused by snowfall|the full block|Snow Block|the weather condition|Snowfall|the projectile|Snowball|other uses}}
+{{Block
+| image = <gallery>
+Snow (layers 1).png | Layer 1
+Snow (layers 2).png | Layer 2
+Snow (layers 3).png | Layer 3
+Snow (layers 4).png | Layer 4
+Snow (layers 5).png | Layer 5
+Snow (layers 6).png | Layer 6
+Snow (layers 7).png | Layer 7
+Snow (layers 8).png | Layer 8
+</gallery>
+| transparent = Yes
+| light = No
+| tool = wooden shovel
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = No
+| lavasusceptible = No
+}}
+'''Snow''', known as '''Top Snow''' {{in|bedrock}}, is a ground cover block found on the surface in snowy [[biome]]s, and can be replenished during [[snowfall]].
+
+== Obtaining ==
+=== Breaking ===
+{{IN|java}}, destroying snow with a non-Silk-Touch [[shovel]] yields one [[snowball]] per layer. Explosions by [[TNT]] or [[creeper]]s also cause snow to yield a snowball. Snow drops one item of itself per layer when mined using a shovel enchanted with [[Silk Touch]], except for 8 layers of snow, which drops a [[snow block]].<ref name="MC-134408">{{bug|MC-134408||Breaking 8-level snow layer with Silk Touch drops snow block}}</ref> Any other tool, even if enchanted with Silk Touch, destroys the snow and drops nothing. 
+
+{{IN|bedrock}}, destroying top snow with a [[shovel]] yields 1-4 [[snowball]]s. The number of snowballs dropped is as follows: 1 snowball for 1-3 layers, 2 snowballs for snow 4-5 layers, 3 snowballs for 6-7 layers, and 4 snowballs for 8 layers. Unlike {{edition|java}}, shovels enchanted with Silk Touch cause top snow to drop snowballs.<ref>{{bug|MCPE-59729||Snow layers don't drop themselves when mined with a silk touch enchanted shovel}}</ref> Top snow can also be removed by {{control|using}} a shovel on it if there is no block directly above the snow layer, yielding 1-4 snowballs. One snowball is dropped if top snow falls into an invalid block space after its support block is destroyed, regardless of the number of layers.
+
+{{breaking row|horizontal=1|Snow|Shovel|Wood}}
+
+=== Natural generation ===
+Snow naturally generates in [[Biome#Snowy biomes|snowy biomes]], [[Biome#Cold biomes|cold biomes]], and other biomes depending on the elevation and temperature. Only blocks with direct access to the sky can generate snow layers naturally (with the exception of some buildings in snowy [[village]]s, which generate extra snow in areas inaccessible to the sky).<ref>{{bug|MC-198006|||WAI}}</ref>
+
+Top snow generates where there is sky access atop buildings in snowy taiga [[village]]s.{{only|bedrock}}
+
+Snow generates as [[pile]]s and in multiple layers as part of many snowy plains village structures.
+
+By default, snow generates exclusively in single layers {{in|java}}. Top snow can generate in multiple layers {{in|bedrock}}.
+
+Snow also generates in [[Ancient City|ancient cities]].
+
+=== Crafting ===
+{{Crafting
+|A2= Snow Block |B2= Snow Block |C2= Snow Block
+|Output= Snow,6
+|type= Decoration block
+}}
+
+=== Post-generation ===
+==== Weather ====
+In snowy biomes or in cold biomes at higher altitudes, the weather can produce snow instead of [[rain]]. In snowy weather, snow generates on random blocks with a complete solid top surface at integer y-values, with a block [[light level]] of 9 or less, with the exception of [[ice]] and [[packed ice]]. The rate at which snow forms is affected by the [[game rule]] {{cd|randomTickSpeed}}.
+
+Below are the [[altitude]]s at which rain ends and snow begins, depending on the biome. The exact height of the snow line is randomized. In taiga, for example, the lowest possible snow layer forms at y level 153, and the lowest height where snow forms at all locations is y=168, with snow lines ranging between y levels 153 and 168 across different locations.
+
+{| class="wikitable"
+|-
+! width="150" | Biome
+! width="500" | Layer
+
+|-
+| align="left" |
+*{{BiomeLink|Snowy Plains|text=All snowy biomes|link=Biome#Snowy biomes}}
+| align="center" | y -64 (All altitudes)
+|-
+| align="left" |
+*{{BiomeLink|Windswept Gravelly Hills}}
+*{{BiomeLink|Windswept Hills}}
+*{{BiomeLink|Windswept Forest}}
+*{{BiomeLink|Stony Shore}}<ref>{{bug|MC-240697||It snows in the stony shore biomes from Y {{=}} 118 and above}}</ref>
+*{{BiomeLink|Dripstone Caves}}{{only|be|short=1}}<ref>{{bug|MCPE-142225||Dripstone Caves biome temperature is too cold}}</ref>
+| align="center" | y 113–128
+|-
+| align="left" |
+*{{BiomeLink|Taiga}}
+*{{BiomeLink|Old Growth Spruce Taiga}}
+| align="center" | y 153–168
+|-
+| align="left" |
+*{{BiomeLink|Old Growth Pine Taiga}}
+*{{BiomeLink|Meadow}}{{only|be|short=1}}{{needs testing|Does this biome snow above Y{{=}}200 in Bedrock?}}
+*{{BiomeLink|Cherry Grove}}{{only|be|short=1}}{{needs testing|Does this biome snow above Y{{=}}200 in Bedrock?}}
+| align="center" | y 193–208
+|-
+| align="left" |
+*{{BiomeLink|Plains|text=All others except Dry/Hot Biomes|link=Biome}}
+| align="center" | Above y 320 (not possible)
+|-
+| align="left" |
+*{{BiomeLink|Frozen Ocean}}
+*{{BiomeLink|Deep Frozen Ocean}}
+| align="center" | Depends on location
+|}
+
+{{IN|bedrock}}, up to two layers of top snow can build up during snowfall. {{IN|java}}, snowfall creates one layer of snow by default, and the number of layers that can accumulate can be altered by the [[game rule]] {{cd|snowAccumulationHeight}}: the default value being {{cd|1}}, while setting it to {{cd|0}} makes no snow form at all, and setting it to {{cd|8}} or above lets snow form up to the level of a full block.
+
+Snow layers do not generate if the game rule {{cd|doWeatherCycle}} has been set to {{cd|false}}.{{only|bedrock}}
+
+==== Snow golems ====
+{{see also|Tutorials/Snow farming}}
+
+[[Snow golem]]s generate a trail of snow in snowy, cold, and some medium [[biome]]s, or any non-dry biome {{in|bedrock}}.
+
+== Usage ==
+[[File:Thicknesses.png|thumb|right|Various thicknesses of snow.]]
+Snow can be placed only on a solid block that is not [[ice]]. {{IN|java}}, snow breaks if its support block is removed. {{IN|bedrock}}, snow is affected by gravity and falls if it becomes unsupported, and breaks if it falls onto an unsuitable block. A player can jump up 1 block and 3 snow layers.
+
+=== Cover ===
+[[File:Snowy Grass Block.png|thumb|right|upright|Snow covered [[grass block]], [[mycelium]] or [[podzol]].]]
+If the snow is on a [[grass block]] (or [[mycelium]] or [[podzol]] {{in|java}}<ref>{{bug|MCPE-12277}}</ref>) the ground cover turns white on the top and around the sides. Snow does not damage tilled and hydrated field areas – it cannot be placed on farmland. A gravity-affected block like [[sand]] or [[gravel]] does not fall if snow covers the block below it, but the gravity-affected block does replace a snow layer when falling onto it. The texture of the grass block changes to snowy when a single layer of snow is placed on top.<ref>{{bug|MC-1483}}</ref><ref>{{bug|MCPE-32637}}</ref> Thicker layers of snow causes the grass block to revert to plain dirt when the block receives a random tick, similar to regular grass when covered by an opaque block. A plain dirt block with a single layer of snow on top gains a snowy texture if grass spreads to it.
+
+{{IN|bedrock}}, if [[leaves]] are topped with a layer of snow, [[particle]]s of snow appear to fall through the leaves from the snow layer.
+
+{{IN|bedrock}}, snow layers [[snowlogging|can occupy the same space]] as one-block [[flower]]s, [[mushroom]]s, and one-block [[ferns]] and [[grass]], (however two-block tall plants do not work)<ref>{{bug|MCPE-21688}}</ref> and can be layered and mined normally. Placing snow on already-existing plant blocks causes snow to appear around them, but placing plants into an area where there is snow removes the snow.<ref>{{bug|MCPE-29695}}</ref>
+
+Snow layers can be used to kill [[nylium]].<ref>{{bug|MC-174639}}</ref>
+
+=== Melting ===
+[[File:Redstone Lamp melt pattern.png|thumb|right|Powered [[redstone lamp]]s melting nearby snow.]]
+Snow melts if there is a [[heat block]],{{only|bedrock|education|short=1}} or block light level of 12 or more. {{IN|bedrock}}, it also melts in dry biomes, regardless of block light or daylight level. If there are multiple layers, layers melt gradually in Bedrock Edition, but they melt all at once in Java.
+
+Some light sources can melt snow but many cannot. The melt radius is [[taxicab distance]].
+{| class="wikitable col-2-center"
+|+
+!Item
+!Melt radius
+|-
+|[[Beacon]]
+|3
+|-
+|[[Campfire]]
+|3
+|-
+|[[Campfire|Soul Campfire]]
+|<nowiki>-</nowiki>
+|-
+|[[Conduit]]
+|3
+|-
+|[[Glow Lichen]]
+|<nowiki>-</nowiki>
+|-
+|[[Glowstone]]
+|3
+|-
+|[[Jack o'Lantern]]
+|3
+|-
+|[[Lantern]]
+|3
+|-
+|Soul [[Lantern]]
+|<nowiki>-</nowiki>
+|-
+|[[Lava]]
+|3
+|-
+|[[Redstone Lamp]]
+|3
+|-
+|[[Respawn Anchor]] 1/4 Charge
+|<nowiki>-</nowiki>
+|-
+|Respawn Anchor 2/4 Charge
+|<nowiki>-</nowiki>
+|-
+|Respawn Anchor 3/4 Charge
+|<nowiki>-</nowiki>
+|-
+|Respawn Anchor 4/4 Charge
+|3
+|-
+|1 [[Sea Pickle]]
+|<nowiki>-</nowiki>
+|-
+|2 Sea Pickles
+|<nowiki>-</nowiki>
+|-
+|3 Sea Pickles
+|<nowiki>-</nowiki>
+|-
+|4 Sea Pickles
+|3
+|-
+|[[Shroomlight]]
+|3
+|-
+|[[Froglight]]
+|3
+|-
+|[[End Rod]]
+|2
+|-
+|[[Torch]]
+|2
+|-
+|[[Torch|Soul Torch]]
+|<nowiki>-</nowiki>
+|-
+|[[Redstone Torch]]
+|<nowiki>-</nowiki>
+|-
+|[[Ender Chest]]
+|<nowiki>-</nowiki>
+|-
+|[[Furnace]]
+|1
+|-
+|[[Blast Furnace]]
+|1
+|-
+|[[Smoker]]
+|1
+|-
+|[[Crying Obsidian]]
+|<nowiki>-</nowiki>
+|-
+|[[Magma Block]]
+|<nowiki>-</nowiki>
+|-
+|[[Brewing Stand]]
+|<nowiki>-</nowiki>
+|-
+|[[Mushroom|Brown Mushroom]]
+|<nowiki>-</nowiki>
+|-
+|[[Dragon Egg]]
+|<nowiki>-</nowiki>
+|-
+|[[Redstone Ore]]
+|<nowiki>-</nowiki>
+|-
+|[[End Portal Frame]]
+|<nowiki>-</nowiki>
+|-
+|[[Fire]]
+|3
+|-
+|[[Fire|Soul Fire]]
+|<nowiki>-</nowiki>
+|-
+|[[Nether Portal (block)|Nether Portal]]
+|<nowiki>-</nowiki>
+|-
+|[[Sea Lantern]]
+|3
+|}
+
+=== Foxes ===
+When a [[fox]] gets stuck in the snow after missing an attack on prey, it emits particles as it emerges from the snow.
+
+== Sounds ==
+{{Sound table/Block/Snow}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Snow
+|spritetype=block
+|nameid=snow
+|blocktags=inside_step_sound_blocks, snow, mineable/shovel
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Top Snow
+|spritetype=block
+|nameid=snow_layer
+|id=78
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+
+{{/BS}}
+
+== History ==
+{{more images|Appearance when affected by {{bug|MC-50254}}}}
+{{History|java classic}}
+{{History||May 20, 2009|link=wordofnotch:110593679|[[Notch]] briefly mentioned, "Winter is an awesome idea. I can see snow and tiles slowly getting covered in a layer of snow.  Also, ice on lakes. :D"}}
+{{History||May 21, 2009|link=wordofnotch:110762705|Notch reveals that snow "on top of topmost tiles" was on his to-do list.}}
+{{History|java alpha}}
+{{History||v1.0.4|[[File:Snow (layers 1) JE1 BE1.png|32px]] Snowfall has been added to maps only in winter mode. When creating a new save, a map has a 1/4 chance of having worldwide snowfall. When falling on exposed land, a thin snow layer is created.|Snow can not fall onto any non solid blocks, and instead falls through them. The exception to this is leaves.}}
+{{History||v1.0.5|Disturbing a snow layer by any means other than replacing it now causes a [[snowball]] to [[drops|drop]]. This includes melting and [[breaking|mining]] snow or the [[block]] under it.
+|A [[player]] can now easily harvest snow by placing a block of [[water]]. By doing so, the player receives a large amount of snowballs with little effort.|Snow can now fall onto many non solid blocks including [[glass]], [[stairs]], [[slab]]s, [[door]]s, [[sign]]s, and [[pressure plate]]s.}}
+{{History||v1.0.5_01|Snowballs can now be harvested from snow only by using with [[shovel]]s.}}
+{{History||v1.0.17|Snow can no longer fall on non solid blocks, including leaves. Any snow on top of non solid blocks break given a block update.}}{{History||v1.2.0|snap=preview|With the removal of Winter Mode, snow can no longer regenerate.}}
+{{History|java beta}}
+{{History||1.5|[[File:Snow (layers 2) JE1.png|32px]] [[File:Snow (layers 3) JE1.png|32px]] [[File:Snow (layers 4) JE1.png|32px]] [[File:Snow (layers 5) JE1.png|32px]] [[File:Snow (layers 6) JE1.png|32px]] [[File:Snow (layers 7) JE1.png|32px]] [[File:Snow (layers 8) JE1 BE1.png|32px]] Stacked snow layers have been added. They do not generate naturally and cannot be placed. Layers 1-3 have no collision, while 4-8 all have a half block collision.
+|Snow regeneration has now returned as part of the new [[weather]] features.<ref>{{tumblr|notch|4746701552|Minecraft Beta 1.5, and some thoughts on this blog}}</ref>
+|Snow can now occur in arctic [[biome]]s.}}
+{{History||1.7|[[File:Snow (layers 1) JE2  BE2.png|32px]] [[File:Snow (layers 2) JE2 BE1.png|32px]] [[File:Snow (layers 3) JE2 BE1.png|32px]] [[File:Snow (layers 4) JE2 BE1.png|32px]] [[File:Snow (layers 5) JE2 BE1.png|32px]] [[File:Snow (layers 6) JE2 BE1.png|32px]] [[File:Snow (layers 7) JE2 BE1.png|32px]] The side textures of snow layers 1-7 are now aligned to the bottom of the block instead of the top.}}
+{{History||1.8|snap=Pre-release|Snow biomes have been temporarily removed as [[Notch]] is currently trying to improve them.
+|Dropped snow layer items no longer appear larger than normal blocks.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease|Snow [[biome]]s have been re-added.
+|Snow now occurs in [[tundra]] biomes, as well as arctic biomes.
+|Added [[snow golem]]s, which leave a trail of snow behind them, making snow easier to farm.}}
+{{History||1.3.1|snap=12w21a|Snow has been made available in the [[creative inventory]].}}
+{{History||1.5|snap=13w05a|Snow can now be [[crafting|crafted]] and is obtainable in [[Survival]] mode.
+|Stacked snow layers now have correct collisions, and can be placed.}}
+{{History||?<!--between 13w01a and 13w42a-->|Single snow layers now have collision. Walking on top of them is equivalent to walking atop a full block below them.}}
+{{History||?|Single snow layers no longer have collision.}}
+{{History||1.8|snap=14w28b|The number of [[snowball]]s dropped from snow has been increased from 1-8 to 2-9, depending on thickness.}}
+{{History||1.13|snap=17w47a|The ID of snow has been changed from <code>snow_layer</code> to <code>snow</code>.
+|Prior to [[1.13/Flattening|''The Flattening'']], this [[block]]'s numeral ID was 78.
+|Layer 1 snow now has empty collision instead of solid collision of height 0, allowing entities to once again pass through it.}}
+{{History|||snap=17w48a|Snow now drops itself when mined with a Silk Touch shovel.<ref>{{bug|MC-1875||
+Snow layers don't drop themselves when harvested with a silk touch tool|Fixed}}</ref>}}
+{{History|||snap=?|Mining 8 layers of snow with a Silk Touch shovel now drops a snow block.<ref name="MC-134408"/>}}
+{{History||1.14|snap=18w43a|[[File:Snow (layers 1) JE3  BE3.png|32px]] [[File:Snow (layers 2) JE3  BE2.png|32px]] [[File:Snow (layers 3) JE3  BE2.png|32px]] [[File:Snow (layers 4) JE3  BE2.png|32px]] [[File:Snow (layers 5) JE3  BE2.png|32px]] [[File:Snow (layers 6) JE3  BE2.png|32px]] [[File:Snow (layers 7) JE3  BE2.png|32px]] [[File:Snow (layers 8) JE2 BE2.png|32px]] The texture of snow has been changed.}}
+{{History|||snap=18w49a|Snow now generate in the updated [[snowy tundra]] [[village]]s.}}
+{{History|||snap=19w03c|Seven layer high snow now uses correct cullface arguments.}}
+{{History||1.19|snap=22w13a|Snow now generate as part of [[Ancient City|ancient cities]].}}
+{{History||1.19.3|snap=22w44a|Added the [[game rule]] {{cd|snowAccumulationHeight}}.}}
+{{History||1.20.2|snap=23w31a|The rate of snow accumulation is now affected by the game rule {{cd|randomTickSpeed}}.}}
+
+{{History|pocket alpha}}
+{{History||Pre-release|[[File:Snow (layers 1) JE1 BE1.png|32px]] Added snow to the world generation.}}
+{{History||v0.4.0|[[File:Snow (layers 1) JE2  BE2.png|32px]] The model of snow has been changed.}}
+{{History||v0.8.0|snap=build 1|Added snow to the [[Creative]] mode [[inventory]].}}
+{{History||v0.12.1|snap=build 1|[[File:Snow (layers 2) JE2 BE1.png|32px]] [[File:Snow (layers 3) JE2 BE1.png|32px]] [[File:Snow (layers 4) JE2 BE1.png|32px]] [[File:Snow (layers 5) JE2 BE1.png|32px]] [[File:Snow (layers 6) JE2 BE1.png|32px]] [[File:Snow (layers 7) JE2 BE1.png|32px]] [[File:Snow (layers 8) JE1 BE1.png|32px]] Stacked snow layers have been added. They can be placed. Layers 1-3 have no collision, while 4-8 all have a half block collision.
+|Snow is now affected by gravity, so that unsupported snow layers show falling dust [[particles]].
+|Snow can now be placed inside [[flower]]s, [[mushroom]]s and [[grass|tall grass]].
+|Snow is now obtained by using a [[shovel]] on it. Previously, snow was [[breaking|mined]] like any [[dirt]]-type [[block]].
+|Snow now melts in any non-snowy biome.}}
+{{History||?|Snow now only melts in dry/hot biomes.}}
+{{History|bedrock}}
+{{History||1.2.0|snap=?|Snow layers can now generate in [[extreme hills]] biomes.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Snow (layers 1) JE3  BE3.png|32px]] [[File:Snow (layers 2) JE3  BE2.png|32px]] [[File:Snow (layers 3) JE3  BE2.png|32px]] [[File:Snow (layers 4) JE3  BE2.png|32px]] [[File:Snow (layers 5) JE3  BE2.png|32px]] [[File:Snow (layers 6) JE3  BE2.png|32px]] [[File:Snow (layers 7) JE3  BE2.png|32px]] [[File:Snow (layers 8) JE2 BE2.png|32px]] The texture of snow has been changed.}}
+{{History||1.16.0|snap=beta 1.15.0.51|Snow now drops itself when mined with a [[Silk Touch]] shovel.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Snow (layers 1) JE1 BE1.png|32px]] Added snow.}}
+{{History||xbox=TU54|xbone=CU44|ps=1.52|wiiu=Patch 24|switch=1.0.4|Snow can now be placed on top of upside-down [[stairs]].}}
+{{History||xbox=TU69|xbone=CU57|ps=1.76|wiiu=Patch 38|Snow is now affected by gravity.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Snow (layers 1) JE3  BE3.png|32px]] [[File:Snow (layers 2) JE3  BE2.png|32px]] [[File:Snow (layers 3) JE3  BE2.png|32px]] [[File:Snow (layers 4) JE3  BE2.png|32px]] [[File:Snow (layers 5) JE3  BE2.png|32px]] [[File:Snow (layers 6) JE3  BE2.png|32px]] [[File:Snow (layers 7) JE3  BE2.png|32px]] [[File:Snow (layers 8) JE2 BE2.png|32px]] The texture of snow has been changed.}}
+{{History|New 3DS}}
+{{History||0.1.0|[[File:Snow (layers 1) JE2 BE2.png|32px]] Added snow.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list|Snow|Snow layer|Top snow}}
+
+== Trivia ==
+*Snow can be stacked to a full block beside a [[cactus]] without destroying the cactus.
+*Snow layers of 2 to 7 thickness prevent hostile mobs from spawning.
+*In [[Spectator mode]], a player positioned at the correct height can see the snowy texture of the top of the grass blocks.
+
+== Gallery ==
+=== Java Edition ===
+<gallery>
+Snowy Plains.png|Naturally generated snow in a snowy plains biome.
+Ice Spikes.png|Naturally generated snow in an ice spikes biome. 
+Snowy Taiga.png|Naturally generated snow in a snowy taiga biome. 
+ExtremeHillsComparison.png|Naturally generated snow in windswept hills.
+Floating snow layer.png|Floating snow.
+</gallery>
+
+=== Bedrock Edition ===
+<gallery>
+Taiga snowy.png|Naturally generated snow in a snowy taiga. 
+Snow Plants.jpg|Snow as seen having the ability to bury certain plants.
+</gallery>
+
+== Notes ==
+{{fnlist}}
+
+== References ==
+{{Reflist}}
+
+{{Blocks|natural}}
+{{Entities}}
+
+[[Category:Natural blocks]]
+[[Category:Generated structure blocks]]
+[[Category:Non-solid blocks]]
+
+[[cs:Sníh (vrstva)]]
+[[de:Schnee]]
+[[es:Capa de nieve]]
+[[fr:Neige]]
+[[hu:Hó]]
+[[it:Neve]]
+[[ja:雪]]
+[[ko:눈]]
+[[nl:Sneeuw (laag)]]
+[[pl:Śnieg]]
+[[pt:Neve]]
+[[ru:Снег (слой)]]
+[[uk:Сніг]]
+[[zh:雪]]

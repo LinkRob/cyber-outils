@@ -1,0 +1,507 @@
+{{about|the storage block|the hostile End city mob|Shulker|the item that drops from the mob|Shulker Shell}}{{Block
+| image = Shulker Box.gif
+| image2 = White Shulker Box.png
+| extratext = View [[#Gallery|all renders]]
+| transparent = No
+| light = No
+| tool = pickaxe
+| renewable = Yes
+| stackable = No
+| flammable = No
+| lavasusceptible = No
+}}
+
+A '''shulker box''' is a [[Dye|dyeable]] [[block]] that stores items, and, unlike all other storage blocks, keeps its contents in [[item]] form when broken.
+
+== Obtaining ==
+=== Breaking ===
+Shulker boxes can be mined with any tool or by hand, but using a [[pickaxe]] is the most effective. Shulker boxes drop themselves when mined. Unlike other containers, the contents of shulker boxes are stored within the dropped item, and not dropped separately. When instantly mined in Creative mode, shulker boxes drop as an item if there are items stored within, unless {{cmd|gamerule doTileDrops}} is set to "false".
+{{breaking row|Shulker Box|Pickaxe|drop=1|horizontal=1}}
+
+=== Crafting ===
+
+{{Crafting
+  |head=1
+  |showdescription=1
+  |name=[[Shulker Box]]
+  |B1=Shulker Shell
+  |B2=Chest
+  |B3=Shulker Shell
+  |Output=Shulker Box
+  |type=Decoration block
+}}
+{{Crafting
+  |ingredients=Any [[Shulker Box]] +<br />Matching [[Dye]]
+  |Shulker Box; Any Shulker Box
+  |Matching Dye
+  |Output=Matching Shulker Box
+  |Olink=Shulker Box
+  |description=The shulker box retains its contents. If it is renamed on an [[anvil]], it also retains its name.
+  |type=Decoration block
+  |foot=1
+}}
+<div style="display:none">
+<!--
+    This is for the pre-Village & Pillage dyes to have dye-related crafting recipes show on their respective pages.
+    They don't need to be displayed on this page because they already intuitively list "Any Matching/Colored Dye".
+-->
+{{Crafting
+ |showdescription=1
+ |Any Shulker Box
+ |Bone Meal; Lapis Lazuli; Cocoa Beans; Ink Sac
+ |Output=White Shulker Box; Blue Shulker Box; Brown Shulker Box; Black Shulker Box
+ |type=Decoration block
+ |description={{only|bedrock|education}}
+}}
+</div>
+
+== Usage ==
+[[File:Shulker Box GUI.png|thumb|right|176px|GUI of the shulker box.]]
+
+A shulker box has 27 inventory slots, the same as a [[chest]].
+
+Shulker boxes are portable chests: they keep their items when broken, which can be retrieved when placed again. This is different from other containers, which drop their contained items as item entities when broken. A shulker box drops itself as an [[item]] if pushed by [[piston]]s or destroyed by an [[explosion]]. Unlike most blocks with inventory, shulker boxes always drop themselves when destroyed by explosions. When a shulker box with items inside is being held{{only|Be}} or is in a container's inventory, the items are listed on the tooltip as properties.
+
+[[File:item propertiesofficial.png|114px|thumb|Items inside the shulker box are listed below the block type properties.]]
+
+A shulker box's items can be fed or removed by a [[hopper]].
+
+Shulker boxes can be stored in all containers except for other shulker boxes and bundles.
+
+When placed on a wall or ceiling, shulker boxes face and open sideways or upside-down, respectively. Shulker boxes cannot be opened if a solid opaque block is on their top surface, similar to a chest. For example, if a shulker box is facing upside-down and a solid opaque block is below it, the shulker box cannot be opened. A shulker box can also be placed using [[dispenser]]s.
+
+Like a [[chest]], a shulker box requires a transparent area above to be opened, and it opens only if the hitbox of the top of the open shulker box does not intersect with another hitbox. This way, a shulker box can be opened with an upside-down slab or an upper trapdoor on top of it. It is also unique in that when opened, its hitbox expands to 1.5 blocks high/wide, physically pushing entities where it is facing.
+
+By default, the GUI of a shulker box is labeled "Shulker Box", which can be changed by naming it in an [[anvil]] or by changing the <code>CustomName</code> tag using the {{cmd|data}} command{{only|Java}}.
+
+When a shulker box [[item (entity)|item]] is destroyed, the contents of the shulker box are dropped.
+
+=== Undyeing ===
+
+Dyed shulker boxes can be undyed using a [[cauldron]]. To do this, {{control|use}} a dyed shulker box on a cauldron that has water in it. This causes the cauldron's water level to decrease by 1, and the shulker box loses its dye color.
+
+=== Piglins ===
+[[Piglin]]s become hostile toward players who open or mine shulker boxes.<ref>{{bug|MC-189485|||WAI}}</ref>
+
+== Sounds ==
+=== Generic ===
+{{Sound table/Block/Stone}}
+=== Unique ===
+{{edition|java}}:
+{{Sound table
+|sound=Shulker box close.ogg
+|subtitle=Shulker closes
+|source=block
+|description=When a shulker box closes
+|id=block.shulker_box.close
+|translationkey=subtitles.block.shulker_box.close
+|volume=0.5
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|sound=Shulker box open.ogg
+|subtitle=Shulker opens
+|source=block
+|description=When a shulker box opens
+|id=block.shulker_box.open
+|translationkey=subtitles.block.shulker_box.open
+|volume=0.5
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|sound=Door close.ogg
+|sound2=Door open.ogg
+|subtitle=Chest locked<ref group=sound name=lock>{{Bug|MC-98316||Wrong subtitles caused by missing distinction}}</ref>
+|source=block
+|description=When a player attempts to open a shulker box locked using the {{nbt|string|Lock}} tag
+|id=block.chest.locked|idnote=<ref group=sound name=lock/>
+|translationkey=subtitles.block.chest.locked|translationkeynote=<ref group=sound name=lock/>
+|volume=1.0
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Shulker box close.ogg
+|source=block
+|description=When a shulker box closes
+|id=random.shulkerboxclosed
+|volume=0.5
+|pitch=0.9-1.0}}
+{{Sound table
+|sound=Shulker box open.ogg
+|source=block
+|description=When a shulker box opens
+|id=random.shulkerboxopen
+|volume=0.5
+|pitch=0.9-1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Shulker Box
+|spritetype=block
+|nameid=shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=White Shulker Box
+|spritetype=block
+|nameid=white_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Orange Shulker Box
+|spritetype=block
+|nameid=orange_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Magenta Shulker Box
+|spritetype=block
+|nameid=magenta_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Light Blue Shulker Box
+|spritetype=block
+|nameid=light_blue_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Yellow Shulker Box
+|spritetype=block
+|nameid=yellow_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Lime Shulker Box
+|spritetype=block
+|nameid=lime_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Pink Shulker Box
+|spritetype=block
+|nameid=pink_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Gray Shulker Box
+|spritetype=block
+|nameid=gray_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Light Gray Shulker Box
+|spritetype=block
+|nameid=light_gray_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Cyan Shulker Box
+|spritetype=block
+|nameid=cyan_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Purple Shulker Box
+|spritetype=block
+|nameid=purple_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Blue Shulker Box
+|spritetype=block
+|nameid=blue_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Brown Shulker Box
+|spritetype=block
+|nameid=brown_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Green Shulker Box
+|spritetype=block
+|nameid=green_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Red Shulker Box
+|spritetype=block
+|nameid=red_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes}}
+{{ID table
+|displayname=Black Shulker Box
+|spritetype=block
+|nameid=black_shulker_box
+|blocktags=guarded_by_piglins, shulker_boxes
+|foot=1}}
+{{ID table
+|displayname=Block entity
+|spritename=shulker-boxes
+|spritetype=block
+|nameid=shulker_box
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|showaliasids=y
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Shulker Box
+|spritetype=block
+|nameid=undyed_shulker_box
+|id=205
+|translationkey=tile.shulkerBox.name}}
+{{ID table
+|displayname=White Shulker Box
+|spritetype=block
+|nameid=white_shulker_box
+|aliasid=shulker_box / 0
+|id=218
+|translationkey=tile.shulkerBoxWhite.name}}
+{{ID table
+|displayname=Orange Shulker Box
+|spritetype=block
+|nameid=orange_shulker_box
+|aliasid=shulker_box / 1
+|id=-613
+|translationkey=tile.shulkerBoxOrange.name}}
+{{ID table
+|displayname=Magenta Shulker Box
+|spritetype=block
+|nameid=magenta_shulker_box
+|aliasid=shulker_box / 2
+|id=-614
+|translationkey=tile.shulkerBoxMagenta.name}}
+{{ID table
+|displayname=Light Blue Shulker Box
+|spritetype=block
+|nameid=light_blue_shulker_box
+|aliasid=shulker_box / 3
+|id=-615
+|translationkey=tile.shulkerBoxLightBlue.name}}
+{{ID table
+|displayname=Yellow Shulker Box
+|spritetype=block
+|nameid=yellow_shulker_box
+|aliasid=shulker_box / 4
+|id=-616
+|translationkey=tile.shulkerBoxYellow.name}}
+{{ID table
+|displayname=Lime Shulker Box
+|spritetype=block
+|nameid=lime_shulker_box
+|aliasid=shulker_box / 5
+|id=-617
+|translationkey=tile.shulkerBoxLime.name}}
+{{ID table
+|displayname=Pink Shulker Box
+|spritetype=block
+|nameid=pink_shulker_box
+|aliasid=shulker_box / 6
+|id=-618
+|translationkey=tile.shulkerBoxPink.name}}
+{{ID table
+|displayname=Gray Shulker Box
+|spritetype=block
+|nameid=gray_shulker_box
+|aliasid=shulker_box / 7
+|id=-619
+|translationkey=tile.shulkerBoxGray.name}}
+{{ID table
+|displayname=Light Gray Shulker Box
+|spritetype=block
+|nameid=light_gray_shulker_box
+|aliasid=shulker_box / 8
+|id=-620
+|translationkey=tile.shulkerBoxSilver.name}}
+{{ID table
+|displayname=Cyan Shulker Box
+|spritetype=block
+|nameid=cyan_shulker_box
+|aliasid=shulker_box / 9
+|id=-621
+|translationkey=tile.shulkerBoxCyan.name}}
+{{ID table
+|displayname=Purple Shulker Box
+|spritetype=block
+|nameid=purple_shulker_box
+|aliasid=shulker_box / 10
+|id=-622
+|translationkey=tile.shulkerBoxPurple.name}}
+{{ID table
+|displayname=Blue Shulker Box
+|spritetype=block
+|nameid=blue_shulker_box
+|aliasid=shulker_box / 11
+|id=-623
+|translationkey=tile.shulkerBoxBlue.name}}
+{{ID table
+|displayname=Brown Shulker Box
+|spritetype=block
+|nameid=brown_shulker_box
+|aliasid=shulker_box / 12
+|id=-624
+|translationkey=tile.shulkerBoxBrown.name}}
+{{ID table
+|displayname=Green Shulker Box
+|spritetype=block
+|nameid=green_shulker_box
+|aliasid=shulker_box / 13
+|id=-625
+|translationkey=tile.shulkerBoxGreen.name}}
+{{ID table
+|displayname=Red Shulker Box
+|spritetype=block
+|nameid=red_shulker_box
+|aliasid=shulker_box / 14
+|id=-626
+|translationkey=tile.shulkerBoxRed.name}}
+{{ID table
+|displayname=Black Shulker Box
+|spritetype=block
+|nameid=black_shulker_box
+|aliasid=shulker_box / 15
+|id=-627
+|translationkey=tile.shulkerBoxBlack.name
+|foot=1}}
+{{ID table
+|notnamespaced=y
+|displayname=Block entity
+|spritename=shulker-boxes
+|spritetype=block
+|nameid=ShulkerBox
+|foot=1}}
+
+=== Block states === 
+{{see also|Block states}} 
+{{/BS}}
+
+=== Block data ===
+
+A shulker box has a block entity associated with it that identifies its contents.
+
+{{el|java}}:
+{{see also|Block entity format}}
+{{/BE}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Block entity format]].
+
+=== Item data ===
+
+{{el|java}}:
+{{main|Player.dat format}}
+Shulker boxes, as items, use an NBT tag <code>BlockEntityTag</code> to indicate the contents and details of the box when it is placed.
+
+''The following NBT structure is provided to show how the <code>BlockEntityTag</code> tag is organized, and is not comprehensive above the <code>tag</code> tag.  The full NBT for an item can be found [[Entity format#Items and XPOrbs|here]].''
+
+<div class="treeview" style="margin-top: 0;">
+* {{nbt|compound}} Entity data
+** {{nbt|compound|Item}}: The item
+*** {{nbt|compound|tag}}: Additional information about the item. This tag is optional for most items.
+**** {{nbt|compound|BlockEntityTag}}: The details of the shulker box.
+***** All block data, except tags common to all block entities.
+</div>
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Item format]].
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Organizational Wizard}}
+</table-progress-tracking>
+
+== History ==
+
+{{info needed section|Jeb (or someone else) mentioned plans to add a specific undyed shulker box after the 1.12 change was reverted and before 1.13}}
+{{info needed section|Shulker textures from Legacy Console Edition - the terrain.png only contained a single white "shulker top" texture rather than a textue per color, so were color variants generated via a tint system?}}
+{{History|java}}
+{{History||1.11|snap=16w39a|[[File:White Shulker Box Revision 1.png|30px]] [[File:Light Gray Shulker Box Revision 1.png|30px]] [[File:Gray Shulker Box Revision 1.png|30px]] [[File:Black Shulker Box Revision 1.png|30px]] [[File:Brown Shulker Box Revision 1.png|30px]] [[File:Red Shulker Box Revision 1.png|30px]] [[File:Orange Shulker Box Revision 1.png|30px]] [[File:Yellow Shulker Box Revision 1.png|30px]] [[File:Lime Shulker Box Revision 1.png|30px]] [[File:Green Shulker Box Revision 1.png|30px]] [[File:Cyan Shulker Box Revision 1.png|30px]] [[File:Light Blue Shulker Box Revision 1.png|30px]] [[File:Blue Shulker Box Revision 1.png|30px]] [[File:Purple Shulker Box Revision 1.png|30px]] [[File:Magenta Shulker Box Revision 1.png|30px]] [[File:Pink Shulker Box Revision 1.png|30px]] Added shulker boxes.}}
+{{History|||snap=16w39c|"Silver Shulker Boxes" have been now renamed to "Light Gray Shulker Boxes", in keeping with naming consistencies across [[dye]]d [[block]]s.}}
+{{History||1.12|snap=17w16a|[[File:White Shulker Box.png|30px]] [[File:Light Gray Shulker Box.png|30px]] [[File:Gray Shulker Box.png|30px]] [[File:Black Shulker Box.png|30px]] [[File:Brown Shulker Box.png|30px]] [[File:Red Shulker Box.png|30px]] [[File:Orange Shulker Box.png|30px]] [[File:Yellow Shulker Box.png|30px]] [[File:Lime Shulker Box.png|30px]] [[File:Green Shulker Box.png|30px]] [[File:Cyan Shulker Box.png|30px]] [[File:Light Blue Shulker Box.png|30px]] [[File:Blue Shulker Box.png|30px]] [[File:Purple Shulker Box.png|30px]] [[File:Magenta Shulker Box.png|30px]] [[File:Pink Shulker Box.png|30px]] Shulker boxes have been recolored.}}
+{{History|||snap=17w17a|[[File:Purple Shulker Box Revision 1.png|30px]] The color of purple shulker boxes has been reverted.}}
+{{History||1.13|snap=17w47a|The ID has been changed from <code>silver_shulker_box</code> to <code>light_gray_shulker_box</code>.
+|Prior to [[Java Edition 1.13/Flattening|''The Flattening'']], these [[block]]s' numeral IDs were 219 through 234.}}
+{{History|||snap=18w10b|[[File:Shulker Box.png|30px]] Added a default shulker box.
+|[[File:Purple Shulker Box.png|30px]] The purple shulker box texture has been changed to the one used in 17w16a.}}
+{{History|||snap=18w10d|Shulker boxes can now be [[dye|undyed]] in a [[cauldron]].}}
+{{History||1.14.2|snap=Pre-Release 1|Empty shulker boxes no longer [[drop]]s themselves when destroyed in [[Creative]] mode.<ref>{{bug|MC-148805}}</ref>}}
+{{History||1.17|snap=20w45a|Shulker post-generation mechanic is now added, making shulker boxes [[renewable]].
+|[[File:Shulker Box MC-203562.gif|32px]] Due to a bug,<ref>{{Bug|MC-203562}}</ref> when {{EntityLink|Shulker}}s run their "peeking" animation, shulker boxes make a "peeking" animation too, including the inventory item in the [[player]]s hand, and in its dropped [[item]] form.}}
+{{History|||snap=20w46a|Shulker boxes no longer have a "peeking" animation.}}
+{{History|||snap=20w51a|Shulker boxes now drop their contents when destroyed as an [[Item (entity)|item entity]].}}
+{{History||1.19.3|snap=22w45a|Blocks attached to the sides and lid of a shulker box now pop off when the shulker box opens.<ref>{{bug|MC-177789}}</ref>}}
+
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|[[File:White Shulker Box Revision 1.png|30px]] [[File:Light Gray Shulker Box Revision 1.png|30px]] [[File:Gray Shulker Box Revision 1.png|30px]] [[File:Black Shulker Box Revision 1.png|30px]] [[File:Brown Shulker Box Revision 1.png|30px]] [[File:Red Shulker Box Revision 1.png|30px]] [[File:Orange Shulker Box Revision 1.png|30px]] [[File:Yellow Shulker Box Revision 1.png|30px]] [[File:Lime Shulker Box Revision 1.png|30px]] [[File:Green Shulker Box Revision 1.png|30px]] [[File:Cyan Shulker Box Revision 1.png|30px]] [[File:Light Blue Shulker Box Revision 1.png|30px]] [[File:Blue Shulker Box Revision 1.png|30px]] [[File:Purple Shulker Box Revision 1.png|30px]] [[File:Magenta Shulker Box Revision 1.png|30px]] [[File:Pink Shulker Box Revision 1.png|30px]] Added shulker boxes.}}
+{{History|||snap=alpha 1.1.0.9|[[File:White Shulker Box.png|30px]] [[File:Light Gray Shulker Box.png|30px]] [[File:Gray Shulker Box.png|30px]] [[File:Black Shulker Box.png|30px]] [[File:Brown Shulker Box.png|30px]] [[File:Red Shulker Box.png|30px]] [[File:Orange Shulker Box.png|30px]] [[File:Yellow Shulker Box.png|30px]] [[File:Lime Shulker Box.png|30px]] [[File:Green Shulker Box.png|30px]] [[File:Cyan Shulker Box.png|30px]] [[File:Light Blue Shulker Box.png|30px]] [[File:Blue Shulker Box.png|30px]] [[File:Magenta Shulker Box.png|30px]] [[File:Pink Shulker Box.png|30px]] The color palette for shulker boxes has been updated.}}
+{{History||?|snap=?|Shulker boxes no longer use the wood sound.}}
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|[[File:Shulker Box.png|30px]] Added a default shulker box.
+|[[File:Purple Shulker Box.png|30px]] The purple shulker box color has been changed to the new palette.}}
+{{History||1.8.0|snap=beta 1.8.0.13|A recipe for undyed shulker boxes has been added.}}
+{{History||1.16.0|snap=beta 1.16.0.51|Shulker boxes can now be [[dye|undyed]] in a [[cauldron]].}}
+{{History||1.17.30|snap=beta 1.17.30.22|Shulker boxes now drop their contents when destroyed as an [[Item (entity)|item entity]].}}
+{{History||1.18.30|snap=beta 1.18.30.22|Shulker post-generation mechanic is now added, making shulker boxes [[renewable]].}}
+{{History||1.20.10|snap=beta 1.20.10.20|The different [[block states]] for the <code>shulker_box</code> ID have now been split up into their own IDs.}}
+
+{{History|console}}
+{{History||xbox=TU53|xbone=CU43|ps=1.49|wiiu=Patch 23|switch=1.0.3|[[File:White Shulker Box.png|30px]] [[File:Light Gray Shulker Box.png|30px]] [[File:Gray Shulker Box.png|30px]] [[File:Black Shulker Box.png|30px]] [[File:Brown Shulker Box.png|30px]] [[File:Red Shulker Box.png|30px]] [[File:Orange Shulker Box.png|30px]] [[File:Yellow Shulker Box.png|30px]] [[File:Lime Shulker Box.png|30px]] [[File:Green Shulker Box.png|30px]] [[File:Cyan Shulker Box.png|30px]] [[File:Light Blue Shulker Box.png|30px]] [[File:Blue Shulker Box.png|30px]] [[File:Purple Shulker Box Revision 1.png|30px]] [[File:Magenta Shulker Box.png|30px]] [[File:Pink Shulker Box.png|30px]] Added shulker boxes.<ref>https://www.youtube.com/watch?v=N5xI3RA152g</ref>}}
+{{History||xbox=none|xbone=none|ps=1.88|wiiu=none|switch=none|[[File:Shulker Box.png|30px]] Added a default shulker box.
+|[[File:Purple Shulker Box.png|30px]] The purple shulker box color has been changed to the new palette.}}
+{{History|new3ds}}
+{{History||1.9.19|[[File:Shulker Box.png|30px]] [[File:White Shulker Box.png|30px]] [[File:Light Gray Shulker Box.png|30px]] [[File:Gray Shulker Box.png|30px]] [[File:Black Shulker Box.png|30px]] [[File:Brown Shulker Box.png|30px]] [[File:Red Shulker Box.png|30px]] [[File:Orange Shulker Box.png|30px]] [[File:Yellow Shulker Box.png|30px]] [[File:Lime Shulker Box.png|30px]] [[File:Green Shulker Box.png|30px]] [[File:Cyan Shulker Box.png|30px]] [[File:Light Blue Shulker Box.png|30px]] [[File:Blue Shulker Box.png|30px]] [[File:Purple Shulker Box.png|30px]] [[File:Magenta Shulker Box.png|30px]] [[File:Pink Shulker Box.png|30px]] Added 16 variants of shulker boxes. There is no default shulker box separate from the purple shulker box; the purple shulker box uses the texture of the default shulker box.{{info needed|Is the specific purple shulker box texture used at all, unused, or does it not exist and this wiki entry incorrect for listing purple shulker box texture as the 17th texture entry? The Creative inventory only lists 16 shulker boxes, but there are 17 textures listed here on the wiki.}}}}
+{{History|foot}}
+
+== Gallery ==
+<gallery>
+Shulker Box.png|Shulker Box
+White Shulker Box Revision 1.png|White Shulker Box
+Light Gray Shulker Box.png|Light Gray Shulker Box
+Gray Shulker Box.png|Gray Shulker Box
+Black Shulker Box.png|Black Shulker Box
+Brown Shulker Box.png|Brown Shulker Box
+Red Shulker Box.png|Red Shulker Box
+Orange Shulker Box.png|Orange Shulker Box
+Yellow Shulker Box.png|Yellow Shulker Box
+Lime Shulker Box.png|Lime Shulker Box
+Green Shulker Box.png|Green Shulker Box
+Cyan Shulker Box.png|Cyan Shulker Box
+Light Blue Shulker Box.png|Light Blue Shulker Box
+Blue Shulker Box.png|Blue Shulker Box
+Purple Shulker Box.png|Purple Shulker Box
+Magenta Shulker Box.png|Magenta Shulker Box
+Pink Shulker Box.png|Pink Shulker Box
+</gallery>
+
+== Issues ==
+{{Issue list}}
+
+== Trivia ==
+*With 37 shulker boxes in a player's inventory, hotbar, and off-hand slot, 999 stacks of up to 64 items (up to 63,936 total items; 63,973 if counting shulker boxes themselves) can be held. With 37 shulker boxes and an ender chest with 27 shulker boxes in one of the shulker box slots, 1,727 stacks (up to 110,528 items; 1,728 stacks with up to 110,592 items if counting stacked ender chests) can be held.
+*When the camera is far enough from a shulker box, the shulker box is invisible, even though it is still within the render distance, this is because the shulker box is still considered a mob.
+*Before they were added to ''Minecraft'', storage objects that keep their inventory when picked up were already present in ''[[Minicraft]]''.
+
+== References ==
+{{reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/block-week--shulker-box Block of the Week: Shulker Box] – Minecraft.net on November 19, 2020
+
+{{Blocks|Utility}}
+
+[[Category:Utility blocks]]
+[[Category:Storage]]
+[[Category:Manufactured blocks]]
+[[Category:Block entities]]
+
+[[de:Shulkerkiste]]
+[[es:Caja de shulker]]
+[[fr:Boîte de Shulker]]
+[[it:Scatola di shulker]]
+[[ja:シュルカーボックス]]
+[[ko:셜커 상자]]
+[[pl:Shulkerowa skrzynia]]
+[[pt:Caixa de shulker]]
+[[ru:Шалкеровый ящик]]
+[[zh:潜影盒]]

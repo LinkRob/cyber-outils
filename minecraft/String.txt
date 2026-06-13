@@ -1,0 +1,385 @@
+{{Block
+| image = <gallery>
+String JE2 BE2.png  | String
+Tripwire (NESW).png | Tripwire
+</gallery>
+| extratext = View [[#Gallery|all renders]]
+| transparent = Yes
+| light = No
+| tool = any
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = No
+| lavasusceptible = No
+}}
+'''String''' is an item used in [[crafting]] recipes such as [[bow]]s, [[fishing rod]]s and [[lead]]s. When placed as a [[block]], string becomes '''tripwire''', which can be combined with [[Tripwire Hook|tripwire hooks]] to form a tripwire circuit.
+
+== Obtaining==
+String can be obtained from [[drop]]s, breaking [[cobweb]]s, [[fishing]], [[bartering]], and as gifts from [[cat]]s. String can be looted from [[jungle temple]]s, [[desert pyramid]] chests, and [[dungeon]]s.
+
+===Breaking ===
+Tripwire can be {{control|mine|text=mined}} instantly with any [[tool]], dropping string. Tripwire is also removed and drops string as an [[item]] when:
+*[[Water]] flows into its space
+* A [[piston]] pushes it or moves a [[block]] into its space
+Tripwire is destroyed without dropping string if [[lava]] flows into its space.
+
+A [[cobweb]] drops string when it is broken in these ways (see also {{section link|Cobweb|Usage}}):
+*Breaking a cobweb with a [[sword]]
+*Pushing a cobweb with a [[piston]]
+*[[Water]] breaking a cobweb by flowing over it (flowing [[lava]] destroys cobwebs without leaving string)
+
+===Natural generation===
+Five pieces of tripwire generate naturally in every [[jungle temple]]. 
+
+===Mob loot ===
+[[Spider]]s and [[cave spider]]s drop 0–2 string upon death. The maximum is increased by 1 per level of [[Looting]], for a maximum of 0–5 string with Looting III.
+
+[[Strider]]s drop 2–5 string upon death. The maximum is increased by 1 per level of [[Looting]], for a maximum of 2–8 string with Looting III.{{only|Java|short=1}}
+
+[[Cat]]s drop 0–2 string upon death, unaffected by Looting.<ref>{{bug|MC-200707||Looting does not increase drops for iron golems and cats}}</ref>
+
+===Chest loot===
+{{LootChestItem|string}}
+
+===Fishing===
+String has a 0.6% ({{frac|3|500}}) chance of being caught when [[fishing]] with an unenchanted fishing rod. The chance decreases to 0.5% ({{frac|1|200}}), 0.4% ({{frac|1|250}}), and 0.3% ({{frac|3|1000}}) if the fishing rod is enchanted with [[Luck of the Sea]] at enchantment levels I, II, and III, respectively.
+
+===Cat gifts===
+{{main|Cat#Gifts}}
+
+Tamed [[cat]]s have a 70% chance of giving the [[player]] a gift when they wake up from a [[bed]], and the gift has a 16.13% chance to be a string.
+
+===Bartering ===
+[[Piglin]]s may [[barter]] 3-9 string when given a [[gold ingot]].
+
+== Usage==
+String can be used as a crafting ingredient and tripwire can be used as a [[redstone circuit]] component. It can also be used to keep [[player]]s from ender-pearling through that space.
+
+=== Crafting ingredient===
+{{crafting usage}}
+
+===Redstone component===
+{{redirect|Tripwire|tripwire hooks|Tripwire Hook}}
+{{see also|Redstone circuits}}
+
+String can be placed as tripwire, which can be used to detect [[entity|entities]] as part of a tripwire circuit. [[Observer]]s can also be used with a tripwire to generate redstone signals. 
+
+;Placement
+
+To place tripwire, {{control|use}} string while pointing at a surface facing the space the tripwire should occupy.
+
+{{Schematic | caption =
+'''Tripwire Circuit'''
+|SB|th-$w|tw-$ew|th-$e|SB
+}}
+:In order to activate [[tripwire hook]]s, tripwire must be part of a "tripwire circuit": a straight line of [[block]]s consisting of a block with a tripwire hook attached to it, a "tripwire line" (1 to 40 blocks of tripwire), and a second tripwire hook attached to another block. 
+
+;Activation
+Tripwire activates if almost any [[entity]] ([[player]]s, [[mob]]s, [[minecart]]s, [[boat]]s, [[item]]s, [[arrow]]s, etc.) intersects its collision mask. The tripwire remains active until there are no entities intersecting its collision mask. Thrown [[potion]]s, some arrows, thrown [[ender pearl]]s, and thrown [[eyes of ender]] do not activate tripwire.
+
+;Behavior
+An active tripwire updates adjacent [[block]]s (for example, it can activate a [[Tutorials/Block update detector|BUD circuit]]). Additionally, active tripwires that are part of valid tripwire circuits cause the attached tripwire hooks to activate (producing [[redstone]] power). Active tripwires do ''not'' themselves produce redstone power.
+
+When tripwire is broken (including by being washed away by spreading [[water]] {{in|java}}) after being part of a valid tripwire circuit, it activates the attached tripwire hooks. {{IN|JE}}, it activates for 5 redstone ticks (10 game [[tick]]s, or 0.5 seconds barring lag). {{IN|BE}}, it activates for 6 redstone ticks (14 game [[tick]]s, or 0.6 seconds barring lag). It does not produce the signal if it is broken using [[shear]]s.
+
+===Trading===
+Novice-level fisherman [[villager]]s have a 50% chance to buy 20 string as part of their first-tier trade.
+
+Journeyman-level fletcher villagers buy 14 string for 1 [[emerald]] as part of their trade.
+
+==Sounds==
+=== Generic===
+{{Sound table/Block/Normal}}
+
+===Unique===
+{{edition|java}}:
+{{Sound table
+|rowspan=3
+|sound=Click.ogg
+|subtitle=Tripwire attaches
+|source=block
+|description=When a tripwire line is completed
+|id=block.tripwire.attach
+|translationkey=subtitles.block.tripwire.attach
+|volume=0.4
+|pitch=0.7
+|distance=16}}
+{{Sound table
+|subtitle=Tripwire clicks
+|source=block
+|description=When a tripwire line deactivates
+|id=block.tripwire.click_off
+|translationkey=subtitles.block.tripwire.click
+|volume=0.4
+|pitch=0.5
+|distance=16}}
+{{Sound table
+|subtitle=Tripwire clicks
+|source=block
+|description=When a tripwire line activates
+|id=block.tripwire.click_on
+|translationkey=subtitles.block.tripwire.click
+|volume=0.4
+|pitch=0.6
+|distance=16}}
+{{Sound table
+|sound=Arrow hit1.ogg
+|sound2=Arrow hit2.ogg
+|sound3=Arrow hit3.ogg
+|sound4=Arrow hit4.ogg
+|subtitle=Tripwire detaches
+|source=block
+|description=When a tripwire hook in a tripwire line is destroyed
+|id=block.tripwire.detach
+|translationkey=subtitles.block.tripwire.detach
+|volume=0.4
+|pitch={{frac|12|11}}-{{frac|4|3}}
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|rowspan=3
+|sound=Click.ogg
+|source=block
+|description=When a tripwire line is completed
+|id=block.click
+|volume=0.2
+|pitch=0.7}}
+{{Sound table
+|type=bedrock
+|source=block
+|description=When a tripwire line deactivates
+|id=random.click
+|volume=0.2
+|pitch=0.5}}
+{{Sound table
+|source=block
+|description=When a tripwire line activates
+|id=random.click
+|volume=0.2
+|pitch=0.6}}
+{{Sound table
+|sound=Arrow hit1.ogg
+|sound2=Arrow hit2.ogg
+|sound3=Arrow hit3.ogg
+|sound4=Arrow hit4.ogg
+|source=block
+|description=When a tripwire hook in a tripwire line is destroyed
+|id=block.bowhit
+|volume=0.4
+|pitch=1.1-1.33
+|foot=1}}
+
+==Data values==
+===ID===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Tripwire
+|spritetype=block
+|nameid=tripwire
+|blocktags=wall_post_override
+|form=block}}
+{{ID table
+|displayname=String
+|spritetype=item
+|nameid=string
+|form=item
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showaliasids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Tripwire
+|spritetype=block
+|nameid=trip_wire
+|aliasid=tripWire
+|id=132
+|form=block
+|itemform=trip_wire
+|translationkey=tile.tripWire.name}}
+{{ID table
+|displayname=String
+|spritetype=item
+|nameid=string
+|id=326
+|form=item
+|foot=1}}
+
+===Block states===
+{{see also|Block states}}
+
+{{/BS}}
+
+==Video==
+<div style="text-align:center">
+<span style="display:inline-block">{{yt|WUlhmu3JbcQ}}</span>
+<span style="display:inline-block">{{yt|-7jEtrETxwc}}</span>
+</div>
+
+==History==
+{{History|java indev}}
+{{History||0.31|snap=20100129|[[File:String JE1 BE1.png|32px]] Added string.}}
+{{History|||snap=20100130|[[Bow]]s can now be [[crafting|crafted]] using string.}}
+{{History|||snap=20100201-2|[[Wool|Cloth]] can now be crafted using nine string.}}
+{{History||20100219|[[Spider]]s now [[drops|drop]] string.}}
+{{History|java infdev}}
+{{History||20100625-2|String can now be found inside [[chest]]s in the new [[dungeon]]s.}}
+{{History|java alpha}}
+{{History||v1.1.1|String can now be used to craft [[fishing rod]]s.}}
+{{History|java beta}}
+{{History||1.5|Introduced [[cobweb]]s, which [[drops|drop]] string when [[breaking|broken]] with a [[sword]].}}
+{{History||1.6.6|Wool is now crafted from four string rather than nine.}}
+{{History||1.7|Cobwebs now drop string when broken using [[shears]].}}
+{{History||1.8|snap=Pre-release|Cobwebs now generate naturally, making them a viable method to obtain string.}}
+{{History|java}}
+{{History||May 28, 2012|link=none|Tripwire was first revealed on [[Dinnerbone]]'s [[wikipedia:Twitter|Twitter]].<ref>{{tweet|Dinnerbone|207154562711289856|It's a tripwire, yeah.|May 28, 2012}}</ref><ref>{{tweet|Dinnerbone|207155073023868928|You place it yourself. String is now placeable|May 28, 2012}}</ref> Dinnerbone released a [{{ytl|mWuvXIzYcTc}} video] showing him experimenting with tripwire before its release.}}
+{{History||1.3.1|snap=12w22a|String can now be placed on the ground as tripwire.}}
+{{History|||snap=12w23a|Tripwire can now activated by most [[entity|entities]] (including [[arrow]]s).
+|The max distance of tripwire has now been increased from 18 to 40 [[block]]s.
+|Tripwire now has a translucent texture.}}
+{{History||1.6.1|snap=13w18a|String can now be used to craft [[lead]]s.}}
+{{History||1.8|snap=14w02a|String can now be [[trading|sold]] to fletcher and fisherman [[villager]]s, at 15–20 string for 1 [[emerald]].}}
+{{History|||snap=release|Tripwire is now translucent.}}
+{{History||1.9|snap=15w44a|String now generates in [[desert temple]] [[chest]]s.
+|The average yield of string in [[dungeon]] chests has now more than doubled.}}
+{{History|||snap=15w49a|The <code>suspended</code> block state has now been removed from tripwire.}}
+{{History||1.11|snap=16w39a|String can now be found in [[woodland mansion]] [[chest]]s.}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], this [[block]]'s numeral ID was 132 and the [[item]]'s was 287.
+|Tripwire can now be disarmed.}}
+{{History||1.14|snap=18w43a|String can now be used to craft [[crossbow]]s and a [[loom]].
+|[[File:String JE2 BE2.png|32px]] The texture of string has now been changed.}}
+{{History|||snap=18w44a|[[Cat]]s now drop 0-2 string upon death.
+|Cats now offer string as [[Cat#Gifts|gift]]s.}}
+{{History|||snap=18w45a|String can now be used to craft [[scaffolding]].}}
+{{History|||snap=18w47a|String can now be found inside [[pillager outpost]] [[chest]]s.}}
+{{History||1.16|snap=20w09a|String can now be obtained through [[bartering]] with [[piglin]]s.}}
+{{History|||snap=20w13a|[[Strider]]s now [[drops|drop]] string upon [[death]].}}
+{{History|||snap=20w16a|String now generates in [[bastion remnant]] chests.}}
+{{History||1.17|snap=20w45a|String can now be used to craft [[bundle]]s and [[candle]]s.}}
+{{History|||snap=21w13a|The model of the tripwire has been tweaked that the underside texture is mirrored.}}
+{{History|||snap=21w19a|String can no longer be used to craft bundles and candles.}}
+{{History|||snap=Pre-release 1|String can once again used to craft candles.}}
+{{History||1.18|snap=Experimental Snapshot 1|String can now once again be used to craft bundles.}}
+{{History|||snap=21w37a|String once again can no longer be used to craft bundles.}}
+{{History||1.20<br>(Experimental)|link=1.19.3|snap=22w42a|String can now once again be used to craft bundles.}}
+{{History||1.20<br>(Experimental)|link=1.19.4|snap=23w07a|String can now be used to craft [[brush]]es.}}
+{{History|||snap=1.19.4-pre1|String can no longer be used to craft [[brush]]es.}}
+{{History||1.20|snap=23w12a|String can now be found in [[suspicious gravel]] and [[suspicious sand]] in [[trail ruins]].}}
+{{History|||snap=23w16a|String no longer generates in [[suspicious sand]] in [[trail ruins]].|Due to the split of the archaeological loot tables for the suspicious gravel within the [[trail ruins]]; string now is in the common loot.}}
+
+{{History|pocket alpha}}
+{{History||v0.2.0|[[File:String JE1 BE1.png|32px]] Added string. It is currently unobtainable and serves no purpose.}}
+{{History||v0.3.3|Added spiders, which drop string when they die.
+|String can now be used to [[crafting|craft]] [[bow]]s.}}
+{{History||v0.4.0|String can now be crafted into [[wool]].}}
+{{History||v0.11.0|snap=build 1|String can now be used to craft [[fishing rod]]s.
+|String can now be caught as a junk [[item]] from [[fishing]].}}
+{{History||v0.13.0|snap=build 1|String can now be placed on the ground as a tripwire.
+|String can now be found in [[desert temple]] [[chest]]s.}}
+{{History||v0.15.0|snap=build 1|String can now be used to craft [[lead]]s.
+|Tripwire now generates in [[jungle temple]]s.}}
+{{History|pocket}}
+{{History||1.0.4|snap=alpha 1.0.4.0|15-20 String can now be [[trading|sold]] to fletcher and fisherman [[villager]]s for an [[emerald]].}}
+{{History||1.1.0|snap=alpha 1.1.0.0|String can now be found in [[woodland mansion]] [[chest]]s.
+|[[Cobweb]]s can now be used to [[crafting|craft]] 9 string.}}
+{{History|bedrock}}
+{{History||1.8.0|snap=beta 1.8.0.8|Tamed [[cat]]s can now give the [[player]] string as gifts.
+|String can now be used to craft [[scaffolding]].
+|[[Cat]]s now [[drops|drop]] 0–2 string.}}
+{{History|||snap=beta 1.8.0.10|String can now be used to craft [[crossbow]]s.}}
+{{History||1.9.0|snap=beta 1.9.0.0|Tripwire string that is broken now activates, unless broken with [[shears]].}}
+{{History||1.10.0|snap=beta 1.10.0.3|String can now be found in [[pillager outpost]] chests.
+|String can now be used to craft a [[loom]].
+|[[File:String JE2 BE2.png|32px]] The texture of string has now been changed.}}
+{{History||1.11.0|snap=beta 1.11.0.4|[[Trading]] has now been changed, fisherman [[villager]]s now have a 50% chance to [[trading|buy]] 20 string as part of their first-tier trade.
+|Fletcher villagers now buy 14 string for an [[emerald]] as their third-tier trade.}}
+{{History||1.16.0|snap=beta 1.16.0.57|String can now be obtained through [[bartering]] with [[piglin]]s.
+|Added [[strider]]s, which [[drops|drop]] string upon [[death]].
+|String can now be found in [[bastion remnant]] chests.}}
+{{History||1.17.10|snap=beta 1.17.10.22|String can now be used to craft [[candles]].}}
+{{History||1.18.30|snap=beta 1.18.30.26|The ID of tripwire block is changed from <code>tripWire</code> to <code>trip_wire</code>}}
+{{History||1.20.10|snap=beta 1.20.10.20|String can no longer be crafted from cobwebs.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:String JE1 BE1.png|32px]] Added string.}}
+{{History||xbox=TU14|ps=1.04|String can now be placed on the ground as [[tripwire]].}}
+{{History||xbox=none|xbone=none|ps=1.88|wiiu=none|switch=none|Tripwires are now activated when [[breaking|broken]], unless broken with [[shears]].}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:String JE2 BE2.png|32px]] The texture of string has now been changed.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:String JE1 BE1.png|32px]] Added string.}}
+{{History|foot}}
+
+===Tripwire "item"===
+{{:Technical blocks/Tripwire}}
+
+== Issues ==
+{{Issue list}}
+
+== Gallery ==
+<gallery>
+Tripwire (NS).png|
+Tripwire (N).png|
+Tripwire (E).png|
+Tripwire (S).png|
+Tripwire (W).png|
+Tripwire (EW).png|
+Tripwire (NE).png|
+Tripwire (ES).png|
+Tripwire (SW).png|
+Tripwire (NW).png|
+Tripwire (ESW).png|
+Tripwire (NSW).png|
+Tripwire (NEW).png|
+Tripwire (NES).png|
+</gallery>
+
+=== Screenshots ===
+<gallery>
+DinnerboneTripwireDev3.png|The first image of tripwires [[dinnerbonetweet:207154292593917952|released]] by Mojang.
+DinnerboneTripwireDev4.png|An image [[dinnerbonetweet:207294114398605312|released]] by Mojang testing visibility of tripwires from a distance at night.
+DinnerboneTripwireDev5.png|The same room viewed from the same angle, in daytime.
+Dinnerbone String.png|Power lines made of suspended string blocks.
+</gallery>
+
+==References==
+{{Reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/taking-inventory--string Taking Inventory: String] – Minecraft.net on May 14, 2020
+
+{{Redstone}}
+{{Items}}
+{{Blocks|Utility}}
+
+[[Category:Redstone mechanics]]
+[[Category:Mechanics]]
+[[Category:Mechanisms]]
+[[Category:Generated structure blocks]]
+[[Category:Non-solid blocks]]
+
+[[cs:Vlákno]]
+[[de:Faden]]
+[[es:Hilo]]
+[[fr:Ficelle]]
+[[hu:Fonál]]
+[[it:Cordicella]]
+[[ja:糸]]
+[[ko:실]]
+[[nl:Draad]]
+[[pl:Nić]]
+[[pt:Linha]]
+[[ru:Нить]]
+[[th:เส้นใย]]
+[[uk:Нитка]]
+[[zh:线]]

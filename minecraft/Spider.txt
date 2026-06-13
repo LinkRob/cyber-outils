@@ -1,0 +1,356 @@
+{{About||the ''Minecraft Dungeons'' mob|MCD:Spider|other uses}}
+{{Entity
+| image = Spider JE4 BE3.png
+| invimage = Spider Spawn Egg
+| health = {{hp|16}}
+| behavior = Neutral (if light level 12 and above)<br>Hostile (if light level 11 and below and if [[Spider Jockey|jockey]] ridden by [[Skeleton|skeletons]], [[Stray|strays]] and [[Wither Skeleton|wither skeletons]])
+| classification = [[Arthropods|Arthropod]]
+| damage = Easy: {{hp|2}}<br>Normal: {{hp|2}}<br>Hard: {{hp|3}}<br>{{hp|4}}‌{{only|bedrock|short=1}}<ref>{{bug|MCPE-94878|||Fixed}}</ref>
+| size = Height: 0.9 blocks<br>Width: 1.4 blocks
+| speed = 0.3
+| spawn = Light level of 0, 3×1×3 space on solid blocks (spawns only on top of the central block)
+}}
+
+A '''spider''' is a neutral [[mob]] that attacks the [[player]] in dark areas. Spiders attack by biting the target, and they can also climb walls and lunge at them.
+
+== Spawning ==
+Up to four spiders may spawn in a 3×1×3 space centered on an opaque block in the [[Overworld]] at a [[light level]] of 0, except in [[mushroom fields]] and [[deep dark]] biomes. 
+The block ''above'' the spawning space cannot be a full solid block, including transparent ones such as leaves or [[glass]], but non-full blocks, such as [[soul sand]] or [[slab]]s, are allowed.<ref>{{bug|MC-188079}}</ref>
+{{IN|bedrock}}, spiders can also spawn overhead in 3×2×3 empty spaces on [[leaves]], causing more of them to spawn in forested biomes due to more possible spawning surfaces, although they do not spawn in groups.
+
+=== Monster spawners ===
+Spiders spawn from [[monster spawner]]s found in [[Monster Room|monster rooms]] (25% chance) as well as in secret rooms surrounded by [[cobweb]]s in [[woodland mansion]]s.
+
+=== Status effects ===
+{{Exclusive|Java|section=1}}
+Spiders occasionally spawn with [[status effect]]s in [[Hard]] difficulty. For each [[Spawn#Pack spawning|pack spawn]], there is a (10&times;[[Difficulty#Clamped regional difficulty|clamped regional difficulty]])% chance of the game applying a status effect. This does not apply to [[cave spider]]s. These spiders can spawn with following effects:
+* {{EffectLink|Speed}} (40% chance)
+* {{EffectLink|Strength}} (20% chance)
+* {{EffectLink|Regeneration}} (20% chance)
+* {{EffectLink|Invisibility}} (20% chance)
+
+The effect is then applied to all entities within the pack, lasting forever. If the [[Invisibility]] status effect is applied to a spider, its eyes remain visible.
+
+=== Spider jockeys ===
+{{Main|Spider Jockey}}
+There is a 1% chance for a spider to spawn with a [[skeleton]] riding it, forming a [[spider jockey]]. 
+In [[the Nether]], if a spider is spawned there with a [[spawn egg]], commands or [[monster spawner]]s, it has a 0.8% chance to spawn a [[wither skeleton]] on its back and form a [[Spider Jockey|wither jockey]] instead.{{only|bedrock}} In some of snowy [[biome]]s, a spider has a 0.8% chance to spawn a [[stray]] on its back and form a [[Spider Jockey|stray jockey]] instead.{{only|bedrock}} A spider jockey can also be spawned by the command {{Cmd|/summon spider ~ ~ ~ {Passengers: [{id:skeleton}]<nowiki>}</nowiki>}}.
+
+The spider controls how both mobs move. The spider acts like a normal spider and the skeleton acts like a normal skeleton, except its movement is determined by the spider it rides upon. The skeleton's arrows can sometimes damage the spider jockey itself, if the spider happens to be in the way of the shot.
+
+== Drops ==
+Upon death, a spider drops up to two {{ItemLink|string}}s. The maximum is increased by 1 per level of [[Looting]], for 0 to 5 strings with Looting III. {{xp|5}} [[experience]] orbs are dropped by a spider when it is killed by a [[player]] or tamed [[wolf]]. There is also a {{frac|1|3}} chance of dropping a {{ItemLink|spider eye}} when killed by a player or tamed wolf. The maximum amount of spider eyes is increased by 1 per level of [[Looting]]. The chance of a spider '''not''' dropping any spider eyes can be found using the formula <code>2 / (Looting Level + 3)</code>. For example, Looting III gives a {{frac|1|3}} chance of not dropping any spider eyes.
+
+== Behavior ==
+A spider stays hostile toward the player and an [[iron golem]] as long as the [[light]] level immediately around the spider is 11 or less; otherwise, it does not attack unless attacked first. 
+
+Hostile spiders see up to 16 blocks, continuing to chase even when exposed to well-lit locations. If a spider sustains damage from a source other than a direct attack, such as falling, its hostility resets to a neutral state. If shot with arrows when outside of the detection range, a spider turns and runs in the direction from which the arrow was fired. If the player moves away, the spider continues following the same path unless the player enters the detection range, in which case the spider changes direction and attacks.
+
+An aggressive spider pounces at close range. When it is swimming in 1-block-deep water it pounces upon touching the submerged floor. They can attack when their Y-axis position is changed, biting in mid-air.
+
+Spiders can climb up over solid blocks that are not [[magma block]]s{{only|BE}}, but do not climb on underside surfaces. A spider pursuing a player can detect a player through blocks. If a spider cannot find an ideal path to the player due to a wall barring the way, it approaches as close as possible to the player's position and proceeds to climb the wall vertically until it gets to the top, even if it loses its aggression toward the player. When a spider loses its aggression, it continues moving forward blindly for 2 seconds; this behavior causes the spider to climb up any walls in its path.
+
+When climbing a wall a spider may sometimes reach a corner and become stuck in a climbing status, thus losing and becoming unable to be aggravated. 
+
+Spiders gravitate towards cobwebs.
+
+If a spider tries to go through the [[world border]], it starts climbing the world border instead.{{only|java|short=1}}
+
+Spider can also climb on full [[boat]]s, full [[boat with chest|boats with chests]] and [[shulker]]s.
+
+Even though normal spiders do not inflict the Poison [[status effect]], they are immune to it. They are also immune to the slowing applied to most mobs when walking through [[cobweb]]s.
+
+Spiders flip onto their backs when they die, unlike all other mobs, which land on their sides.
+
+The [[Bane of Arthropods]] enchantment inflicts [[Slowness]] IV and deals more damage to spiders.
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Spiders use the Hostile Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Spider idle1.ogg
+|sound2=Spider idle2.ogg
+|sound3=Spider idle3.ogg
+|sound4=Spider idle4.ogg
+|subtitle=Spider hisses
+|source=hostile
+|description=Randomly
+|id=entity.spider.ambient
+|translationkey=subtitles.entity.spider.ambient
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Spider death.ogg
+|subtitle=Spider dies
+|source=hostile
+|description=When a spider dies
+|id=entity.spider.death
+|translationkey=subtitles.entity.spider.death
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Spider idle1.ogg
+|sound2=Spider idle2.ogg
+|sound3=Spider idle3.ogg
+|sound4=Spider idle4.ogg
+|subtitle=Spider hurts
+|source=hostile
+|description=When a spider is damaged
+|id=entity.spider.hurt
+|translationkey=subtitles.entity.spider.hurt
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Spider step1.ogg
+|sound2=Spider step2.ogg
+|sound3=Spider step3.ogg
+|sound4=Spider step4.ogg
+|subtitle=Footsteps
+|source=hostile
+|description=While a spider is walking
+|id=entity.spider.step
+|translationkey=subtitles.generic.block.footsteps
+|volume=0.15
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Spider idle1.ogg
+|sound2=Spider idle2.ogg
+|sound3=Spider idle3.ogg
+|sound4=Spider idle4.ogg
+|source=hostile
+|description=Randomly
+|id=mob.spider.say
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Spider death.ogg
+|source=hostile
+|description=When a spider dies
+|id=mob.spider.death
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Spider idle1.ogg
+|sound2=Spider idle2.ogg
+|sound3=Spider idle3.ogg
+|sound4=Spider idle4.ogg
+|source=hostile
+|description=When a spider is damaged
+|id=mob.spider.say
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Spider step1.ogg
+|sound2=Spider step2.ogg
+|sound3=Spider step3.ogg
+|sound4=Spider step4.ogg
+|source=hostile
+|description=While a spider is walking
+|id=mob.spider.step
+|volume=0.35
+|pitch=0.9-1.1
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|displayname=Spider
+|spritetype=entity
+|nameid=spider
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Spider
+|spritetype=entity
+|nameid=spider
+|id=35
+|foot=1}}
+
+=== Entity data ===
+Spiders have entity data associated with them that contains various properties.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+==Achievements==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Monster Hunter}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|Adventure;Monster Hunter;Monsters Hunted;It Spreads}}
+</table-progress-tracking>
+
+== History ==
+{{History||October 23, 2009|link=https://notch.tumblr.com/post/220964272/new-enemy-type-the-idea-is-that-these-will|Spiders were proposed in a blog post, where they would produce [[Cobweb|"web tiles".]]}}
+{{History|java classic}}{{History||0.26 SURVIVAL TEST/Development|[[File:Spider (pre-release).png|48px]] Tested spiders.}}
+{{History||0.26 SURVIVAL TEST|[[File:Spider JE2 BE1.png|48px]] Added spiders.
+|The texture of spiders was changed from brown on October 23, 2009, at 23:45 UTC, roughly 28 minutes ''before'' the release of this version, because of a suggestion from a user on the [https://www.tigsource.com/ TIGSource] forums.<ref>http://forums.tigsource.com/index.php?topic=6273.msg276501#msg276501</ref>
+|Spiders are the fifth [[mob]] added in [[Survival Test]].
+|Spiders currently cannot jump far.
+|Killing spiders gives the [[player]] 105 points.
+|The eyes of spiders currently do not glow.
+}}
+{{History|java indev}}
+{{History||0.31|snap=20091223-1|Spiders and other mobs no longer spawn naturally.}}
+{{History|||snap=20100202|Spiders and other mobs now spawn naturally again. However, they are currently passive.}}
+{{History|||snap=20100204-2|Spiders are now hostile again.}}
+{{History||20100213|[[File:Spider JE3 BE2.png|48px]] The eyes on spiders now glow in the dark.
+|Spiders now don't attack the [[player]] in daylight unless provoked.
+}}
+{{History||20100219|Spiders now [[drops|drop]] 0–2 [[string]] upon death.}}
+{{History|java alpha}}
+{{History||v1.0.0|Spiders would play the old [[player]] sound when taking damage. However, in the later versions, it was changed to using spider hissing sounds.}}
+{{History||v1.0.17|Added [[spider jockey]]s, which are [[skeleton]]s spawned riding spiders.}}
+{{History|java beta}}
+{{History||1.2|Spiders have been given the ability to climb vertical walls made of any block and could "see" the [[player]] through solid blocks to track them down.}}
+{{History||1.4|Spiders no longer trample crops.<ref>{{tweet|jeb_|53002130386202624|Changed so that wolves and spiders don't make step sounds, and don't destroy crops when they walk on them|March 30, 2011}}</ref> 
+|Spiders now make quieter step [[sound]]s.<ref>{{tweet|jeb_|53003154291306496|@C418 Sure, if you think it would be better|March 30, 2011}}</ref>}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|Spiders now [[drops|drop]] 0-1 [[spider eye]] when killed by a [[player]] or tamed [[wolf]].
+|The [[health]] points of spiders have been reduced from {{hp|20}} to {{hp|16}}.}}
+{{History|||snap=Beta 1.9 Prerelease 4|Spiders are now immune to the [[poison]] [[status effect]].
+|Spiders are now considered [[arthropod]]s.}}
+{{History||1.3.1|snap=?|Spiders now become aggressive toward the last [[mob]] or player that hit them.}}
+{{History||1.4.2|snap=12w39a|Spiders have been given a new walking [[sound]].}}
+{{History||1.6.1|snap=13w24a|[[File:Spider (Speed) JE1.png|48px]] [[File:Spider (Strength) JE1.png|48px]] [[File:Spider (Regeneration) JE1.png|48px]] [[File:Spider (Invisibility) JE1.png|48px]] Spiders now have a chance of spawning with the [[Speed]], [[Strength]], [[Regeneration]], or [[Invisibility]] [[status effect]]s on Hard [[difficulty]].}}
+{{History||1.7.2|snap=1.7-pre|Spiders are no longer provoked when attacked by the [[player]] in [[creative]] mode.}}
+{{History||1.8|snap=14w06a|Spiders can no longer see the player through [[block]]s.
+|Spiders have been updated to the new AI system, including AI specially made for spiders, allowing them to better take control of their climbing ability.}}
+{{History|||snap=14w11a|Spiders now run away from [[creeper]]s that are about to explode.}}
+{{History||1.8.1|snap=pre1|Spiders no longer run away from creepers that are about to explode.}}
+{{History||1.9|snap=15w36a|Spiders can now draw lines of sight through [[block]]s again.}}
+{{History||1.11|snap=16w32a|The [[entity]] ID has been changed from <code>Spider</code> to <code>spider</code>.}}
+{{History||1.14|snap=18w43a|[[File:Spider JE4 BE3.png|48px]] The texture of spiders has been changed.
+|[[File:Spider (Speed) JE2.png|48px]] [[File:Spider (Strength) JE2.png|48px]] [[File:Spider (Regeneration) JE2.png|48px]] As a result of the spider texture change, the spiders that spawn with the [[Speed]], [[Strength]], or [[Regeneration]] [[status effect]]s on Hard [[difficulty]] now have a different look.}}
+{{History||1.19.4|snap=Pre-release 4|Natural potion effects on spiders now last infinitely long instead of about 3.3 years.<ref>{{bug|MC-259637|||Fixed}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.3.3|[[File:Spider JE2 BE1.png|48px]] Added spiders.
+|[[File:Spider MCPE-4736.png|48px]] On [[wikipedia:Android (operating system)|Android]] [[wikipedia:Mobile device|mobile devices]], the abdomen on spiders is sometimes missing.<ref>{{bug|MCPE-15|||Duplicate}}</ref><ref>{{bug|MCPE-4736|||Fixed}}</ref>}}
+{{History||v0.7.3|[[File:Spider JE3 BE2.png|48px]] The eyes on spiders now glow in the dark.}}
+{{History||v0.8.0|snap=build 1|[[File:Spider JE3 BE2.png|48px]] Spiders now have abdomens on [[wikipedia:Android (operating system)|Android]] [[wikipedia:Mobile device|mobile devices]].}}
+{{History|||snap=build 3|Spiders are a little faster.}}
+{{History||v0.9.0|snap=build 1|[[Leaves]] now have a chance of spawning spiders, creating a higher amount of spiders in tree-rich [[biome]]s at [[night]].
+|The spider's AI has been updated.}}
+{{History|||snap=build 4|The animation for spiders is now twice as fast.}}
+{{History||v0.9.2|Spiders no longer draw a line of sight through solid [[block]]s.}}
+{{History||v0.11.0|snap=build 1|Added [[spider jockey]]s, which are [[skeleton]]s spawned riding spiders.}}
+{{History||v0.12.1|snap=build 1|Spiders now drop [[spider eye]]s.
+|Spiders that spawn in [[the Nether]] now have a chance to spawn as [[wither]] jockey.}}
+{{History||v0.14.0|snap=build 1|Baby [[zombie]] jockeys now check for nearby spiders to mount prior to attacking the [[player]], [[villager]]s, and [[golem]]s.}}
+{{History||v0.15.0|snap=build 1|Baby [[husk]]s can now mount spiders.
+|Spiders that spawn in snowy [[biome]]s in view of [[sky]] can now spawn as [[stray]] [[spider jockey|jockeys]].}}
+{{History|bedrock}}
+{{History||?|Spiders can now draw lines of sight through [[block]]s again.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Spider JE4 BE3.png|48px]] The texture of spiders has been changed.}}
+{{History||1.18.30|snap=beta 1.18.20.27|Spiders now deal {{hp|2}} damage on Normal difficulty instead of {{hp|3}}, matching ''Java Edition''.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Spider JE3 BE2.png|48px]] Added spiders.}}
+{{History||xbox=TU14|ps=1.04|Spiders now become aggressive toward the last [[mob]] or [[player]] that hit them.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|Spiders can no longer see the player through [[block]]s.
+|Spiders have been updated to the new AI system, including AI specially made for spiders, allowing them to better take control of their climbing ability.}}
+{{History|PS4}}
+{{History||1.90|[[File:Spider JE4 BE3.png|48px]] The texture of spiders has been changed.}}
+
+{{History|New Nintendo 3DS Edition}}
+{{History||0.1.0|[[File:Spider JE3 BE2.png|48px]] Added spiders.}}
+{{History|foot}}
+<gallery>
+Brown spider.png|The original spider in [[0.26 SURVIVAL TEST]] development because [[Markus Persson]] made it black with red eyes before releasing that version.
+Spider (pre-release texture).png|A recreation of the original brown spider texture.
+A spider during Alpha.png|A spider during late alpha.
+GiantSpider.png|Image of a giant spider shared by [[Jeb]].
+</gallery>
+
+== Issues ==
+{{issue list}}
+
+==Trivia==
+* Spiders are able to climb walls because they are programmed by [[Jens Bergensten]] to treat the sides of blocks as [[ladder]]s.<ref>{{ytl|xdoH3kzg938|(Official) Minecraft: The Story of Mojang (Pt. 2/2) - Proof of Concept for Feature-Length|t=2m49s}}</ref>
+*In normal conditions, spiders actually float above the ground, but this is often not noticeable due to the difference between the player's height and a spider's height.
+*When a spider wanders inside an enclosed space, it often climbs up a wall until reaching the ceiling, after which it become stuck, unable to exit the climbing state even if it is attacked or becomes hostile to the player.<ref>{{bug|MC-154160}}</ref>
+*Hurt sound of spiders have the same sound as when a spider is ambient
+
+== Gallery ==
+<gallery>
+Live Spider.png|A spider.
+Spider1x1.png|A spider spawning on a single block.
+SpiderSpawn.png|With the same amount of space given, these spiders can spawn under the bottom slabs, but not under the glass blocks, because glass is a full block, even though it is transparent, but slabs are not full blocks.
+Offset Spider Jockey.png|A spider jockey.
+Glowing Spider.png|Spiders are one of the most visible mobs at night due to their glowing red eyes.
+Spiders....png|Spiders climbing.
+Spider Below.png|A view of a spider from below.
+Spider Glich.png|Spider shot by a skeleton.
+Dungeon2.png|A spider and its monster spawner in a monster room.
+SpiderInA1.5x1.5Space.png|A spider in a 1.5×1.5 space.
+Spider View.png|A spider's vision when [[Spectator#Mob view|spectating]] it.
+Spider Vision.png|The bottom of a ravine through a spider's eyes.
+Spider Soulsand.png|Spiders can even climb soul sand.
+Spider-climbing-wall.png|A spider climbing a wall.
+Spiderjockeyinglass.png|A spider jockey spawning with skeleton's head in the glass.
+Invisible spider night.png|A spider with invisibility during the night.
+InvisibleSpider.png|Another spider with invisibility during the night.
+Spider (Speed).png|A spider with the swiftness effect.
+Spider (Strength).png|A spider with the strengh effect.
+Spider (Regeneration).png|A spider with the regenertion effect.
+Spider (Invisibility).png|A spider with the invisibility effect.
+</gallery>
+
+=== In other media ===
+<gallery>
+Caves & Cliffs (Part II) Artwork.jpg|Spiders in promotional artwork for the second [[Caves & Cliffs]] update.
+Spider Art.png|A spider artwork.
+Spider Art 2.png|A spider artwork.
+Spider Artwork.png|A spider artwork.
+Spider Artwork 2.png|A spider artwork.
+LEGO Spider.png|[[LEGO Minecraft]] spider minifigure.
+LEGO Spider Jockey.png|[[LEGO Minecraft]] spider jockey minifigure.
+Spider Plush JINX.jpg|The spider plush made by JINX.
+</gallery>
+
+== References ==
+{{reflist}}
+
+{{Entities}}
+
+[[Category:Neutral mobs]]
+[[Category:Monster mobs]]
+[[Category:Animal mobs]]
+[[Category:Arthropod mobs]]
+
+[[cs:Pavouk]]
+[[de:Spinne]]
+[[es:Araña]]
+[[fr:Araignée]]
+[[hu:Pók]]
+[[it:Ragno]]
+[[ja:クモ]]
+[[ko:거미]]
+[[nl:Spin]]
+[[pl:Pająk]]
+[[pt:Aranha]]
+[[ru:Паук]]
+[[tr:Örümcek]]
+[[uk:Павук]]
+[[zh:蜘蛛]]
+[[Category:Retaliating mobs]]

@@ -1,0 +1,467 @@
+A '''slot''' is a location in the data of a block entity or entity that an item stack can be placed in.
+
+==''Java Edition''==
+A slot is defined by its '''slot index'''.
+
+:::{| class="wikitable sortable" data-description="Slot Index"
+!Slot index
+!Used by
+!Description
+|-
+|0-53
+|General inventories
+|Different containers have different ranges for the slot number:
+* [[Chest]]s, [[dispenser]]s, [[dropper]]s, [[hopper]]s, and [[trapped chest]]s are numbered 0 for the top-left slot and then increase first horizontally, then vertically (so, for example, a chest's top row slots are numbered 0 to 8 from left to right). Double chests and double trapped chests are treated as two single container blocks.
+* A [[brewing stand]]'s bottom slots are numbered 0 to 2 from left to right, its top slot is 3 and the fuel slot is 4.
+* A [[furnace]]'s slots are numbered 0 for the input slot, 1 for the fuel slot, and 2 for the output slot.
+* [[Player|players]]: 0-35
+* [[Minecart with chest|minecarts with chests]]: 0-26
+* [[Minecart with Hopper|minecarts with hoppers]]: 0-4
+* [[Item frame|item frames]] and [[Display|item display]]: 0
+|-
+|98-103
+|[[Mobs]] (all mobs support these slots though not all mobs will show or make use of the items), [[player]]s, and [[armor stand]]s
+|
+*Head armor slot: 103
+*Chest armor slot: 102
+*Leg armor slot: 101
+*Feet armor slot: 100
+*Mainhand: 98
+*Offhand: 99
+|-
+|200-226
+|[[Player]]s
+|Slots in ender chest
+|-
+|300-307
+|[[Villager]]s, [[wandering trader]]s, [[pillager]]s
+|Their inventory
+|-
+|400
+|[[Horse]]s, [[donkey]]s, [[mule]]s, [[llama]]s
+|Slot for saddle item
+|-
+|401
+|[[Horse]]s, [[llama]]s
+|Slot for horse armor on horse or carpet on llama
+|-
+|499
+|[[Donkey]]s, [[llama]]s, [[mule]]s with chest
+|Slot for chest item
+|-
+|500-514
+|[[Donkey]]s, [[llama]]s, [[mule]]s with chest
+|Their inventory
+|}
+
+===Command argument===
+In commands, a slot should be referred by a string id instead of its index. The string id is mapped to its index when executing command.
+
+A string id of slot consists of '''slot type''' and optional '''slot number''', in the format of <code><slot_type></code> or <code><slot_type>.<slot_number></code>.
+
+:::{| class="wikitable sortable" data-description="Slot mapping"
+!Slot string id
+!Valid ''slot number''
+!Mapped index
+|-
+|<code>armor.chest</code>
+|
+|align="center"|102
+|-
+|<code>armor.feet</code>
+|
+|align="center"|100
+|-
+|<code>armor.head</code>
+|
+|align="center"|103
+|-
+|<code>armor.legs</code>
+|
+|align="center"|101
+|-
+|<code>weapon</code>
+|
+|align="center"|
+|-
+|<code>weapon.mainhand</code>
+|
+|align="center"|
+|-
+|<code>weapon.offhand</code>
+|
+|align="center"| -106
+|-
+|<code>container.<slot_number></code>
+|align="center"|0-53
+|align="center"|0-53
+|-
+|<code>enderchest.<slot_number></code>
+|align="center"|0-26
+|align="center"|200-226
+|-
+|<code>hotbar.<slot_number></code>
+|align="center"|0-8
+|align="center"|0-8
+|-
+|<code>inventory.<slot_number></code>
+|align="center"|0-26
+|align="center"|9-35
+|-
+|<code>horse.saddle</code><br/>
+|
+|align="center"|400
+|-
+|<code>horse.chest</code>
+|
+|align="center"|499
+|-
+|<code>horse.armor</code>
+|
+|align="center"|401
+|-
+|<code>horse.<slot_number></code>
+|align="center"|0-14
+|align="center"|500-514
+|-
+|<code>villager.<slot_number></code>
+|align="center"|0-7
+|align="center"|300-307
+|}
+
+==Bedrock Edition==
+
+===Command argument===
+In commands, a slot is referred by two arguments: '''slot type''' and '''slot number'''.
+
+: '''For a block''', its slot type is <code>slot.container</code>.
+::* [[Chest]]s, [[dispenser]]s, [[dropper]]s, [[hopper]]s, and [[trapped chest]]s are numbered 0 for the top-left slot and then increase first horizontally, then vertically (so, for example, a chest's top row slots are numbered 0 to 8 from left to right). Double chests and double trapped chests are treated as two single container blocks.
+::* A [[brewing stand]]'s bottom slots are numbered 0 to 2 from left to right, its top slot is 3 and the fuel slot is 4.
+::* A [[furnace]]'s slots are numbered 0 for the input slot, 1 for the fuel slot, and 2 for the output slot.
+
+: '''For entities''':
+
+::{| class="wikitable" data-description="Slot information"
+!Slot Type
+!Slot Numbers
+!Restrictions
+|-
+|<code>slot.weapon.mainhand</code>
+|any number (0 in <code>hasitem</code> selector)
+|rowspan=6|[[mob]]s (including [[armor stand]]s), and [[player]]s only (though not all mobs will show or make use of the items)
+|-
+|<code>slot.weapon.offhand</code>
+|any number (0 in <code>hasitem</code> selector)
+|-
+|<code>slot.armor.head</code>
+|any number (0 in <code>hasitem</code> selector)
+|-
+|<code>slot.armor.chest</code>
+|any number (0 in <code>hasitem</code> selector)
+|-
+|<code>slot.armor.legs</code>
+|any number (0 in <code>hasitem</code> selector)
+|-
+|<code>slot.armor.feet</code>
+|any number (0 in <code>hasitem</code> selector)
+|-
+|<code>slot.hotbar</code>
+|align="center"|0–8
+|[[player]]s only
+|-
+|<code>slot.inventory</code>
+|align="center"|0–''the number of slots in inventory''
+|entities with <code>minecraft:inventory</code> component only
+|-
+|<code>slot.enderchest</code>
+|align="center"|0–26
+|[[player]]s only
+|-
+|<code>slot.saddle</code>
+|any number (0 in <code>hasitem</code> selector)
+|[[horse]]s, [[donkey]]s, and [[mule]]s only; item in it can only be a [[saddle]]
+|-
+|<code>slot.armor</code>
+|any number (0 in <code>hasitem</code> selector)
+|[[horse]]s only; item in it can only be a [[horse armor]]
+|-
+|<code>slot.chest</code>
+|align="center"|0–''the number of slots in chest''
+|donkeys and mules with chests only
+|-
+|<code>slot.equippable</code>
+|align="center"|0–''the number of equippable slots''
+|entities with <code>minecraft:equippable</code> component only. Note that these slot is also defined in <code>minecraft:inventory</code> component.
+
+'''Unsupported''' in {{cmd|replaceitem}} and {{cmd|loot}}
+|}
+
+
+===Slots of vanilla entities===
+
+{|class='sortable wikitable collapsible fandom-table'
+!Name
+!Entity ID
+!slot<br>.inventory
+!slot<br>.weapon<br>.mainhand
+!slot<br>.weapon<br>.offhand
+!slot<br>.equippable
+!slot<br>.armor
+!slot<br>.saddle
+!slot<br>.chest
+!slot<br>.enderchest
+!slot<br>.hotbar
+|-
+|{{EntityLink|Allay}}
+|{{cd|allay}}
+|{{tc|yes|1}}
+|{{tc|yes|1}}
+|{{tc|partial|1, unused}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Boat with Chest}}
+|{{cd|boat_chest}}
+|{{tc|yes|27}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Donkey}}
+|{{cd|donkey}}
+|{{tc|yes|16 <small>(When tamed)</small>}}
+|{{tc|partial|1, unused}}
+|{{tc|partial|1, unused}}
+|{{tc|yes|1 (the slot of slot.saddle)}}
+|{{tc|no}}
+|{{tc|yes|slot 0 in slot.inventory <small>(When tamed)</small>}}
+|{{tc|yes|slot 1-15 in slot.inventory <small>(When tamed)</small>}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Drowned}}
+|{{cd|drowned}}
+|{{tc|no}}
+|{{tc|yes|1}}
+|{{tc|yes|1}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Fox}}
+|{{cd|fox}}
+|{{tc|no}}
+|{{tc|yes|1}}
+|{{tc|partial|1, unused}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Horse}}
+|{{cd|horse}}
+|{{tc|yes|2 <small>(When tamed)</small>}}
+|{{tc|partial|1, unused}}
+|{{tc|partial|1, unused}}
+|{{tc|yes|2 (slot 0 is slot.saddle, 1 is slot.armor)}}
+|{{tc|yes|slot 1 in slot.inventory <small>(When tamed)</small>}}
+|{{tc|yes|slot 0 in slot.inventory<small>(When tamed)</small>}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Husk}}
+|{{cd|husk}}
+|{{tc|no}}
+|{{tc|yes|1}}
+|{{tc|yes|1}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Llama}}
+|{{cd|llama}}
+|{{tc|yes|16 <small>(When tamed)</small>}}
+|{{tc|partial|1, unused}}
+|{{tc|partial|1, unused}}
+|{{tc|yes|1 (the slot of slot.saddle)}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Minecart with Chest}}
+|{{cd|chest_minecart}}
+|{{tc|yes|27}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Minecart with Hopper}}
+|{{cd|hopper_minecart}}
+|{{tc|yes|5}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Mule}}
+|{{cd|mule}}
+|{{tc|yes|16 <small>(When tamed)</small>}}
+|{{tc|partial|1, unused}}
+|{{tc|partial|1, unused}}
+|{{tc|yes|1 (the slot of slot.saddle)}}
+|{{tc|no}}
+|{{tc|yes|slot 0 in slot.inventory <small>(When tamed)</small>}}
+|{{tc|yes|slot 1-15 in slot.inventory <small>(When tamed)</small>}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Panda}}
+|{{cd|panda}}
+|{{tc|yes|1}}
+|{{tc|yes|1}}
+|{{tc|partial|1, unused}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Piglin}}
+|{{cd|piglin}}
+|{{tc|yes|8}}
+|{{tc|yes|1}}
+|{{tc|yes|1}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Piglin Brute}}
+|{{cd|piglin_brute}}
+|{{tc|no}}
+|{{tc|yes|1}}
+|{{tc|yes|1}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Player}}
+|{{cd|player}}
+|{{tc|yes|27}}
+|{{tc|yes|1 from slot.hotbar}}
+|{{tc|yes|1}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|yes|27}}
+|{{tc|yes|9}}
+|-
+|{{EntityLink|Skeleton}}
+|{{cd|skeleton}}
+|{{tc|no}}
+|{{tc|yes|1}}
+|{{tc|yes|1}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Stray}}
+|{{cd|stray}}
+|{{tc|no}}
+|{{tc|yes|1}}
+|{{tc|yes|1}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Villager}}
+|{{cd|villager}}
+|{{tc|yes|8}}
+|{{tc|yes|1}}
+|{{tc|partial|1, unused}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Zombie}}
+|{{cd|zombie}}
+|{{tc|no}}
+|{{tc|yes|1}}
+|{{tc|yes|1}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|-
+|{{EntityLink|Zombie Villager}}
+|{{cd|zombie_villager}}
+|{{tc|no}}
+|{{tc|yes|1}}
+|{{tc|yes|1}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|{{tc|no}}
+|}
+
+==History==
+
+{{empty section}}
+
+==See also==
+*{{cmd|item}}
+*{{cmd|replaceitem}}
+*{{cmd|loot}}
+*[[Target selector]]
+*[[Argument types]]
+
+[[Category:Commands]]

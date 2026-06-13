@@ -1,0 +1,467 @@
+{{Redirect|Redstone|the ore|Redstone Ore|the powered mineral block|Block of Redstone|other uses|Redstone (disambiguation)}}
+{{Block
+| group = Inactive (connected)
+| 1-1= Inactive Redstone Wire (NESW).png
+| 1-2 = Inactive Redstone Wire (NESW) BE.png 
+| group2 = Inactive (unconnected)
+| 2-1 = Inactive Redstone Wire (unconnected).png
+| 2-2 = Inactive Redstone Wire (unconnected).png
+| group3 = Active (connected) 
+| 3-1 = Active Redstone Wire (NESW).png
+| 3-2 = Active Redstone Wire (NESW) BE.png
+| group4 = Active (unconnected)
+| 4-1 = Active Redstone Wire (unconnected).png
+| 4-2 = Active Redstone Wire (unconnected).png
+| image = Redstone Dust JE2 BE2.png
+| extratext = [[#Gallery|View all renders]]
+| transparent = Yes
+| light = No
+| tool = all
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = No
+| lavasusceptible = No
+}}
+'''Redstone dust''' is a mineral that can transmit [[Redstone circuit#Power|redstone power]] as a wire when placed as a [[block]]. It is also used in [[crafting]] and [[brewing]].
+
+== Obtaining ==
+=== Mining ===
+{{see also|Redstone Ore#Natural generation}}
+[[Redstone ore]] mined using an iron [[pickaxe]] or higher drops 4 or 5 redstone dust (or more with [[Fortune]], averaging at 6 redstone dust with Fortune III). If mined with [[Silk Touch]], the block drops itself instead of redstone dust.
+
+=== Natural generation ===
+15 lengths of redstone dust are naturally generated as part of the trap in each [[jungle pyramid]]. 5 lengths of redstone dust can be found in one type of jail cell room in a [[woodland mansion]]. In [[Ancient City|ancient cities]], multiple pieces of redstone dust can be found integrated into circuitry.
+
+=== Breaking ===
+Redstone dust can be broken instantly using any tool, or without a tool, and drops itself as an item.
+
+Redstone dust is removed and drops as an item if:
+* its attachment block is moved, removed, or destroyed
+* [[water]] or [[lava]] flows into its space
+* a [[piston]] tries to push it or moves a block into its space
+
+=== Mob loot ===
+[[Witch]]es have a chance of dropping 0–2 redstone dust upon death. This is increased by 1 per level of [[Looting]], for a maximum of 0–5 redstone dust.
+
+=== Chest loot ===
+{{LootChestItem|redstone}}
+
+=== Crafting ===
+Redstone dust can be crafted from [[blocks of redstone]].
+{{Crafting
+|Block of Redstone
+|Output=Redstone Dust,9
+|type=Redstone
+}}
+
+=== Smelting ===
+{{Smelting
+|showname=1
+|Redstone Ore; Deepslate Redstone Ore
+|Redstone Dust
+|0.7
+}}
+
+=== Trading ===
+{{IN|java}}, novice-level cleric [[villager]]s sell two redstone dust for one [[emerald]].
+
+{{IN|bedrock}}, novice-level cleric villagers sell four redstone dust for one emerald.
+
+=== Villager gifts ===
+{{see also|Tutorials/Raid farming}}
+{{IN|Java}}, when the player has the [[Hero of the Village]] status effect, clerics might throw that player a redstone dust as a gift.
+
+== Usage ==
+Redstone dust is used for [[#Brewing ingredient|brewing]], [[#Crafting ingredient|crafting]], and in redstone circuits by placing it on the ground to create [[#Redstone component|redstone wire]]. It can also be used to power redstone components.
+
+=== Brewing ingredient ===
+{{Brewing
+  |head=1
+  |Redstone Dust
+  |Mundane Potion
+  |base=Water Bottle
+}}
+{{Brewing
+  |foot=1
+  |name=Increased Duration
+  |Redstone Dust
+  |showbase=1
+  |base=Potion of Fire Resistance; Potion of Invisibility; Potion of Night Vision; Potion of Poison; Potion of Regeneration; Potion of Slowness; Potion of Strength; Potion of Swiftness; Potion of Water Breathing; Potion of Weakness; Potion of Leaping; Potion of Slow Falling
+}}
+
+=== Crafting ingredient ===
+{{crafting usage|Redstone Dust}}
+
+=== {{anchor|Redstone dust}} Redstone component ===
+When placed in the world, redstone dust becomes a block of "redstone wire"{{Info needed|other blco? BE?}}, which can transmit [[Redstone circuit#Power|redstone power]].
+
+=== Smithing ingredient ===
+{{Smithing
+|head=1
+|ingredients=Any Armor Trim +<br/>Any Armor Piece + <br/>Redstone Dust
+|Any Armor Trim Smithing Template
+|Netherite Chestplate
+|Redstone
+|Redstone Trim Netherite Chestplate
+|showdescription=1
+|description = All armor types can be used in this recipe,<br/>a netherite chestplate is shown as an example.<br/>
+|tail=1
+}}
+
+;Trim color palette
+The following color palette is shown on the designs on trimmed armor:
+*{{TrimPalette|redstone dust}}
+
+=== Placement ===
+[[File:Redstone wire as circuit component.png|Examples of redstone wire configuration. ''Top Left:'' Redstone wire connects diagonally vertically through non-opaque blocks. ''Top Right:'' Redstone wire does ''not'' connect diagonally vertically through opaque blocks. ''Center:'' Redstone wire gets darker as its power level drops, to a maximum of 15 blocks from a power source.|thumb]]
+[[File:Redstone on Glowstone, Stairs, Slabs.png|Examples of redstone wire placements.|thumb]]
+Redstone dust can be placed on [[opaque]] blocks as well as [[glowstone]], upside-down [[slab]]s, [[glass]], upside-down [[stairs]], and [[hopper]]s. It can also be placed on some transparent blocks; see [[Opacity/Placement]] for more information. It cannot be placed suspended in midair, even with commands, which is not unintentional.<ref>{{bug|MC-182709}}</ref>
+
+Redstone wire configures itself to point toward adjacent redstone [[Redstone components#Power components|power components]] and [[Redstone components#Transmission components|transmission component]] connection points. Redstone wire also configures itself to point toward adjacent redstone wire one block higher or lower – unless there is a solid opaque block above the lower redstone wire.
+
+If there is only one such adjacent redstone component, redstone wire configures itself into a {{BlockSprite|redstone-dust}} line pointing both at the neighbor and away from it. If there are two or more such adjacent components, redstone wire connects them in the form of {{BlockSprite|redstone-dust}}, {{BlockSprite|redstone-dust-upleft}}, {{BlockSprite|redstone-dust-t-up}}, or {{BlockSprite|redstone-dust-cross}} as needed.
+
+When there are no adjacent components, a single redstone wire configures itself into a {{BlockSprite|redstone-dust-cross}} plus sign, which can provide power in all four directions. By right-clicking it can be changed into a {{BlockSprite|redstone-dust-dot}} dot, which does not provide power to any of the four directions.
+
+{{IN|bedrock}}, redstone wire automatically configures itself to point toward adjacent blocks or [[Redstone components#Mechanism components|mechanism components]]. {{IN|java}}, it does not. If such a configuration is desired, the other neighbors of the redstone wire must be arranged to create it, i.e the redstone dust must be placed in a way that it would be pointed at the block’s location even if it were not there.
+
+When redstone wire is reconfigured after placement, it does not update other redstone components around it of the change unless that reconfiguration also includes a change in power level or another component provides an update. This can create situations where a mechanism component remains activated when it shouldn't, or vice versa, until it receives an update from something else – a "feature" of redstone wire that can be used to make a [[BUD|block update detector]].
+
+{{-}}
+
+=== Behavior ===
+{{Schematic|caption=
+
+{{IN|be}}, the signal can go down from glass blocks.
+
+ |||rd-$ew!|RL-!||||rd-$ew!|RL-!|-
+ |rt-$!|rd-$ew!|SB|||rt-$!|rd-$ew!|glass||-
+ |ts-$|SB|rd-$ew|RL||ts-$|SB|rd-$ew!|RL-!
+
+}}{{Schematic|caption =
+
+However, the signal can never go down from slabs.
+
+ |||rd-$ew!|RL-!||||rd-$ew!|RL-!|-
+ |rt-$!|rd-$ew!|SB|||rt-$!|rd-$ew!|glass||-
+ |ts-$|ts-$|rd-$ew|RL||ts-$|ts-$|rd-$ew|RL
+}}
+
+Redstone wire can transmit power, which can be used to operate [[Redstone components#Mechanism components|mechanism components]] ([[door]]s, [[piston]]s, [[redstone lamp]]s, etc.).
+Redstone wire can be "powered" by a number of methods:
+* from an adjacent [[Redstone components#Power components|power component]] or a strongly-powered block
+* from the output of a redstone repeater or redstone comparator
+* from adjacent redstone wire. The powering dust can be a level higher or lower, but with restrictions:
+** Redstone dust can be powered by redstone dust that is one level lower, or on an [[opaque]] block one level higher. A transparent block cannot{{only|java}} pass power downward.
+** The block "between" the two dust blocks must be air or transparent. A solid block there "cuts" the connection between the higher and lower dust.
+
+The "power level" of redstone dust can vary from 0 to 15. Most power components power-up adjacent redstone dust to power level 15, but a few ([[daylight sensor]]s, [[trapped chest]]s, and [[weighted pressure plate]]s) may create a lower power level. Redstone repeaters output power level 15 (when turned on), but [[redstone comparator]]s may output a lower power level.
+
+{{Schematic | caption =
+
+Redstone wire can transmit power up to 15 blocks.
+
+ |rt-$!|rd-$ew!+15|rd-$ew!+14|rd-$ew!+13|rd-$ew!+12|rd-$ew!+11|rd-$ew!+10|rd-$ew!+9
+ |rd-$ew!+8|rd-$ew!+7|rd-$ew!+6|rd-$ew!+5|rd-$ew!+4|rd-$ew!+3|rd-$ew!+2|rd-$ew!+1|rd-$ew+0
+
+}}
+Power level drops by 1 for every block of redstone wire it crosses. Thus, redstone wire can transmit power for no more than 15 blocks. To go further, the power level must be re-strengthened – typically with a redstone repeater.
+
+Powered redstone wire on top of, or pointing at, an opaque block provides ''weak'' power to the block. A weakly-powered block cannot power other adjacent redstone wire, but can still power redstone repeaters and comparators, and activate adjacent mechanism components. Transparent blocks cannot be powered.
+
+When redstone wire is unpowered, it appears dark red. When powered, it becomes bright red at power level 15, fading to darker shades with decreasing power. Powered redstone wire also produces "dust" [[particles]] of the same color.
+
+While redstone wire always provides power to the directions it points into, it can still point into directions in which it cannot give power. If redstone wire comes in the form of a cross, the player can right-click to toggle it between a cross and dot. A redstone dot does not power anything adjacent to it, but powers the block under it.
+
+== Sounds ==
+{{Sound table/Block/Normal}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|firstcolumnname=Redstone Dust
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Block
+|spritename=redstone-dust
+|spritetype=block
+|nameid=redstone_wire
+|form=block}}
+{{ID table
+|displayname=Item
+|spritename=redstone-dust
+|spritetype=item
+|nameid=redstone
+|form=item
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|firstcolumnname=Redstone Dust
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Block
+|spritename=redstone-dust
+|spritetype=block
+|nameid=redstone_wire
+|id=55
+|form=block}}
+{{ID table
+|displayname=Item
+|spritename=redstone-dust
+|spritetype=item
+|nameid=redstone
+|id=373
+|form=item
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+
+{{/BS}}
+
+{{LoadPage|Redstone Dust/Asset history|List of block state combinations|h4}}
+
+== Achievements ==
+{{load achievements|Dispense With This}}
+
+== Video ==
+{{Video note|These videos do not show all uses for redstone in crafting and all methods of obtaining. This video is also outdated, as of 1.13 Java Edition, redstone is now called Redstone Dust.}}
+
+<div style="text-align:center">
+<span style="display:inline-block">{{yt|zldqknGFWb4}}</span>
+<span style="display:inline-block">{{yt|_IApwvCLJW8}}</span>
+</div>
+
+== History ==
+{{History||May 21, 2009|link=https://web.archive.org/web/0/http://notch.tumblr.com/post/110762705/my-list-on-tile-types-so-far|[[Notch]] shows interest in adding wire-type [[block]]s.}}
+{{History|java alpha}}
+{{History||v1.0.1|[[File:Redstone Dust JE1 BE1.png|32px]] Added redstone dust as an [[item]].
+|[[File:Inactive Redstone Wire (NS) JE1.png|32px]] [[File:Inactive Redstone Wire (EW) JE1.png|32px]] [[File:Inactive Redstone Wire (NE) JE1.png|32px]] [[File:Inactive Redstone Wire (ES) JE1.png|32px]] [[File:Inactive Redstone Wire (SW) JE1.png|32px]] [[File:Inactive Redstone Wire (NW) JE1.png|32px]] [[File:Inactive Redstone Wire (NEW) JE1.png|32px]] [[File:Inactive Redstone Wire (NES) JE1.png|32px]] [[File:Inactive Redstone Wire (ESW) JE1.png|32px]] [[File:Inactive Redstone Wire (NSW) JE1.png|32px]] [[File:Inactive Redstone Wire (NESW) JE1.png|32px]]<br>[[File:Active Redstone Wire (NS) JE1.png|32px]] [[File:Active Redstone Wire (EW) JE1.png|32px]] [[File:Active Redstone Wire (NE) JE1.png|32px]] [[File:Active Redstone Wire (ES) JE1.png|32px]] [[File:Active Redstone Wire (SW) JE1.png|32px]] [[File:Active Redstone Wire (NW) JE1.png|32px]] [[File:Active Redstone Wire (NEW) JE1.png|32px]] [[File:Active Redstone Wire (NES) JE1.png|32px]] [[File:Active Redstone Wire (ESW) JE1.png|32px]] [[File:Active Redstone Wire (NSW) JE1.png|32px]] [[File:Active Redstone Wire (NESW) JE1.png|32px]] Added redstone dust as a placed [[block]]. 
+|Redstone dust as a placed block has two power appearances; either completely on, or completely off.
+|Redstone dust is used to craft [[redstone torch]]es.
+|At this time, redstone has not been given an official name.}}
+{{History||v1.0.2_01|Redstone dust now doesn't connect through solid [[block]]s diagonally down.{{needs testing|may have been changed in v1.0.2|type=untestable}}
+|Walking on redstone dust no longer [[breaking|breaks]] it.{{needs testing|may have been changed in v1.0.2|type=untestable}}
+|Active redstone dust now gives off [[particles]].{{needs testing|may have been changed in v1.0.2|type=untestable}}}}
+{{History||v1.1.0|Redstone is now used to craft [[compass]]es.}}
+{{History||v1.2.0|snap=<nowiki>?</nowiki>|slink=:Category:Information needed requiring unarchived version|Redstone is now used to craft [[clock]]s.}}
+{{History|java beta}}
+{{History||1.0|With the addition of inventory tooltips, the [[item]] form of redstone dust has been named "Redstone", and the usually unobtainable block form has been named "Redstone Dust".}}
+{{History||1.2|Redstone is now used to craft [[dispenser]]s and [[note block]]s.}}
+{{History||1.3|[[File:Inactive Redstone Wire (NS) JE2.png|32px]] [[File:Inactive Redstone Wire (EW) JE2.png|32px]] [[File:Inactive Redstone Wire (NE) JE2.png|32px]] [[File:Inactive Redstone Wire (ES) JE2.png|32px]] [[File:Inactive Redstone Wire (SW) JE2.png|32px]] [[File:Inactive Redstone Wire (NW) JE2.png|32px]] [[File:Inactive Redstone Wire (NEW) JE2.png|32px]] [[File:Inactive Redstone Wire (NES) JE2.png|32px]] [[File:Inactive Redstone Wire (ESW) JE2.png|32px]] [[File:Inactive Redstone Wire (NSW) JE2.png|32px]] [[File:Inactive Redstone Wire (NESW) JE2.png|32px]]<br>[[File:Active Redstone Wire (NS) JE2.png|32px]] [[File:Active Redstone Wire (EW) JE2.png|32px]] [[File:Active Redstone Wire (NE) JE2.png|32px]] [[File:Active Redstone Wire (ES) JE2.png|32px]] [[File:Active Redstone Wire (SW) JE2.png|32px]] [[File:Active Redstone Wire (NW) JE2.png|32px]] [[File:Active Redstone Wire (NEW) JE2.png|32px]] [[File:Active Redstone Wire (NES) JE2.png|32px]] [[File:Active Redstone Wire (ESW) JE2.png|32px]] [[File:Active Redstone Wire (NSW) JE2.png|32px]] [[File:Active Redstone Wire (NESW) JE2.png|32px]] Redstone wire gets darker the farther away it is from a source of power, using a dedicated [[tint]] system. Previously, it was fully on until it reached its limit.
+|Its particles now appear gray due to not being tinted.
+|Redstone is now used to craft [[redstone repeater]]s.}}
+{{History||1.5|[[File:Inactive Redstone Wire (NS) JE3.png|32px]] [[File:Inactive Redstone Wire (EW) JE3.png|32px]] [[File:Inactive Redstone Wire (NE) JE3.png|32px]] [[File:Inactive Redstone Wire (ES) JE3.png|32px]] [[File:Inactive Redstone Wire (SW) JE3.png|32px]] [[File:Inactive Redstone Wire (NW) JE3.png|32px]] [[File:Inactive Redstone Wire (NEW) JE3.png|32px]] [[File:Inactive Redstone Wire (NES) JE3.png|32px]] [[File:Inactive Redstone Wire (ESW) JE3.png|32px]] [[File:Inactive Redstone Wire (NSW) JE3.png|32px]] [[File:Inactive Redstone Wire (NESW) JE3.png|32px]]<br>[[File:Active Redstone Wire (NS) JE3.png|32px]] [[File:Active Redstone Wire (EW) JE3.png|32px]] [[File:Active Redstone Wire (NE) JE3.png|32px]] [[File:Active Redstone Wire (ES) JE3.png|32px]] [[File:Active Redstone Wire (SW) JE3.png|32px]] [[File:Active Redstone Wire (NW) JE3.png|32px]] [[File:Active Redstone Wire (NEW) JE3.png|32px]] [[File:Active Redstone Wire (NES) JE3.png|32px]] [[File:Active Redstone Wire (ESW) JE3.png|32px]] [[File:Active Redstone Wire (NSW) JE3.png|32px]] [[File:Active Redstone Wire (NESW) JE3.png|32px]] Fully off redstone wire is no longer black.
+|Redstone dust can now be placed on [[snow]].
+|Redstone is now used to craft [[powered rail]]s and [[detector rail]]s.}}
+{{History||1.6.6|Redstone dust now checks if the block below has a solid top face or [[glowstone]], allowing it to be placed on it.}}
+{{History||1.7|Redstone dust now connects to a [[redstone repeater|repeater]] without the dust being explicitly pointed at it.
+|Redstone can now be used to craft [[piston]]s.}}
+{{History||1.8|snap=Pre-release|Redstone can now be found in the new [[stronghold]] storeroom [[chest]]s, and in the new [[mineshaft]] chests.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 3|Redstone can now be [[brewing|brewed]] in a [[water bottle]] to create a [[mundane potion]].
+|Redstone can now be found in the new [[stronghold]] altar [[chest]]s.
+|Redstone now extends the [[potion]]s of [[Fire Resistance]], [[Slowness]], [[Swiftness]], [[Poison]], [[Weakness]] and [[Strength]].}}
+{{History|||snap=Beta 1.9 Prerelease 4|Redstone now extends the new potion of [[Regeneration]].}}
+{{History|||snap=RC1|[[File:Inactive Redstone Wire (unconnected) JE1.png|32px]] <br>[[File:Active Redstone Wire (unconnected) JE1.png|32px]] Redstone dust placement on one [[block]] has been changed from a "+" to a "•" shape.}}
+{{History||?|Redstone wire block particles are now correctly colored.}}
+{{History||1.1|snap=11w49a|Fixed redstone update bug.{{more info}}}}
+{{History||1.2.1|snap=12w06a|Redstone can now be placed on [[glowstone]].}}
+{{History|||snap=12w07a|Redstone is now used to craft [[redstone lamp]]s.}}
+{{History||1.3.1|snap=12w21a|Redstone can now be [[trading|bought]] from priest [[villager]]s, at 2–4 redstone for 1 [[emerald]], making them [[renewable]].}}
+{{History|||snap=12w22a|Redstone dust now generates in [[jungle temple]]s.}}
+{{History|||snap=12w25a|Redstone dust can now be placed on top of upside-down [[slabs]] and [[stairs]].}}
+{{History||1.4.2|snap=12w34a|Redstone now extends the new [[potion]]s of [[Night Vision]] and [[Invisibility]].}}
+{{History|||snap=12w38a|[[Witch]]es have been added, which sometimes [[drops|drop]] redstone when killed.}}
+{{History||1.5|snap=13w01a|Redstone can now be used to craft [[blocks of redstone]] and [[dropper]]s.}}
+{{History||1.7.2|snap=13w36a|Redstone now extends the new [[potion]] of [[Water Breathing]].}}
+{{History||1.8|snap=14w02a|[[Trading]] has been changed: cleric [[villager]]s now [[trading|sell]] 1–4 redstone for 1 [[emerald]].}}
+{{History|||snap=14w25a|Redstone dust no longer changes to [[obsidian]] next to water when [[lava]] flows into it.}}
+{{History|||snap=14w27a|Redstone now extends the new [[potion]] of [[Leaping]].}}
+{{History||1.9|snap=15w31a|[[File:Inactive Redstone Wire (unconnected) JE2.png|32px]] [[File:Inactive Redstone Wire (NS) JE4.png|32px]] [[File:Inactive Redstone Wire (EW) JE4.png|32px]] [[File:Inactive Redstone Wire (NE) JE4.png|32px]] [[File:Inactive Redstone Wire (ES) JE4.png|32px]] [[File:Inactive Redstone Wire (SW) JE4.png|32px]] [[File:Inactive Redstone Wire (NW) JE4.png|32px]] [[File:Inactive Redstone Wire (NEW) JE4.png|32px]] [[File:Inactive Redstone Wire (NES) JE4.png|32px]] [[File:Inactive Redstone Wire (ESW) JE4.png|32px]] [[File:Inactive Redstone Wire (NSW) JE4.png|32px]] [[File:Inactive Redstone Wire (NESW) JE4.png|32px]]<br>[[File:Active Redstone Wire (unconnected) JE2.png|32px]] [[File:Active Redstone Wire (NS) JE4.png|32px]] [[File:Active Redstone Wire (EW) JE4.png|32px]] [[File:Active Redstone Wire (NE) JE4.png|32px]] [[File:Active Redstone Wire (ES) JE4.png|32px]] [[File:Active Redstone Wire (SW) JE4.png|32px]] [[File:Active Redstone Wire (NW) JE4.png|32px]] [[File:Active Redstone Wire (NEW) JE4.png|32px]] [[File:Active Redstone Wire (NES) JE4.png|32px]] [[File:Active Redstone Wire (ESW) JE4.png|32px]] [[File:Active Redstone Wire (NSW) JE4.png|32px]] [[File:Active Redstone Wire (NESW) JE4.png|32px]] Some slight changes have been made to redstone wire's appearance - the dot now extends outward with two more pixels, and the south-facing section of bends, T shapes and crosses now has one fewer pixel. It also appears straighter and more continuous in straight wire form.
+|Redstone can no longer be added to extended [[potion]]s or tier-II potions.}}
+{{History|||snap=15w44a|The average yield of redstone from [[dungeon]] [[chest]]s has been cut by more than half.
+|The average yield of redstone in [[mineshaft]] chests has been increased.}}
+{{History|||snap=15w46a|The hitbox of redstone now covers only part of the surface of the [[block]] below, based on the orientation of the redstone.}}
+{{History||1.11|snap=16w39a|Redstone dust can now be found in chests in [[woodland mansion]]s.
+|Redstone can now used to craft [[observer]]s.}}
+{{History||1.13|snap=17w47a|The [[item]] form of "Redstone" has been renamed to "Redstone Wire".
+|Prior to [[1.13/Flattening|''The Flattening'']], this [[block]]'s numeral ID was 55, and the [[item]]'s 331.}}
+{{History|||snap=17w48a|"Redstone" has been renamed to "Redstone Dust".}}
+{{History|||snap=18w07a|Redstone now extends the new [[potion of the Turtle Master]].}}
+{{History||1.14|snap=18w43a|[[File:Redstone Dust JE2 BE2.png|32px]] The texture of redstone dust has been changed.}}
+{{History|||snap=18w50a|Redstone dust can now be found in chests in [[village]] temples.}}
+{{History|||snap=19w12b|Redstone dust can now be placed on [[glass]], [[ice]] and [[sea lantern]]s.}}
+{{History|||snap=19w13a|Cleric villagers now give redstone dust to players under the [[Hero of the Village]] effect.}}
+{{History||1.16|snap=20w06a|Redstone dust now has a bottom texture.}}
+{{History|||snap=20w09a|Redstone can now be used to craft [[target]]s.}}
+{{History|||snap=20w18a|Redstone dust placement on one [[block]] has been changed from a "•" back to a "+" shape.
+|Redstone dust's hitbox is now no longer strictly a cuboid, and more closely matches the shape of the wiring.<ref>{{bug|MC-137336}}</ref>
+|Upward going redstone dust now has a hitbox on the side of the [[block]] too, rather than only on the floor.<ref>{{bug|MC-153508}}</ref>
+|Unconnected redstone dust now has all direction block states set to "side".
+|The direction block states of redstone dust are now properly set to "side" at the end of a redstone wire on both ends, rather than only the one with other redstone besides it.
+|[[File:Inactive Redstone Wire (N).png|32px]] [[File:Inactive Redstone Wire (E).png|32px]] [[File:Inactive Redstone Wire (S).png|32px]] [[File:Inactive Redstone Wire (W).png|32px]]<br>[[File:Active Redstone Wire (N).png|32px]] [[File:Active Redstone Wire (E).png|32px]] [[File:Active Redstone Wire (S).png|32px]] [[File:Active Redstone Wire (W).png|32px]] While not accessible in normal gameplay, redstone dust that points into one side, but not the opposite, now visually reaches halfway across the [[block]].}}
+{{History|||snap=20w19a|Redstone dust now visually connects when going up [[soul sand]], 8-layer [[snow]] stacks and the back side of upside-down [[stairs]].
+|[[Particles]] are now generated across the length of the redstone wire rather than the center of the [[block]].}}
+{{History|||snap=20w21a|Redstone dust placement on one [[block]] is now toggleable between a "+" and a "•" shape, by {{control|interacting}} with it.}}
+{{History||1.17|snap=21w08a|Redstone dust can now drop and be smelted from [[deepslate redstone ore]].}}
+{{History||1.19|snap=22w13a|Redstone wire now generates in [[Ancient City|ancient cities]].}}
+{{History||1.20<br>(Experimental)|link=1.19.4|snap=23w04a|Redstone dust can now be used as an armor trim material.}}
+
+{{History|pocket alpha}}
+{{History||v0.8.0|snap=build 1|[[File:Redstone Dust JE1 BE1.png|32px]] Added redstone as an [[item]]. 
+|Redstone is now [[drops|dropped]] when [[breaking|mined]] from [[redstone ore]].
+|Redstone can be used to craft [[compass]]es and [[clock]]s.}}
+{{History|||snap=build 2|Redstone can now be used to craft [[powered rail]]s.}}
+{{History||v0.11.0|snap=build 1|Redstone is now used to craft [[redstone block]]s.}}
+{{History||v0.12.1|snap=build 1|Redstone has been added to the [[Creative]] [[inventory]], but it still cannot be placed. }}
+{{History||v0.13.0|snap=build 1|Redstone can now be placed.
+|Redstone is now used to craft [[redstone lamp]]s, [[note block]]s, [[detector rail]]s and [[redstone torch]]es.}}
+{{History||v0.14.0|snap=build 1|Redstone is now used to craft [[dispenser]]s and [[dropper]]s.}}
+{{History||v0.15.0|snap=build 1|Redstone is now used to craft [[piston]]s and [[observer]]s.}}
+{{History|pocket}}
+{{History||1.0.4|snap=alpha 1.0.4.0|Cleric [[villager]]s now [[trading|sell]] 1–4 redstone for an [[emerald]].}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Redstone can now be found in [[woodland mansion]]s.}}
+{{History|bedrock}}
+{{History||?|[[File:Inactive Redstone Wire (NE) BE.png|32px]] [[File:Inactive Redstone Wire (ES) BE.png|32px]] [[File:Inactive Redstone Wire (SW) BE.png|32px]] [[File:Inactive Redstone Wire (NW) BE.png|32px]] [[File:Inactive Redstone Wire (NEW) BE.png|32px]] [[File:Inactive Redstone Wire (NES) BE.png|32px]] [[File:Inactive Redstone Wire (ESW) BE.png|32px]] [[File:Inactive Redstone Wire (NSW) BE.png|32px]] [[File:Inactive Redstone Wire (NESW) BE.png|32px]]<br>[[File:Active Redstone Wire (NE) BE.png|32px]] [[File:Active Redstone Wire (ES) BE.png|32px]] [[File:Active Redstone Wire (SW) BE.png|32px]] [[File:Active Redstone Wire (NW) BE.png|32px]] [[File:Active Redstone Wire (NEW) BE.png|32px]] [[File:Active Redstone Wire (NES) BE.png|32px]] [[File:Active Redstone Wire (ESW) BE.png|32px]] [[File:Active Redstone Wire (NSW) BE.png|32px]] [[File:Active Redstone Wire (NESW) BE.png|32px]]<br>Placed redstone now assumes its current appearance with a more solid center. Its linear state appearences are unknown.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Redstone Dust JE2 BE2.png|32px]] The texture of redstone has been changed.}}
+{{History||1.11.0|snap=beta 1.11.0.1|Redstone can now be found in [[desert]] [[village]] temple [[chest]]s.}}
+{{History|||snap=beta 1.11.0.4|Cleric [[villager]]s now [[trading|sell]] 4 redstone as part of their first tier [[trading|trade]].}}
+{{History||1.16.210|snap=beta 1.16.210.57|"Redstone" has been renamed to "Redstone Dust".}}
+{{History||1.17.0|snap=beta 1.16.230.52|Redstone dust can now drop and be smelted from [[deepslate redstone ore]].}}
+{{History||1.19.0|snap=beta 1.19.0.26|Redstone wire now generates in [[Ancient City|ancient cities]].}}
+{{History||1.19.80|snap=beta 1.19.80.21|Redstone dust can now be used as an armor trim material.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Redstone Dust JE1 BE1.png|32px]] Added redstone.}}
+{{History||xbox=TU3|Redstone now connects to a [[redstone repeater|repeater]] without the dust being explicitly pointed at it.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Redstone Dust JE2 BE2.png|32px]] The texture of redstone has been changed.}}
+{{History||ps=1.95|Redstone can now be placed on [[glass]].}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Redstone Dust JE1 BE1.png|32px]] Added redstone dust.}}
+{{History|foot}}
+
+=== Redstone wire "item" ===
+{{:Technical blocks/Redstone Wire}}
+
+== Gallery ==
+=== Renders ===
+; Java Edition
+<gallery>
+Inactive Redstone Wire (NESW).png | 
+Inactive Redstone Wire (unconnected).png | 
+Inactive Redstone Wire (NS).png | 
+Inactive Redstone Wire (EW).png | 
+Inactive Redstone Wire (NE).png | 
+Inactive Redstone Wire (ES).png | 
+Inactive Redstone Wire (SW).png | 
+Inactive Redstone Wire (NW).png | 
+Inactive Redstone Wire (NEW).png | 
+Inactive Redstone Wire (NES).png | 
+Inactive Redstone Wire (ESW).png | 
+Inactive Redstone Wire (NSW).png
+</gallery>
+<gallery>
+Active Redstone Wire (NESW).png | 
+Active Redstone Wire (unconnected).png | 
+Active Redstone Wire (NS).png | 
+Active Redstone Wire (EW).png | 
+Active Redstone Wire (NE).png | 
+Active Redstone Wire (ES).png | 
+Active Redstone Wire (SW).png | 
+Active Redstone Wire (NW).png | 
+Active Redstone Wire (NEW).png | 
+Active Redstone Wire (NES).png | 
+Active Redstone Wire (ESW).png | 
+Active Redstone Wire (NSW).png
+</gallery>
+
+; Bedrock Edition
+<gallery>
+Inactive Redstone Wire (NESW) BE.png | 
+Inactive Redstone Wire (NESW) BE.png | 
+Inactive Redstone Wire (NS).png | 
+Inactive Redstone Wire (EW).png | 
+Inactive Redstone Wire (NE) BE.png | 
+Inactive Redstone Wire (ES) BE.png | 
+Inactive Redstone Wire (SW) BE.png | 
+Inactive Redstone Wire (NW) BE.png | 
+Inactive Redstone Wire (NEW) BE.png | 
+Inactive Redstone Wire (NES) BE.png | 
+Inactive Redstone Wire (ESW) BE.png | 
+Inactive Redstone Wire (NSW) BE.png
+</gallery>
+<gallery>
+Active Redstone Wire (NESW) BE.png | 
+Active Redstone Wire (NESW) BE.png | 
+Active Redstone Wire (NS).png | 
+Active Redstone Wire (EW).png | 
+Active Redstone Wire (NE) BE.png | 
+Active Redstone Wire (ES) BE.png | 
+Active Redstone Wire (SW) BE.png | 
+Active Redstone Wire (NW) BE.png | 
+Active Redstone Wire (NEW) BE.png | 
+Active Redstone Wire (NES) BE.png | 
+Active Redstone Wire (ESW) BE.png | 
+Active Redstone Wire (NSW) BE.png
+</gallery>
+
+=== Screenshots ===
+<gallery>
+Slab Stair Redstone.png|First image of redstone dust on top of slabs and stairs.
+File:Olivia Tinkering.jpeg|[[Olivia]] using a scarce amount of redstone dust.
+File:23w32a.jpg|[[Sunny]] using a very long strip of redstone dust.
+File:Emissive Redstone.jpeg|Redstone Dust showing its emissve texture, with [[Vibrant Visuals]] enabled.
+</gallery>
+
+=== In other media ===
+<gallery>
+Powered By Redstone JINX.jpg|Official T-shirt artwork "Powered By Redstone" made by [https://www.jinx.com JINX].
+File:Redstone Behind Chiseled Bookshelf Pixel Art.png|Pixel art of redstone dust.
+</gallery>
+
+== Issues ==
+{{issue list|redstone|redstone dust|redstone wire}}
+
+== Trivia ==
+* Five updates for [[wikipedia:Windows 10 version history|Windows 10]] released from 2016 to 2018 were codenamed "Redstone", referencing ''Minecraft''.<ref>{{link|url=https://www.theverge.com/2015/4/7/8364355/microsoft-redstone-windows-updates|title=Microsoft plans ‘Redstone’ updates for Windows 10 in 2016|author=Tom Warren|website=The Verge|date=April 7, 2015}}</ref>
+* The block has 1,296 possible block state combinations, the highest of all blocks as of 1.15.2, beating [[fire]]'s 512 and [[note block]]'s 800.
+* According to {{el|ee}}, redstone dust contains radioactive [[element]]s, specifically uranium.
+
+== References ==
+{{Reflist}}
+
+{{Redstone}}
+{{Blocks|Utility}}
+{{Items}}
+
+[[Category:Redstone mechanics]]
+[[Category:Mechanisms]]
+[[Category:Mechanics]]
+[[Category:Generated structure blocks]]
+[[Category:Non-solid blocks]]
+[[Category:Brewing recipe]]
+
+[[cs:Rudit]]
+[[de:Redstone]]
+[[el:Σκόνη Κοκκινόπετρας]]
+[[es:Polvo de redstone]]
+[[fr:Poudre de redstone]]
+[[hu:Redstone]]
+[[it:Polvere di redstone]]
+[[ja:レッドストーンダスト]]
+[[ko:레드스톤 가루]]
+[[nl:Redstonestof]]
+[[pl:Redstone]]
+[[pt:Pó de redstone]]
+[[ru:Красная пыль]]
+[[th:ผงเรดสโตน]]
+[[tr:Kızıltaş]]
+[[uk:Редстоун]]
+[[zh:红石粉]]

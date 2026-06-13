@@ -1,0 +1,224 @@
+{{For|the attribute|Attribute#Attributes}}
+{{For|a comparison of travel speeds|Transportation#Methods}}
+{{Effect
+|title={{EffectSprite|speed}} Speed
+|image=Speed.png
+|sources=See {{slink||Causes}}
+|particle= {{EffectSprite|particle-speed}} #7CAFC6 (electric blue)
+|type=Positive
+|group=Potion
+|group2=Splash Potion
+|group3=Lingering Potion
+|group4=Arrow
+|1-1=Potion of Swiftness.png
+|2-1=Splash Potion of Swiftness.png
+|3-1=Lingering Potion of Swiftness.png
+|4-1=Arrow of Swiftness.png
+}}
+
+'''Speed''' is a [[status effect]] that increases an entity's [[walking]] speed by 20% multiplied by the effect level.  It expands a player's field of view (FOV) accordingly.  Negative levels decrease speed.
+
+== Causes ==
+{| class="wikitable" data-description="Causes"
+ ! Cause
+ ! Potency
+ ! Length
+ ! Notes
+ |-
+ | {{ItemLink|Potion of Swiftness}}
+ | I
+ | 3:00
+ | {{EntityLink|Witch}}es drink this potion if their target is over 11 blocks away.
+ |-
+ | {{ItemLink|Potion of Swiftness}} (extended)
+ | I
+ | 8:00
+ |
+ |-
+ | {{ItemLink|Potion of Swiftness}} II
+ | II
+ | 1:30
+ |
+ |-
+ | {{ItemLink|Splash Potion of Swiftness}}
+ | I
+ | 3:00{{only|je|short=1}}<br>2:15{{only|be|short=1}}
+ |
+ |-
+ | {{ItemLink|Splash Potion of Swiftness}} (extended)
+ | I
+ | 8:00{{only|je|short=1}}<br>6:00{{only|be|short=1}}
+ |
+ |-
+ | {{ItemLink|Splash Potion of Swiftness}} II
+ | II
+ | 1:30
+ |
+ |-
+ | {{ItemLink|Lingering Potion of Swiftness}}
+ | I
+ | 0:45
+ |
+ |-
+ | {{ItemLink|Lingering Potion of Swiftness}} (extended)
+ | I
+ | 2:00
+ |
+ |-
+ | {{ItemLink|Lingering Potion of Swiftness}} II
+ | II
+ | 0:22
+ |
+ |-
+ | {{ItemLink|Arrow of Swiftness}}
+ | I
+ | 0:22
+ | 
+ |-
+ | {{ItemLink|Arrow of Swiftness}} (extended)
+ | I
+ | 1:00
+ | 
+ |-
+ | {{ItemLink|Arrow of Swiftness}} II
+ | II
+ | 0:11
+ | 
+ |-
+ | {{BlockLink|Beacon}} set to Speed
+ | I
+ | 0:05 – 0:17
+ | Replenishes when in range.
+ |-
+ | {{BlockLink|Beacon}} set to Speed II
+ | II
+ | 0:17
+ | Replenishes when in range. Requires beacon pyramid level 4.
+ |-
+ | Spawning within the world
+ | I
+ | ∞
+ | Only applies to {{EntityLink|spider}}s on Hard difficulty.{{only|java|short=1}}
+ |}
+
+== Brewing ==
+{| class="wikitable" style="text-align: center;" data-description="Positive effect potions"
+!width="90px"| Potion
+! Reagent, Base
+!width="90px"| {{ItemSprite|Redstone Dust}} Extended
+!width="90px"| {{ItemSprite|Glowstone Dust}} Enhanced
+! Effects
+|-
+! {{Slot|Potion of Swiftness[&9Speed (<nowiki>3:00</nowiki>)]}}<br>Potion of Swiftness
+| {{Brewing Stand
+ |Input= Sugar
+ |Output2= Awkward Potion
+ }}
+| {{Slot|Potion of Swiftness[&9Speed (<nowiki>8:00</nowiki>)]}}<br>Potion of Swiftness (extended)
+| {{Slot|Potion of Swiftness[&9Speed II (<nowiki>1:30</nowiki>)]}}<br>Potion of Swiftness
+| [[Speed]]<br>Increases movement speed, sprinting speed and jumping length by 20%.
+'''Enhanced:'''<br>[[Speed]] '''II'''<br>Increases movement speed, sprinting speed and jumping length by 40%.
+|}
+
+== Unaffected mobs ==
+
+[[Wither]]s and [[ender dragon]]s are immune to the Speed effect. While not immune, flying mobs are unaffected by the Speed effect.<ref>{{bug|MC-40949}} - Flying mobs do not obey generic.movementSpeed attribute</ref> [[Shulker]]s are also unaffected by, though not immune to, Speed.
+
+== Notes ==
+* Alternative methods of traveling more quickly include: [[sprinting]]; walking on [[ice]], [[packed ice]] or [[blue ice]]; riding a [[horse]], [[pig]], or [[minecart]]; riding a [[boat]] on ice, packed ice, or blue ice; throwing [[ender pearl]]s; walking on [[soul soil]] or [[soul sand]] while wearing [[soul speed]] boots; or being near a dolphin to gain [[Dolphin's Grace]].
+
+== Data values ==
+=== ID ===
+{{EffectIDLink}}
+{{edition|java}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=java
+|displayname=Speed
+|spritetype=effect
+|nameid=speed
+|id=1
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Speed
+|spritetype=effect
+|nameid=speed
+|id=1
+|translationkey=potion.moveSpeed
+|foot=1}}
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load advancements|A Furious Cocktail;How Did We Get Here?}}
+</table-progress-tracking>
+
+== History ==
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|Speed is added along with 18 other status effects but is currently unobtainable in regular gameplay.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|[[File:Speed JE1 BE1.png|18px]] The effect sprite for Speed has been added to <samp>[[inventory.png]]</samp>.
+|Speed can now be obtained through potions.<!--Commenting this out, I started working on it, but it seems that either names don't affect potions or there can be potions with the same name but different effects sometimes. Needs more investigating. :: the {{ItemLink|Clear Potion}} (3:00), {{ItemLink|Bland Potion}} (13:00), and speed II through the {{ItemLink|id=mundane-potion-revision-1|Mundane Potion}} (13:00), ::-->}}
+{{History|||snap=Beta 1.9 Prerelease 3|Changed how speed potions are brewed.
+|Added the {{ItemLink|Potion of Swiftness}} (normal, extended and level II)}}
+{{History||1.4.2|snap=12w32a|Added the ability to get speed from a beacon.}}
+{{History||1.6.1|snap=13w24a|Spiders now have a chance of spawning with Speed on Hard [[difficulty]].}}
+{{History||1.9|snap=15w31a|Added the {{ItemLink|Arrow of Swiftness}}.
+|Potions no longer use damage values to determine their effect, the effects moved to the {{code|Potion}} NBT.}}
+{{History||1.14|snap=18w43a|[[File:Speed JE2.png|18px]] Changed effect icon texture.}}
+{{History|||snap=18w43b|[[File:Speed JE3 BE2.png|18px]] Removed the dark background.}}
+
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=build 1|[[File:Speed JE1 BE1.png|18px]] Speed is added but unobtainable at the time.}}
+{{History||v0.12.1|snap=build 1|Speed can now be obtained through potions and splash potion.}}
+{{History||v0.14.0|snap=build 1|Added witch that can drink potion of swiftness to grant itself speed effect.}}
+{{History||v0.15.0|snap=build 1|Speed can be obtained from arrow of swiftness.}}
+{{History||v0.16.0|snap=build 4|Speed can be obtained from beacon.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Speed can be obtained from lingering potion of swiftness.}}
+{{History|bedrock}}
+{{History||1.11.0|snap=beta 1.11.0.5|[[File:Speed JE3 BE2.png|18px]] Changed effect icon texture.}} 
+
+{{History|console}}
+{{History||xbox=TU7|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Speed JE1 BE1.png|18px]] Added speed, which can be obtained by a {{ItemLink|Potion of Swiftness}} or {{ItemLink|Splash Potion of Swiftness}}.}}
+{{History||xbox=TU19|xbone=CU7|ps=1.12|wiiu=Patch 1|switch=1.0.1|Added the ability to get speed from a beacon.}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|switch=1.0.1|Added the {{ItemLink|Lingering Potion of Swiftness}}.
+|Added the {{ItemLink|Arrow of Swiftness}}.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Speed JE3 BE2.png|18px]] Changed effect icon texture.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+== Trivia ==
+
+* When the player has Speed level 255, the player moves 500 blocks per tick.
+* Speed allows [[slime]]s to jump farther. High levels of speed can make slimes bounce out of view with just one jump.
+* Even With Speed Level 2 The Player Cannot Out Run a Wither
+
+== Gallery ==
+<gallery>
+Swiftness Effect.png|A player with the Speed effect.
+Speed Potion Cauldron BE2.png|A [[cauldron]] filled with the [[potion of swiftness]] in [[Bedrock edition]].
+Swiftnessspider.png|A [[spider]] naturally spawned with the Speed effect.
+Speed II.png|Speed II potion item description
+</gallery>
+
+== See also ==
+* [[Slowness]]
+* [[Jump Boost]]
+
+== References ==
+{{reflist}}
+
+{{Effects}}
+
+[[es:Rapidez]]
+[[ja:移動速度上昇]]
+[[pt:Velocidade]]
+[[it:Velocità]]
+[[zh:速度]]

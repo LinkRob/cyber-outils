@@ -1,0 +1,89 @@
+{{about|the way sculk grows in response to sculk catalyst blooms|specific information on sculk blocks|Sculk family}}{{Work in progress|[[User:Simanelix]] is currently working on organizing it, and will be linking it to the other pages soon.}}
+
+==Usage==
+
+=== Sculk Blooms ===
+[[File:Sculk Catalyst Bloom BE1.gif|thumb|upright|Sculk catalyst blooming.|alt=Sculk catalyst blooming.]][[File:Sculk Catalyst bloom and spread sculks.gif|thumb|upright|It turns the blocks around the dead Mob into Sculk or Sculk Vein.]][[File:Sculkcatalystrange.png|thumb|upright|Sculk catalyst detection range.|alt=Sculk catalyst detection range]]If a mob dies near a [[Sculk Catalyst]], the catalyst blooms, and this is called a '''sculk bloom'''. The sculk blooms consumes the mob.
+
+During a sculk bloom, the catalyst gives off soul [[particles]], and creates a patch of [[sculk]] blocks with [[sculk vein]]s around them. Blooming sculk can replace blocks in the {{code|sculk_replaceable}} [[Tag#blocks sculk replaceable|tag]], which includes the surface materials of most of the biomes in all three dimensions. Sculk blooms may occasionally result in the growth of a [[sculk sensor]] or [[sculk shrieker]]. If a mob dies near multiple sculk catalysts, this does not increase the number of sculk-related blocks generated. Only the sculk catalyst that is closest to the mob will bloom.
+
+Sculk blooms only occur in response to mob deaths and player deaths. All other experience sources are ignored.
+
+=== Blooming Range ===
+Sculk blooms occur for any mob death:
+
+* within a [[Euclidean distance]] of 8 blocks from a sculk sensor
+* or on top of a sculk block that is part of a [[Sculk Growth#Sculk network|sculk network]] (connected to a sculk catalyst)
+
+Sculk blooms might be able to trigger on other [[sculk family]] blocks that are part of the network too. {{Needs testing}}
+
+=== Sculk Charging ===
+When the mob is consumed by a sculk bloom, it won't drop any experience. The sculk bloom event converts the mob's experience into '''sculk charges'''. 1 sculk charge is generated per experience point the mob would have dropped if it was killed by a player or a tamed wolf. The sculk charges are given to the block beneath the mob. Up to 1000 charges can be present in one block, but this is unlikely under normal circumstances.
+
+===Sculk Growth===
+Sculk growth is an event where a sculk bloom starts on a non-sculk block. A sculk bloom always either starts on a sculk block, or starts with a sculk growth on a valid block. The following blocks can be transformed by sculk growth:{{columns-list|colwidth=16em|
+* {{BlockLink|Stone}}
+* {{BlockLink|Granite}}
+* {{BlockLink|Andesite}}
+* {{BlockLink|Diorite}}
+* {{BlockLink|Tuff}}
+* {{BlockLink|Calcite}}
+* {{BlockLink|Deepslate}}
+* {{BlockLink|Dripstone Block}}
+* {{BlockLink|Terracotta}}
+* {{BlockLink|Netherrack}}
+* {{BlockLink|Crimson Nylium}}
+* {{BlockLink|Warped Nylium}}
+* {{BlockLink|Basalt}}
+* {{BlockLink|Smooth Basalt}}
+* {{BlockLink|Blackstone}}
+* {{BlockLink|End Stone}}
+* {{BlockLink|Gravel}}
+* {{BlockLink|Sand}}
+* {{BlockLink|Red sand}}
+* {{BlockLink|Sandstone}}
+* {{BlockLink|Red Sandstone}}
+* {{BlockLink|Dirt}}
+* {{BlockLink|Grass Block}}
+* {{BlockLink|Mycelium}}
+* {{BlockLink|Podzol}}
+* {{BlockLink|Coarse Dirt}}
+* {{BlockLink|Rooted Dirt}}
+* {{BlockLink|Clay}}
+* {{BlockLink|Moss Block}}
+* {{BlockLink|Mud}}
+* {{BlockLink|Muddy Mangrove Roots}}
+* {{BlockLink|Soul Sand}}
+* {{BlockLink|Soul Soil}}
+* {{BlockLink|Pale Moss Block}}
+}}{{IN|java}}, these blocks are marked under the {{cd|sculk_replaceable}} [[tag]].
+
+Sculk growth can't happen on a block that is completely covered in non-air, non-[[Sculk family|sculk-family]] blocks.
+
+==== Sculk Patches ====
+Sculk growth will cause a patch of blocks to be converted into sculk. This patch is composed of a sculk block in the center, and up to 4 sculk veins on the sides. Sculk veins will not be placed on top of sculk blocks, and if sculk growth happens to a block that is covered with sculk veins already, the sculk veins will be removed.
+
+==== Discharging ====
+If the sculk bloom produced an excessively large amount of sculk charges, the sculk growth can '''discharge''' the sculk charges. This discharge can cause the sculk charge to spread across the network, and grow the network larger. This is also referred to as sculk spreading.
+
+To be exact, the sculk charge is discharged to adjacent sculk blocks.
+
+==== Sculk Construction ====
+If a sculk block has sculk charge, and it is more than 4 blocks from a catalyst, it might try to do '''sculk construction'''. There is a 10% chance for the sculk block to attempt construction, and construction will only be attempted if there is air above the sculk block. If construction does trigger, the sculk block uses 10 charges to grow either a [[sculk sensor]] or a [[sculk shrieker]]. Construction has a 90% chance to spawn a sculk sensor, and a has a 10% chance to spawn a sculk shrieker. These probabilities are mutually exclusive, so construction always spawns one or the other. However, construction cannot happen if there are 2 or more sensors within a 9×3×9 box with the bottom center of the box centered on the sculk bloom's origin (or within {{code|-4,0,-4}} and {{code|4,2,4}} in relative coordinates). A sculk shrieker generated by sculk construction will have the {{cd|can_summon}} tag set to {{code|false}}.
+
+===Blooming without Spreading===
+Sculk growth and discharge require ''the potential for'' experience in order to grow sculk. By "potential", I mean the mob has to be able to give experience when killed by a player (this is called a "player kill"). Furthermore, it always blooms for a mob death, regardless of whether the mob had experience to offer. This seems to be the intended behavior.
+
+A [[player]] dying in range of the sculk network can also trigger a sculk bloom. The sculk bloom will consume all of the experience the player would have dropped, much like any mob. No sculk charges will be generated if the player dies with zero experience, but the nearest sculk catalyst will still bloom. If [[Commands|keep inventory]] is on, the sculk bloom behaves the same way it would if the player had zero experience, since keep inventory makes the experience inaccessible.<ref>{{bug|MCPE-157884}}</ref>
+
+[[Armor stand]]s and [[creaking]]s death can both trigger a sculk bloom, but cannot create sculk spread since they both don't drop experience upon death.
+
+The [[ender dragon]]'s death can trigger a sculk bloom, but it does not produce any sculk charges,<ref>{{bug|MC-249285}}</ref> The ender dragon will still drop experience just like it normally would. However, new behavior for ''ender dragon blooms'' might be implemented in the future.<ref>{{tweet|gnembon_mc|1495571681137594374|it hasn't been implemented yet. Dragon's death is... special.|February 20, 2022}}</ref>
+
+===Sculk Networks===
+Sculk blocks will connect to each other forming a network, if a [[sculk catalyst]]s is adjacent to one of the sculk blocks. This network might include other [[sculk family]] blocks {{Needs testing}}. Sculk blocks can only connect via orthogonal adjacency, not the diagonals.
+
+While discharging, a sculk charge spreads like electricity in a daisy chain, moving from one sculk block to an adjacent sculk block, one block at a time. If a sculk charge tries to discharge into a non-sculk block, it will try to cause a sculk growth event on that block. Each time a sculk block discharges, it also makes sure that all the non-sculk blocks adjacent to it are covered in sculk veins.
+
+The sculk charge in a sculk block will be destroyed / lost if the sculk block is destroyed / broken.
+[[Category:Gameplay]]

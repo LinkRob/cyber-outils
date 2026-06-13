@@ -1,0 +1,569 @@
+{{Entity
+| spawn = Warm Ocean Ruins
+| title = Sniffer
+| image = <gallery>
+Sniffer.gif|Sniffer
+Snifflet sniffsniff.gif|Snifflet
+</gallery>
+| invimage = Sniffer Spawn Egg
+| health = {{hp|14}}
+| behavior = Passive
+| classification = [[Animal]]
+| size = '''{{IN|Bedrock}}:'''<br>
+'''Adult:'''<br>Height: 1.75 Blocks<br>Width: 1.9 Blocks<br>
+'''Snifflet:'''<br>Height: 0.7875 Blocks<br>Width: 0.855 Blocks
+| usableitems = {{drop|Item|Lead}}<br>{{drop|Item|Torchflower Seeds}}
+}}
+
+A '''sniffer''' is an ancient [[passive mob]] that does not spawn naturally, and can only be hatched from [[Sniffer Egg|sniffer eggs]]. It sniffs out and digs out seeds for various unique decorative plants out of [[Dirt (disambiguation)|dirt]], [[Grass Block|grass]], and [[Moss Block|moss blocks]].
+
+== Spawning ==
+Sniffers spawn by hatching from [[Sniffer Egg|sniffer eggs]] found in [[Suspicious Sand|suspicious sand]] from warm [[ocean ruins]]. Breeding sniffers with [[torchflower seeds]] would also result in a sniffer egg being laid as an [[item (entity)|item]].
+
+== Drops ==
+When killed, adult sniffers drop {{xp|1|3}} [[experience]] points if killed by a player or a tamed [[wolf]]; snifflets drop no experience just like other baby animals.
+
+Upon successful breeding, {{xp|1|7}} is dropped.
+
+== Appearance ==
+Sniffers have 6 legs, a big feathery bushy body of red and dark green colours, and a big yellow beaked nose. They also have two long, feathery ears above their eyes.
+
+== Behavior ==
+Sniffers wander aimlessly, avoiding hazards and obstacles. They occasionally smell their surroundings and track ancient seeds by pressing their nose to the ground. When they find a seed, they sploot<ref>{{Ytl|GYO8KejSodg|Minecraft 1.20: Sniffer Secrets & Cherry Groves|Minecraft|May 14, 2023|t=155}}</ref> and use their noses to dig into the ground until they get [[torchflower seeds]] or a [[pitcher pod]]. For a sniffer to be able to dig, it needs to be doing nothing else, not in water, on the ground, not in a boat or minecart, and the block underneath the head needs to be diggable and reachable for the sniffer. The head location is defined as 2.25 blocks in front of the center of the body. The sniffer also stores the last 20 locations it has dug up so it can't dig there anymore. After sniffing out seeds, it shakes its head with joy, activating an eight-minute cooldown before it can dig in again.
+
+The following blocks are diggable by the sniffer:
+*{{BlockLink|Dirt}}
+*{{BlockLink|Grass Block}}
+*{{BlockLink|Podzol}}
+*{{BlockLink|Coarse Dirt}}
+*{{BlockLink|Rooted Dirt}}
+*{{BlockLink|Moss Block}}
+*{{BlockLink|Mud}}
+*{{BlockLink|Muddy Mangrove Roots}}
+[[Data pack]]s from ''Java Edition'' can change this list by modifying the <code>minecraft:sniffer_diggable_block</code> [[Tag#Blocks|block tag]].
+
+Sniffers cannot dig on [[mycelium]].<ref>{{bug|MC-260259||Sniffers cannot dig nor find seeds on mycelium|WAI}}</ref>
+
+=== Breeding ===
+The player can [[breed]] the sniffers using [[torchflower seeds]]. When two adult sniffers are bred, they drop a sniffer egg, after which the parents have a 5-minute cooldown before they can breed again.
+
+==== Healing ====
+Sniffers are healed by {{hp|2}} health points each time they are fed a torchflower seed.
+
+=== Snifflets ===
+A baby sniffer is called a '''snifflet'''<ref>{{Mcnet|sniffer-coming-minecraft-120|Once you’ve unearthed your egg, it’s time to help it hatch! I implore you to pay close attention to this part of the process, because you have not lived until you have seen a '''snifflet''' burst out of its shell.}}</ref> and they have a bigger head than the adult. Snifflets take 48000 [[game tick]]s to grow up into adult sniffers, which is equal to 40 minutes or two in-game days, twice as long as most other baby mobs in the game.
+
+Unlike most baby mobs, snifflets do not follow their adults.<ref>{{bug|MC-260272|||WAI}}</ref>
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Sniffers use the Friendly Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Sniffer idle1.ogg
+|sound2=Sniffer idle2.ogg
+|sound3=Sniffer idle3.ogg
+|sound4=Sniffer idle4.ogg
+|sound5=Sniffer idle5.ogg
+|sound6=Sniffer idle6.ogg
+|sound7=Sniffer idle7.ogg
+|sound8=Sniffer idle8.ogg
+|sound9=Sniffer idle9.ogg
+|sound10=Sniffer idle10.ogg
+|sound11=Sniffer idle11.ogg
+|subtitle=Sniffer grunts
+|source=neutral
+|description=Randomly while idle
+|id=entity.sniffer.idle
+|translationkey=subtitles.entity.sniffer.idle
+|volume=1.0
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|sound=Sniffer death1.ogg
+|sound2=Sniffer death2.ogg
+|subtitle=Sniffer dies
+|source=neutral
+|description=When a sniffer dies
+|id=entity.sniffer.death
+|translationkey=subtitles.entity.sniffer.death
+|volume=1.0
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|sound=Sniffer hurt1.ogg
+|sound2=Sniffer hurt2.ogg
+|sound3=Sniffer hurt3.ogg
+|subtitle=Sniffer hurts
+|source=neutral
+|description=When a sniffer is damaged
+|id=entity.sniffer.hurt
+|translationkey=subtitles.entity.sniffer.hurt
+|volume=1.0
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|sound=Sniffer happy1.ogg
+|sound2=Sniffer happy2.ogg
+|sound3=Sniffer happy3.ogg
+|sound4=Sniffer happy4.ogg
+|sound5=Sniffer happy5.ogg
+|subtitle=Sniffer delights
+|source=neutral
+|description=When a sniffer stands up after finding a seed
+|id=entity.sniffer.happy
+|translationkey=subtitles.entity.sniffer.happy
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Sniffer eat1.ogg
+|sound2=Sniffer eat2.ogg
+|sound3=Sniffer eat3.ogg
+|subtitle=Sniffer eats
+|source=neutral
+|description=When a sniffer is fed [[torchflower seeds]] <ref group=sound>{{Bug|MC-260219||Sniffer eating sounds aren't played when feeding them the last item of torchflower seeds within a stack}}</ref>
+|id=entity.sniffer.eat
+|translationkey=subtitles.entity.sniffer.eat
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Sniffer scenting1.ogg
+|sound2=Sniffer scenting2.ogg
+|sound3=Sniffer scenting3.ogg
+|subtitle=Sniffer scents
+|source=neutral
+|description=Randomly while idle
+|id=entity.sniffer.scenting
+|translationkey=subtitles.entity.sniffer.scenting
+|volume=1.0
+|pitch=1.0<br>(Baby: 1.3)
+|distance=16}}
+{{Sound table
+|sound=Sniffer sniffing1.ogg
+|sound2=Sniffer sniffing2.ogg
+|sound3=Sniffer sniffing3.ogg
+|subtitle=Sniffer sniffs
+|source=neutral
+|description=When a sniffer starts searching for a potential seed
+|id=entity.sniffer.sniffing
+|translationkey=subtitles.entity.sniffer.sniffing
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Sniffer searching1.ogg
+|sound2=Sniffer searching2.ogg
+|sound3=Sniffer searching3.ogg
+|sound4=Sniffer searching4.ogg
+|sound5=Sniffer searching5.ogg
+|sound6=Sniffer searching6.ogg
+|subtitle=Sniffer searches
+|source=neutral
+|description=While a sniffer is moving toward a potential seed's position
+|id=entity.sniffer.searching
+|translationkey=subtitles.entity.sniffer.searching
+|volume=''varies'' <ref group=sound>Can be 1.0 or 0.8 for each sound</ref>
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Sniffer dig1.ogg
+|sound2=Sniffer dig2.ogg
+|subtitle=Sniffer digs <ref group=sound>{{Bug|MC-260213||Sniffers' digging sounds display the "Block breaking" subtitle|WAI}}</ref>
+|source=neutral
+|description=When a sniffer sploots and digs
+|id=entity.sniffer.digging
+|translationkey=subtitles.entity.sniffer.digging
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Sniffer digging stop1.ogg
+|sound2=Sniffer digging stop2.ogg
+|subtitle=Sniffer stands up
+|source=neutral
+|description=When a sniffer stops digging
+|id=entity.sniffer.digging_stop
+|translationkey=subtitles.entity.sniffer.digging_stop
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Pop.ogg
+|subtitle=Sniffer drops seed
+|source=neutral
+|description=When a sniffer digs up a seed
+|id=entity.sniffer.drop_seed
+|translationkey=subtitles.entity.sniffer.drop_seed
+|volume=0.8
+|pitch=''varies'' <ref group=sound>Can be 0.6, 0.7, or 0.8</ref>
+|distance=16}}
+{{Sound table
+|sound=Chicken plop.ogg
+|subtitle=Sniffer plops
+|source=neutral
+|description=When a sniffer lays an egg
+|id=block.sniffer_egg.plop
+|translationkey=subtitles.block.sniffer_egg.plop
+|volume=1.0
+|pitch=''varies''<wbr><ref group=sound>Can be 0.18-0.42, 0.21-0.49, or 0.24-0.56</ref>
+|distance=16}}
+{{Sound table
+|sound=Sniffer step1.ogg
+|sound2=Sniffer step2.ogg
+|sound3=Sniffer step3.ogg
+|sound4=Sniffer step4.ogg
+|sound5=Sniffer step5.ogg
+|sound6=Sniffer step6.ogg
+|subtitle=Footsteps
+|source=neutral
+|description=While a sniffer is walking
+|id=entity.sniffer.step
+|translationkey=subtitles.block.generic.footsteps
+|volume=0.15
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Sniffer idle1.ogg
+|sound2=Sniffer idle2.ogg
+|sound3=Sniffer idle3.ogg
+|sound4=Sniffer idle4.ogg
+|sound5=Sniffer idle5.ogg
+|sound6=Sniffer idle6.ogg
+|sound7=Sniffer idle7.ogg
+|sound8=Sniffer idle8.ogg
+|sound9=Sniffer idle9.ogg
+|sound10=Sniffer idle10.ogg
+|sound11=Sniffer idle11.ogg
+|source=neutral
+|description=Randomly while idle
+|id=mob.sniffer.idle
+|volume=1.0
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Sniffer death1.ogg
+|sound2=Sniffer death2.ogg
+|source=neutral
+|description=Randomly when a sniffer dies
+|id=mob.sniffer.death
+|volume=1.0
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Sniffer hurt1.ogg
+|sound2=Sniffer hurt2.ogg
+|sound3=Sniffer hurt3.ogg
+|source=neutral
+|description=When a sniffer is damaged
+|id=mob.sniffer.hurt
+|volume=1.0
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Sniffer happy1.ogg
+|sound2=Sniffer happy2.ogg
+|sound3=Sniffer happy3.ogg
+|sound4=Sniffer happy4.ogg
+|sound5=Sniffer happy5.ogg
+|source=neutral
+|description=When a sniffer stands up after finding a seed
+|id=mob.sniffer.happy
+|volume=1.0
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Sniffer eat1.ogg
+|sound2=Sniffer eat2.ogg
+|sound3=Sniffer eat3.ogg
+|source=neutral
+|description=When a sniffer is fed torchflower seeds
+|id=mob.sniffer.eat
+|volume=0.7
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Sniffer scenting1.ogg
+|sound2=Sniffer scenting2.ogg
+|sound3=Sniffer scenting3.ogg
+|source=neutral
+|description=Randomly while idle
+|id=mob.sniffer.sniffsniff
+|volume=1.0
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Sniffer sniffing1.ogg
+|sound2=Sniffer sniffing2.ogg
+|sound3=Sniffer sniffing3.ogg
+|source=neutral
+|description=When a sniffer starts searching for a potential seed
+|id=mob.sniffer.long_sniff
+|volume=1.0
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Sniffer searching1.ogg
+|sound2=Sniffer searching2.ogg
+|sound3=Sniffer searching3.ogg
+|sound4=Sniffer searching4.ogg
+|sound5=Sniffer searching5.ogg
+|sound6=Sniffer searching6.ogg
+|source=neutral
+|description=While a sniffer is moving toward a potential seed's position
+|id=mob.sniffer.searching
+|volume=''varies'' <ref group=sound>Can be 1.0 or 0.8 for each sound</ref>
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Sniffer dig1.ogg
+|sound2=Sniffer dig2.ogg
+|source=neutral
+|description=When a sniffer sploots and digs
+|id=mob.sniffer.digging
+|volume=1.0
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Sniffer digging stop1.ogg
+|sound2=Sniffer digging stop2.ogg
+|source=neutral
+|description=When a sniffer stops digging
+|id=mob.sniffer.stand_up
+|volume=1.0
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Pop.ogg
+|source=neutral
+|description=When a sniffer digs up a seed
+|id=mob.sniffer.drop_seed
+|volume=0.8
+|pitch=''varies'' <ref group=sound>Can be 0.48-0.72 (Baby: 0.78-1.02), 0.56-0.84 (Baby: 0.91-1.19), or 0.64-0.96 (Baby: 1.04-1.36)</ref>}}
+{{Sound table
+|sound=Chicken plop.ogg
+|source=neutral
+|description=When a sniffer lays an egg
+|id=mob.sniffer.plop
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Sniffer step1.ogg
+|sound2=Sniffer step2.ogg
+|sound3=Sniffer step3.ogg
+|sound4=Sniffer step4.ogg
+|sound5=Sniffer step5.ogg
+|sound6=Sniffer step6.ogg
+|source=neutral
+|description=While a sniffer is walking
+|id=mob.sniffer.step
+|volume=1.0
+|pitch=0.8-1.2 (Baby: 1.3-1.7)
+|foot=1}}
+
+== Data values ==
+=== ID ===
+
+{{edition|java}}:
+{{ID table
+|edition=java
+|generatetranslationkeys=y
+|displayname=Sniffer
+|spritetype=entity
+|nameid=sniffer
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|generatetranslationkeys=y
+|displayname=Sniffer
+|spritetype=entity
+|nameid=sniffer
+|id=139
+|foot=1}}
+
+=== Entity data ===
+Sniffers have entity data associated with them that contain various properties.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+
+: See [[Bedrock Edition level format/Entity format]].
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load advancements|It Spreads;The Parrots and the Bats;Two by Two;Smells Interesting;Little Sniffs;Planting the Past}}
+</table-progress-tracking>
+
+== History ==
+{{history||October 4, 2022|link=https://www.youtube.com/watch?v=MPJ2dzVcOgg| [[File:SniffletPixel.png]]Sniffers are announced as part of the [[mob vote]] for [[Minecraft Live 2022]].}}
+{{History||October 16, 2022|link=https://www.youtube.com/watch?v=r44mmc6xN-I|The sniffer wins the [[mob vote]] at [[Minecraft Live 2022]].}} 
+{{History||January 20, 2023|link=https://twitter.com/wChiwi/status/1616510871588438016|A sniffer is first shown in-game by Chiwi on Twitter.}}
+{{History||February 13, 2023|[[File:Sniffer.png|32px]] Tweaked the texture of sniffers.|link=https://twitter.com/Minecraft/status/1625163114877419523}}
+{{History|java}}
+{{History||1.20<br>(Experimental)|link=1.19.4|snap=23w07a|[[File:Sniffer.png|32px]] [[File:Sniffer.png|24px]] Added sniffers behind the [[Java Edition 1.20|Update 1.20 experimental datapack]].|Breeding two sniffers spawns a snifflet immediately.}}
+{{History||1.20|snap=23w12a|Sniffers are now available without using the "Update 1.20" experimental datapack.|Breeding two sniffers now causes a [[sniffer egg]] to drop as an item.|Snifflets are now spawned when a sniffer egg hatches.|Sniffers can now dig up [[pitcher pod]]s.}}
+{{History|||snap=23w13a|[[File:Snifflet JE2 BE1.png|28px]] Changed the size of the snifflets to match ''Bedrock Edition''.|Sniffers no longer drop [[moss block]]s.}}
+{{History|||snap=23w14a|Sniffers can now dig in [[mud]].|Sniffers can now be tempted with torchflower seeds.|Sniffers can emit a sound when laying a sniffer egg.}}
+{{History|||snap=23w16a|Sniffers can now enter [[minecart]]s.}}
+{{History|||snap=23w17a|The player now gets the [[advancement]] "Little sniffs" when they feed a [[snifflet]] using torchflower seeds.}}
+
+{{History|bedrock}}
+{{History||Sniffer<br>(Experimental)|link=Bedrock Edition 1.19.70|snap=beta 1.19.70.23|[[File:Sniffer.png|32px]] [[File:Snifflet JE2 BE1.png|28px]] Added sniffers behind their own experimental toggle.|Breeding two sniffers spawns a snifflet immediately.}}
+{{History||1.20.0|snap=beta 1.20.0.20|Sniffers are now available without using the "Sniffer" experimental toggle.|Breeding two sniffers now causes a [[sniffer egg]] to drop as an item.|Snifflets are now spawned when a sniffer egg hatches.|Sniffers can now dig up [[pitcher pod]]s.}}
+{{History|||snap=beta 1.20.0.22|Sniffers can now be tempted using [[torchflower seeds]].|Sniffers now create particles when digging.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+*The sniffer was originally a doodle Nekofresa made in their kitchen.<ref>{{Tweet|Nekofresa|1625173791318982667|Soon™ you will finally be able to meet the sniffer! Less than a year ago, this chonky baby was just a doodle made in my kitchen, they are growing so fast 🥺💖✨|February 13, 2023}}</ref>
+**The sniffer was Nekofresa's first mob ever designed for Minecraft.<ref>{{Tweet|Nekofresa|1625399598670815232|We all brought it to the game! I only did the concept arts, but then the entire team brought it to life 💖 especially the anims|February 14, 2023}}</ref>
+* The plants that sniffers find are based off ''[https://en.wikipedia.org/wiki/Kniphofia kniphofia]'' genus of perennial flowering plants, which can be similarly called "torch lilies" as a common name for torchflowers and pitcher pods are loosely based off existing pitcher plants but with an orchid or ornamental vibe.<ref>{{ytl|1pxa47yWydo|Ask Mojang|Minecraft|April 27, 2023}}</ref>
+* The sniffer's walking animation was inspired by the leg movement that centipedes do.<ref>{{Ytl|GYO8KejSodg|Minecraft 1.20: Sniffer Secrets & Cherry Groves|Minecraft|May 14, 2023|t=81}}</ref>
+* During the prototype phase for the sniffer's digging up of items the developers used beds as a placeholder.<ref>{{Ytl|GYO8KejSodg|Minecraft 1.20: Sniffer Secrets & Cherry Groves|Minecraft|May 14, 2023|t=105}}</ref>
+* Due to the size of the sniffer it was a big challenge for the developers to perfect its pathfinding especially on 1 block edges.
+* A new team made up of new developers were tasked with developing the sniffer, and most of them had never made a mob before.<ref>{{Ytl|GYO8KejSodg|Minecraft 1.20: Sniffer Secrets & Cherry Groves|Minecraft|May 14, 2023|t=155}}</ref>
+* The sniffer's digging animation was inspired by the way {{w|corgi}}s spread their legs while lying down.<ref>{{Ytl|GYO8KejSodg|Minecraft 1.20: Sniffer Secrets & Cherry Groves|Minecraft|May 14, 2023|t=164}}</ref>
+* To this day, the developers still don't know what the sniffer's front yellow part is. Whether it's a beak, a nose, or eyes, or whether it's used for breathing or finding seeds is unknown.<ref>{{Ytl|GYO8KejSodg|Minecraft 1.20: Sniffer Secrets & Cherry Groves|Minecraft|May 14, 2023|t=69}}</ref>
+*  A baby sniffer is called a '''snifflet''' in an article on Minecraft.net<ref>{{Mcnet|sniffer-coming-minecraft-120|Once you’ve unearthed your egg, it’s time to help it hatch! I implore you to pay close attention to this part of the process, because you have not lived until you have seen a '''snifflet''' burst out of its shell.}}</ref> and in the achievement "Little Sniffs".
+* Original ideas for what a baby sniffer would be called were Sniffling, Snort and Snifflet.<ref>{{Ytl|LQGF2EbuhNU|ASK MOJANG - How the Sniffer got it's name?|Minecraft|August 21, 2023|t=18}}</ref>
+** Mojang developer [[Cory Scheviak]] personally calls sniffers "snuffleupaguses".
+*The reason why sniffers don’t spawn naturally and are at first only hatched from their preserved eggs is due to the sniffer being extinct prior to the [[Player|player’s]] events in Minecraft.
+
+== Gallery ==
+
+===Animations ===
+<gallery>
+Sniffer walk.gif|A sniffer walking.
+Sniffer sniffsniff.gif|A sniffer sniffing.
+Sniffer longsniff.gif|A sniffer sniffing for a long time.
+Sniffer search.gif|A sniffer searching.
+Sniffer dig.gif|A sniffer digging.
+Sniffer standup.gif|A sniffer standing up.
+Sniffer feeling happy.gif|A sniffer feeling happy.
+</gallery>
+
+=== Screenshots===
+<gallery>
+Digging sniffer.png|A digging sniffer.
+Sniffer Party.png|Dozens of player-spawned sniffers.
+Sniffer Dies.png|A sniffer dies.
+Bedrock 1.20.0.23 PatchNotes.png|A sniffer in a farm of the plants it gives.
+Player, Warden, and Sniffer.png|A sniffer compared to a warden and a player.
+Sniffer and Frog.jpg|A sniffer and a frog.
+</gallery>
+
+===[[Trails & Tales Event]] ===
+<gallery>
+File:Sniffer Hat (Trails and Tales Summer Event) Render.png|The Sniffer Hat, an item featured in the [[Trails & Tales Event]].
+File:Sniffer Balloon (Trails and Tales Summer Event) Render.png|Sniffer [[Balloon]], another item featured in the event.
+File:Sniffer Snout Popsicle (Trails and Tales Summer Event) Render.png|The Sniffer Snout Popsicle, an item featured in the Trails & Tales Server.
+File:Prehistoric Wide (Trails and Tales Summer Event) Render.png|An NPC dressed as a Sniffer.
+File:Prehistoric Slim A (Trails and Tales Summer Event) Render.png|Ditto.
+File:Prehistoric Slim B (Trails and Tales Summer Event) Render.png|Ditto.
+File:Sniffer Carousel (Trails and Tales Summer Event) Render.png|Sniffer Carousel
+File:Sniffer Hedge (Trails and Tales Summer Event) Render.png|Sniffer Hedge.
+File:Sniffer (Trails & Tales Event).png|Secret Sniffer.
+</gallery>
+
+=== Cosmetics ===
+<gallery>
+File:Sniffer Beak.png|[[Character Creator|Sniffer Beak]]
+File:Sniffer Cap.png|[[Character Creator|Sniffer Cap]] by ''DigiPort''
+File:Sniffer Ears.png|[[Character Creator|Sniffer Ears]]
+File:Sniffer Floaties.png|[[Character Creator|Sniffer Floaty]] by ''Diveblocks''
+File:Sniffer Hat Team Vaeron.png|[[Character Creator|Sniffer Hat]] by ''Team Vaeron''
+File:Sniffer Head FTB.png|[[Character Creator|Sniffer Head]] by ''FTB''
+File:Sniffer Head Diamond.png|Secondary Sniffer Head by ''Diamond Studios''
+File:Sniffer Head Tristian Productions.png|Tertiary Sniffer Head by ''Tristan Productions''
+File:Sniffer Hoodie.png|[[Character Creator|Sniffer Hoodie]]
+File:Sniffer Hoodie Team Vaeron.png|Secondary Sniffer Hoodie by ''Team Vaeron''
+File:Sniffer Hoodie Kuboc.png|Tertiary Sniffer Hoodie by ''Kuboc Studios''
+File:Sniffer Hoodie Sapix.png|Additional Sniffer Hoodie by ''Sapix''
+File:Sniffer Mask Team Vaeron.png|[[Character Creator|Sniffer Mask]] by ''Team Vaeron''
+File:Sniffer Mask Kuboc Studios.png|Secondary Sniffer Mask by ''Kuboc Studios''
+File:Sniffer Mask DigiPort.png|Tertiary Sniffer Mask by ’'DigiPort’'
+File:Sniffer Mask Jolicraft.png|Additional Sniffer Mask by ''Jolicraft''
+File:Sniffer Onesie.png|[[Character Creator|Sniffer Onesie]]
+File:Sniffer Onesie DigiPort.png|Secondary Sniffer Onesie by ''DigiPort''
+File:Sniffer Hoodie Diveblocks-5496-4177-853E-81E2F2173415.png|Tertiary Sniffer Onesie by ''Diveblocks''
+File:Sniffer Sniffin.png|[[Emotes|Sniffer Sniffin’]]
+</gallery>
+
+===Development Images===
+<gallery>
+JE 1.20 Dev Sniffer 1.jpg|The earlier texture file and model of sniffers.
+JE 1.20 Dev Sniffer 2.jpg|An early sniffer splooting.
+JE 1.20 Dev Sniffer 3.jpg|An early sniffer in sunset.
+Sniffer1.png|The final texture file and model of a sniffer inside of a horizontally flipped image.
+1.20 Dev Sniffer lays down.jpg|A sniffer lays down within a desert inside of a horizontally flipped image.
+1.20 Dev Sniffer lays.png|A sniffer sploots.
+1.20 Dev Sniffer in swamp.png|A sniffer in a swamp.
+1.20 Dev Sniffer in snow.png|A sniffer in a snow biome.
+1.20 Dev Sniffer in village.png|A sniffer in a village.
+Giant Sniffer2.png|Giant sniffer.
+Giant Sniffer.png|Giant sniffer rearing up.
+Sniffer Digging Up a Bed.png|Sniffer sniffing up a bed.
+Sniffer Digging Up a Bed2.png|Sniffer sniffing up a bed. (2) 
+</gallery>
+
+===Concept Art===
+<gallery>
+Sniffer Concept Art.png|Sniffer concept art with rascal and tuff golem.
+Sniffer Concept Art2.png|Colorized sniffer concept art.
+Sniffer Beak Sketch.png|Sniffer's beak sketch.
+Sniffer Centepide Walking.png|A sketch of a centipede walking which was the sniffer's walking animation inspiration. 
+Sniffer Walking Animation Sketch.png|Sniffer's walking animation sketch.
+Sniffer Concept 1.jpg|Watercolor art for the sniffer
+Sniffer Concept 2.jpg|Watercolor art for the sniffer
+Sniffer Concept 3.jpg|Watercolor art for the sniffer
+Sniffer Concept 4.jpeg|Watercolor art for the sniffer
+Sniffer Concept 5.jpeg|Watercolor art for the sniffer
+</gallery>
+
+===Official artwork===
+<gallery>
+Sniffer walk pixel art.gif|Pixel artwork of a sniffer walking.
+Snifflet plop pixel art.gif|Pixel artwork of a snifflet splooting down on the ground.
+Snifflet sniff pixel art.gif|Pixel artwork of a snifflet sniffing.
+File:SnifferPixel.png|Pixel artwork of an adult sniffer.
+Sniffer Valentines Art.png|Sniffer valentines artwork.
+Sniffers by Cherry Grove Artwork.png|A sniffer and a snifflet near a [[cherry grove]].
+Sunny Placing Sniffer Egg in Sand.png|Sunny placing the sniffer egg in sand.
+Sunny Celebrating Sniffer Hatching out from Egg.png|Sunny celebrating the snifflet hatching from the sniffer egg.
+File:Snifflet Wallpaper.jpg|A wallpaper rendition of the pixel art featuring Sunny and the snifflet.
+Camel Crew and Sniffer Squad Xbox Console Giveaway.png|Sniffer Xbox giveaway.<ref>{{Tweet|Minecraft|1662141670907953177|To celebrate the Trails & Tales Update, we're giving away a custom art piece based on the newest mobs! But which one to give away: Are you part of the #SnifferSquad or #CamelCrew? 🤔|May 27, 2023}}</ref>
+File:Cutout Prehistoric (Trails & Tales Event).png|The Lost World cutout, featured in the Trails & Tales Event.
+</gallery>
+
+===Textures===
+<gallery>
+Sniffer (texture) JE1 BE1.png|Texture of sniffer
+</gallery>
+
+===Merchandise===
+<gallery>
+File:Sniffer Xbox.jpg|The finalized Sniffer Xbox.<ref> https://twitter.com/Minecraft/status/1665768603575271425?s=20</ref>
+</gallery>
+
+== References ==
+{{reflist}}
+
+== External links ==
+*[https://www.minecraft.net/en-us/article/sniffer Mob Menagerie: Sniffer] – Minecraft.net on July 21, 2023
+
+{{Entities}}
+
+[[Category:Passive mobs]]
+[[Category:Animal mobs]]
+
+[[de:Schnüffler]]
+[[fr:Renifleur]]
+[[es:Sniffer]]
+[[ja:スニッファー]]
+[[pl:Niuchacz]]
+[[pt:Farejador]]
+[[ru:Нюхач]]
+[[uk:Нюхач]]
+[[zh:嗅探兽]]

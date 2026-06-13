@@ -1,0 +1,414 @@
+{{for|the related command|Commands/ride}}
+[[File:Noor Minecart.png|150px|right]][[File:Sunny Horseback.png|150px|right]]'''Riding''' (aka. '''mounting''') is the behavior that allows an entity to mount another entity.
+
+==Behaviors==
+
+Riding connects one entity to another. An entity riding another entity is called a '''passenger''' (aka. '''rider'''), and an entity being ridden is called a '''mount''' (aka. '''vehicle'''). An entity can be both a passenger and a mount at a time if it is riding another entity while being ridden by other entities.
+
+An entity can only ride at most one entity at a time. Most entities support only one passenger, but [[boat]], [[bamboo raft]] and the [[camel]] can support two passengers at a time. Additionally, the Happy Ghast can be ridden by four entities. {{IN|java}}, by modifying entity NBT through commands, an entity may be ridden by any number of entities. {{IN|bedrock}}, a baby [[hoglin]] can support 3 baby piglins, which looks like they are stacked one by one. However, {{in|java}}, baby piglins ride each other and are indeed stacked one by one, instead of all riding on the hoglin. {{IN|bedrock}}, a player can support 2 [[parrot]]s. However, {{in|java}}, parrots become not entities and are stored into the player's NBT data when sitting on the shoulders of a player.
+
+The collision and movement of a mount is not affected by its passengers, so the accessible position for the mount may put the passengers into danger, for example, making the passenger's head inside of a block and causing [[suffocation]].<ref>{{bug|MC-477}}</ref> However, {{in|java}}, a passenger riding on a passenger of an entity collides with the entity, resulting bugs like {{bug|MC-71998}}.
+
+When a [[player]] leaving the world, all the entities that is ridden by or riding it also disappear from the world, and will respawn with the player when the player rejoins the world, unless the affected entity has another player passenger.
+
+{{IN|java}}, with {{cmd|ride}} command, all entities are rideable by any entity, except [[marker]] and [[player]], which never can be ridden. {{IN|bedrock}}, only some riding combinations are valid for {{cmd|ride}} command, see [[#Valid riding combinations in vanilla]]
+
+{{IN|java}}, when a leashed mob starts riding, it drops the [[lead]]. {{IN|bedrock}}, a leashed mob cannot start riding unless using {{cmd|ride}} command, and when starting riding, it doesn't drop the [[lead]].
+
+A passenger cannot set its mount as its target for attack, a mount cannot set its passenger as the target for attack either, unless using {{cmd|damage}} command. {{IN|bedrock}}, they cannot attack each other at all even when they target each other through {{cmd|damage}} command.
+
+=== Passengers ===
+Passengers have the following behaviors:
+
+*The position of a passenger is fixed on its mount, that is, the position and movement of a passenger cannot be affected by any other gameplay features.
+** Passengers have no collision with entities and blocks.
+** Passengers cannot be moved by [[damage#knockback|knockback]], [[explosion]], [[fishing rod]], and [[trident]] with [[riptide]] enchantment.
+** {{IN|bedrock}}, passengers cannot be teleported by [[chorus fruit]] and [[End Gateway (block)|end gateway]]. 
+** {{IN|java}}, when a passenger goes into an [[End Gateway (block)|end gateway]], it is teleported with its mount. 
+** When a [[shulker]] is a passenger, it cannot teleport on its own. {{IN|java}}, an [[enderman]] cannot teleport on its own either.
+** {{IN|java}}, passengers cannot be teleported by {{cmd|tp}}. {{IN|bedrock}}, passengers dismount when teleported by {{cmd|tp}}.
+*Passengers cannot be transported by [[Nether Portal (block)|nether portals]] or [[End Portal (block)|end portals]].<ref name="MC-67">{{bug|MC-67}}</ref>
+*Passengers do not calculate the falling height. When starting riding, the falling height is reset.
+*When a player is a passenger, it cannot interact with its mount.
+*When a player is a passenger, it cannot interact with other passengers on the same mount as its.
+*When a player is a passenger and the mount is a mob or an armor stand, the [[health]] bar of the mount is displayed on the player's [[HUD]] in the form of {{healthbar|2|mob=1}}. {{IN|Java}}, the hunger bar is replaced by it in [[Survival]] or [[Adventure]] mode.
+
+=== Mounts ===
+Mounts have the following behaviors:
+
+*Mounts cannot be transported by nether portals or end portals.<ref name="MC-67"/>
+** {{IN|bedrock}}, mounts cannot be teleported by [[End Gateway (block)|end gateway]].
+*When a mount receives [[damage|falling damage]], all passengers also receive falling damage.
+**{{IN|java}}, if a mount is immune to falling damage, the damage is not passed to passengers.
+**{{IN|bedrock}}, even if a mount is immune to falling damage, the damage is still passed to passengers.
+
+=== Controlling ===
+
+==== By players====
+The movement of the following mounts are controlled by the '''player''' when being ridden by it:
+*{{EntitySprite|Happy Ghast}} [[Harness|harnessed]] [[happy ghast]]s
+*{{EntitySprite|Horse}} Saddled [[horse]]s
+*{{EntitySprite|Donkey}} Saddled [[donkey]]s
+*{{EntitySprite|Mule}} Saddled [[mule]]s
+*{{EntitySprite|Camel}} Saddled [[camel]]s
+*{{EntitySprite|Camel Husk}} Saddled [[Camel Husk|camel husk]]s
+*{{EntitySprite|Nautilus}} Saddled [[nautilus]]es
+*{{EntitySprite|Pig}} [[Pig]]s can be controlled by players holding a [[carrot on a stick]].
+*{{EntitySprite|Strider}} [[Strider]]s can be controlled by players holding a [[warped fungus on a stick]].
+*{{EntitySprite|Skeleton Horse}} Saddled [[skeleton horse]]s {{only|java}} / Adult [[skeleton horse]]s {{only|bedrock}}
+*{{EntitySprite|Zombie Horse}} Saddled [[zombie horse]]s
+*{{EntitySprite|Zombie Nautilus}} Saddled [[Zombie Nautilus|zautilus]]es
+*{{EntityLink|Boat}}
+*{{EntityLink|Boat with chest}}
+*{{EntitySprite|Ravager}} {{IN|java}}, [[ravager]]s are controlled by players when being ridden, but never move
+
+{{IN|java}}, though {{EntityLink|minecart|text=minecarts}} on rails receive the input from its player passenger, they are '''not''' regarded as being controlled in game. Though {{EntityLink|ravager|text=ravagers}} do not receive the input from its player passenger, they '''are''' regarded as being controlled in game.
+
+{{IN|java}}, mobs (except untamed horse, untamed mule, untamed donkey, untamed skeleton horse, untamed zombie horse, and unsaddled camel) being ridden by a player never move unless being controlled. {{IN|bedrock}}, mobs can wander around freely when ridden by a player not controlling it.
+
+{{IN|java}}, camels, boats, boats with chest, and ravagers are regarded as being controlled by a '''[[armor stand]]''' when being ridden by it, but never move.
+
+The following mounts have the ability of "jumping charging". When players ride them, the experience bar on [[HUD]] will be replaced by jumping charging bar:
+*{{EntitySprite|Horse}} Saddled [[horse]]s
+*{{EntitySprite|Donkey}} Saddled [[donkey]]s
+*{{EntitySprite|Mule}} Saddled [[mule]]s
+*{{EntitySprite|Skeleton Horse}} Saddled [[skeleton horse]]s {{only|java}} / Adult [[skeleton horse]]s {{only|bedrock}}
+*{{EntitySprite|Zombie Horse}} Saddled [[zombie horse]]s {{only|java}}
+
+When a player ride the following entities, pressing {{control|inventory}} opens the interaction interface of these creatures instead of the normal item bar interface:
+*{{EntitySprite|Horse}} Tamed [[horse]]
+*{{EntitySprite|Donkey}} Tamed [[donkey]]
+*{{EntitySprite|Mule}} Tamed [[mule]]
+*{{EntitySprite|Llama}} Tamed [[llama]]
+*{{EntitySprite|Trader llama}} Tamed [[trader llama]]
+*{{EntitySprite|Camel}} [[Camel]]
+*{{EntitySprite|Skeleton Horse}} Tamed [[Skeleton Horse]] {{only|je}}
+*{{EntitySprite|zombie Horse}} Tamed [[Zombie Horse]] {{only|je}}
+*{{EntityLink|Boat with chest}}
+
+==== By mobs ====
+
+{{IN|java}}, the movement of a mount is controlled by its passenger, if both the mount and the passenger are '''mobs (not players)'''. However, there are some exceptions:
+*{{EntitySprite|Pig}} [[Pig]]s cannot be controlled
+*{{EntitySprite|Strider}} [[Strider]]s cannot be controlled
+*{{EntitySprite|Camel}} Unsaddled [[camel]]s cannot be controlled
+*{{EntitySprite|Llama}} [[Llama]]s cannot be controlled
+*{{EntitySprite|Trader Llama}} [[Trader llama]]s cannot be controlled
+
+{{IN|bedrock}}, for most of rideable mobs, when its mob passenger tries to chase and attack player or mobs, the passenger takes control, otherwise the mount controls movement. The following mobs are exceptions:
+* {{EntityLink|Hoglin}}: cannot be controlled by mob passengers.
+* {{EntityLink|Strider}}: cannot be controlled by mob passengers.
+{{IN|bedrock}}, some AI goals are disabled if the entities is ridden by or riding an entity. For example {{in|bedrock}}, when a zombie rides a pig, the pig controls the movement when they are idle; but the pig cannot follow players holding a carrot even when the zombie is idle; the pig controls the movement when it is breeding and the zombie is idle; the zombie controls the movement when it targets a player even when the pig is breeding.  
+
+When being controlled by its passenger, the mount uses its own walk speed. However, {{in|java}}, speed modifier of its passenger's AI is applied. For example, spiders ridden by a chicken, a sheep, or a llama have different speed when they follows a player holding seeds, wheat, or hay block, respectively. Because the AIs of chicken, sheep, and llama have different speed modifiers. While {{in|bedrock}}, the speed modifier (speed multiplier) for being controlled is defined for each entity type (by <code>[https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/entitygoals/minecraftbehavior_mount_pathing minecraft:behavior.mount_pathing]</code> component).
+
+==== Behavior ====
+For an entity that is riding by multiple passengers, only the front passenger has control over the mount. If a player and other entities ride it at a time, the player becomes the front passenger.
+
+{{IN|java}}, the passenger controlling its mount can be targeted with {{cmd|execute on controller}}.
+
+{{IN|java}}, mobs cannot float on water when they are controlled. They are submerged in the water instead. {{IN|bedrock}}, they can float on water when being controlled, however, because they float up and down more fiercely than in {{el|java}}, their heads are often submerged so that the passenger is evicted， while tall mobs can float on water without their heads being submerged an the passenger is not evicted.
+
+===Dismounting===
+Mobs usually cannot leave their mounts on their own AI (there're some exceptions, e.g. {{in|java}}, baby piglins stop riding baby hoglins when being hurt), but there are many ways to make passengers leave their mounts:
+*When the passenger is a player, the player uses {{control|dismount}} control.
+*When the passenger is a player, the player starts sleeping by using {{control|use}} on a bed.
+*When the passenger is a player, the player starts riding another mount.
+*When the mount is dead or destroyed.
+*When the passenger starts being leashed with a [[lead]].
+*When riding chicken, pig, ravager, spider, strider, horses, donkeys, mules, zombie horses, llamas, trader llamas and camels under [[water]], being driven off by them. {{IN|java}}, this is controlled by {{cd|dismounts_underwater}} entity [[tag]].<ref>{{bug|MC-72440|||WAI}}</ref>
+*Being driven off by the mount (e.g. untamed horses, donkeys and llamas, underwater boats, minecarts on a powered [[activator rail]], etc.).
+*{{IN|java}}, When the passenger finishes eating a [[chorus fruit]].
+*{{IN|bedrock}}, when the passenger is pulled by a [[fishing rod]].
+*{{IN|bedrock}}, when the passenger is teleported by {{cmd|tp}}.
+*{{IN|bedrock}}, when the passenger is a piglin, and it converts to a zombified piglin.
+*Dismounting by {{cmd|ride}} command.
+
+== Riding in vanilla game ==
+=== Riding by player ===
+Players can ride the following entities by pressing {{control|use}} on the entity:
+* {{EntitySprite|Pig}} Saddled [[pig]]
+* {{EntitySprite|Strider}} Saddled [[strider]]
+* {{EntitySprite|Horse}} Adult [[horse]]
+* {{EntitySprite|Donkey}} Adult [[donkey]]
+* {{EntitySprite|Mule}} Adult [[mule]]
+* {{EntitySprite|Skeleton Horse}} Tamed [[skeleton horse]] {{only|java}} / Adult [[skeleton horse]] {{only|bedrock}}
+* {{EntitySprite|Zombie Horse}} Tamed [[zombie horse]] {{only|java}}
+* {{EntitySprite|Llama}} Adult [[llama]]
+* {{EntitySprite|Trader Llama}} Adult [[trader llama]]
+* {{EntitySprite|Camel}} Adult [[camel]]
+* {{EntityLink|Minecart}}
+* {{EntityLink|Boat}}
+* {{EntityLink|Boat with Chest}}
+
+=== Minecart ===
+A mob can ride a [[minecart]] when pushing by a moving minecart on rails {{in|java}} or when colliding with a minecart {{in|bedrock}}. {{IN|bedrock}}, armor stand can also be picked up.
+
+[[Ender dragon]]s, [[warden]]s, and [[wither]]s cannot be picked up by a minecart. {{IN|java}}, [[sniffer]]s and [[iron golem]]s cannot be picked up either.
+
+{{IN|bedrock}}, unlike [[warden]]s, ender dragons can ride a minecart via {{cmd|ride}} command; withers cannot ride a minecart via {{cmd|ride}} though a success message is returned.
+
+=== Boat ===
+Mobs can be picked up into a [[boat]] or a [[boat with chest]] when they collide with the side of the boat or boat with chest. {{IN|java}}, a boat being ridden by a player cannot pick up a mob. {{IN|bedrock}}, mobs can be picked up by a boat being ridden by a player.
+
+Mobs wider than the width of a boat cannot be picked up. [[Warden]]s and [[wither]]s cannot be picked up. {{IN|java}}, baby [[sniffer]]s cannot be picked up either.
+
+{{IN|bedrock}}, mobs wider than the width of a boat can ride a boat via {{cmd|ride}} command. Unlike wardens, ender dragons can ride a boat via {{cmd|ride}} command; withers cannot ride a boat via {{cmd|ride}} though a success message is returned.
+
+=== Jockey ===
+{{main|Jockey}}
+
+==== Spider Jockey ====
+{{main|Spider Jockey}}
+Spider jockeys are the rare appearance of a spider or cave spider‌{{only|be|short=1}} being ridden by a [[skeleton]], [[stray]], or [[wither skeleton]].
+
+==== Chicken Jockey ====
+{{exclusive|java|section=1}}
+{{main|Chicken Jockey}}
+Chicken jockeys are the rare appearance of a baby [[zombie]], baby [[zombified piglin]], baby [[zombie villager]], baby [[husk]], or baby [[drowned]] riding a [[chicken]].
+
+==== Jockey of baby zombie ====
+{{exclusive|bedrock|section=1}}
+{{IN|bedrock}}, 10% naturally spawned baby zombies, baby husks, and baby zombie villagers try to find a mount when it tries attacking a [[villager]], [[player]], or [[iron golem]], which can ride:
+{{columns-list|colwidth=20em|
+* {{EntitySprite|Chicken}} Adult [[chicken]]s
+* {{EntitySprite|Ocelot}} Untamed [[ocelot]]s
+* {{EntitySprite|Cat}} Untamed [[cat]]s
+* {{EntitySprite|Wolf}} Untamed [[Wolf|wolves]]
+* {{EntitySprite|Zombie}} Adult [[zombie]]s
+* {{EntitySprite|Husk}} Adult [[husk]]s
+* {{EntitySprite|zombified villager}} Adult [[zombified villager]]s
+* {{EntitySprite|zombified piglin}} Adult [[zombified piglin]]s
+* {{EntityLink|Cow|text=Cows}}
+* {{EntitySprite|Pig}} Adult unsaddled [[pig]]s
+* {{EntityLink|Sheep}}
+* {{EntitySprite|Horse}} Adult untamed [[horse]]s
+* {{EntitySprite|Donkey}} Adult untamed [[donkey]]s
+* {{EntitySprite|Mule}} Adult untamed [[mule]]s
+* {{EntitySprite|Skeleton Horse}} Adult [[skeleton horse]]s
+* {{EntitySprite|Zombie Horse}} Adult [[zombie horse]]s
+* {{EntityLink|Mooshroom|text=Mooshrooms}}
+* {{EntitySprite|Spider}} [[Spider]]s that were not spawned as a jockey mount
+* {{EntitySprite|Cave spider}} [[Cave spider]]s that were not spawned as a jockey mount
+* {{EntityLink|Panda|text=Pandas}}
+}}
+
+==== Skeleton Horseman ====
+{{main|Skeleton Horseman}}
+Skeleton horseman is a jockey consisting of a [[skeleton]] (or {{EntityLink|stray}} and {{EntityLink|wither skeleton}}) riding a [[skeleton horse]]. Skeleton horsemen spawn only from a "skeleton trap horse".
+
+=== Baby piglin riding baby hoglin ===
+{{main|Piglin|Hoglin}}
+Baby piglins play with baby hoglins, running around and riding upon them. Up to 3 baby piglins may stack on top of each other while riding a baby hoglin. {{IN|bedrock}}, a baby [[hoglin]] can support 3 baby piglins, which looks like they are stacked one by one. However, {{in|java}}, baby piglins ride each other and are indeed stacked one by one, instead of all riding on the hoglin.
+
+=== Strider or zombified piglin riding strider ===
+{{main|Strider|Zombified Piglin}}
+For every strider that spawns, there is a 1 in 10 chance of an additional baby strider to spawn riding on top of the previous strider. Zombified piglins have a 1 in 30 chance of spawning on top of a strider.
+
+=== Illager riding ravager ===
+{{main|Ravager}}
+A [[ravager]] generated in [[raids]] may generate with a [[pillager]], [[evoker]] or [[vindicator]] riding on it.
+
+=== Parrot riding player ===
+{{main|Parrot}}
+A tamed parrot on the ground can be made to perch on its player's shoulder by moving through the parrot. {{IN|bedrock}}, technically the parrot is riding the player. {{IN|java}}, technically the parrot on the shoulder is not an entity.
+
+== Valid riding combinations in vanilla ==
+{{exclusive|bedrock|section=1}}
+{{IN|bedrock}}, whether an entity is rideable is mainly defined with minecraft:rideable component and entity [[family|familliers]] in vanilla behavior packs. Besides, some entities have hardcoded riding behaviors, for, example, wardens being not able to riding a boat, boat doing not pick up adult horses although they can ride boats via {{cmd|ride}} command.
+
+In the following table, <code>none</code> means that the entity is rideable by these families no matter what component groups it has. Multiple components separated by | symbols means that the entity must have at least one of them to be rideable by these families.
+{| class="sortable mw-collapsible mw-collapsed fandom-table"
+!rideable entity
+!valid [[Family|families]] for specific component_groups
+|-
+|Boat
+|<code><nowiki>minecraft:can_ride_default | minecraft:can_ride_bamboo</nowiki></code>: all
+|-
+|Boat with Chest
+|<code><nowiki>minecraft:can_ride_default | minecraft:can_ride_bamboo</nowiki></code>: all
+|-
+|Camel
+|<code>minecraft:camel_adult</code>: player
+|-
+|Cat
+|<code>minecraft:cat_wild</code>: zombie
+|-
+|Cave Spider
+|<code><nowiki>minecraft:spider_jockey | minecraft:spider_stray_jockey | minecraft:spider_wither_jockey</nowiki></code>: skeleton; Otherwise: zombie
+|-
+|Chicken
+|<code>minecraft:chicken_adult</code>: zombie
+|-
+|Cow
+|<code>none</code>: zombie
+|-
+|Donkey
+|<code>minecraft:donkey_wild</code>: player, zombie; <code>minecraft:donkey_tamed</code>: player
+|-
+|Hoglin
+|<code>minecraft:hoglin_baby</code>: piglin
+|-
+|Horse
+|<code>minecraft:horse_wild</code>: player, zombie; <code>minecraft:horse_tamed</code>: player
+|-
+|Husk
+|<code>minecraft:zombie_husk_adult</code>: zombie
+|-
+|Llama
+|<code><nowiki>minecraft:llama_wild | minecraft:llama_tamed</nowiki></code>: player
+|-
+|Minecart
+|<code>none</code>: all
+|-
+|Mooshroom
+|<code>none</code>: zombie
+|-
+|Mule
+|<code>minecraft:mule_wild</code>: player, zombie; <code>minecraft:mule_tamed</code>: player
+|-
+|Ocelot
+|<code>minecraft:ocelot_wild</code>: zombie
+|-
+|Panda
+|<code>none</code>: zombie
+|-
+|Pig
+|<code>minecraft:pig_unsaddled</code>: zombie; <code>minecraft:pig_saddled</code>: player
+|-
+|Player
+|<code>none</code>: parrot_tame
+|-
+|Ravager
+|<code>none</code>: pillager, vindicator, evocation_illager
+|-
+|Sheep
+|<code><nowiki>minecraft:rideable_sheared | minecraft:rideable_wooly</nowiki></code>: zombie
+|-
+|Skeleton Horse
+|<code>minecraft:skeleton_horse_adult</code>: player, skeleton, zombie<!--baby is not rideable-->
+|-
+|Spider
+|<code><nowiki>minecraft:spider_jockey | minecraft:spider_stray_jockey | minecraft:spider_wither_jockey</nowiki></code>: skeleton; Otherwise: zombie
+|-
+|Strider
+|<code>minecraft:strider_saddled</code>: player; <code>minecraft:strider_piglin_jockey</code>: player, zombie_pigman; <code>minecraft:strider_parent_jockey</code>: strider
+|-
+|Trader Llama
+|<code><nowiki>minecraft:llama_wild | minecraft:llama_tamed</nowiki></code>: player
+|-
+|Wolf
+|<code><nowiki>minecraft:wolf_angry | minecraft:wolf_wild</nowiki></code>: zombie
+|-
+|Zombie
+|<code>minecraft:zombie_adult</code>: zombie
+|-
+|Zombie Horse
+|<code>minecraft:horse_adult</code>: zombie
+|-
+|Zombie Piglin
+|<code>minecraft:pig_zombie_adult</code>: zombie
+|-
+|Zombie Villager
+|<code>adult</code>: zombie
+|}
+
+==Posture==
+The following passengers have riding posture when riding:
+{{columns-list|colwidth=20em|
+* {{EntityLink|Player}}
+* {{EntityLink|Zombie}}
+* {{EntityLink|Zombie Villager}}
+* {{EntityLink|Husk}}
+* {{EntityLink|Drowned}}
+* {{EntityLink|Skeleton}}
+* {{EntityLink|Stray}}
+* {{EntityLink|Wither Skeleton}}
+* {{EntityLink|Piglin}}
+* {{EntityLink|Piglin Brute}}
+* {{EntityLink|Zombified Piglin}}
+* {{EntityLink|Pillager}}
+* {{EntityLink|Vindicator}}
+* {{EntityLink|Evoker}}
+* {{EntityLink|Enderman}}{{only|java|short=1}}
+* {{EntityLink|Illusioner}}{{only|java|short=1}}
+* {{EntityLink|Giant}}{{only|java|short=1}}
+}}
+
+[[Witch]]es, [[villager]]s, [[iron golem]]s, and [[wandering trader]]s do not have a riding posture although similar mobs do.<ref>{{bug|MC-161106}}</ref>
+
+=== Gallery ===
+
+====Player====
+<gallery>
+Sitting Alex.png|Alex
+Sitting Ari.png|Ari
+Sitting Efe (slim).png|Efe
+Sitting Kai.png|Kai
+Sitting Makena (slim).png|Makena
+Sitting Noor.png|Noor
+Sitting Steve (slim).png|Steve
+Sitting Sunny.png|Sunny
+Sitting Zuri (slim).png|Zuri
+</gallery>
+
+====Illagers====
+<gallery>
+Sitting Vindicator.png|Vindicator
+Sitting Pillager.png|Pillager
+Sitting Evoker.png|Evoker
+Sitting Illusioner.png|Illusioner
+</gallery>
+
+====Monsters====
+<gallery>
+Sitting Zombie.png|Zombie
+Sitting Husk.png|Husk
+Sitting Drowned.png|Drowned
+Sitting Skeleton.png|Skeleton
+Sitting Stray.png|Stray
+Sitting Wither Skeleton.png|Wither Skeleton
+Sitting Piglin.png|Piglin
+Sitting Piglin Brute.png|Piglin Brute
+Sitting Zombified Piglin.png|Zombified Piglin
+Sitting Enderman.png|Enderman
+</gallery>
+
+====Zombie Villagers====
+<gallery>
+Sitting Plains Zombie Villager Base.png|Zombie Villager
+Sitting Plains Zombie Librarian.png|Librarian
+Sitting Plains Zombie Mason.png|Mason
+Sitting Plains Zombie Nitwit.png|Nitwit
+Sitting Plains Zombie Shepherd.png|Shepherd
+Sitting Plains Zombie Toolsmith.png|Toolsmith
+Sitting Plains Zombie Weaponsmith.png|Weaponsmith
+Sitting Plains Zombie Armorer.png|Armorer
+Sitting Plains Zombie Butcher.png|Butcher
+Sitting Plains Zombie Cartographer.png|Cartographer
+Sitting Plains Zombie Cleric.png|Cleric
+Sitting Plains Zombie Farmer.png|Farmer
+Sitting Plains Zombie Fisherman.png|Fisherman
+Sitting Plains Zombie Fletcher.png|Fletcher
+Sitting Plains Zombie Leatherworker.png|Leatherworker
+</gallery>
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|when pigs fly;saddle up;feels like Home}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|This Boat;Feels Like Home}}
+</table-progress-tracking>
+
+== History ==
+{{Empty section}}
+
+== References ==
+{{reflist}}
+
+{{Gameplay}}
+
+[[zh:骑乘]]

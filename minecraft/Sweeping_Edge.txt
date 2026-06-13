@@ -1,0 +1,56 @@
+{{exclusive|java}}
+{{planned|be}}
+{{enchantment
+| maxlevel = III
+| primaryitems = {{ItemSprite|Sword|link=Sword}}
+| secondaryitems = {{ItemSprite|Axe|link=Axe}}{{upcoming|java Combat Tests}}
+| weight = 2}}
+
+'''Sweeping Edge''' is a [[sword]] [[enchantment]] that increases sweep attack damage.
+
+== Usage ==
+Sweeping Edge increases the damage dealt to mobs by each hit from a [[Sword#Sweeping|sweep attack]] to 50%/67%/75% of the sword's attack damage for levels I/II/III.
+
+== Mechanics ==
+If the attack recharge meter is 84.8% or above and the player is on the ground standing or moving slower than the [[sprinting]] speed in a straight line, the sword performs a sweeping attack indicated by a gale [[particle]] that reaches nearby enemies for {{Hp|1}} and knocks them back; the amount of knockback is 80% that of the basal knockback and does not benefit from the [[knockback]] enchantment. As result, the player can perform a sweep attack while they are sprinting diagonally but it is impossible to perform a sweep attack at the same time as a critical hit or while riding some [[entity]]. All enemies within a 1 by 0.25 by 1 block area of any part of the attacked mob, whose feet are at most 3 blocks away from the player's feet, are affected.
+
+== Damage ==
+The formula for sweep attack damage is: <code>1 + Attack_Damage × (Sweeping_Edge_Level / (Sweeping_Edge_Level + 1))</code>, rounded to the nearest integer. Here, the ''Attack_Damage'' is the sword's damage after applying [[Sharpness]], [[Smite]], and [[Bane of Arthropods]]. For example, an iron sword enchanted only with Sweeping Edge I deals <code>1 + 6 × (1 / (1 + 1)) = {{hp|4}}</code> damage to each mob hit with a sweep attack. A diamond sword enchanted with Sharpness V and Sweeping Edge III deals <code>1 + 10 × (3 / (3 + 1)) = {{hp|8.5}}</code> sweep damage. Any sword without Sweeping Edge deals <code>1 + Attack_Damage × (0 / (0 + 1)) = {{hp|1}}</code> sweep damage. Extra damage from Smite and Bane of Arthropods is applied against undead mobs and arthropod mobs, respectively.
+
+Higher levels than Sweeping Edge III (obtainable via the use of [[commands]] or third party editors) is processed following the formula above and the sweep damage caps beneath 100% of sword's attack damage.
+
+Enemies damaged through Sweeping Edge that are not directly hit by the sword are not affected by [[Fire Aspect]].<ref>{{bug|MC-93669||The sweeping attack doesn't ignite other mobs when using the fire aspect enchantment}}</ref> For example, if multiple enemies are damaged by sweeping edge, only the first enemy struck will be affected by Fire Aspect.
+
+== Data values ==
+
+=== ID ===
+{{ID table
+|generatetranslationkeys=java
+|displayname=Sweeping Edge
+|nameid=sweeping_edge
+|translationtype=enchantment
+|foot=1}}
+
+== History ==
+
+{{History|java}}
+{{History||1.11.1|snap=16w50a|Added Sweeping Edge.}}
+{{History|upcoming java}}
+{{History||Combat Tests|snap=Combat Test 3|Sweeping Edge can now be applied to [[axe]]s.|Applying Sweeping Edge to other tools/weapons with [[commands]] now make the tools/weapons sweep.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== References ==
+{{reflist}}
+
+{{Enchantments}}
+
+[[de:Schwungkraft]]
+[[es:Barrido]]
+[[fr:Enchantement#Affilage]]
+[[ja:範囲ダメージ増加]]
+[[pt:Alcance]]
+[[th:กวัดแกว่งตาย]]
+[[zh:横扫之刃]]

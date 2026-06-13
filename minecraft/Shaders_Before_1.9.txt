@@ -1,0 +1,262 @@
+{{About|the in-game shaders before 1.9|the shaders provided by the modification|ftb:Optifine|the shaders in current game version|Shaders}}
+
+'''Shaders''' are a feature used for various effects in Spectator Mode when the player takes the viewpoint of a mob. Shaders can be disabled by switching the perspective to third-person view. Shaders do not work on computers that do not support [[wikipedia:OpenGL|OpenGL]] 2.1, as [[wikipedia:OpenGL Shading Language|GLSL]] (OpenGL Shading Language) was introduced in OpenGL 2.
+
+Currently, shaders are stored in the ''assets/minecraft/shaders/'' directory of [[minecraft.jar]]. The file path of the currently-active shader is displayed on the [[debug screen]].
+
+Note that the differences between certain shaders can be subtle, and therefore, to notice the differences, it might be necessary to observe a picture with higher resolution by clicking on one of the pictures below.
+
+== Shaders ==
+
+{| class="wikitable" data-description="Shaders"
+!Name
+!Description
+!Sample Images
+|-
+
+|Default (Blit)
+|This does not utilize shaders. Use as a baseline for comparing to the screenshots below.
+|[[File:Default.png|475px]]
+
+|-
+
+|Notch
+|Uses 8-bit color with half the resolution, with a dithering effect.
+This is a reference to how many of Notch's other games use a similar overlay.
+|[[File:NotchShader.png|475px]]
+
+|-
+
+|FXAA
+|This shader adds a small amount of anti-aliasing (smoothing jagged edges), most visible in trees along the horizon.
+|[[File:Fxaa.png|475px]]
+
+|-
+
+|Art
+|Pixels are blurred outward, causing moving objects to twinkle.
+|[[File:Art.png|475px]]
+
+|-
+
+|Bumpy
+|Outlines color differences, and gives textures a 3D look. (More visible when viewing screenshot at full resolution.)
+|[[File:Bumpy.png|475px]]
+
+|-
+
+|Blobs2
+|Similar to Art, but less graphically intensive.
+|[[File:Blobs2.png|475px]]
+
+|-
+
+|Pencil
+|Meant to give the world a pencil-sketch appearance.
+|[[File:Pencil.png|475px]]
+
+|-
+
+|Color convolve
+|Intensifies/adds more colors, adding vibrancy.
+|[[File:Color convolve.png|475px]]
+
+|-
+
+|Deconverge
+|Offsets the red, green, and blue color channels.
+|[[File:Deconverge.png|475px]]
+
+|-
+
+|Flip
+|Flips the player's view vertically.
+|[[File:Flip.png|475px]]
+
+|-
+
+|Invert
+|Inverts and slightly desaturates colors, obtainable with {{Cmd|gamemode|spectator}}, then spectating from the viewpoint of an enderman.
+|[[File:Invert.png|475px]]
+
+|-
+
+|NTSC
+|Gives the player's view the impression of a CRT Monitor/Television Screen.
+|[[File:Ntsc.png|475px]]
+
+|-
+
+|Outline
+|Outlines color differences similarly to Bumpy, but less complex. Has no effect on some computers.
+|[[File:Outline.png|475px]]
+
+|-
+
+|Phosphor
+|Pixels on screen linger, being "dragged out" when in motion before fading away.
+|[[File:Phosphor.png|475px]]
+
+|-
+
+|Scan pincushion
+|Similar to NTSC, but without the blurring and much less graphically intensive.
+|[[File:Scan pincushion.png|475px]]
+
+|-
+
+|Sobel
+|Turns the view black except for the edges of textures.
+|[[File:Sobel.png|475px]]
+
+|-
+
+|Bits
+|Lowers the resolution and uses an 8-bit color scheme.
+|[[File:Bits.png|475px]]
+
+|-
+
+|Desaturate
+|Reduces intensity of colors drastically, causing, as the name suggests, a desaturated effect.
+|[[File:Desaturate.png|475px]]
+
+|-
+
+|Green
+|Scan Pincushion and Bits, but with a green overlay.
+|[[File:Green.png|475px]]
+
+|-
+
+|Blur
+|Blurs the screen overall, independent of what is being displayed.
+|[[File:Blur.png|475px]]
+
+|-
+
+|Wobble
+|Colors cycle through the hue range constantly. All displayed pixels move up and down via a sine calculation. It should be noted that this affects only the screen plane and not the vertices being displayed by it, as observing the edge of the screen reveals the pixels being moved.
+|[[File:Wobble.png|475px]]
+
+|-
+
+|Blobs
+|Similar to Blobs2 and Art, but the spots are tiny when close up and big when far away.
+|[[File:Blobs.png|475px]]
+
+|-
+
+|Antialias
+|Blurs the edges of pixels to reduce jaggedness.  This is blurrier than FXAA, but is better at eliminating jagged edges in textures and blocks.
+|[[File:Antialias.png|475px]]
+
+|-
+
+|Creeper
+|Similar to Green, but with no black borders or low resolution, obtainable with {{Cmd|gamemode|spectator}} then Spectating from the viewpoint of a [[Creeper]] or [[Charged Creeper]]. 
+|[[File:CreeperShaderFrom1dot8.png|475px]]
+
+|-
+|Spider
+|8 "eyes" onscreen with blur in between, similar to a spider's face, obtainable with {{Cmd|gamemode|spectator}} then Spectating from the viewpoint of a [[Spider]], [[Cave Spider]] or [[Spider Jockey]].
+|[[File:SpiderShaderFrom1dot8.png|475px]]
+|-
+|Love
+|Adds a red tint to everything. Used in the [[Java Edition 15w14a|Love and Hugs]] april fools snapshot. This shader is not available using the Super Secret Settings.
+|[[File:LoveShader.png|frameless|475x475px]]
+|-
+
+|}
+
+== Passes ==
+
+{| class="wikitable" data-description="Shader passes"
+|-
+! Passes !! Used in !! Fragment Shader !! Vertex Shader
+|-
+| antialias.json || Antialias || antialias.fsh || blobs.vsh
+|-
+| bits.json || Bits, Creeper, Green || bits.fsh || sobel.vsh
+|-
+| blit.json || Most shaders except Blur || blit.fsh || blit.vsh
+|-
+| blobs.json || Blobs || blobs.fsh || blobs.vsh
+|-
+| blobs2.json || Art, Blobs2 || blobs2.fsh || blobs.vsh
+|-
+| blur.json || Art, Blur, NTSC, Spider || blur.fsh || sobel.vsh
+|-
+| bumpy.json || Bumpy || bumpy.fsh || bumpy.vsh
+|-
+| color_convolve.json || Color convolve, Creeper,<br />Desaturate, Green, NTSC || color_convolve.fsh || sobel.vsh
+|-
+| deconverge.json || Deconverge, NTSC || deconverge.fsh || sobel.vsh
+|-
+| downscale.json ||  || downscale.fsh || downscale.vsh
+|-
+|entity_outline.json
+|[[Glowing|Glowing Status Effect]]
+|entity_sobel.fsh
+|sobel.vsh
+|-
+| flip.json || Flip || blit.fsh || flip.vsh
+|-
+| fxaa.json || FXAA || fxaa.fsh || fxaa.vsh
+|-
+| invert.json || Invert || invert.fsh || blit.vsh
+|-
+| notch.json || Notch || notch.fsh || sobel.vsh
+|-
+| ntsc_decode.json || NTSC || ntsc_decode.fsh || sobel.vsh
+|-
+| ntsc_encode.json || NTSC || ntsc_encode.fsh || sobel.vsh
+|-
+| outline.json || Outline || outline.fsh || sobel.vsh
+|-
+| outline_combine.json || Art || outline_combine.fsh || sobel.vsh
+|-
+| outline_soft.json || Pencil || outline_soft.fsh || sobel.vsh
+|-
+| outline_watercolor.json || Art || outline_watercolor.fsh || sobel.vsh
+|-
+| overlay.json ||  || overlay.fsh || blit.vsh
+|-
+| phosphor.json || NTSC, Phosphor || phosphor.fsh || sobel.vsh
+|-
+| scan_pincushion.json || Green, NTSC, Scan pincushion || scan_pincushion.fsh || sobel.vsh
+|-
+| sobel.json || Sobel || sobel.fsh || sobel.vsh
+|-
+| spider.json || Spider || spiderclip.fsh || rotscale.vsh
+|-
+|-
+| wobble.json || Wobble || wobble.fsh || sobel.vsh
+|-
+|love.json
+|Love and Hugs update
+|
+|
+|}
+
+== History ==
+
+{{History|java}}
+{{History||1.7.2|snap=13w38a|The original set of shaders was added: Antialias, Deconverge, Outline, Art, Desaturate, Pencil, Bits, Flip, Phosphor, Blobs, FXAA, Scan pincushion, Blobs2, Green, Sobel, Blur, Invert, Wobble, Color convolve, NTSC.}}
+{{History|||snap=13w38b|The Bumpy shader was added.}}
+{{History||1.7.4|snap=13w47a|The Notch shader was added.}}
+{{History||1.8|snap=14w05a|The Creeper and Spider shaders were added. Shaders are automatically applied in [[spectator]] mode when viewing the world as a [[Creeper]], [[Spider]] or [[Enderman]].}}
+{{History|||snap=14w05b|Shaders are now removed from view when changing perspective while spectating a mob.<ref name="NoBug">{{bug|MC-46727#comment-219617}}</ref>|{{key|F4}} now toggles different shaders rather than turning them off.<ref name="NoBug"/>}}
+{{History|||snap=14w06a|The Entity Outline shader was added.}}
+{{History||1.9|snap=15w31a|Removed the Super Secret Settings button for an internal rewrite.<ref>https://twitter.com/_grum/status/627141591942209536</ref>}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+== References ==
+
+{{reflist}}
+
+[[zh:着色器/Java版1.9前]]
