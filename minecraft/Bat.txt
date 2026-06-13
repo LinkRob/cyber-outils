@@ -1,0 +1,243 @@
+{{For}}
+{{Entity
+| title = Bat
+| image = NewBat.gif
+| invimage = Bat Spawn Egg
+| health = {{hp|6}}
+| behavior = Passive
+| classification = [[Animal]]
+| size = Height: 0.9 Blocks<br>Width: 0.5 Blocks
+| spawn = Below layer 63<br>Light level of 3 or less in neighboring blocks<br />October 20 – November 3: light level of 6 or less in neighboring blocks{{only|java|short=1}}
+}}
+A '''bat''' is a flying ambient<ref name="bats">https://minecraft.net/en-us/article/meet-bat</ref> [[passive mob]] that spawns in dark areas underground in caves.
+
+== Spawning ==
+
+Bats can spawn in groups of 8{{only|java|short=1}}/2{{only|bedrock|short=1}} in the [[Overworld]] at a light level of 3 or less on [[opaque]] blocks below layer 63. They also need at least 2 air blocks (or alternatively, a top [[trapdoor]] or top [[slab]] in the block above foot level). {{IN|java}}, between October 20 and November 3, they require a light level of 6 or less to spawn. On [[Superflat]] worlds, bats spawn below the top non-air layer, ignoring the usual layer-63 limitation.
+
+== Drops ==
+Bats do not drop any [[item]]s or [[experience]] upon death.
+
+== Behavior ==
+
+Bats are small, less than a block tall and wide. They squeak randomly. They often fly around aimlessly, tending to favor the east, and sometimes accidentally fly into [[lava]] and catch on [[fire]].
+
+Bats hang upside down on the underside of a [[solid block]] when idle, though they cannot hang on transparent or non-solid blocks. If a player approaches a bat hanging upside down, even if the player is invisible, it flies away. This also happens if the player breaks the block the bat is hanging from.
+
+Bats [[despawn]] when too far away from the player (over 32 blocks away).
+
+Bats' collision boxes do not interact with the player or [[redstone components]].
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Bats use the Friendly Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Bat idle1.ogg
+|sound2=Bat idle2.ogg
+|sound3=Bat idle3.ogg
+|sound4=Bat idle4.ogg
+|subtitle=Bat screeches
+|source=neutral
+|description=Randomly while flying
+|id=entity.bat.ambient
+|translationkey=subtitles.entity.bat.ambient
+|volume=0.1
+|pitch=0.76-1.14
+|distance=16}}
+{{Sound table
+|sound=Bat death.ogg
+|subtitle=Bat dies
+|source=neutral 
+|description=When a bat dies
+|id=entity.bat.death
+|translationkey=subtitles.entity.bat.death
+|volume=0.1
+|pitch=0.76-1.14
+|distance=16}}
+{{Sound table
+|sound=Bat hurt1.ogg
+|sound2=Bat hurt2.ogg
+|sound3=Bat hurt3.ogg
+|sound4=Bat hurt4.ogg
+|subtitle=Bat hurts
+|source=neutral 
+|description=When a bat is damaged
+|id=entity.bat.hurt
+|translationkey=subtitles.entity.bat.hurt
+|volume=0.1
+|pitch=0.76-1.14
+|distance=16}}
+{{Sound table
+|sound=Bat loop.ogg
+|subtitle=MC-177087
+|source=-
+|description=''Unused sound event'' <ref group="sound">{{bug|MC-185413}}</ref>
+|id=entity.bat.loop
+|translationkey=- 
+|volume=''None''
+|pitch=''None''
+|distance=''None''}}
+{{Sound table
+|sound=Bat takeoff.ogg
+|subtitle=Bat takes off
+|source=neutral 
+|description=When a bat starts flying
+|id=entity.bat.takeoff
+|translationkey=subtitles.entity.bat.takeoff
+|volume=0.05
+|pitch=0.8-1.2
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Bat idle1.ogg
+|sound2=Bat idle2.ogg
+|sound3=Bat idle3.ogg
+|sound4=Bat idle4.ogg
+|source=neutral
+|description=Randomly
+|id=mob.bat.idle
+|volume=0.1
+|pitch=0.76-1.14}}
+{{Sound table
+|sound=Bat death.ogg
+|source=Friendly Creatures 
+|description=When a bat dies
+|id=mob.bat.death
+|volume=0.1
+|pitch=0.76-1.14}}
+{{Sound table
+|sound=Bat hurt1.ogg
+|sound2=Bat hurt2.ogg
+|sound3=Bat hurt3.ogg
+|sound4=Bat hurt4.ogg
+|source=neutral
+|description=When a bat is damaged
+|id=mob.bat.hurt
+|volume=0.1
+|pitch=0.76-1.14}}
+{{Sound table
+|sound=Bat takeoff.ogg
+|source=neutral
+|description=When a bat starts flying
+|id=mob.bat.takeoff
+|volume=0.05
+|pitch=0.8-1.2
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|displayname=Bat
+|spritetype=entity
+|nameid=bat
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Bat
+|spritetype=entity
+|nameid=bat
+|id=19
+|foot=1}}
+
+=== Entity data ===
+
+Bats have entity data associated with them that contain various properties.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+== History ==
+
+{{History|java}}
+{{History||1.4.2|snap=12w38a|[[File:Bat JE1 BE1.png|32px]] [[File:Bat (Hang) JE1 BE1.png|32px]] [[File:Bat JE1 BE1.gif|32px]] Added bats.}}
+{{History|||snap=12w42a|Bats no longer "trample" [[crops]] nor do they activate [[pressure plate]]s.<ref>https://www.mojang.com/2012/10/minecraft-snapshot-12w42a</ref>}}
+{{History|||snap=1.4-pre|Added bat [[sound]]s: <code>entity.bat.ambient</code>, <code>entity.bat.hurt</code>, <code>entity.bat.death</code>, <code>entity.bat.takeoff</code>}}
+{{History||1.11|snap=16w32a|The entity ID has been changed from <code>Bat</code> to <code>minecraft:bat</code>.}}
+{{History||1.14|snap=18w43a|[[File:Bat JE2 BE2.png|32px]] [[File:Bat (Hang) JE2 BE2.png|32px]] [[File:Bat.gif|32px]] The texture of bats has been changed.}}
+{{History||1.19||Bats now spawn in [[Deep Dark]] biomes.}}
+{{History||1.21||Bats now have a retextured model.}}
+
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=build 1|[[File:Bat JE1 BE1.png|32px]] [[File:Bat (Hang) JE1 BE1.png|32px]] [[File:Bat JE1 BE1.gif|32px]]  Added bats.}}
+{{History|pocket}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Bat JE2 BE2.png|32px]] [[File:Bat (Hang) JE2 BE2.png|32px]] [[File:Bat.gif|32px]] The texture of bats has been changed.}}
+{{History|bedrock}}
+{{History||1.21|Bats now have a retextured model.}}
+
+{{History|console}}
+{{History||xbox=TU19|xbone=CU7|ps=1.12|wiiu=Patch 1|switch=1.0.1|[[File:Bat JE1 BE1.png|32px]] [[File:Bat (Hang) JE1 BE1.png|32px]] [[File:Bat JE1 BE1.gif|32px]] Added bats.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Bat JE2 BE2.png|32px]] [[File:Bat (Hang) JE2 BE2.png|32px]] [[File:Bat.gif|32px]] The texture of bats has been changed.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Bat JE1 BE1.png|32px]] [[File:Bat (Hang) JE1 BE1.png|32px]] [[File:Bat JE1 BE1.gif|32px]] Added bats.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+== Trivia ==
+
+* According to Jeb, the bat is an example of an ambient mob – a mob that constantly spawns, similar to the [[squid]], but also constantly despawns because when a player is not around it does not serve any purpose.<ref name="bats" />
+* Between 20 October and 3 November, bats spawn more frequently as a small [[easter egg]] in homage to Halloween.{{Only|Java}}
+
+== Gallery ==
+=== Screenshots ===
+<gallery>
+File:Multiplebats.png|A colony of spawned bats and a [[witch]].
+File:Bat in Cave.png|A bat in a [[cave]].
+File:Bats.png|A flock of bats.
+File:Bat2.png|Isolated and flipped.
+File:23w43a Updated Bats.png|Official screenshot of some bats with the updated texture and model as of Snapshot 23w43a.
+File:Ezgif.com-video-to-gif.gif|New Bat Redesign
+File:Bat JE2 BE2.png|The old bat
+</gallery>
+
+=== In other media ===
+<gallery>
+File:Pretty Scary Update poster.png|Bat in promotional artwork for the [[Pretty Scary Update]].
+File:LEGO Bat.png|[[Lego Minecraft]] Bat.
+File:Bat Plush JINX.jpg|Bat plush made by JINX.
+File:Trick or Treat Bat.jpg|"Bat Trick or Treat," an official Halloween shirt design.
+</gallery>
+
+== References ==
+{{reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/meet-bat Meet the Bat] – Minecraft.net on March 7, 2017
+*[https://twitter.com/Minecraft/status/1717212469226086418 New Bat Redesign] - Twitter.com/Minecraft on Octobor 25 2023
+
+{{Entities}}
+
+[[Category:Passive mobs]]
+[[Category:Animal mobs]]
+[[Category:Flying mobs]]
+
+[[cs:Netopýr]]
+[[de:Fledermaus]]
+[[es:Murciélago]]
+[[fr:Chauve-souris]]
+[[it:Pipistrello]]
+[[ja:コウモリ]]
+[[ko:박쥐]]
+[[lzh:蟙䘃]]
+[[nl:Vleermuis]]
+[[pl:Nietoperz]]
+[[pt:Morcego]]
+[[ru:Летучая мышь]]
+[[th:ค้างคาว]]
+[[uk:Кажан]]
+[[zh:蝙蝠]]

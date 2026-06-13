@@ -1,0 +1,24 @@
+<div class="treeview"><onlyinclude>
+** {{nbt|int}}{{nbt|compound|count}}: Test the number of items in this item stack. Use an integer to test for a single value. Use an object with <code>min</code> and <code>max</code> keys to test for a range of values (inclusive).
+*** {{nbt|int|max}}
+*** {{nbt|int|min}}
+** {{nbt|int}}{{nbt|compound|durability}}: Test the durability of the items in this stack, represented by the number of uses ''remaining'' (not number of uses consumed). Use an integer to test for a single value. Use an object with <code>min</code> and <code>max</code> keys to test for a range of values (inclusive).
+*** {{nbt|int|max}}
+*** {{nbt|int|min}}
+** {{nbt|list|enchantments}}: Test the enchantments on the items in this stack. To pass, all items within the list must be satisfied by at least one enchantment on the item that matches.
+*** {{nbt|compound}}: A single enchantment to test for.
+**** {{nbt|string|enchantment}}: The [[Java Edition data values#Enchantments|enchantment ID]] to test for.
+**** {{nbt|int}}{{nbt|compound|levels}}: The level(s) of enchantments that can satisfy this condition. Use an integer to test for a single value. Use an object with <code>min</code> and <code>max</code> keys to test for a range of values (inclusive).
+***** {{nbt|int|max}}: The maximum value.
+***** {{nbt|int|min}}: The minimum value.
+** {{nbt|list|stored_enchantments}}: To test for stored enchantments on an enchanted book.
+*** Follows same format as {{nbt|list|enchantments}} above.
+** {{nbt|list|items}}: Test the type of item in the item stack. Accepts a list of [[Java Edition data values#Items|item IDs]]. Passes if the item's ID matches any of the listed values.
+** {{nbt|string|nbt}}: Test for any other NBT tags that may be present on the item. The outer braces of the NBT <code>{ }</code> must be present within this string. Additional care is required if the NBT contains quotation marks <code>" "</code>, as they must be escaped with a backslash <code>\"</code>.
+** {{nbt|string|potion}}: Test the type of potion this item is. Uses <code>minecraft:empty</code> if the item is not a potion. Accepts a [[Potion#Item data|brewed potion ID]].
+** {{nbt|string|tag}}: Test if the item ID of this item is listed within a [[Tag#Item_tags|data pack item tag]]. Accepts the resource location of a valid item tag.
+</onlyinclude></div><noinclude>
+[[Category:Top-level data pages]]
+[[fr:Progrès/Conditions/objet]]
+[[zh:进度/条件/物品]]
+</noinclude>

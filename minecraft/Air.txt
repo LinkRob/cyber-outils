@@ -1,0 +1,156 @@
+{{see also|Void}}
+{{redirect|Space|the keybind control|jumping}}
+{{about|the normal block|the NBT tag|Entity format#Entity Format|the April Fools joke|Air (April Fools' joke)|the contraption that stops water flow|Airlocks}}
+{{Block
+| image = Air (shown) JE2.png
+| invimage = none
+| stackable = No
+| tool = none
+| transparent = Yes
+| light = No
+| flammable = No
+| lavasusceptible = No
+}}
+
+'''Air''' is an [[invisible block]] used to define empty space where any other blocks could otherwise exist.
+
+'''Cave air'''{{only|java}} is the underground air found in [[cave]]s and some [[generated structures]].
+
+'''Void air'''{{only|java}} is used internally for blocks above (Y>319) and below (Y<-64) the world, and in unloaded chunks.
+
+== Obtaining ==
+
+{{IN|bedrock}}, air cannot be obtained in the [[inventory]] without editing. {{IN|java}}, the block is completely unobtainable. Air can be destroyed or created only by the placement or removal of other [[block]]s respectively.
+
+Upon world generation, all otherwise empty spaces are occupied by air. {{IN|java}}, [[badlands]] [[mineshaft]]s and [[lava lake]]s generate cave air,<ref>{{bug|MC-125112||Surface mineshafts in mesas use cave_air|WF}}</ref><ref>{{bug|MC-128250||Surface water and lava ponds use cave_air|WF}}</ref> and underground structures generate cave air. Void air is used in place of unloaded chunks and above or below the [[world]]'s buildable area.{{only|java}}
+
+== Usage ==
+
+[[File:Shown Invisible Blocks.png|thumb|250px|Air, shown at left, is represented by blue cubes within structures. Cave air and void air are also shown as such.]]
+
+Air shares some properties with non-[[solid block]]s, including allowing the [[player]] or [[mob]] to move within that space without [[suffocating]], and also to catch their breath if they are [[drowning]] in [[water]].
+
+Air can be visualized with the use of [[structure block]]s in [[Structure Block#Save|save mode]]. With "Show invisible blocks" enabled, the air is represented as small blue cubes. All air types are displayed identically as blue cubes.
+
+Air can be used to clearing blocks with the <code>/fill</code> command, an example is <code>/fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air</code> (clears a 11x11x11 cube of space centered on what executed the command.).
+
+Cave air and void air have no special properties; they function the same as normal air.
+
+== Data values ==
+
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|firstcolumnname=Block
+|generatetranslationkeys=y
+|displayname=Air
+|spritetype=block
+|nameid=air}}
+{{ID table
+|displayname=Cave Air
+|spritetype=block
+|nameid=cave_air
+|form=block}}
+{{ID table
+|displayname=Void Air
+|spritetype=block
+|nameid=void_air
+|form=block
+|foot=1}}
+{{ID table
+|firstcolumnname=Fluid
+|displayname=Empty
+|spritename=air
+|spritetype=block
+|nameid=empty
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Air
+|spritetype=block
+|nameid=air
+|id=0
+|foot=1}}
+
+== History ==
+
+{{History|java pre-classic}}
+{{History||Cave game tech test|link=Cave game tech test|Added air, which is any space devoid of blocks.}}
+{{History|java indev}}
+{{History||0.31|snap=?|Air now affects [[liquid]] blocks that are horizontally adjacent to it. If air is touching the [[fluid]] block, there is a {{frac|2|3}} chance for the fluid block to disappear and make the pool recede, and a {{frac|1|3}} chance for the fluid block to fill the air, making the pool spread.}}
+{{History|java}}
+{{History||1.7.2|snap=13w38b|Air is added as a placeholder for undefined [[items]], [[blocks]], [[food]], and many more. They are obtained from killing some mobs like [[villagers]], [[bats]] and the [[ender dragon]].}}
+{{History||1.7.2|snap=13w38c|Air is now unobtainable as an item.}}
+{{History||1.9|snap=16w02a|Air is now translatable into other languages.}}
+{{History||1.10|snap=16w20a|[[File:Air (shown) JE1.png|32px]] Air can now be visualized with the use of [[structure block]]s.}}
+{{History||1.13|snap=18w06a|Two new variations of air have been added: cave air and void air.
+|[[Cave]]s now generate cave air instead of normal air.
+|Void air is now internally used at Y values less than 0 or greater than 255 and in unloaded [[chunk]]s.}}
+{{History||1.15|snap=19w39a|[[File:Air (shown) JE2.png|32px]] Outlines of Air shown by "show invisible blocks" by a [[Structure Block]] no longer have black outlines.}}
+{{History||1.18|snap=21w37a| Void air is now internally used at Y values less than -64 or greater than 319 and in unloaded [[chunk]]s.}}
+
+{{History|Pocket Edition Pre-release}}
+{{History|||Added air.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.00|wiiu=Patch 1|switch=1.0.1|Added air.}}
+
+{{History|3ds}}
+{{History||0.1.0|Added air.}}
+{{History|foot}}
+
+=== Data history ===
+{{History|java pre-classic}}
+{{History||Cave game tech test|link=Cave game tech test|Air currently isn't internally a block.}}
+{{History|java}}
+{{History||1.7.2|snap=13w38b|Air is now internally a [[block]].<ref>{{tweet|Dinnerbone|381055646806077440|This snapshot may be very crashy because @_grum redefined the concept of "air". We're keeping an eye on the crash list though!|September 20, 2013}}</ref>}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], this block's numeric ID was 0.}}
+{{History|foot}}
+
+=== Air "item" ===
+{{:Technical blocks/Air}}
+
+== Issues ==
+
+{{issue list}}
+
+== Trivia ==
+
+* If a [[Trading|trade]]'s result is Air (possible through [[Commands|Command]]), you cannot buy it nor consume the Emeralds.
+* '''tile.air.name'''{{Only|java}}<ref name=":0">https://www.youtube.com/watch?v=8_EGLSoeqvQ&t=202s</ref> was a placeholder for undefined [[items]], [[blocks]], [[food]], and many more. It only existed in version [[13w38b]], as there was code in the game's files that is empty<ref name=":0" />.
+
+== See also ==
+* [[Technical blocks]]
+
+== References ==
+
+{{reflist}}
+
+{{Blocks|natural}}
+
+[[Category:Natural blocks]]
+[[Category:Generated structure blocks]]
+[[Category:Non-solid blocks]]
+
+[[cs:Vzduch]]
+[[de:Luft]]
+[[es:Aire]]
+[[fr:Air]]
+[[hu:Levegő]]
+[[it:Aria]]
+[[ja:空気]]
+[[ko:공기]]
+[[nl:Lucht]]
+[[pl:Powietrze]]
+[[pt:Ar]]
+[[ru:Воздух]]
+[[th:อากาศ]]
+[[tr:Hava]]
+[[uk:Повітря]]
+[[zh:空气]]

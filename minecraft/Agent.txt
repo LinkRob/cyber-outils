@@ -1,0 +1,127 @@
+{{education feature}}
+{{Entity
+| image = Agent.png 
+|imagesize=100px
+|invimage=Spawn Agent
+| health = &infin;
+| behavior = Passive
+| classification = [[Golem]]
+| damage = {{hp|0}}
+}}
+
+In [[Minecraft Education]] and {{el|be}} worlds connected to a WebSocket server, the '''agent''' is a [[mob]] that helps players learn coding, by allowing players to program actions into it. The agent can be programmed to execute several tasks, like planting and harvesting, [[mining]], and building.
+
+In a Bedrock Edition world not connected to a WebSocket server, it is [[Bedrock Edition unused features|unused]] and thus has no AI unless spawned by putting the command <code>execute @p ~ ~ ~ agent create</code> or <code>execute as @p run agent create</code> into an NPC, but can still store items given to it by the player in its inventory. It can also teleport between [[dimensions]] with the player. It can be spawned using its [[spawn egg]], obtainable with <code>/[[Commands/give|give]] @s spawn_egg 1 56</code>.
+== Usage ==
+
+In ''Minecraft Education'', the agent is used in conjunction with [[Code Connection|Code Connection for ''Minecraft'' / Code Builder]], and is programmable by a {{w|visual programming language}}.
+
+In ''Minecraft Education'' and Bedrock Edition, the agent can be used in conjunction with WebSocket servers. 
+
+The agent carries its own 27-item [[inventory]], which can be manipulated by [[command]]s that the player programs it to use, or edited directly by a GUI that the player can access in-game, in any dimension.
+
+The visual interface allows the player to drag and drop commands, structural constructs and other components into a sequence, and associate the sequence with a custom-named slash command, which can be executed in the traditional way, from the console.
+
+The agent can push [[pressure plate]]s. It can interact with [[button]]s, [[lever]]s, and other right-click mechanisms like [[door]]s and [[fence gate]]s. 
+
+=== Agent commands ===
+* <code>attack &lt;direction&gt;</code>
+* <code>destroy &lt;direction&gt;</code>
+* <code>drop &lt;int:slotNum&gt; &lt;int:quantity&gt; &lt;direction&gt;</code>
+* <code>drop all &lt;direction&gt;</code>
+* <code>move &lt;direction&gt;</code>
+* <code>turn &lt;turnDirection&gt;</code>
+* <code>inspect &lt;direction&gt;</code>
+* <code>inspect data &lt;direction&gt;</code>
+* <code>detect &lt;direction&gt;</code>
+* <code>detectredstone &lt;direction&gt;</code>
+* <code>transfer &lt;int:srcSlotNum&gt; &lt;int:quantity&gt; &lt;int:dstSlotNum&gt;</code>
+* <code>create agent</code>
+* <code>remove agent</code>
+* <code>teleport to player</code>
+* <code>teleport to location facing direction</code>
+* <code>collect &lt;string:item&gt;</code>
+* <code>till &lt;direction&gt;</code>
+* <code>place &lt;int:slotNum&gt; &lt;direction&gt;</code>
+* <code>place on move&lt;int:slotNum&gt; &lt;true/false&gt;</code>
+* <code>get item count &lt;int:slotNum&gt;</code>
+* <code>get item space &lt;int:slotNum&gt;</code>
+* <code>get item detail &lt;int:slotNum&gt;</code>
+
+<code>&lt;direction&gt;</code> refers to <code>forward|back|left|right|up|down</code>
+
+<code>&lt;turnDirection&gt;</code> refers to <code>left|right</code>
+
+== Sounds ==
+{{Sound table
+|type=bedrock
+|sound=Anvil land.ogg
+|source=neutral
+|description=When an agent is spawned
+|id=mob.agent.spawn
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Agent
+|spritetype=entity
+|nameid=agent
+|id=56
+|foot=1}}
+
+== History ==
+{{History|pocket alpha}}
+{{History||v0.16.0|snap=build 1|[[File:Agent.png|32px]] Added agent.}}
+{{History|||snap=build 2|Removed agent.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|The agent has been re-added, hidden in an {{code|.apk}} file.}}
+{{History|bedrock}}
+{{History||1.8.0|snap=beta 1.8.0.8|Added agent [[spawn egg]] texture file.}}
+{{History||?|Agent can now be spawned by putting the command <code>execute @p ~ ~ ~ agent create</code> into an NPC.}}
+{{History|education}}
+{{History||1.0.1|[[File:Agent.png|32px]] Added the "learn to code mascot".}}
+{{History||1.0.2|The entity ID changed has been changed from "learn_to_code_mascot" to "agent".}}
+{{History||1.4.0|The agent's default name tag color has been changed to blue.}}
+{{History||1.7|Agent can now be removed through {{cmd|remove}}.
+|[[Player]]s now can show the agent coordinates on the [[HUD]].
+|{{cmd|summon agent}} now creates or teleports the executor's agent to the executor.
+|Added spawn eggs for agents.}}
+{{History||1.20.12|snap=1.20.10.0|The agent no longer has range restrictions. It can move and build far away from the player.
+|The agent now has an animation for unsuccessful actions.
+|The agent now chooses which item to detect or interact with in a “line of sight” in the direction the code specified, up to 1 block away.}}
+{{History|foot}}
+
+== Trivia ==
+*The agent is seen in the official image of {{el|ee}}.
+*The agent is the only [[mob]] exclusive to {{el|ee}}. {{el|be}} also contains resources for the mob. However, the mob is unusable, and invisible in game. By installing Code Connection, it is possible to use in {{el|be}} on Windows.
+*On the free 10th-anniversary map that @BlockworksYT released, there is a puzzle in the "Library" area that involves controlling the Agent with [[glazed terracotta]]. On the [[Bedrock Edition]] version of the map, the agent is added in as a new mob, while on [[Java Edition]], it is an [[armor stand]] with remodeled [[infested chiseled stone bricks]] on its head.
+*The agent spawn egg can be obtained using {{Command|/give @s spawn_egg 1 56}}. However, when spawned via the spawn egg, it is completely invisible.
+*The agent is immune to [[Warden]]'s sonic attacks, [[TNT]] or [[Creeper]] explosions,  [[Ender Dragon]]'s wings or fire breath, below Y-64, and Wither skulls.
+**If the Agent is coded to punch the Warden standing in front of it, the Warden gets provoked easily and starts attacking the Agent, similar to when a player attacks it.
+*When coded, the agent can easily break any block (especially [[bedrock]] and [[Reinforced Deepslate]]), however it cannot break [[Air]], [[Structure Void]], [[Barrier|Barrier Blocks]] and [[Invisible Bedrock]].
+
+== Gallery ==
+<gallery>
+Agent - 1.png|An agent.
+Code Builder Update.png|Agent in the official image.
+Learn to Code Update.png|An Agent in promotional artwork for the [[Learn to Code Update]].
+GOAT Update.jpg|An Agent in promotional artwork for the [[GOAT Update]].
+Mobile, Multiplayer & More.png|An Agent in promotional artwork for [[Mobile, Multiplayer & More]].
+</gallery>
+
+{{Entities}}
+{{Education Edition}}
+
+[[Category:Passive mobs]]
+[[Category:Education Edition mobs]]
+
+[[de:Agent]]
+[[fr:Agent]]
+[[ja:エージェント]]
+[[pl:Agent]]
+[[pt:Agente]]
+[[ru:Агент]]
+[[zh:智能体]]

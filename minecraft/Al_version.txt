@@ -1,0 +1,39 @@
+{{exclusive|java}}
+{{outdated feature|edition=java}}
+{{DISPLAYTITLE:al_version}}
+'''al_version''' (AppletLoader version) is a number used in versions prior to [[Java Edition Alpha]] to uniquely identify a client version of the game.
+
+== Usage ==
+al_version is a floating-point number given as a parameter to the LWJGL AppletLoader in the HTML code of <code>[[minecraft.net]]/play.jsp</code>.<ref>[https://web.archive.org/web/20090525130611/http://minecraft.net/play.jsp Minecraft.net/play.jsp] (source) – Wayback Machine, May 25, 2009. "''&lt;param name="al_version" value="5.17"&gt;''".</ref>
+It is used to specify a unique version for each jar file to cache them for re-use.
+If the stored al_version matches the latest jar file, that jar file is re-used; otherwise a new jar is downloaded.
+
+== List ==
+{{al_version/Table}}
+
+== History ==
+{{h|java classic}}
+{{h||?|Added al_version in order to run ''Minecraft'' as an applet on [[Minecraft.net]].}}
+{{h|java indev}}
+{{h||?|Reset al_version back to 1.0.}}
+{{h|java alpha}}
+{{h||v1.0.1|Removed al_version as the game now uses the [[launcher]] and not AppletLoader.}}
+{{h|foot}}
+
+== See also ==
+* [[Protocol version]]
+* [[Data version]]
+
+== References ==
+{{reflist}}
+
+== External links ==
+* [http://legacy.lwjgl.org/javadoc/org/lwjgl/util/applet/AppletLoader.html AppletLoader documentation] – Legacy LWJGL Javadocs
+
+{{Java Edition}}
+
+[[es:al_version]]
+[[ja:al_version]]
+[[pt:al_version]]
+[[uk:al_version]]
+[[zh:al_version]]

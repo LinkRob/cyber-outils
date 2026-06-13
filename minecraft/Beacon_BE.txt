@@ -1,0 +1,11 @@
+<div class="treeview">
+*{{nbt|compound}} Block entity data
+** {{nbt inherit/blockentity}}
+** {{nbt|string|CustomName}}: Optional. The name of this beacon in JSON text component, which appears when attempting to open it, while it is locked.
+** {{:Chunk format/Lockable}}
+** {{nbt|int|Levels}}: The number of levels available from the pyramid. Immediately changes to the correct value if modified using commands. Note that this is also always 0 if the beam is blocked.
+** {{nbt|int|Primary}}: The primary effect selected, see [[Status effect|Potion effects]] for IDs. Set to -1 when no effect is selected. Cannot be set to an effect which beacons do not normally use, otherwise immediately changes back to -1. Although Regeneration cannot normally be chosen as the primary effect, setting this value to 10 works and even allows Regeneration II to be chosen as the secondary via the normal beacon GUI. 
+** {{nbt|int|Secondary}}: The secondary effect selected, see [[Status effect|Potion effects]] for IDs. Set to -1 when no effect is selected. Cannot be set to an effect which beacons do not normally use, otherwise immediately changes back to -1. When set without a primary effect, does nothing. When set to the same as the primary, the effect is given at level 2 (the normally available behavior for 5 effects). When set to a different value than the primary (normally only Regeneration), gives the effect at level 1. 
+</div><noinclude>
+[[Category:Block entity pages]]
+</noinclude>
