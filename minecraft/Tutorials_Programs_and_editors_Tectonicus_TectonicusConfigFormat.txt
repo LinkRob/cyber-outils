@@ -1,0 +1,605 @@
+{{Disclaimer}}
+
+When running from the command line the preferred way to configure Tectonicus is to use a config file. For the most up-to-date information, see the example config file here: https://github.com/tectonicus/tectonicus/blob/master/Docs/fullConfig.xml
+
+Tectonicus config files are stored as XML. If you are unfamiliar with XML, then see this basic tutorial: http://www.w3schools.com/xml/xml_syntax.asp
+
+When starting Tectonicus, to get it to parse the config file, pass a "config=" option.  For example:
+
+<pre>
+java -jar Tectonicus.jar config=layerConfig.xml
+</pre>
+
+If you're new then it's easiest to just take the example config file and modify the file paths so they point to your world folder and output folder.
+
+Remember that config options are case sensitive!
+
+= Overview =
+
+The basic structure of the config file looks like:
+
+<pre>
+<tectonicus version="2">
+
+	<config>
+		<!-- general config options go here -->
+	</config>
+
+	<rasteriser>
+		<!-- rasteriser options go here -->
+	</rasteriser>
+
+	<map>
+		<!-- map marker options go here -->
+		<layer>
+			<!-- options which control the appearance of the final rendered map go here -->
+		</layer>
+	</map>
+
+	<tweeks>
+		<!-- tweeks options go here -->
+	</tweeks>
+
+	<debug>
+		<!-- debug options go here -->
+	</debug>
+
+	<!-- additional maps go here -->
+
+</tectonicus>
+</pre>
+
+These can be in any order. Only 'layer' and 'map' may be present more than once, these nodes will be covered later.
+
+= Example configuration file =
+
+Here’s a minimal config file for creating a single map:
+
+<pre>
+<?xml version="1.0"?>
+<tectonicus version="2">
+	<config mode="cmd" outputDir="myoutputdirectory"/>
+
+	<map name="mymapname" worldDir="/path/to/level.dat">
+		<layer name="Day" lighting="day"/>
+	</map>
+</tectonicus>
+</pre>
+
+= Configuration file defined =
+
+
+== Config node ==
+Here's an example config node:
+<pre>
+	<config mode = "cmd"
+			worldDir = "D:\Minecraft\Tectonicus\level"
+			outputDir = "D:\Minecraft\Tectonicus\Map Render"
+			
+			outputHtmlName = "Xoozo_Map.html"
+			minecraftJar = "filepath to minecraft.jar"
+			texturePack = "/Users/xxx/Texture pack.jar"
+			
+			numDownsampleThreads = "2"
+			eraseOutputDir = "false"
+			useCache = "true"
+			cacheDir = "D:\Minecraft\Tectonicus\Map Render\cache"
+			logFile = "D:\Minecraft\Tectonicus\Map Render\Log.txt"
+	>
+	</config>
+</pre>
+
+This controls the basic setup you need to change for your computer.
+
+{| class="wikitable" data-description="Config options"
+|-
+! Option name
+! Description
+! Required?
+! Possible values
+! Default
+|-
+| mode
+| controls what mode Tectonicus runs in
+| yes
+| 'cmd' for command line mode
+'gui' to launch the gui
+
+'players' to just update player information (note Minecraft only reliably updates player information when you log out)
+
+'interactive' for secret interactive mode
+
+'views' to update views only
+| -
+|-
+| outputDir
+| specifies the output folder to put the generated files and folders in.  Will be created if it doesn't exist.
+| yes
+| a directory path
+| -
+|-
+|outputHtmlName
+|the name for the generated html file
+| no
+| a file name
+| map.html
+|-
+|minecraftJar
+| specifies the path to your client minecraft.jar which Tectonicus reads (not runs) for resources such as texture packs.
+| no
+| a file path
+| this will be autodetected if not set and you have played minecraft on the computer you are using
+|-
+| texturePack
+| specify a path to a minecraft texture pack if you want to use textures other than the default minecraft ones. HD texture packs can be used.
+| no
+| a file path
+| none (uses regular minecraft textures)
+|-
+| numDownsampleThreads
+| choose how many threads (cpu cores) to use when creating the layer images
+| no
+| a number
+| defaults to your computer's number of cpu cores
+|-
+| eraseOutputDir
+| if set, will delete the *entire* contents of the output dir. Useful if you want to force Tectonicus to start from scratch
+| no
+| 'true' or 'false'
+| false
+|-
+| useCache
+| turn this on and Tectonicus will attempt to use the cache information so it only draws the  bits of the map that have changed since last time
+| no
+| 'true' or 'false'
+| true
+|-
+| cacheDir
+| specify a path to where the tectonicus cache file will be stored. usually this should be a folder in the output directory
+| no
+| a directory path
+| none
+|-
+| logFile
+| specifies an alternate destination file for the log file
+| no
+| a complete file path
+| 'TectonicusLog.txt' in the current directory
+|}
+
+== Rasteriser node ==
+Here's an example rasteriser node:
+<pre>
+	<rasteriser type = "lwjgl"
+				colourDepth = "32"
+				alphaBits = "8"
+				numSamples = "4"
+				tileSize = "512"
+		>
+	</rasteriser>
+</pre>
+These values are used to configure your graphics card when drawing the map.
+{| class="wikitable" data-description="Rasterizer options"
+|-
+! Option name
+! Description
+! Required?
+! Possible values
+! Default
+|-
+| type
+| the rasteriser type to use.
+| no
+| 'lwjgl' for the OpenGL / LWJGL renderer (currently the only option)
+| 'lwjgl'
+|-
+| colourDepth
+| color depth to perform rendering in
+| no
+| 16, 24 or 32
+| 32
+|-
+| alphaBits
+| number of alpha bits to use when rendering. Set this to zero if you have display initialisation problems.
+| no
+| 0 or 8
+| 8
+|-
+| numSamples
+| the number of antialiasing samples to use. Use 0 or 1 to disable antialiasing (may help compatibility)
+| no
+| 0, 1, 2, 4, 8 or 16
+| 4
+|-
+| tileSize
+| the size of the output image tiles, in pixels
+| no
+| a number between 64 and 1024
+| 512
+|}
+
+==Map node==
+<pre>
+<!-- Maps to process (must have at least one map) -->
+	<map
+		name=""
+		worldDir="/Users/xxxx/AppData/Roaming/.minecraft/saves/My World" <!-- required -->
+		dimension="terra / nether / ender"
+		closestZoomSize="12"
+		cameraAngle="45"
+		cameraElevation="45 / 10 - 90"
+		north="-z / +z / -x / +x" <!-- compass rose north direction -->
+		compassRose="" <!-- custom image path -->>
+
+              
+        </map>
+</pre>
+
+==Subset==
+A sub-node of the map node, this will limit the rendering to a circular area of the world map of specified location and size, rather than rendering the entire map. This is useful when testing Tectonicus options to drastically reduce rendering time. It is formatted:
+
+<pre>
+<!-- Limit world rendering to a sub region. Optional, omit for the full world -->
+<!-- Radius is in world units. Remove 'origin' to center around the spawn point -->
+<subset>
+	<CircularSubset origin="0, 0" radius="200" />  <!-- note atypical capital ‘C’ -->
+</subset>
+</pre>
+
+{| class="wikitable" data-description="Circular area options"
+|-
+! Option name
+! Description
+! Required?
+! Possible values
+! Default
+|-
+| origin
+| the center point of the circular region to include
+| no
+| a world x and z coord in the form "x, y"
+| defaults to the spawn position if not set
+|-
+| radius
+| radius (in minecraft blocks) to actually include in the map
+| no
+| a number
+| -
+|}
+
+== Layer ==
+A sub-node of the map node.  This controls how the map layers appear in the final rendering. Here is an example layer node:
+
+<pre>	<!-- A generated map layer -->
+<layer  dimension = "terra"
+	renderStyle = "normal"
+	cameraAngle = "45"
+	cameraElevation = "30"
+	imageFormat = "png"
+	imageCompressionLevel = "1.0"
+	lighting = "day"
+			
+	singlePlayerName="YourPlayerNameHere"
+						
+	numZoomLevels = "8"
+	closestZoomSize = "12"
+			
+	useDefaultBlocks="true"
+	customBlocks="/Users/xxx/TectonicusTests/customBlocks.xml" >
+			
+	<!-- Markers to display on this layer -->
+	<signs filter="special" initiallyVisible="true" />
+	<players filter="all" playerFilterFile="/Users/xxx/TectonicusTests/players.txt" initiallyVisible="true" />
+	<portals filter="all" initiallyVisible="true" />
+	<spawn show="true" intiallyVisible="true" />
+	<beds initiallyVisible="true" />
+</layer>
+</pre>
+{| class="wikitable" data-description="Layer options"
+|-
+! Option name
+! Description
+! Required?
+! Possible values
+! Default
+|-
+| dimension
+| The dimension to draw.
+| no
+| 'terra'<br> for the regular minecraft overworld<br>
+'nether'<br> for the nether dimension<br>
+'ender'<br> for The End dimension
+| terra
+|-
+|renderStyle
+| the rendering style to use
+| no
+| 'regular' for normal drawing<br>
+'cave' for cave rendering (strips off the surface layer)<br>
+'nether' for nether rendering (strips off the nether roof)
+'exploredcaves' for only explored caves
+| regular
+|-
+| cameraAngle
+| Use this command to change the orientation of north. The default setting of 45 produces an oblique view with north at the upper right of the map (north west at the top). Increase this number to rotate the map’s cardinal directions counter-clockwise (or decrease to rotate clockwise).  90 (or -270) will give you north at the top, 225 (or -45) will give you north at the bottom left and south east at the top; and so on.
+| no
+| an angle in degrees from -360 to 360
+| 45 (north at upper right)
+|-
+| cameraElevation
+| This specifies the angle of elevation for the camera, in degrees. 0 is looking horizontally, 90 is looking directly down. Defaults to 45. Choose 30 for a more traditional isometric view.
+| no
+| an angle in degrees from 0 to 180
+| 45
+|-
+| imageFormat
+| the format to write these layer images in
+| no
+| 'png' for png files (highest quality, largest file size)<br>
+'gif' for gif files (max 256 colors per image. Good quality and file size if using default minecraft textures or another low-color texture pack)<br>
+'jpg' for jpg files (variable quality, good for photo realistic texture packs)
+| png
+|-
+| imageCompressionLevel
+| the image compression level to use (only applies when using jpg image format)
+| no
+| a decimal between zero and one. 1 is highest quality.  Creating jpg tiles at 0.75 (75%) instead of the default png's will result 50%+ space savings.
+| 0.95
+|-
+| lighting
+| the lighting style to use
+| no
+| 'day' for daylight<br>
+'night' for night time lighting<br>
+'none' for no lighting (full bright)<br>
+'cave' for cave lighting (like night time, but deeper caves are darker)
+| day
+|-
+| singlePlayerName
+| single player minecraft worlds do not store your player name. If mapping a single player world set your name here so that your player marker and skin show up correctly
+| no
+| any minecraft user name
+| empty
+|-
+| numZoomLevels
+| the number of zoom levels to draw (applies to all maps).  By increasing this number you’re able to see more of the world when the map first loads, and it takes more steps to get to the most detailed zoom level.
+| no
+| a number
+| 8
+|-
+| closestZoomSize
+| When zoomed-in all the way this value determines the area that will be visible in one of the rendered picture files. Increase [x] to "widen" the camera lens of this closest view. Sometimes used in conjunction with numZoomLevels (see below).
+For example, closestZoomSize=24 will create tiles that show 100% more terrain than at the default 12 (i.e. you will be "further back"). It is from these closest tiles (zoom8) that the other, wider tiles are rendered (zoom7 - zoom0).
+Increasing this number requires more memory, so making it too large may result in out-of-memory errors.
+| no
+| a number
+| 12
+|-
+| useDefaultBlocks
+| specifies whether to render using the default set of blocks or not
+| no
+| 'true' or 'false'
+| true
+|-
+| customBlocks
+| specifies the path to the xml file where custom block data is stored
+| no
+| a file path
+| none
+|}
+
+====Markers====
+
+A sub-node of the layers node, these options control which markers appear on the final rendered map. The data is formatted as:
+
+<pre>
+<signs filter="special" initiallyVisible="true" />
+<players filter="all" playerFilterFile="/Users/xxx/TectonicusTests/players.txt" initiallyVisible="true" />
+<portals filter="all" initiallyVisible="true" />
+<spawn show="true" intiallyVisible="true" />
+<beds initiallyVisible="true" />
+</pre>
+
+====Signs====
+
+{| class="wikitable" data-description="Sign options"
+|-
+! Option name
+! Description
+! Required?
+! Possible values
+! Default
+|-
+| filter
+| a filter to apply when exporting signs
+| no
+| 'all' to export all signs
+'none' to export no signs
+'special' to export signs which begin and end with one of the special characters: ! # - or ~. E.g. a sign like "-- lookout point --"
+Empty signs will always be skipped
+| special
+|-
+| initiallyVisible
+| specifies whether signs are already turned on when the final render is opened or not
+| no
+| 'true' or 'false'
+| true
+|}
+
+====Players====
+
+{| class="wikitable" data-description="Player options"
+|-
+! Option name
+! Description
+! Required?
+! Possible values
+! Default
+|-
+| filter
+| a filter to apply when exporting players
+| no
+| 'all' to export all players
+
+'none' to export no players
+
+'ops' to only export players with ops privilege
+
+'whitelist' to only export players within the player filter file
+
+'blacklist' to export all players except those in the player filter file
+| all
+|-
+| playerFilterFile
+| a path to a text file to use with the 'whitelist' and 'blacklist' options.
+Should contain one player name per line (the same as a minecraft ops file)
+| no
+| a file path
+| empty
+|-
+| initiallyVisible
+| specifies whether players are already turned on when the final render is opened or not
+| no
+| 'true' or 'false'
+| true
+|}
+
+====Portals====
+
+{| class="wikitable" data-description="Portal options"
+|-
+! Option name
+! Description
+! Required?
+! Possible values
+! Default
+|-
+| filter
+| a filter to apply when exporting portal markers
+| no
+| 'all' for all portals or 'none' for none
+| all
+|-
+| initiallyVisible
+| specifies whether portals are already turned on when the final render is opened or not
+| no
+| 'true' or 'false'
+| true
+|}
+
+====Spawn====
+
+{| class="wikitable" data-description="Spawn options"
+|-
+! Option name
+! Description
+! Required?
+! Possible values
+! Default
+|-
+| show
+| whether to export the spawn position or not
+| no
+| 'true' or 'false'
+| true
+|-
+| initiallyVisible
+| specifies whether the spawn point is already turned on when the final render is opened or not
+| no
+| 'true' or 'false'
+| true
+|}
+
+====Beds====
+
+{| class="wikitable" data-description="Bed options"
+|-
+! Option name
+! Description
+! Required?
+! Possible values
+! Default
+|-
+| initiallyVisible
+| specifies whether beds are already turned on when the final render is opened or not
+| no
+| 'true' or 'false'
+| true
+|}
+
+== Tweeks Node ==
+Here's an example tweeks node:
+<pre>
+	<tweeks
+		extractLwjglNatives = "true"
+		forceLoadAwt = "false"
+		force32BitNatives = "false"
+		force64BitNatives = "false"
+	>
+	</tweeks>
+</pre>
+
+These are options you shouldn't need to change, but can workaround quirks on some machines.
+
+{| class="wikitable" data-description="Tweeks options"
+|-
+! Option name
+! Description
+! Required?
+! Possible values
+! Default
+|-
+| extractLwjglNatives
+| whether to extract the native libraries for LWJGL before rendering
+| no
+| 'true' or 'false'
+| true
+|-
+| forceLoadAwt
+| force the loading of the Awt display system when Tectonicus starts
+| no
+| 'true' or 'false'
+| false
+|-
+| force32BitNatives
+| force the use of 32bit native library files (.dll and .so). Use this if the autodetection of 32bit or 64bit picks the wrong one for your computer
+| no
+| 'true' or 'false'
+| false
+|-
+| force64BitNatives
+| force the use of 64bit native library files (.dll and .so). Use this if the autodetection of 32bit or 64bit picks the wrong one for your computer
+| no
+| 'true' or 'false'
+| false
+|}
+
+== Debug node ==
+
+Here's an example debug node:
+
+<pre>
+	<debug maxTiles = "-1"
+	>
+	</debug>
+</pre>
+
+These are debugging options not intended for general use
+
+{| class="wikitable" data-description="Debug options"
+|-
+! Option name
+! Description
+! Required?
+! Possible values
+! Default
+|-
+| maxTiles
+| sets a maximum amount of tiles to draw, after which drawing stops.
+| no
+| any positive number, or -1 to disable
+| -1 (disabled)
+|}
+
+[[zh:辅助程序与编辑器/Tectonicus/Tectonicus 配置格式]]
+[[Category:Tectonicus]]

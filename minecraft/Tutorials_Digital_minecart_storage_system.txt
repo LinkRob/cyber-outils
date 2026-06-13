@@ -1,0 +1,62 @@
+{{cleanup|reason=The screenshots should use default textures ([[MCW:IMAGES]]), sections should be added}}
+A digital minecart storage system is an optimized storage system, which allows not only to get items from the storage, items can also be brought to the storage by a minecart with hopper.
+
+The whole system is modular and can be build as big as you want it to and the digital storage itself, also can be in a big distance. But more modules and a bigger distance will cause longer times to actually get the items from the storage and to the storage. A single module of this useful mechanism is 19x18x1 large.
+
+[[File:Module.png|400px]]
+
+It was hard to get it that small, because the prototype was a lot bigger than the end product now is.
+
+For a single module are the materials: 56 blocks, 5 blocks of redstone, 23 redstone, 10 repeaters, 6 redstone torches, 2 sticky pistons, 19 hoppers, 11 powered rails, 1 detector rail, 4 rails, 13 slabs, 10 chests, 7 comparators.
+
+Functions:
+
+1. Case: A minecart with hopper is sent with one item to the storage, which is stored in the storage. >>> The Minecart will come back with {{ItemAmount|2|53}} of the item.
+
+2. Case: A minecart with hopper is sent with many items to the storage, which are stored in the storage and with a keyitem. >>> The minecart with hopper will come back with nothing - It brought the stuff to the storage.
+
+3. Case: An empty minecart with hopper is sent to the storage. >>> The minecart with hopper will just come back without doing anything.
+
+[[File:Dmssexample.png|400px]]
+
+If you want to build it, you have to watch out for two things:
+
+1: An empty minecart with hopper has to be able to drive through the system, without driving into the filling or getting mechanism.
+
+You can recognize from which direction the minecart has to drive, by building some similar formation of power rails like this:
+
+[[File:Rail4.png|400px]]
+
+And then you place normal rails in the gaps between the power rails and then spend attention to the direction the rails are facing then.
+
+[[File:Rail2.png|400px]]
+
+In this example, the minecart has to come from the direction where its standing.
+
+[[File:Rail3.png|400px]]
+
+2: Every second module has to be built a bit different. The first module is built like this:
+
+[[File:first.png|400px]]
+
+And the second one with a piston and a redstone block like this:
+
+[[File:second.png|400px]]
+
+Because the minecart needs to be sent and come back on a single railway. Therefore, you need a special rail construction, but there are more possibilities for this problem.
+
+The rails on top have to look something like this:
+
+[[File:top.png|400px]]
+
+The rails on the bottom have to look something like this:
+
+[[File:bottom.png|400px]]
+
+You also need an mechanism, which sends the minecart to the filling station, when a keyitem for the filling station is in the minecart.
+
+Just a sorting mechanism, which sets the rail track in the right direction:
+
+[[File:Keyitem.png|400px]]
+
+[[zh:教程/数字化矿车存储系统]]

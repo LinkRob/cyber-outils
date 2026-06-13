@@ -1,0 +1,107 @@
+{{Outdated feature}}
+{{exclusive|java}}
+
+This tutorial provides examples of how to use command stats (values returned after executing a command). This tutorial assumes the reader is already familiar with the {{cmd|stats}} command.
+
+== Sidebar ==
+
+These examples demonstrate how to display command stats in the sidebar. This can be useful when testing commands, monitoring command block creations, etc.
+
+=== Player sidebar ===
+
+We'll use five "fake players" to hold the five command stats. Let's call them "Blocks", "Entities", "Items", "Query", and "Success".
+
+First, create the scoreboard objective that will be used to store the command stats.
+
+: <code>scoreboard objectives add CommandStats dummy</code>
+
+Second, set the sidebar to display the CommandStats objective.
+
+: <code>scoreboard objectives setdisplay sidebar CommandStats</code>
+
+Third, add the fake players to the sidebar by setting their CommandStats objective to 0. These five commands can be executed in any order, and a new fake player should appear in the sidebar after each one.
+
+: <code>scoreboard players set Blocks CommandStats 0</code>
+: <code>scoreboard players set Entities CommandStats 0</code>
+: <code>scoreboard players set Items CommandStats 0</code>
+: <code>scoreboard players set Query CommandStats 0</code>
+: <code>scoreboard players set Success CommandStats 0</code>
+
+Finally, use the {{cmd|stats}} command to specify which player should be used to update the sidebar with the command stats of the commands they execute. These five commands can be executed in any order. Replace ''player'' in the commands below with the name of the player (the player does not need to be online when the commands are run). If the player runs the commands themself, the Entities and Success entries in the sidebar will start updating after each command after they each are set up (because each command below should return a command stat of 1 for AffectedEntities and SuccessCount).
+
+: <code>stats entity ''player'' set AffectedBlocks Blocks CommandStats</code>
+: <code>stats entity ''player'' set AffectedEntities Entities CommandStats</code>
+: <code>stats entity ''player'' set AffectedItems Items CommandStats</code>
+: <code>stats entity ''player'' set QueryResult Query CommandStats</code>
+: <code>stats entity ''player'' set SuccessCount Success CommandStats</code>
+
+=== Command block sidebar ===
+
+To have the sidebar show the command stats of a specific command block instead of a player, run the first three steps described above in ''Player sidebar'' to set up the sidebar, but use these commands for the final step (replace ''x y z'' with the position of the command block in absolute coordinates or in [[Commands#Tilde notation|tilde notation]]).
+
+: <code>stats block ''x y z'' set AffectedBlocks Blocks CommandStats</code>
+: <code>stats block ''x y z'' set AffectedEntities Entities CommandStats</code>
+: <code>stats block ''x y z'' set AffectedItems Items CommandStats</code>
+: <code>stats block ''x y z'' set QueryResult Query CommandStats</code>
+: <code>stats block ''x y z'' set SuccessCount Success CommandStats</code>
+
+=== Multiple sidebars ===
+
+The sidebar can be set up to show different objectives to different teams. By setting up multiple objectives to be updated by different blocks or entities, players can switch which command stats they're looking at by switching which team they're on. Let's try setting up two teams, one for monitoring the command stats of a player, the other for monitoring the command stats of a command block.
+
+First, create the scoreboard objectives that will be used to store the command stats.
+
+: <code>scoreboard objectives add BlockStats dummy</code>
+: <code>scoreboard objectives add PlayerStats dummy</code>
+
+Second, create the teams.
+
+: <code>scoreboard teams add TeamBlock</code>
+: <code>scoreboard teams add TeamPlayer</code>
+
+Third, set the colors for the teams so the sidebar will know which objective to display for that team. Let's use "blue" for "Block", and "red" for "Player".
+
+: <code>scoreboard teams option TeamBlock color blue</code>
+: <code>scoreboard teams option TeamPlayer color red</code>
+
+Fourth, set the sidebar to display the BlockStats and PlayerStats objectives for the correct team.
+
+: <code>scoreboard objectives setdisplay sidebar.team.blue BlockStats</code>
+: <code>scoreboard objectives setdisplay sidebar.team.red PlayerStats</code>
+
+Fifth, add the fake players to both sidebars by setting their BlockStats and PlayerStats objectives to 0. If you're running these commands from the chat, it might be useful to put yourself on one team or the other now to see the fake players getting added.
+
+: <code>scoreboard players set Blocks BlockStats 0</code>
+: <code>scoreboard players set Entities BlockStats 0</code>
+: <code>scoreboard players set Items BlockStats 0</code>
+: <code>scoreboard players set Query BlockStats 0</code>
+: <code>scoreboard players set Success BlockStats 0</code>
+
+: <code>scoreboard players set Blocks PlayerStats 0</code>
+: <code>scoreboard players set Entities PlayerStats 0</code>
+: <code>scoreboard players set Items PlayerStats 0</code>
+: <code>scoreboard players set Query PlayerStats 0</code>
+: <code>scoreboard players set Success PlayerStats 0</code>
+
+Finally, use the {{cmd|stats}} command to specify which block and player should be used to update the sidebars with the command stats of the commands they execute.
+
+: <code>stats block ''x y z'' set AffectedBlocks Blocks BlockStats</code>
+: <code>stats block ''x y z'' set AffectedEntities Entities BlockStats</code>
+: <code>stats block ''x y z'' set AffectedItems Items BlockStats</code>
+: <code>stats block ''x y z'' set QueryResult Query BlockStats</code>
+: <code>stats block ''x y z'' set SuccessCount Success BlockStats</code>
+
+: <code>stats entity ''player'' set AffectedBlocks Blocks PlayerStats</code>
+: <code>stats entity ''player'' set AffectedEntities Entities PlayerStats</code>
+: <code>stats entity ''player'' set AffectedItems Items PlayerStats</code>
+: <code>stats entity ''player'' set QueryResult Query PlayerStats</code>
+: <code>stats entity ''player'' set SuccessCount Success PlayerStats</code>
+
+Now players can switch which stats they see in the sidebar by changing their team. Players who can execute commands can use the following commands:
+
+: <code>scoreboard teams join TeamBlock @p</code>
+: <code>scoreboard teams join TeamPlayer @p</code>
+
+{{tutorials}}
+
+[[zh:教程/命令统计值]]

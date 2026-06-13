@@ -1,0 +1,4845 @@
+{{For|the mechanic used with [[Piglin|piglins]]|Bartering}}
+[[File:VillagerGUI 1.14.png|thumb|upright=1.25|The current trading menu {{in|java}}.]]
+[[File:Bedrock trading interface.png|thumb|upright=1.25|The current trading menu {{in|bedrock}}.]]
+The '''trading''' system is a [[gameplay]] mechanic that allows [[player]]s to exchange [[emerald]]s for [[item]]s (and vice-versa) with [[villager]]s and [[wandering trader]]s.
+
+== Mechanics ==
+Pressing {{control|use}} on an adult [[villager]] with a profession<!--even without a workstation, as long as it has a profession, it works-->, or on a [[wandering trader]], opens a menu, allowing a player to trade with that merchant. This action pauses any pathfinding the merchant was doing. If the merchant takes [[damage]] while trading, the trading menu closes.
+
+All transactions involve [[emerald]]s.  Villagers have a wide variety of items they are willing to buy from you. Each Wandering trader will only buy two items. Trading is the only legitimate method of acquiring the [[globe banner pattern]], [[woodland explorer map]]s, and [[ocean explorer map]]s in [[Survival]] mode. It is also the only [[renewable resource|renewable]] way to obtain [[bell]]s, [[diamond]] gears (unless if the "Villager Trade Rebalance" data pack is turned on for diamond gears)<ref group="note">There is 0.04% chance for zombies and skeletons to spawn with diamond armor, but the chance is so negligible that it is infeasible to obtain diamond armor in this way.</ref>, [[lapis lazuli]], [[Bottle o' Enchanting|bottles o' enchanting]], [[glass]], [[sand]], red sand, [[coral block]]s, and [[Small Dripleaf|small dripleaves]].
+
+Villagers have five career levels that can be increased by trading with them. Each villager starts at the novice level. A villager's level can be seen in the trading menu. The badge they wear can also be identified: stone for a novice, iron for an apprentice, gold for a journeyman, emerald for an expert, and diamond for a master. Trading until the villager's trading bar fills up unlocks the next level of trades. When a player trades with a villager, both the villager and the player gain experience. All villager trades reward the player with 3–6 [[experience]], plus an additional 5 experience if the villager levels up. Trading with a wandering trader also rewards the player with some experience, although the trader does not give the player extra experience since wandering traders cannot level up. A villager levels up when its experience bar becomes full and gains up to two new trades, along with keeping their old ones. Additionally, a villager receives the [[Regeneration|Regeneration I]] [[effect]] for 10 seconds as an easter egg.
+
+{| class="wikitable" style="text-align:center" data-description="Villager trade levels"
+! Level
+! Badge
+! Name
+! Total Villager experience required
+|-
+| 1
+| [[File:Villager badge Novice.png]]
+| Novice
+| Available from start
+|-
+| 2
+| [[File:Villager badge Apprentice.png]]
+| Apprentice
+| 10
+|-
+| 3
+| [[File:Villager badge Journeyman.png]]
+| Journeyman
+| 70
+|-
+| 4
+| [[File:Villager badge Expert.png]]
+| Expert
+| 150
+|-
+| 5
+| [[File:Villager badge Master.png]]
+| Master
+| 250
+|}
+
+A villager's [[Villager#Professions|profession]] dictates the trading pool used to determine its trades. For example, villagers wearing straw hats are farmers, so their trades are based on the Farmer trade pool. Each profession unlocks a predefined and finite set of offers. Different professions are assigned to each villager based on their job-site block. This profession is indicated by their appearance and in the trading interface. Novice villagers who have not traded can lose their profession and change back into unemployed villagers if their claimed job site block is removed. Removing and then replacing a job site block can alter the trades offered, and a villager with no experience resets its trades every so often. Once a player trades with a villager, the villager keeps its profession forever and subsequently locks in the offered trades.
+
+Villagers run out of stock after a certain number of trades; the exact number is different for each item and referenced in the tables below. When villagers work at their job site blocks, they activate their offers again, up to twice per day. When an offer is disabled, a red "X" appears in the trading interface, and the villager displays the same particle effect as an offer being created.
+
+Villagers distinguish between data values, so damaged [[tool]]s cannot be traded in place of fully repaired tools.{{only|bedrock}} [[NBT format|NBT]] data, however, is ignored, so the content of a [[written book]] does not matter. However, written books can no longer be sold to villagers, and no villagers currently buy any tools that have [[durability]].
+
+=== Economics ===
+[[File:Zombie discounts (Java Edition).png|thumb|right|upright=1|Permanent discounts (observed prices may be higher or lower due to other temporary factors).]]
+{{IN|java}}, villagers can have a maximum of 10 trades. Each level unlocks a maximum of two new trades. If a level can pull from more than two trades, the two offered trades are chosen randomly from the set.
+
+{{IN|bedrock}}, villagers have 7–11 trade slots. Some slots with multiple possible trades display only one trade; for example, farmer villagers have 4 potential trades in their first trade slot, so each trade has a {{frac|1|4}} chance to be chosen.
+
+Each trade can be used a maximum number of times, after which the trade becomes disabled. Once trades are disabled, villagers must work at their corresponding [[Villager#Job site blocks|job site]] block to resupply their trades.
+
+The price of an item rises and falls depending on three factors. Items with a high price multiplier (0.2) are affected by these changes more than items with a low multiplier (0.05). All price fluctuations affect only the first item involved in trade; for example, for an initial trade of 32 sticks for 1 emerald, the price might be driven down to 1 stick or up to 64 sticks for 1 emerald, but never for 2 emeralds. Additionally, no quantity can go lower than 1 or higher than the stack size.
+
+The first factor is demand. An item that was sold out gets a price increase for all players when resupplied. If a player does not trade for a higher-priced item, the price is reduced the next time the villager resupplies. Demand is tracked per item, not per villager, so a villager can offer a higher-priced trade for a single item while other items are cheaper. Trades that have a price multiplier of 0 are not affected by demand.
+
+The second way to affect prices is the [[Hero of the Village]] effect, which temporarily reduces prices for the affected player depending on the level of the effect.
+
+Finally, players get personal discounts or fines based on their reputation with that particular villager. A positive reputation is gained by [[Village mechanics#Curing zombie villagers|curing zombie villagers]] (the villager that was cured gives a permanent discount much larger than the temporary discount in nearby villagers). To cure a zombie villager, a player must splash it with a [[splash potion]] or an [[arrow]] of [[Weakness]] and then feed it a [[golden apple]]. The permanent discount is capped at one cure, while the temporary discount is capped at 8 cures. {{IN|java}}, players can also gain negative reputation by hitting or killing villagers, and positive reputation by trading.
+
+== Non-trading villagers ==
+If the player attempts to trade with a non-trading villager {{in|java}}, they grunt and shake their head because they do not have a job.
+
+=== Nitwit ===
+[[File:Nitwit refusing.gif|thumb|right|upright=0.4|A nitwit shaking its head, indicating that it does not have a job and will not trade.]]
+Nitwits are green-coated villagers. They are unable to gain a profession and have a job, and therefore cannot trade. It can still have a child with a profession, however, and still gossips.
+{{-}}
+
+=== Unemployed villager ===
+[[File:Villager refusing.gif|thumb|right|upright=0.4|An unemployed villager shaking its head.]]
+Villagers without a job overlay cannot trade. They only wear their biome outfits. An unemployed villager gains a profession by claiming an unclaimed [[Villager#Job site blocks|job site block]]. For example, an unclaimed [[cartography table]] converts an unemployed villager into a cartographer when the villager claims it, and both the villager and the table emit green particles. An inaccessible (or destroyed) job site block causes the connected villager to lose its profession, but that does not affect the player's [[Village#Popularity|popularity]] in the village. Unemployed villagers will look for job blocks. On Java Edition, this is random. on Bedrock Edition, the closest villager to the job block will run towards to the block.
+
+<div style="clear: both;"></div>
+== Java Edition offers ==
+{{For|the trades before 1.8|Trading/Before 1.8}}{{For|the 1.13 trades|Trading/Before Village & Pillage}}
+
+The villager pictured on the right is from the plains biome. To see villager professions dressed for other biomes, see {{Section link|Villagers|Professions}}.
+
+Starting from Novice, at each level two more trades become available, unless there is only one trade within that level. If there are more than two possible trades, two are randomly selected.
+
+=== Armorer ===
+Job site block: {{BlockLink|Blast Furnace}}
+
+Sells armor ranging from chainmail armor to enchanted diamond armor.
+[[File:Plains Armorer.png|thumb|top|upright=0.4|Armorer]]
+
+{| class="wikitable" style="text-align:center" data-description="Armorer trades"
+! Colspan="8" | Armorer Economic Trade
+|-
+! Level
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="5" | Novice
+| {{ItemLink|Coal}}
+| 15
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}
+| 5
+| 0.2
+| {{ItemLink|link=helmet|Iron Helmet}}
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 9
+| 0.2
+| {{ItemLink|link=chestplate|Iron Chestplate}}
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 7
+| 0.2
+| {{ItemLink|link=leggings|Iron Leggings}}
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 4
+| 0.2
+| {{ItemLink|link=boots|Iron Boots}}
+| 1
+| 12 trades
+| 1 
+|-
+
+! rowspan="4" | Apprentice
+| {{ItemLink|Iron Ingot}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 36
+| 0.2
+| {{ItemLink|Bell}}
+| 1
+| 12 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 3
+| 0.2
+| {{ItemLink|link=leggings|Chainmail Leggings}}
+| 1
+| 12 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.2
+| {{ItemLink|link=boots|Chainmail Boots}}
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="5" | Journeyman
+| {{ItemLink|Lava Bucket}}
+| 1
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+| {{ItemLink|Diamond}}
+| 1
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.2
+| {{ItemLink|link=helmet|Chainmail Helmet}}
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 4
+| 0.2
+| {{ItemLink|link=chestplate|Chainmail Chestplate}}
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 5
+| 0.2
+| {{ItemLink|Shield}}
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="2" | Expert
+| {{ItemLink|Emerald}}
+| 19–33
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=leggings|Diamond Leggings}}
+| 1
+| 3 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 13–27
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=boots|Diamond Boots}}
+| 1
+| 3 trades
+| 15
+|-
+
+! rowspan="2" | Master
+| {{ItemLink|Emerald}}
+| 13–27
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=helmet|Diamond Helmet}}
+| 1
+| 3 trades
+| 30<ref group="note" name="master trade">As the villager cannot level up any further, they do not actually gain any experience.</ref>
+|-
+| {{ItemLink|Emerald}}
+| 21–35
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=chestplate|Diamond Chestplate}}
+| 1
+| 3 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Butcher ===
+Job site block: {{BlockLink|Smoker}}
+
+Sells a variety of cooked meats.
+[[File:Plains Butcher.png|thumb|right|upright=0.4|Butcher]]
+
+{| class="wikitable" style="text-align:center" data-description="Butcher trades"
+! Colspan="8" | Butcher Economic Trade
+|-
+! Level
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="4" | Novice
+| {{ItemLink|Raw Chicken}}
+| 14
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Raw Porkchop}}
+| 7
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Raw Rabbit}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Rabbit Stew}}
+| 1
+| 12 trades
+| 1
+|-
+
+! rowspan="3" | Apprentice
+| {{ItemLink|Coal}}
+| 15
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Cooked Porkchop}}
+| 5
+| 16 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Cooked Chicken}}
+| 8
+| 16 trades
+| 5
+|-
+
+! rowspan="2" | Journeyman
+| {{ItemLink|Raw Mutton}}
+| 7
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+| {{ItemLink|Raw Beef}}
+| 10
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+
+! Expert
+| {{BlockLink|Dried Kelp Block}}
+| 10
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+
+! Master
+| {{ItemLink|Sweet Berries}}
+| 10
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Cartographer ===
+Job site block: {{BlockLink|Cartography Table}}
+
+Sells exploration-related items, including maps that lead the player to certain structures.
+[[File:Plains Cartographer.png|thumb|right|upright=0.4|Cartographer]]
+
+{| class="wikitable" style="text-align:center" data-description="Cartographer trades"
+! Colspan="8" | Cartographer Economic Trade
+|-
+! Level
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="2" | Novice
+| {{ItemLink|Paper}}
+| 24
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}
+| 7
+| 0.05
+| {{ItemLink|link=map|Empty Map}}
+| 1
+| 12 trades
+| 1
+|-
+
+! rowspan="2" | Apprentice
+| {{BlockLink|Glass Pane|id=glass}}
+| 11
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 10
+|-
+| {{ItemLink|Emerald}}<br>{{ItemLink|Compass}}
+| 13<br>1
+| 0.2
+| {{ItemLink|link=Explorer Map|Ocean Explorer Map}}<ref group="note" name="explorer map">All copies of the map traded by a particular villager lead to the same structure. In worlds that do not have the structure, this trade is not offered.</ref>
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="3" | Journeyman
+| {{ItemLink|Compass}}
+| 1
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+| {{ItemLink|Emerald}}<br>{{ItemLink|Compass}}
+| 14<br>1
+| 0.2
+| {{ItemLink|link=Explorer Map|Woodland Explorer Map}}<ref group="note" name="explorer map"></ref>
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}<br>{{ItemLink|Compass}}
+| 12<br>1
+| 0.2
+| {{ItemLink|link=Explorer Map|Trial Explorer Map}}<ref group="note" name="explorer map"></ref>
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="2" | Expert 
+| {{ItemLink|Emerald}}
+| 7
+| 0.05
+| {{ItemLink|Item Frame}}
+| 1
+| 12 trades
+| 15
+|-
+
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+|
+{{BlockSprite|White-Banner}}
+{{BlockSprite|Light-Gray-Banner}}
+{{BlockSprite|Gray-Banner}}
+{{BlockSprite|Black-Banner}}
+{{BlockSprite|Brown-Banner}}
+{{BlockSprite|Orange-Banner}}
+{{BlockSprite|Yellow-Banner}}
+{{BlockSprite|Lime-Banner}} <br>
+{{BlockSprite|Green-Banner}}
+{{BlockSprite|Cyan-Banner}}
+{{BlockSprite|Light-Blue-Banner}}
+{{BlockSprite|Blue-Banner}}
+{{BlockSprite|Purple-Banner}}
+{{BlockSprite|Magenta-Banner}}
+{{BlockSprite|Pink-Banner}}
+{{BlockSprite|Red-Banner}}
+<br> Any color blank [[Banner]]<ref group="note" name="colored-offers">The list of possible offers contains individual offers for each color, so multiple colors may be offered by the same villager as separate trades.</ref>
+| 1
+| 12 trades
+| 15
+|-
+
+! Master
+| {{ItemLink|Emerald}}
+| 8
+| 0.05
+| {{ItemLink|Banner Pattern|Globe Banner Pattern}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Cleric ===
+Job site block: {{BlockLink|Brewing Stand}}
+
+Sells unique items that are difficult to obtain in large quantities.
+
+[[File:Plains Cleric.png|thumb|right|upright=0.4|Cleric]]
+
+{| class="wikitable" style="text-align:center" data-description="Cleric trades"
+! Colspan="8" | Cleric Economic Trade
+|-
+! Level
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="2" | Novice
+| {{ItemLink|Rotten Flesh}}
+| 32
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Redstone Dust}}
+| 2
+| 12 trades
+| 1
+|-
+
+! rowspan="2" | Apprentice
+| {{ItemLink|Gold Ingot}}
+| 3
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Lapis Lazuli}}
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="2" | Journeyman
+| {{ItemLink|Rabbit's Foot}}
+| 2
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+| {{ItemLink|Emerald}}
+| 4
+| 0.05
+| {{BlockLink|Glowstone}}
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="3" | Expert
+| {{ItemLink|Scute}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+| {{ItemLink|Glass Bottle}}
+| 9
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+| {{ItemLink|Emerald}}
+| 5
+| 0.05
+| {{ItemLink|Ender Pearl}}
+| 1
+| 12 trades
+| 15
+|-
+
+! rowspan="2" | Master
+| {{ItemLink|Nether Wart}}
+| 22
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|-
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+| {{ItemLink|Bottle o' Enchanting}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Farmer ===
+Job site block: {{BlockLink|Composter}}
+
+Sells various crops and foods. Useful for automated farming and acquiring specialty foods.
+[[File:Plains Farmer.png|thumb|right|upright=0.4|Farmer]]
+
+{| class="wikitable" style="text-align:center" data-description=Farmer trades"
+! Colspan="8" | Farmer Economic Trade
+|-
+! Level
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="5" | Novice
+| {{ItemLink|Wheat}}
+| 20
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Potato}}
+| 26
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Carrot}}
+| 22
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Beetroot}}
+| 15
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Bread}}
+| 6
+| 16 trades
+| 1
+|-
+
+! rowspan="3" | Apprentice
+| {{BlockLink|Pumpkin}}
+| 6
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Pumpkin Pie}}
+| 4
+| 12 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Apple}}
+| 4
+| 16 trades
+| 5
+|-
+
+! rowspan="2" | Journeyman
+| {{BlockLink|Melon}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+| {{ItemLink|Cookie}}
+| 18
+| 12 trades
+| 10
+|-
+
+! rowspan="7" | Expert 
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Cake}}
+| 1
+| 12 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Suspicious Stew}}<br>5 seconds of {{EffectLink|Night Vision}}<!--Stew trades are listed separately, unlike in BE-->
+| 1
+| 12 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Suspicious Stew}}<br>8 seconds of {{EffectLink|Jump Boost}}
+| 1
+| 12 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Suspicious Stew}}<br>7 seconds of {{EffectLink|Weakness}}
+| 1
+| 12 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Suspicious Stew}}<br>6 seconds of {{EffectLink|Blindness}}
+| 1
+| 12 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Suspicious Stew}}<br>14 seconds of {{EffectLink|Poison}}
+| 1
+| 12 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Suspicious Stew}}<br>0.35 seconds of {{EffectLink|Saturation}}
+| 1
+| 12 trades
+| 15
+|-
+
+! rowspan="2" | Master
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+| {{ItemLink|Golden Carrot}}
+| 3
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|-
+| {{ItemLink|Emerald}}
+| 4
+| 0.05
+| {{ItemLink|Glistering Melon Slice}}
+| 3
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Fisherman ===
+Job site block: {{BlockLink|Barrel}}
+
+Sells fish and fishing rods.
+[[File:Plains Fisherman.png|thumb|right|upright=0.4|Fisherman]]
+
+{| class="wikitable" style="text-align:center" data-description=Fisherman trades"
+! Colspan="8" | Fisherman Economic Trade
+|-
+! Level
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="4" | Novice
+| {{ItemLink|String}}
+| 20
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Coal}}
+| 10
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}<br>
+{{ItemLink|Raw Cod}}
+| 1<br> 6
+| 0.05
+| {{ItemLink|Cooked Cod}}
+| 6
+| 16 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+| {{ItemLink|link=Bucket of Fish|Bucket of Cod}}
+| 1
+| 16 trades
+| 1
+|-
+
+! rowspan="3" | Apprentice
+| {{ItemLink|Raw Cod}}
+| 15
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 10
+|-
+| {{ItemLink|Emerald}}<br>
+{{ItemLink|Raw Salmon}}
+| 1<br> 6
+| 0.05
+| {{ItemLink|Cooked Salmon}}
+| 6
+| 16 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 2
+| 0.05
+| {{ItemLink|Campfire}}
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="2" | Journeyman
+| {{ItemLink|Raw Salmon}}
+| 13
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+| {{ItemLink|Emerald}}
+| 8–22
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|Fishing Rod}}
+| 1
+| 3 trades
+| 10
+|-
+
+! Expert 
+| {{ItemLink|link=Tropical Fish (item)|Tropical Fish}}
+| 6
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+
+! rowspan="2" | Master
+| {{ItemLink|link=Pufferfish (item)|Pufferfish}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|-
+|{{ItemSprite|Oak Boat}} {{ItemSprite|Spruce Boat}} {{ItemSprite|Jungle Boat}} {{ItemSprite|Acacia Boat}} {{ItemSprite|Dark Oak Boat}}<br>One of 5 [[Boat]]<ref group="note" name="boat-1.14">The type of boat trade depends on the biome outfit of the villager. Plains villagers buy oak boats, taiga and snowy villagers buy spruce boats, desert and jungle villagers buy jungle boats, savanna villagers buy acacia boats, and swamp villagers buy dark oak boats.</ref>
+| 1
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Fletcher ===
+Job site block: {{BlockLink|Fletching Table}}
+
+Sells [[bow]]s, [[crossbow]]s, and various types of [[tipped arrow]]s.
+[[File:Plains Fletcher.png|thumb|right|upright=0.4|Fletcher]]
+
+{| class="wikitable" style="text-align:center" data-description=Fletcher trades"
+! Colspan="8" | Fletcher Economic Trade
+|-
+! Level
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="3" | Novice
+| {{ItemLink|Stick}}
+| 32
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Arrow}}
+| 16
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}<br>
+{{BlockLink|Gravel}}
+| 1<br> 10
+| 0.05
+| {{ItemLink|Flint}}
+| 10
+| 12 trades
+| 1
+|-
+
+! rowspan="2" | Apprentice
+| {{ItemLink|Flint}}
+| 26
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 2
+| 0.05
+| {{ItemLink|Bow}}
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="2" | Journeyman
+| {{ItemLink|String}}
+| 14
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+| {{ItemLink|Crossbow}}
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="2" | Expert 
+| {{ItemLink|Feather}}
+| 24
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 30
+|-
+| {{ItemLink|Emerald}}
+| 7–21
+| 0.05
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|Bow}}
+| 1
+| 3 trades
+| 15
+|-
+
+! rowspan="3" | Master
+| {{BlockLink|Tripwire Hook}}
+| 8
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|-
+| {{ItemLink|Emerald}}
+| 8–22
+| 0.05
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|Crossbow}}
+| 1
+| 3 trades
+| 15<ref group="note" name="master trade"></ref>
+|-
+| {{ItemLink|Emerald}}<br>{{ItemLink|Arrow}}
+| 2<br>5
+| 0.05
+|
+{{ItemSprite|Arrow-of-Fire-Resistance|title=Arrow of Fire Resistance}}
+{{ItemSprite|Arrow-of-Fire-Resistance|title=Arrow of Fire Resistance (extended)}}
+{{ItemSprite|Arrow-of-Harming|title=Arrow of Harming}}
+{{ItemSprite|Arrow-of-Harming|title=Arrow of Harming (II)}}
+{{ItemSprite|Arrow-of-Healing|title=Arrow of Healing}}
+{{ItemSprite|Arrow-of-Healing|title=Arrow of Healing (II)}}
+{{ItemSprite|Arrow-of-Invisibility|title=Arrow of Invisibility}}
+{{ItemSprite|Arrow-of-Invisibility|title=Arrow of Invisibility (extended)}}
+{{ItemSprite|Arrow-of-Leaping|title=Arrow of Leaping}}
+{{ItemSprite|Arrow-of-Leaping|title=Arrow of Leaping (extended)}}
+{{ItemSprite|Arrow-of-Leaping|title=Arrow of Leaping (II)}}
+{{ItemSprite|Arrow-of-Night-Vision|title=Arrow of Night Vision}}
+{{ItemSprite|Arrow-of-Night-Vision|title=Arrow of Night Vision (extended)}}
+{{ItemSprite|Arrow-of-Poison|title=Arrow of Poison}}
+{{ItemSprite|Arrow-of-Poison|title=Arrow of Poison (extended)}}
+{{ItemSprite|Arrow-of-Poison|title=Arrow of Poison (II)}}
+{{ItemSprite|Arrow-of-Regeneration|title=Arrow of Regeneration}}
+{{ItemSprite|Arrow-of-Regeneration|title=Arrow of Regeneration (extended)}}
+{{ItemSprite|Arrow-of-Regeneration|title=Arrow of Regeneration (II)}}
+{{ItemSprite|Arrow-of-Slow-Falling|title=Arrow of Slow Falling}}
+{{ItemSprite|Arrow-of-Slow-Falling|title=Arrow of Slow Falling (extended)}}
+{{ItemSprite|Arrow-of-Slowness|title=Arrow of Slowness}}
+{{ItemSprite|Arrow-of-Slowness|title=Arrow of Slowness (extended)}}
+{{ItemSprite|Arrow-of-Slowness|title=Arrow of Slowness (II)}}
+{{ItemSprite|Arrow-of-Strength|title=Arrow of Strength}}
+{{ItemSprite|Arrow-of-Strength|title=Arrow of Strength (extended)}}
+{{ItemSprite|Arrow-of-Strength|title=Arrow of Strength (II)}}
+{{ItemSprite|Arrow-of-Swiftness|title=Arrow of Swiftness}}
+{{ItemSprite|Arrow-of-Swiftness|title=Arrow of Swiftness (extended)}}
+{{ItemSprite|Arrow-of-Swiftness|title=Arrow of Swiftness (II)}}
+{{ItemSprite|Arrow-of-the-Turtle-Master|title=Arrow of the Turtle Master}}
+{{ItemSprite|Arrow-of-the-Turtle-Master|title=Arrow of the Turtle Master (extended)}}
+{{ItemSprite|Arrow-of-the-Turtle-Master|title=Arrow of the Turtle Master (II)}}
+{{ItemSprite|Arrow-of-Water-Breathing|title=Arrow of Water Breathing}}
+{{ItemSprite|Arrow-of-Water-Breathing|title=Arrow of Water Breathing (extended)}}
+{{ItemSprite|Arrow-of-Weakness|title=Arrow of Weakness}}
+{{ItemSprite|Arrow-of-Weakness|title=Arrow of Weakness (extended)}}
+<br>[[Arrow#Tipped arrows|Tipped Arrow]]<ref group="note">The type of arrow is chosen randomly from all possible brewable potions with effects, including extended and strengthened versions. This is a single offer in the offer list (like enchanted books), not one offer per type (like various colored items).</ref>
+| 5
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Leatherworker ===
+Job site block: {{BlockLink|Cauldron}}
+
+Sells items that are made of leather.
+[[File:Plains Leatherworker.png|thumb|right|upright=0.4|Leatherworker]]
+
+{| class="wikitable" style="text-align:center" data-description="Leatherworker trades"
+! Colspan="8" | Leatherworker Economic Trade
+|-
+! Level
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="3" | Novice
+| {{ItemLink|Leather}}
+| 6
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}
+| 3
+| 0.2
+| {{ItemLink|link=leggings|Leather Pants}} <ref group="note" name="leather-1.14">The leather armor has a random color created by two dyes (possibly the same dye twice.)</ref>
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 7
+| 0.2
+| {{ItemLink|link=chestplate|Leather Tunic}} <ref group="note" name="leather-1.14"></ref>
+| 1
+| 12 trades
+| 1
+|-
+
+! rowspan="3" | Apprentice
+| {{ItemLink|Flint}}
+| 26
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 5
+| 0.2
+| {{ItemLink|link=helmet|Leather Cap}} <ref group="note" name="leather-1.14"></ref>
+| 1
+| 12 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 4
+| 0.2
+| {{ItemLink|link=boots|Leather Boots}} <ref group="note" name="leather-1.14"></ref>
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="2" | Journeyman
+| {{ItemLink|Rabbit Hide}}
+| 9
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+| {{ItemLink|Emerald}}
+| 7
+| 0.2
+| {{ItemLink|link=chestplate|Leather Tunic}} <ref group="note" name="leather-1.14"></ref>
+| 1
+| 12 trades
+| 1<ref>{{bug|MC-179352||The leatherworker's second leather tunic trade give too little villager XP}}</ref>
+|-
+
+! rowspan="2" | Expert
+| {{ItemLink|Scute}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+| {{ItemLink|Emerald}}
+| 6
+| 0.2
+| {{ItemLink|link=Horse Armor|Leather Horse Armor}} <ref group="note" name="leather-1.14"></ref>
+| 1
+| 12 trades
+| 15
+|-
+
+! rowspan="2" | Master
+| {{ItemLink|Emerald}}
+| 6
+| 0.2
+| {{ItemLink|Saddle}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade" />
+|-
+| {{ItemLink|Emerald}}
+| 5
+| 0.2
+| {{ItemLink|link=helmet|Leather Cap}} <ref group="note" name="leather-1.14"></ref>
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade" />
+|}
+
+=== Librarian ===
+Job site block: {{BlockLink|Lectern}}
+
+Useful for acquiring enchantments (such as Mending, Unbreaking, etc.) quickly and easily.
+[[File:Plains Librarian.png|thumb|right|upright=0.4|Librarian]]
+
+; Without the "[[Java Edition 1.20.2|Villager Trade Rebalance]]" data pack
+{| class="wikitable" style="text-align:center" data-description="Librarian trades"
+! Colspan="8" | Librarian Economic Trade
+|-
+! Level
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="3" | Novice
+| {{ItemLink|Paper}}
+| 24
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}<br>
+{{ItemLink|Book}}
+| 5–64<br> 1
+| 0.2
+| {{ItemLink|Enchanted Book}} <ref group="note" name="enchanted-book">The enchantment is chosen randomly with equal chance of any [[enchanting|enchantment]] type occurring (except for [[Soul Speed]], [[Swift Sneak]] and [[Wind Burst]]) and equal chance to get any level of the enchantment, meaning high-level enchantments are as likely as low-level enchantments. It is possible for a librarian to sell the same book more than once.
+ The price in emeralds depends on the enchantment level and "treasure" status. The minimum price of a book is given by 2&nbsp;+&nbsp;3&nbsp;*&nbsp;(enchantment level), while the maximum price is 6&nbsp;+&nbsp;13&nbsp;*&nbsp;(enchantment level). The possible values are 5–19 emeralds for Lvl I, 8–32 for Lvl II, 11–45 for Lvl III, 14–58 for Lvl IV, and 17–71 for Lvl V. For [[treasure enchantment]]s the price is doubled. The cost is capped at 64 emeralds. All values below this cap are equally probable.</ref>
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 9
+| 0.05
+| {{BlockLink|Bookshelf}}
+| 1
+| 12 trades
+| 1
+|-
+
+! rowspan="3" | Apprentice
+| {{ItemLink|Book}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}<br>
+{{ItemLink|Book}}
+| 5–64<br>1
+| 0.2
+| {{ItemLink|Enchanted Book}} <ref group="note" name="enchanted-book"></ref>
+| 1
+| 12 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|Lantern}}
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="3" | Journeyman
+| {{ItemLink|Ink Sac}}
+| 5
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+| {{ItemLink|Emerald}}<br>
+{{ItemLink|Book}}
+| 5–64<br>1
+| 0.2
+| {{ItemLink|Enchanted Book}} <ref group="note" name="enchanted-book"></ref>
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|Glass}}
+| 4
+| 12 trades
+| 10
+|-
+
+! rowspan="4" | Expert
+| {{ItemLink|Book and Quill}}
+| 2<ref group="note" name="book-and-quill-discount">The trade is listed as two book and quill items, but because there is only one trading input slot, and books and quills cannot stack, the player needs to exchange only one book and quill in the trade.</ref><ref>{{bug|MC-248042||Librarian's book and quill trade is always discounted to 1 since books are unstackable}}</ref>
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+| {{ItemLink|Emerald}}<br>
+{{ItemLink|Book}}
+| 5–64<br>1
+| 0.2
+| {{ItemLink|Enchanted Book}} <ref group="note" name="enchanted-book"></ref>
+| 1
+| 12 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 5
+| 0.05
+| {{ItemLink|Clock}}
+| 1
+| 12 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 4
+| 0.05
+| {{ItemLink|Compass}}
+| 1
+| 12 trades
+| 15
+|-
+
+! Master
+| {{ItemLink|Emerald}}
+| 20
+| 0.05
+| {{ItemLink|Name Tag}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+; With the "Villager Trade Rebalance" data pack
+{| class="wikitable collapsible collapsed" style="text-align:center" data-description="Librarian trades"
+! Colspan="8" | Librarian Economic Trade
+|-
+! Level
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="3" | Novice
+| {{ItemLink|Paper}}
+| 24
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}<br>
+{{ItemLink|Book}}
+| 5–64<br> 1
+| 0.2
+| Biome dependent<br>common<br>{{ItemLink|Enchanted Book}} <ref group="note" name="common-enchanted-book">The enchantment is chosen randomly from the "Common" enchantments listed on the table below according to the biome of the villagers. Every levels of these enchantment has equal chance to be chosen, meaning high-level enchantments are as likely as low-level enchantments. It is possible for a librarian to sell the same book more than once.
+ The price in emeralds depends on the enchantment level and "treasure" status. The minimum price of a book is given by 2&nbsp;+&nbsp;3&nbsp;*&nbsp;(enchantment level), while the maximum price is 6&nbsp;+&nbsp;13&nbsp;*&nbsp;(enchantment level). The possible values are 5–19 emeralds for Lvl I, 8–32 for Lvl II, 11–45 for Lvl III, 14–58 for Lvl IV, and 17–71 for Lvl V. For [[treasure enchantment]]s the price is doubled. The cost is capped at 64 emeralds. All values below this cap are equally probable.</ref>
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 9
+| 0.05
+| {{BlockLink|Bookshelf}}
+| 1
+| 12 trades
+| 1
+|-
+
+! rowspan="3" | Apprentice
+| {{ItemLink|Book}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}<br>
+{{ItemLink|Book}}
+| 5–64<br>1
+| 0.2
+| Biome dependent<br>common<br>{{ItemLink|Enchanted Book}} <ref group="note" name="common-enchanted-book"></ref>
+| 1
+| 12 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|Lantern}}
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="3" | Journeyman
+| {{ItemLink|Ink Sac}}
+| 5
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+| {{ItemLink|Emerald}}<br>
+{{ItemLink|Book}}
+| 5–64<br>1
+| 0.2
+| Biome dependent<br>common<br>{{ItemLink|Enchanted Book}} <ref group="note" name="common-enchanted-book"></ref>
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|Glass}}
+| 4
+| 12 trades
+| 10
+|-
+
+! rowspan="3" | Expert
+| {{ItemLink|Book and Quill}}
+| 2<ref group="note" name="book-and-quill-discount"/><ref>{{bug|MC-248042||Librarian's book and quill trade is always discounted to 1 since books are unstackable}}</ref>
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+| {{ItemLink|Emerald}}
+| 5
+| 0.05
+| {{ItemLink|Clock}}
+| 1
+| 12 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 4
+| 0.05
+| {{ItemLink|Compass}}
+| 1
+| 12 trades
+| 15
+|-
+
+! rowspan="2" | Master
+| {{ItemLink|Emerald}}<br>
+{{ItemLink|Book}}
+| 5–45<br>1
+| 0.2
+| Biome dependent<br>special<br>{{ItemLink|Enchanted Book}} <ref group="note" name="special-enchanted-book">The enchantment is set from the "Special" enchantments listed on the table below according to the biome of the villagers. Unlike common enchantments, the level of enchantment is also defined.
+ The price in emeralds depends on the enchantment level and "treasure" status. The minimum price of a book is given by 2&nbsp;+&nbsp;3&nbsp;*&nbsp;(enchantment level), while the maximum price is 6&nbsp;+&nbsp;13&nbsp;*&nbsp;(enchantment level). The possible values are 5–19 emeralds for Lvl I, 8–32 for Lvl II, 11–45 for Lvl III, 14–58 for Lvl IV, and 17–71 for Lvl V. For [[treasure enchantment]]s the price is doubled. The cost is capped at 64 emeralds. All values below this cap are equally probable.</ref>
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|-
+| {{ItemLink|Emerald}}
+| 20
+| 0.05
+| {{ItemLink|Name Tag}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+{| class="wikitable collapsible collapsed"
+! Colspan="8" | Biomes and corresponding enchantments
+|-
+! - 
+! {{EntitySprite|villager-desert}}Desert
+! {{EntitySprite|villager-plains}}Plains
+! {{EntitySprite|villager-savanna}}Savanna
+! {{EntitySprite|villager-snowy}}Snowy
+! {{EntitySprite|villager-taiga}}Taiga 
+! {{EntitySprite|villager-jungle}}Jungle
+! {{EntitySprite|villager-swamp}}Swamp
+|-
+! Special
+| [[Efficiency]] III
+| [[Protection]] III
+| [[Sharpness]] III
+| [[Silk Touch]]
+| [[Fortune]] II
+| [[Unbreaking]] II
+| [[Mending]]
+|-
+! Common
+| [[Fire Protection]]<br>[[Thorns]]<br>[[Infinity]]
+| [[Punch]]<br>[[Smite]]<br>[[Bane of Arthropods]]
+| [[Knockback]]<br>[[Curse of Binding]]<br>[[Sweeping Edge]]
+| [[Aqua Affinity]]<br>[[Looting]]<br>[[Frost Walker]]
+| [[Blast Protection]]<br>[[Fire Aspect]]<br>[[Flame]]
+| [[Feather Falling]]<br>[[Projectile Protection]]<br>[[Power]]
+| [[Depth Strider]]<br>[[Respiration]]<br>[[Curse of Vanishing]]
+|-
+! Biomes
+|{{BiomeLink|Badlands}} <br> {{BiomeLink|Eroded Badlands}} <br> {{BiomeLink|Wooded Badlands}} <br> {{BiomeLink|Desert}}<ref group="n" name="village">Villages occur naturally in this biome.</ref>
+|{{BiomeLink|River}} <br> {{BiomeLink|Beach}} <br> {{BiomeLink|Stony Shore}}{{BiomeLink|Stony Peaks}} <br>
+{{BiomeLink|Birch Forest}} <br> {{BiomeLink|Old Growth Birch Forest}} <br> {{BiomeLink|Dark Forest}} <br> {{BiomeLink|Forest}} <br> {{BiomeLink|Flower Forest}} <br> {{BiomeLink|Meadow}}<ref group="n" name="village" /> <br> {{BiomeLink|Mushroom Fields}} <br> {{BiomeLink|Plains}}<ref group="n" name="village" /> <br> {{BiomeLink|Sunflower Plains}}<ref group="n" name="village_be" /><br> {{BiomeLink|Cold Ocean}} <br> {{BiomeLink|Deep Cold Ocean}} <br> {{BiomeLink|Lukewarm Ocean}} <br> {{BiomeLink|Deep Lukewarm Ocean}} <br> {{BiomeLink|Ocean}} <br> {{BiomeLink|Deep Ocean}} <br> {{BiomeLink|Warm Ocean}} <br> {{BiomeLink|Deep Dark}} <br> {{BiomeLink|Dripstone Caves}} <br> {{BiomeLink|Lush Caves}} <br> {{BiomeLink|Basalt Deltas}} <br> {{BiomeLink|Crimson Forest}} <br> {{BiomeLink|Nether Wastes}} <br> {{BiomeLink|Soul Sand Valley}} <br> {{BiomeLink|Warped Forest}} <br> {{BiomeLink|The End}} <br> {{BiomeLink|End Barrens}}{{Only|je|short=1}}<br> {{BiomeLink|End Highlands}}{{Only|je|short=1}}<br> {{BiomeLink|End Midlands}}{{Only|je|short=1}}<br> {{BiomeLink|Small End Islands}}{{Only|je|short=1}}<br> {{BiomeLink|The Void}}{{Only|je|short=1}}
+|{{BiomeLink|Savanna}}<ref group="n" name="village"/> <br> {{BiomeLink|Savanna Plateau}} <br> {{BiomeLink|Windswept Savanna}}
+|{{BiomeLink|Frozen River}} <br> {{BiomeLink|Snowy Beach}} <br> {{BiomeLink|Frozen Peaks}} <br> {{BiomeLink|Grove}} <br> {{BiomeLink|Jagged Peaks}} <br> {{BiomeLink|Snowy Plains}}<ref group="n" name="village"/> <br> {{BiomeLink|Ice Spikes}} <br> {{BiomeLink|Snowy Slopes}} <br> {{BiomeLink|Snowy Taiga}}<ref group="n" name="village_be">Villages occur naturally in this biome {{in|Bedrock}}.</ref><br> {{BiomeLink|Frozen Ocean}} <br> {{BiomeLink|Deep Frozen Ocean}} 
+|{{BiomeLink|Old Growth Pine Taiga}} <br> {{BiomeLink|Old Growth Spruce Taiga}} <br> {{BiomeLink|Taiga}}<ref group="n" name="village"/><br> {{BiomeLink|Windswept Hills}} <br> {{BiomeLink|Windswept Forest}} <br> {{BiomeLink|Windswept Gravelly Hills}}
+|{{BiomeLink|Jungle}} <br> {{BiomeLink|Bamboo Jungle}} <br> {{BiomeLink|Sparse Jungle}}
+|{{BiomeLink|Swamp}} <br> {{BiomeLink|Mangrove Swamp}}
+
+|}
+
+=== Mason/Stone Mason ===
+Job site block: {{BlockLink|Stonecutter}}
+
+Sells stone-related building blocks.
+[[File:Plains Mason.png|thumb|right|upright=0.4|Mason]]
+{{dablink|Note: This profession is called "Mason" {{in|java}} and "Stone Mason" {{in|bedrock}}.}}
+
+{| class="wikitable" style="text-align:center" data-description="Mason trades"
+! Colspan="9" | Mason Economic Trade
+|-
+! Level
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to the villager
+|-
+! rowspan="2" | Novice
+| {{ItemLink|Clay Ball}}
+| 10
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Brick}}
+| 10
+| 16 trades
+| 1
+|-
+
+! rowspan="2" | Apprentice
+| {{BlockLink|Stone}}
+| 20
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|link=Stone Bricks|Chiseled Stone Bricks}}
+| 4
+| 16 trades
+| 5
+|-
+
+! rowspan="7" | Journeyman
+| {{BlockLink|Granite}}
+| 16
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+| {{BlockLink|Andesite}}
+| 16
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+| {{BlockLink|Diorite}}
+| 16
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|link=andesite|Polished Andesite}}
+| 4
+| 16 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|link=granite|Polished Granite}}
+| 4
+| 16 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|link=diorite|Polished Diorite}}
+| 4
+| 16 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|Dripstone Block}} 
+| 4
+| 16 trades
+| 10
+|-
+
+! rowspan="3" | Expert
+| {{ItemLink|Nether Quartz}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+|
+{{BlockSprite|Yellow-Terracotta}}
+{{BlockSprite|White-Terracotta}}
+{{BlockSprite|Black-Terracotta}}
+{{BlockSprite|Orange-Terracotta}}
+{{BlockSprite|Gray-Terracotta}}
+{{BlockSprite|Light-Gray-Terracotta}}
+{{BlockSprite|Red-Terracotta}}
+{{BlockSprite|Pink-Terracotta}}<br>
+{{BlockSprite|Magenta-Terracotta}}
+{{BlockSprite|Purple-Terracotta}}
+{{BlockSprite|Blue-Terracotta}}
+{{BlockSprite|Light-Blue-Terracotta}}
+{{BlockSprite|Cyan-Terracotta}}
+{{BlockSprite|Green-Terracotta}}
+{{BlockSprite|Lime-Terracotta}}
+{{BlockSprite|Brown-Terracotta}}
+<br>Any color [[Terracotta|Colored Terracotta]]<ref group="note" name="colored-offers"></ref>
+| 1
+| 12 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+|
+{{BlockSprite|Yellow-Glazed-Terracotta}}
+{{BlockSprite|White-Glazed-Terracotta}}
+{{BlockSprite|Black-Glazed-Terracotta}}
+{{BlockSprite|Orange-Glazed-Terracotta}}
+{{BlockSprite|Gray-Glazed-Terracotta}}
+{{BlockSprite|Light-Gray-Glazed-Terracotta}}
+{{BlockSprite|Red-Glazed-Terracotta}}
+{{BlockSprite|Pink-Glazed-Terracotta}}<br>
+{{BlockSprite|Magenta-Glazed-Terracotta}}
+{{BlockSprite|Purple-Glazed-Terracotta}}
+{{BlockSprite|Blue-Glazed-Terracotta}}
+{{BlockSprite|Light-Blue-Glazed-Terracotta}}
+{{BlockSprite|Cyan-Glazed-Terracotta}}
+{{BlockSprite|Green-Glazed-Terracotta}}
+{{BlockSprite|Lime-Glazed-Terracotta}}
+{{BlockSprite|Brown-Glazed-Terracotta}}
+<br>Any color [[Glazed Terracotta]]<ref group="note" name="colored-offers"></ref>
+| 1
+| 12 trades
+| 15
+|-
+
+! rowspan="2" | Master
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|link=Block of Quartz|Quartz Pillar}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|Block of Quartz}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Shepherd ===
+Job site block: {{BlockLink|Loom}}
+
+Sells various colors of wool, carpets, beds, and banners.
+[[File:Plains Shepherd.png|thumb|right|upright=0.4|Shepherd]]
+
+{| class="wikitable" style="text-align:center" data-description=Shepherd trades"
+! Colspan="8" | Shepherd Economic Trade
+|-
+! Level
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="5" | Novice
+| {{BlockLink|link=wool|White Wool}}
+| 18
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{BlockLink|link=wool|Brown Wool}}
+| 18
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{BlockLink|link=wool|Black Wool}}
+| 18
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{BlockLink|link=wool|Gray Wool}}
+| 18
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}
+| 2
+| 0.05
+| {{ItemLink|Shears}}
+| 1
+| 12 trades
+| 1
+|-
+
+! rowspan="7" | Apprentice
+| {{ItemLink|Black Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 10
+|-
+| {{ItemLink|Gray Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 10
+|-
+| {{ItemLink|Lime Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 10
+|-
+| {{ItemLink|Light Blue Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 10
+|-
+| {{ItemLink|White Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+|
+{{BlockSprite|White-Wool}}
+{{BlockSprite|Light-Gray-Wool}}
+{{BlockSprite|Gray-Wool}}
+{{BlockSprite|Black-Wool}}
+{{BlockSprite|Brown-Wool}}
+{{BlockSprite|Orange-Wool}}
+{{BlockSprite|Yellow-Wool}}
+{{BlockSprite|Lime-Wool}} <br>
+{{BlockSprite|Green-Wool}}
+{{BlockSprite|Cyan-Wool}}
+{{BlockSprite|Blue-Wool}}
+{{BlockSprite|Light-Blue-Wool}}
+{{BlockSprite|Purple-Wool}}
+{{BlockSprite|Magenta-Wool}}
+{{BlockSprite|Pink-Wool}}
+{{BlockSprite|Red-Wool}}
+<br> Any color [[Wool]]<ref group="note" name="colored-offers"></ref>
+| 1
+| 16 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+|
+{{BlockSprite|White-Carpet}}
+{{BlockSprite|Light-Gray-Carpet}}
+{{BlockSprite|Gray-Carpet}}
+{{BlockSprite|Black-Carpet}}
+{{BlockSprite|Brown-Carpet}}
+{{BlockSprite|Orange-Carpet}}
+{{BlockSprite|Yellow-Carpet}}
+{{BlockSprite|Lime-Carpet}} <br>
+{{BlockSprite|Green-Carpet}}
+{{BlockSprite|Cyan-Carpet}}
+{{BlockSprite|Blue-Carpet}}
+{{BlockSprite|Light-Blue-Carpet}}
+{{BlockSprite|Purple-Carpet}}
+{{BlockSprite|Magenta-Carpet}}
+{{BlockSprite|Pink-Carpet}}
+{{BlockSprite|Red-Carpet}}
+<br> Any color [[Carpet]]<ref group="note" name="colored-offers"></ref>
+| 4
+| 16 trades
+| 5
+|-
+
+! rowspan="6" | Journeyman
+| {{ItemLink|Red Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+| {{ItemLink|Light Gray Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+| {{ItemLink|Pink Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+| {{ItemLink|Yellow Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+| {{ItemLink|Orange Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+|
+{{BlockSprite|White-Bed}}
+{{BlockSprite|Light-Gray-Bed}}
+{{BlockSprite|Gray-Bed}}
+{{BlockSprite|Black-Bed}}
+{{BlockSprite|Brown-Bed}}
+{{BlockSprite|Orange-Bed}}
+{{BlockSprite|Yellow-Bed}}
+{{BlockSprite|Lime-Bed}} <br>
+{{BlockSprite|Green-Bed}}
+{{BlockSprite|Cyan-Bed}}
+{{BlockSprite|Blue-Bed}}
+{{BlockSprite|Light-Blue-Bed}}
+{{BlockSprite|Purple-Bed}}
+{{BlockSprite|Magenta-Bed}}
+{{BlockSprite|Pink-Bed}}
+{{BlockSprite|Red-Bed}}
+<br> Any color [[Bed]]<ref group="note" name="colored-offers"></ref>
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="7" | Expert 
+| {{ItemLink|Green Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 30
+|-
+| {{ItemLink|Brown Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 30
+|-
+| {{ItemLink|Blue Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 30
+|-
+| {{ItemLink|Purple Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 30
+|-
+| {{ItemLink|Cyan Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 30
+|-
+| {{ItemLink|Magenta Dye}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 30
+|-
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+|
+{{BlockSprite|White-Banner}}
+{{BlockSprite|Light-Gray-Banner}}
+{{BlockSprite|Gray-Banner}}
+{{BlockSprite|Black-Banner}}
+{{BlockSprite|Brown-Banner}}
+{{BlockSprite|Orange-Banner}}
+{{BlockSprite|Yellow-Banner}}
+{{BlockSprite|Lime-Banner}} <br>
+{{BlockSprite|Green-Banner}}
+{{BlockSprite|Cyan-Banner}}
+{{BlockSprite|Light-Blue-Banner}}
+{{BlockSprite|Blue-Banner}}
+{{BlockSprite|Purple-Banner}}
+{{BlockSprite|Magenta-Banner}}
+{{BlockSprite|Pink-Banner}}
+{{BlockSprite|Red-Banner}}
+<br> Any color blank [[Banner]]<ref group="note" name="colored-offers"></ref>
+| 1
+| 12 trades
+| 15
+|-
+
+! Master
+| {{ItemLink|Emerald}}
+| 2
+| 0.05
+| {{ItemLink|Painting}}
+| 3
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Toolsmith ===
+Job site block: {{BlockLink|Smithing Table}}
+
+Sells all tools but swords, ranging in quality from stone to enchanted diamond.
+[[File:Plains Toolsmith.png|thumb|right|upright=0.4|Toolsmith]]
+
+{| class="wikitable" style="text-align:center" data-description="Toolsmith trades"
+! Colspan="8" | Toolsmith Economic Trade
+|-
+! Level
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="5" | Novice
+| {{ItemLink|Coal}}
+| 15
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.2
+| {{ItemLink|link=axe|Stone Axe}}
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.2
+| {{ItemLink|link=shovel|Stone Shovel}}
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.2
+| {{ItemLink|link=pickaxe|Stone Pickaxe}}
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.2
+| {{ItemLink|link=hoe|Stone Hoe}}
+| 1
+| 12 trades
+| 1
+|-
+
+! rowspan="2" | Apprentice
+| {{ItemLink|Iron Ingot}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 36
+| 0.2
+| {{ItemLink|Bell}}
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="5" | Journeyman
+| {{ItemLink|Flint}}
+| 30
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+| {{ItemLink|Emerald}}
+| 6–20
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=axe|Iron Axe}}
+| 1
+| 3 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 7–21
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=shovel|Iron Shovel}}
+| 1
+| 3 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 8–22
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=pickaxe|Iron Pickaxe}}
+| 1
+| 3 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 4
+| 0.2
+| {{ItemLink|link=hoe|Diamond Hoe}}
+| 1
+| 3 trades
+| 10
+|-
+
+! rowspan="3" | Expert
+| {{ItemLink|Diamond}}
+| 1
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+| {{ItemLink|Emerald}}
+| 17–31
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=axe|Diamond Axe}}
+| 1
+| 3 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 10–24
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=shovel|Diamond Shovel}}
+| 1
+| 3 trades
+| 15
+|-
+
+! Master
+| {{ItemLink|Emerald}}
+| 18–32
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=pickaxe|Diamond Pickaxe}}
+| 1
+| 3 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Weaponsmith ===
+Job site block: {{BlockLink|Grindstone}}
+
+Sells swords and axes.
+[[File:Plains Weaponsmith.png|thumb|right|upright=0.4|Weaponsmith]]
+
+{| class="wikitable" style="text-align:center" data-description="Armorer trades"
+! Colspan="8" | Weaponsmith Economic Trade
+|-
+! Level
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="3" | Novice
+| {{ItemLink|Coal}}
+| 15
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Emerald}}
+| 3
+| 0.2
+| {{ItemLink|link=axe|Iron Axe}}
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 7–21
+| 0.05
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=sword|Iron Sword}}
+| 1
+| 3 trades
+| 1
+|-
+
+! rowspan="2" | Apprentice
+| {{ItemLink|Iron Ingot}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 36
+| 0.2
+| {{ItemLink|Bell}}
+| 1
+| 12 trades
+| 5
+|-
+
+! Journeyman
+| {{ItemLink|Flint}}
+| 24
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+
+! rowspan="2" | Expert
+| {{ItemLink|Diamond}}
+| 1
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+| {{ItemLink|Emerald}}
+| 17–31
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=axe|Diamond Axe}}
+| 1
+| 3 trades
+| 15
+|-
+
+! Master
+| {{ItemLink|Emerald}}
+| 13–27
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=sword|Diamond Sword}}
+| 1
+| 3 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+== Bedrock Edition offers ==
+{{For|the trades before 1.11|Trading/Before Village & Pillage}}
+
+=== Armorer ===
+Job site block: {{BlockLink|Blast Furnace}}
+
+Sells armor ranging from chainmail armor to enchanted diamond armor.
+[[File:Plains Armorer.png|thumb|top|upright=0.4|An armorer.]]
+
+{| class="wikitable" style="text-align:center" data-description="Armorer trades"
+! Colspan="9" | Armorer Economic Trade
+|-
+! Level
+!  | Trade slot
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP given to villager
+|-
+! rowspan="5" | Novice
+! 1
+| {{ItemLink|Coal}}
+| 20
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+
+! rowspan="4" | 2
+| {{ItemLink|Emerald}}
+| 5
+| 0.2
+| {{ItemLink|link=helmet|Iron Helmet}}
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 9
+| 0.2
+| {{ItemLink|link=chestplate|Iron Chestplate}}
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 7
+| 0.2
+| {{ItemLink|link=leggings|Iron Leggings}}
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 4
+| 0.2
+| {{ItemLink|link=boots|Iron Boots}}
+| 1
+| 12 trades
+| 1 
+|-
+
+! rowspan="4" | Apprentice
+! 3
+| {{ItemLink|Iron Ingot}}
+| 3
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="3" | 4
+| {{ItemLink|Emerald}}
+| 36
+| 0.2
+| {{ItemLink|Bell}}
+| 1
+| 12 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 3
+| 0.2
+| {{ItemLink|link=leggings|Chainmail Leggings}}
+| 1
+| 12 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.2
+| {{ItemLink|link=boots|Chainmail Boots}}
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="5" | Journeyman
+! 5
+| {{ItemLink|Lava Bucket}}
+| 1
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+
+! 6
+| {{ItemLink|Diamond}}
+| 1
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+
+! rowspan="3" | 7
+| {{ItemLink|Emerald}}
+| 1
+| 0.2
+| {{ItemLink|link=helmet|Chainmail Helmet}}
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 4
+| 0.2
+| {{ItemLink|link=chestplate|Chainmail Chestplate}}
+| 1
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 5
+| 0.2
+| {{ItemLink|Shield}}
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="2" | Expert
+! rowspan="2" | 8
+| {{ItemLink|Emerald}}
+| 19-33
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=leggings|Diamond Leggings}}
+| 1
+| 3 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 13-27
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=boots|Diamond Boots}}
+| 1
+| 3 trades
+| 15
+|-
+
+! rowspan="2" | Master
+! rowspan="2" | 9
+| {{ItemLink|Emerald}}
+| 13-27
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=helmet|Diamond Helmet}}
+| 1
+| 3 trades
+| 30<ref group="note" name="master trade"></ref>
+|-
+| {{ItemLink|Emerald}}
+| 21-35
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=chestplate|Diamond Chestplate}}
+| 1
+| 3 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Butcher ===
+Job site block: {{BlockLink|Smoker}}
+
+Sells a variety of cooked meats.
+
+[[File:Plains Butcher.png|thumb|right|upright=0.4|A butcher.]]
+
+{| class="wikitable" style="text-align:center" data-description="Butcher trades"
+! Colspan="9" | Butcher Economic Trade
+|-
+! Level
+!  | Trade slot
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="4" | Novice
+! rowspan="3" | 1
+| {{ItemLink|Raw Chicken}}
+| 14
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Raw Rabbit}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Raw Porkchop}}
+| 7
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+
+! 2
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Rabbit Stew}}
+| 1
+| 12 trades
+| 1
+|-
+
+! rowspan="3" | Apprentice
+! 3
+| {{ItemLink|Coal}}
+| 15
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 10
+|-
+
+! rowspan="2" | 4
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Cooked Chicken}}
+| 8
+| 16 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Cooked Porkchop}}
+| 5
+| 16 trades
+| 5
+|-
+
+! rowspan="2" | Journeyman
+! rowspan="2" | 5
+| {{ItemLink|Raw Beef}}
+| 10
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+| {{ItemLink|Raw Mutton}}
+| 7
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+
+! Expert
+! 6
+| {{BlockLink|Dried Kelp Block}}
+| 10
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+
+! Master
+! 7
+| {{ItemLink|Sweet Berries}}
+| 10
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Cartographer ===
+Job site block: {{BlockLink|Cartography Table}}
+
+Sells exploration-related items, including maps that lead the player to certain structures.
+[[File:Plains Cartographer.png|thumb|right|upright=0.4|A cartographer.]]
+
+{| class="wikitable" style="text-align:center" data-description="Cartographer trades"
+! Colspan="9" | Cartographer Economic Trade
+|-
+! Level
+!  | Trade slot
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="2" | Novice
+! 1
+| {{ItemLink|Paper}}
+| 24
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+
+! 2
+| {{ItemLink|Emerald}}
+| 7
+| 0.05
+| {{ItemLink|link=Map|Empty Map}}
+| 1
+| 12 trades
+| 1
+|-
+
+! rowspan="2" | Apprentice
+! 3
+| {{BlockLink|Glass Pane|id=glass}}
+| 11
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 10
+|-
+! 4
+| {{ItemLink|Emerald}}<br>{{ItemLink|Compass}}
+| 13<br>1
+| 0.2
+| {{ItemLink|link=Explorer Map|Ocean Explorer Map}}<ref group="note" name="cartographer-be">If explorer maps are bought when in the Nether, the End or a superflat world, the explorer map does not show a destination structure, and buying it in an [[Old]] world causes the game to freeze</ref>
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="3" | Journeyman
+! 5
+| {{ItemLink|Compass}}
+| 1
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+! 6
+| {{ItemLink|Emerald}}<br>{{ItemLink|Compass}}
+| 14<br>1
+| 0.2
+| {{ItemLink|link=Explorer Map|Woodland Explorer Map}}<ref group="note" name="cartographer-be"></ref>
+| 1
+| 12 trades
+| 10
+|-
+! 7
+| {{ItemLink|Emerald}}<br>{{ItemLink|Compass}}
+| 12<br>1
+| 0.2
+| {{ItemLink|link=Explorer Map|Trial Explorer Map}}<ref group="note" name="explorer map"></ref>
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="2" | Expert 
+! 8
+| {{ItemLink|Emerald}}
+| 7
+| 0.05
+| {{ItemLink|Item Frame}}
+| 1
+| 12 trades
+| 15
+|-
+
+! 9
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+|
+{{BlockSprite|White-Banner}}
+{{BlockSprite|Light-Gray-Banner}}
+{{BlockSprite|Gray-Banner}}
+{{BlockSprite|Black-Banner}}
+{{BlockSprite|Brown-Banner}}
+{{BlockSprite|Orange-Banner}}
+{{BlockSprite|Yellow-Banner}}
+{{BlockSprite|Lime-Banner}} <br>
+{{BlockSprite|Green-Banner}}
+{{BlockSprite|Cyan-Banner}}
+{{BlockSprite|Light-Blue-Banner}}
+{{BlockSprite|Blue-Banner}}
+{{BlockSprite|Purple-Banner}}
+{{BlockSprite|Magenta-Banner}}
+{{BlockSprite|Pink-Banner}}
+{{BlockSprite|Red-Banner}}
+<br> one of 16 blank [[Banner]]
+| 1
+| 12 trades
+| 15
+|-
+
+! Master
+! 10
+| {{ItemLink|Emerald}}
+| 8
+| 0.05
+| {{ItemLink|Banner Pattern|Globe Banner Pattern}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Cleric ===
+Job site block: {{BlockLink|Brewing Stand}}
+
+Sells unique items that are difficult to obtain in large quantities.
+[[File:Plains Cleric.png|thumb|right|upright=0.4|A cleric.]]
+
+{| class="wikitable" style="text-align:center" data-description="Cleric trades"
+! Colspan="9" | Cleric Economic Trade
+|-
+! Level
+!  | Trade slot
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="2" | Novice
+! 1
+| {{ItemLink|Rotten Flesh}}
+| 32
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+
+! 2
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Redstone Dust}}
+| 2
+| 12 trades
+| 1
+|-
+
+! rowspan="2" | Apprentice
+! 3
+| {{ItemLink|Gold Ingot}}
+| 3
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+
+! 4
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Lapis Lazuli}}
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="2" | Journeyman
+! 5
+| {{ItemLink|Rabbit's Foot}}
+| 2
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+
+! 6
+| {{ItemLink|Emerald}}
+| 4
+| 0.05
+| {{BlockLink|Glowstone}}
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="3" | Expert
+! rowspan="2" | 7
+| {{ItemLink|Scute}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+| {{ItemLink|Glass Bottle}}
+| 9
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+
+! 8
+| {{ItemLink|Emerald}}
+| 5
+| 0.05
+| {{ItemLink|Ender Pearl}}
+| 1
+| 12 trades
+| 15
+|-
+
+! rowspan="2" | Master
+! 9
+| {{ItemLink|Nether Wart}}
+| 22
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|-
+
+! 10
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+| {{ItemLink|Bottle o' Enchanting}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Farmer ===
+Job site block: {{BlockLink|Composter}}
+
+Sells various crops and foods. Useful for automated farming and acquiring specialty foods.
+[[File:Plains Farmer.png|thumb|right|upright=0.4|A farmer.]]
+
+{| class="wikitable" style="text-align:center" data-description=Farmer trades"
+! Colspan="9" | Farmer Economic Trade
+|-
+! Level
+!  | Trade slot
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="5" | Novice
+! rowspan="4" | 1
+| {{ItemLink|Wheat}}
+| 20
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Potato}}
+| 26
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Carrot}}
+| 22
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Beetroot}}
+| 15
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+
+! 2
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Bread}}
+| 6
+| 16 trades
+| 1
+|-
+
+! rowspan="3" | Apprentice
+! 3
+| {{BlockLink|Pumpkin}}
+| 6
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="2" | 4
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Pumpkin Pie}}
+| 4
+| 12 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Apple}}
+| 4
+| 16 trades
+| 5
+|-
+
+! rowspan="2" | Journeyman
+! 5
+| {{BlockLink|Melon}}<!-- villager who already unlocked melon slice trade prior 1.16.0 still keep their melon slice trade -->
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+
+! 6
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+| {{ItemLink|Cookie}}
+| 18
+| 12 trades
+| 10
+|-
+
+! rowspan="2" | Expert 
+! 7
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Suspicious Stew}}<ref group="note" name="suspicious-loot">The stew grants one of the following effects: 5-7 seconds of [[Blindness]], 7-10 seconds of [[Jump Boost]], 7-10 seconds of [[Night Vision]], 10-20 seconds of [[Poison]], 0.3-0.35 seconds of [[Saturation]], or 6-8 seconds of [[Weakness]].</ref>
+| 1
+| 12 trades
+| 15
+|-
+
+! 8
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Cake}}
+| 1
+| 12 trades
+| 15
+|-
+
+! rowspan="2" | Master
+! rowspan="2" | 9
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+| {{ItemLink|Golden Carrot}}
+| 3
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|-
+| {{ItemLink|Emerald}}
+| 4
+| 0.05
+| {{ItemLink|Glistering Melon Slice|Glistering Melon}}
+| 3
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Fisherman ===
+Job site block: {{BlockLink|Barrel}}
+
+Sells fish and fishing rods.
+[[File:Plains Fisherman.png|thumb|right|upright=0.4|A fisherman.]]
+
+{| class="wikitable" style="text-align:center" data-description=Fisherman trades"
+! Colspan="9" | Fisherman Economic Trade
+|-
+! Level
+!  | Trade slot
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="4" | Novice
+! rowspan="2" | 1
+| {{ItemLink|String}}
+| 20
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+| {{ItemLink|Coal}}
+| 10
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+
+! rowspan="2" | 2
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+| {{ItemLink|link=Bucket of Fish|Bucket of Cod}}
+| 1
+| 16 trades
+| 1
+|-
+| {{ItemLink|Emerald}}<br>{{ItemLink|Raw Cod}}
+| 1<br>6
+| 0.05<br>0
+| {{ItemLink|Cooked Cod}}
+| 6
+| 16 trades
+| 1
+|-
+
+! rowspan="3" | Apprentice
+! 3
+| {{ItemLink|Raw Cod}}
+| 15
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 10
+|-
+
+! rowspan="2" | 4
+| {{ItemLink|Emerald}}
+| 2
+| 0.05
+| {{ItemLink|Campfire}}
+| 1
+| 12 trades
+| 5
+|-
+| {{ItemLink|Emerald}}<br>{{ItemLink|Raw Salmon}}
+| 1<br>6
+| 0.05<br>0
+| {{ItemLink|Cooked Salmon}}
+| 6
+| 16 trades
+| 5
+|-
+
+! rowspan="2" | Journeyman
+! 5
+| {{ItemLink|Raw Salmon}}
+| 13
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+
+! 6
+| {{ItemLink|Emerald}}
+| 8-22
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|Fishing Rod}}
+| 1
+| 3 trades
+| 10
+|-
+
+! Expert 
+! 7
+| {{ItemLink|link=Tropical Fish (item)|Tropical Fish}}
+| 6
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+
+! rowspan = 3 | Master
+! 8
+| {{ItemLink|link=Pufferfish (item)|Pufferfish}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|-
+
+! 9
+| {{ItemSprite|Oak Boat}}{{ItemSprite|Spruce Boat}}{{ItemSprite|Jungle Boat}}{{ItemSprite|Acacia Boat}}{{ItemSprite|Dark Oak Boat}}<br>One of 5 [[Boat]]s<ref group="note" name="boat-1.14"/>
+| 1
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Fletcher ===
+Job site block: {{BlockLink|Fletching Table}}
+
+Sells [[bow]]s, [[crossbow]]s, and various types of [[tipped arrow]]s.
+[[File:Plains Fletcher.png|thumb|right|upright=0.4|A fletcher.]]
+
+{| class="wikitable" style="text-align:center" data-description=Fletcher trades"
+! Colspan="9" | Fletcher Economic Trade
+|-
+! Level
+!  | Trade slot
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="3" | Novice
+! 1
+| {{ItemLink|Stick}}
+| 32
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+
+! rowspan="2" | 2
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Arrow}}
+| 16
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}<br>{{BlockLink|Gravel}}
+| 1<br>10
+| 0.05
+| {{ItemLink|Flint}}
+| 10
+| 12 trades
+| 1
+|-
+
+! rowspan="2" | Apprentice
+! 3
+| {{ItemLink|Flint}}
+| 26
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+
+! 4
+| {{ItemLink|Emerald}}
+| 2
+| 0.05
+| {{ItemLink|Bow}}
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="2" | Journeyman
+! 5
+| {{ItemLink|String}}
+| 14
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+
+! 6
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+| {{ItemLink|Crossbow}}
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="2" | Expert 
+! 7
+| {{ItemLink|Feather}}
+| 24
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 30
+|-
+
+! 8
+| {{ItemLink|Emerald}}
+| 7-21
+| 0.05
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|Bow}}
+| 1
+| 3 trades
+| 15
+|-
+
+! rowspan="3" | Master
+! 9
+| {{BlockLink|Tripwire Hook}}
+| 8
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|-
+
+! rowspan="2" | 10
+| {{ItemLink|Emerald}}
+| 8-22
+| 0.05
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|Crossbow}}
+| 1
+| 3 trades
+| 15<ref group="note" name="master trade"></ref>
+|-
+| {{ItemLink|Emerald}}<br>{{ItemLink|Arrow}}
+| 2<br>5
+| 0.05
+|
+{{ItemSprite|Arrow-of-Night-Vision}}
+{{ItemSprite|Arrow-of-Invisibility}}
+{{ItemSprite|Arrow-of-Leaping}}
+{{ItemSprite|Arrow-of-Fire-Resistance}}
+{{ItemSprite|Arrow-of-Swiftness}}
+{{ItemSprite|Arrow-of-Slowness}}
+{{ItemSprite|Arrow-of-Water-Breathing}}
+{{ItemSprite|Arrow-of-Healing}}
+{{ItemSprite|Arrow-of-Harming}}
+{{ItemSprite|Arrow-of-Poison}}
+{{ItemSprite|Arrow-of-Regeneration}}
+{{ItemSprite|Arrow-of-Strength}}
+{{ItemSprite|Arrow-of-Weakness}}
+{{ItemSprite|Arrow-of-Decay}}
+{{ItemSprite|Arrow-of-the-Turtle-Master}}
+<br> 1 of 15 [[Arrow#Tipped arrows|Tipped Arrow]]<ref group="note">Potion level is always I, except for Arrow of Decay, which is always II</ref><!-- Changed to all be in 1 trade slot like Java in 1.16 -->
+| 5
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Leatherworker ===
+Job site block: {{BlockLink|Cauldron}}
+
+Sells items that are made of leather.
+[[File:Plains Leatherworker.png|thumb|right|upright=0.4|A leatherworker.]]
+
+{| class="wikitable" style="text-align:center" data-description="Leatherworker trades"
+! Colspan="9" | Leatherworker Economic Trade
+|-
+! Level
+!  | Trade slot
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="3" | Novice
+! 1
+| {{ItemLink|Leather}}
+| 6
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+
+! rowspan="2" | 2
+| {{ItemLink|Emerald}}
+| 3
+| 0.2
+| {{ItemLink|link=leggings|Leather Pants}}<ref group="note" name="leather-1.14"></ref>
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 7
+| 0.2
+| {{ItemLink|link=chestplate|Leather Tunic}}<ref group="note" name="leather-1.14"></ref>
+| 1
+| 12 trades
+| 1
+|-
+
+! rowspan="3" | Apprentice
+! 3
+| {{ItemLink|Flint}}
+| 26
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="2" | 4
+| {{ItemLink|Emerald}}
+| 5
+| 0.2
+| {{ItemLink|link=helmet|Leather Cap}}<ref group="note" name="leather-1.14"></ref>
+| 1
+| 12 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 4
+| 0.2
+| {{ItemLink|link=boots|Leather Boots}}<ref group="note" name="leather-1.14"></ref>
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="2" | Journeyman
+! 5
+| {{ItemLink|Rabbit Hide}}
+| 9
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+
+! 6
+| {{ItemLink|Emerald}}
+| 7
+| 0.2
+| {{ItemLink|link=chestplate|Leather Tunic}}<ref group="note" name="leather-1.14"></ref>
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="2" | Expert
+! 7
+| {{ItemLink|Scute}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+
+! 8
+| {{ItemLink|Emerald}}
+| 6
+| 0.2
+| {{ItemLink|link=Horse Armor|Leather Horse Armor}}<ref group="note" name="leather-1.14"></ref>
+| 1
+| 12 trades
+| 15
+|-
+
+! rowspan="2" | Master
+! rowspan="2" | 9
+| {{ItemLink|Emerald}}
+| 5
+| 0.2
+| {{ItemLink|link=helmet|Leather Cap}}<ref group="note" name="leather-1.14"></ref>
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade" />
+|-
+| {{ItemLink|Emerald}}
+| 6
+| 0.2
+| {{ItemLink|Saddle}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade" />
+|}
+
+=== Librarian ===
+Job site block: {{BlockLink|Lectern}}
+
+Useful for acquiring enchantments (such as Mending, Unbreaking, etc.) quickly and easily.
+[[File:Plains Librarian.png|thumb|right|upright=0.4|A librarian.]]
+
+{| class="wikitable" style="text-align:center" data-description="Librarian trades"
+! Colspan="9" | Librarian Economic Trade
+|-
+! Level
+!  | Trade slot
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="3" | Novice
+! 1
+| {{ItemLink|Paper}}
+| 24
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+
+! rowspan="2" | 2
+| {{ItemLink|Emerald}}
+| 9
+| 0.05
+| {{BlockLink|Bookshelf}}
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}<br>{{ItemLink|Book}}
+| 5–64<br>1
+| 0.2
+| {{ItemLink|Enchanted Book}}<ref group="note" name="enchanted-book"></ref>
+| 1
+| 12 trades
+| 1
+|-
+
+! rowspan="3" | Apprentice
+! 3
+| {{ItemLink|Book}}
+| 4
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="2" | 4
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|Lantern}}
+| 1
+| 12 trades
+| 5
+|-
+| {{ItemLink|Emerald}}<br>{{ItemLink|Book}}
+| 5–64<br>1
+| 0.2
+| {{ItemLink|Enchanted Book}}<ref group="note" name="enchanted-book"></ref>
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="3" | Journeyman
+! 5
+| {{ItemLink|Ink Sac}}
+| 5
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+
+! rowspan="2" | 6
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|Glass}}
+| 4
+| 12 trades
+| 10
+|-
+| {{ItemLink|Emerald}}<br>{{ItemLink|Book}}
+| 5–64<br>1
+| 0.2
+| {{ItemLink|Enchanted Book}}<ref group="note" name="enchanted-book"></ref>
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="4" | Expert
+! 7
+| {{ItemLink|Book and Quill}}
+| 2<ref group="note" name="non-stack">Book and Quill is offered in two item slots due to being non-stackable</ref>
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+
+! rowspan="3" | 8
+| {{ItemLink|Emerald}}
+| 4
+| 0.05
+| {{ItemLink|Compass}}
+| 1
+| 12 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 5
+| 0.05
+| {{ItemLink|Clock}}
+| 1
+| 12 trades
+| 15
+|-
+| {{ItemLink|Emerald}}<br>{{ItemLink|Book}}
+| 5–64<br>1
+| 0.2
+| {{ItemLink|Enchanted Book}}<ref group="note" name="enchanted-book"></ref>
+| 1
+| 12 trades
+| 15
+|-
+
+! Master
+! 9
+| {{ItemLink|Emerald}}
+| 20
+| 0.05
+| {{ItemLink|Name Tag}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Shepherd ===
+Job site block: {{BlockLink|Loom}}
+
+Sells various colors of wool, carpets, beds, and banners.
+[[File:Plains Shepherd.png|thumb|right|upright=0.4|A shepherd.]]
+
+{| class="wikitable" style="text-align:center" data-description=Shepherd trades"
+! Colspan="9" | Shepherd Economic Trade
+|-
+! Level
+!  | Trade slot
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="2" | Novice
+! 1
+|
+{{BlockSprite|White Wool}}
+{{BlockSprite|Gray Wool}}
+{{BlockSprite|Brown Wool}}
+{{BlockSprite|Black Wool}}<br>
+One of 4 [[Wool]]
+| 18
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+
+! 2
+| {{ItemLink|Emerald}}
+| 2
+| 0.05
+| {{ItemLink|Shears}}
+| 1
+| 12 trades
+| 1
+|-
+
+! rowspan="3" | Apprentice
+! 3
+|
+{{ItemSprite|Gray Dye}}
+{{ItemSprite|Lime Dye}}
+{{ItemSprite|Light Blue Dye}}
+{{ItemSprite|Black Dye}}
+{{ItemSprite|White Dye}}<br>
+One of 5 [[dye]]
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 10
+|-
+
+! rowspan="2" | 4
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+|
+{{BlockSprite|White-Wool}}
+{{BlockSprite|Light-Gray-Wool}}
+{{BlockSprite|Gray-Wool}}
+{{BlockSprite|Black-Wool}}
+{{BlockSprite|Brown-Wool}}
+{{BlockSprite|Orange-Wool}}
+{{BlockSprite|Yellow-Wool}}
+{{BlockSprite|Lime-Wool}}<br>
+{{BlockSprite|Green-Wool}}
+{{BlockSprite|Cyan-Wool}}
+{{BlockSprite|Blue-Wool}}
+{{BlockSprite|Light-Blue-Wool}}
+{{BlockSprite|Purple-Wool}}
+{{BlockSprite|Magenta-Wool}}
+{{BlockSprite|Pink-Wool}}
+{{BlockSprite|Red-Wool}}
+<br>One of 16 [[Wool]]
+| 1
+| 16 trades
+| 5
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+|
+{{BlockSprite|White-Carpet}}
+{{BlockSprite|Light-Gray-Carpet}}
+{{BlockSprite|Gray-Carpet}}
+{{BlockSprite|Black-Carpet}}
+{{BlockSprite|Brown-Carpet}}
+{{BlockSprite|Orange-Carpet}}
+{{BlockSprite|Yellow-Carpet}}
+{{BlockSprite|Lime-Carpet}}<br>
+{{BlockSprite|Green-Carpet}}
+{{BlockSprite|Cyan-Carpet}}
+{{BlockSprite|Blue-Carpet}}
+{{BlockSprite|Light-Blue-Carpet}}
+{{BlockSprite|Purple-Carpet}}
+{{BlockSprite|Magenta-Carpet}}
+{{BlockSprite|Pink-Carpet}}
+{{BlockSprite|Red-Carpet}}
+<br>One of 16 [[Carpet]]
+| 4
+| 16 trades
+| 5
+|-
+
+! rowspan="2" | Journeyman
+! 5
+|
+{{ItemSprite|Red Dye}}
+{{ItemSprite|Light Gray Dye}}
+{{ItemSprite|Pink Dye}}
+{{ItemSprite|Yellow Dye}}
+{{ItemSprite|Orange Dye}}<br>
+One of 5 [[dye]]
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+
+! 6
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+|
+{{BlockSprite|White-Bed}}
+{{BlockSprite|Light-Gray-Bed}}
+{{BlockSprite|Gray-Bed}}
+{{BlockSprite|Black-Bed}}
+{{BlockSprite|Brown-Bed}}
+{{BlockSprite|Orange-Bed}}
+{{BlockSprite|Yellow-Bed}}
+{{BlockSprite|Lime-Bed}}<br>
+{{BlockSprite|Green-Bed}}
+{{BlockSprite|Cyan-Bed}}
+{{BlockSprite|Blue-Bed}}
+{{BlockSprite|Light-Blue-Bed}}
+{{BlockSprite|Purple-Bed}}
+{{BlockSprite|Magenta-Bed}}
+{{BlockSprite|Pink-Bed}}
+{{BlockSprite|Red-Bed}}
+<br>One of 16 [[Bed]]
+| 1
+| 12 trades
+| 10
+|-
+
+! rowspan="2" | Expert 
+! 7
+|
+{{ItemSprite|Green Dye}}
+{{ItemSprite|Purple Dye}}
+{{ItemSprite|Cyan Dye}}
+{{ItemSprite|Magenta Dye}}
+{{ItemSprite|Brown Dye}}
+{{ItemSprite|Blue Dye}}<br>
+One of 6 [[Dye]]
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 30
+|-
+
+! 8
+| {{ItemLink|Emerald}}
+| 3
+| 0.05
+|
+{{BlockSprite|White-Banner}}
+{{BlockSprite|Light-Gray-Banner}}
+{{BlockSprite|Gray-Banner}}
+{{BlockSprite|Black-Banner}}
+{{BlockSprite|Brown-Banner}}
+{{BlockSprite|Orange-Banner}}
+{{BlockSprite|Yellow-Banner}}
+{{BlockSprite|Lime-Banner}}<br>
+{{BlockSprite|Green-Banner}}
+{{BlockSprite|Cyan-Banner}}
+{{BlockSprite|Light-Blue-Banner}}
+{{BlockSprite|Blue-Banner}}
+{{BlockSprite|Purple-Banner}}
+{{BlockSprite|Magenta-Banner}}
+{{BlockSprite|Pink-Banner}}
+{{BlockSprite|Red-Banner}}
+<br>One of 16 blank [[Banner]]
+| 1
+| 12 trades
+| 15
+|-
+
+! Master
+! 9
+| {{ItemLink|Emerald}}
+| 2
+| 0.05
+| {{ItemLink|Painting}}
+| 3
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Stone Mason ===
+Job site block: {{BlockLink|Stonecutter}}
+
+Sells stone-related building blocks.
+[[File:Plains Mason.png|thumb|right|upright=0.4|A stone mason.]]
+{{dablink|Note: "Mason" is used {{in|java}} and "Stone Mason" is used {{in|bedrock}}.}}
+
+{| class="wikitable" style="text-align:center" data-description="Stone Mason trades"
+! Colspan="9" | Stone Mason Economic Trade
+|-
+! Level
+!  | Trade slot
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="2" | Novice
+! 1
+| {{ItemLink|Clay Ball|Clay}}
+| 10
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+
+! 2
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{ItemLink|Brick}}
+| 10
+| 16 trades
+| 1
+|-
+
+! rowspan="2" | Apprentice
+! 3
+| {{BlockLink|Stone}}
+| 20
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 10
+|-
+
+! 4
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|link=Stone Bricks|Chiseled Stone Bricks}}
+| 4
+| 16 trades
+| 5
+|-
+
+! rowspan="2" | Journeyman
+! 5
+| {{BlockSprite|Granite}} {{BlockSprite|Diorite}} {{BlockSprite|Andesite}}<br>One of 3 stone variants
+| 16
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 20
+|-
+
+! 6
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockSprite|Polished Granite}} {{BlockSprite|Polished Diorite}} {{BlockSprite|Polished Andesite}} {{BlockSprite|Dripstone Block}}<br>One of 3 polished stone variants or [[Dripstone Block]]
+| 4
+| 16 trades
+| 10
+|-
+
+! rowspan="2" | Expert
+! 7
+| {{ItemLink|Nether Quartz}}
+| 12
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+! 8
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+|
+{{BlockSprite|Yellow-Terracotta}}
+{{BlockSprite|White-Terracotta}}
+{{BlockSprite|Black-Terracotta}}
+{{BlockSprite|Orange-Terracotta}}
+{{BlockSprite|Gray-Terracotta}}
+{{BlockSprite|Light-Gray-Terracotta}}
+{{BlockSprite|Red-Terracotta}}
+{{BlockSprite|Pink-Terracotta}}<br>
+{{BlockSprite|Magenta-Terracotta}}
+{{BlockSprite|Purple-Terracotta}}
+{{BlockSprite|Blue-Terracotta}}
+{{BlockSprite|Light-Blue-Terracotta}}
+{{BlockSprite|Cyan-Terracotta}}
+{{BlockSprite|Green-Terracotta}}
+{{BlockSprite|Lime-Terracotta}}
+{{BlockSprite|Brown-Terracotta}}<br>
+{{BlockSprite|Yellow-Glazed-Terracotta}}
+{{BlockSprite|White-Glazed-Terracotta}}
+{{BlockSprite|Black-Glazed-Terracotta}}
+{{BlockSprite|Orange-Glazed-Terracotta}}
+{{BlockSprite|Gray-Glazed-Terracotta}}
+{{BlockSprite|Light-Gray-Glazed-Terracotta}}
+{{BlockSprite|Red-Glazed-Terracotta}}
+{{BlockSprite|Pink-Glazed-Terracotta}}<br>
+{{BlockSprite|Magenta-Glazed-Terracotta}}
+{{BlockSprite|Purple-Glazed-Terracotta}}
+{{BlockSprite|Blue-Glazed-Terracotta}}
+{{BlockSprite|Light-Blue-Glazed-Terracotta}}
+{{BlockSprite|Cyan-Glazed-Terracotta}}
+{{BlockSprite|Green-Glazed-Terracotta}}
+{{BlockSprite|Lime-Glazed-Terracotta}}
+{{BlockSprite|Brown-Glazed-Terracotta}}
+<br>1 of 16 [[Terracotta|Colored Terracotta]] or [[Glazed Terracotta]]
+| 1
+| 12 trades
+| 15
+|-
+
+! Master
+! 9
+| {{ItemLink|Emerald}}
+| 1
+| 0.05
+| {{BlockLink|Block of Quartz}} or {{BlockLink|link=Block of Quartz|Quartz Pillar}}
+| 1
+| 12 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Toolsmith ===
+Job site block: {{BlockLink|Smithing Table}}
+
+Sells all tools but swords, ranging in quality from stone to enchanted diamond.
+[[File:Plains Toolsmith.png|thumb|right|upright=0.4|A toolsmith.]]
+
+{| class="wikitable" style="text-align:center" data-description="Toolsmith trades"
+! Colspan="9" | Toolsmith Economic Trade
+|-
+! Level
+!  | Trade slot
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="5" | Novice
+! 1
+| {{ItemLink|Coal}}
+| 15
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+
+! rowspan="4" | 2
+| {{ItemLink|Emerald}}
+| 1
+| 0.2
+| {{ItemLink|link=axe|Stone Axe}}
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.2
+| {{ItemLink|link=pickaxe|Stone Pickaxe}}
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.2
+| {{ItemLink|link=shovel|Stone Shovel}}
+| 1
+| 12 trades
+| 1
+|-
+| {{ItemLink|Emerald}}
+| 1
+| 0.2
+| {{ItemLink|link=hoe|Stone Hoe}}
+| 1
+| 12 trades
+| 1
+|-
+
+! rowspan="2" | Apprentice
+! 3
+| {{ItemLink|Iron Ingot}}
+| 3
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+
+! 4
+| {{ItemLink|Emerald}}
+| 36
+| 0.2
+| {{ItemLink|Bell}}
+| 1
+| 12 trades
+| 5
+|-
+
+! rowspan="5" | Journeyman
+! 5
+| {{ItemLink|Flint}}
+| 30
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+
+! rowspan="4" | 6
+| {{ItemLink|Emerald}}
+| 6-20
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=axe|Iron Axe}}
+| 1
+| 3 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 7-21
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=pickaxe|Iron Pickaxe}}
+| 1
+| 3 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 8-22
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=shovel|Iron Shovel}}
+| 1
+| 3 trades
+| 10
+|-
+| {{ItemLink|Emerald}}
+| 4
+| 0.2
+| {{ItemLink|link=hoe|Diamond Hoe}}
+| 1
+| 3 trades
+| 10
+|-
+
+! rowspan="3" | Expert
+! 7
+| {{ItemLink|Diamond}}
+| 1
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+
+! rowspan="2" | 8
+| {{ItemLink|Emerald}}
+| 17-31
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=axe|Diamond Axe}}
+| 1
+| 3 trades
+| 15
+|-
+| {{ItemLink|Emerald}}
+| 10-24
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=shovel|Diamond Shovel}}
+| 1
+| 3 trades
+| 20
+|-
+
+! Master
+! 9
+| {{ItemLink|Emerald}}
+| 18-32
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=pickaxe|Diamond Pickaxe}}
+| 1
+| 3 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+=== Weaponsmith ===
+Job site block: {{BlockLink|Grindstone}}
+
+Sells swords and axes.
+[[File:Plains Weaponsmith.png|thumb|right|upright=0.4|A weaponsmith.]]
+
+{| class="wikitable" style="text-align:center" data-description="Weaponsmith trades"
+! Colspan="9" | Weaponsmith Economic Trade
+|-
+! Level
+!  | Trade slot
+!  | Item wanted
+!  | Default quantity
+!  | Price multiplier
+!  | Item given
+!  | Quantity
+!  | Trades until disabled
+!  | XP to villager
+|-
+! rowspan="3" | Novice
+! 1
+| {{ItemLink|Coal}}
+| 15
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 16 trades
+| 2
+|-
+
+! 2
+| {{ItemLink|Emerald}}
+| 3
+| 0.2
+| {{ItemLink|link=axe|Iron Axe}}
+| 1
+| 12 trades
+| 1
+|-
+
+! 3
+| {{ItemLink|Emerald}}
+| 7-21
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=sword|Iron Sword}}
+| 1
+| 3 trades
+| 5
+|-
+
+! rowspan="2" | Apprentice
+! 4
+| {{ItemLink|Iron Ingot}}
+| 3
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 10
+|-
+
+! 5
+| {{ItemLink|Emerald}}
+| 36
+| 0.2
+| {{ItemLink|Bell}}
+| 1
+| 12 trades
+| 10
+|-
+
+! Journeyman
+! 6
+| {{ItemLink|Flint}}
+| 24
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 20
+|-
+
+! rowspan="2" | Expert
+! 7
+| {{ItemLink|Diamond}}
+| 1
+| 0.05
+| {{ItemLink|Emerald}}
+| 1
+| 12 trades
+| 30
+|-
+
+! 8
+| {{ItemLink|Emerald}}
+| 17-31
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8">When creating an enchantment offer, the game uses a random enchantment level from 5 – 19. The enchantments are never [[treasure enchantment]]s.</ref> {{ItemLink|link=axe|Diamond Axe}}
+| 1
+| 3 trades
+| 15
+|-
+
+! Master
+! 9
+| {{ItemLink|Emerald}}
+| 13-27
+| 0.2
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/> {{ItemLink|link=sword|Diamond Sword}}
+| 1
+| 3 trades
+| 30<ref group="note" name="master trade"></ref>
+|}
+
+== Wandering trader sales ==
+{{anchor|wandering_trader|Wandering trader|Wandering Trader}}
+
+[[File:Wandering Trader.png|thumb|right|upright=0.4|Wandering Trader]]
+
+Unlike other villagers, the [[Wandering Trader|wandering trader]] does not buy items in exchange for emeralds – it only sells items, using emeralds as a currency. Therefore, the following tables' leftmost column is how many emeralds the player needs to give to receive the items listed in the middle column of the table.
+
+=== Java Edition sales ===
+
+; Without the "[[Java Edition 1.20.2|Villager Trade Rebalance]]" data pack
+The wandering trader offers six trades in total: five random ordinary trades and one special trade. The five random trades are chosen from the list below.
+
+{| class="wikitable col-3-center" data-description="Wandering trader trades"
+!Price!!Item!!Trades until<br>disabled
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=flower|Allium}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=flower|Azure Bluet}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=flower|Blue Orchid}} || 8
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=flower|Cornflower}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=flower|Dandelion}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=flower|Lily of the Valley}} || 7
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=flower|Orange Tulip}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=flower|Oxeye Daisy}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=flower|Pink Tulip}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=flower|Poppy}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=flower|Red Tulip}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=flower|White Tulip}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=grass|Fern}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=mushroom|Brown Mushroom}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|link=mushroom|Red Mushroom}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{ItemLink|Beetroot Seeds}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{ItemLink|Melon Seeds}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{ItemLink|Pumpkin Seeds}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{ItemLink|Wheat Seeds}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|Pumpkin}} || 4
+|-
+| 1 {{ItemSprite|Emerald}}|| {{ItemLink|Sugar Cane}} || 8
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|Vines}} || 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|Lily Pad}} (×2) || 5
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|Moss Block}} (×2) || 5
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|Pale Moss Block}} (×2) || 5
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|Pointed Dripstone}} (×2) || 5
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|Rooted Dirt}} (×2) || 5
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|Small Dripleaf}} (×2) || 5
+|-
+| 1 {{ItemSprite|Emerald}}
+|
+{{ItemSprite|Black Dye}}
+{{ItemSprite|Blue Dye}}
+{{ItemSprite|Brown Dye}}
+{{ItemSprite|Cyan Dye}}
+{{ItemSprite|Gray Dye}}
+{{ItemSprite|Green Dye}}
+{{ItemSprite|Light Blue Dye}}
+{{ItemSprite|Light Gray Dye}}<br>
+{{ItemSprite|Lime Dye}}
+{{ItemSprite|Magenta Dye}}
+{{ItemSprite|Orange Dye}}
+{{ItemSprite|Pink Dye}}
+{{ItemSprite|Purple Dye}}
+{{ItemSprite|Red Dye}}
+{{ItemSprite|White Dye}}
+{{ItemSprite|Yellow Dye}}<br>
+Any color [[Dye]] (×3)<ref group="note" name="colored-offers"></ref>
+| 12
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|Red Sand}} (×4) || 6
+|-
+| 1 {{ItemSprite|Emerald}}|| {{BlockLink|Sand}} (×8) || 8
+|-
+| 2 {{ItemSprite|Emerald}}|| {{BlockLink|Glowstone}} || 5
+|-
+| 2 {{ItemSprite|Emerald}}|| {{BlockLink|Sea Pickle}} || 5
+|-
+| 3 {{ItemSprite|Emerald}}|| {{BlockLink|Cactus}} || 8
+|-
+| 3 {{ItemSprite|Emerald}}|| {{BlockLink|link=Coral Block|Brain Coral Block}} || 8
+|-
+| 3 {{ItemSprite|Emerald}}|| {{BlockLink|link=Coral Block|Bubble Coral Block}} || 8
+|-
+| 3 {{ItemSprite|Emerald}}|| {{BlockLink|link=Coral Block|Fire Coral Block}} || 8
+|-
+| 3 {{ItemSprite|Emerald}}|| {{BlockLink|link=Coral Block|Horn Coral Block}} || 8
+|-
+| 3 {{ItemSprite|Emerald}}|| {{BlockLink|link=Coral Block|Tube Coral Block}} || 8
+|-
+| 3 {{ItemSprite|Emerald}}|| {{ItemLink|Kelp}} || 12
+|-
+| 4 {{ItemSprite|Emerald}}|| {{ItemLink|Slimeball}} || 5
+|-
+| 5 {{ItemSprite|Emerald}}|| {{BlockLink|Acacia Sapling}} || 8
+|-
+| 5 {{ItemSprite|Emerald}}|| {{BlockLink|Birch Sapling}} || 8
+|-
+| 5 {{ItemSprite|Emerald}}|| {{BlockLink|Dark Oak Sapling}} || 8
+|-
+| 5 {{ItemSprite|Emerald}}|| {{BlockLink|Jungle Sapling}} || 8
+|-
+| 5 {{ItemSprite|Emerald}}|| {{BlockLink|Oak Sapling}} || 8
+|-
+| 5 {{ItemSprite|Emerald}}|| {{BlockLink|Spruce Sapling}} || 8
+|-
+| 5 {{ItemSprite|Emerald}}|| {{BlockLink|Mangrove Propagule}} || 8
+|-
+| 5 {{ItemSprite|Emerald}}|| {{BlockLink|Cherry Sapling}} || 8
+|-
+| 5 {{ItemSprite|Emerald}}|| {{ItemLink|Nautilus Shell}} || 5
+|}
+
+The one random special trade is chosen from the list below. It is always the wandering trader's final trade offer.
+
+{| class="wikitable col-3-center" data-description="Another one Wandering trader trades"
+! Price || Items || Trades until<br>disabled 
+|-
+| 1 {{ItemSprite|Emerald}}|| {{ItemLink|Gunpowder}} || 8
+|-
+| 3 {{ItemSprite|Emerald}}|| {{BlockLink|Podzol}} (×3) || 6
+|-
+| 3 {{ItemSprite|Emerald}}|| {{BlockLink|Packed Ice}} || 6
+|-
+| 5 {{ItemSprite|Emerald}}|| {{ItemLink|link=Bucket of Fish|Bucket of Pufferfish}} || 4
+|-
+| 5 {{ItemSprite|Emerald}}|| {{ItemLink|link=Bucket of Fish|Bucket of Tropical Fish}} || 4
+|-
+| 6 {{ItemSprite|Emerald}}|| {{BlockLink|Blue Ice}} || 6
+|}
+
+; With the "[[Java Edition 1.20.2|Villager Trade Rebalance]]" data pack
+The wandering trader offers nine trades in total: two random trades from purchasing table, two random trades form special selling table, and five random trades from ordinary trades table.
+
+{| class="wikitable collapsible collapsed" style="text-align:center" data-description="Wandering trader trades"
+! Colspan="4" | Purchasing Table
+|-
+! Item wanted || Quantity || Price || Trades until<br>disabled
+|-
+| {{ItemLink|Water Bottle}} || 1 || {{ItemSprite|Emerald}}1 || 1
+|-
+| {{ItemLink|Water Bucket}} || 1 || {{ItemSprite|Emerald}}2 || 1
+|-
+| {{ItemLink|Milk Bucket}} || 1 || {{ItemSprite|Emerald}}2 || 1
+|-
+| {{ItemLink|Fermented Spider Eye}} || 1 || {{ItemSprite|Emerald}}3 || 1 
+|-
+| {{ItemLink|Baked Potato}} || 4 || {{ItemSprite|Emerald}}1 || 1
+|-
+| {{BlockLink|Hay Bale}} || 1 || {{ItemSprite|Emerald}}1 || 1
+|}
+
+{| class="wikitable collapsible collapsed" style="text-align:center" data-description="Wandering trader trades"
+! Colspan="4" | Selling Table (special)
+|-
+! Price || Item || Count || Trades until<br>disabled
+|-
+| rowspan="3" | {{ItemSprite|Emerald}}1
+| {{BlockLink|Packed Ice}} || 1 || 6
+|-
+| {{ItemLink|Gunpowder}} || 4 || 2
+|-
+| {{BlockSprite|Acacia Log}} {{BlockSprite|Birch Log}} {{BlockSprite|Dark Oak Log}} {{BlockSprite|Jungle Log}} {{BlockSprite|Oak Log}} {{BlockSprite|Spruce Log}} {{BlockSprite|Cherry Log}}<br>[[Log]]<ref>{{Bug|264555||Wandering Trader doesn't sell Mangrove Log}}</ref> || 8 || 4
+|-
+| {{ItemSprite|Emerald}}3
+| {{BlockLink|Podzol}} || 3 || 6
+|-
+| {{ItemSprite|Emerald}}5
+| {{ItemLink|Potion of Invisibility}}<br>Duration: 8:00 || 1 || 1
+|-
+| {{ItemSprite|Emerald}}6
+| {{BlockLink|Blue Ice}} || 1 || 6
+|-
+| {{ItemSprite|Emerald}}6-20
+| style="color: purple;" | Enchanted<ref group="note" name="enchant-1.8"/><br>{{ItemLink|Iron Pickaxe}} || 1 || 1
+|}
+
+{| class="wikitable collapsible collapsed" style="text-align:center" data-description="Wandering trader trades"
+! Colspan="4" | Selling Table (ordinary)
+|-
+! Price || Item || Count || Trades until<br>disabled
+|-
+| rowspan="17" | {{ItemSprite|Emerald}}1
+| {{BlockLink|Fern}} || 1 || 12
+|-
+| {{ItemLink|Sugar Cane}} || 1 || 8
+|-
+| {{BlockLink|Pumpkin}} || 1 || 4
+|-
+| {{BlockLink|Dandelion}}<br>{{BlockLink|Poppy}}<br>{{BlockLink|Allium}}<br>{{BlockLink|Azure Bluet}}<br>{{BlockLink|Red Tulip}}<br>{{BlockLink|Orange Tulip}}<br>{{BlockLink|White Tulip}}<br>{{BlockLink|Pink Tulip}}<br>{{BlockLink|Oxeye Daisy}}<br>{{BlockLink|Cornflower}} || 1 || 12
+|-
+| {{BlockLink|Blue Orchid}} || 1 || 8
+|-
+| {{BlockLink|Lily of the Valley}} || 1 || 7
+|-
+| {{ItemLink|Wheat Seeds}}<br>{{ItemLink|Beetroot Seeds}}<br>{{ItemLink|Pumpkin Seeds}}<br>{{ItemLink|Melon Seeds}} || 1 || 12
+|-
+| {{ItemSprite|Red Dye}}{{ItemSprite|White Dye}}{{ItemSprite|Blue Dye}}{{ItemSprite|Pink Dye}}{{ItemSprite|Black Dye}}{{ItemSprite|Green Dye}}{{ItemSprite|Light Gray Dye}}{{ItemSprite|Magenta Dye}}<br>{{ItemSprite|Yellow Dye}}{{ItemSprite|Gray Dye}}{{ItemSprite|Purple Dye}}{{ItemSprite|Light Blue Dye}}{{ItemSprite|Lime Dye}}{{ItemSprite|Orange Dye}}{{ItemSprite|Brown Dye}}{{ItemSprite|Cyan Dye}}<br>One of 16 [[Dye]] || 3 || 12
+|-
+| {{BlockLink|Vine}} || 3 || 4
+|-
+| {{BlockLink|Brown Mushroom}}<br>{{BlockLink|Red Mushroom}} || 3 || 4
+|-
+| {{BlockLink|Lily Pad}} || 5 || 2
+|-
+| {{BlockLink|Small Dripleaf}} || 2 || 5
+|-
+| {{BlockLink|Sand}} || 8 || 8
+|-
+| {{BlockLink|Red Sand}} || 4 || 6
+|-
+| {{BlockLink|Pointed Dripstone}} || 2 || 5
+|-
+| {{BlockLink|Rooted Dirt}} || 2 || 5
+|-
+| {{BlockLink|Moss Block}} || 2 || 5
+|-
+| rowspan="2" | {{ItemSprite|Emerald}}2
+| {{BlockLink|Sea Pickle}} || 1 || 5
+|-
+| {{BlockLink|Glowstone}} || 1 || 5
+|-
+| rowspan="4" | {{ItemSprite|Emerald}}3
+| {{ItemLink|Tropical Fish Bucket}}<br>{{ItemLink|Pufferfish Bucket}} || 1 || 4
+|-
+| {{ItemLink|Kelp}} || 1 || 12
+|-
+| {{BlockLink|Cactus}} || 1 || 8
+|-
+| {{BlockLink|Brain Coral Block}}<br>{{BlockLink|Bubble Coral Block}}<br>{{BlockLink|Fire Coral Block}}<br>{{BlockLink|Horn Coral Block}}<br>{{BlockLink|Tube Coral Block}} || 1 || 8
+|-
+| {{ItemSprite|Emerald}}4
+| {{ItemLink|Slimeball}} || 1 || 5
+|-
+| rowspan="2" | {{ItemSprite|Emerald}}5
+| {{BlockSprite|Acacia Sapling}}{{BlockSprite|Birch Sapling}}{{BlockSprite|Dark Oak Sapling}}{{BlockSprite|Jungle Sapling}}{{BlockSprite|Oak Sapling}}{{BlockSprite|Spruce Sapling}}{{BlockSprite|Cherry Sapling}}{{BlockSprite|Mangrove Propagule}}<br>One of 8 [[Saplings]] || 1 || 8
+|-
+| {{ItemLink|Nautilus Shell}} || 1 || 5
+|}
+
+=== Bedrock Edition sales ===
+{{IN|bedrock}}, wandering traders offers 6 random trades. Their trades are unaffected by demand.
+
+Five of the random trades are shown in the table below:
+
+{| class="wikitable col-3-center" data-description="First 5 Wandering trader trades"
+! rowspan="2" | Price 
+! rowspan="2" | Regular Offer 
+! colspan="2" | Single Offer<ref group="note" name="weight-trader">Only one item is offered (e.g. wandering trader cannot sell both brown dye and pink dye). Each group of single-offer trades has the same chance to be chosen as a normal trade based on weight. For example, each individual sapling does have the same chance of being offered as a slimeball, because the sapling group as a whole which consist of 4 items and has 4 weight (multiple saplings cannot be offered however).</ref> 
+! rowspan="2" | Trades until<br>disabled
+|-
+! Grouped Items
+! Weight
+|-
+! rowspan="8" | 1 {{ItemLink|Emerald}}
+| rowspan="3" |
+* {{BlockLink|link=grass|Fern}}
+* {{BlockLink|Vines}}
+* {{BlockLink|link=flower|Dandelion}}
+* {{BlockLink|link=flower|Poppy}}
+* {{BlockLink|link=flower|Blue Orchid}}
+* {{BlockLink|link=flower|Allium}}
+* {{BlockLink|link=flower|Azure Bluet}}
+* {{BlockLink|link=flower|Red Tulip}}
+* {{BlockLink|link=flower|Orange Tulip}}
+* {{BlockLink|link=flower|Pink Tulip}}
+* {{BlockLink|link=flower|White Tulip}}
+* {{BlockLink|link=flower|Oxeye Daisy}}
+* {{BlockLink|link=flower|Cornflower}}
+* {{ItemLink|Wheat Seeds}}<ref group="note" name="crop-offer">Crop seeds offered in both grouped and individual trades</ref>
+* {{ItemLink|Beetroot Seeds}}<ref group= "note" name="crop-offer />
+* {{ItemLink|Pumpkin Seeds}}<ref group="note" name="crop-offer />
+* {{ItemLink|Melon Seeds}}<ref group= "note" name="crop-offer />
+|
+* {{ItemLink|Wheat Seeds}}<ref group="note" name="crop-offer />
+* {{ItemLink|Beetroot Seeds}}<ref group="note"name="crop-offer />
+* {{ItemLink|Pumpkin Seeds}}<ref group="note" name="crop-offer />
+* {{ItemLink|Melon Seeds}}<ref group= "note" name="crop-offer />
+| style="text-align:center;" | 4
+| rowspan="3" style="text-align:center;" | 12
+|-
+|
+* {{ItemLink|Red Dye}} (×3)
+* {{ItemLink|Yellow Dye}} (×3)
+* {{ItemLink|Orange Dye}} (×3)
+* {{ItemLink|Lime Dye}} (×3)
+* {{ItemLink|Green Dye}} (×3)
+* {{ItemLink|Cyan Dye}} (×3)
+* {{ItemLink|Light Blue Dye}} (×3)
+* {{ItemLink|Purple Dye}} (×3)
+* {{ItemLink|Magenta Dye}} (×3)
+* {{ItemLink|Pink Dye}} (×3)
+* {{ItemLink|Gray Dye}} (×3)
+* {{ItemLink|Light Gray Dye}} (×3)
+* {{ItemLink|Blue Dye}} (x3)
+* {{ItemLink|Brown Dye}} (x3)
+* {{ItemLink|White Dye}} (x3)
+* {{ItemLink|Black Dye}} (x3)
+| style="text-align:center;" | 16
+|-
+|
+* {{BlockLink|link=mushroom|Brown Mushroom}} 
+* {{BlockLink|link=mushroom|Red Mushroom}} 
+| style="text-align:center;" | 2
+|-
+|
+* {{ItemLink|Sugar Cane}}
+* {{BlockLink|Sand}} (×8)
+| rowspan="8" colspan= "2" style="text-align:center;" | &ndash;
+| style="text-align:center;" | 8
+|-
+|
+* {{BlockLink|link=flower|Lily of the Valley}} 
+| style="text-align:center;" | 7
+|-
+|
+* {{BlockLink|link=sand|Red Sand}} (×4)
+| style="text-align:center;" | 6
+|-
+|
+* {{BlockLink|Lily Pad}} (×2) 
+* {{BlockLink|Pointed Dripstone}} (x2) 
+* {{BlockLink|Moss Block}} (x2) 
+* {{BlockLink|Rooted Dirt}} (x2) 
+* {{BlockLink|Small Dripleaf}} (x2) 
+| style="text-align:center;" | 5
+|-
+|
+* {{BlockLink|Pumpkin}}
+| style="text-align:center;" | 4
+|-
+! rowspan="2" | 2 {{ItemLink|Emerald}}
+|
+* {{BlockLink|Sea Pickle}}
+| style="text-align:center;" rowspan="2" | 5
+|-
+|
+* {{BlockLink|Glowstone}}
+|-
+! rowspan="2" | 3 {{ItemLink|Emerald}}
+| 
+* {{ItemLink|Kelp}}
+| style="text-align:center;" | 12
+|-
+|
+* {{BlockLink|Cactus}}
+| 
+* {{BlockLink|link=Coral Block|Brain Coral Block}}
+* {{BlockLink|link=Coral Block|Bubble Coral Block}} 
+* {{BlockLink|link=Coral Block|Fire Coral Block}}
+* {{BlockLink|link=Coral Block|Horn Coral Block}}
+* {{BlockLink|link=Coral Block|Tube Coral Block}}
+| style="text-align:center;" | 5
+| style="text-align:center;" | 8
+|-
+! 4 {{ItemLink|Emerald}}
+|
+* {{ItemLink|Slimeball}}
+| colspan="2" style="text-align:center;" | &ndash;
+| style="text-align:center;" | 5
+|-
+! rowspan="2" | 5 {{ItemLink|Emerald}}
+| style="text-align:center;" | &ndash;
+| style="text-align:left;" |
+* {{BlockLink|link=sapling|Saplings}}
+| style="text-align:center;" | 7
+| style="text-align:center;" | 8
+|-
+|
+* {{ItemLink|Nautilus Shell}}
+| colspan="2" style="text-align:center;" | &ndash;
+| style="text-align:center;" | 5
+|}
+
+The other random trade is shown below (these items are chosen for each wandering trader and always offered but only one of them):<!-- most of them (except gunpowder) are a rare resource-->
+
+{| class="wikitable col-3-center" data-description="Another one Wandering trader trades"
+! Price || Items || Trades until<br>disabled 
+|-
+! 1 {{ItemLink|Emerald}}
+|
+* {{ItemLink|Gunpowder}}
+| 8
+|-
+! 3 {{ItemLink|Emerald}}
+|
+* {{BlockLink|Podzol}} (×3)
+* {{BlockLink|Packed Ice}} 
+| 6
+|-
+! 5 {{ItemLink|Emerald}}
+|
+* {{ItemLink|link=Bucket of Fish|Bucket of Pufferfish}}
+* {{ItemLink|link=Bucket of Fish|Bucket of Tropical Fish}} 
+| 4
+|-
+! 6 {{ItemLink|Emerald}}
+|
+* {{BlockLink|Blue Ice}} 
+| 6
+|}
+
+== Notes ==
+<references group="note" />
+<references group="n" />
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|The Haggler; Treasure Hunter; Buy low; Master Trader;Star Trader}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="3">
+{{load advancements|Getting an Upgrade;Suit Up;Isn't it Iron Pick;Cover me with Diamonds;What a Deal!;Star Trader}}
+</table-progress-tracking>
+
+== Video ==
+{{yt|Uiz02BBiYZc}}
+{{yt|r_Jc2C96CcE}}
+
+== History ==
+{{See also|Trading/Before Village & Pillage|Trading/Before Java Edition 1.8}}
+{{History|java beta}}
+{{History||August 31, 2010|link=https://www.minecraftforum.net/forums/minecraft-java-edition/discussion/115233-minecraftcon-2010-gamestick-stream-transcription|The first time [[Markus Persson|Notch]] hinted at plans for a possible future trading system was in an interview during [[MINECON 2010|MinecraftCon]]. The implementation of [[village]]s themselves and their inhabitants wasn't even confirmed at this point, but Notch still had a couple of ideas: "If you treat the villagers well, they become friendly to you and might start throwing things at you as gifts. If you treat them badly though by attacking and killing them they hate you and might chase you."<br>Notch also mentioned a meter of how much "villagers like you."}}
+{{History|java}}
+{{History||May 21, 2012|link=https://twitter.com/jeb_/status/204619936616808451|[[Jens Bergensten|Jeb]] released a screenshot of himself testing the Trading System. The image showed buying and selling areas.
+|An ore block can be seen in the background later revealed in snapshot 12w21a to be [[History_of_textures/Unused_textures#Ruby|ruby]] ore, it was changed to [[emerald ore]] before 12w21a because [[Nathan Adams|Dinnerbone]] is colorblind <ref>https://web.archive.org/web/20150316193400/http://www.minecraftforum.net/forums/archive/future-updates/384441-1-5-new-blocks-items#c11</ref>}}
+{{History||1.3.1|snap=12w21a|Added villager trading.}}
+{{History|||snap=12w22a|[[Eyes of Ender]] are now sold by priests instead of bought, and [[rotten flesh]] is no longer bought.
+|The trading UI has been changed where an extra input space has been added where tools can be placed for buying enchantments and/or repair.}}
+{{History|||snap=12w23a|Before this snapshot, the librarian defaulted to [[written books]] instead of [[gold ingots]], since the written books had a potential offer of 1.3.}}
+{{History||1.4.2|snap=12w32a|The librarian's paper offer was adjusted to 24–35 [[paper]] per emerald from 19-29 paper
+|The farmer's arrow offer was fixed to sell 9-12 [[arrow]]s from only 5 before. The original 1 emerald for 5 arrows trade was a result of a bug in the code where the minimum and maximum values of the arrow trade were swapped.
+|The librarian's buy book offer was adjusted to 11-12 [[book]]s from 12-14
+|The farmer's gravel to flint trade now produces 4-5 [[flint]] from 2-3
+|The offer probability mechanic was changed: as more offers exist for a villager, the probability of all offers rise. When an offer's probability goes beyond a certain limit, its probability goes down. The net effect is that rarer offers become more common when a villager has many offers, and common offers become rarer.
+|The offer removal mechanic has been replaced with an offer disabling mechanic.
+|All offers begin with 7 uses, allowing the offer to be traded up to seven times.
+|After this, even if the player has not left the trading menu, the offer is disabled.
+|If a player trades the last offer on the list and closes the menu, waiting for particles to appear around the villager, all disabled offers are renewed with 2–12 additional uses added to them.
+|It is possible for the final offer slot to be disabled, at which point no new offers can be generated and no existing offers can be renewed.
+|Trading with the last offer slot available increases the player's popularity with the village by one point. Popularity applies to the village as a whole; other players are not affected.}}
+{{History||1.4.6|snap=12w49a|[[Enchanted books]] were added, and villagers could offer them.}}
+{{History||1.5|snap=13w04a|A villager spawned from a renamed [[spawn egg]] shows its name in the trading interface in place of "Villager".}}
+{{History||1.8|snap=14w02a|Villager trading has been revamped. See [[/Before Java Edition 1.8|here]] for offers before 1.8.
+|Trading now gives the player [[experience]].}}
+{{History|||snap=14w03a|Villager clerics no longer buy [[ender pearls]], as they did in 14w02a.}}
+{{History|||snap=14w31a|Clerics now sell [[bottles o' enchanting]], prices range from 3 to 11 emeralds each.}}
+{{History||1.9|snap=15w41a|Clerics no longer sell [[eyes of ender]].
+|Clerics now sell [[ender pearls]]. Prices range from 4 to 7 emeralds each.}}
+{{History|||snap=15w43a|Librarians charge double for [[Enchanted Book|books with "treasure" enchantments]].}}
+{{History||1.11|snap=16w33a|Farmers now sell 5 to 7 [[apple]]s and 6 to 10 [[cookie]]s for an [[emerald]] instead of just 5 and 6 respectively.}}
+{{History|||snap=16w39a|Added new trades through the Cartographer career.}}
+{{History||1.14|snap=19w05a|Added [[wandering trader]]s, which can trade with the player.}}
+{{History|||snap=19w11a|Revamped the trading system, adding many new trades for each villager profession.
+|Villager profession now depends on their job site block, rather than randomly assigned at birth.
+|Villager trading prices now depend on the player's popularity in the village.
+|Villagers now resupply their trades up to two times a day, if they get to work at a [[Villager#Job site blocks|job site block]].
+|Added the mason profession, which uses a [[stonecutter]] as a job site block.
+|The trading UI has been updated.
+|The villager now gains experience as it trades with the player, and the experience is visible in a bar on top of the trading UI.}}
+{{History|||snap=19w13b|All available trades are now listed in a sidebar on the left of the trading interface.
+|When the player has the required materials, clicking on an available trade puts the items into the slots automatically.}}
+{{History||1.15|snap=19w45a|Librarians now sell one [[bookshelf]] for nine emeralds, instead of three bookshelves for six emeralds.}}
+{{History||1.17|snap=21w05a|Wandering traders now can sell [[small dripleaf]].}}
+{{History|||snap=21w13a|Wandering traders now can sell [[pointed dripstone]], [[rooted dirt]] and [[moss block]].
+|Mason villagers now sell [[dripstone blocks]].}}
+{{History||1.19|snap=22w15a|Wandering traders can now sell [[mangrove propagule]]s.}}
+{{History||1.20<br>(Experimental)|link=1.19.4|snap=23w07a|Wandering traders can now sell [[cherry sapling]]s.}}
+{{History||1.20.2|snap=23w31a|A villager now only gives a big discount the first time it is cured from a zombie villager. There are no longer multiple stacked discounts if a villager is zombified and cured multiple times.<ref name="MC-181190">{{bug|MC-181190||The discount for curing a villager is multiplied if the villager is reinfected and cured again|Fixed}}</ref>
+|Existing villagers with multiple curing discounts keep their lowered prices when updated to this snapshot.}}
+{{History|||snap=1.20.2 Pre-release 1|When villagers unlock new trades, the order of those trades in the UI is now always random instead of sometimes being deterministic.}}
+{{History||Villager Trade Rebalance<br>(Experimental)|link=Java Edition 1.20.2|snap=23w31a|Librarians from different biomes now sell different enchanted books.
+|Each village biome has one special enchantment that is only available from master-level librarians, and players must visit all seven village biomes to get all the enchanted books available from trading.
+|Some enchanted book trades are exclusive to jungle and swamp villagers, which do not spawn natually, unless villagers are brought to and bred in jungle and swamp biomes.
+|Enchantments for [[trident]]s, [[crossbow]]s and [[fishing rod]]s are no longer obtainable from trading, and must be acquired by other means.
+|Wandering traders now sell more items, and buy certain items from the player.
+|Some of the existing trades from wandering traders have reduced prices.}}
+{{History|||snap=1.20.2 Pre-release 1|Added seven new maps which cartographers can sell.|Buying diamond armor from armorers now also requires a small amount of diamonds.|Most master-level armorers buy iron blocks and pay 4 emeralds for them.|Chainmail armor is exclusively sold by jungle and swamp armorers.|The savanna armorer sells cursed diamond armor at reduced prices.|The taiga armorer can swap one piece of diamond armor for another.}}
+
+{{History|pocket}}
+{{History||1.0.4|snap=alpha 1.0.4.0|Added villager trading.}}
+{{History||1.1.0|snap=alpha 1.1.0.3|Added new trades through the Cartographer career.}}
+{{History|bedrock}}
+{{History||1.2.13|snap=beta 1.2.13.5|Added [[Curse of Binding]] and [[Curse of Vanishing]] enchantments, which at this time can be obtained only via trading with librarians.}}
+{{History||1.4.0|snap=beta 1.2.20.2|Removed the curse enchantments in [[enchanted books]] from librarian trading.}}
+{{History||1.10.0|snap=beta 1.10.0.3|Added new trades through the stone mason villager profession and [[wandering trader]].}}
+{{History||1.11.0|snap=beta 1.11.0.1|Added economic trades, where players can unlock multiple tiers at once by leveling up villagers.
+|Villagers now have a demand in which their emerald cost can change higher or lower than usual.}}
+{{History|||snap=beta 1.11.0.4|Changed trading for villagers.
+|Villager no longer instantly resupply their trades when disabled, as now they need to work at a [[Villager#Job site blocks|job site]] block to resupply themselves.
+|[[Hero of the Village]] now gives a trading price discount, except for one emerald trades (as it already costs one emerald).}}
+{{History|||snap=beta 1.11.0.7|Pressing {{control|use}} on a trade now auto-trades items.|
+Reverted cake trade from farmer villagers, increased max amount of some trade until disabled for master level stone mason and wandering trader.}}
+{{History||1.12.0|snap=beta 1.12.0.3|Changed some trades for both villager and wandering trader.}}
+{{History|||snap=beta 1.12.0.4|Removed regular sand from the wandering trader trades and adjusted the cost of a [[diamond hoe]] on the toolsmith.}}
+{{History||1.13.0|snap=beta 1.13.0.1|Cartographer villager now buy 11 [[glass panes]], rather than 10.}}
+{{History|||snap=beta 1.13.0.15|Farmer villagers now sell [[suspicious stew]].}}
+{{History||1.16.0|snap=beta 1.16.0.57|Villager trade values have been changed to closely match ''Java Edition''.}}
+{{History|||snap=?|Enchanted items now cost in a range.}}
+{{History||1.17.0|snap=beta 1.16.230.54|Wandering traders can sell [[small dripleaf]], [[pointed dripstone]], [[rooted dirt]], and [[moss block]]s.
+|Stone masons can now sell [[dripstone block]]s.}}
+{{History||1.18.10|snap=beta 1.18.10.26|Butcher, cartographer, librarian, and wandering trader trades have been changed to match ''Java Edition''.}}
+{{History||1.18.30|snap=beta 1.18.20.21|Armorer, cleric, fisherman, shepherd, toolsmith, and weaponsmith villager trades have been changed to match ''Java Edition''.}}
+{{History||Villager Trade Rebalance<br>(Experimental)|link=Bedrock Edition 1.20.30|snap=beta 1.20.30.20|Librarians from different biomes now sell different enchanted books.
+|Librarians now sell, as their only master-level trade, enchanted books with a special enchantment that depends on the biome they spawned in (as shown by their garments). This is the only way to obtain these enchantments via trading.
+|Since jungle and swamp villagers do not spawn naturally, the only way to obtain the special enchanted books from these librarians is to bring in villagers from outside, get them to mate, and arrange for their babies to become librarians.
+|Enchantments for [[trident]]s, [[crossbow]]s and [[fishing rod]]s are no longer obtainable from trading, and must be acquired by other means.
+|Wandering traders now sell more items, and buy certain items from the player.
+|Some of the existing trades from wandering traders have reduced prices.}}
+
+{{History|console}}
+{{History||xbox=TU14|xbone=CU1|ps=1.04|wiiu=Patch 1|switch=1.0.1|Added villager trading.}}
+{{History||xbox=TU20|xbone=CU8|ps=1.13|Librarian villagers now may offer [[name tag]]s for sale.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|Changed villager trades to offers as of [[Java Edition 1.8]].}}
+{{History|Ps4}}
+{{History||1.91|The trading interface shows the new career level for villagers and which trades are locked.
+|Villager trading prices now depend on the player's popularity in the village.
+|Villagers now resupply their trades up to two times a day, if they get to work at a [[Villager#Job site blocks|job site]] block.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list|Trading|Trades|Trade}}
+
+== Trivia ==
+* While diamonds are not renewable, their products (armor, tools, and weapons) are renewable via trading.
+
+== Gallery==
+
+<gallery>
+File:Villager trading preview.png|The first image of the trading system released by Jeb. The currency item (later updated to the [[emerald]]) can be seen in the inventory.
+File:Villagenhanced.jpg|An enhanced version of Jeb's screenshot showing the original ore texture more clearly.
+File:Trading GUI2.jpg|The trading menu before [[Bedrock Edition 1.11.0]].
+File:Villager GUI Master.png|thumb|Trading options of a master-level weaponsmith.
+File:Villager refusing.gif|An unemployed villager refuses a player trying to trade In Java Edition.
+File:Nitwit refusing.gif|A nitwit villager refuses a player trying to trade in Java Edition.
+File:Leatherworker begging Leather.png|A Villager presenting the emeralds.
+</gallery>
+
+== References ==
+
+{{reflist}}
+
+{{gameplay}}
+
+[[cs:Obchodování]]
+[[de:Handel]]
+[[el:Trading]]
+[[es:Comercio]]
+[[fr:Commerce]]
+[[hu:Kereskedés]]
+[[it:Commercio]]
+[[ja:取引]]
+[[ko:거래]]
+[[nl:Handelen]]
+[[pl:Handel]]
+[[pt:Comércio]]
+[[ru:Торговля]]
+[[th:การแลกเปลี่ยน]]
+[[tr:Ticaret]]
+[[uk:Торгівля]]
+[[zh:交易]]

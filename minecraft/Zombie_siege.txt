@@ -1,0 +1,109 @@
+{{exclusive|java}}
+{{outdated|edition=bedrock|This feature used to be in the game but has since been removed due to a bug.}}
+[[File:Zombie Siege.png|thumb|350px|A siege in progress.]]
+ 
+'''Zombie sieges''' are in-game events where many [[zombie]]s spawn in and attack a [[village]].
+
+== Mechanics ==
+
+At midnight each night (tick 18000 in [[Daylight cycle|''Minecraft'' time]]), there is a 10% chance for the game to attempt a zombie siege that night. If a siege is to occur, attempts are made each [[tick]] to start the siege until either a siege is successfully started or the sun rises. Specifically, the siege attempt is abandoned when the [[Light|sky light level]] reaches 12. However, [[Thunderstorm|inclement weather]] can allow siege start attempts to continue well past dawn since it reduces the sky light level.
+
+=== Siege start checks ===
+
+A player is a candidate for a siege if they are in a [[village]]{{note|name=within-village|"In a village" is defined as being in a subchunk that contains a claimed [[bed]], [[bell]], or [[job site]], or in any of the 26 subchunks in a 3×3×3 cube around such a subchunk.}} and that player is not in [[spectator mode]] or in a biome with the <code>without_zombie_sieges</code> [[tag]].
+
+Ten attempts are made to choose a random siege starting point: first, a point 32 blocks away from the player in a random horizontal direction is chosen, and then a location is chosen (as described below) as if to spawn one zombie. If that succeeds in finding a valid zombie spawning point, the siege is started at the chosen starting point. If all ten attempts fail, the entire siege attempt fails, but another siege may be attempted on the next game tick.
+
+Players are always checked in order, so as long as one player remains a valid candidate later players will not be checked.
+
+=== Zombie spawning ===
+During a siege, 20 attempts are made to spawn a zombie over the course of 3 seconds. For each zombie, 10 attempts are made to randomly choose a valid spawning point on the surface (i.e. highest non-air block at given horizontal coordinates) within a 16×16 horizontal distance around the chosen point. If a valid spawn point is found, a zombie is spawned.
+
+Zombies spawned within a siege ignore player proximity and the presence of other mobs. Only the minimal spawning conditions are checked:
+* Light level must be appropriate for hostile mob spawning.
+* The surface block must not prevent spawning.
+* The block must be within a village.{{note|name=within-village}}
+
+[[Zombie villagers]], [[husk]]s and [[drowned]] are never spawned as part of a siege, but all other variations (e.g. baby, jockey, and equipment) are determined as for normal random spawns.
+
+The zombies that spawn as part of a siege behave in the same manner as normally-spawned zombies; they attack all villagers within sight, and villagers and [[iron golems]] react accordingly. The zombies despawn as usual if the player is far enough away.
+
+== Defense tactics ==
+
+{{main|Tutorials/Zombie siege defense|title1=Zombie siege defense}}
+
+== Recovery ==
+
+If at least two villagers survive the siege, the villagers can [[Villager#Breeding and population|breed]] and repopulate the village. Without player intervention, however, it is likely for villages to be wiped out by sieges and randomly-spawned zombies, and all the villagers would be either dead or zombified. 
+
+Even if no villagers survive, a village may be repopulated by curing zombie villagers, or by luring in villagers from another village.
+
+== Video ==
+{{yt|1xk3YUmFsCY}}
+
+== History ==
+
+{{History|java classic}}
+{{History||June 10, 2009|link=wordofnotch:121044061|[[Notch]] promised to have an expansion pack adding zombie sieges, but never made it.}}
+{{History|java}}
+{{History||1.2.1|snap=12w07a|Zombie sieges added by [[Jon Kågström]].
+|[[Villager]]s repopulate [[village]]s based on how many houses are available.}}
+{{History|||snap=12w08a|Added [[iron golem]]s, which protect villagers against attacks such as zombie sieges.}}
+{{History||1.4.7|Zombie sieges no longer occur due to a bug.<ref>{{bug|MC-7432}}</ref>}}
+{{History||1.8|snap=14w25a|Zombie sieges may again occur.
+|The start positioning of zombie sieges has been fixed: sieges now start near the [[village]] perimeter rather than anywhere within the village.}}
+{{History||1.14|snap=unknown|Siege mechanics significantly changed due to changes in [[village]] determination: sieges can now start anywhere in a village, the starting point is always 32 blocks from the triggering player, minimum village population limit removed, zombies now always spawn on the surface, and spawns consider light levels.{{verify|Some or all of these changes may have happened as late as 1.14.4.}}}}
+{{History||1.14.3|snap=Pre-Release 3|The bug that caused zombie sieges to never occur has been fixed.<ref>{{bug|MC-154328}}</ref>}}
+{{History||1.19|snap=22w11a|<code>without_zombie_sieges</code> tag created to replace the hard-coded check for [[mushroom fields]] biome.}}
+
+{{History|pocket alpha}}
+{{History||v0.9.0|Added zombie sieges.}}
+{{History|bedrock}}
+{{History||1.11.0|Zombie sieges have been removed, due to a bug.{{verify|Is this version number correct?}}}}
+
+{{History|console}}
+{{History||xbox=TU12|xbone=CU1|ps=1.00|Added zombie sieges.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list|Siege}}
+
+== Trivia ==
+
+* Sieges can occur on [[mushroom fields]] if the triggering player is in an adjacent biome.<ref>{{bug|MC-158473|resolution=WAI}}</ref>
+
+== Gallery ==
+<gallery>
+File:Zombies breaking down.png|A group of zombies, two of which are villagers, breaking down a wooden door.
+File:Iron Golem backing off a village during a siege.png|An iron golem killing a zombie during a siege, preventing the zombie from breaking down the door.
+File:Zombie siege over when it's morning.png|A siege ending because of the zombies burning in the daylight.
+File:Zombies burning in a desert..png|A siege in a desert (where it never rains) during rain in another biome. One zombie burns in sunlight while two others are protected by their helmets.
+File:Zombie hurting a villager.png|A zombie attacking a villager while the other one is trying to run.
+File:Villagers taking cover.png|3 villagers taking cover in a [[Village/Structure|large house]] during a zombie siege.
+</gallery>
+
+== See also ==
+* [[Raid]]
+*[[Zombie]]
+
+== Notes ==
+{{notelist}}
+
+== References ==
+{{reflist}}
+
+{{Gameplay}}
+
+[[de:Zombiebelagerung]]
+[[es:Horda de zombis]]
+[[fr:Siège de zombies]]
+[[ja:ゾンビ襲撃]]
+[[ko:좀비 전투]]
+[[nl:Zombiebelegering]]
+[[pl:Oblężenie zombie]]
+[[pt:Invasão zumbi]]
+[[ru:Осада]]
+[[uk:Облога]]
+[[zh:僵尸围城]]
+
+[[Category:Rewritten gameplay]]

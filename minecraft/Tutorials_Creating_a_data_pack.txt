@@ -1,0 +1,607 @@
+{{Exclusive|Java}}
+
+This tutorial shows how to create a [[data pack]].
+
+{{TOC|right}}
+
+== Getting started ==
+
+Data packs can be used to add or modify [[Function (Java Edition)|functions]], [[loot table]]s, world [[structure]]s, [[advancements]], [[recipe]]s, [[tag]]s, [[Dimension|dimensions]], predicates and world generation.
+
+=== What not to do ===
+
+There are some things that you should not do while creating a data pack. Here is a list of "don'ts":
+
+*Release ''Minecraft'' versions or modifications that allow players to play without having bought ''Minecraft'' from Mojang.
+*Release the decompiled source code of ''Minecraft'' in any way.
+
+== Creating a data pack ==
+
+To create a data pack, start off by navigating to the <code>datapacks</code> folder inside the world folder.
+
+To find the world folder, locate the <code>saves</code> folder inside your game directory, which is [[.minecraft]] by default.
+
+*In [[singleplayer]], you can select your world, click on "Edit", then "Open world folder".
+*On a [[server]], you can navigate to its root directory (where [[server.properties]] is located), then enter the <code>world</code> directory.
+
+Once you are in the <code>datapacks</code> folder, create a folder with a name of your choice. It will be your data pack's name. Enter the data pack folder.
+
+The first thing to do after you are in the folder is to create a <code>pack.mcmeta</code> file. This lets ''Minecraft'' identify your data pack.
+
+=== Creating an MCMETA file ===
+
+{{see also|Data_pack#pack.mcmeta}}
+To create an MCMETA file, right click within your data pack folder and create a new text document. Name this file "''pack.mcmeta''".
+
+;Note
+
+'''Make sure the file extension is <code>.mcmeta</code> and not <code>.txt</code> when you rename it!''' In other words, remove your old file extension. You may be warned that changing a file name extension could make the file unusable. However, this actually indicates that you have renamed the <code>pack.mcmeta</code> file correctly.
+
+If you are using Microsoft Windows and can't see file extensions, for Windows 10, you can turn them on by going to the ''View'' menu of the file explorer and checking the check box for file name extensions. For Windows beneath Windows 10, you can uncheck "hide extensions" in folder settings.
+
+[[File:FileExtensions.png|750px|link=|center]]
+
+For Windows 11, to turn them on, open the "View" dropdown menu, then hover over the "Show" option, then turn on the "File name extensions" option that pops up when "Show" was hovered.
+
+[[File:File_name_extensions_W11.png|300px|center]]
+
+==== Text editor ====
+
+Any text editor should work. It is recommended that the chosen text editor supports [[JSON]], which is the format used by files of <code>mcmeta</code> extension and most other files in a data pack.
+Note that most text editors do not recognize <code>mcmeta</code> extension as JSON. Thus, you need to configure the editors manually.
+
+==== <code>pack.mcmeta</code> content ====
+
+Open <code>pack.mcmeta</code> in your text editor and paste or type the following:
+<syntaxhighlight lang="json">
+{
+  "pack": {
+    "pack_format": 15,
+    "description": "Tutorial Data Pack"
+  }
+}
+</syntaxhighlight>
+
+;Note
+
+This file is written in JSON! This tutorial does not go into specifics about the format now, but be aware about how things are laid out. '''Be very careful not to forget quotation marks, colons, and curly or square brackets. Make sure to not write trailing commas. Missing one of these can lead to your data pack not working correctly!''' To check your files you can use a JSON validator, such as the one found on [https://json-validate.com JSON-validate] or [https://jsonlint.com JSONLint].
+
+==== <code>"pack_format"</code> ====
+
+The value of <code>"pack_format"</code> tells ''Minecraft'' what release the data pack is designed for, and is different for certain versions. The following list shows what versions each value is associated with:
+
+{{Data pack format}}
+
+''Note: As more updates are released, values may be changed or added.''
+
+=====<code>"description"</code>=====
+
+The text following <code>"description"</code> can be any string or a [[Commands#Raw JSON text|raw JSON text]]. It will show up when you hover over your data pack in the output from {{cmd|datapack list}} and in the data pack UI when creating a world.
+In <code>pack.mcmeta</code>, it is possible to use the § symbol (see Minecraft [[Formatting codes]]) in the description of <code>pack.mcmeta</code> and the data pack name.
+
+===Testing your pack===
+
+Once you have created your <code>pack.mcmeta</code>, try testing it out in-game! Open the world or, if you are already in the world, type {{cmd|reload}}, then type {{cmd|datapack list}}. It should list two entries. One should be <code>[vanilla] (built-in)</code>, the second one should be named like <code>[file/(your data pack's name) (world)]</code>, where your data pack's folder name goes at <code>(your data pack's name)</code>. When you hover over your data pack's entry, you should see the description of your data pack as you have written in {{nbt|string}}{{nbt|compound|description}} of your <code>pack.mcmeta</code>.
+
+When your pack shows up, you are ready to move on.
+
+==== Troubleshooting====
+
+If you don't see your pack in the list, make sure your <code>pack.mcmeta</code> file is correct and saved. Look for any missing curly brackets {{code|<nowiki>{}</nowiki>}}, commas {{code|,}}, colons {{code|:}}, quotation marks {{code|""}}, or square brackets {{code|<nowiki>[]</nowiki>}}. Remember that for each open brace, quotation, or square bracket, you must have a closing bracket, quotation, or square brackets. If you still don't see your pack, make sure it's in the right folder.
+
+Note that the correct JSON syntax may differ slightly based on your version of Minecraft (e.g., in Minecraft 1.21, the JSON <code>"item"</code> name was replaced with <code>"id"</code>). The JSON examples on this page attempt to reflect the most up-to-date version of Minecraft.
+
+The correct data pack file structure may also differ depending on your Minecraft version. For example, in Minecraft 1.21, the <code>recipes</code>, <code>functions</code>, <code>loot_tables</code>, <code>structures</code>, <code>predicate</code>, and <code>advancements</code> folders were changed to be singular (<code>function</code>, <code>loot_table</code>, etc.).
+
+===Naming===
+
+{{seealso|Resource location}}
+Make a folder called <code>data</code> in your data pack folder, where you have placed the <code>pack.mcmeta</code> file in. In this <code>data</code> folder you have to create one or  more folders which will act as your namespaces.
+
+Entries in data packs have resource locations in a fashion of <code>namespace:path</code>. The corresponding file would be located at <code>data/namespace/(data_type)/path.(suffix)</code>. Note that <code>/</code> characters in the path will be translated into directory separators.
+
+A few examples:
+
+*an [[#Tags|item tag]] of ID <code>dummy:foo_proof/bar</code> would be located at <code>data/dummy/tags/item/foo_proof/bar.json</code> 
+*a [[#Functions|function]] of ID <code>foo:handler/bar_call</code> would be located at <code>data/foo/functions/handler/bar_call.mcfunction</code>
+
+==== Legal characters====
+
+Namespaces, paths and other folder and file names in the data pack should only contain the following symbols:
+
+*<code>0123456789</code> Numbers
+*<code>abcdefghijklmnopqrstuvwxyz</code> Lowercase letters
+*<code>_</code> Underscore
+* <code>-</code> Hyphen/minus
+*<code>/</code> Forward Slash/Directory separator (Can't be used in namespace)
+*<code>.</code> Period
+
+The preferred naming convention is <code>lower_case_with_underscores</code>, called lower snake case.
+
+====Namespace====
+
+Most objects in the game use namespaced resource locations to prevent potential content conflicts or unintentional overrides.
+
+For example, if two data packs add two new minigame mechanisms to ''Minecraft'' and both have a [[Function (Java Edition)|function]] named <code>start</code>. Without namespaces, these two functions would clash and the minigames would be broken. But if they have different namespaces of <code>minigame_one</code> and <code>minigame_two</code>, the functions would become <code>minigame_one:start</code> and <code>minigame_two:start</code>, which no longer conflict.
+
+Most of the time when ''Minecraft'' requires an ID, such as for {{cmd|function}}, you should provide the namespace in addition to the path. If you don't specify the namespace, it will fallback to <code>minecraft</code>. 
+
+Make sure to always use your own namespace for anything new that you add, and only use other namespaces if you're explicitly overriding something else, or, in the case of [[tags]], appending to something else.
+
+For example, ''Minecraft'' uses the <code>minecraft</code> namespace, which means that this namespace should only be used when the data pack needs to overwrite existing Minecraft data or to add its entries to vanilla tags.
+
+===Functions===
+
+{{main|Function (Java Edition)}}
+{{see also|Tutorials/Command blocks and functions}}
+Functions are a set of commands that can be run in order.
+
+To add functions, first create a folder named <code>functions</code> inside the namespace folder. Then, create a file named <code>(function_name).mcfunction</code> in this folder or in any of its subfolders. This will be your function file. Your function will be named in the game as <code>(namespace):(name)</code> or <code>(namespace):(subfolder1)/(subfolder2)/.../(name)</code> when the function file is located in a subfolder.
+
+=== Loot tables ===
+
+{{main|Loot table}}
+Loot tables will tell ''Minecraft'' what should be dropped when a mob dies or what should be generated inside containers, like chests, when opened for the first time, they can also be called by the [[Commands/loot|/loot]] command.
+
+To add loot tables, first create a folder named <code>loot_table</code> inside the namespace folder. Then, create a file named <code>(loot_table_name).json</code> in this folder or in any of its subfolders. This will be your loot table file. Your loot table will be named in the game as <code>(namespace):(name)</code> or <code>(namespace):(subfolder1)/(subfolder2)/.../(name)</code> if the file is located in a subfolder. All the vanilla loot tables are in the minecraft namespace.
+
+Here is an example of a cow's loot table, it can be used as a reference:
+<syntaxhighlight lang="json" line="1">
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 0,
+                "max": 2,
+                "type": "minecraft:uniform"
+              }
+            },
+            {
+              "function": "minecraft:looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ],
+          "name": "minecraft:leather"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 3,
+                "type": "minecraft:uniform"
+              }
+            },
+            {
+              "function": "minecraft:furnace_smelt",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "predicate": {
+                    "flags": {
+                      "is_on_fire": true
+                    }
+                  },
+                  "entity": "this"
+                }
+              ]
+            },
+            {
+              "function": "minecraft:looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ],
+          "name": "minecraft:beef"
+        }
+      ]
+    }
+  ]
+}
+</syntaxhighlight>
+
+To learn what each tag means, see [[Loot tables]]. There is also a list of vanilla loot tables on that page.
+
+===Structures===
+
+Structures can be used with [[structure block]]s and [[jigsaw block]]s and/or can overwrite how certain vanilla structures look in ''Minecraft''. It is saved in an NBT format. You can create an NBT file by using a structure block or by exporting a build using a third party program like MCEdit.
+
+To add structures to a data pack, first create a folder named <code>structure</code> inside the namespace folder. Then, put your structure file in this folder or in any of its subfolders. Your structure will be named in the game as <code>(namespace):(name)</code> or <code>(namespace):(subfolder1)/(subfolder2)/.../(name)</code> if the file is located in a subfolder.
+
+=== World generation ===
+
+{{main|Custom world generation}}
+'''Custom world generation''' allows [[data pack]]s to change how the world generates. This is particularly useful in conjunction with [[custom]] worlds.
+
+To change world generation, first create a folder named <code>worldgen</code> inside the namespace folder. Then, put your noise_settings file in this folder or in any of its subfolders. Your changes will be named in the game as <code>(namespace):(name)</code> or <code>(namespace):(subfolder1)/(subfolder2)/.../(name)</code> if the file is located in a subfolder.
+
+=== Advancements===
+
+{{main|Advancements}}
+Advancements can be completed by players and give various rewards.
+
+To add advancements, first create a folder named <code>advancement</code> inside the namespace folder. Then, create a file named <code>(advancement_name).json</code> (You can't put spaces in the file name. Use lowercase letters in the file name). in this folder or in any of its subfolders. This will be your advancement file. Your advancement will be named in the game as <code>(namespace):(name)</code> or <code>(namespace):(subfolder1)/(subfolder2)/.../(name)</code> if the file is located in a subfolder.
+
+===Recipes ===
+
+{{main|Recipe}}
+Recipes are used to let players craft items.
+
+To add recipes, first create a folder named <code>recipe</code> inside the namespace folder. Then, create a file named <code>(recipe_name).json</code> in this folder or in any of its subfolders. This will be your recipe file. Your recipe will be named in the game as <code>(namespace):(name)</code> or <code>(namespace):(subfolder1)/(subfolder2)/.../(name)</code> if the file is located in a subfolder.
+
+====Shaped crafting====
+
+{{see also|Recipe#minecraft:crafting_shaped}}
+The first common type of crafting is shaped crafting.
+<syntaxhighlight lang="json">
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "123",
+    "231",
+    "312"
+  ],
+  "key": {
+    "1": {
+      "item": "Resource location of the item"
+    },
+    "2": {
+      "item": "Resource location of the item"
+    },
+    "3": {
+      "item": "Resource location of the item"
+    }
+  },
+  "result": {
+    "id": "Resource location of the item",
+    "count": Number of items produced
+  }
+}
+</syntaxhighlight>
+
+This is a rough example of a shaped crafting recipe, as specified by the <code>crafting_shaped</code> type. <code>pattern</code> is a list used to specify the shape of the crafting recipe. It contains a maximum of 3 strings, each string standing for one row in the crafting grid. These strings then contain a maximum of 3 single characters next to each other, each character standing for one spot in the crafting grid. You don't need all 3 strings, nor do you need to have 3 characters in each string. But each string should contain the same amount of characters. You can use spaces to indicate empty spots.
+
+<code>key</code> is a compound used to specify what item should be used for which character in <code>pattern</code>. This can either be specified using <code>item</code> followed by an item ID or <code>tag</code> followed by an item data pack tag.
+
+The <code>result</code> compound speaks for itself, it specified what the resulting item should be. <code>count</code> is used to specify how many of the item should be given.
+
+This is the original recipe for a [[piston]] (can be used as a reference):
+<syntaxhighlight lang="json">
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "TTT",
+    "#X#",
+    "#R#"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "#": {
+      "item": "minecraft:cobblestone"
+    },
+    "T": {
+      "tag": "minecraft:planks"
+    },
+    "X": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "minecraft:piston"
+  }
+}
+</syntaxhighlight>
+
+====Shapeless crafting====
+
+{{see also|Recipe#minecraft:crafting_shapeless}}
+There's another common type of recipes, a shapeless recipe. The list with multiple items allows alternatives for the given slot such as Oak Plank and Birch Plank.
+<syntaxhighlight lang="json">
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "<item ID>"
+    },
+    {
+      "item": "<item ID>"
+    },
+    [
+      {
+        "item": "<item ID>"
+      },
+      {
+        "item": "<item ID>"
+      }
+    ]
+  ],
+  "result": {
+    "id": "<item ID>",
+    "count": 5
+  }
+}
+</syntaxhighlight>
+
+As specified by the <code>crafting_shapeless</code> type, this is a recipe without a <code>pattern</code>. The <code>ingredients</code> can be put in the crafting grid in any shape or form. In the example, there's a list inside the <code>ingredients</code> compound. This means any of the items in this list can be used.
+
+This is the original recipe for [[Fire Charge]] (can be used as a reference):
+<syntaxhighlight lang="json">
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:gunpowder"
+    },
+    {
+      "item": "minecraft:blaze_powder"
+    },
+    [
+      {
+        "item": "minecraft:coal"
+      },
+      {
+        "item": "minecraft:charcoal"
+      }
+    ]
+  ],
+  "result": {
+    "id": "minecraft:fire_charge",
+    "count": 3
+  }
+}
+</syntaxhighlight>
+
+It is also possible to create new smelting recipes.
+<syntaxhighlight lang="json">
+{
+  "type": "smelting",
+  "ingredient": {
+    "item": "<item ID>"
+  },
+  "result": {"id": "<item ID>"},
+  "experience": 0.35,
+  "cookingtime": 200
+}
+</syntaxhighlight>
+This is a rough example of a smelting recipe. "ingredient" is used to specify the item you are going to smelt. "result" is going to specify the result. In "experience", you are able to choose the amount of xp gained for smelting, and in "cookingtime" the amount of time that it will take for the item to smelt, which in this case is 10 seconds (200 ticks = 10 seconds).
+
+This is the default smelting recipe for a diamond ore:
+<syntaxhighlight lang="json">
+{
+  "type": "smelting",
+  "ingredient": {
+    "item": "minecraft:diamond_ore"
+  },
+  "result": {"id": "minecraft:diamond"},
+  "experience": 1,
+  "cookingtime": 200
+}
+</syntaxhighlight>
+
+==== Item components & enchantments ====
+Custom item data components and enchantments can also be given or altered in custom recipes. these are added in the "<code>result</code>": {} section. to add custom item components add a section "<code>components</code>": {} inside "<code>result</code>": {}, where inside means in between the "{}". add the special item components inside of the "components": {} section. for enchantments we need to add them into a section called "<code>minecraft:enchantments</code>": {} which we should place in the "<code>components</code>": {} section. in the current minecraft 26.2 snapshots this is also required for some other attributes such as "<code>minecraft:attack_range</code>".
+
+This is a example of a "Magic wand", which is a stick with the current maximum suppored attack_range, custom name, some enchantments, and the enchantment glint(glistering) disabled <small>(I made it for for minecraft 26.2 rev3, it uses the new component naming format, some used components are quite new, you can use this code as you would any public domain code.)</small><syntaxhighlight lang="json">
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "D ",
+    "# ",
+    "#~"
+  ],
+  "key": {
+    "#": "minecraft:stick",
+    "D": "minecraft:diamond",
+    "~": "minecraft:string"
+  },
+  "result": {
+    "id": "minecraft:stick",
+    "components": {
+        "minecraft:attack_range": {
+            "max_reach": 64.0,
+		    "hitbox_margin": 0.6
+        },
+	    "minecraft:custom_name": "'Magic Wand'",
+	    "minecraft:enchantment_glint_override": false,
+	    "minecraft:enchantments": {
+            "minecraft:fire_aspect": 2,
+		    "minecraft:looting": 1,
+		    "minecraft:sharpness": 5,
+	        "minecraft:knockback": 1
+        }
+    }
+  }
+}
+</syntaxhighlight>Code explanation: craft the staff with a diamond on top, 2 sticks bellow it, and a string on the right bottom of the rest. in the results <code>minecraft:attack_range</code> is added, of this component we use the 2 sub-values: <code>"max_reach"</code>(values between 0.0 and 64.0)(it is given a attack range of 64 blocks) and <code>"hitbox_margin"</code> ( values between 0.0 and 1.0)(it was given a margin of 0.6 which is around double of what it normally is, the hitbox margin handles how close something needs to hit to the hitbox to still count as a hit). <code>"custom_name"</code> changes the items name to 'Magic wand'. <code>"enchantment_glint_override"</code> is set to false to disable the enchanted item glint. <code>"enchantments"</code> contains the enchantments fire_aspect, looting, sharpness, and knockback to set entities hit on fire, get better loot drops, have it deal more damage, and send entities hit back. There are way more components and enchantments
+
+''For more data components look up'': data_component_format (page missing, need to be added to wiki)
+
+<small>the code example above uses the new attribute format needed for game versions since 1.20.5, for older versions you need the old format. attributes work similar to components, and also changed in format in a similar way but are meant for entities instead of items. the code is tested in minecraft 26.2 rev3.</small>
+
+===Tags ===
+
+{{main|tag}}
+Tags are used to group blocks, items, entities, or functions together. Additionally, the <code>minecraft:tick</code> function tag is used to run functions every tick and the <code>minecraft:load</code> function tag is used to run functions every time the world is (re)loaded.
+
+To add tags, first create a folder named <code>tags</code> inside the namespace folder. Inside this folder, create folders named <code>blocks</code>, <code>items</code> and <code>functions</code>. Then, create a file named <code>(tag_name).json</code> in one of these folders or in any of their subfolders. This will be your tag file. Your tag will be named in the game as <code>(namespace):(name)</code> or <code>(namespace):(subfolder1)/(subfolder2)/.../(name)</code> if the file is located in a subfolder.
+
+===Predicates===
+
+{{main|Predicate}}
+Predicates are technical JSON files that represent the conditions for loot tables, <code>/[[Commands/execute|execute]] if predicate</code> command, or [[Commands#Selecting%20targets%20by%20predicate|<code>predicate</code> target selector argument]].
+
+To add predicates, first create a folder named <code>predicate</code> inside the namespace folder. Then, create a file named <code>(predicate_name).json</code> (You can't put spaces in the file name. Use lowercase letters in the file name). in this folder or in any of its subfolders. This will be your predicate file. Your predicate will be named in the game as <code>(namespace):(name)</code> or <code>(namespace):(subfolder1)/(subfolder2)/.../(name)</code> if the file is located in a subfolder.
+
+===Dimensions===
+
+{{Main|Custom dimension}}
+Dimensions are JSON file used to specify all the dimensions a world contains.
+
+To add dimensions, first create a folder named <code>dimension</code> inside the namespace folder. Then, create a file named <code>(dimension_name).json</code> (You can't put spaces in the file name. Use lowercase letters in the file name). in this folder. This will be your dimension file.
+
+Custom dimensions can be accessed in game using <code>/execute in (namespace):(dimension_name)</code>
+
+==Utilities==
+
+{{Expand list}}
+Many utilities have been created in order to make programming in mcfunction easier. This is a reference list for utilities such as transpilers or syntax highlighting plugins. Please apply reasonable caution when downloading software onto your computer, as the creators are responsible for the content provided.
+{| class="wikitable"
+|+Compiler/Transpilers and Frameworks
+!Name
+!Hosting
+!Description
+!Link
+|-
+|Minecraft Script
+|GitHub
+| A language based on JavaScript that can be compiled into a working data pack using a Node.js compiler.
+|https://mcscript.stevertus.com/
+|-
+|Minity
+|GitHub
+|Another scripting language that compiles into data packs using a Node.js compiler.
+|https://github.com/minity-script/minity
+|-
+|TMS Transpiler
+|GitHub
+|A python tool that can assemble indented mcfunction code into valid files. Great if you don't want to learn a new language. 
+|[https://github.com/davidkowalk/tabbed_minecraft_scripting https://github.com/davidkowalk/advanced_minecraft_scripting]
+|-
+|ObjD
+|Pub
+| A dart framework for creating data packs to minimize the repetitive work to be done.
+|https://objd.stevertus.com/ 
+|}
+Another option is to use a visual interface to create the framework or the content for your project.
+{| class="wikitable"
+|+Visual Generators
+!Name
+!Hosting
+!Description
+!Link 
+|-
+|Datapack Creator
+|Planet Minecraft
+|An IDE for creating data packs with some useful tools
+|https://www.planetminecraft.com/mod/datapack-creator-ide/
+|-
+|NBTData Pack Generator
+|nbt-data.com 
+|An online generator for a raw data pack framework without any functions.
+|https://www.nbt-data.com/datapack-generator
+|-
+| Recipe Generator
+| thedestruc7i0n.ca
+|An Online Generator to generate the JSON files required for crafting.
+|https://crafting.thedestruc7i0n.ca/
+|-
+|Minecraft Tools Recipe Generator
+|minecraft.tools
+|An Online Generator to generate the JSON files required for crafting.
+|[https://minecraft.tools/en/custom-crafting.php# https://minecraft.tools/en/custom-crafting.php]
+|-
+|Minecraft Recipe Generator
+|recipegeneratorminecraft.com
+|An Online Generator to create datapacks for custom recipes.
+|https://recipegeneratorminecraft.com
+|-
+|Misode's Data Pack Generator
+|GitHub
+|JSON Generator for Minecraft Data Packs
+| [https://misode.github.io/worldgen/ https://misode.github.io/]
+|-
+|MCStacker for MC 1.19
+|mcstacker.net/
+|A collection of command generators.
+| https://mcstacker.net/
+|-
+|Origin Creator
+|GitHub
+|A fully featured webtool for creating data packs.
+|[https://www.mathgeniuszach.com/apps/origin-creator/ https://www.mathgeniuszach.com/apps/origin-creator/]
+|-
+|MCreator
+|mcreator.net
+|A easy-to-use, fully featured graphical tool for creating data packs. 
+| [https://mcreator.net/about/ https://mcreator.net/]
+|-
+|MCDatapacker
+|Github
+|An offline program to create and edit data packs
+|https://github.com/IoeCmcomc/MCDatapacker
+|}
+If you use an IDE you might want syntax highlighting for the mcfunction syntax. Depending on your IDE or your text editor extra steps may have to be taken to install it in your environment.
+{| class="wikitable"
+|+Syntax Highlighting
+!IDE/Editor
+!Description
+!Link
+|-
+|Visual Studio Code
+Sublime Text
+|Language grammars and syntax highlighting for mcfunction files.
+|https://github.com/Arcensoth/language-mcfunction
+|-
+| Notepad++
+|Syntax highlighting.
+|https://pastebin.com/hbMiJ3YV
+|-
+|Visual Studio Code
+|Heavy language features for JSON and mcfunction files.
+|https://marketplace.visualstudio.com/items?itemName=SPGoding.datapack-language-server
+|}
+{| class="wikitable"
+|+
+Debugging
+!IDE/Editor
+!Description
+!Link
+|-
+|Minecraft Game Output
+|a terminal window to run next to the game, makes it easy to see if the data pack reloaded correctly, and to find in what line or file a potential error is.
+|In the Minecraft launcher go to: Settings->General->"MINECRAFT: JAVA  EDITION SETTINGS"
+and enable "Open output log when Minecraft: Java Edition starts"
+|}
+<br />
+
+<br />
+
+==See also==
+
+*[[Data pack]]s
+*[[Resource packs]]
+*[[Tutorials/Installing a data pack]]
+
+{{Data Packs}}
+{{Tutorials}}
+
+[[fr:Tutoriels/Créer un pack de données]]
+[[ja:チュートリアル/データパックの作成]]
+[[zh:教程/制作数据包]]
+
+[[Category:Modernized tutorial]]
+[[Category:Data packs]]
+[[Category:Java Edition]]
+[[Category:Tutorials]]

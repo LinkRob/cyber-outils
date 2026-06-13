@@ -1,0 +1,334 @@
+{{Disclaimer}}
+
+Although [[Programs and editors/Tectonicus|Tectonicus]] can be controlled from the command line instead of an XML file, this method is less powerful and officially discouraged.
+
+Run this at the command line:
+
+<pre>java -jar Tectonicus_v1.0.jar</pre>
+
+(Remember to change the version number to match the file you downloaded). This will print out all the available options.
+
+If 'java' is not set as the environment variable, then you probably need to execute Tectonicus with the full path to java.exe: 
+
+<pre>"C:\Program Files\Java\jre6\bin\java.exe" -jar Tectonicus_v1.0.jar</pre>
+
+When running on 64 bit OS, use force64BitNatives=true to avoid 'out of memory' errors:
+
+<pre>"C:\Program Files (x86)\Java\jre6\bin\java.exe" -jar Tectonicus_v1.0.jar force64BitNatives=true</pre>
+
+To map a single player world, all you need to do is:
+
+<pre>java -jar Tectonicus_v1.0.jar worldDir=1 outputDir=C:/MyMap</pre>
+
+This will map your singleplayer world 1 and output it to C:/MyMap. Change the number to map different single player worlds.
+
+To map a multiplayer world then make worldDir point to your 'world' directory (the one containing level.dat). Something like:
+
+<pre>java -jar Tectonicus_v1.19.jar worldDir=C:/MinecraftMultiplayer/world</pre>
+
+See the [[Programs and editors/Tectonicus#Tutorials|Tutorials]] for specific and additional instructions.
+
+= Command Line Arguments =
+As of version 2.00 command line arguments have been deprecated in favor of an [[Programs and editors/Tectonicus/TectonicusConfigFormat|XML configuration file]].  While command line options still work in Version 2.00+, the only option one should use is 'config=' to specify the path to a config file.
+
+{| class="wikitable" border="1" width="100%" data-description="Command line arguments"
+|-
+! width="150px" | Name
+! width="400px" | Settings
+! Usage
+
+|-
+| style="text-align: center;" | alphaBits
+| 
+* alphaBits=0
+* alphaBits=8 (default)
+| alphaBits specifies how many bits are assigned to designate the alpha on the tiles of the map. It is recommended to use 0 (off) or 8 (full). However, Tectonicus passes the value directly to your graphics card, so you can theoretically pass any value your graphics card supports. More information regarding color depth can be found on [[wikipedia:Color depth|Wikipedia]].
+
+|-
+| style="text-align: center;" | bedsInitiallyVisible
+| 
+* bedsInitiallyVisible=true (default)
+* bedsInitiallyVisible=false
+| Specifies whether or not bed markers are initially visible.
+
+|-
+| style="text-align: center;" | cacheDir
+| 
+* cacheDir="[path]"
+| Specifies the directory to be used for caching (see also useCache below). Caching is enabled by default, and the default directory location is a subdirectory within the output directory.
+
+|-
+| style="text-align: center;" | cameraAngle
+| 
+* cameraAngle=[x]
+* cameraAngle=45 (default)
+| Use this command to change the orientation of north. The default setting of 45 produces an oblique view with north at the upper left of the map. 0 will give you north at the top; 90 will give you east at the top; and so on. As you increase this number imagine the map's cardinal directions rotating in a counter-clockwise direction.
+
+
+|-
+| style="text-align: center;" | cameraElevation
+| 
+* cameraElevation=[x]
+* cameraElevation=45 (default)
+| This specifies the angle of elevation for the camera, in degrees. 0 is looking horizontally, 90 is looking directly down. Defaults to 45. Choose 30 for a more traditional isometric view.
+
+|-
+| style="text-align: center;" | closestZoomSize
+| 
+* closestZoomSize=[x]
+* closestZoomSize=12 (default)
+| When zoomed-in all the way this value determines the area that will be visible in one of the rendered picture files. Increase [x] to "widen" the camera lens of this closest view. Sometimes used in conjunction with numZoomLevels (see below).
+
+For example, closestZoomSize=24 will create tiles that show 100% more terrain than at the default 12 (i.e. you will be "further back"). It is from these closest tiles (zoom8) that the other, wider tiles are rendered (zoom7 - zoom0).
+
+Increasing this number requires more memory, so making it too large may result in out-of-memory errors.
+
+|-
+| style="text-align: center;" | colourDepth
+| 
+* colourDepth=24
+* colourDepth=16 (default)
+| Color Depth, like alpha bits, specifies how many bits are assigned to the colors in the tiles of the map. It is also passed directly to you graphics card, so you can pass any supported value. However, 24 ("millions of colors" or "truecolor"), or 16 ("thousands of colors"), is recommended. Again, read the [[wikipedia:Color depth|Wikipedia article]] for more information regarding color depth.
+
+|-
+| style="text-align: center;" | config
+| 
+* config=configFile.xml
+| Specifies the path to a config file to use. Typically when using a config file, this will be the only command line argument. For more information, see [[Programs and editors/Tectonicus/TectonicusConfigFormat]]
+
+|-
+| style="text-align: center;" | dimension
+| 
+* dimension=terra (default)
+* dimension=nether
+| Use along with renderStyle=nether to render out the nether.
+
+|-
+| style="text-align: center;" | eraseOutputDir
+| 
+* eraseOutputDir=true
+* eraseOutputDir=false (default)
+| Specify 'true' to erase the entire output directory and render from scratch.
+
+|-
+| style="text-align: center;" | imageCompressionLevel
+| 
+* imageCompressionLevel=[x]
+* imageCompressionLevel=0.95 (default)
+| For jpeg renders only, specify a number between 1.0 and 0.1 to change the compression level. Defaults to 0.95.
+
+|-
+| style="text-align: center;" | imageFormat
+| 
+* imageFormat=jpg
+* imageFormat=gif
+* imageFormat=png (default)
+| You can reduce file sizes (at the expense of a small degradation in image quality) by changing the output to jpg or gif files. If you're using a texture pack keep in mind that gifs are limited to 256 colors and the map may not accurately reflect the pack's detail.
+
+|-
+| style="text-align: center;" | lighting
+| 
+* lighting=none
+* lighting=night
+* lighting=day (default)
+| Choose the lighting style to render with. Possible values are 'day' 'night' or 'none'. Defaults to 'day'
+
+|-
+| style="text-align: center;" | logFile
+| 
+* logFile=TectonicusLog.txt (default)
+| The file name to use for the log file.
+
+|-
+| style="text-align: center;" | minecraftJar
+| 
+* minecraftJar="[path]"
+| The path to your client minecraft jar, for terrain texture. If not specified, will attempt to find it in your AppData dir.
+
+Example: minecraftJar="C:\Documents and Settings\User\Application Data\.minecraft\bin\minecraft.jar"
+
+|-
+| style="text-align: center;" | maxTiles
+| 
+* maxTiles=[x]
+| This specialized argument is used only for troubleshooting.  For example, maxTiles=100 will create a kind of "preview" map render consisting of only 100 base tiles (i.e. not the entire map).
+
+|-
+| style="text-align: center;" | mode
+| 
+* mode=cmd
+* mode=gui
+* mode=players
+| Setting mode=cmd does not appear to change how Tectonicus runs. Setting mode=gui opens up a simple gui with basic features. In version 1.18, the gui allows input for the world directory, output directory, and minecraft.jar location. Selecting "Show Advanced Options" merely displays the text "advanced". Setting mode=players will update the positions of players only (i.e. it will not re-render the map). This is for use on multiplayer maps. 
+
+See also players below.
+
+|-
+| style="text-align: center;" | numDownsampleThreads
+| 
+* numDownsampleThreads=[x]
+| Set to the number of cores you want to use for distributing the downsampling computing.
+
+|-
+| style="text-align: center;" | numSamples
+| 
+* numSamples=[x]
+* numSamples=4 (default)
+| Specifies the number of samples for antialiasing. Defaults to 4 (high quality). Setting numSamples=0 can sometimes eliminate problems with graphics cards that do not support anti-aliasing.
+
+|-
+| style="text-align: center;" | numZoomLevels
+| 
+* numZoomLevels=[x]
+* numZoomLevels=8 (default)
+| This defines how many zoom levels the resulting map will have. The map loads at zoom0 (zoom level zero); replace [x] with the desired number of zoom levels beyond zoom0.
+For example, numZoomLevels=6 will give you starting zoom0 plus 6 more zoom levels (zoom1 through zoom6).
+How close to the terrain the closest zoom will be is determined by argument closestZoomSize (see above).
+
+|-
+| style="text-align: center;" | outputDir
+| 
+* outputDir="[path]"
+| Required. This specifies the directory you want the rendered map files to placed in.
+
+|-
+| style="text-align: center;" | outputHtmlName
+| 
+* outputHtmlName=map.html (default)
+| Use this to change the name of the html file tectonicus outputs.  Defaults to map.html .
+
+|-
+| style="text-align: center;" | playerFilterFile
+| 
+* playerFilterFile="[path]"
+| Specifies the whitelist or blacklist file for use with the players=blacklist and players=whitelist arguments (see below). The file should list one player per line (as with the ops file format).
+
+|-
+| style="text-align: center;" | players
+| 
+* players=none
+* players=ops
+* players=blacklist
+* players=whitelist
+* players=all (default)
+| By default, player locations in a multiplayer world will be indicated on the map with an icon that uses that particular player's current skin.   
+Set players=none to omit player location markers altogether. Setting players=ops will show the users listed in the server's ops configuration file. Setting players=whitelist displays only players in the whitelist filter file (see also playerFilterFile above). Setting players=blacklist excludes players in the filter file.
+When clicked, the player marker will pop up a tooltip bubble that shows the current skin, health, and air of the player. It also flags players who have made a [http://www.justgiving.com/tectonicus charitable donation] in Tectonicus' name.
+
+The final map will have a toggle box in the lower right to allow users to hide or reveal player markers at will.
+
+To update player markers without having to re-render the map use the mode argument (see above).
+
+|-
+| style="text-align: center;" | playersInitiallyVisible
+| 
+* playersInitiallyVisible=false
+* playersInitiallyVisible=true (default)
+| Determines if the players will be visible on initial loading of the map.
+
+|-
+| style="text-align: center;" | portals
+| 
+* portals=none
+* portals=all (default)
+| Determines if the portals will be visible on the map.
+
+|-
+| style="text-align: center;" | portalsInitiallyVisible
+| 
+* portalsInitiallyVisible=false
+* portalsInitiallyVisible=true (default)
+| Determines if the portals will be visible on initial loading of the map.
+
+|-
+| style="text-align: center;" | renderStyle
+| 
+* renderStyle=cave
+* renderStyle=nether
+* renderStyle=regular (default)
+| Specifies the map type to render. Caves only, the nether (requires setting: dimension=nether) or the regular world map.
+
+|-
+| style="text-align: center;" | showSpawn
+| 
+* showSpawn=false
+* showSpawn=true (default)
+| Specifies whether or not to show an icon for the spawn position. Choose 'true' or 'false', default 'true'.
+
+|-
+| style="text-align: center;" | signs
+| 
+* signs=none
+* signs=all
+* signs=special (default)
+| Signs that use special characters !, -, = or ~ will be visible on the map as location markers. The text on these signs must begin and end with any of the listed special characters.  For example, a sign reading "-- Lookout point --" will appear as a location marker at all zoom levels. When clicked, the marker will pop up a tooltip bubble showing the full text of the sign.
+Setting signs=all will make all signs into map markers regardless of the writing on the signs.
+
+Empty signs are always skipped since they are used for aesthetic purposes, like building chairs.
+
+Whether set to all or none, the final map will have a toggle box in the lower right to allow users to hide or reveal signs at will.
+
+|-
+| style="text-align: center;" | signsInitiallyVisible
+| 
+* signsInitiallyVisible=false
+* signsInitiallyVisible=true (default)
+| Determines if the signs will be visible on initial loading of the map.
+
+|-
+| style="text-align: center;" | spawnInitiallyVisible
+| 
+* spawnInitiallyVisible=false
+* spawnInitiallyVisible=true (default)
+| Determines if the spawn point will be visible on initial loading of the map.
+
+|-
+| style="text-align: center;" | texturePack
+| 
+* texturePack="[path]"
+| Specify the location of a custom texturepack to use. Uses the standard textures located in minecraft.jar by default. [http://www.planetminecraft.com/texture_pack/smooth-vanilla/ Smooth Vanilla] is a good default texture replacement because it reduces the low frequency detail in the textures that causes a tiling effect.
+
+Example: texturePack="C:\Users\Bob\Desktop\smoothvanilla_14054_texture.zip"
+
+HD texture packs can be used. You do NOT need to point minecraftJar to a minecraft.jar that has been patched with the HD Texture Pack patch either.
+
+|-
+| style="text-align: center;" | tileSize
+| 
+* tileSize=[x]
+* tileSize=512 (default)
+| Specifies the size of the output image tiles, in pixels. Minimum: 64 Maximum: 1024
+
+|-
+| style="text-align: center;" | useBiomeColours
+| 
+* useBiomeColours=false (default)
+* useBiomeColours=true
+| Set to use biome colors for grass and leaves. Choose 'true' or 'false', default 'false'
+
+|-
+| style="text-align: center;" | useCache
+| 
+* useCache=false
+* useCache=true (default)
+| Enable or disable the use of the cache to speed up repeated map rendering. (see also cacheDir above)
+
+|-
+| style="text-align: center;" | verbose
+| 
+* verbose=true
+* verbose=false (default)
+| Set to true to print additional debug output during render.
+
+|-
+| style="text-align: center;" | worldDir
+| 
+* worldDir="[path]"
+* worldDir=[x]
+| Required. Path to your minecraft world directory (containing level.dat).
+
+|}
+
+[[Category:Tectonicus]]
+
+[[zh:辅助程序与编辑器/Tectonicus/从命令行中控制Tectonicus]]

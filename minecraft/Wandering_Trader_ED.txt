@@ -1,0 +1,25 @@
+<div class="treeview">
+* {{nbt|compound}} Entity data
+*** {{nbt inherit/breedable}}
+** {{nbt inherit/entity}}
+** {{nbt inherit/mob}}
+** {{nbt|int|DespawnDelay}}: The number of ticks counted down until this wandering trader is forced to despawn. The wandering trader despawns when this value reaches 1.
+** {{nbt|compound|Offers}}: Is generated when the trading menu is opened for the first time.
+*** {{nbt|list|Recipes}}: List of trade options.
+**** {{nbt|compound}} A trade option.
+***** {{nbt|compound|buy}}: The first 'cost' item, without the Slot tag.
+****** {{nbt inherit/itemnoslot|indent=******}}
+***** {{nbt|compound|buyB}}: May not exist. The second 'cost' item, without the Slot tag.
+****** {{nbt inherit/itemnoslot|indent=******}}
+***** {{nbt|int|maxUses}}: The maximum number of times this trade can be used before it is disabled. Increases by a random amount from 2 to 12 when offers are refreshed.
+***** {{nbt|byte|rewardExp}}: 1 or 0 (true/false) - true if this trade provides XP orb drops. All trades from naturally-generated villagers in Java Edition reward XP orbs.
+***** {{nbt|compound|sell}}: The item being sold for each set of cost items, without the Slot tag.
+****** {{nbt inherit/itemnoslot|indent=******}}
+***** {{nbt|int|uses}}: The number of times this trade has been used. The trade becomes disabled when this is greater or equal to maxUses.
+** {{nbt|int-array|wander_target}}: Destination toward where this trader wanders, represented as an array of X, Y and Z coordinates.
+** {{nbt|list|Inventory}}: Each compound tag in this list is an item in the wandering trader's inventory, up to a maximum of 8 slots. Items in two or more slots that can be stacked together are automatically be condensed into one slot. If there are more than 8 slots, the last slot is removed until the total is 8. If there are 9 slots but two previous slots can be condensed, the last slot returns after the two other slots are combined. Wandering traders don't change their inventory automatically or drop items from it upon death. The inventory is currently unused.
+*** {{nbt|compound}} An item in the inventory, excluding the Slot tag.
+**** {{nbt inherit/itemnoslot|indent=****}}
+</div><noinclude>
+[[Category:Entity data pages]]
+</noinclude>

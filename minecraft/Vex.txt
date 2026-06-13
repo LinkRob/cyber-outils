@@ -1,0 +1,280 @@
+{{about|the hostile mob summoned by evokers|the passive mob that collects items|Allay|the smithing template|Vex Armor Trim}}
+{{Dungeons hatnote|type=mob}}
+{{needs render|The vex's texture was slightly changed to include transparency in Java Edition 1.19.3 Pre-release 1.}}
+{{Entity
+| image = <gallery>
+Vex.gif|Normal
+Angry Vex.gif|Angry
+</gallery>
+| imagesize = 120px
+| image2size = 120px
+| image3size = 120px
+| image4size = 120px
+| invimage2 = Vex Spawn Egg
+| health = {{hp|14}}
+| behavior = Hostile
+| damage = Easy: {{hp|5.5}}<br>Normal: {{hp|9}}<br>Hard: {{hp|13.5}}
+| size = Height: 0.8 Blocks<br>Width: 0.4 Blocks
+| spawn = Summoned by [[evoker]]s
+| equipment = {{ItemLink|Iron Sword}}
+}}
+
+The '''vex''' is a small flying [[hostile mob]]. It wields an iron [[sword]], can phase through walls, and is only summoned as one of the [[evoker]]'s attacks. They attack by lunging at their targets with their sword.<ref>"MEET THE VEX" post by Tom Stone on July 17, 2017 https://www.minecraft.net/en-us/article/meet-vex</ref>
+
+== Spawning ==
+Vexes spawn as part of an [[evoker]]'s summoning attack: The evoker is surrounded by white [[particles]] and makes a magical, horn-like sound. Then, a group of three vexes appears near the evoker. The evoker can summon additional vexes even if some still remain alive from the last summoning.
+
+The vex never spawns naturally, although it can be spawned using [[spawn eggs]] or via [[commands]].
+
+== Drops ==
+
+{{IN|java}}, the vex's [[iron sword]] does not drop, because its main hand's {{cd|HandDropChances}} is {{cd|0}}.  
+
+{{IN|BE}}, the vex can drop its iron sword with random durability. This is not affected by the [[Looting]] enchantment.
+
+{{xp|5}} is dropped when a vex is killed by a player or tamed [[wolf]].
+
+== Behavior ==
+Vexes attack players, adult [[villager]]s, [[iron golem]]s, and [[wandering trader]]s if an [[evoker]] summoned them, and any other target as commanded by their summoning evoker (any mob that attacks the evoker accidentally or purposefully, or any mob that illagers naturally attack on sight). They still attack these mobs even when they do not have a weapon. Despite this, they deal the same amount of damage. 
+	
+Vexes are capable of flying through the air, and can freely pass through any solid block, including [[water]] and [[lava]], without taking damage. This means they can also pass through [[bedrock]], meaning it is possible for them to die in [[the Void]]. While vexes can pass through blocks easily, honey blocks slow them down like other entities. Vexes also can be bounced back when pushed by a slime block.
+
+While attacking, vexes glow red and lunge at their target. They often fly towards the back of their targets and attack them from behind, making it difficult to block their attacks with a [[shield]].
+
+Vexes do not count towards the [[bossbar]] during a [[raid]].
+
+If any mob attacks a vex, any vexes in the area become hostile toward it. This includes [[vindicator]]s named "Johnny" that attack them, despite both being allied with the illagers.
+
+Vexes summoned by an evoker start taking damage after 30 to 119 seconds and eventually die.{{only|java}} Vexes summoned by a [[spawner]], [[spawn egg]] or by the {{cmd|summon}} command don't take damage this way.
+
+A vex does not despawn if it has a custom name or if it is in a block, minecart, or boat.
+
+When idle, vexes wander within a 15×11×15 cuboid range centered on their evoker's position, unless summoned by a spawn egg or by the {{cmd|summon}} command. This happens when the vexes killed the mob that their evoker commanded them to.
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Vexes use the Hostile Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Vex idle1.ogg
+|sound2=Vex idle2.ogg
+|sound3=Vex idle3.ogg
+|sound4=Vex idle4.ogg
+|subtitle=Vex vexes
+|source=hostile
+|description=Randomly
+|id=entity.vex.ambient
+|translationkey=subtitles.entity.vex.ambient
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Vex charge1.ogg
+|sound2=Vex charge2.ogg
+|sound3=Vex charge3.ogg
+|subtitle=Vex shrieks
+|source=hostile
+|description=When a vex is charging at something
+|id=entity.vex.charge
+|translationkey=subtitles.entity.vex.charge
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Vex death1.ogg
+|sound2=Vex death2.ogg
+|subtitle=Vex dies
+|source=hostile
+|description=When a vex dies
+|id=entity.vex.death
+|translationkey=subtitles.entity.vex.death
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Vex hurt1.ogg
+|sound2=Vex hurt2.ogg
+|subtitle=Vex hurts
+|source=hostile
+|description=When a vex is damaged
+|id=entity.vex.hurt
+|translationkey=subtitles.entity.vex.hurt
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Vex idle1.ogg
+|sound2=Vex idle2.ogg
+|sound3=Vex idle3.ogg
+|sound4=Vex idle4.ogg
+|source=hostile
+|description=Randomly
+|id=mob.vex.ambient
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Vex charge1.ogg
+|sound2=Vex charge2.ogg
+|sound3=Vex charge3.ogg
+|source=hostile
+|description=When a vex is charging at something
+|id=mob.vex.charge
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Vex death1.ogg
+|sound2=Vex death2.ogg
+|source=hostile
+|description=When a vex dies
+|id=mob.vex.death
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Vex hurt1.ogg
+|sound2=Vex hurt2.ogg
+|source=hostile
+|description=When a vex is damaged
+|id=mob.vex.hurt
+|volume=1.0
+|pitch=0.8-1.2
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|displayname=Vex
+|spritetype=entity
+|nameid=vex
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Vex
+|spritetype=entity
+|nameid=vex
+|id=105
+|foot=1}}
+
+=== Entity data ===
+
+Vexes have entity data associated with them that contains various properties.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{Load advancements|Monster Hunter;Monsters Hunted;It Spreads}}
+</table-progress-tracking>
+
+== History ==
+{{Needs render|Attacking vexes before [[18w43a]], also before and after {{bug|MC-181925}}}}
+{{History|java}}
+{{History||1.11|snap=16w39a|[[File:Vex JE1 BE1.png|32px]] Added vexes.}}
+{{History|||snap=16w42a|Vexes have been buffed - their attack [[damage]] has been increased from {{hp|3}} to {{hp|5}} on Easy, from {{hp|4}} to {{hp|9}} on Normal, and from {{hp|6}} to {{hp|13}} on Hard.}}
+{{History|||snap=16w43a|Vexes can now cross [[nether portal]]s and [[end portal]]s and move in [[water]].
+|Vexes are now able to draw from their own [[loot table]]s.}}
+{{History||1.14|snap=18w43a|[[File:Vex JE2 BE2.png|32px]] [[File:Vex Attacking JE2 BE2.png|32px]] [[File:Vex JE2 BE2.gif|32px]] The textures of vexes have been changed.}}
+{{History||1.16.2|snap=20w30a|The attack animation of unarmed vexes has been changed.}}
+{{History||1.19.3|snap=22w45a|[[File:Vex JE3.png|32px]] [[File:Vex Attacking JE3 BE3.png|32px]] The model and textures of the vex have been updated.
+|[[Head]]s equipped by vexes are no longer visible.}}
+{{History|||snap=Pre-release 1|[[File:Vex JE4 BE4.png|32px]] [[File:Vex Attacking JE4 BE4.png|32px]] The textures of vexes have been slightly changed.}}
+{{History||1.19.4|snap=23w03a|Vexes now use a separate charging animation when empty-handed.}}
+
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|[[File:Vex JE1 BE1.png|32px]] Added vexes.}}
+{{History|bedrock}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Vex JE2 BE2.png|32px]] [[File:Vex Attacking JE2 BE2.png|32px]] The textures of vexes have been changed.
+|Vexes are now hostile toward [[wandering trader]]s.}}
+{{History||1.11.0|snap=beta 1.11.0.1|Vexes are no longer hostile toward baby [[villager]]s.}}
+{{History||1.19.50|snap=beta 1.19.50.24|[[File:Vex BE3.png|32px]] [[File:Vex Attacking BE3.png|32px]] The model and textures of the vex have been updated.}}
+{{History||1.19.60|snap=beta 1.19.60.22|[[File:Vex JE4 BE4.png|32px]] [[File:Vex Attacking JE4 BE4.png|32px]] The textures of vexes have been slightly changed.}}
+
+{{History|console}}
+{{History||xbox=TU54|xbone=CU44|ps=1.52|wiiu=Patch 24|switch=1.0.4|[[File:Vex JE1 BE1.png|32px]] Added vexes.}}
+
+{{History|new3ds}}
+{{History||1.9.19|[[File:Vex JE1 BE1.png|32px]]Added vexes.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list}}
+
+== Trivia ==
+* Despite their ghostly appearances and their ability to phase through walls, vexes are not [[undead]] [[mob]]s.
+* According to JAPPA, the retexturing and remodeling of vexes was a long time in the making due to being requested too much.<ref>{{tweet|JasperBoerstra|1590379143879069697|The Vex model change was requested so much, we planned it a long time ago but could never say anything about it! So happy its out in the open now, I hope you like it. This is the first model revision we've done, so that's very exciting.|November 9, 2022}}</ref>
+* Vexes are heavily implied to be [[allay]]s that have been corrupted by dark magic.
+
+== Gallery ==
+=== Screenshots ===
+<gallery>
+EvokerSummonsVexes.png|An evoker summoning vexes.
+VexAttacks.png|A vex charging at the player.
+AngryVexes.png|Two angry vexes flying toward their target, as their master watches.
+EvokerAndVexAttack.png|Two vexes attack while their master summons fangs.
+Vex Death.png|A dying vex.
+Allayandvexcomparation.png|Comparison between the [[allay]] and vex.
+Chiwi Vex.jpg|A vex at night.
+</gallery>
+
+=== Cosmetics ===
+<gallery>
+File:VexWings.png|[[Character Creator|Vex Wings]], unlocked by completing [[Feeling Ill]].
+</gallery>
+
+===In other media===
+<gallery>
+ExplorationUpdateFull.jpg|Vexes in promotional artwork for the [[Exploration Update]].
+Village and Pillage banner.png|Vexes in promotional artwork for the [[Village and Pillage]] Update.
+File:Vex (Dungeons).png|A [[MCD:Vex|vex]] as it appears in ''[[Minecraft Dungeons]]''.
+File:Guardian Vex.png|The [[MCD:Guardian Vex|Guardian Vex]], a unique variation that appears in ''Minecraft Dungeons''.
+File:MinecraftMobSquadCover.png|Several vexes as they appear on the cover of ''[[Minecraft: Mob Squad]]''.
+File:MCTheHavenTrialsCover.png|Ditto, on the cover of ''[[Minecraft: The Haven Trials]]''.
+</gallery>
+
+=== Textures ===
+<gallery>
+File:Vex Normal.png
+File:Vex Charging (texture).png
+File:Vex texture.png|[[Programmer Art]]
+File:Vex (texture).png|[[Texture Update]] 
+</gallery>
+
+==References ==
+{{reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/meet-vex Meet the Vex] – Minecraft.net on July 17, 2017
+
+{{Entities}}
+
+[[Category:Hostile mobs]]
+[[Category:Monster mobs]]
+[[Category:Flying mobs]]
+
+[[it:Vessante]]
+[[cs:Protiva]]
+[[de:Plagegeist]]
+[[es:Vex]]
+[[fr:Vex]]
+[[ja:ヴェックス]]
+[[ko:벡스]]
+[[nl:Ergernis]]
+[[pl:Dręczyciel]]
+[[pt:Vex]]
+[[ru:Досаждатель]]
+[[th:เวกซ์]]
+[[uk:Бісик]]
+[[zh:恼鬼]]
+[[Category:Retaliating mobs]]

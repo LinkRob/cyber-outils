@@ -1,0 +1,57 @@
+{{DISPLAYTITLE:Tutorials/See ''Minecraft'''s code}}
+{{disclaimer}}
+{{exclusive|java}}
+
+Since snapshot [[19w36a]], Mojang releases [[obfuscation map]]s for every version available in the [[launcher]]. Those maps can be used to deobfuscate a version's [[Jar|JAR file]], that is to say, replace obfuscated class names and class member names with their original (deobfuscated) names. Using a {{wikipedia|decompiler}}, it is possible to reconstruct human-readable {{wikipedia|Java (programming language)|Java}} code.
+
+
+== Disclaimer ==
+According to the [[Obfuscation map#License|license]], decompiling ''Minecraft'' is allowed, but it is recommended not to release decompiled code. Furthermore, a [[dinnerbonetweet:1293597329854009344|tweet from Dinnerbone]] suggests usage of the mappings inside of projects by the community, such as modding (using them to decompile ''Minecraft'' for usage with [https://files.minecraftforge.net/net/minecraftforge/forge/ Forge], [https://fabricmc.net/ Fabric], [https://quiltmc.org/ Quilt] and other modloaders) or for usage in server software with plugins (such as [https://www.spigotmc.org/ Spigot], [https://bukkit.org/ Bukkit], [https://papermc.io/ Paper], and others) is okay, and an intended use. It should be noted however that this tweet is not legally withstanding, so while it is probably fine to use these mappings for such purposes, you do so at your own risk. This can be extended to decompiling and accessing Minecraft's code as a whole, the only things you cannot do under any circumstances are releasing the code or releasing something that contains an exact copy of the code.
+
+==Downloading obfuscation map==
+
+Every [[Client.json|version's JSON file]] contains a link to the obfuscation maps for that version since 19w36a. The JSON file for a version can be found in the {{mono|[[version_manifest.json]]}}.
+
+Once you have found the JSON file corresponding to the version you want to decompile, locate the {{nbt|compound|client_mappings}} or {{nbt|compound|server_mappings}} field (depending on which side you want to decompile) under the {{nbt|compound|downloads}} field and download the file from the URL inside the {{nbt|string|url}} field.
+
+==Deobfuscating JAR==
+{{disclaimer|1}}
+
+To deobfuscate a JAR file, you need a program that takes the JAR file and its corresponding obfuscation map as inputs, and returns a deobfuscated JAR file. A free and open source program you can use is [https://github.com/md-5/SpecialSource SpecialSource]. You can download the latest version on [https://mvnrepository.com/artifact/net.md-5/SpecialSource Maven].
+You don't actually need to download every dependency to get SpecialSource to run. Here is the list of the dependencies required for version 1.10.0 to work:
+* [https://mvnrepository.com/artifact/net.md-5/SpecialSource/1.10.0 SpecialSource 1.10.0] ([https://repo1.maven.org/maven2/net/md-5/SpecialSource/1.10.0/SpecialSource-1.10.0.jar .jar]), available under [https://opensource.org/licenses/BSD-3-Clause BSD 3-Clause License];
+* [https://mvnrepository.com/artifact/com.google.guava/guava/20.0 Guava 20.0] ([https://repo1.maven.org/maven2/com/google/guava/guava/20.0/guava-20.0.jar .jar]), available under [https://opensource.org/licenses/Apache-2.0 Apache License, Version 2.0];
+* [https://mvnrepository.com/artifact/net.sf.jopt-simple/jopt-simple/4.9 JOpt Simple 4.9] ([https://repo1.maven.org/maven2/net/sf/jopt-simple/jopt-simple/4.9/jopt-simple-4.9.jar .jar]), available under [https://opensource.org/licenses/mit-license.php MIT License];
+* [https://mvnrepository.com/artifact/org.ow2.asm/asm-commons/9.1 ASM Commons 9.1] ([https://repo1.maven.org/maven2/org/ow2/asm/asm-commons/9.1/asm-commons-9.1.jar .jar]), available under BSD 3-Clause License;
+* [https://mvnrepository.com/artifact/org.ow2.asm/asm/9.1 ASM 9.1] ([https://repo1.maven.org/maven2/org/ow2/asm/asm/9.1/asm-9.1.jar .jar]), available under BSD 3-Clause License;
+* [https://mvnrepository.com/artifact/org.ow2.asm/asm-tree/9.1 ASM Tree 9.1] ([https://repo1.maven.org/maven2/org/ow2/asm/asm-tree/9.1/asm-tree-9.1.jar .jar]), available under BSD 3-Clause License;
+* [https://mvnrepository.com/artifact/org.ow2.asm/asm-analysis/9.1 ASM Analysis 9.1] ([https://repo1.maven.org/maven2/org/ow2/asm/asm-analysis/9.1/asm-analysis-9.1.jar .jar]), available under BSD 3-Clause License.
+To use SpecialSource to decompile a JAR file, download all the dependencies above in the same directory and run the following command inside this directory:
+ java -cp SpecialSource-1.10.0.jar;*;. net.md_5.specialsource.SpecialSource --in-jar ''<path to JAR file>'' --out-jar ''<path to deobfuscated JAR file>'' --srg-in ''<path to mappings>'' --kill-lvt
+Where:
+* {{code|''<path to JAR file>''}} is replaced by the path to a version's obfuscated JAR file;
+* {{code|''<path to deobfuscated JAR file>''}} is replaced by the path of the JAR file to output;
+* {{code|''<path to mappings>''}} is replaced by the path to the version's obfuscation map.
+
+If running under Linux or macOS, replace the semicolons with colons before running it. If running in PowerShell, place {{code|SpecialSource-1.10.0.jar;*;.}} inside double quotes.
+
+===Note===
+
+Obfuscation maps provided by Mojang do not include local variable names. The {{code|--kill-lvt}} ("kill local variable table") option tells SpecialSource not to try to remap local variable names.
+
+== Decompiling JAR==
+{{disclaimer|1}}
+
+Now that you have a deobfuscated JAR file, you can use a decompiler to reconstruct source code from this file. The produced source code should be valid Java code, but is not the original code of the game. A decompiler is unable to reconstruct the original code, it can only try to produce valid code that matches what the compiled file does.
+
+There are many Java decompilers available. [https://www.benf.org/other/cfr/ CFR] is a free and open source option available under the [https://opensource.org/licenses/mit-license.php MIT License]. You can download CFR 0.152 on [https://mvnrepository.com/artifact/org.benf/cfr/0.152 Maven] ([https://repo1.maven.org/maven2/org/benf/cfr/0.152/cfr-0.152.jar .jar]). 0.152 is the version that seems to give the best results when decompiling recent versions of ''Minecraft''. To decompile a JAR file with CFR, run the following command:
+ java -jar cfr-0.152.jar ''<path to JAR file>'' --outputdir ''<path to directory>''
+Where:
+*{{code|''<path to JAR file>''}} is replaced by the path to a version's deobfuscated JAR file;
+*{{code|''<path to directory>''}} is replaced by the path to the directory you want the source code to be in.
+
+
+==Useful tools==
+{{disclaimer|1}}
+
+The community has made some tools to simplify the process of deobfuscating and decompiling ''Minecraft''. For example, you can use [https://github.com/hube12/DecompilerMC DecompilerMC] to decompile any version automatically.

@@ -1,0 +1,11 @@
+<div class="treeview">
+* {{nbt|compound}} Entity data
+** {{nbt inherit/entity}}
+** {{nbt inherit/mob}}
+** {{nbt|int|BoundX}}: When a vex is idle, it wanders, selecting air blocks from within a 15×11×15 cuboid range centered at X,Y,Z = {{cd|BoundX}}, {{cd|BoundY}}, {{cd|BoundZ}}.  This central spot is the location of the evoker when it summoned the vex, or if an evoker was not involved, {{cd|BoundX}}, {{cd|BoundY}} and {{cd|BoundZ}} do not exist.
+** {{nbt|int|BoundY}}: See {{cd|BoundX}}.
+** {{nbt|int|BoundZ}}: See {{cd|BoundX}}.
+** {{nbt|int|LifeTicks}}: Ticks of life remaining, decreasing by 1 per tick. When it reaches zero, the vex starts taking damage and {{cd|LifeTicks}} is set to 20.
+</div><noinclude>
+[[Category:Entity data pages]]
+</noinclude>

@@ -1,0 +1,99 @@
+{{ScriptWarning}}
+Here is a quick tutorial on how to migrate your saved games to the cloud so you can play your levels wherever you may be.
+
+== NOTE ==
+This guide assumes that you only want one integrated Minecraft save directory. If you wish to have separate directories (e.g., for other machines: Minecraft/Linux, Minecraft/Windows, Minecraft/Toaster, etc.), then you should create them on Dropbox and change the instructions here as needed. This guide also will only sync your saved game files, not any .jar customizations (such as mods) or texture packs. If you don't know what those are, then you're probably safe. Note also that you should be careful only to play on one machine (as server) at a time using the shared save folder, otherwise you risk corrupting your saved worlds. (This warning is applicable if, for example, you and your friend share a save directory from different machines. It is unlikely to be a problem if you are only using the machines yourself.)
+
+== Download and Install Dropbox ==
+
+The first step is to download Dropbox. Dropbox is a nifty little tool that automatically syncs content to their servers and allows you to access it both online and through a client on your PC. The good thing about Dropbox is that it is cross-platform, plus available on the web and web-enabled smartphones. (Note: you can also use another cloud storage program that has a downloadable client [folder that syncs to the web], such as Google Drive, etc.)
+
+Go to https://www.dropbox.com. You get 2GB for free automatically.
+
+Once you have installed Dropbox, you'll need to know where the Dropbox folder is:
+*On Windows XP, the Dropbox folder is located inside the user's "My Documents" folder. The easiest way to reference this is using the environmental variables, as follows: <code>"%UserProfile%\My Documents\Dropbox"</code>. Because "My Documents" contains a space, the quotation marks are required.
+* On Windows 7 and 8, the default Dropbox folder location is <code>C:\Users\''username''\Dropbox</code>. Use the environmental variables <code>%UserProfile%\Dropbox</code>.
+* On Linux, the default location is in the user's home folder. For example, in Ubuntu, that folder is located at <code>~/Dropbox</code>
+* On MacOS, it should also be in the user's home folder.
+
+Whichever operating system you are using, Dropbox has very good documentation and can assist you in finding help: http://www.dropbox.com/help
+
+== Copy your Minecraft saved data to your Dropbox folder ==
+
+Next, we will need to make a copy of your Minecraft saved game data on the cloud Dropbox server. For the purposes of this tutorial, we will be copying the <code>saves</code> folder from the <code>.minecraft</code> folder into a folder called <code>Minecraft</code> inside your Dropbox folder. You can store it elsewhere in your Dropbox if you choose.
+
+=== Windows ===
+On Windows, your Minecraft data folder is in your application data folder. You can access this by holding Windows+R or hitting Start > Run and then typing <code>%AppData%\.minecraft</code> in the box. This will open your minecraft folder. Copy the folder named <code>saves</code> to the desired location in your Dropbox. In this tutorial, we will be creating a folder called <code>Minecraft</code> in the main Dropbox folder and storing the saves folder inside that.
+
+Once these files are done copying, navigate back up to your <code>.minecraft</code> folder, and rename the saves folder to <code>saves-backup</code>. This step ensures that you 1) Have a backup of your files in case of a catastrophe, and 2) allows us to make the symbolic link to the correct location in a later step.
+
+=== MacOS ===
+In MacOS, the Minecraft data folder is located in your Username > Library > Application Support folder. You can get here quickly by opening Finder → Go → Go To Folder → type <code>~/Library/Application Support/minecraft</code>. For future reference, it's best to make an alias for this folder and copy it to your desktop.
+
+Now, copy the saves folder to the desired location in your Dropbox.  It is a good idea to rename the original saves folder (in your <code>minecraft</code> Application Support folder) to <code>saves-backup</code>, to be saved as a backup in case something goes haywire. It also allows us to make the symbolic link to the correct location in a later step.
+
+=== Linux ===
+In Linux, your Minecraft data folder is located in your user home folder. However, it may be hidden from view. If you are using a GUI, ensure that you choose View > Show Hidden Files.
+
+Copy the contents of the save folder to your Dropbox. As mentioned above, in this tutorial we create a folder inside the dropbox called <code>Minecraft</code> to store the saves folder in.
+
+Once the copy is complete, rename the saves folder to <code>saves-backup</code>.
+
+If you're command line savvy, here are the above steps in command line format.
+<code>
+:mkdir -p ~/Dropbox/Minecraft
+:cp -r ~/.minecraft/saves ~/Dropbox/Minecraft/saves
+:mv ~/.minecraft/saves ~/Dropbox/saves-backup
+</code>
+
+== Create the Symbolic Links ==
+
+This is the final step that will allow users to use the cloud versions of their files.
+
+=== Windows ===
+;GUI
+:Creating symbolic links in Windows is easy thanks to a free application called [http://schinagl.priv.at/nt/hardlinkshellext/hardlinkshellext.html#download Link Shell Extension], which will allow you to create a symbolic link via right-click in Explorer.
+:'''Note:''' If you are running Windows XP, you may need to install the Server 2003 resource pack in order to enable symbolic links, which is available [http://www.microsoft.com/downloads/en/details.aspx?familyid=9d467a69-57ff-4ae7-96ee-b18c4790cffd here].
+:#Move your Minecraft saves folder (located in <code>%appdata%\.minecraft</code>) to a folder in your Dropbox.
+:#Right-click on this new folder and choose ''Pick Link Source''.
+:#Go back to your Minecraft folder's original location, then Right-click somewhere blank and click ''Drop As… → Junction'',
+:#and you are all set to pull your game data off the cloud.
+
+;Command Prompt
+
+#right click on cmd.exe and press run as administrator.
+#In cmd.exe, type: <code>cd %appdata%\.minecraft\</code>
+#In cmd.exe, type: <code>mklink /d /j "saves" "<dropbox_path>\Minecraft\saves"</code>
+#The console will output “Symbolic link created” if everything succeeded.
+
+=== MacOS ===
+;GUI
+:Creating symbolic links in MacOS is also easy thanks to a free application called [http://seiryu.home.comcast.net/~seiryu/symboliclinker.html SymbolicLinker], which will allow you to create a symbolic link via right-click in the Finder. If you'd rather use the command line, instructions are below.
+:#Download and install SymbolicLinker. 
+:#Once installed, move your Minecraft saves folder (located in '~/Library/Application Support/minecraft'') to a folder in your Dropbox.
+:#Right-click on this new folder and choose ''Make symbolic link''. This will create a symbolic link in the same folder.
+:#Move this back to your Minecraft folder's original destination (make sure it has the same name as the original),
+:#and you are all set to pull your game data off the cloud.
+
+;Terminal
+#Open the Terminal
+#Type in: <code>ln -s ~/Dropbox/Minecraft/saves ~/Library/Application\ Support/minecraft/saves</code>
+
+If you moved your Dropbox to something other than the default location you’ll need to modify that first path.
+
+=== Linux ===
+;GUI
+:Open two file browser windows, one showing your Dropbox folder and the other showing the minecraft folder.
+:After you dragged and dropped the <code>saves</code> folder over to Dropbox, drag it back and hold Alt while dropping it. This should create a symlink.
+
+;Terminal
+:To create the symbolic links in a terminal, type the following into a Terminal:
+:<code>ln -s ~/Dropbox/Minecraft/saves ~/.minecraft/saves</code>
+:Now your saved worlds should all be there when you start Minecraft.
+
+''In order to link any additional computers you wish to play on, you just need to follow these steps - install Dropbox, and create the symbolic links. Voilà!''
+
+{{tutorials}}
+
+
+[[fr:Tutoriels/Sauvegarder vos données de mondes vers Dropbox]]

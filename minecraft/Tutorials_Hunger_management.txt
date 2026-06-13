@@ -1,0 +1,642 @@
+[[File:alex_finding_food.png|140px|right]][[Hunger]] is a feature in Minecraft that requires the player to eat in order to survive. It does not affect the player in [[spectator]] or [[creative]] modes, or on Peaceful difficulty on any game mode, and is represented by a bar next to the health bar. As this bar drains away, various unpleasant things happen:
+
+# You stop healing naturally at {{hunger|17}}
+# You cannot [[sprint]] at {{hunger|6}}
+# You start taking starvation [[damage]] at {{hunger|0}}. The rate at which you take this damage is dependent on difficulty. However, reaching zero health this way is only possible on [[Hard]] and [[Hardcore]] difficulties.
+
+There is also a hidden, secondary form of hunger called "[[Hunger#Mechanics|saturation]]", which is always exhausted before hunger. Eating food will replenish various amounts of both hunger and saturation.  
+
+The depletion of saturation and hunger is managed by way of another hidden variable called "exhaustion".  This variable allows accumulating small fractional costs until either the saturation or hunger gauge can be reduced by a full point.
+
+== Conserving energy ==
+
+Several techniques can reduce your need for food:
+
+* The most important point is to avoid taking damage, as healing damage uses far more hunger than almost anything else.  This includes not just combat damage, but also damage from falls, fire, poison, drowning, etc.   
+**Armor will sharply reduce damage taken from most causes. Full diamond/netherite armor reduces the damage you take by up to 80%.
+**Using more powerful weapons will also tend to shorten fights by killing things faster, leaving them fewer chances to hit you.  Likewise, ranged weapons can let you kill most mobs with little risk of being hurt.
+**Especially avoid poison, and try to cure it quickly if you do get poisoned; poison can take a ''lot'' of health points, which will eventually need to heal.
+*Avoid fighting when you can -- 60 blows either way costs as much as healing a point of damage.  Taking falling damage does count as a blow.
+**Avoiding monsters and using a bed at night are the main things here.
+* Reduce [[jumping]]. While mining, carry some {{BlockLink|cobblestone}} or {{BlockLink|id=oak-log|log}}s, and, whenever possible, craft and place {{BlockLink|stairs}}, {{BlockLink|slabs}} or {{BlockLink|ladder}}s instead of jumping.  120 jumps cost as much as healing one point of damage.  
+* Avoid [[sprinting]], as it rapidly depletes your hunger bar. Jumping while sprinting is especially energy consuming.  Sprinting 60 meters costs as much as healing one point of damage.  
+**Jumping costs four times as much hunger if you are ''also'' sprinting, so 30 sprint-jumps equal healing one point of damage.
+* While crossing deep water, use a {{ItemLink|id=oak-boat|boat}} (or make bridges) instead of swimming, as the former is faster and does not deplete the hunger bar.  Swimming 600 meters costs as much as healing one hunger point.
+
+== Effects of hunger ==
+
+{{main|Hunger}}
+
+There are three hunger variables you need to worry about: The visible hunger bar, and two hidden values which are called "saturation" and "exhaustion". Hunger and saturation range from 0 to 20 (hunger is shown as {{Hunger|2|notag=1}}), but saturation cannot exceed your hunger (for example, if you have {{hunger|17}} hunger, you can have at most 17 saturation). Exhaustion ranges from 0 to 4. As you move about, fight, [[Mining|mine]], ''etc'', exhaustion accumulates. In order, common activities that will exhaust you the most are: Healing damage (most of a food point per health point), a "sprint jump", sprinting any distance, attacking monsters or receiving damage (from any source), and jumping. More specific values can be found in the table.
+{| class="wikitable sortable" data-description="Exhaustion"
+! class="unsortable" | Action
+! Exhaustion<br>level increase
+! Units
+|-
+|[[Swimming]]
+| style="text-align: right;" | 0.01&#8199;
+| per meter
+|-
+|[[Breaking]] a [[block]]
+| style="text-align: right;" | 0.005
+| per block broken
+|-
+| [[Sprinting]]
+| style="text-align: right;" | 0.1&#8199;&#8199;
+| per meter
+|-
+|[[Jumping]]
+| style="text-align: right;" | 0.05&#8199;
+| per jump
+|-
+| Attacking an [[enemy]]
+| style="text-align: right;" | 0.1&#8199;&#8199;
+| per attack landed
+|-
+| Taking [[damage]] that is normally [[Armor#Damage types|protected by armor]]
+| style="text-align: right;" | 0.1&#8199;&#8199;
+| per distinct instance of damage being received
+|-
+|[[Hunger (status effect)|Hunger status effect]] (food poisoning)
+| style="text-align: right;" | 0.1&#8199;&#8199;
+| per second, per Hunger status effect level
+|-
+| Jumping while sprinting
+| style="text-align: right;" | 0.2&#8199;&#8199;
+| per jump
+|-
+| Regenerating health by having at least 18 hunger ({{hunger|18|notag=1}}) and<br>having {{Cmd|gamerule naturalRegeneration}} set to <code>true</code>
+| style="text-align: right;" | 6.0&#8199;&#8199;
+| per {{hp|1}} healed
+|-
+| Food poisoning from [[raw chicken]] or [[rotten flesh]], or taken damage from [[husk]]s.
+| style="text-align: right;" | 3.0&#8199;&#8199;
+| full 0:30 duration of Hunger I, at 0.1 per second
+|-
+| Food poisoning from [[pufferfish]]
+| style="text-align: right;" | 4.5&#8199;&#8199;
+| full 0:15 duration of Hunger III, at 0.3 per second
+|}
+When exhaustion reaches 4, it resets to 0, and saturation decreases by 1. When saturation reaches 0, the hunger bar will start to visibly ripple, and hunger starts to drain away in place of saturation. (As a result, a way to visualize saturation is to think of it as an "extra hunger bar" above your hunger bar, that gets deducted before hunger at the same speed.) When your hunger drops below {{Hunger|18}}, you stop [[healing]] automatically. When it is at {{Hunger|6}} or below, you will be unable to sprint. Also, when your hunger drops to {{Hunger|0}}, you start to take [[starvation]] damage. On Easy mode, starvation damage will not lower you below {{Hp|10}}, while on Normal mode, it can reduce you to {{Hp|1}}. On Hard mode, starvation can kill you. 
+
+While eating is essential to keep your health up, it is not always needed. On Easy and Normal modes, the health bar will stop decreasing before death, so if the player takes care not to take any further damage, they can continue playing normally. Obviously, this is much riskier in multiplayer servers with PvP (player vs player), as well as adventuring.
+
+With the exception of {{ItemLink|golden apple}}s, {{ItemLink|chorus fruit}}s, {{ItemLink|honey bottle}}s and {{ItemLink|suspicious stew}}, you cannot eat when your hunger is at max; when you do eat, each food item restores a specific amount of hunger and saturation. The following section will elaborate on the strategies on effective management of both hunger and saturation.
+
+== Food ==
+
+{{main|Food}}
+
+'''Food''' are a specific type of items that can be eaten by pressing the "use" button, when your hunger bar is not at maximum. Food restores both the hunger bar and saturation, with different foods filling different amounts of each. You can obtain food through [[crafting]], [[trading]], searching [[chest loot|naturally generated chests]], [[farming]], and killing [[mob]]s. Many foods can be [[smelting|cooked (smelted)]] for better effect. Burning mobs is an easier method to obtain meat without the need of [[cooking]].
+
+Foods can be divided into five tiers, according to how much saturation they restore per hunger unit. They are known as nourishment values, and the saturation one gets from any food is defined as nourishment times hunger. Knowing this, there are roughly two ways to approach the issue of hunger and saturation. Players can either try to eat efficiently, meaning using as little food items as possible, or try to eat expediently, meaning to stave off hunger as fast as they can.
+
+The efficiency approach requires the [[player]] to avoid wasting hunger or saturation. Meaning, never eat any food that would "overfill" the hunger bar, avoiding to waste saturation points by going over the limit (the hunger value after consuming the food). By doing this, one will use every piece of food to its maximum potential. However, one needs to use more time to tend to their hunger bar, and remember the current saturation value. Therefore, this is ill-suited for healing in emergencies, and should probably be done when safe and/or low on foodstuff.
+
+The expediency approach, on the other hand, doesn't mind wasting a bit of the food here and there: Eat the most filling and nourishing food until full, and be done with it. If food supply is not an issue, if the player requires imminent healing, or if the player simply wants to save time, this is an appealing option.
+
+A few foods also have [[status effect|special effects]], mostly bad. While the {{ItemLink|golden apple}} can heal you, other foods can poison you (losing hit points), or give you food poisoning (draining your hunger bar). For these, there is {{ItemLink|milk}}, obtained by using a {{ItemLink|bucket}} on a {{EntityLink|cow}}. While milk doesn't restore hunger or saturation, it does wipe away any status effects that the player currently has, so use it carefully. Another option are {{ItemLink|honey bottle}}s, which only remove {{EffectLink|poison}}, and do have some food value.
+
+=== Supernatural ===
+Crafted with [[gold]], these have a nourishment of 2.4.
+
+{{Inventory slot|Enchanted Golden Apple}}{{Inventory slot|Golden Apple}}{{Inventory slot|Golden Carrot}} 
+
+;{{ItemLink|Enchanted golden apple}}
+:''Restores {{hungerbar|4}}''
+
+:''Advantages:''
+:* Restore a lot of health and gives you an extra {{hp|16|absorption=1}} for damage absorption.
+:* Cause temporary constant health regeneration that is not dependent on the [[player]]'s hunger.
+:* Restore 9.6 saturation, considering their low hunger restoration.
+:* Give 2 minutes of {{EffectLink|absorption}} IV, {{EffectLink|regeneration}} II{{only|java|short=1}}/V{{only|bedrock|short=1}}, {{EffectLink|resistance}} and {{EffectLink|fire resistance}}.
+:* Technically renewable following the Tricky Trials update using the vault reset mechanic (citation needed)
+
+:''Disadvantages:''
+:* Extremely difficult to find
+:* Eating them takes a few seconds, while {{ItemLink|id=Splash potion of healing|splash potion}}s or {{ItemLink|id=Lingering potion of healing|lingering potion}}s of Healing can be instantly applied by {{control|throwing}} them.
+:*Found only in structures ({{EnvLink|mineshaft}}, {{EnvLink|woodland mansion}}, {{EnvLink|desert pyramid}}, {{EnvLink|dungeon}}, {{EnvLink|bastion remnant}}, {{EnvLink|ruined portal}}, {{EnvLink|ancient city}}) chests and trial vaults.
+
+;{{ItemLink|Golden apple}}
+:''Restore {{hungerbar|4}}''
+
+:''Advantages:''
+:* Cause temporary constant health regeneration that is not dependent on the player's [[hunger]].
+:** The rate of regeneration is faster than the natural health regeneration in [[Bedrock Edition]] and before [[Java Edition 1.9]], making them useful in combat and emergency situations.
+:* Compared with {{ItemLink|id=potion of regeneration|link=potion of regeneration|potions of regeneration}}, their effects are available without the need for {{ItemLink|id=brewing stand|brewing}}, which is only possible via accessing {{EnvLink|the Nether}} in [[singleplayer]].
+:** Not to mention that golden apples are stackable up to 64, but potions are not.
+:* {{EnvLink|id=Tree|Tree farming}} can provide a good supply of {{ItemLink|apple}}s. [[Trading]] with farmer {{EntityLink|villager}}s can also get them in quantity.
+:* Can be used to cure {{EntityLink|zombie villager}}s. If [[generated structures]] are turned off, this is the only way to obtain villagers and trade with them.
+:* Although they restore fewer hunger points, they grant 5 seconds of {{EffectLink|regeneration}} II and 2 minutes of {{EffectLink|absorption}}, giving the player an extra {{hp|4|absorption=1}}.
+:* Restore 9.6 saturation, a large amount considering their low hunger restoration.
+:* They can be eaten while the hunger bar is full, which means the player can maintain a high level of saturation (and the natural regeneration it offers) without being only able to eat until the hunger bar starts draining.
+
+:''Disadvantages:''
+:* Require 8 {{ItemLink|gold ingot}}s to be crafted, meaning that they are too expensive to be an efficient food source in [[survival mode]], unless with an efficient gold (zombified piglin) farm
+:* Eating them takes a few seconds, while {{ItemLink|id=Splash potion of healing|splash potion}}s or {{ItemLink|id=Lingering potion of healing|lingering potion}}s of Healing can be instantly applied by {{control|throwing}} them.
+:*Finding them in structures ({{EnvLink|dungeon}}, {{EnvLink|mineshaft}}, {{EnvLink|igloo}}, {{EnvLink|stronghold}}, {{EnvLink|underwater ruins}}, {{EnvLink|desert pyramid}}, {{EnvLink|woodland mansion}}, {{EnvLink|ruined portal}}, {{EnvLink|bastion remnant}}) chests is rare and unreliable.
+
+;{{ItemLink|Golden carrot}}
+:''Restore {{hungerbar|6}}''
+
+:''Advantages:''
+:* Restore 14.4 saturation, the highest of any stackable food currently in the game.
+:* Can also be used to make {{ItemLink|id=potion of night vision|link=potion of night vision|potions of night vision}}.
+:* Are cheaper than {{ItemLink|golden apple}}s. A golden carrot costs 8 {{ItemLink|gold nugget}}s, but a golden apple costs 8 {{ItemLink|gold ingot}}s.
+:* Can be [[Trading#Farmer|bought from farmer villagers]] in large quantities. 
+
+:''Disadvantages:''
+:* Finding carrots can be difficult, as they are only found in {{EnvLink|pillager outpost}} and {{EnvLink|shipwreck}} chests, growing in {{EnvLink|village}} fields, or dropped with an {{frac|1|120}} chance from {{EntityLink|zombie}}s.
+:* Finding the golden carrot itself is also difficult, as they can be found in {{EnvLink|ruined portal}} and {{EnvLink|bastion remnant}} chests.
+:* Though cheaper than golden apples, they still need gold nuggets to be crafted.
+:* The trading offer is 3 golden carrots for 3 [[emerald]]s, which can be expensive, though the price can be lowered with zombification and curing, or the {{EffectLink|Hero of the Village}} effect.
+
+=== Cooked food ===
+These have a nourishment of 1.6 — the most nourishing of the ordinary foods.
+
+{{Inventory slot|Cooked Mutton}}{{Inventory slot|Cooked Porkchop}}{{Inventory slot|Cooked Salmon}}{{Inventory slot|Steak}}
+
+; {{ItemLink|Steak}} and {{ItemLink|cooked porkchop}}
+:''Restores {{hungerbar|8}}''
+
+:''Advantages:''
+:* They restore one of the highest amount of hunger and saturation (12.8 points) of any food in the game.
+:** Two pieces regenerate 25.6 saturation, filling the saturation bar, so the player doesn't need to eat again for a long time.
+:* Can be found relatively early on, provided there are {{EntityLink|cow}}s, {{EntityLink|mooshroom}}s and/or {{EntityLink|pig}}s nearby.
+:* Cows, mooshrooms and pigs can be [[Breeding|bred]] to supply the player with {{ItemLink|raw beef}} and {{ItemLink|raw porkchop}}s.
+:** Cows, mooshrooms and hoglins also supply the player with {{ItemLink|leather}}.
+:* {{EntityLink|Hoglin}}s are a source of porkchops in {{EnvLink|the Nether}}.
+:** Since hoglins are hostile mobs, they [[Spawn#Spawn cycle|respawn quickly]], making breeding unnecessary, enabling efficient [[Tutorials/Hoglin farming|hoglin farms]] to be built.
+:* Raw beef and porkchops can be cooked quickly using a {{BlockLink|campfire}} or {{BlockLink|soul campfire}} when away from a reliable source of food.
+:** All these mobs can also be killed while on fire to get cooked meat directly.
+:* Cooked beef {{only|bedrock|short=y}} and cooked porkchops are [[Trading#Butcher|offered by butcher villagers]] at reasonable prices.
+
+: ''Disadvantages:''
+:* Their availability is dependent on the presence of animals within sight, which can be random and require extensive traveling depending on the biome the player spawns in.
+:* At least two animals of a type must be found to breed them for a reliable supply of meat.
+:* Breeding pigs requires {{ItemLink|carrot}}s, {{ItemLink|potato}}es or {{ItemLink|beetroot}}s, which can be difficult to obtain, if there are no {{EnvLink|village}}s with carrot or potato farms nearby, or {{EnvLink|shipwreck}}s with supply chests, as they only very rarely drop from {{EntityLink|zombie}}s.
+:* Hoglins are hostile mobs that can cause massive damage, and they can only be hunted and bred in [[the Nether]], because in other [[dimension]]s they [[Zoglin|zombify]].
+
+; {{ItemLink|Cooked mutton}} and {{ItemLink|cooked salmon}}
+:''Restores {{hungerbar|6}}''
+
+:''Advantages:''
+:* Can be found relatively early on, provided there are {{EntityLink|sheep}}, and/or {{EntityLink|salmon}} nearby.
+:* Restore 9.6 saturation. 
+:** Two pieces regenerate 19.2 saturation (equivalent to 20), filling the saturation bar completely. 
+:* Breeding sheep also supplies the player with {{BlockLink|wool}}.
+:* Salmon spawn commonly in {{BiomeLink|river}}s and {{BiomeLink|ocean}}s in large schools, and [[Spawn#Spawn cycle|respawn relatively quickly]] without needing to breed them.
+:* Salmon can be [[fishing|caught]] in any body of water with a {{ItemLink|fishing rod}}.
+:* Raw mutton and raw salmon can be cooked quickly using a {{BlockLink|campfire}} or {{BlockLink|soul campfire}} when away from a reliable source of food.
+:** Sheep can also be killed while on fire to get cooked mutton directly.
+
+:''Disadvantages:''
+:* Their availability is dependent on the presence of animals within sight, which can be random and require extensive traveling depending on the biome the player spawns in.
+:* Similarly to beef and pork, at least two sheep must be found to breed them for a reliable supply of mutton.
+:* Salmon cannot be bred, so the player has to hunt for them every time they need food, not to mention salmon are agile and hard to hit.
+:* Since salmon are aquatic mobs, it's almost impossible to kill them with fire to get cooked salmon directly, unless the player has a [[Fire Aspect]] sword.
+
+=== Normal ===
+These have a nourishment of 1.2 — the staple foods, cheap and fairly nourishing.
+
+{{Inventory slot|Baked Potato}}{{Inventory slot|Beetroot}}{{Inventory slot|Beetroot Soup}}{{Inventory slot|Bread}}{{Inventory slot|Carrot}}{{Inventory slot|Cooked Chicken}}{{Inventory slot|Cooked Cod}}{{Inventory slot|Cooked Rabbit}}{{Inventory slot|Mushroom Stew}}{{Inventory slot|Rabbit Stew}}{{Inventory slot|Suspicious Stew}}
+
+; {{ItemLink|Baked potato}}
+:''Restores {{hungerbar|5}}''
+
+: ''Advantages:''
+:* Restore 6 saturation.
+:* Restore a good amount of hunger and saturation.
+:* {{BlockLink|Potatoes}} can be farmed quickly and in large quantities, as each potato plant drops up to 4 {{ItemLink|potato}}es.
+
+: ''Disadvantages:''
+:* Meats restore more hunger and saturation than baked potatoes.
+:* Finding the first potato can be difficult; they can be found only in structure chests, {{EnvLink|village}}s or as a rare drop from {{EntityLink|zombie}}s.
+
+; {{ItemLink|Beetroot}}
+:''Restores {{hungerbar|1}}''
+
+: ''Advantages:''
+:* Beetroots can be used to breed {{EntityLink|pig}}s and can be crafted into {{ItemLink|red dye}}.
+:* No other actual advantages, though they can also be used for beetroot soup (see below).
+
+: ''Disadvantages:''
+:*{{ItemLink|Beetroot seeds}} can be hard to find; they can be obtained from {{EnvLink|village}} farms, structure chests (snowy village, {{EnvLink|mineshaft}}, {{EnvLink|dungeon}}, {{EnvLink|end city}}, {{EnvLink|woodland mansion}}), and {{EntityLink|wandering trader}}s.
+:* {{BlockLink|id=Beetroots|Beetroot}} grows somewhat slower{{verify}} than other crops, and they only yield one beetroot for each plant.
+:* Individual beets have minimal food value, with only 1.2 saturation a piece.
+
+; {{ItemLink|Beetroot soup}}
+:''Restores {{hungerbar|6}}''
+
+: ''Advantages:''
+:* Restores 7.2 saturation.
+:* It restores the same amount of hunger as six {{ItemLink|beetroot}}s while taking only one-sixth as much time to eat.
+:* Uncrafted beetroot soup takes up less inventory space than uncrafted {{ItemLink|mushroom stew}} (up to 10 servings).
+
+: ''Disadvantages:''
+:*{{ItemLink|Beetroot seeds}} can only be obtained from {{EnvLink|village}} farms, structure chests and {{EntityLink|wandering trader}}s.
+:* {{BlockLink|id=Beetroots|Beetroot}} grows somewhat slower{{verify}} than other crops, and they only yield one beetroot for each plant.
+:* Like other stews, beetroot soup does not stack when crafted.
+
+; {{ItemLink|Bread}}
+:''Restores {{hungerbar|5}}''
+
+: ''Advantages:''
+:*{{BlockLink|Wheat}} takes little resources to {{ItemLink|id=stone hoe|link=Tutorials/Crop farming|farm}} and maintain.
+:* Restore 6 saturation.
+:* One of the easiest foods to obtain early in the game.
+:* [[Pile]]s of {{BlockLink|hay bale}}s commonly generate around plains, desert and savanna {{EnvLink|village}}s, which can easily be converted into an ample supply of bread.
+
+: ''Disadvantages:''
+:* Wheat growing takes time, and three {{ItemLink|id=wheat|link=wheat|pieces}} are required per bread loaf.
+:* Compared to 1-4 {{ItemLink|carrot}}s and {{ItemLink|potato}}es dropped from each plant, each wheat plant only yields a single piece of wheat.
+:* Bread requires a {{BlockLink|crafting table}} to make.
+:* Meats restore more hunger and saturation than bread.
+
+; {{ItemLink|Carrot}}
+:''Restores {{hungerbar|3}}''
+
+: ''Advantages:''
+:* {{BlockLink|Carrots}} are easy to farm.
+:* Can be used to breed {{EntityLink|pig}}s and {{EntityLink|rabbit}}s.
+
+: ''Disadvantages:''
+:* Finding the first carrot can be hard, as it is found only in {{EnvLink|village}}s, structure chests, or rare drops from {{EntityLink|zombie}}s.
+:* Restores only 3.6 saturation.
+:* Meats and {{ItemLink|baked potato}}es restore more hunger and saturation than carrots.
+
+; {{ItemLink|Cooked chicken}}
+:''Restores ''{{hungerbar|6}}''
+
+:''Advantages:''
+:* Restores 7.2 saturation.
+:* {{EntityLink|Chicken}}s are easier to find{{verify}} than most other [[passive mobs]], and also lay {{ItemLink|egg}}s and provide {{ItemLink|feather}}s.
+:* Chickens can be bred with any of several kinds of {{ItemLink|seeds}} to breed, and the eggs make even those optional.
+:*Only a single chicken is needed to start a chicken farm; the eggs can be collected until more chickens spawn (which can then be bred as usual).
+:* Again thanks to the eggs, cooked chicken can be [[egg farming#chicken farm|farmed completely automatically]], compared to farming of other animals which needs the player to breed the animals.
+
+: ''Disadvantages:''
+:* Other meats restore more hunger and saturation than cooked chicken.
+:* Eggs hatch into baby chickens, which need time to grow before they are able to lay more eggs, or can be killed for meat.
+
+; {{ItemLink|Cooked cod}}
+:''Restores {{hungerbar|5}}''
+
+:''Advantages:''
+:* Can be {{ItemLink|id=fishing rod|link=fishing|fished}} from any body of water, even underground or in {{EnvLink|the End}}.
+:* Compared to {{ItemLink|id=raw salmon|salmon}}, {{ItemLink|id=raw cod|cod}} is more commonly caught while fishing. 
+:* Restore 6 saturation.
+:* {{EntityLink|Cod}} commonly spawn in most {{BiomeLink|ocean}} biomes in large schools, and [[Spawn#Spawn cycle|respawn quickly]] without needing to breed them.
+
+: ''Disadvantages:''
+:*{{ItemLink|id=fishing rod|Fishing}} takes some time, making it slow to gather large amounts of fish.
+:* Finding {{EntityLink|cod}} mobs is also quite difficult, as they can only be found in regular, lukewarm and cold [[ocean]] biomes.
+:* Other meats restore more hunger and saturation.
+
+; {{ItemLink|Cooked rabbit}}
+:''Restores {{hungerbar|5}}''
+
+: ''Advantages:''
+:* Can be obtained relatively early on depending on the presence of {{EntityLink|rabbit}}s.  Rabbits can also be bred.
+:* Restore 6 saturation.
+:* Rabbits also supply the player with {{ItemLink|rabbit hide}} and {{ItemLink|rabbit's foot}}.
+:* Cooked rabbit can be purchased from {{EntityLink|id=villager|link=villager|butcher villagers}}{{only|bedrock}}.
+:* Can be used to craft {{ItemLink|rabbit stew}}.
+
+:''Disadvantages:''
+:* Other meats restore more hunger and saturation than cooked rabbit.
+:* Rabbits are relatively difficult to capture, kill and farm.
+
+; {{ItemLink|Mushroom stew}}
+:''Restores {{hungerbar|6}}''
+
+: ''Advantages:''
+:* Can be a reliable food source if {{BlockSprite|red mushroom}}{{BlockLink|id=brown mushroom|mushroom}}s and {{BlockLink|mycelium}}, {{BlockLink|podzol}} or {{BlockSprite|crimson nylium}} {{BlockLink|id=warped nylium|nylium}} can be found.
+:* The recipe can be made in the 2×2 crafting menu.
+:* Restore 7.2 saturation.
+:* If possible, pressing {{control|use}} on a {{EntityLink|mooshroom}} with a {{ItemLink|bowl}} will fill the bowl with stew.
+:* {{EnvLink|Huge mushroom}}s can be grown with {{ItemLink|bone meal}} on {{BlockSprite|Grass Block}} {{BlockSprite|Coarse Dirt}} {{BlockLink|id=dirt|link=dirt|any dirt variant}} in dark places with enough place, and can be easily taken down with an {{ItemLink|iron axe}}.
+
+:''Disadvantages:''
+:* Like other stews, mushroom stew does not stack, so crafting a lot of stew at once takes up a lot of inventory space.
+:* A bowl of stew requires both types of mushrooms, which is bad news if you only have one type. 
+:* Mycelium, podzol and nylium aren't easy to find, the first two found in rare biomes, the third only found in {{EnvLink|the Nether}}.
+:** Even if these blocks are found, the player can't obtain them without [[Silk Touch]].
+:* [[Mushroom farming#Small mushrooms|Spreading based mushroom farms]] are slow.
+:* {{EnvLink|id=Huge mushroom|link=Mushroom farming#Huge mushrooms|Huge mushroom farming}} requires {{ItemLink|bone meal}}, which is hard to obtain in large quantities in early game.
+
+; {{ItemLink|Rabbit stew}}
+:''Restores {{hungerbar|10}}''
+
+:''Advantages:''
+:* Can be purchased from {{EntityLink|id=villager|link=villager|butcher villagers}}.
+:* Restore more hunger than most food in the game (only beaten by {{ItemLink|suspicious stew}} with {{EffectLink|saturation}} effect, or a whole {{BlockSprite|cake}} cake).
+:* Restore 12 saturation.
+
+:''Disadvantages:''
+:* Like other stews, rabbit stew does not stack.
+:* A bowl of rabbit stew restores less hunger and saturation than all of its ingredients combined.
+:* Crafting rabbit stew requires a crafting table.   The bowl can be crafted easily (and is reusable), but each of the four other ingredients needs to be separately found and perhaps farmed.
+:*As with most other animals, two rabbits are required to start breeding them.
+
+; {{ItemLink|Suspicious stew}}
+:''Restores {{hungerbar|6}}*''
+
+:''Advantages:''
+:* Flowers and mushrooms are easy to find.
+:* Restore 7.2 saturation.
+:* It's equivalent to a {{ItemLink|mushroom stew}}, but with an extra [[status effect]] depending on the flower used.  Even with the flower, it can still be crafted in the player's inventory.
+:* When crafted with {{BlockLink|blue orchid}} or {{BlockLink|dandelion}}, suspicious stew grants the effect {{EffectLink|Saturation}} for 7{{only|java|short=y}}/6{{only|bedrock|short=y}} ticks (0.35/0.3 seconds), meaning an additional {{hunger|7}} hunger and 14 saturation, for a total of {{hunger|13}} hunger and 21.2 saturation.  While some of the saturation will likely be wasted, especially if the player was too hungry to begin with, the stew will at least raise the saturation to match the hunger gauge.
+:** As long as the player has {{hunger|7}} hunger, eating a single bowl of saturation suspicious stew will raise both hunger and saturation to full.
+:* When crafted with an {{BlockLink|oxeye daisy}}, it gives 8{{only|java|short=y}}/6{{only|bedrock|short=y}} seconds of {{EffectLink|Regeneration}} instead, which heals {{healthbar|3}}, making it all but essential when {{cmd|gamerule naturalRegeneration}} is turned off.
+:* Suspicious stew can also be made by {{control|using}} a flower and then a {{ItemLink|bowl}} on a {{EntityLink|brown mooshroom}}.
+:*Suspicious stew can be purchased from farmer villagers.
+:* When crafted with an {{BlockLink|azure bluet}}, it gives 8 seconds of {{EffectLink|blindness}}, the only way to get this effect in survival mode, and is required for the {{ItemLink|id=bucket|How Did We Get Here?}} advancement.
+
+:''Disadvantages:''
+:* Like all other stews, suspicious stew doesn't stack (though the ingredients do).
+:* Suspicious stew can have negative effects too ({{EffectLink|Blindness}}, {{EffectLink|Poison}}, {{EffectLink|Weakness}}, or even {{EffectLink|Wither}}). 
+:**Remembering the correct flower for the recipe is important.
+:** Once a suspicious stew is crafted, there is no indication to the nature of its effect.  This also applies to stew purchased from villagers.
+:** The above points make it risky to eat any suspicious stew that you didn't craft yourself, thus its name.
+
+=== Low ===
+These have a nourishment of 0.6, these are useful for achieving a full bar of both hunger and saturation when the current hunger bar is almost empty, if eaten with foods of higher tier of nourishment.
+
+{{Inventory slot|Apple}}{{Inventory slot|Chorus Fruit}}{{Inventory slot|Dried Kelp}}{{Inventory slot|Melon Slice}}{{Inventory slot|Poisonous Potato}}{{Inventory slot|Potato}}{{Inventory slot|Pumpkin Pie}}{{Inventory slot|Raw Beef}}{{Inventory slot|Raw Chicken}}{{Inventory slot|Raw Mutton}}{{Inventory slot|Raw Porkchop}}{{Inventory slot|Raw Rabbit}}
+
+; {{ItemLink|Apple}}
+:''Restores {{hungerbar|4}}''
+
+: ''Advantages:''
+:* Can be obtained very early when {{BlockLink|oak leaves}} or {{BlockLink|dark oak leaves}} are broken or decay.
+:* Can be crafted into {{ItemLink|golden apple}}s.
+:* Apprentice level {{EntityLink|id=villager|link=villager|farmer villagers}} can trade them.
+:* Can be found in {{BlockLink|id=chest|loot chest}}s in many structures.
+
+: ''Disadvantages:''
+:* Apples only drop from two types of leaves.
+:* Restore 2.4 saturation and few hunger points, making them worse than most other foods.
+:* Either breaking leaves to get them or finding a {{EnvLink|village}} can be difficult.
+
+; {{ItemLink|Chorus Fruit}}
+:''Restores {{hungerbar|4}}''
+
+:''Advantages:''
+:* Can be eaten even when the hunger bar is full, allowing you to further raise saturation.
+:* Once obtained from the {{BiomeLink|id=end highlands|outer end islands}}, cheap to farm.
+:* Can teleport the player to otherwise inaccessible locations, such as nearby unexplored caves or inside an enclosed structure. 
+:* Can teleport a falling player to the ground, saving them from a fatal fall. 
+
+:''Disadvantages:''
+:* The teleportation is random.
+:* Has a cooldown of 1 second before it can be eaten again.
+:* Only obtainable end-game.
+:* {{BlockLink|Chorus flower}}s have to be manually broken or shot with a projectile, which can be annoying.
+:* Restore 2.4 saturation.
+
+; {{ItemLink|Dried kelp}}
+: ''Restores {{hungerbar|1}}''
+
+: ''Advantages:''
+:* Found easily in {{BiomeLink|ocean}}s and lakes.
+:* Eaten 0.5 seconds faster than other foods.
+:* Can be turned into {{BlockLink|dried kelp block}}s, a lasting fuel.
+
+: ''Disadvantages:''
+:* Is only worth eating if you have large amounts, and is more useful in its block form where it can be used as fuel.
+:* You have to cook regular {{ItemLink|kelp}} to get it.
+:* Restore 0.6 saturation.
+
+; {{ItemLink|Melon slice}}
+:''Restores {{hungerbar|2}}''
+
+: ''Advantages''
+:*[[Tutorials/Pumpkin and melon farming|Melon farming]] is easy to automate.
+:* Each {{BlockLink|id=melon|melon block}} drops 3-7 melon slices, so you can quickly get a lot in only one harvest.
+:* Melon slices can be crafted into {{ItemLink|glistering melon slice}}s, which can be used to make a {{ItemLink|potion of Healing}}.
+:* For food efficiency minded players, melon slices are almost never wasted on overfilling the hunger bar.
+:* Melon slices can be crafted into {{ItemLink|melon seeds}}.
+:* Melon plant stems will stay productive indefinitely with no need to replant them.
+
+: ''Disadvantages''
+:*{{ItemLink|Melon seeds}} can only be found in structure {{BlockLink|chest}}s ({{EnvLink|mineshaft}}s, {{EnvLink|dungeon}}s, and {{EnvLink|woodland mansion}}s).
+:* {{BlockLink|Melon}} blocks are only found in {{BiomeLink|jungle}}s, savanna {{EnvLink|village}}s and {{EnvLink|woodland mansion}}s.
+:* Melon stems grow slowly and don't instantly spawn melon blocks even when grown with {{ItemLink|bone meal}}.
+:* Only restore 1.2 saturation per slice, so a diet of melon slices needs frequent stops to eat. 
+
+; {{ItemLink|Poisonous potato}}
+:''Restores {{hungerbar|2}}''
+
+: ''Advantages:''
+:* Can be used on servers to show how much {{BlockSprite|potatoes}} potato farming you have done ({{EntitySprite|pig}} pun intended).
+:* They can be eaten to fulfill the {{ItemLink|id=apple|A Balanced Diet}} advancement.
+:* No additional advantages otherwise.
+
+: ''Disadvantages:''
+:* Have a 60% chance to inflict the {{EffectLink|poison}} effect.
+:* Rarely found in chests.
+:* Restore 1.2 saturation and few hunger points.
+:* Can't even be {{BlockLink|id=composter|link=Composter#Composting|composted}}.
+
+; {{ItemLink|Potato}}
+:''Restores {{hungerbar|1}}''
+
+: ''Advantages:''
+:* Potatoes may be found in plenty in {{EnvLink|village}} farms; otherwise they are a rare drop from zombies.
+
+: ''Disadvantages:''
+:* Potatoes are far less nourishing than {{ItemLink|baked potato}}es.
+:* Restore 0.6 saturation and few hunger points.
+
+; {{ItemLink|Pumpkin pie}}
+:''Restores {{hungerbar|8}}''
+
+: ''Advantages:''
+:* Pumpkin pie has a high hunger restoration value. Good choice for restoring hunger points before eating something with more saturation.
+:* Can be crafted in the player's inventory, as long as one is carrying the ingredients ({{BlockLink|pumpkin}}s, {{ItemLink|sugar}} and {{ItemLink|egg}}s).
+:* Restore 4.8 saturation.
+:* All ingredients required to craft pumpkin pie can be farmed automatically.
+
+: ''Disadvantages:''
+:* Meats restore the same amount of hunger and far more saturation than pumpkin pie.
+:* {{BlockLink|Pumpkin}}s (and their seeds) are relatively rare, so it may take some time and traveling before the player is able to establish a [[Tutorials/Pumpkin and melon farming|pumpkin farm]].
+:* Pumpkin plants are slow to grow a pumpkin and only yield one at a time per plant.
+
+; {{ItemLink|Raw beef}}, {{ItemLink|raw porkchop}}, and {{ItemLink|raw rabbit}}
+:''Restores {{hungerbar|3}}''
+
+: ''Advantages:''
+:* Raw beef and raw porkchops are relatively quick to get.
+:* Unlike {{ItemLink|raw chicken}}, these meats do not carry a chance of contracting {{EffectLink|id=hunger|food poisoning}} when eaten.
+:* Cooking them gives their cooked versions.
+:* {{EntityLink|Cow}}s and {{EntityLink|mooshroom}}s can drop up to 3 raw beef, and {{EntityLink|pig}}s and {{EntityLink|hoglin}}s can drop up to 3 and 4 raw porkchops respectively.
+
+: ''Disadvantages:''
+:* The availability of raw meat is dependent on the presence of animal mobs.
+:* Raw meat offers significantly less food value than cooked meat.
+:* Restore 1.8 saturation.
+:* Killing hoglins isn't the best option unless it's a Nether survival, because they are hostile and deal massive damage.
+
+; {{ItemLink|Raw chicken}} and {{ItemLink|raw mutton}}
+:''Restores {{hungerbar|2}}''
+
+:''Advantages:''
+:*{{EntityLink|Chicken}}s are relatively easier to find{{verify}} in the world than {{EntityLink|pig}}s or {{EntityLink|cow}}s, and {{EntityLink|sheep}} are also easy to find.
+:* Chickens are easily killed, as they have only {{hp|4}} health, making obtaining raw chicken both time effective, and food/saturation effective.
+:* Supplies of raw chicken are easier to maintain, as chickens also drop {{ItemLink|egg}}s which can be hatched into chicks for mass production of raw chicken rather than being dependent on {{ItemLink|seeds}} or {{ItemLink|wheat}} for [[breeding]].
+:* {{EntityLink|Sheep}} can be {{ItemLink|id=shears|link=shears|sheared}} to get {{BlockLink|wool}}.
+:* Chicken farming can be automated, providing an easy way of collecting eggs, raw chicken and {{ItemLink|feather}}s.
+
+:''Disadvantages:''
+:* Raw chicken has a 30% chance of giving the player {{EffectLink|id=hunger|food poisoning}}.
+:* {{ItemLink|Cooked chicken}} or {{ItemLink|cooked mutton}} restores more hunger points and saturation.
+:* Both restore 1.2 saturation.
+
+=== Poor ===
+With a nourishment value of 0.2, these foods will provide almost no saturation. They are basically snacks that will rarely ever overfill the saturation bar.
+
+{{Inventory slot|Cake}}{{Inventory slot|Cookie}}{{Inventory slot|Honey Bottle}}{{Inventory slot|Pufferfish}}{{Inventory slot|Raw Cod}}{{Inventory slot|Raw Salmon}}{{Inventory slot|Rotten Flesh}}{{Inventory slot|Spider Eye}}{{Inventory slot|Sweet Berries}}{{Inventory slot|Tropical Fish}}
+
+; {{ItemLink|Cake}}
+:''Restores {{hungerbar|2}} (slice), {{hungerbar|14}} (whole)''
+
+:''Advantages:''
+:* Cake can be used repeatedly and can be shared by several players as a feast item.
+:* Can be used as a decoration block.
+:* Cake can be eaten instantly without any eating animation and without switching the currently selected item.
+:* Cake restores a lot of hunger when eaten as a whole.
+:* In a big server or a laggy world, you will eat cake very fast, while other foods will take a very long to eat.
+
+:''Disadvantages:''
+:* Cake requires several different items to craft: {{ItemLink|sugar}}, {{ItemLink|wheat}}, an {{ItemLink|egg}} and three {{ItemLink|milk bucket}}s. Not only is a {{BlockLink|crafting table}} is required for the recipe, but the milk buckets are non-stackable.
+:* Once cake is placed, it cannot be retrieved. If the block below the cake is broken, the cake will disappear.
+:* Cakes need to be placed to be eaten, which means they cannot be eaten in places where one cannot build.
+:* If you only eat part of a cake, you'll have to come back to that exact spot to eat the rest of it later on.
+:* Is not stackable {{in|je}}.
+:* Restores just 0.4 saturation per piece, or 2.8 as a whole.
+
+; {{ItemLink|Cookie}}
+:''Restores {{hungerbar|2}}''
+
+:''Advantages''
+:* Crafted from two pieces of {{ItemLink|wheat}} and one item of {{ItemLink|cocoa beans}}.
+:* The ingredients can be farmed in large quantities.
+:* 8 cookies are made each time. 
+:* One batch of cookies restores 16 hunger and 3.2 saturation with only 2 pieces of wheat, much more efficient than bread.
+
+:''Disadvantages''
+:* When fed to a {{EntityLink|parrot}}, a cookie will kill the parrot instantly.
+:* Restores only 0.4 saturation apiece.
+
+; {{ItemLink|Honey Bottle}}
+:''Restores {{hungerbar|6}}''
+
+:''Advantages:''
+:* Remove {{EffectLink|poison}}.
+:* A player only needs to harvest it from a {{BlockLink|beehive}} or {{BlockLink|bee nest}}.
+:* Can be eaten while the hunger bar is full.
+:* Compared to {{ItemLink|milk}} that removes all effects and cannot be stacked, honey bottles can stack to 16 and only removes [[poison]].
+
+:''Disadvantages:''
+:* Restore 1.2 saturation.
+:* Harvesting honey in the wild can be hazardous, and [[Tutorials/Honey farming|honey farming]] can be a tricky business.
+:* Can only stack up to 16, though larger amounts can be stored as [[Honey Block|honey blocks]].
+
+; {{ItemLink|Pufferfish}}
+:''Restores {{hungerbar|1}}''
+
+:''Advantages:''
+:* Being the only way to obtain {{EffectLink|nausea}}, eating pufferfish is needed to get the advancement {{ItemLink|id=bucket|How Did We Get Here?}}.
+:* Used for brewing a {{ItemLink|potion of water breathing}}.
+
+:''Disadvantages:''
+:* Pufferfish inflict {{EffectLink|id=hunger|link=hunger (status effect)|hunger}}, {{EffectLink|poison}}, and {{EffectLink|nausea}} effects, draining {{hungerbar|6}} and keeping you down to {{healthbar|1}} for 48 seconds.
+
+; {{ItemLink|Raw cod}} and {{ItemLink|raw salmon}}
+:''Restores {{hungerbar|2}}''
+
+: ''Advantages:''
+:* Raw cod or salmon can be used to tame {{EntityLink|cat}}s, trust {{EntityLink|ocelot}}s, or feed {{EntityLink|dolphin}}s.
+:* Can be obtained by {{ItemLink|id=fishing rod|fishing}}, or by killing {{EntityLink|cod}}, {{EntityLink|salmon}},{{EntityLink|guardian}}s, {{EntityLink|elder guardian}}s, {{EntityLink|polar bear}}s, or {{EntityLink|dolphin}}s.
+
+: ''Disadvantages:''
+:* Raw fish is not nearly as nourishing as cooked fish.
+
+; {{ItemLink|Rotten flesh}}
+:''Restores {{hungerbar|4}}''
+
+:''Advantages:''
+:* Easily obtained, either when fighting zombies, or after they burn in the sun.
+:*Rotten flesh can be a good emergency food when no better food is available:  If many pieces are eaten at once, the {{EffectLink|hunger}} effect do not stack up, instead it will last only 30 seconds from the last piece eaten, and consume less hunger than granted by a single piece of rotten flesh.  Accordingly, eating multiple pieces of rotten flesh will still leave the player ''less'' hungry and perhaps allow some healing.
+:* In [[Tutorials/Combat|combat]], eating rotten flesh is a good way of keeping your hunger topped off so that your health keeps regenerating, without wasting better quality food.
+:* Rotten flesh can be used to feed and breed {{EntityLink|id=wolf|wolves}} without poisoning them.
+
+:''Disadvantages:''
+:* Has an 80% chance to trigger {{EffectLink|id=hunger|food poisoning}}, depleting the hunger for thirty seconds.
+:* Only restores 0.8 saturation.
+:* Killing {{EntityLink|zombie}}s for rotten flesh may be dangerous for unskilled players.
+
+; {{ItemLink|Spider eye}}
+:''Restores {{hungerbar|2}}
+
+:''Advantages:''
+:* None, it is best to leave them in your [[brewing]] lab.
+:* The only reasonable use is to fulfill the {{ItemLink|id=apple|A Balanced Diet}} advancement.
+:*If no other food is available, remember that when eating many of them, the poison duration does not stack.
+
+:''Disadvantages:''
+:* They give {{EffectLink|poison}} for 4 seconds.
+:* Restore 3.2 saturation.
+
+; {{ItemLink|Sweet berries}}
+:''Restores {{hungerbar|1}}''
+
+:''Advantages:''
+:* Are easily obtainable in large quantities while in a {{BiomeLink|Taiga}} biome.
+:* Sweet berries can be used to trust {{EntityLink|fox}}es.
+:* {{BlockLink|Sweet berry bush}}es can be used as defenses, and the berries can be harvested without affecting their defensive properties.
+
+:''Disadvantages:''
+:* The bush block causes damage to anything that enters its hitbox (except {{EntitySprite|fox}} foxes).
+
+; {{ItemLink|Tropical Fish}}
+:''Restores {{hungerbar|1}}''
+
+:''Advantages:''
+:* Can be [[Trading#Fisherman|sold to fisherman villagers]] at a reasonable price.
+:* They can be eaten to fulfill the {{ItemLink|id=apple|A Balanced Diet}} advancement.
+
+:''Disadvantages:''
+:* Can only be rarely caught from {{ItemLink|id=fishing rod|fishing}}.
+:* The {{EntityLink|tropical fish}} mob can only be found in lush caves, mangrove swamps or in warm, lukewarm oceans and deep variants.{{only|java|short=y}} 
+:* Tropical fish restore little hunger and saturation.
+
+== Emergency measures ==
+
+If your hunger meter is dropping and you have ''no'' food in hand, there are a few emergency measures you can take, depending on available resources.
+
+=== Milk ===
+: If you have a bucket and a cow, mooshroom or goat, milk them. The milk will let you fill up on [[rotten flesh]], [[raw chicken]], [[spider eye]]s, or [[poisonous potato]]es, and then cure the illness.
+
+=== Fast crops ===
+: If you have any [[potato]]es or [[carrot]]s, and some [[bone meal]] (craft 3 from one [[skeleton]] [[bone]], or get from [[composter]]), you can make a hoe and till some [[dirt]] near any [[water]] source, then plant your vegetables and use the bone meal to make them mature more quickly. It can take several pieces of bone meal to get a mature plant. Cooking the potatoes will make them much more filling. If you have the bone meal but no carrots or potatoes, you can destroy some [[tall grass]] near a river or lake, make and use a [[hoe]], then plant [[seeds]] and use the bone meal to rapidly grow your [[wheat]]. The same caveats as above apply to the use of bone meal.
+
+=== Doing nothing ===
+: You won't lose hunger if you don't do anything (walking, mining, healing, etc.). In [[hardcore]] especially, this can be a necessary strategy while waiting for crops or baby animals to grow.
+
+=== Death ===
+: As a last resort, put all your items into a chest, write down the coordinates, and die.
+: Common ways to die in Minecraft are mobs, falling, drowning and suffocation.
+:You will respawn with full health and hunger bars, and you can just go to the coordinates of the chest to recover your stuff.
+:This will cost all of your XP, and doesn't work in hardcore due to no respawns.
+
+== Video ==
+
+<div style="text-align:center">{{yt|SCHsffx-VvI}}</div>
+
+{{Tutorials}}
+
+[[ja:チュートリアル/満腹度の管理]]
+[[ko:튜토리얼/배고픔 관리]]
+[[zh:教程/饥饿管理]]

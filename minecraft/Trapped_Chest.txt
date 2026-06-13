@@ -1,0 +1,291 @@
+{{Block
+|image=Trapped Chest.gif
+|imagesize=x150px
+|image2=Trapped Large Chest.gif
+|image2size=x175px
+|invimage2=----
+|invimage3=Trapped Chest BE
+|transparent=Yes
+|light=No
+|flammable=No
+|lavasusceptible=Yes
+|tool=axe
+|renewable= Yes
+|stackable=Yes (64)
+}}
+A '''trapped chest''' is a variant of the [[chest]] that functions similarly, but has a red-tinted latch (with the default resource pack), and produces [[Redstone Dust|redstone]] power while it is open.
+
+Like normal chests, two trapped chests can combine into a '''large trapped chest'''.
+
+== Obtaining ==
+=== Breaking ===
+Trapped chests can be broken with any [[tool]], but [[axe]]s are the fastest. Items contained in the chest are dropped when the chest is broken. If one half of a large trapped chest is destroyed, the corresponding items from the destroyed trapped chest are dropped and the remaining trapped chest continues to function as a small trapped chest.
+{{breaking row|horizontal=1|Trapped Chest|Axe|foot=1}}
+
+=== Natural generation ===
+Trapped chests naturally generate in "fake end portal rooms" in [[woodland mansion]]s.
+
+=== Crafting ===
+{{Crafting
+|Tripwire Hook
+|Chest
+|Output= Trapped Chest
+|type= Decoration block
+}}
+
+== Usage ==
+Trapped chests can be used as containers and as [[redstone components]].
+
+To place a trapped chest, {{control|place}} the face of a block adjacent to the space the trapped chest should occupy.
+
+Placing two adjacent trapped chests side-by-side typically joins them to create a large trapped chest. To avoid them joining and instead place two single trapped chests side by side, the player may {{control|sneak}} while placing the second trapped chest,{{only|java}} or place the second trapped chest facing a different direction from the first one.{{only|bedrock|java}} Normal [[chest]]s, however, do not combine with trapped chests.
+
+Trapped chests can be moved by pistons.{{only|bedrock}} [[Water]] and [[lava]] flow around without affecting them. Lava can create fire in air blocks next to trapped chests as if they were flammable, but the chests do not burn (and cannot be burned by other methods either).
+
+Trapped chests can also activate buried [[TNT]], destroying themselves, their contents and any [[mob]]s or players near them. They need to be opened twice for the TNT to be activated.
+
+=== Container ===
+[[File:Chest GUI.png|thumb|right|176px|The GUI of a trapped chest.]]
+[[File:Large Chest GUI.png|thumb|right|176px|The GUI of a large trapped chest.]]
+
+A single trapped chest has 27 slots of inventory space, and a large trapped chest has 54 slots of inventory space. In a large trapped chest, the top three rows in the interface correspond to the western or northern chest block and the bottom three to the southern or eastern chest block.
+
+To open the trapped chest GUI, use the {{control|Use Item}} control. To move items between the trapped chest inventory and the player inventory or hotbar while the trapped chest GUI is open, drag or shift-click the items. To exit the trapped chest GUI, use the {{key|Esc}} control.
+
+By default, the GUI of a trapped chest is labeled "Chest" and the GUI of a large trapped chest is labeled "Large Chest." A trapped chest's GUI label can be changed by naming the trapped chest in an [[anvil]] before placing it, or by using the [[Commands/data|data]] command{{only|java}} (for example, to label a trapped chest at (0, 64, 0) "Loot!", use <code>/data merge block 0 64 0 {CustomName:'"Loot!"'}</code>). If half of a large trapped chest is renamed, that name is used to label the GUI of the entire large trapped chest, but if the named half is destroyed, the other half reverts to the default label. If both halves of a large trapped chest have different names, the GUI label takes the name of the northernmost or westernmost half of the large trapped chest depending on its orientation (the half with the lowest coordinate in the appropriate axis).
+
+A trapped chest can be "locked" by setting the trapped chest's <code>Lock</code> tag. If a trapped chest's <code>Lock</code> tag is not blank, the trapped chest cannot be opened except by players holding an item with the same name as the <code>Lock</code> tag's text. A trapped chest's <code>Lock</code> tag can be set or unset with the [[Commands/data|data]] command. For example, to lock a trapped chest at (0, 64, 0) so that only players holding an item named "Alice's Key" can open the trapped chest, use <code>data merge block 0 64 0 {Lock:"Alice's Key"}</code>.
+
+=== Redstone component ===
+[[File:Chest-Comparsion.png|thumb|Chests (''left'') and trapped chests (''right'') can be placed next to each other. [[Redstone dust]] configures itself to point toward trapped chests, but not toward regular chests.]]
+{{see also|Redstone circuit}}
+
+Trapped chests can be used to detect when their inventory is accessed by players.
+
+A trapped chest is inactive while not being accessed, but activates when accessed by a player (see above). Accessing either part of a large trapped chest activates both halves of the large trapped chest. [[Mob]]s cannot access/activate a trapped chest, and a trapped chest is activated by items moving into or out of it by [[dropper]]s or [[hopper]]s.
+
+While active, a trapped chest:
+* powers any adjacent [[redstone dust]], including beneath the trapped chest, to a [[Redstone circuit#Power|power level]] equal to the number of players accessing the trapped chest (maximum 15)
+* powers any adjacent [[redstone repeater]]s facing away from the trapped chest to power level 15
+* strongly powers any full solid opaque block (stone, dirt, block of gold, etc.) beneath the trapped chest to a power level equal to the number of players accessing the trapped chest (maximum 15)
+* activates any adjacent [[Redstone components#Mechanism components|mechanism components]], including above or below, such as [[piston]]s, [[redstone lamp]]s, etc. Due to hoppers being locked by redstone activation, hoppers below a trapped chest do not take items from it while it is open.
+
+An active trapped chest does ''not'' power any adjacent [[redstone comparator]]s facing away from it. Redstone comparators can [[Redstone comparator#Measure block state|measure]] the block state of the trapped chest, producing a power level from 0 to 15 proportional to how full the trapped chest is. Anything else powered by an active trapped chest (including a block beneath it) can power redstone comparators normally.
+
+=== Piglins ===
+[[Piglin]]s become hostile toward players who open, break or interact with trapped chests.
+
+=== Fuel ===
+Trapped chests can be used as a [[fuel]] in [[furnace]]s, smelting 1.5 items per chest.
+
+=== Note blocks ===
+Trapped chests can be placed under [[note block]]s to produce "bass" sound.
+
+== {{anchor|Xmas chest}} Christmas chest ==
+{{Exclusive|Java}}
+<!--is this entire section neccessary?-->
+
+As with normal chests, on December 24, 25, and 26, trapped chests and large trapped chests have their textures changed to Christmas chests that look like presents. Christmas trapped chest and their large version look identical to Christmas chest and their large version respectively.
+
+<gallery mode="packed">
+Xmas Chest.png
+Xmas Large Chest.png
+</gallery>
+
+== Sounds ==
+=== Generic ===
+{{Sound table/Block/Wood}}
+=== Unique ===
+{{edition|java}}:
+{{Sound table
+|sound=Chest close1.ogg
+|sound2=Chest close2.ogg
+|sound3=Chest close3.ogg
+|subtitle=Chest closes
+|source=block
+|description=When a trapped chest closes
+|id=block.chest.close
+|translationkey=subtitles.block.chest.close
+|volume=0.5
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|sound=Chest open.ogg
+|subtitle=Chest opens
+|source=block
+|description=When a trapped chest opens
+|id=block.chest.open
+|translationkey=subtitles.block.chest.open
+|volume=0.5
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|sound=Door close.ogg
+|sound2=Door open.ogg
+|subtitle=Chest locked<ref group=sound name=lock>{{Bug|MC-98316||Wrong subtitles caused by missing distinction}}</ref>
+|source=block
+|description=When a player attempts to open a trapped chest locked using the {{nbt|string|Lock}} tag
+|id=block.chest.locked|idnote=<ref group=sound name=lock/>
+|translationkey=subtitles.block.chest.locked|translationkeynote=<ref group=sound name=lock/>
+|volume=1.0
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Chest close1.ogg
+|source=block
+|description=When a chest closes
+|id=random.chestclosed
+|volume=0.5
+|pitch=0.9-1.0}}
+{{Sound table
+|sound=Chest open.ogg
+|source=block
+|description=When a chest opens
+|id=random.chestopen
+|volume=0.5
+|pitch=0.9-1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Trapped Chest
+|spritetype=block
+|nameid=trapped_chest
+|blocktags=guarded_by_piglins
+|foot=1}}
+{{ID table
+|displayname=Block entity
+|spritename=trapped-chest
+|spritetype=block
+|nameid=trapped_chest
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Trapped Chest
+|spritetype=block
+|nameid=trapped_chest
+|id=146
+|foot=1}}
+{{ID table
+|notnamespaced=y
+|displayname=Block entity
+|spritename=trapped-chest
+|spritetype=block
+|nameid=Chest
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+
+{{:Chest/BS}}
+
+=== Block data ===
+Every trapped chest has a [[block entity]] associated with it that holds additional data about the trapped chest.
+
+{{el|java}}:
+{{see also|Block entity format}}
+{{:Chest/BE}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Block entity format]].
+
+== Video ==
+<div style="text-align:center">{{yt|EU7VmXeutc0}}</div>
+
+== History ==
+{{History|java}}
+{{History||1.5|snap=13w01a|[[File:Trapped Chest.gif|30px]] [[File:Trapped Large Chest.gif|32px]]<br>[[File:Trapped Chest (N) JE1 BE1.png|32px]] [[File:Trapped Chest (E) JE1 BE1.png|32px]] [[File:Trapped Chest (S) JE1 BE1.png|32px]] [[File:Trapped Chest (W) JE1 BE1.png|32px]] Added trapped chests.}}
+{{History|||snap=13w02a|Trapped chests have been moved from the Redstone section to the Decoration Blocks section in the [[creative]] mode [[inventory]].}}
+{{History|||snap=13w02b|Trapped chests now strongly power a [[block]] beneath them.}}
+{{History||1.8.9|[[File:Xmas Chest.png|32px]] [[File:Xmas Large Chest.png|32px]] Trapped chests now look like [[wikipedia:Gift|presents]] between December 24 and 26 to suit [[wikipedia:Christmas|Christmas]].}}
+{{History||1.9|snap=15w31a|Trapped chests now have their [[item]] [[model]] rotated, to have the front face in view of the [[player]].}}
+{{History|||snap=15w43a|[[Loot table]]s have been added; trapped chests now can use loot tables.}}
+{{History|||snap=15w49a|Trapped chests have been moved from the Decoration Blocks section to the Redstone section in the [[creative]] [[inventory]], like they were in [[13w01a]].}}
+{{History|||snap=16w05a|The [[crafting]] recipe for trapped chests is now shapeless.
+{{{!}} class{{=}}"collapsible collapsed" data-description{{=}}"Old recipe"
+! Old recipe
+{{!}}-
+{{!}}
+{{Crafting Table
+|A2= Tripwire Hook
+|B2= Chest
+|Output= Trapped Chest
+}}
+{{!}}} }}
+{{History||1.11|snap=16w39a|Trapped chests now generate in [[woodland mansion]]s.}}
+{{History||1.13|snap=17w47a|Trapped chests can now be put directly next to their large variant instead of requiring one [[block]] between them.
+|[[Sneaking|Crouching]] while placing a trapped chest now makes it try to connect only to the clicked block.
+|Prior to [[1.13/Flattening|''The Flattening'']], this [[block]]'s numeral ID was 146.
+|Trapped chests now have the block entity ID {{code|trapped_chest}}.}}
+{{History|||snap=17w47b|Trapped chests now have the block entity ID {{code|chest}} again.}}
+{{History|||snap=18w10c|[[Water]] can now be placed on the same block as trapped chests.}}
+{{History||1.15|snap=19w39a|The trapped chest texture layout has been changed.}}
+{{History||?|Trapped chests now have the block entity ID {{code|trapped_chest}} again.}}
+
+{{History|pocket alpha}}
+{{History||v0.13.0|snap=build 1|[[File:Trapped Chest.gif|32px]] Added trapped chests.}}
+{{History||v0.14.0|snap=build 1|[[File:Trapped Large Chest.gif|32px]] Trapped chests can now form large trapped chests.}}
+{{History||v0.15.0|snap=build 1|Trapped chests can now be moved by [[piston]]s.}}
+{{History||?|A trapped chest's custom name now appears in the GUI.}}
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Trapped chests now naturally generate in [[woodland mansion]]s.}}
+{{History|bedrock}}
+{{History||1.4.0|[[Water]] can now be placed on the same [[block]] as trapped chests.}}
+{{History|bedrock upcoming}}
+{{History||1.20.40|snap=beta 1.20.40.20|Trapped chests now use the <code>minecraft:cardinal_direction</code> [[block state]] instead of <code>facing_direction</code>.}}
+
+{{History|console}}
+{{History||xbox=TU19|xbone=CU7|ps=1.12|wiiu=Patch 1|switch=1.0.1|[[File:Trapped Chest.gif|30px]] [[File:Trapped Large Chest.gif|32px]] Added trapped chests.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Trapped Chest.gif|30px]] [[File:Trapped Large Chest.gif|32px]] Added trapped chests.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list}}
+
+== Trivia ==
+* Trapped chests render as a full block when in the inventory, but not when placed.{{only|bedrock}}<ref>{{bug|MCPE-7990}}</ref>
+
+== References ==
+{{Reflist}}
+
+{{Redstone}}
+{{Blocks|Utility}}
+
+[[Category:Block entities]]
+[[Category:Redstone]]
+[[Category:Mechanisms]]
+[[Category:Redstone mechanics]]
+[[Category:Mechanics]]
+[[Category:Storage]]
+[[Category:Utility blocks]]
+[[Category:Manufactured blocks]]
+
+[[cs:Nástražná truhla]]
+[[de:Redstone-Truhe]]
+[[es:Cofre trampa]]
+[[fr:Coffre piégé]]
+[[it:Baule trappola]]
+[[ja:トラップチェスト]]
+[[ko:덫 상자]]
+[[nl:Kist met valstrik]]
+[[pl:Skrzynia-pułapka]]
+[[pt:Baú com armadilha]]
+[[ru:Сундук-ловушка]]
+[[zh:陷阱箱]]

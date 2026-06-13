@@ -1,0 +1,120 @@
+<div class="treeview">
+* {{nbt|compound}} Entity data
+** {{nbt inherit/entity}}
+** {{nbt inherit/mob}}
+** {{nbt|byte|FromBucket}}: 1 or 0 (true/false) - Whether the fish had ever been released from a bucket.
+** {{nbt|int|Variant}}: A 4-byte integer.
+*** The least significant byte has a value of either 0 for a small fish, or 1 for a large fish.  Values above 1 result in an invisible fish.
+*** The next byte has a value from 0–5, representing the pattern on the fish.  Values above 5 result in a fish with no pattern.
+*** The next byte has a value from 0–15, representing the color of the fish's body.
+*** The most significant byte has a value from 0–15, representing the color of the fish's pattern.
+</div>
+{{LoadPage|Tropical Fish/DV|Color|h4}}
+
+The fish sizes and patterns are depicted in the following table, with white body color and dark-gray pattern color.
+
+{| class="wikitable"
+|-
+| colspan=2 rowspan=2 |
+! colspan=6 | second-least byte
+|-
+! 0 !! 1 !! 2 !! 3 !! 4 !! 5
+|-
+! rowspan=2 | <div style="-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -o-transform: rotate(270deg); white-space: nowrap; margin: 0 -1.6em;">least byte</div> || 1
+| colspan=6 rowspan=2 style="padding:0 0 0 0;" | 
+  {| style="line-height:1.2em; text-align:center;"
+  |-
+  | style="padding:0 0 0 0;" | 
+    {| style="width:300px; table-layout:fixed;"
+    | colspan=3 style="width:23.1%" | Flopper
+    |           style="width:7.7%"  | 
+    | colspan=3 style="width:23.1%" | Glitter
+    |           style="width:7.7%"  | 
+    | colspan=3 style="width:23.1%" | Betty
+    | colspan=2 style="width:15.4%" | 
+    |-
+    | colspan=2 style="width:15.4%" | 
+    | colspan=3 style="width:23.1%" | Stripey
+    |           style="width:7.7%"  | 
+    | colspan=3 style="width:23.1%" | Blockfish
+    |           style="width:7.7%"  | 
+    | colspan=3 style="width:23.1%" | Clayfish
+    |}
+  |-
+  | style="padding:0 0 0 0;" | [[File:Tropical Fish Patterns.png|300px]]
+  |-
+  | style="padding:0 0 0 0;" | 
+    {| style="width:300px; table-layout:fixed;"
+    | colspan=3 style="width:23.1%" | Kob
+    |           style="width:7.7%"  | 
+    | colspan=3 style="width:23.1%" | Snooper
+    |           style="width:7.7%"  | 
+    | colspan=3 style="width:23.1%" | Brinely
+    | colspan=2 style="width:15.4%" | 
+    |-
+    | colspan=2 style="width:15.4%" | 
+    | colspan=3 style="width:23.1%" | Sunstreak
+    |           style="width:7.7%"  | 
+    | colspan=3 style="width:23.1%" | Dasher
+    |           style="width:7.7%"  | 
+    | colspan=3 style="width:23.1%" | Spotty
+    |}
+  |}
+|-
+! 0
+|}
+
+The 22 varieties of tropical fish most commonly found throughout the world have <code>Variant</code> tag values from the following table, which also lists what color/shape/patterns come from that value.
+
+{| class="wikitable sortable"
+|-
+! Shape !! Pattern !! Base color !! Pattern color !! Variant !! Type !! Name
+|-
+| 0 || 0 || 1 || 0 || 65536 || Orange-White Kob || ''Clownfish''
+|-
+| 0 || 1 || 7 || 0 || 459008 || Gray-White Sunstreak || ''Triggerfish''
+|-
+| 0 || 0 || 14 || 0 || 917504 || Red-White Kob || ''Tomato Clownfish''
+|-
+| 1 || 3 || 14 || 0 || 918273 || Red-White Blockfish || ''Red Snapper''
+|-
+| 1 || 4 || 14 || 0 || 918529 || Red-White Betty || ''Red Cichlid''
+|-
+| 1 || 5 || 0 || 1 || 16778497 || White-Orange Clayfish || ''Ornate Butterflyfish''
+|-
+| 0 || 4 || 5 || 3 || 50660352 || Lime-Light Blue Brinely || ''Queen Angelfish''
+|-
+| 0 || 5 || 6 || 3 || 50726144 || Pink-Light Blue Spotty || ''Cotton Candy Betta''
+|-
+| 1 || 0 || 0 || 4 || 67108865 || White-Yellow Flopper || ''Threadfin''
+|-
+| 0 || 5 || 0 || 4 || 67110144 || White-Yellow Spotty || ''Goatfish''
+|-
+| 1 || 0 || 4 || 4 || 67371009 || Yellow Flopper || ''Yellow Tang''
+|-
+| 0 || 3 || 9 || 4 || 67699456 || Cyan-Yellow Dasher || ''Yellowtail Parrotfish''
+|-
+| 1 || 3 || 10 || 4 || 67764993 || Purple-Yellow Blockfish || ''Dottyback''
+|-
+| 0 || 3 || 9 || 6 || 101253888 || Cyan-Pink Dasher || ''Parrotfish''
+|-
+| 1 || 2 || 0 || 7 || 117441025 || White-Gray Glitter || ''Moorish Idol''
+|-
+| 1 || 5 || 0 || 7 || 117441793 || White-Gray Clayfish || ''Butterflyfish''
+|-
+| 1 || 1 || 1 || 7 || 117506305 || Orange-Gray Stripey || ''Anemone''
+|-
+| 1 || 0 || 7 || 7 || 117899265 || Gray Flopper || ''Black Tang''
+|-
+| 0 || 1 || 11 || 7 || 118161664 || Blue-Gray SunStreak || ''Cichlid''
+|-
+| 1 || 0 || 7 || 11 || 185008129 || Gray-Blue Flopper || ''Blue Tang''
+|-
+| 1 || 5 || 0 || 14 || 234882305 || White-Red Clayfish || ''Emperor Red Snapper''
+|-
+| 0 || 2 || 7 || 14 || 235340288 || Gray-Red Snooper || ''Red Lipped Blenny''
+|}
+The variant number is the sum of the most significant byte &times; 2<sup>24</sup> + second most significant byte &times; 2<sup>16</sup> +  second least significant byte &times; 2<sup>8</sup> + least significant byte.
+<noinclude>
+[[Category:Entity data pages]]
+</noinclude>

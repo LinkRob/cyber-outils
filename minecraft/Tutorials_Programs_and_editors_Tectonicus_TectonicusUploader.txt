@@ -1,0 +1,42 @@
+{{disclaimer}}
+{{Program
+| title = TectonicusUploader
+| image = TectonicusLogo.png
+| author = LordMike91
+| platform = {{OS|Win|Linux|Mac}}
+| programming language = Python
+| version = 0.3
+| license = 
+| source available = Yes
+| date = July, 2011
+}}
+
+'''TectonicusUploader''' is a Python script developed to upload files from the Changed.txt that the deep map renderer [[Programs and editors/Tectonicus|Tectonicus]] creates.
+
+Run it using ''python uploader.py''
+
+==Script==
+{{Escaped redlink|File:UploadChanged.txt}}<br />
+'''''Rename this file to .py.'''''
+
+Alter the "Vars" section to fit it to your needs.
+
+==Changelog==
+===V 0.5===
+Error handling on a failed upload. It will now keep retrying the same file till it's uploaded. 
+
+===V 0.4===
+Fix bug occurring on windows. Where images opened without the binary tag (open(..., 'rb')) would end on the first Null byte rather than at the EOF.
+
+===V 0.3===
+Fix bug when script was meant to create multiple directories. F.ex. at a completely new render. Script is optimized to only attempt creations once.
+
+===V 0.2===
+Alterations to better handle linux systems
+
+===V 0.1===
+Initial creation
+
+[[Category:Custom software]]
+
+[[zh:辅助程序与编辑器/Tectonicus/TectonicusUploader]]

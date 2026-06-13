@@ -1,0 +1,40 @@
+{{ScriptWarning}}
+
+== Installation ==
+*  Install the Java developer kit and the minecraft installer script
+<pre>
+$ doas pkg_add jdk minecraft
+</pre>
+
+Run <code>minecraft</code> and follow what it tells you to do via terminal, then run <code>minecraft</code> again to start Minecraft. The setup script will only run the first run after installation.
+
+Do not change the executable location in your launcher profile as Minecraft will not launch, OpenBSD needs Minecraft to run from a set location to correctly work.
+
+== Running a server ==
+Download the server java executable (.jar) from [https://www.minecraft.net/en-us/download/server the Minecraft website], place it in a directory within your home directory (or wherever accessible), then cd to that directory and run: 
+<pre>
+$ java -Xmx1024M -Xms1024M -jar minecraft_server.jar --nogui
+</pre>
+to start the server.
+You may want to write a shell file with:
+<pre>
+$ nano minecraft_server.sh
+</pre>
+then enter:
+<pre>
+java -Xmx1024M -Xms1024M -jar minecraft_server.jar --nogui
+</pre>
+Press CTRL-X then Y to save.
+To make this runnable through a file explorer, use:
+<pre>
+$ chmod +x minecraft_server.sh
+</pre>
+Otherwise use:
+<pre>
+$ sh minecraft_server.sh
+</pre>
+{{tutorials}}
+
+[[Category:Server]]
+
+[[zh:教程/OpenBSD启动脚本]]

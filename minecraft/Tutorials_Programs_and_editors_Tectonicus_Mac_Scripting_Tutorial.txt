@@ -1,0 +1,290 @@
+{{disclaimer}}
+
+Tectonicus can be scripted to run on any Linux- or BSD-based operating system, including Mac OS X. This gives the system administrator the ability to generate maps on a schedule without having to manually trigger anything.
+
+Two things are required to make this happen: a script, and a crontab entry.
+
+== Example Script ==
+The script is the actual thing that gets executed to perform the Tectonicus render.  It contains the Tectonicus commands and anything else that you might want to include.  The example script below triggers Tectonicus and uploads the resulting map to a web server using rsync, and also times how long each operation takes and then writes the results out to a short log file.
+
+First, here is the entire script:
+
+<pre>
+# Script to run Tectonicus 2.02 on Minecraft map data and send results to web server
+# 
+# The script will terminate with the following result codes:
+# 0 - success
+# 3 - Tectonicus terminated with some kind of error
+# 4 - rsync terminated with some kind of error
+#
+# Let's make some variables!
+#
+# Log file where we track the progress of this script:
+LOG="/Users/You/Applications/minecraft-server/tectonicusnightly-log.txt"
+#
+# Previous run's log file:
+LOGOLD="/Users/You/Applications/minecraft-server/tectonicusnightly-log.old"
+#
+# Location of map files:
+WORLDWORKDIR="/Users/You/Applications/minecraft-server/world"
+#
+# Location of current Tectonicus build:
+TECTJAR="/Users/You/Applications/minecraft-server/Tectonicus_v2.02.jar"
+#
+# Location of current Tectonicus config files:
+TECTCONFIG="/Users/You/Applications/minecraft-server/tectonicus.xml"
+#
+# Places where Tectonicus writes its output files (set in tectonicus.xml file):
+TECTOUTPUT="/Users/You/Applications/minecraft-server/tectonicus"
+#
+# FQDN of the web server where the finished map will live and be available:
+WEBSERVER=whatever.something.com
+#
+# Service account for logging onto the web server:
+WEBSVC=yourwebserveraccount
+#
+# Finished map's location on the web server:
+WEBSERVERPATH=/var/www/tectonicus-map
+#
+#
+#
+#
+# Storing the starting time in a variable, which we'll use to figure out how long the script runs
+#
+STARTTIME="$(date +%s)"
+#
+# Setting up a log file to watch over all of this:
+if [ -f $LOG ]
+then
+	mv -f $LOG $LOGOLD
+	echo "Previous log found and backed up to tectonicusnightly-log.old" >> $LOG
+	echo "Starting run at $(date)" >> $LOG
+else
+	echo "No previous log found! Creating log..." >> $LOG
+	touch $LOG
+	echo "Starting run at $(date)" >> $LOG
+fi
+#
+#
+#
+#
+# Invoking Tectonicus and running it for the map, making sure it completes OK:
+#
+echo "$(date +"%T") - Now running Tectonicus to generate maps..." >> $LOG
+java -jar $TECTJAR config=$TECTCONFIG
+if [ "$?" -ne "0" ]; then
+        echo "$(date +"%T") - Tectonicus maps failed to complete--check TectonicusLog.txt for details" >> $LOG
+	echo "$(date +"%T") - Aborting" >> $LOG
+        exit 3
+else
+        echo "$(date +"%T") - ...Tectonicus finished rendering maps" >> $LOG
+fi
+#
+#
+#
+#
+# Finally, we need to get the results up onto the web server.  Rsync is the best tool, and will make sure
+# we don't have to transfer the entire set of map files every time.  Rather than running the rsync daemon
+# on the server, we'll just push the rsync traffic through ssh.  You'll need to enable ssh key authentication,
+# to make this work seamlessly. We also do this using the web service account so that the ownership of the
+# files is correct on the web server.
+#
+echo "$(date +"%T") - Transferring new and changed map files to web server via rsync..." >> $LOG
+rsync --delete --force -aPe ssh --exclude 'Cache' $TECTOUTPUT/* $WEBSVC@$WEBSERVER:$WEBSERVERPATH
+if [ "$?" -ne "0" ]; then
+        echo "$(date +"%T") - Error transferring map files -- aborting" >> $LOG
+        exit 4
+else
+        echo "$(date +"%T") - ...rsync of map files to web server completed successfully" >> $LOG
+fi
+#
+#
+#
+#
+# Recording the time now in another variable, so we can measure the script's execution time.
+#
+STOPTIME="$(date +%s)"
+ELAPSEDTIME="$(expr $STOPTIME - $STARTTIME)"
+#
+#
+#
+#
+# We don't really have any temp files or anything to clean up, so we can do our time math and stop here.
+#
+echo "Nightly run completed successfully at $(date)" >> $LOG
+# OS X date
+echo "Total time elapsed: $(date -ur $ELAPSEDTIME +%H:%M:%S)" >> $LOG
+# Linux date
+#echo "Total time elapsed: $(date -u -d @$ELAPSEDTIME +%H:%M:%S)" >> "$LOG"
+#
+# All done!
+exit 0
+</pre>
+
+== Example Script Breakdown ==
+
+That might look like a pretty intimidating block of text up there, especially if you've never done any scripting before, so let's dive into what each of the sections does.
+
+=== Exit Status ===
+
+The very topmost part of the script lists the potential [[wikipedia:Exit status|exit status]] that the script could report when it stops running.
+
+<pre>
+# The script will terminate with the following result codes:
+# 0 - success
+# 3 - Tectonicus terminated with some kind of error
+# 4 - rsync terminated with some kind of error
+</pre>
+
+An exit status of 0 means that no errors were reported, while other numbers indicate either a failure with Tectonicus itself or a failure during rsync.  These exit status numbers could be used to determine what to do next based on what failed—for example, you could  re-trigger Tectonicus if the script returns an exit code of 3. This script doesn't do any of that, though.
+
+=== Variables ===
+
+The next part of the example script sets variables that the rest of the script uses. This is done so that you can change things around (like the Tectonicus jar file or the locations of the working files) without having to edit the main part of the script.
+
+<pre>
+# Log file where we track the progress of this script:
+LOG="/Users/You/Applications/minecraft-server/tectonicusnightly-log.txt"
+#
+# Previous run's log file:
+LOGOLD="/Users/You/Applications/minecraft-server/tectonicusnightly-log.old"
+#
+# Location of map files:
+WORLDWORKDIR="/Users/You/Applications/minecraft-server/world"
+#
+# Location of current Tectonicus build:
+TECTJAR="/Users/You/Applications/minecraft-server/Tectonicus_v2.02.jar"
+#
+# Location of current Tectonicus config files:
+TECTCONFIG="/Users/You/Applications/minecraft-server/tectonicus.xml"
+#
+# Places where Tectonicus writes its output files (set in tectonicus.xml file):
+TECTOUTPUT="/Users/You/Applications/minecraft-server/tectonicus"
+#
+# FQDN of the web server where the finished map will live and be available:
+WEBSERVER=whatever.something.com
+#
+# Service account for logging onto the web server:
+WEBSVC=yourwebserveraccount
+#
+# Finished map's location on the web server:
+WEBSERVERPATH=/var/www/tectonicus-map
+</pre>
+You'll want to fill in your own information in each of these spots. Here's what they're for:
+* The '''LOG''' variable is the place where this script writes its own simple log file, which is just a simple text file. The log file records whether or not the script ran, and where it failed if it didn't complete. More importantly, it records how log the script takes to run.
+* '''LOGOLD''' is the name that the previous run's log file will be changed to every time. This way, the script will keep the last run's log file rather than just overwriting it.
+* '''WORLDWORKDIR''' is the location of the Minecraft map data files. Set this to wherever the Minecraft map is on your computer. If you're running your Minecraft map on another server, then copy it to your computer first.
+* '''TECTJAR''' is the location of the current Tectonicus jar file.  As Tectonicus is updated, you'll change this variable to point to the new jar files.
+* '''TECTCONFIG''' is the XML configuration file for Tectonicus.  It's possible to have multiple config files for Tectonicus and list them here with different variable names, then trigger Tectonicus multiple times to render different maps.
+* '''TECTOUTPUT''' is where Tectonicus will place the map it generates. This is what you'd then copy to a web server, either on your LAN or somewhere on the Internet.
+* '''WEBSERVER''' is the fully-qualified domain name of the sever where rsync will copy the Tectonicus map.
+* '''WEBSVC''' is the account that rsync will use to log onto the web server. Note that to make this process seamless and secure, you'll want to enable ssh key authentication on the web server, if that's allowed. Otherwise, you'll have to specify the account password in this script. [https://help.ubuntu.com/community/SSH/OpenSSH/Keys Here's a howto] on setting up key-based ssh authentication.
+* '''WEBSERVERPATH''' is the location on the web server where the Tectonicus map files will be placed so that they can be served out to the Internet.
+
+=== Logging ===
+The first thing that the next section does is set another variable, named '''STARTTIME''', which records the time to the second that the script starts:
+<pre>
+STARTTIME="$(date +%s)"
+</pre>
+The time is recorded in [[wikipedia:Unix time|Unix time]], which gives us the number of seconds elapsed since 00:00 on 1 January 1970. At the end of the script, we'll store the Unix time in another variable, which will give us the number of seconds that the entire script took to run.  Just recording the seconds makes the time math a lot easier—this way, we don't have to do multiple hour/minute/second conversions, since we're already working with seconds.
+
+Next we set up our script's log file:
+<pre>
+if [ -f $LOG ]
+then
+	mv -f $LOG $LOGOLD
+	echo "Previous log found and backed up to tectonicusnightly-log.old" >> $LOG
+	echo "Starting run at $(date)" >> $LOG
+else
+	echo "No previous log found! Creating log..." >> $LOG
+	touch $LOG
+	echo "Starting run at $(date)" >> $LOG
+</pre>
+The first thing we do is check to see if there's already a log file, and if one exists, we rename it with the mv command to the value in the '''LOGOLD''' variable.  After that, a note gets placed in the log file that the old log has been backed up, and records the time that this script starts running.
+
+If no old log file exists, the script makes one, and then records the time in it.
+
+=== Running Tectonicus ===
+The next section actually starts Tectonicus and waits for it to finish rendering before moving on.
+<pre>
+echo "$(date +"%T") - Now running Tectonicus to generate maps..." >> $LOG
+java -jar $TECTJAR config=$TECTCONFIG
+if [ "$?" -ne "0" ]; then
+        echo "$(date +"%T") - Tectonicus maps failed to complete--check TectonicusLog.txt for details" >> $LOG
+	echo "$(date +"%T") - Aborting" >> $LOG
+        exit 3
+else
+        echo "$(date +"%T") - ...Tectonicus finished rendering maps" >> $LOG
+</pre>
+The first line notes in the log file the time Tectonicus actually starts, and then the next line executes Tectonicus, using the variables set in the beginning of the script to specify where the Tectonicus jar and config files live.
+
+The next part, starting with the "IF" statement, looks at the exit status that Java spits out when it finishes. If Tectonicus runs successfully and reports no errors, then the Java process will send back an exit status of 0 when it's done.  The script is watching for an exit status of anything except 0 (that's the "if $? -ne 0" bit—if the exit code is not equal to zero), and if it sees anything except zero, it writes its own error message to the log file and terminates.
+
+However, if Java does indeed return a status of zero—indicating a successful Tectonicus run—we note that in the long, along with the time, and move on to the next section.
+
+=== Transferring The Map with Rsync ===
+
+[[wikimedia:Rsync|Rsync]] is a powerful file transfer tool with many uses, but the one we care about most here is its ability to look at a whole bunch of files at a source and at a destination, and then only transfer the files from source to destination that are different.  Tectonicus generates lots and lots and lots of files, and you will save huge amounts of time by transferring to your web server only the new bits of the map every night instead of copying the whole thing every time.
+<pre>
+echo "$(date +"%T") - Transferring new and changed map files to web server via rsync..." >> $LOG
+rsync --delete --force -aPe ssh --exclude 'Cache' $TECTOUTPUT/* $WEBSVC@$WEBSERVER:$WEBSERVERPATH
+if [ "$?" -ne "0" ]; then
+        echo "$(date +"%T") - Error transferring map files -- aborting" >> $LOG
+        exit 4
+else
+        echo "$(date +"%T") - ...rsync of map files to web server completed successfully" >> $LOG
+fi
+</pre>
+The first line records the time rsync starts transferring, and the second line executes rsync. Here's a what each of the command line arguments do:
+* '''--delete''' removes files on the destination that have been removed on the source, which helps keeps clutter to a minimum
+* '''--force''' ensures that directories that have been removed on the source get removed on the destination, again helping to keep clutter down
+* '''-aPe''' is three options lumped into one:
+** '''a''' tells rsync to use its "archive" preset, which basically tells rsync to copy all the subdirectories within the directory you're copying, and to preserve the layout and attributes of the files.
+** '''P''' tells rsync to keep partially-transferred files, and also to display a progress indicator as the copy runs, so you have something to look at if you happen to be at your computer while the script is running
+** '''e ssh''' tells rsync that it's going to use ssh on the remote computer to execute commands
+* '''--exclude 'Cache'''' makes rsync skip copying over the Tectonicus cache directory. The cache directory can be very large and contain hundreds of thousands of files, so not transferring this to the web server can save a lot of time.
+* '''$TECTOUTPUT/* $WEBSVC@$WEBSERVER:$WEBSERVERPATH''' tells rsync to copy the Tectonicus output directory to the desired destination path on the web server, logging on with the account you specified. The values you put in the variables section at the beginning are substituted in when the command is run by the script.
+
+=== Timing and Completion ===
+The last two sections measure how long the entire script ran, record the info in the log file, and then report a successful exit.
+<pre>
+# Recording the time now in another variable, so we can measure the script's execution time.
+#
+STOPTIME="$(date +%s)"
+ELAPSEDTIME="$(expr $STOPTIME - $STARTTIME)"
+#
+#
+#
+#
+# We don't really have any temp files or anything to clean up, so we can do our time math and stop here.
+#
+echo "Nightly run completed successfully at $(date)" >> $LOG
+# OS X date
+echo "Total time elapsed: $(date -ur $ELAPSEDTIME +%H:%M:%S)" >> $LOG
+# Linux date
+#echo "Total time elapsed: $(date -u -d @$ELAPSEDTIME +%H:%M:%S)" >> "$LOG"
+#
+# All done!
+exit 0
+</pre>
+The current Unix time is recorded in the '''STOPTIME''' variable, and then using some handy bash math, '''STARTTIME''' is subtracted from '''STOPTIME''', which gives us the number of seconds that the script took to run.  This value is converted to hours/minutes/seconds and recorded in the log file.  (Some limited testing reveals that the '''date -ur''' function works correctly on OS X, but doesn't appear to work on Linux).  Lastly, we report an exit status of 0 and the script comes to an end.
+
+For Linux, try using the alternate "Total time elapsed" line. [[User:Seanos|Seanos]] 07:11, 1 October 2011 (UTC)
+
+== Making Things Run Automatically With Cron ==
+The preferred way to schedule a task on OS X is to use [[wikipedia:Launchd|launchd]], but these instructions are for cron, since that will work on both OS X and also other Linux- and BSD-based operating systems. For instructions on setting up a launchd job to execute a script every night, use Google.
+
+To tell cron to run this script nightly whether or not a user is logged on, you'll need to edit the system crontab file, which is located at /etc/crontab (though on OS X 10.6.x, the file might not exist—if that's the case, then you can create it yourself).  Open the file for editing and paste in the following line:
+
+<pre>
+0 1 * * * root <path to your script> &> /dev/null
+</pre>
+
+Make sure to substitute in the path to the Tectonicus script.  The first two characters are the minute and hour that cron will execute the script in 24-hour notation, so the line as it is above will run the script every night at 01:00.  To change it to 03:30, you'd replace the "0" with "30" and the "1" with "3".
+
+== Wrapping Up ==
+The script above is just an example of one way to automate the execution of Tectonicus—it can be modified to do lots of other things, including execute multiple instances of Tectonicus, either in serial or parallel.
+
+This article would probably benefit from instructions on creating a launchd item instead of using cron, but cron works fine for me, so I haven't put in the time to figure out how to make launchd work instead.
+
+[[Category:Tectonicus]]

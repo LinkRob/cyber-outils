@@ -1,0 +1,24 @@
+{{lowercase title}}
+{{Stub}}
+{{Merge|Server}}
+
+<samp>'''whitelist.json'''</samp> is a server configuration file that stores the usernames of players who have been whitelisted on a server. This file is only used on [[multiplayer]] servers. To activate the whitelist, the ''white-list'' value in <samp>[[server.properties]]</samp> must be changed to true: <code>white-list=true</code>. Then only the named users are allowed to connect to the server.
+
+Each entry in <samp>'''whitelist.json'''</samp> is a JSON object with two elements, <code>uuid</code> and <code>name</code>.
+<code>uuid</code> is the UUID (Universally Unique Identifier) of a player, and <code>name</code> is the username of a player.
+<syntaxhighlight lang="json">
+[
+  {
+    "uuid": "f430dbb6-5d9a-444e-b542-e47329b2c5a0",
+    "name": "username"
+  },
+  {
+    "uuid": "e5aa0f99-2727-4a11-981f-dded8b1cd032",
+    "name": "username"
+  }
+]
+</syntaxhighlight>
+As well as manually editing the file, the command {{cmd|whitelist}} can also be used by [[operator]]s. When editing the file manually while the server is running, the command {{cmd|whitelist reload}} needs to be used for the changes to take effect.
+
+{{Minecraft}}
+[[ja:whitelist.json]]

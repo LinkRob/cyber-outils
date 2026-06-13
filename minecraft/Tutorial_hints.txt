@@ -1,0 +1,59 @@
+{{about|survival mode hints|user-created tutorials|Tutorials|the tutorial world that existed in Legacy Console Edition|Legacy Console Edition tutorial|the hints feature that existed in Legacy Console Edition|Legacy Console Edition Hints}}
+{{exclusive|java}}
+[[File:Hints.gif|thumb|320px|All the hints in order]]
+[[File:HintProgress.gif|thumb|An animation demonstrating the advancements bar (click to play)]]
+
+'''Tutorial hints''' are tabs in the right-hand corner of the player's screen which show up when a player starts a world in [[Survival mode]] for the first time on a device. They are meant to guide new players who may not know the controls.
+
+== Interface ==
+When a [[Survival]] world is generated for the first time on a device, the first tutorial hint appears: the movement hint. Each tutorial hint appears as a toast in the top right of the screen (much like new [[Recipe Book|recipes]] and [[advancements]]). Each hint consists of the hint title, a description of how to complete it, and an image to describe it. Once the tutorial hint has been completed (for example, when the player harvests a tree's log), that tutorial hint disappears. After a certain amount of time, the next hint is shown automatically. Once the "craft wooden planks" hint is completed, tutorial hints never again appear in any world.
+
+Tutorial hints are obtained by simply completing the task given. Each hint, minus the "Open your inventory" and the "Craft wooden planks" hint, have a progress bar that shows the player's progress on the current hint and fills up as it is being completed. For example, for the "Destroy the tree" hint, the progress bar begins emptying and starts filling up as the player harvests a log, so that when the log is destroyed, the bar is complete and the hint disappears.
+
+In [[Creative]] mode, only the first two hints are displayed.
+
+=== options.txt ===
+The gameplay stages of the tutorial is stored as <code>tutorialStep:</code> in the <code>[[options.txt]]</code> file in the game directory, except the [[Social Interactions]] hint, which is stored as <code>joinedFirstServer:</code>, so they are kept per device and per directory (you can set up more profiles with different game directories in the launcher options). After the last guide is shown, the value <code>none</code> is saved. Changing TutorialStep to this value (the game must be closed beforehand) prevents the instructions from appearing.
+
+== List of hints ==
+{| class="wikitable"
+|-
+! Image !! In-game title and description !! Actual requirements (if different) !! options.txt name
+|-
+| [[File:Movement hint.png]] || Move with '''{{Control|Forwards}}''', '''{{Control|Left}}''', '''{{Control|Backwards}}''', and '''{{Control|Right}}'''<br>  Jump with '''{{Control|Jump}}''' || Use {{Control|move}} and {{Control|jump}} to move around. || <code>movement</code>
+|-
+| [[File:Find tree hint.png]] || Look around<br> Use your mouse to turn || || <code>find_tree</code>
+|-
+| [[File:Punch tree hint.png]] || Destroy the tree<br> Hold down '''{{Control|Mine}}''' || {{Control|Mine}} a [[log]] block until it breaks. || <code>punch_tree</code>
+|-
+| [[File:Open inventory hint.png]] || Open your inventory<br> Press '''{{Control|Inventory}}''' || || <code>open_inventory</code>
+|-
+| [[File:Craft planks hint.png]] || Craft wooden planks<br> The recipe book can help || Put wood in a [[crafting table]] or the [[inventory]] crafting. || <code>craft_planks</code>
+|-
+| [[File:Social Interactions hint JE2.png]] || Social Interactions<br> Press '''{{Control|Social Interactions}}''' to open || || <code>joinedFirstServer</code>
+|}
+
+== History ==
+{{History|java}}
+{{History||1.12|snap=17w16a|Added tutorial hints.}}
+{{History|||snap=pre3|Tutorial hints are now more accurate with deciding whether or not to display.}}
+{{History||1.16.4|snap=Pre-release 1|[[File:Social Interactions hint JE1.png]] Added the [[Social Interactions]] tutorial hint.}}
+{{History|||snap=Pre-release 2|[[File:Social Interactions hint JE2.png]] The icon for the the [[Social Interactions]] tutorial hint has changed.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list}}
+
+== See also ==
+*[[Loading tips]]
+
+{{gameplay}}
+
+[[Category:Rewritten gameplay]]
+
+[[de:Anleitungs-Hinweise]]
+[[fr:Tutoriel d'indices]]
+[[ja:チュートリアルヒント]]
+[[pl:Podpowiedzi]]
+[[pt:Dicas de tutoriais]]
+[[zh:教学提示]]

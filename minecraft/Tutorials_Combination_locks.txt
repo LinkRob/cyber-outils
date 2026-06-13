@@ -1,0 +1,151 @@
+<onlyinclude><noinclude>'''</noinclude>Combination locks<noinclude>'''</noinclude> are a type of [[redstone circuit]]. They generally have a number of components which must be set in the right combination in order to activate something such as a [[door]]. Combination locks can be very useful in creating [[Tutorials/Creating a challenge map|adventure maps]]. Note that if you are playing in survival multiplayer, other [[player]]s will still be able to break into the mechanism and cause it to activate without knowing the password.</onlyinclude>
+
+==Order-insensitive combination locks==
+=== Lever lock ===
+{{Schematic|caption='''Lever lock''' <br /> ''16 (2<sup>4</sup>) combinations''
+| | | |output+rt-s!|-
+|le-e!|input|rt-w|SB+rd-sw|-
+|le-e|input|SB+rr-e1|SB+rd-nsw|-
+|le-e!|input|rt-w|SB+rd-nsw|-
+|le-e|input|SB+rr-e1|SB+rd-nw
+}}
+
+A [[lever]] lock is one of the easiest redstone locks to create. Each lever doubles the number of combinations the lock has. The possibilities can be found using 2<sup>''n''</sup>, where ''n'' is the number of levers used.
+
+When constructing, you will probably first want to place the levers and put them into the desired positions. Next, you should place the [[redstone torch]]es and [[repeater]]s. Torches go behind levers that are down and repeaters go behind levers that are up. When you are done, all of the torches and repeaters should be turned off. If not, double check any components that are turned on.
+
+{{Collapse
+|title='''Detailed Instructions'''
+|content=
+Follow these steps carefully.
+
+;Step 1:
+First, place an 11 block row of any [[block]], and make it two blocks high. Then, add a row of 7 branching off both sides.
+
+[[File:Start Build.png|200px]]
+
+;Step 2
+Add [[lever]]s/switches on the bottom row of the 11 blocks, followed by [[sign]]s on the top row. Each sign should have a number in order (1, 2, 3 etc.). Alternatively, you can make the signs have letters or words on them instead.
+
+[[File:Signs.png|200px]] [[File:fin1.png|200px]]
+
+;Step 3
+Place a [[repeater]] in front of each block of the row that has the levers.
+
+[[File:redtone1.png|200px]]
+
+;Step 4
+According to the password you want, you need to place a block in front of the switches that make up your password and put a [[redstone torch]] on top of each. For example, if your password for 1-2-6 (like in the example), each block and redstone torch is placed in front of switches 1, 2 and 6.
+
+[[File:block3.png|200px]]
+
+;Step 5
+Next, place a block in front of each block that you just placed. Fill all the spaces in between the blocks with repeaters.
+
+[[File:redblock3.png|200px]]
+
+;Step 6
+Place a row of [[redstone dust]] in front of the repeaters and blocks.
+
+[[File:redtone4.png|200px]]
+
+;Step 7
+Place a strand of the redstone, starting from the middle, down to the 2nd last row. At the last row, place one block in front of the redstone.
+
+[[File:redblock5.png|200px]]
+
+;Step 8
+Add one redstone torch on top of the block just added. Then, add another block on top of the torch. Once you've done this, add a [[door]] on top of that block.
+
+[[File:redblockdoor.png|200px]]
+
+;Step 9
+Your passlock door is finished. To activate, flick all of the levers of which you had the password made up of, but no others. For example, if your password is 1-2-6, turn the levers below the signs that say 1, 2, and 6, on, but all the others should be off. The door should open.
+
+[[File:1,2,6swich.png|200px]] [[File:126.png|200px]] [[File:finale126.png|200px]]
+
+;Final Touches
+Cover all the redstone with blocks, so that players can't see it.
+
+[[File:final126.png|200px]]
+
+;Notes
+The design shown in these directions can have up to 29 inputs. Larger amounts are more secure; the number of possibilities is 2^c, where c is the number of levers used. You can't have more than 29 inputs with this design as the redstone signal won't travel far enough.
+}}
+{{CV|tVQgvt-lRsM|Demonstration video}}
+
+{{-}}
+
+=== Item frame lock ===
+{{Schematic|caption='''Item frame combination lock''' <br /> ''512 (8<sup>3</sup>) combinations''
+||AB||||output+rt-e!|SB|rd-ew|rd-sw|-
+|if-e|AB|SB+rc-e!|SB+rd-ew!|SB+rd-ew!|SB+rd-ew!|SB+rd-ew|rr-e1|rd-nsw|-
+||AB||||rd-ew+rt-n|rd-sew|rd-ew|rd-nw|-
+|if-e|AB|SB+rc-e!|SB+rd-ew!|SB+rd-ew|rr-e1|rd-nsw|||-
+||AB||rd-ew+rt-n|rd-ew|rd-ew|rd-new|rd-sw||-
+|if-e|AB|SB+rc-e!|SB+rd-ew!|SB+rd-ew!|SB+rd-ew|rr-e1|rd-nsw||-
+||AB|||rd-ew+rt-n|rd-ew|rd-ew|rd-nw||-
+}}
+
+[[Item frame]] combination locks are a step up in complexity from lever locks. [[Item]]s in item frames can be rotated into 8 different positions. This rotation can be detected by a [[comparator]] which will output a [[Redstone Dust#Behavior|signal strength]] from 1 to 8 depending on the position. Since each item frame has 8 possible states, the number of possible combinations can be found with 8<sup>''n''</sup>, where ''n'' is the number of item frames.
+
+The horizontal redstone paths on the floor decrease the signal emitted by the comparator down to a fixed strength of 1, and then feed it into an "A OR NOT B" gate that is true if the strength is either too small (B is not powered, i.e. false) or too large (A is powered, i.e. true). These gates are all ORed together so that the overall result is true if any item frame in the lock is misplaced; finally a torch (optional) inverts the result.
+
+If you want to make it extra tricky, it is also possible to detect an empty item frame by when a comparator doesn't output anything. Simply leave a [[repeater]] connected to the comparator and feeding into the vertical redstone wire on the right side; a filled item frame will give a signal strength of 15 out of the repeater and keep the door locked.
+
+{{CV|IvWv_29_TGc|Tutorial video}}
+
+===RS NOR Combo Lock===
+Connect a series of buttons to the S-input of RS Latches. Feed the Q or <span style="text-decoration:overline">Q</span> (choose which one for each latch to set the combination) outputs of the RS Latches into a series of AND gates, and connect the final output to an iron door. Finally, connect a single button to all the R-inputs of the RS Latches. The combination is configured by using either Q or <span style="text-decoration:overline">Q</span> for each button (Q means that the button would need to be pressed, <span style="text-decoration:overline">Q</span> don't press).
+
+Example:
+
+[[File:RSnorlatchlock.gif]]
+
+{{-}}
+
+With the automated reset it causes the correct combo to cause a pulse instead of a "always on" until reset.
+
+==Order-sensitive combination locks==
+Order-sensitive combination locks are sometimes known as permutation locks.
+
+===Order-sensitive changing code XNOR Combo Lock===
+Opens when a certain order of switches are pressed.
+You can change the order.
+(Note: A moderate understanding of logic gates is needed for this device.)
+Have 4 blocks near each other with a switch and a sign saying 4,3,2 or 1 respectively.
+10 blocks to the right and 2 blocks down place a block then place 2 more with a 5 block space. 6 right and 3 up place the block. Label them 4-3-2-1 respectively.
+Have a 11 block wire or 13 for left to a repeater on the 9th block or 11th for left and on the right side. Place a repeater 2 blocks over with the same wire from it. Connect the left repeaters.
+to the code changing module. (You may use bridges of cobblestone for getting over other wire and repeaters for boosting the signal. Construct a XNOR Gate where).
+2 of the wires meet. Connect to adjacent outputs with AND gates. These Outputs are connected to final AND gate. Final AND gate if connected to iron door.
+
+===Order-sensitive RS NOR Combo Lock===
+A door that opens when buttons are pressed in certain order.
+
+(Note: A moderate understanding of logic gates is needed for this device.)
+
+Make a series of buttons, and connect only one to an RS NOR latch. Then connect both the RS NOR latch and a second button to an AND gate, which feeds to another RS NOR latch. Do this continually until you have either filled all of the buttons or are satisfied with the lock. Connect the final RS NOR latch to a separate AND gate with a signal from an enter button. Feed that to the output RS NOR latch. Then connect any of the left-over buttons to the enter button and send reset signals to all of the RS NOR latches. A pressure plate next to a door can reset the door. This type of lock has severe limitations its security. For example, not all the buttons could be used in the pin or there would be nothing to reset the system.
+
+For a lock that can have a combination of any size, using all the buttons, and still have a wrong entry reset the system, you need a different way for it to reset. To construct this, hook up a panel of buttons (any number, but four or more is preferred) to a parallel series of adjacent repeaters. Invert as necessary so that all the repeaters are powered and are unpowered by the press of the corresponding button. These repeaters power a row of blocks. On top of the blocks, place a torch corresponding to the incorrect buttons for the fist number in the PIN. For the correct button/number, place dust under the powered block which leads to a RS NOR Latch. Place a row of blocks above the torches for the incorrect buttons, with redstone dust on top. Then connect this dust to the reset of the first RS NOR Latch. Only the correct button will set the RS NOR Latch and all others will reset it. Connect the output of the RS NOR LATCH to half of an AND gate. After the first row of blocks with the reset torches, place another row of repeaters and another row of blocks. Again place torches for the incorrect buttons and dust under the correct button's line. Power will be fed from the buttons through the rows of repeaters and blocks for as many rows as there are digits in the PIN number. Connect the dust from the correct button to the other half of the AND gate coming from the first RS NOR Latch. Only if the two conditions are met, that the first button was pushed correctly, setting the first RS NOR Latch, and the second button is pushed correctly will the AND gate send a signal to set the second RS NOR Latch. Again, connect a reset line from the incorrect button's torches to the reset of the second RS NOR Latch. Delay the reset signals by one full repeater to give time for the next RS NOR Latch to be set before the reset happens. Continue building the array in the same manner until you reach the desired number of digits. In operation, when a button is hit, each RS NOR Latch checks (through the AND gate) to see if the previous RS NOR Latch is set, and the correct button for this RS NOR Latch has been pushed. Only when the correct buttons are pressed in order, will the signal progress through the conditional RS NOR Latches to the end. Connect the output of the last RS NOR Latch to a door and attach a line to a pressure plate inside the door to reset the last RS NOR Latch.
+
+====Tutorial Video====
+Combination Lock RS NOR
+
+{{#ev:youtube|h4iw2gybaGs}}
+
+There is also another way to make order-sensitive combination locks. It is based on several RS NOR latches that is placed on a row. The RS NOR latches are connected together, and each latch is connected to one button. The combination lock opens when all the latches are activated. To activate all of them, the latches have to be activated in the right order. If wrong button is pressed, the lock automatically sends a reset signal to the first latch, and resets the entire lock. The circuit also has a T flip-flop that controls the output. The T flip-flop turns on and stays on when the right combination is pressed. When the lock is open, all the buttons works like a reset button. This makes it easy to close the door from the outside. Just press a random button. It is also possible to connect buttons that overrides the lock and makes the output signal toggle like on a normal T flip-flop.
+
+====Tutorial video====
+
+{{#ev:youtube|3e9Zk3e1D0U}}
+
+====Combination lock with order-sensitive reset====
+This is an order-sensitive combination lock with order sensitive reset function. It works like an ordinary order-sensitive combination lock, but in addition it has a function that resets everything when a button is pressed too early. The function consists of AND-gates that sends a reset signal if the previous button hasn't been pressed yet. The lock does not need a reset button because it resets automatically when the code is wrong.
+
+{{#ev:youtube|xFq9vEND2d0}}
+
+
+{{tutorials}}
+
+[[de::technik:Kombinationsschloss]]
+[[zh:教程/密码锁]]

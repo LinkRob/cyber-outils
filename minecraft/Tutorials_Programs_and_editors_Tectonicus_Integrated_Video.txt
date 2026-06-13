@@ -1,0 +1,48 @@
+{{disclaimer}}
+
+This tutorial should only be used if you are running Tectonicus on a machine without a discrete videocard, with an integrated one. Intel display adapters are integrated (into the south bridge of a chipset).
+
+== Typical Tectonicus error log for integrated graphics ==
+
+If you have no discrete video card, the Tectonicus log will probably contain the following output:
+
+<pre>
+Could not create pbuffer! (colour:24, alpha:8, depth:16, samples:0)
+Exception while trying to create drawing surface!
+Try specifying numSamples=0 to disable antialiasing
+org.lwjgl.LWJGLException: No Pbuffer support
+        at org.lwjgl.opengl.LinuxPbufferPeerInfo.nInitHandle(Native Method)
+        at org.lwjgl.opengl.LinuxPbufferPeerInfo.<init>(LinuxPbufferPeerInfo.java:52)
+        at org.lwjgl.opengl.LinuxDisplay.createPbuffer(LinuxDisplay.java:1149)
+        at org.lwjgl.opengl.Pbuffer.createPbuffer(Pbuffer.java:234)
+        at org.lwjgl.opengl.Pbuffer.<init>(Pbuffer.java:219)
+        at org.lwjgl.opengl.Pbuffer.<init>(Pbuffer.java:190)
+        at org.lwjgl.opengl.Pbuffer.<init>(Pbuffer.java:166)
+        at tectonicus.rasteriser.LwjglRasteriser.<init>(LwjglRasteriser.java:64)
+        at tectonicus.TileRenderer.<init>(TileRenderer.java:147)
+        at tectonicus.TectonicusApp.run(TectonicusApp.java:422)
+        at tectonicus.TectonicusApp.main(TectonicusApp.java:604)
+</pre>
+
+This means the PBuffer feature of LWJGL java library, which is used by Tectonicus, is not working correctly.
+
+== Instructions for GNU/Linux machines ==
+
+Relevant to a Debian-based distributions, such as Debian and Ubuntu.
+
+* Install libgl1-mesa-swx11 package by running this command in the terminal:
+
+<pre>sudo apt-get install libgl1-mesa-swx11</pre>
+
+This will probably provoke a virtual package libgl1 conflict with libgl1-mesa-glx package, so you will be asked if it should be removed or not. libgl1-mesa-glx should be removed.
+
+* Prepare your Tectonicus console command as usual, but set minecraftJar= and probably useBiomeColours=false if you are getting an error for that.
+
+More information about console triggers can be found [[Programs and editors/Tectonicus#Additional Command Line Arguments|here]].
+
+== Caution ==
+
+It has been reported that hardware rendering after this package swapping becomes laggy, so it may be necessary to disable any desktop compositing effects.
+
+[[Category:Tectonicus]]
+[[zh:辅助程序与编辑器/Tectonicus/集成显卡]]

@@ -1,0 +1,419 @@
+{{About|vines that grow on walls|other vines|Vines (disambiguation)}}
+{{for|the generated feature|Vines (feature)}}
+{{Block
+| image = Vines JE2 BE2.png
+| transparent = Yes
+| light = No
+| tool = shears
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = Yes (15)
+| lavasusceptible = Yes
+}}
+'''Vines''' are climbable non-solid vegetation blocks that grow on walls.
+
+== Obtaining ==
+=== Natural generation ===
+Vines are naturally generated in [[jungle]]s, [[swamp]]s and [[lush caves]]. [[Jungle tree]]s of both sizes have vines on their trunks and canopy edges, and vines grow on the sides of jungle terrain. Vines are also naturally generated on [[oak]] trees in swamps and [[mangrove]] trees. {{IN|bedrock}}, vines can also generate on dying oak, spruce, jungle and dark oak [[tree]]s. 
+
+Vines are found in [[jungle temple]]s and the allium room in [[woodland mansion]]s. They can also generate in watchtower walls in [[pillager outpost]]s. 
+
+=== Post-generation ===
+Vines generate on 2×2 jungle trees grown from [[sapling]]s, or mangrove trees grown from [[propagule]]s.
+
+{{IN|bedrock}}, vines generate on [[dying tree]]s, which can sometimes be grown from saplings.
+
+=== Breaking ===
+Vines can be destroyed with any item, but using [[shears]] is the only way to collect them. Shears enchanted with [[Efficiency]] are more efficient when used on vines; Efficiency II and above allows vines to be [[instant mining|instantly broken]].<ref>[https://youtu.be/bhkx7mosH7g?t=444 A YouTube video to demonstrate this.]</ref> Using an axe on vines can also increase efficiency, but does not allow for collection, even with [[Silk Touch]]. If multiple vines exist within the same block space, breaking one of them breaks all of them instead of just the one targeted<ref>{{bug|MC-129114|||Invalid}}</ref> and results in only a single vine dropping<ref>{{bug|MC-123140|||WAI}}</ref>. Shears used by a dispenser cannot break vines.
+{{breaking row|horizontal=1|Vines|Axe|drop=0|shears=1|sword=0}}
+
+=== Trading ===
+Vines are sold by [[wandering trader]]s for an [[emerald]].
+
+== Behavior ==
+On each block tick, the vine block has a 25% chance to spread in a randomly selected direction. Their spreading can be toggled by the {{cd|doVinesSpread}} [[game rule]]{{only|java}}. Vines spread to adjacent blocks under certain conditions:
+
+* Downward:
+** If the block below is air, each side (north, south, east, and west) with vines has a 50% chance to spread downward.
+** If the block below is a block, each side of that block with vines on the ticked block has a 50% chance of gaining vines.
+
+* Upward: 
+** If the block above is air and there are fewer than 4 other vine blocks in a 9×9×3 area surrounding the ticked vine block, each side (north, south, east, and west) with vines has a 50% chance to spread upward if that side is backed by a block that vines can be placed on.
+
+* Horizontally: 
+** If the current vine block isn't covering the target direction and there are fewer than 4 other vine blocks in a 9×9×3 area surrounding the ticked vine block, then:
+*** If the block in the target direction is air, then it tries:
+
+{| style="vertical-align:middle;float:right" data-description="Vines spreading to the right"
+|{{schematic||AB|-|vi-e+↑|?}}
+|to
+|{{schematic|vi-e|AB|-|vi-e|?}}
+|}
+
+:::* If the vine block has vines to the right and that side of the air block is backed by something vines can be placed on, spread to the right side of the air block.
+{{-}}
+{| style="vertical-align:middle;float:right" data-description="Vines spreading to the left"
+|{{schematic|AB||-|?|vi-w+↑}}
+|to
+|{{schematic|AB|vi-w|-|?|vi-w}}
+|}
+
+:::*If the vine block has vines to the left and that side of the air block is backed by something vines can be placed on, spread to the left side of the air block.
+{{-}}
+{| style="vertical-align:middle;float:right" data-description="Vines spreading right around a corner"
+|{{schematic|||-|vi-e+↑|AB}}
+|to
+|{{schematic||vi-s|-|vi-e|AB}}
+|}{{more info}}
+
+:::*If the vine block has vines to the right, and that side of the air block is backed by another air block, and the right side of the vine block is backed by something vines can be placed on, spread around the corner.
+{{-}}
+{| style="vertical-align:middle;float:right" data-description="Vines spreading left around a corner"
+|{{schematic|||-|AB|vi-w+↑}}
+| to
+| {{schematic|vi-s||-|AB|vi-w}}
+|}
+
+:::* If the vine block has vines to the left, and that side of the air block is backed by another air block, and the left side of the vine block is backed by something vines can be placed on, spread around the corner.
+{{-}}
+
+:::*If the air block in the target direction has something vines could be placed on above it, spread to the top side of the air block.
+::*If the block in the target direction is opaque and fills its whole cube, spread to that side of the ticked vine block.
+
+Vines cannot be grown using [[bone meal]].
+
+Vines do not need light when growing.
+
+==Usage==
+Vines can be placed on the side of any block that fills its whole cube and blocks entity movement. They can also be placed on the bottom side of a block (although not the bottom side of another vine<ref>{{bug|MC-177513|||WAI}}</ref>). However, a vine block without vines on any of the horizontal sides disappears if it gets an update from a neighboring block. Vines attached to the bottom of [[stairs]] are completely deleted by any block update.<ref>{{bug|MC-128672|||WAI}}</ref>
+
+Several vines can be placed in the same block space, as long as they are facing different directions.
+
+Vines can be climbed by standing next to them and holding the jump key. If there is a solid block behind the vines, the walk forward key can also be used.
+
+Vines cancel a sprint if the player is sprinting, slowing the movement speed.
+
+Vines absorb all fall damage, even without a solid surface nearby. {{control|Sneaking}} on vines causes the player to hang, even if the vines are not adjacent to any surface.
+
+Blocks can replace vines if placed within the same block space. However, [[item frame]]s and [[painting]]s cannot.<ref>{{bug|MC-130017}}</ref>
+
+=== Crafting ingredient ===
+{{crafting usage}}
+
+=== Composting ===
+Placing vines into a [[composter]] has a 50% chance of raising the compost level by 1.
+
+=== Color ===
+
+* In the inventory, vines have a color: {{color|#48b518}}.
+
+===== Biome colors =====
+These values are generated by the biome dyeing algorithm. See [[Color#Biome colors|Biome colors]] for more information.
+{| class="wikitable sortable mw-collapsible mw-collapsed" data-description="Biome colors"
+!Biome !! Temperature !! Downfall !! Foliage Color !! Block
+|-
+| (Default values)<br>{{BiomeLink|The Void}}<br>{{BiomeLink|River}}<br>{{BiomeLink|Warm Ocean}}<br>{{BiomeLink|Lukewarm Ocean}}<br>{{BiomeLink|Deep Lukewarm Ocean}}<br>{{BiomeLink|Ocean}}<br>{{BiomeLink|Deep Ocean}}<br>{{BiomeLink|Cold Ocean}}<br>{{BiomeLink|Deep Cold Ocean}}<br>{{BiomeLink|Deep Frozen Ocean}}<br>{{BiomeLink|Lush Caves}}{{only|je|short=1}}<br>{{BiomeLink|The End}}<br>{{BiomeLink|End Highlands}}<br>{{BiomeLink|End Midlands}}<br>{{BiomeLink|Small End Islands}}<br>{{BiomeLink|End Barrens}} || 0.5 || 0.5 || {{Color|#71a74d}} || [[File:Vines.png|32px]]
+|-
+| {{BiomeLink|Lush Caves}}{{only|be|short=1}} || 0.9 || 0.0 || {{Color|#a6a432}} || [[File:Lush Caves Vines.png|32px]]
+|-
+| {{BiomeLink|Plains}}<br>{{BiomeLink|Beach}}<br>{{BiomeLink|Sunflower Plains}}<br>{{BiomeLink|Dripstone Caves}}{{only|je|short=1}}<br>{{BiomeLink|Deep Dark}} || 0.8 || 0.4 || {{Color|#77ab2f}} || [[File:Plains Vines.png|32px]]
+|-
+| {{BiomeLink|Dripstone Caves}}{{only|be|short=1}} || 0.2 || 0.0 || {{Color|#70a26c}} || [[File:Dripstone Caves Vines.png|32px]]
+|-
+| {{BiomeLink|Snowy Plains}}<br>{{BiomeLink|Ice Spikes}}<br>{{BiomeLink|Snowy Taiga}}<br>{{BiomeLink|Frozen Ocean}}<br>{{BiomeLink|Frozen River}} || 0.0 || 0.5
+| rowspan="4" | {{Color|#60a17b}}
+| rowspan="4" | [[File:Snowy Plains Vines.png|32px]]
+|-
+| {{BiomeLink|Grove}} || -0.2 || 0.8
+|-
+| {{BiomeLink|Snowy Slopes}} || -0.3 || 0.9
+|-
+| {{BiomeLink|Frozen Peaks}}<br>{{BiomeLink|Jagged Peaks}} || -0.7 || 0.9
+|-
+| {{BiomeLink|Desert}}<br>{{BiomeLink|Savanna}}{{only|je|short=1}}<br>{{BiomeLink|Savanna Plateau}}{{only|je|short=1}}<br>{{BiomeLink|Windswept Savanna}}<br>{{BiomeLink|Nether Wastes}}<br>{{BiomeLink|Warped Forest}}<br>{{BiomeLink|Crimson Forest}}<br>{{BiomeLink|Soul Sand Valley}}<br>{{BiomeLink|Basalt Deltas}} || 2.0 || 0.0
+| rowspan="3" | {{Color|#aea42a}}
+| rowspan="3" | [[File:Desert Vines.png|32px]]
+|-
+| {{BiomeLink|Savanna}}{{only|be|short=1}}|| 1.2 || 0.0
+|-
+| {{BiomeLink|Savanna Plateau}}{{only|be|short=1}}|| 1.0 || 0.0
+|-
+| {{BiomeLink|Badlands}}<br>{{BiomeLink|Wooded Badlands}}<br>{{BiomeLink|Eroded Badlands}} || 2.0 || 0.0 || {{Color|#9e814d}}<ref group="n" name="preset">Color is preset</ref> || [[File:Badlands Vines.png|32px]]
+|-
+| {{BiomeLink|Swamp}} || 0.8 || 0.9 || {{Color|#6a7039}}<ref group="n" name="preset"/> || [[File:Swamp Vines.png|32px]]
+|-
+| {{BiomeLink|Mangrove Swamp}}|| 0.8 || 0.9 || {{Color|#8db127}}<ref group="n" name="preset"/> || [[File:Mangrove Swamp Vines.png|32px]]
+|-
+| {{BiomeLink|Forest}}<br>{{BiomeLink|Dark Forest}}<br>{{BiomeLink|Flower Forest}} || 0.7 || 0.8 || {{Color|#59ae30}} || [[File:Forest Vines.png|32px]]
+|-
+| {{BiomeLink|Birch Forest}}<br>{{BiomeLink|Old Growth Birch Forest}} || 0.6 || 0.6 || {{Color|#6ba941}} || [[File:Birch Forest Vines.png|32px]]
+|-
+| {{BiomeLink|Old Growth Pine Taiga}} || 0.3 || 0.8 || {{Color|#68a55f}} || [[File:Old Growth Pine Taiga Vines.png|32px]]
+|-
+| {{BiomeLink|Old Growth Spruce Taiga}}<br>{{BiomeLink|Taiga}} || 0.25 || 0.8 || {{Color|#68a464}} || [[File:Taiga Vines.png|32px]]
+|-
+| {{BiomeLink|Windswept Hills}}<br>{{BiomeLink|Windswept Gravelly Hills}}<br>{{BiomeLink|Windswept Forest}}<br>{{BiomeLink|Stony Shore}}|| 0.2 || 0.3 || {{Color|#6da36b}} || [[File:Windswept Hills Vines.png|32px]]
+|-
+| {{BiomeLink|Jungle}}<br>{{BiomeLink|Bamboo Jungle}}|| 0.95 || 0.9 || {{Color|#30bb0b}} || [[File:Jungle Vines.png|32px]]
+|-
+| {{BiomeLink|Sparse Jungle}} || 0.95 || 0.8 || {{Color|#3eb80f}} || [[File:Sparse Jungle Vines.png|32px]]
+|-
+| {{BiomeLink|Meadow}} || 0.5 || 0.8 || {{Color|#63a948}} || [[File:Meadow Vines.png|32px]]
+|-
+| {{BiomeLink|Cherry Grove}} || 0.5 || 0.8 || {{Color|#b6db61}}<ref group="n" name="preset"/> || [[File:Cherry Grove Vines.png|32px]]
+|-
+| {{BiomeLink|Stony Peaks}} || 1.0 || 0.3 || {{Color|#82ac1e}} || [[File:Stony Peaks Vines.png|32px]]
+|-
+| {{BiomeLink|Snowy Beach}} || 0.05 || 0.3 || {{Color|#64a278}} || [[File:Snowy Beach Vines.png|32px]]
+|-
+| {{BiomeLink|Mushroom Fields}} || 0.9 || 1.0 || {{Color|#2bbb0f}} || [[File:Mushroom Fields Vines.png|32px]]
+|}
+
+Unused biomes in {{BE}}.
+
+{| class="wikitable sortable mw-collapsible mw-collapsed" data-description="Unused biome colors"
+!Biome !! Temperature !! Downfall !! Foliage Color !! Block
+|-
+| (Default values)<br>{{BiomeLink|Deep Warm Ocean}}
+| 0.5 || 0.5 || {{Color|#71a74d}} || [[File:Vines.png|32px]]
+|-
+| {{BiomeLink|Snowy Mountains}}<br>{{BiomeLink|Legacy Frozen Ocean}} || 0.0 || 0.5
+| rowspan="2" | {{Color|#60a17b}} 
+| rowspan="2" | [[File:Snowy Plains Vines.png|32px]]
+|-
+| {{BiomeLink|Snowy Taiga Hills}}<br>{{BiomeLink|Snowy Taiga Mountains}} || -0.5 || 0.4
+|-
+| {{BiomeLink|Taiga Hills}}<br>{{BiomeLink|Taiga Mountains}} || 0.25 || 0.8 || {{Color|#68a464}} || [[File:Taiga Vines.png|32px]]
+|-
+| {{BiomeLink|Desert Hills}}<br>{{BiomeLink|Desert Lakes}} || 2.0 || 0.0 || {{Color|#aea42a}} || [[File:Desert Vines.png|32px]]
+|-
+| {{BiomeLink|Badlands Plateau}}<br>{{BiomeLink|Modified Badlands Plateau}}<br>{{BiomeLink|Modified Wooded Badlands Plateau}} || 2.0 || 0.0 || {{Color|#9e814d}}<ref group="n" name="preset"/> || [[File:Badlands Vines.png|32px]]
+|-
+| {{BiomeLink|Shattered Savanna Plateau}}
+| 1.0 || 0.5 || {{Color|#64b216}} || [[File:Windswept Savanna Vines.png|32px]]
+|-
+| {{BiomeLink|Swamp Hills}} || 0.8 || 0.5 || {{Color|#6a7039}}<ref group="n" name="preset"/> || [[File:Swamp Vines.png|32px]]
+|-
+| {{BiomeLink|Wooded Hills}}<br>{{BiomeLink|Tall Birch Hills}} || 0.7 || 0.8 || {{Color|#59ae30}} || [[File:Forest Vines.png|32px]]
+|-
+| {{BiomeLink|Birch Forest Hills}} || 0.6 || 0.6 || {{Color|#6ba941}} || [[File:Birch Forest Vines.png|32px]]
+|-
+| {{BiomeLink|Giant Tree Taiga Hills}}<br>{{BiomeLink|Giant Spruce Taiga Hills}} || 0.3 || 0.8 || {{Color|#68a55f}} || [[File:Old Growth Pine Taiga Vines.png|32px]]
+|-
+| {{BiomeLink|id=modified-gravelly-mountains|Gravelly Mountains+}}<br>{{BiomeLink|Mountain Edge}} || 0.2 || 0.3 || {{Color|#6da36b}} || [[File:Windswept Hills Vines.png|32px]]
+|-
+| {{BiomeLink|Jungle Hills}}<br>{{BiomeLink|Modified Jungle}}<br>{{BiomeLink|Bamboo Jungle Hills}} || 0.95 || 0.9 || {{Color|#30bb0b}} || [[File:Jungle Vines.png|32px]]
+|-
+| {{BiomeLink|Modified Jungle Edge}} || 0.95 || 0.8 || {{Color|#3eb80f}} || [[File:Sparse Jungle Vines.png|32px]]
+|-
+| {{BiomeLink|Mushroom Field Shore}} || 0.9 || 1.0 || {{Color|#2bbb0f}} || [[File:Mushroom Fields Vines.png|32px]]
+|}
+
+{{Reflist|group=n}}
+
+== Sounds ==
+{{Edition|Java}}:
+{{Sound table/Block/Vine/JE}}
+
+{{Edition|Bedrock}}: <ref group=sound>{{Bug|MCPE-93577}}</ref>
+{{Sound table/Block/Roots/BE}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Vines
+|spritetype=block
+|nameid=vine
+|blocktags=climbable, lush_plants_replaceable
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Vines
+|spritetype=block
+|nameid=vine
+|id=106
+|foot=1}}
+
+=== Block states ===
+{{see also|Block state}}
+
+{{/BS}}
+
+== History ==
+{{Missing information|Add info about "vines generated in mangrove trees" for BE}}
+{{History||August 26, 2011|link=none|When the [[Adventure Update]] was showcased at [[wikipedia:PAX|PAX]], vines hadn't been given a name, and a mouseover would not show a title. This implies that they didn't have an official name at the time.}}
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|[[File:Vines (unconnected) JE1.png|32px]] [[File:Vines (N) JE1.png|32px]] [[File:Vines (E) JE1.png|32px]] [[File:Vines (NE) JE1.png|32px]] [[File:Vines (S) JE1.png|32px]] [[File:Vines (NS) JE1.png|32px]] [[File:Vines (ES) JE1.png|32px]] [[File:Vines (NES) JE1.png|32px]] [[File:Vines (W) JE1.png|32px]] [[File:Vines (NW) JE1.png|32px]] [[File:Vines (EW) JE1.png|32px]] [[File:Vines (NEW) JE1.png|32px]] [[File:Vines (SW) JE1.png|32px]] [[File:Vines (NSW) JE1.png|32px]] [[File:Vines (ESW) JE1.png|32px]] [[File:Vines (NESW) JE1.png|32px]]<br>[[File:Vines (U) JE1.png|32px]] [[File:Vines (NU) JE1.png|32px]] [[File:Vines (EU) JE1.png|32px]] [[File:Vines (NEU) JE1.png|32px]] [[File:Vines (SU) JE1.png|32px]] [[File:Vines (NSU) JE1.png|32px]] [[File:Vines (ESU) JE1.png|32px]] [[File:Vines (NESU) JE1.png|32px]] [[File:Vines (WU) JE1.png|32px]] [[File:Vines (NWU) JE1.png|32px]] [[File:Vines (EWU) JE1.png|32px]] [[File:Vines (NEWU) JE1.png|32px]] [[File:Vines (SWU) JE1.png|32px]] [[File:Vines (NSWU) JE1.png|32px]] [[File:Vines (ESWU) JE1.png|32px]] [[File:Vines (NESWU) JE1.png|32px]]<br>Added vines.
+|Vines take as long to break as [[leaves]] and drop nothing unless collected with [[shears]].
+|The used data values are as follows (tested in 1.7.6, any potential changes between Beta 1.8 Pre-release are not known):
+
+{{dvt|spritetype=block|sprite=air|No attachments}}
+{{dvt|sprite=vines|On south face}}
+{{dvt|sprite=vines|On west face}}
+{{dvt|sprite=vines|On south and west faces}}
+{{dvt|sprite=vines|On north face}}
+{{dvt|sprite=vines|On north and south faces}}
+{{dvt|sprite=vines|On north and west faces}}
+{{dvt|sprite=vines|On north, south and west faces}}
+{{dvt|sprite=vines|On east face}}
+{{dvt|sprite=vines|On east and south faces}}
+{{dvt|sprite=vines|On east and west faces}}
+{{dvt|sprite=vines|On east, south and west faces}}
+{{dvt|sprite=vines|On north and east faces}}
+{{dvt|sprite=vines|On north, east and south faces}}
+{{dvt|sprite=vines|On north, east and west faces}}
+{{dvt|sprite=vines|On north, east, south and west faces|foot=1}}
+
+Upward attachments are likely handled only in the game's memory and are not metadata-controlled. The face a vine is is relative to its block space, and is the opposite of the face of the block it's attached to or the direction it itself faces (a south face vine is in the southernmost area of the block it exists in, but is attached to the north side of a block and itself faces north).
+}}
+{{History|||snap=Pre-release 2 ;)|Vines spread infinitely down now, but do not spread if there are more than four other vine blocks nearby.<ref>{{tweet|notch|113547746585214976}}</ref>}}
+{{History|java}}
+{{History||1.2.1|snap=12w03a|Vines are now climbable provided they are climbed against a solid [[block]].}}
+{{History|||snap=12w04a|[[Player]]s are now slowed when going through vines due to their nature of being a collisionless ladder.}}
+{{History||1.3.1|snap=12w22a|Vines now generate naturally in [[jungle temple]]s.}}
+{{History||1.5|snap=13w02a|Players who [[death|die]] falling off of vines receive a message upon death: "<player> fell off some vines."}}
+{{History||1.8|snap=14w02a|Added a [[crafting]] recipe for [[stone bricks|mossy stone bricks]] (uses 1 vine and 1 stone brick.)}}
+{{History|||snap=14w04a|Added a crafting recipe for [[cobblestone|moss stone]] (uses 1 vine and 1 cobblestone.)}}
+{{History|||snap=14w07a|[[File:Vines (unconnected) JE2.png|32px]] [[File:Vines (unconnected) (anisotropic filtering) JE2.png|32px]] [[File:Vines (N) JE1.png|32px]] [[File:Vines (unconnected) JE1.png|32px]] [[File:Vines (N) JE1.png|32px]] [[File:Vines (unconnected) JE1.png|32px]] 
+Vines are no longer visible from behind.<ref>{{bug|MC-48512|||Fixed}}</ref>
+|Vines with no connections have a missing model, which is also tinted.}}
+{{History|||snap=14w10a|[[File:Vines (N) JE3.png|32px]] [[File:Vines (E) JE3.png|32px]] [[File:Vines (S) JE3.png|32px]] [[File:Vines (W) JE3.png|32px]] [[File:Vines (NS) JE3.png|32px]] [[File:Vines (EW) JE3.png|32px]] [[File:Vines (NES) JE3.png|32px]] [[File:Vines (NEW) JE3.png|32px]] [[File:Vines (NSW) JE3.png|32px]] [[File:Vines (ESW) JE3.png|32px]] [[File:Vines (NESW) JE3.png|32px]]<!--<br>[[File:Vines (U) JE3.png|32px]] [[File:Vines (NU) JE3.png|32px]] [[File:Vines (EU) JE3.png|32px]] [[File:Vines (NEU) JE3.png|32px]] [[File:Vines (SU) JE3.png|32px]] [[File:Vines (NSU) JE3.png|32px]] [[File:Vines (ESU) JE3.png|32px]] [[File:Vines (NESU) JE3.png|32px]] [[File:Vines (WU) JE3.png|32px]] [[File:Vines (NWU) JE3.png|32px]] [[File:Vines (EWU) JE3.png|32px]] [[File:Vines (NEWU) JE3.png|32px]] [[File:Vines (SWU) JE3.png|32px]] [[File:Vines (NSWU) JE3.png|32px]] [[File:Vines (ESWU) JE3.png|32px]] [[File:Vines (NESWU) JE3.png|32px]]--><br>Vines are visible from behind again. However, the back texture planes are no longer mirrored, unlike before, resulting in the texture always having the same orientation regardless of view direction, which is incorrect.
+|Vines with no connections now crash the game, effectively bricking the world for this version.
+|Vine data values are strange, often resulting in incorrect orientations in many arrangements.<ref>{{bug|MC-50729|||Fixed}}</ref>
+
+The data values appear to be as follows:
+
+{{dvt|spritetype=block|sprite=air|No attachments - causes game crash}}
+{{dvt|sprite=vines|On south face}}
+{{dvt|sprite=vines|On west face}}
+{{dvt|sprite=vines|On west and east faces}}
+{{dvt|sprite=vines|On north face}}
+{{dvt|sprite=vines|On north and south faces}}
+{{dvt|sprite=vines|On north and south faces}}
+{{dvt|sprite=vines|On north, south and west faces}}
+{{dvt|sprite=vines|On east face}}
+{{dvt|sprite=vines|On north and south faces}}
+{{dvt|sprite=vines|On east and west faces}}
+{{dvt|sprite=vines|On east, south and west faces}}
+{{dvt|sprite=vines|On east and west faces}}
+{{dvt|sprite=vines|On north, east and south faces}}
+{{dvt|sprite=vines|On north, east and west faces}}
+{{dvt|sprite=vines|On north, east, south and west faces|foot=1}}}}
+{{History|||snap=14w10b||[[File:Vines (S) JE3.png|32px]] Likely as a crash fix, vines with no attachments now use the southmost vine model.}}
+{{History|||snap=14w18a|[[File:Vines (unconnected) JE3.png|32px]] [[File:Vines (N) JE3.png|32px]] [[File:Vines (E) JE3.png|32px]] [[File:Vines (NE) JE3.png|32px]] [[File:Vines (S) JE3.png|32px]] [[File:Vines (NS) JE3.png|32px]] [[File:Vines (ES) JE3.png|32px]] [[File:Vines (NES) JE3.png|32px]] [[File:Vines (W) JE3.png|32px]] [[File:Vines (NW) JE3.png|32px]] [[File:Vines (EW) JE3.png|32px]] [[File:Vines (NEW) JE3.png|32px]] [[File:Vines (SW) JE3.png|32px]] [[File:Vines (NSW) JE3.png|32px]] [[File:Vines (ESW) JE3.png|32px]] [[File:Vines (NESW) JE3.png|32px]]<br>[[File:Vines (U) JE3.png|32px]] [[File:Vines (NU) JE3.png|32px]] [[File:Vines (EU) JE3.png|32px]] [[File:Vines (NEU) JE3.png|32px]] [[File:Vines (SU) JE3.png|32px]] [[File:Vines (NSU) JE3.png|32px]] [[File:Vines (ESU) JE3.png|32px]] [[File:Vines (NESU) JE3.png|32px]] [[File:Vines (WU) JE3.png|32px]] [[File:Vines (NWU) JE3.png|32px]] [[File:Vines (EWU) JE3.png|32px]] [[File:Vines (NEWU) JE3.png|32px]] [[File:Vines (SWU) JE3.png|32px]] [[File:Vines (NSWU) JE3.png|32px]] [[File:Vines (ESWU) JE3.png|32px]] [[File:Vines (NESWU) JE3.png|32px]]<br>Vine data values, according to {{c|setblock}}, appear to have reverted to their pre-14w10a states:
+{{dvt|spritetype=block|sprite=vines|No attachments - appears on south face}}
+{{dvt|sprite=vines|On south face}}
+{{dvt|sprite=vines|On west face}}
+{{dvt|sprite=vines|On south and west faces}}
+{{dvt|sprite=vines|On north face}}
+{{dvt|sprite=vines|On north and south faces}}
+{{dvt|sprite=vines|On north and west faces}}
+{{dvt|sprite=vines|On north, south and west faces}}
+{{dvt|sprite=vines|On east face}}
+{{dvt|sprite=vines|On east and south faces}}
+{{dvt|sprite=vines|On east and west faces}}
+{{dvt|sprite=vines|On east, south and west faces}}
+{{dvt|sprite=vines|On north and east faces}}
+{{dvt|sprite=vines|On north, east and south faces}}
+{{dvt|sprite=vines|On north, east and west faces}}
+{{dvt|sprite=vines|On north, east, south and west faces|foot=1}}
+
+However, {{bug|MC-50729}} implies some mismatching still exists in some form, possibly with upward-attached vines, or possibly due to the grown vine blocks themselves using the wrong states instead of just models.{{info needed}}}}
+{{History|||snap=14w30c|Vines are now used to create the fancy border pattern for [[banner]]s.}}
+{{History||1.11|snap=16w39a|Vines now generate in [[woodland mansion]]s.}}
+{{History||1.13|snap=17w47a|Vines can now be placed on the bottom of [[block]]s, as well as not replacing existing vines.
+|Prior to [[1.13/Flattening|''The Flattening'']], this [[block]]'s numeral ID was 106.}}
+{{History||1.14|snap=18w43a|[[File:Vines JE2 BE2.png|32px]] The texture of vines have been changed.}}
+{{History|||snap=18w48a|Vines can now be climbed without it being attached to supporting [[block]]s.}}
+{{History|||snap=19w03a|Placing a vine into the new [[composter]] now has a 20% chance of raising the compost level by 1.}}
+{{History|||snap=19w05a|Vines now have a 50% chance of increasing the compost level in a composter by 1.
+|Added [[Wandering Trader|wandering trader]]s, which sell vines.}}
+{{History||1.16|snap=20w11a|Vines now play [[sound]]s when climbed.}}
+{{History||1.17|snap=21w03a|Vines now use a multipart model, rather than each combination of vines having a unique model which would be rotated accordingly. As such, vine blocks with an upper vine present no longer rotate with certain state changes, and vine blocks with no vines present are once again invisible.<ref>{{bug|MC-203397|||Fixed}}</ref>}}
+{{History|||snap=21w05a|Vines now have unique sounds.
+|[[Shears]] enchanted with [[Efficiency]] now break vines faster.}}
+{{History|||snap=21w10a|Vines can now generate in [[lush caves]].}}
+{{History|||snap=21w13a|The model of the vines has been changed that the rear texture plane is correctly mirrored again.<ref>{{bug|MC-199239|||Fixed}}</ref>}}
+{{History||1.19|snap=22w14a|Vines can now generate on [[mangrove tree]]s.}}
+{{History|||snap=22w15a|Vines can now be placed on the top{{verify}} and sides of [[soul sand]], [[mud]] and maximum height [[snow]].}}
+{{History||1.19.4|snap=23w06a|The spreading of vines can now be controlled by the {{cd|doVinesSpread}} game rule.}}
+
+{{History|pocket alpha}}
+{{History||v0.9.0|snap=build 1|[[File:Vines (N) JE1.png|32px]]{{verify|Is this model accurate for this edition?}} Added vines.}}
+{{History||v0.15.0|snap=build 1|Vines now generate naturally in [[jungle temple]]s.}}
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Vines now generate in [[woodland mansion]]s.}}
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|Vines can now be used to make border patterns on [[banner]]s.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Vines JE2 BE2.png|32px]] The texture of vines have been changed.
+|Vines can now be used to [[crafting|craft]] bordure indented [[banner pattern]].
+|Vines now generate in [[pillager outpost]] watchtowers.
+|Vines are now [[trading|sold]] by [[wandering trader]]s.}}
+{{History||1.11.0|snap=beta 1.11.0.1|Vines can now be used to fill up [[composter]]s.
+|Vines can now be climbed by without supporting [[block]].}}
+{{History||1.16.20|snap=beta 1.16.20.50|Vines now play [[sound]]s when climbed.}}
+{{History||1.17.0|snap=beta 1.16.230.52|Vines can now generate in [[lush caves]].}}
+{{History||1.19.0|snap=beta 1.19.0.20|Vines can now generate on mangrove trees.}}
+{{History||1.19.70|snap=beta 1.19.70.22|Vines now drop nothing when mined with [[Silk Touch]] enchanted tools except shears.}}
+
+{{History|console}}
+{{History||xbox=TU5|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Vines (N) JE1.png|32px]]{{verify|Is this model accurate for this edition?}} Added vines.}}
+{{History||xbox=TU9|Vines are now climbable provided they are climbed against a solid [[block]].}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Vines JE2 BE2.png|32px]] The texture of vines have been changed.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Vines (N) JE1.png|32px]]{{verify|Is this model accurate for this edition?}} Added vines.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list}}
+
+== Gallery ==
+<gallery>
+Floating island with ivy vines.jpg|A screenshot by [[Jens Bergensten|Jeb]] of a floating island with vines.
+Vines.jpg|Griefing with vines in the Beta 1.8 pre-release.
+Growing vines 1.8.png|Growing player-placed vines.
+Swamp mushrooms.png|Vines hanging from trees in the [[swamp]].
+Vines In Jungles.png|Vines in a jungle biome.
+TooMuchFoliage.png|Vines growing from the edges of small jungle trees.
+Vines in a cave.png|Vines growing in a cave.
+TempleOfVines.jpg|Vines on a jungle temple.
+Vines in the air.png|Vines in swamp biome generated in the air.
+[[:File:Swamp tree sheep.png]]|Unusual sheep activity caused by vines on a swamp tree.
+
+==References==
+{{Reflist}}
+
+== External links ==
+*[https://www.minecraft.net/en-us/article/taking-inventory--vines Taking Inventory: Vines] – Minecraft.net on August 27, 2019
+
+{{Blocks|vegetation}}
+
+[[Category:Plants]]
+[[Category:Natural blocks]]
+[[Category:Generated structure blocks]]
+[[Category:Non-solid blocks]]
+[[Category:Flammable blocks]]
+[[Category:Climbable blocks]]
+
+[[de:Ranken]]
+[[es:Enredadera]]
+[[fr:Lianes]]
+[[it:Rampicante]]
+[[ja:ツタ]]
+[[ko:덩굴]]
+[[pl:Pnącze]]
+[[pt:Trepadeiras]]
+[[ru:Лианы]]
+[[uk:Лоза]]
+[[zh:藤蔓]]

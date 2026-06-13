@@ -1,0 +1,89 @@
+{{Exclusive|Java}}
+{{wip}}
+
+This tutorial shows how to run the data generator that is included {{in|je}} [[client.jar|client]] and server distributions since [[Java Edition 1.13|1.13]].
+
+{{TOC|right}}
+
+== Purpose ==
+The data generator can:
+* Convert G-Zip compressed [[NBT format]] files with <samp>.nbt</samp> extensions (as used in [[Structure]] files) from and to String NBT format files with <samp>.snbt</samp> extensions.
+* Generate all contents of the vanilla data pack
+* Create [[JSON]] reports of all block states, all registries, and the full vanilla command tree
+
+== Getting Started ==
+To launch the data generator, it is recommended that you download the official server distribution of the ''Minecraft'' version you desire.
+
+Then, open a bash or command prompt in the directory where you have the server jar, and run (make sure you have Java installed)
+
+<code>java -DbundlerMainClass=net.minecraft.data.Main -jar server.jar</code>
+
+If you have set up correctly, the command line will show a list of options and descriptions.
+
+== Generating data pack contents ==
+In the same command line interface, run
+
+<code>java -DbundlerMainClass=net.minecraft.data.Main -jar server.jar --server</code>
+
+The contents of the vanilla data pack (except <samp>pack.mcmeta</samp>) will be generated to <samp>generated</samp> directory in the run directory of the command line interface.
+
+<br />
+
+==Generating stringified server DAT files==
+Many of the server data files located in the world directory of the game server bear the <code>.dat</code> extension.  Many of these files are actually saved in Named Binary Tag (NBT) format used widely throughout Minecraft.  Follow these steps to use the data generator tools distributed with the Minecraft server JAR to convert these files to a human-readable "stringified" format:
+
+#Open a terminal or command prompt of your choice on your game server
+#Create a new directory named <code>input</code> in the same directory as your game server JAR<syntaxhighlight lang="bash">
+mkdir input
+</syntaxhighlight>
+#'''''Copy''''' any [[NBT format|qualifying <code>.dat</code> file]] which is actually written in NBT format into the <code>input</code> directory you created and re-save it with the <code>.nbt</code> extension<syntaxhighlight lang="bash">
+# (linux-only)
+cp world/level.dat input/level.nbt
+</syntaxhighlight><syntaxhighlight lang="batch">
+# (windows-only)
+copy world\level.dat input\level.nbt
+</syntaxhighlight>
+#Use the <code>--dev</code> flag to activate the development generator which is capable of converting a directory of NBT files into a directory of "stringified" NBT (SNBT) files <ref>https://wiki.vg/Data_Generators</ref>
+<syntaxhighlight lang="bash">java -DbundlerMainClass=net.minecraft.data.Main -jar server.jar --dev --input "input"</syntaxhighlight><br>
+If it worked, you'll get some output that looks like this<syntaxhighlight lang="batch">
+[17:17:17] [main/INFO]: Starting provider: NBT to SNBT
+[17:17:17] [main/INFO]: NBT to SNBT finished after 3 ms
+[17:17:17] [main/INFO]: All providers took: 34 ms
+</syntaxhighlight>You should also have a new directory named <code>generated</code> in the current directory where you ran the command.  Inside will be the stringified version of each file you supplied as input.
+#Use command-line tools of your choice (e.g. <code>cat</code> on linux systems) to view them immediately, or use a GUI text editor of your choice to open them
+
+===Stringify all DAT files:===
+If you'd like to stringify every DAT file currently on your server (for experimentation, curiosity, or whatever):
+
+
+'''For Linux:'''
+
+#Start from the same directory where your <code>input</code> directory is located, then run this command to recursively copy all the DAT files into it<ref>https://stackoverflow.com/questions/15617016/copy-all-files-with-a-certain-extension-from-all-subdirectories</ref>. '''''Replace <code>path/to/world/data</code> with the relative path to the directory holding the world data in your game server.  By default, Minecraft creates this directory in the same directory as the server JAR, and names it <code>world</code>.  Unless you've changed the world name in <code>server.json</code> or moved this directory somewhere else, you can probably just replace that entire path with <code>world</code>'''''<syntaxhighlight lang="bash">
+# (linux-only)
+find path/to/world/data -name \*.dat -exec cp {} input \;
+</syntaxhighlight>
+#Rename all of these files with the <code>.nbt</code> extension<ref>https://stackoverflow.com/questions/7450818/rename-all-files-in-directory-from-filename-h-to-filename-half</ref>:<syntaxhighlight lang="bash">
+# (linux-only)
+for file in input/*.dat; do mv "$file" "${file/.dat/.nbt}"; done
+</syntaxhighlight>
+#Re-run the data generator with the <code>--dev</code> flag as described above in step 4 under "'''Generating stringified server DAT files"'''.
+
+'''For Windows:'''
+
+# Start from the same directory where your <code>input</code> directory is located, then run this command to copy all files in the save's folder with the .dat extension into the input folder, replacing .dat with .nbt. '''''Replace <code>path\to\world\data</code> with the relative path to the directory holding the world data in your game server.  By default, Minecraft creates this directory in the same directory as the server JAR, and names it <code>world</code>.  Unless you've changed the world name in <code>server.json</code> or moved this directory somewhere else, you can probably just replace that entire path with <code>world</code>'''''<syntaxhighlight lang="batch">
+# (windows-only)
+copy path\to\world\data\*.dat input\*.nbt
+</syntaxhighlight>
+#Re-run the data generator with the <code>--dev</code> flag as described above in step 4 under "'''Generating stringified server DAT files"'''.
+
+==References==
+{{reflist}}
+
+==See also==
+
+*[[Data pack]]
+*[[Tutorials/Installing a data pack]]
+
+{{Tutorials}}
+
+[[de:Datengenerator]]

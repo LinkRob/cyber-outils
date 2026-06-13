@@ -1,0 +1,306 @@
+{{Block
+| image = <gallery>
+Tripwire Hook.png|Tripwire Hook
+Powered Tripwire Hook.png|Powered
+Attached Tripwire Hook.png|Attached
+Powered Attached Tripwire Hook.png|Powered Attached
+</gallery>
+| transparent = Yes
+| light = No
+| tool = any
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = No
+| lavasusceptible = No
+}}
+A '''tripwire hook''' is a [[block]] that emits a [[Redstone Dust|redstone signal]] when it is part of a valid [[String|tripwire]] circuit and it gets triggered by an [[entity]].
+
+== Obtaining ==
+=== Breaking ===
+Tripwire hooks can be broken instantly using any tool, or without a tool.
+
+A tripwire hook is also removed and drops itself as an item if:
+
+* its attachment block is moved, removed, or destroyed.
+* [[water]] flows into its space {{in|java}}.
+* a [[piston]] tries to push it or moves a block into its space.
+
+A tripwire hook is destroyed without dropping itself as an item if [[lava]] flows into its space.
+=== Natural generation ===
+
+Four tripwire hooks are generated naturally in each [[jungle temple]].
+
+=== Chest loot ===
+{{LootChestItem|tripwire-hook}}
+
+=== Crafting ===
+{{Crafting
+|B1= Iron Ingot
+|B2= Stick
+|B3= Any Planks
+|Output= Tripwire Hook,2
+|type= Redstone
+}}
+
+=== Fishing ===
+Tripwire hooks can be obtained as a "junk" item from [[fishing]].
+
+== Usage ==
+Tripwire hooks can be used as crafting ingredients or as [[redstone circuit]] components.
+
+=== Crafting ingredient ===
+Tripwire hooks can be used to craft [[trapped chest]]s and [[crossbow]]s.
+
+{{crafting usage}}
+
+=== Redstone component ===
+{{see also|Redstone circuit}}
+
+A tripwire hook can be used to detect mobs, items, and other [[entities]] over a large area.
+
+; Placement
+
+: To place a tripwire hook, use the {{control|Place Block}} [[control]].
+
+: In order to function correctly, a tripwire hook must be part of a "tripwire circuit": a ''straight'' line of blocks consisting of a block with a tripwire hook attached to it, a "tripwire line" (1 to 40 blocks of [[tripwire]]), and a second tripwire hook attached to another block, with both tripwire hooks facing the tripwire.
+
+: To place tripwire, use the {{control|Place Block}} [[control]] with a [[string]]. Tripwire in a valid tripwire circuit has a short hitbox (0.09375 or 3/32 blocks high, with the bottom 0.0625 or 1/16 blocks above the block below), while tripwire not in a valid tripwire circuit has a taller hitbox (0.5 blocks high, bottom not raised).
+
+: A tripwire hook in an invalid tripwire circuit appears "folded", while a tripwire hook in a valid tripwire circuit appears extended straight. Tripwire lines from separate tripwire circuits can be placed next to each other (in parallel), above each other, and even intersecting each other.
+
+; Activation
+
+: A tripwire hook in a valid tripwire circuit activates when certain [[entities]] (players, mobs, items, etc.) intersect the tripwire hook's tripwire line "hitbox" (but ''not'' the tripwire hook itself), and deactivates when all entities leave or are removed from the tripwire line.
+
+: Entities that cannot activate a tripwire circuit include thrown [[potion]]s, some arrows, [[firework]]s, thrown [[ender pearl]]s, and thrown [[eyes of ender]].
+
+: A tripwire hook also activates for 5 redstone ticks (0.5 seconds, barring lag) when any of its tripwires are destroyed, except when [[shears]] are used to destroy the tripwire.
+
+: Breaking the tripwire hook, or breaking the block it is attached to, does not generate a pulse.
+
+; Behavior
+[[File:Tripwire hook as power source.png|thumb|The tripwire hooks and the blocks they are attached to provide power, but the tripwire does not.]]
+
+: While active, a tripwire hook appears to move downward and it:
+:* powers any adjacent [[redstone dust]] to [[Redstone circuit#Power|power level]] 15, including beneath the tripwire hook
+:* powers any adjacent [[redstone comparator]]s or [[redstone repeater]]s facing away from the tripwire hook to power level 15
+:* strongly powers its attachment block to power level 15
+:* activates any adjacent [[mechanism component]]s, including above or below, such as [[piston]]s, [[redstone lamp]]s, etc.
+
+: Tripwire produces no power itself, but its state change can be detected with an [[observer]].
+
+: Although destroying tripwire with shears cannot activate a tripwire hook, it changes the tripwire hook's block state (its "attached" state from <code>true</code> to <code>false</code>), which can be detected with an observer.
+
+=== Trading ===
+Master-level fletcher [[villager]]s have a {{frac|2|3}} chance to buy 8 tripwire hooks for an [[emerald]] as part of their trades in Java Edition, and always offer the trade in Bedrock Edition.
+
+== Sounds ==
+=== Generic ===
+{{Edition|java}}:
+{{Sound table/Block/Wood/JE}}
+{{Edition|bedrock}}:
+{{Sound table/Block/Normal/BE}}
+
+===Unique===
+{{edition|java}}:
+{{Sound table
+|rowspan=3
+|sound=Click.ogg
+|subtitle=Tripwire attaches
+|source=block
+|description=When a tripwire line is completed
+|id=block.tripwire.attach
+|translationkey=subtitles.block.tripwire.attach
+|volume=0.4
+|pitch=0.7
+|distance=16}}
+{{Sound table
+|subtitle=Tripwire clicks
+|source=block
+|description=When a tripwire line deactivates
+|id=block.tripwire.click_off
+|translationkey=subtitles.block.tripwire.click
+|volume=0.4
+|pitch=0.5
+|distance=16}}
+{{Sound table
+|subtitle=Tripwire clicks
+|source=block
+|description=When a tripwire line activates
+|id=block.tripwire.click_on
+|translationkey=subtitles.block.tripwire.click
+|volume=0.4
+|pitch=0.6
+|distance=16}}
+{{Sound table
+|sound=Arrow hit1.ogg
+|sound2=Arrow hit2.ogg
+|sound3=Arrow hit3.ogg
+|sound4=Arrow hit4.ogg
+|subtitle=Tripwire detaches
+|source=block
+|description=When a tripwire hook in a tripwire line is destroyed
+|id=block.tripwire.detach
+|translationkey=subtitles.block.tripwire.detach
+|volume=0.4
+|pitch={{frac|12|11}}-{{frac|4|3}}
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|rowspan=3
+|sound=Click.ogg
+|source=block
+|description=When a tripwire line is completed
+|id=block.click
+|volume=0.2
+|pitch=0.7}}
+{{Sound table
+|type=bedrock
+|source=block
+|description=When a tripwire line deactivates
+|id=random.click
+|volume=0.2
+|pitch=0.5}}
+{{Sound table
+|source=block
+|description=When a tripwire line activates
+|id=random.click
+|volume=0.2
+|pitch=0.6}}
+{{Sound table
+|sound=Arrow hit1.ogg
+|sound2=Arrow hit2.ogg
+|sound3=Arrow hit3.ogg
+|sound4=Arrow hit4.ogg
+|source=block
+|description=When a tripwire hook in a tripwire line is destroyed
+|id=block.bowhit
+|volume=0.4
+|pitch=1.1-1.33
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Tripwire Hook
+|spritetype=block
+|nameid=tripwire_hook
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Tripwire Hook
+|spritetype=block
+|nameid=tripwire_hook
+|id=131
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+
+{{/BS}}
+
+== Video ==
+{{video note|This video does not show the tripwire hook obtained from fishing, or its crafting usage.}}
+<div style="text-align:center">{{yt|OjciuikGFRo}}</div>
+
+== History ==
+{{info needed section|
+* Potential ring placement changes between powered and powered attached
+* Check if the string was still dashed directly before 14w11a}}
+{{History|java}}
+{{History||1.3.1|snap=May 28, 2012|slink=https://twitter.com/Dinnerbone/status/207154562711289856|[[Dinnerbone]] released a series of cryptic tweets, starting with "I think I'm taking a big liking toward adventure maps. It's starting to show in my choice of new [[block]]s."<ref>{{tweet|Dinnerbone|207087068013277185|I think I'm taking a big liking toward adventure maps. It's starting to show in my choice of new blocks.|May 28, 2012}}</ref> He hinted at [[shears]] being used to disable the tripwire,<ref>{{tweet|Dinnerbone|207099061562642432|Experimenting with some new ideas. Perhaps one day we'll see a pair of shears inside every griefers' toolbox.|May 28, 2012}}</ref> then posted a series of images<ref>{{tweet|Dinnerbone|207141805265928192|That awkward moment when you realize you just spent the last few days unknowingly designing a coat hanger. https://dl.dropbox.com/u/36087083/ZScreen/2012-05/28-Monday--0196.126866331.png …|May 28, 2012}}</ref><ref>{{tweet|Dinnerbone|207151964025393155|Haha, I kinda see how it looks like a doorbell, too. Maybe if you pull it a golem should come out and yell "YOU RANG?" https://dl.dropbox.com/u/36087083/ZScreen/2012-05/28-Monday--0197.486672066.png …|May 28, 2012}}</ref><ref>{{tweet|Dinnerbone|207154292593917952|Some people have got it right already, so this should clear up all further confusion and spoil the next update for you https://dl.dropbox.com/u/36087083/ZScreen/2012-05/28-Monday--0198.158946456.png …|May 28, 2012}}</ref> before revealing the name.<ref>{{tweet|Dinnerbone|207154562711289856|It's a tripwire, yeah.|May 28, 2012}}</ref> Afterward, he posted a video<ref>{{ytl|mWuvXIzYcTc|Tripwire Experiments|Nathan Adams|May 28, 3012}}</ref> to reveal the functionality of the tripwire and finally credited the idea to his fiancee [[Aleksandra Zając|MissMarzenia]].<ref>{{tweet|Dinnerbone|207168682634379264|Also, thanks to my wonderful fiancee @MissMarzenia for the idea. Seriously, all credit goes that way.|May 28, 2012}}</ref>}}
+{{History|||snap=12w22a|[[File:Tripwire Hook (N) JE1.png|32px]] [[File:Attached Tripwire Hook (N) JE1.png|32px]] [[File:Powered Tripwire Hook (N) JE1.png|32px]] [[File:Powered Attached Tripwire Hook (N) JE1.png|32px]]<br>[[File:Tripwire Hook (E) JE1.png|32px]] [[File:Attached Tripwire Hook (E) JE1.png|32px]] [[File:Powered Tripwire Hook (E) JE1.png|32px]] [[File:Powered Attached Tripwire Hook (E) JE1.png|32px]]<br>[[File:Tripwire Hook (S) JE1.png|32px]] [[File:Attached Tripwire Hook (S) JE1.png|32px]] [[File:Powered Tripwire Hook (S) JE1.png|32px]] [[File:Powered Attached Tripwire Hook (S) JE1.png|32px]]<br>[[File:Tripwire Hook (W) JE1.png|32px]] [[File:Attached Tripwire Hook (W) JE1.png|32px]] [[File:Powered Tripwire Hook (W) JE1.png|32px]] [[File:Powered Attached Tripwire Hook (W) JE1.png|32px]]<br>[[File:Tripwire Hook (texture) JE1 BE1.png|32px]] Added tripwire hooks.}}
+{{History||1.5|snap=13w01a|Tripwire hooks are now used to craft [[trapped chest]]s.}}
+{{History|||snap=13w02a|[[File:Attached Tripwire Hook (N) JE2.png|32px]] [[File:Powered Attached Tripwire Hook (N) JE2.png|32px]]<br>[[File:Attached Tripwire Hook (E) JE2.png|32px]] [[File:Powered Attached Tripwire Hook (E) JE2.png|32px]]<br>[[File:Attached Tripwire Hook (S) JE2.png|32px]] [[File:Powered Attached Tripwire Hook (S) JE2.png|32px]]<br>[[File:Attached Tripwire Hook (W) JE2.png|32px]] [[File:Powered Attached Tripwire Hook (W) JE2.png|32px]]<br>When attached to string, the region of string within the space of the tripwire hook is more linear looking, and looks less like the actual tripwire blocks.}}
+{{History||1.7.2|snap=13w36a|Tripwire hooks can now be obtained as one of the "junk" [[item]]s by [[fishing]].}}
+{{History|||snap=1.7.1|[[Acacia planks]] and [[dark oak planks]] can now be used to craft tripwire hooks.}}
+{{History||1.8|snap=14w11a|[[File:Tripwire Hook (N) JE2.png|32px]] [[File:Attached Tripwire Hook (N) JE3.png|32px]] [[File:Powered Tripwire Hook (N) JE2.png|32px]] [[File:Powered Attached Tripwire Hook (N) JE3.png|32px]]<br>[[File:Tripwire Hook (E) JE2.png|32px]] [[File:Attached Tripwire Hook (E) JE3.png|32px]] [[File:Powered Tripwire Hook (E) JE2.png|32px]] [[File:Powered Attached Tripwire Hook (E) JE3.png|32px]]<br>[[File:Tripwire Hook (S) JE2.png|32px]] [[File:Attached Tripwire Hook (S) JE3.png|32px]] [[File:Powered Tripwire Hook (S) JE2.png|32px]] [[File:Powered Attached Tripwire Hook (S) JE3.png|32px]]<br>[[File:Tripwire Hook (W) JE2.png|32px]] [[File:Attached Tripwire Hook (W) JE3.png|32px]] [[File:Powered Tripwire Hook (W) JE2.png|32px]] [[File:Powered Attached Tripwire Hook (W) JE3.png|32px]] The [[model]] of tripwire hooks has been slightly changed. The rendering of the stick and hook elements is slightly strange; they can be seen rendering on top of the base plate even when clearly behind it.
+|The item texture has been changed to [[File:Oak Planks (texture) JE4 BE2.png|32px]].<ref>{{bug|MC-50948}}</ref>}}
+{{History|||snap=14w11b|The item texture has changed back to [[File:Tripwire Hook (texture) JE1 BE1.png|32px]].}}
+{{History|||snap=14w17a|[[File:Tripwire Hook (N) JE3.png|32px]] [[File:Attached Tripwire Hook (N) JE4.png|32px]] [[File:Powered Tripwire Hook (N) JE3.png|32px]] [[File:Powered Attached Tripwire Hook (N) JE4.png|32px]]<br>[[File:Tripwire Hook (E) JE3.png|32px]] [[File:Attached Tripwire Hook (E) JE4.png|32px]] [[File:Powered Tripwire Hook (E) JE3.png|32px]] [[File:Powered Attached Tripwire Hook (E) JE4.png|32px]]<br>[[File:Tripwire Hook (S) JE3.png|32px]] [[File:Attached Tripwire Hook (S) JE4.png|32px]] [[File:Powered Tripwire Hook (S) JE3.png|32px]] [[File:Powered Attached Tripwire Hook (S) JE4.png|32px]]<br>[[File:Tripwire Hook (W) JE3.png|32px]] [[File:Attached Tripwire Hook (W) JE4.png|32px]] [[File:Powered Tripwire Hook (W) JE3.png|32px]] [[File:Powered Attached Tripwire Hook (W) JE4.png|32px]] The model of tripwire hooks has been changed. The stick is now affected by the Smooth Lighting option, the iron is bigger, and the top, side, and stick textures have been slightly changed.}}
+{{History|||snap=14w25a|[[File:Tripwire Hook (N) JE4.png|32px]] [[File:Attached Tripwire Hook (N) JE5.png|32px]] [[File:Powered Tripwire Hook (N) JE4.png|32px]] [[File:Powered Attached Tripwire Hook (N) JE5.png|32px]]<br>[[File:Tripwire Hook (E) JE4.png|32px]] [[File:Attached Tripwire Hook (E) JE5.png|32px]] [[File:Powered Tripwire Hook (E) JE4.png|32px]] [[File:Powered Attached Tripwire Hook (E) JE5.png|32px]]<br>[[File:Tripwire Hook (S) JE4.png|32px]] [[File:Attached Tripwire Hook (S) JE5.png|32px]] [[File:Powered Tripwire Hook (S) JE4.png|32px]] [[File:Powered Attached Tripwire Hook (S) JE5.png|32px]]<br>[[File:Tripwire Hook (W) JE4.png|32px]] [[File:Attached Tripwire Hook (W) JE5.png|32px]] [[File:Powered Tripwire Hook (W) JE4.png|32px]] [[File:Powered Attached Tripwire Hook (W) JE5.png|32px]] The ring in the tripwire hook is now affected by ambient occlusion.}}
+{{History||1.9|snap=15w49a|The <code>suspended</code> block state has been removed from tripwire hooks.}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], this [[block]]'s numeral ID was 131.}}
+{{History||1.14|snap=18w43a|[[File:Tripwire Hook (N) JE5.png|32px]] [[File:Attached Tripwire Hook (N) JE6.png|32px]] [[File:Powered Tripwire Hook (N) JE5.png|32px]] [[File:Powered Attached Tripwire Hook (N) JE6.png|32px]]<br>[[File:Tripwire Hook (E) JE5.png|32px]] [[File:Attached Tripwire Hook (E) JE6.png|32px]] [[File:Powered Tripwire Hook (E) JE5.png|32px]] [[File:Powered Attached Tripwire Hook (E) JE6.png|32px]]<br>[[File:Tripwire Hook (S) JE5.png|32px]] [[File:Attached Tripwire Hook (S) JE6.png|32px]] [[File:Powered Tripwire Hook (S) JE5.png|32px]] [[File:Powered Attached Tripwire Hook (S) JE6.png|32px]]<br>[[File:Tripwire Hook (W) JE5.png|32px]] [[File:Attached Tripwire Hook (W) JE6.png|32px]] [[File:Powered Tripwire Hook (W) JE5.png|32px]] [[File:Powered Attached Tripwire Hook (W) JE6.png|32px]] The texture of tripwire hooks has been changed.
+|Tripwire hooks are now used to craft [[crossbow]]s.}}
+{{History|||snap=18w47a|[[File:Tripwire Hook (N) JE6.png|32px]] [[File:Attached Tripwire Hook (N) JE7.png|32px]] [[File:Powered Tripwire Hook (N) JE6.png|32px]] [[File:Powered Attached Tripwire Hook (N) JE7.png|32px]]<br>[[File:Tripwire Hook (E) JE6.png|32px]] [[File:Attached Tripwire Hook (E) JE7.png|32px]] [[File:Powered Tripwire Hook (E) JE6.png|32px]] [[File:Powered Attached Tripwire Hook (E) JE7.png|32px]]<br>[[File:Tripwire Hook (S) JE6.png|32px]] [[File:Attached Tripwire Hook (S) JE7.png|32px]] [[File:Powered Tripwire Hook (S) JE6.png|32px]] [[File:Powered Attached Tripwire Hook (S) JE7.png|32px]]<br>[[File:Tripwire Hook (W) JE6.png|32px]] [[File:Attached Tripwire Hook (W) JE7.png|32px]] [[File:Powered Tripwire Hook (W) JE6.png|32px]] [[File:Powered Attached Tripwire Hook (W) JE7.png|32px]] As the [[planks]] textures has been changed, the texture of tripwire hooks has been changed, as a result.}}
+{{History|||snap=19w11a|Fletcher [[villager]]s now [[trading|buy]] tripwire hooks.}}
+{{History||1.16|snap=20w06a|[[Crimson planks]] and [[warped planks]] can now be used to craft tripwire hooks.}}
+{{History|||snap=20w10a|Tripwire hooks can now be placed on [[blocks of redstone]], [[observer]]s, and [[target]]s.<ref>{{bug|MC-146824}}</ref>}}
+{{History||1.19|snap=22w11a|[[Mangrove planks]] can now be used to craft tripwire hooks.}}
+{{History||1.20.2|snap=23w33a|Tripwire hooks now use wood sounds instead of stone sounds.<ref>{{bug|MC-217629||Tripwire hooks use stone sounds, rather than wood|Fixed}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.13.0|snap=build 1|[[File:Tripwire Hook JE3 BE1.png|32px]]{{verify|Was this exact model used?}} Added tripwire hooks. 
+|Tripwire hooks are used to craft [[trapped chest]]s.}}
+{{History|bedrock}}
+{{History||1.8.0|snap=beta 1.8.0.10|Tripwire hooks are now used to craft [[crossbow]]s.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Tripwire Hook JE6 BE2.png|32px]]{{verify|Was this exact model used?}} The texture of tripwire hooks has been changed.
+|Tripwire hooks can now be found in [[pillager outpost]] [[chest]]s.}}
+{{History||1.11.0|snap=beta 1.11.0.4|Tripwire hooks can now be [[trading|sold]] to fletcher [[villager]]s.}}
+
+{{History|console}}
+{{History||xbox=TU14|xbone=CU1|ps=1.04|wiiu=Patch 1|[[File:Tripwire Hook JE3 BE1.png|32px]]{{verify|Was this exact model used?}} Added tripwire hooks.}}
+{{History|Ps4}}
+{{History||1.90|[[File:Tripwire Hook JE6 BE2.png|32px]]{{verify|Was this exact model used?}} The texture of tripwire hooks has been changed.}}
+
+{{History|new 3ds}}
+{{History||0.1.0|[[File:Tripwire Hook JE3 BE1.png|32px]]{{verify|Was this exact model used?}} Added tripwire hooks.}}
+{{History|foot}}
+
+<gallery>
+File:DinnerboneTripwireDev1.png|The first image of tripwires [[dinnerbonetweet:207141805265928192|released]] by [[Mojang]].
+File:DinnerboneTripwireDev2.png|The second image of tripwires [[dinnerbonetweet:207151964025393155|released]] by Mojang.
+File:DinnerboneTripwireDev3.png|The third image of tripwires [[dinnerbonetweet:207154292593917952|released]] by Mojang.
+File:DinnerboneTripwireDev6.png|A comparison between a tripwire hook and a lever [[dinnerbonetweet:207274999118168064|released]] by Mojang.
+</gallery>
+
+== Issues ==
+{{Issue list|Tripwire}}
+
+== Gallery ==
+<gallery>
+File:Trap1.png|First location of tripwire hooks in jungle temple, setting of the dispenser trap in the background.
+File:Trap2.png|Second location of tripwire hooks in jungle temple, setting of the dispenser trap in the background.
+File:Outpost loot.png|Tripwire hook found in a chest inside pillager outpost.
+</gallery>
+
+== References ==
+{{Reflist}}
+
+== External links ==
+*[https://www.minecraft.net/en-us/article/taking-inventory-tripwire-hook Taking Inventory: Tripwire Hook] – Minecraft.net on September 11, 2018
+
+{{Redstone}}
+{{Blocks|Utility}}
+
+[[Category:Mechanics]]
+[[Category:Redstone mechanics]]
+[[Category:Mechanisms]]
+[[Category:Manufactured blocks]]
+[[Category:Generated structure blocks]]
+[[Category:Non-solid blocks]]
+
+[[de:Haken]]
+[[es:Gancho de cuerda]]
+[[fr:Crochet]]
+[[ja:トリップワイヤーフック]]
+[[ko:철사 덫 갈고리]]
+[[nl:Struikeldraadhaak]]
+[[pl:Zaczep na linkę]]
+[[pt:Gancho de Armadilha]]
+[[ru:Натяжной датчик]]
+[[uk:Гак для розтяжки]]
+[[zh:绊线钩]]

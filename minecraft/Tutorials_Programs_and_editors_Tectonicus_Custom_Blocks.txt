@@ -1,0 +1,168 @@
+{{disclaimer}}
+
+By default Tectonicus will render all the standard Minecraft blocks, but if you're using mods that add new block types then those blocks will be skipped. By making a custom block config you can add in custom block types to Tectonicus so that maps made with your favorite mods will show correctly.
+
+Internally all blocks in ''Minecraft'' have a unique number, or id. You can see all of these here: [[Block IDs]]. Mods will add blocks by using block ids currently not in use - if you're a mod author then you can make a block config for others to use, or you can ask the mod author to document the new blocks and their ids.
+
+== Tutorial: Adding a simple custom block ==
+First, you need to create a custom block file. An empty file looks like this:
+
+<pre>
+<blockConfig version="1">
+</blockConfig>
+</pre>
+
+Since this is xml, the extension is usually .xml, but this is not required. We'll save this to C:/customBlockConfig.xml.
+
+Say you've got a mod that adds a 'cheese' block, made entirely out of hard cheese. It's a solid block (like dirt or stone) but has a yellow image on all sides. You'd add your cheese block so your config looks like this:
+
+<pre>
+<blockConfig version="1">
+
+  <!-- A block of cheese -->
+  <Solid id="200" name="cheese" texture="c:/cheese.png"/>
+  
+</blockConfig>
+</pre>
+
+There are a few important things to notice:
+
+* The 'Solid' tag means that this block is completely solid, like dirt.
+* The 'id' is the id of the block.
+* The 'name' is the name given to the block
+* The 'texture' is the image file to use. Png, gif or jpeg are supported.
+
+Then you need to include your custom config when drawing your map. Find your config file, and add the config to the 'layer' tags as shown (the last two attributes are the new ones):
+
+<pre>
+<layer dimension="terra" renderStyle="normal"
+       useDefaultBlocks="true"
+       customBlocks="C:/customBlockConfig.xml">
+</pre>
+
+Render your map, and the new block should appear!
+
+== Replacing Existing Blocks ==
+
+If you want to change how a regular Minecraft block looks, then you can just redefine it in your custom block. For example, if we changed the id above from 200 to 12 (the block id of sand) then all of your sand would appear as cheese.
+
+== Removing Existing Blocks ==
+
+If you *only* want custom blocks then you can set 'useDefaultBlocks' to 'false'. This means that you don't get all of the regular Minecraft blocks. You could then use this to make a config containing *only* ores (coal, iron, gold, diamonds) to get a map of where they are under ground. This config would look like this:
+
+<pre>
+<blockConfig version="1">
+  <Solid id="14" name="Gold Ore" texture="terrain[0, 2]"/>
+  <Solid id="15" name="Iron Ore" texture="terrain[1, 2]"/>
+  <Solid id="16" name="Coal Ore" texture="terrain[2, 2]"/>
+  <Solid id="56" name="Diamond Ore" texture="terrain[2, 3]"/>
+</blockConfig>
+</pre>
+
+The interesting thing to note here is the texture="terrain[0, 2]" bit. Minecraft block images are stored in a single big image called terrain.png (see [[Texture pack]]). Here terrain[0, 2] means use the block image from terrain.png in the first column and third row (the place where gold ore is).
+
+Any image may be used with [] to select a tile from it, as long as the image has the same grid size as terrain.png (i.e. 16x16). E.g.
+
+<pre>
+<blockConfig version="1">
+  <Solid id="14" name="Gold Ore" texture="C:/CustomOres.png[1, 2]"/>
+</blockConfig>
+</pre>
+
+== Using Images From A Texture Pack ==
+As well as using images directly from your hard drive, you can use images from either Minecraft or your texture pack.
+
+<pre>
+<blockConfig version="1">
+  <!-- Create a custom cloud block with the minecraft cloud texture on it -->
+  <Solid id="201" name="Cloud" texture="environment/clouds.png"/>
+</blockConfig>
+</pre>
+
+As with regular textures, first the texture pack is checked and if the file does not exist there then the regular minecraft jar is checked.
+
+== Different Kinds Of Block ==
+
+So far we have only used 'Solid' blocks, like stone and dirt. You can also add differently shaped blocks if a similar one already exists in Minecraft. For example, a custom plant:
+
+<pre>
+<blockConfig version="1">
+  <Plant id="202" name="Rose" texture="C:/Rose.png"/>
+</blockConfig>
+</pre>
+
+Here the 'Plant' used instead of 'Solid' means instead of a solid block Tectonicus will draw a X with the image, like regular minecraft plants.
+
+For examples of all the different kinds of block you can add, please see the default block config used by Tectonicus itself: http://www.triangularpixels.com/Tectonicus/defaultBlockConfig.xml
+
+== Sub Blocks (for mods) ==
+
+As well as a block id all blocks have a data value. For simple blocks (like cobblestone) this is ignored. For others (like beds) it stores the direction or other extra data.
+
+Some blocks (particularly blocks added by mods) use the data like a secondary id. This can be used in the 'id' field.
+
+Here's an example for the wool blocks in regular minecraft:
+
+<pre>
+	<Solid id="35:0" name="White wool"  texture="terrain[0, 4]" />
+	<Solid id="35:1" name="Orange wool"  texture="terrain[2, 13]" />
+	<Solid id="35:2" name="Magenta wool"  texture="terrain[2, 12]" />
+	<Solid id="35:3" name="Light blue wool"  texture="terrain[2, 11]" />
+	<Solid id="35:4" name="Yellow wool"  texture="terrain[2, 10]" />
+	<Solid id="35:5" name="Light green wool"  texture="terrain[2, 9]" />
+	<Solid id="35:6" name="Pink wool"  texture="terrain[2, 8]" />
+	<Solid id="35:7" name="Grey wool"  texture="terrain[2, 7]" />
+	<Solid id="35:8" name="Light grey wool"  texture="terrain[1, 14]" />
+	<Solid id="35:9" name="Cyan wool"  texture="terrain[1, 13]" />
+	<Solid id="35:10" name="Purple wool"  texture="terrain[1, 12]" />
+	<Solid id="35:11" name="Blue wool"  texture="terrain[1, 11]" />
+	<Solid id="35:12" name="Brown wool"  texture="terrain[1, 10]" />
+	<Solid id="35:13" name="Dark green wool"  texture="terrain[1, 9]" />
+	<Solid id="35:14" name="Red wool"  texture="terrain[1, 8]" />
+	<Solid id="35:15" name="Black wool"  texture="terrain[1, 7]" />
+</pre>
+
+These all have a block id of 35, but use the data to decide which color texture to use. Red wool for example has a data value of 14, so the id actually becomes id="35:14".
+
+Note that they don't all have to be 'Solid' type blocks. You could mix any block type as you need. This is particularly handy for mods with custom blocks.
+
+== Available Block Types ==
+
+=== Air ===
+
+Air blocks are empty space. Use them if you want to disable a regular minecraft block.
+
+<pre><Air id="0" name="Air"/></pre>
+
+=== Solid blocks ===
+
+Creates a square cube like dirt or stone. May have the same image on all sides, or a different image on the top.
+
+Optionally may be drawn with 'alphaTest'. This doesn't draw transparent pixels (like glass or mob spawners)
+
+<pre>
+<!-- Smoothstone has the same texture on all sides -->
+<Solid id="1" name="Stone" texture="terrain[1, 0]"/>
+
+<!-- TNT has one texture for the sides and a different one for top and bottom -->
+<Solid id="46" name="TNT" side="terrain[8, 0]" top="terrain[9, 0]"/>
+
+<!-- Mob spawners use the alpha test -->
+<Solid id="52" name="Mob Spawner" texture="terrain[1, 4]" alphaTest="true"/>
+</pre>
+
+=== Water ===
+
+A solid block with transparent sides and special handling to make deeper water darker.
+
+<pre><Water id="8" name="Water" texture="terrain[15, 12]"/></pre>
+
+=== Log ===
+
+A solid block with different side and top textures. Texture changes based on the block's data value.
+
+<pre><Log id="17" name="Log" normal="terrain[4, 1]" spruce="terrain[4, 7]"
+ birch="terrain[5, 7]" top="terrain[5, 1]"/></pre>
+
+[[Category:Custom software]]
+[[zh:辅助程序与编辑器/Tectonicus/自定义方块]]

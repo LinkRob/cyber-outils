@@ -1,0 +1,84 @@
+{{conjecture}}
+{{removed}}
+{{Block
+| image = <gallery>
+Weird Piston.png | Normal
+Weird Sticky Piston.png | Sticky
+</gallery>
+| image2 = Weird Piston BE.png
+| transparent = No
+| tntres = 0.5
+| hardness = 1.5
+| light = No
+| tool = any
+| renewable = Yes
+| stackable = No
+| flammable = No
+| lavasusceptible = No
+}}
+'''Weird pistons''' were extreme metadata variants of [[piston]]s which could be used as update suppression agents.
+
+== Obtaining ==
+
+=== Breaking ===
+Weird pistons can be broken in the same way normal pistons can. They cannot be obtained as an item, instead dropping normal pistons.
+
+{{breaking row|horizontal=1|Weird Piston|Pickaxe}}
+
+=== BUD piston method ===
+Weird pistons of metadata value 7 could be created if a placed piston updates a BUD-powered piston, such that it pushes or pulls the placed piston.<ref>https://youtu.be/Q8NAa4pdAV0</ref>
+
+=== Block transmutation ===
+Multiple [https://mcdf.wiki.gg/wiki/Java:Block_Transmutation block transmutation methods] can be used to create weird pistons {{in|JE}}.From Beta 1.7.2 to Beta 1.9 Prerelease 5, weird pistons can be created using moving piston merge transmutation, from Beta 1.7.3 to 1.2.3, can be created using water transmutation, and from 13w36a-1 to 1.7.5 and 14w02a to 14w11b, can be created using arrow transmutation.
+
+== Usage ==
+
+=== Update suppression ===
+When powered, weird pistons of metadata 6 will immediately crash the game. This game crash happens so quick that block updates are not processed correctly, and this can allow for otherwise-impossible arrangements of blocks to be achieved.<ref>https://youtu.be/BRUzuUSr-Yw</ref>
+
+Every time the weird piston is updated while receiving power, the game will crash again, so having it be in a position where it receives constant updates is not recommended due to effectively softlocking the world. Depowering the weird piston should make it safe again.
+
+It is worth noting that this has a possibility of corrupting singleplayer worlds, and it is much safer to perform this on a hosted server as while this does still cause a server crash, there have been no recorded cases of world corruption originating from use of this method.
+
+Analysis of the behaviour of metadata 6 weird pistons using 1.7 releases and 1.8 snapshots seems to reveal that they remain at data value 6 permanently, even upon loading a world, as opposed to converting to data value 14 - if they do indeed convert, this conversion is not saved.
+
+== History ==
+{{info needed section|From the Bedrock Edition removed blocks page: "Running the block on the higher versions, such as 1.16.0, replaces an normal piston but in random directions." Can we figure out what data values correspond to what resultant directions, or is it truly random?}}
+{{History|java beta}}
+{{History||1.7|[[File:Weird Piston JE1.png|32px]] [[File:Weird Piston JE1.png|32px]] [[File:Weird Piston JE1.png|32px]] [[File:Weird Piston JE1.png|32px]] [[File:Weird Sticky Piston JE1.png|32px]] [[File:Weird Sticky Piston JE1.png|32px]] [[File:Weird Sticky Piston JE1.png|32px]] [[File:Weird Sticky Piston JE1.png|32px]]<br>Weird pistons and weird sticky pistons exist. There are eight types: the normal piston with data values 6, 7, 14 and 15, and the sticky piston with data values 6, 7, 14 and 15.
+|The variants with metadata 6 crash the game when powered, allowing for update suppression.
+|The variants with metadata 7 can be obtained via the BUD piston method.
+|The variants with metadata 14 and 15 will crash the game immediately when updated in any way, likely also allowing for update suppression. However, they are not known to be obtainable in a stable state at this point.}}
+{{History||1.7_01|Weird pistons of metadata 15 appear to convert to metadata 7 upon loading the world again after updating them.}}
+{{History||1.7.3|Weird pistons of other metadata values are now obtainable in survival via block transmutation using the water method.}}
+{{History|java}}
+{{History||1.2.4|snap=release|Water transmutation has been patched, preventing weird pistons from being obtained this way.}}
+{{History||1.3.1|snap=12w26a|Patched the BUD piston method, preventing weird pistons from being obtained this way.}}
+{{History|||snap=12w27a|Weird pistons of metadata 15 no longer crash the game when updated.}}
+{{History||1.7.2|snap=13w36a|"Added" arrow transmutation, allowing for the obtaining of weird pistons this way.}}
+{{History||1.7.6|snap=pre1|Patched arrow transmutation in the 1.7 branch, preventing weird pistons from being obtained this way.}}
+{{History||1.8|snap=14w02a|Weird pistons with data value 6 no longer crash the game when powered, rendering them no longer usable for update suppression.
+|In addition, weird pistons with metadata 14 can be obtained in a stable state with commands or arrow transmutation, as they no longer crash the game either.}}
+{{History|||snap=14w17a|[[File:Missing Model JE2.png|32px]] [[File:Missing Model JE2.png|32px]] [[File:Missing Model JE2.png|32px]] [[File:Missing Model JE2.png|32px]] [[File:Missing Model JE2.png|32px]] [[File:Missing Model JE2.png|32px]] [[File:Missing Model JE2.png|32px]] [[File:Missing Model JE2.png|32px]] Weird pistons [[Missing model|no longer have a model]].
+|Patched arrow transmutation in the 1.8 branch, preventing weird pistons from being obtained this way.}}
+{{History|||snap=14w25a|Due to blocks using block states instead of metadata from this version onwards, since weird pistons were not associated with any valid block states, approaching one would result in a game crash.}}
+{{History|||snap=14w26a|Weird pistons have been fully removed from the game alongside other invalid metadata variants of blocks.}}
+{{History|pocket alpha}}
+{{History||?|[[File:Weird Piston BE1.png|32px]] Weird pistons and weird sticky pistons exist. In this edition they appear extremely mutilated, with the side texture on all six sides instead of the head texture, and a piston arm lodged partway inside it, causing visible Z-fighting}}
+{{History|bedrock}}
+{{History||v1.10.0|snap=beta 1.10.0.3|[[File:Weird Piston BE2.png|32px]] Piston-related textures have been updated.}}
+{{History||?|Weird pistons have been removed. The exact version is unknown, but v1.10.0 is a lower bound and v1.13.0 an upper bound.<ref>{{bug|MCPE-21558}}</ref>}}
+{{History|console}}
+{{History||?|[[File:Weird Piston JE1.png|32px]] [[File:Weird Sticky Piston JE1.png|32px]] Weird pistons and weird sticky pistons exist.}}
+{{History||?|Weird pistons can be obtained via the BUD piston method.}}
+{{History||?|Patched the BUD piston method, preventing weird pistons from being obtained this way.}}
+{{History|foot}}
+
+== Issues ==
+{{unintended block issues}}
+
+== References ==
+{{reflist}}
+
+
+{{Blocks|Removed}}

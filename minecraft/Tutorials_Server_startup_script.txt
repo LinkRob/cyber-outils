@@ -1,0 +1,315 @@
+{{exclusive|java}}
+{{ScriptWarning}}
+
+This is an example of possible Minecraft server startup and maintenance script for GNU/Linux distros.
+
+== Systemd Script ==
+For all modern Servers supporting Systemd. Systemd is the jack of all trades. For Ubuntu, it comes with 15.04 (15.04 is an old version which have had end-of-support, we suggest using later LTS versions instead, but the following contents is fully working in this version).
+
+=== Installation ===
+# Connect to your (v)root server or if you want to run the server on your machine, open a terminal.
+# Become root using su or sudo. To check if you are root, run <kbd>whoami</kbd> to display your username.
+# Next install the necessary packages <kbd>apt install openjdk-8-jre-headless curl screen nano bash grep</kbd>
+# Create the /opt folder if it doesn't already exist: <kbd>mkdir /opt</kbd>
+# Create the minecraft group for the minecraft user we'll add in the next step: <kbd>groupadd minecraft</kbd>
+# Now you need to create the user for the service: <kbd>useradd --system --shell /usr/sbin/nologin --home /opt/minecraft -g minecraft minecraft</kbd>
+# Create the Systemd Unit file <kbd>nano /etc/systemd/system/minecraft@.service</kbd> and the following:
+<pre>
+[Unit]
+Description=Minecraft Server %i
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/minecraft/%i
+
+# Solves the issue where the minecraft server will endlessly restart itself
+# See https://askubuntu.com/questions/953920/systemctl-service-timed-out-during-start for more info
+Type=simple
+
+PrivateUsers=true
+# Users Database is not available from within the unit, only root and minecraft is available, everybody else is nobody
+
+User=minecraft
+Group=minecraft
+
+ProtectSystem=full
+# Read only mapping of /usr /boot and /etc
+
+ProtectHome=true
+# /home, /root and /run/user seem to be empty from within the unit. It is recommended to enable this setting for all long-running services (in particular network-facing ones).
+
+ProtectKernelTunables=true
+# /proc/sys, /sys, /proc/sysrq-trigger, /proc/latency_stats, /proc/acpi, /proc/timer_stats, /proc/fs and /proc/irq will be read-only within the unit. It is recommended to turn this on for most services.
+# Implies MountFlags=slave
+
+ProtectKernelModules=true
+# Block module system calls, also /usr/lib/modules. It is recommended to turn this on for most services that do not need special file systems or extra kernel modules to work
+# Implies NoNewPrivileges=yes
+
+ProtectControlGroups=true
+# It is hence recommended to turn this on for most services.
+# Implies MountAPIVFS=yes
+
+# Set default memory values
+Environment="MCMINMEM=512M" "MCMAXMEM=1024M" "SHUTDOWN_DELAY=5" "POST_SHUTDOWN_DELAY=10"
+# Change memory values in environment file
+EnvironmentFile=-/opt/minecraft/%i/server.conf
+
+# Uncomment this to fix screen on RHEL 8
+#ExecStartPre=+/bin/sh -c 'chmod 777 /run/screen'
+
+ExecStart=/bin/sh -c \
+    'find -L . \
+      -maxdepth 1 \
+      -type f \
+      -iregex ".*/\\(FTBServer\\|craftbukkit\\|spigot\\|paper\\|forge\\|minecraft_server\\).*jar" \
+      -print0 \
+      -quit \
+    | xargs -0 -I{} \
+      /usr/bin/screen -DmS mc-%i \
+        /usr/bin/java \
+          -server \
+          -Xms${MCMINMEM} \
+          -Xmx${MCMAXMEM} \
+          -XX:+UseG1GC \
+          -XX:ParallelGCThreads=2 \
+          -XX:MinHeapFreeRatio=5 \
+          -XX:MaxHeapFreeRatio=10 \
+          -jar {} \
+          --nogui'
+
+# Alternative to the above ExecStart. Found to work better as this creates the screen session prior to invoking java to run the server.
+# Solves the problem many encountered when starting the service where it would fail with the error 'no screen session found'.
+ExecStartPre=/bin/sh -c \
+    'find -L . \
+      -maxdepth 1 \
+      -type f \
+      -iregex ".*/\\(FTBServer\\|craftbukkit\\|spigot\\|paper\\|forge\\|minecraft_server\\).*jar" \
+      -print0 \
+      -quit \
+    | xargs -0 -I{} \
+      /usr/bin/screen -DmS mc-%i'
+ExecStart=/bin/sh -c \
+    '/usr/bin/java \
+          -server \
+          -Xms${MCMINMEM} \
+          -Xmx${MCMAXMEM} \
+          -XX:+UseG1GC \
+          -XX:ParallelGCThreads=2 \
+          -XX:MinHeapFreeRatio=5 \
+          -XX:MaxHeapFreeRatio=10 \
+          -jar {} \ # insert server jar name. i.e. 'server.jar'
+          --nogui' 
+
+# Simplified of alternative
+ExecStartPre=/bin/sh -c '/usr/bin/screen -dmS mc-%i'
+ExecStart=/bin/sh -c '/usr/bin/java -server -Xmx${MCMAXMEM} -Xms${MCMINMEM} -jar server.jar --nogui'
+
+ExecReload=/usr/bin/screen -p 0 -S mc-%i -X eval 'stuff "reload"\\015'
+
+ExecStop=/usr/bin/screen -p 0 -S mc-%i -X eval 'stuff "say SERVER SHUTTING DOWN. Saving map..."\\015'
+ExecStop=/bin/sh -c '/bin/sleep ${SHUTDOWN_DELAY}'
+ExecStop=/usr/bin/screen -p 0 -S mc-%i -X eval 'stuff "save-all"\\015'
+ExecStop=/usr/bin/screen -p 0 -S mc-%i -X eval 'stuff "stop"\\015'
+ExecStop=/bin/sh -c '/bin/sleep ${POST_SHUTDOWN_DELAY}'
+
+Restart=on-failure
+RestartSec=60s
+
+[Install]
+WantedBy=multi-user.target
+
+#########
+# HowTo
+#########
+#
+# Create a directory in /opt/minecraft/XX where XX is a name like 'survival'
+# Add minecraft_server.jar into dir with other conf files for minecraft server
+#
+# Enable/Start systemd service
+#    systemctl enable minecraft@survival
+#    systemctl start minecraft@survival
+#
+# To run multiple servers simply create a new dir structure and enable/start it
+#    systemctl enable minecraft@creative
+# systemctl start minecraft@creative
+#
+# To change specific server memory assignment, create file /opt/minecraft/XX/server.conf (where XX is your server name) and add below lines:
+# MCMINMEM=512M
+# MCMAXMEM=2048M
+
+
+</pre>
+
+=== Setup Instance ===
+Now you can Upload your FTB Modpacks into an subfolder of /opt/minecraft/. For example, you would place the modpack "FTB Beyond" in "/opt/minecraft/FTBBeyond" (without spaces in the name).
+If you want to run vanilla instances, just create a folder within /opt/minecraft and upload the minecraft_server.jar and create the eula.txt file (using: echo "eula=true" > /opt/minecraft/vanilla/eula.txt).
+
+After you uploaded the minecraft server files, make sure, that "minecraft" is the owner and owning group. To do so just run "ls -la /opt/minecraft". If it is not, run "chown minecraft:minecraft /opt/minecraft/FTBBeyond".
+You may also require to complete the installation. For current FTB packages you would run:
+<pre>
+cd /opt/minecraft/FTBBeyond
+echo "eula=true" > /opt/minecraft/FTBBeyond/eula.txt
+su -c "/opt/minecraft/FTBBeyond/FTBInstall.sh" -s "/bin/bash" minecraft
+</pre>
+
+=== Start/Stop Instances ===
+You start your server using "systemctl start minecraft@FTBBeyond" and stop it using "systemctl stop minecraft@FTBBeyond". The part behind the "@" is your instance name e. g. the Folder Name.
+This script also takes care to automatically stop your minecraft server if you reboot the server.
+
+=== Autostart ===
+==== Enable ====
+<pre>systemctl enable minecraft@FTBBeyond</pre>
+==== Disable ====
+<pre>systemctl disable minecraft@FTBBeyond</pre>
+
+== Init.d Script ==
+For legacy Servers which don't have OS-integrated Systemd
+
+=== Pre-Requisites ===
+Screen package must be installed.<br>
+On CentOs and Red Hat-based distributions: 
+<pre>yum install screen</pre>
+On Debian based systems such as Ubuntu:
+<pre>apt-get install screen python</pre>
+=== Download ===
+To download the script with wget, run the following (WATCH OUT SCRIPT NEEDS WORK - change the WORLD, MCPATH and BACKUPPATH variables.<br>
+'''Important:''' If you use the wget method and the first character of every line is an empty space, the script won't work and update-rc.d outputs errors. If so, you have to remove the leading empty spaces from each line. Be careful not to delete anything else than empty space though!)
+<pre>wget -O minecraft "http://minecraft.fandom.com/Tutorials/Server_startup_script/Script?action=raw"</pre>
+
+{{#tag:pre|{{/Script}}}}
+
+=== Requirements ===
+* [[Wikipedia:GNU Screen|screen]]
+* python (apt-get install python)
+
+=== Installation ===
+
+Use your favorite editor to create file called minecraft in /etc/init.d/ and paste the script above in that file.
+
+Edit the USERNAME and MCPATH -variables according to your setup.  If you use a wrapper script, change INVOCATION to start it instead of starting the server directly.
+
+Make sure the newly created file has required permissions
+You can set the permissions by running:
+<pre>chmod a+x /etc/init.d/minecraft</pre>
+
+Then run (on Debian-based distributions)
+<pre>update-rc.d minecraft defaults</pre> 
+
+Starting with Debian 6.0, the insserv command is used instead, if dependency-based booting is enabled.
+insserv will produce no output if everything went OK. Examine the error code in $? if you want to be sure.
+<pre>insserv minecraft</pre>
+
+On CentOs and RHEL(Redhat enterprise Linux)
+You will need to add the process into the chkconfig list chkconfig manages startup scripts under systemd
+<pre>chkconfig --add minecraft</pre>
+To check if the process is done correctly use the ntsysv command keep scrolling until you see the minecraft process if you don't
+repeat the chkconfig command. 
+to add required symbolic links.
+Note: your system will most likely warn you that the script does not meet all requirements. The script will however work.
+
+You can also setup an entry in your [[Wikipedia:Cron|crontab]] to backup the server.
+A sample crontab to backup every half hour on the hour, and 30 minutes into the hour:
+
+* Using the user account you want the work done under, run:
+<pre>crontab -e</pre>
+and add this
+<pre>0,30 * * * * /etc/init.d/minecraft backup</pre>
+
+If the process is unsuccessful, try:
+<pre>VISUAL=/usr/bin/nano crontab -e</pre>
+
+=== Uninstall ===
+(In debian based GNU/Linux distribution)
+<pre>update-rc.d -f  minecraft remove</pre>
+(In CentOs/RHEL)
+<pre>chkconfig --del minecraft</pre>
+
+=== Usage ===
+The script may be invoked via the following command on most systems, where "(command)" will be "stop", "start", "restart", or any of the other options it supports.
+<pre>/etc/init.d/minecraft (command)</pre>
+On most RedHat- or Debian-based distribution where the `service` command is available, it should be invoked as:
+<pre>service minecraft (command)</pre>
+To view the screen, use:
+<pre>screen -r</pre>
+
+To exit the screen, use:
+<pre>CTRL+a+d</pre>
+
+=== References ===
+* http://www.debian-administration.org/articles/28
+* https://wiki.debian.org/LSBInitScripts/DependencyBasedBoot
+
+=== Extra information ===
+If you still want to view the live log file, use this command in the server directory.
+<pre>tail -f logs/latest.log</pre>
+
+== Alternative Startup Scripts ==
+
+The following scripts offer the same functions as the above script but contain more useful features:
+* [https://github.com/spikegrobstein/mcwrapper mcwrapper]
+
+* [https://github.com/sandain/MinecraftServerControlScript &#91;Multi World&#93; Minecraft Server Control Script]
+** Run multiple Minecraft worlds.
+** Start, stop, and restart single or multiple worlds.
+** Create, delete, disable, and enable worlds.
+** Supports [http://bukkit.org/ CraftBukkit] in addition to the standard Mojang server distribution.
+** Users automatically notified of important server events.
+** Uses the [http://wiki.vg/Query Minecraft Query protocol] to keep track of current server conditions.
+** LSB and systemd compatible init script, allows for seamless integration with your server's startup and shutdown sequences.
+** Map worlds using the [http://overviewer.org/ Minecraft Overviewer] mapping software.
+** Backup worlds, and remove backups older than X days.
+** Update the server software and installed addons.
+** Send commands to a world server from the command line.
+
+* [https://github.com/Edenhofer/abs/blob/master/minecraft-server minecraftd]
+** Start, stop, and restart the server using either systemd or the script directly
+** Send commands to a server from the command line
+** Backup server (world, plugins, configuration, etc.), and purge old ones (configurable)
+** Suspend server if no player is logged in and bring it up as soon as one tries to join to maximazie efficiency
+** Purely written in bash and condensed features in about 500 lines of code to keep the foorprint small
+** Flexible configuration: support for e.g. spigot/craftbukkit, adjustable threads and RAM usage, etc.
+** Full systemd support with init and backup script
+** Secure resource usage: run script as different user and drop permissions if not requiered
+** Very similar to the script described in this article: It as well uses screen and tar but offers more advanced features
+** Excellent [https://wiki.archlinux.org/index.php/Minecraft#Server Arch Linux support]
+
+* [http://www.minecraftforum.net/topic/112218-mc-sheller-automation-shell-script-v240403 MC Sheller]
+
+* [https://teilgedanken.de/Blog/post/8/ Minecraft Systemd Service] A nice systemd service that features:
+** safe shutdown using rcon
+** protection of the system by making most of the system readonly
+** uses systemd journal to log
+** can be combined with a nice [https://teilgedanken.de/Blog/post/9/ commandcenter script]
+** is fully integrated in the systemd-toolchain
+
+* [https://github.com/Ahtenus/minecraft-init minecraft init]
+** modification of this script with a lot more features like multiworld
+
+* [https://github.com/edvind/minecraft-service Minecraft Service]
+
+* [http://www.minecraftforum.net/topic/186525-sysv-init-script-v106-for-linux/ Dagmar d'Surreal's Sysv init script]
+
+* [http://coriolis-storm.com/stuff/minecraft Setsuna-Xero's OpenRC(Gentoo) compatible init script, with conf.d defaults]
+
+* [http://www.homebrewtechnology.org/2011/12/mineserv-automatic-startstop-perl-init.html Mineserv Perl Init Script]
+** A very simple automatic start/stop script with backup and cleanup functions and the ability to pass commands to the server console.
+
+*[https://github.com/7thCore/mcsrv-script McSrv Script by 7thCore]
+** Bash language only script
+** Only uses systemd
+** Start, stop, backup functions and much more
+** Multi instance support
+** TmpFs/Ramdisk support that can be configured for each instance
+** Vanilla server automatic updates
+** Can run vanilla, forge and spigot jar files
+** Pre-built packages for Arch and Debian based systems that also install all dependancies
+** Discord integration. Sends notifications on start, stop, crashd and update events
+** Email integration. Sends emails on start, stop, crash and update events. Crash events also include logs in the email
+** More documentation available on the project's GitHub Wiki
+
+{{tutorials}}
+
+[[Category:Server]]
+
+[[zh:教程/服务器架设脚本]]

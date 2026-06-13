@@ -1,0 +1,503 @@
+{{about|the boss mob|the status effect|Wither (effect)|the skeleton variant|Wither Skeleton|the storm mob in Minecraft: Story Mode|Wither Storm|other uses}}
+{{Entity
+| title = Wither
+| image = <gallery>
+Wither.png| Normal
+Blue Wither.png| Blue
+</gallery>
+| health = '''{{el|je}}''':<br>
+{{hp|300}}<br>
+'''{{el|be}}''':<br>
+Easy: {{hp|300}}<br>
+Normal: {{hp|450}}<br>
+Hard: {{hp|600}}
+| armor = {{armor|4}}
+| behavior = Hostile
+| classification = [[Undead]]
+| damage = '''Birth Explosion:'''<br>
+''Varies by proximity; maximum:''<br>
+Easy: {{hp|35}}<br>Normal: {{hp|68}}<br>Hard: {{hp|102}}<br>
+<br>
+'''Wither Skull:'''<br>
+Easy: {{hp|5}}<br>
+Normal: {{hp|8|withered=1}}<br> 
+Hard: {{hp|12|withered=1}}<br>
+'''Wither:'''<br>
+Normal:{{EffectLink|id=wither|Wither (effect)|Wither II}} for 10 seconds ({{hp|1|withered=1}} per sec)<br>
+Hard:{{EffectLink|id=wither|Wither (effect)|Wither II}} for 40 seconds ({{hp|1|withered=1}} per sec)<br>
+'''Dash Attack:'''{{only|bedrock|short=1}}<br>
+{{hp|15}}
+| size = '''{{IN|Java}}:'''<br>
+Height: 3.5 blocks<br>Width: 0.9 blocks
+
+'''{{IN|Bedrock}}:'''<br>
+Height: 3.0 blocks<br>Width: 1.0 blocks
+| spawn = Built by player; 11 seconds spawn delay.
+}}
+The '''wither''' is a player-constructed and highly destructive [[undead]] [[Mob#Hostile mobs|hostile boss mob]] that can hover in mid-air and fire barrages of explosive wither skulls at its target (which happens to be everything living). It is the only source of [[nether star]]s, which are used to craft [[beacon]]s.
+
+== Spawning ==
+{{FakeImage|align=right|{{BlockGrid|scale=2|w=Wither Skeleton Skull|s=Soul Sand|www|sss| s }}|Wither build configuration. Soul soil can be used interchangeably with soul sand.|style=max-width:106px}}
+
+[[File:Blue Wither 2.png|alt=Blue shield wither.|thumb|Wither when spawned with its blue shield.]]
+
+The wither is spawned by placing 4 blocks of [[soul sand]] and/or [[soul soil]] in a T shape (see image on the right in the "Behavior" section), and putting 3 [[wither skeleton skull]]s on top of the three upper blocks. The last block placed ''must'' be one of the three skulls and can be placed by the player or a [[dispenser]]. [[Air]] blocks are required on either side of the base soul sand or soul soil under the upper [[block]]s (non-solid blocks such as [[grass]] and [[flower]]s prevent the wither from spawning). The building pattern can have any orientation (including horizontal and upside-down) as well as the skulls; the wither always spawns at the foot of the pattern. When the wither has successfully [[spawn]]ed, it is angered and creates an [[explosion]] around itself.
+
+Like all other [[hostile]] [[mob]]s, the wither despawns when the [[difficulty]] is changed to [[Peaceful]]. Building the wither spawning structure in Peaceful difficulty does not spawn anything.
+
+== Drops ==
+The wither always drops one {{ItemLink|nether star}} upon death. The [[Looting]] [[enchantment]] does not increase this drop. A wither also drops {{xp|50}} experiences when killed by a [[player]] or a [[tamed]] [[wolf]]. In [[Java Edition|''Java Edition'']], nether stars dropped by withers take 10 minutes to despawn and are immune to explosions. In [[Bedrock Edition|''Bedrock Edition'']], nether star items never despawn, neither by time nor by explosions. However, it can still be destroyed by a falling [[anvil]],‌‌<sup>[''[[Java Edition]] only'']</sup> [[fire]], [[lava]], [[cacti]], or [[the Void]].
+
+== Behavior ==
+[[File:HealthBarComparison.png|thumb|right|The difference between the [[ender dragon]]'s boss bar and that of the wither.{{Only|Java}}]]
+
+When spawned, the wither grows larger in size as its health bar fills up. While in this state, the wither is invulnerable, and neither moves nor attacks. When this state ends (after 11 seconds), the wither creates a large [[explosion]] centered on itself, destroying nearby blocks and dealing up to {{health|68}} damage to nearby mobs and players, depending on difficulty. This explosion has a blast power of 7, more than that of a [[charged creeper]] or an [[end crystal]]. It is accompanied by a loud gruesome sound that can be heard equally from across the map and in all dimensions{{only|java|short=1}}.<ref name="MC-177741">{{bug|MC-177741||Wither sounds play for all players}}</ref> After this, the wither attacks nearby mobs and can take damage.
+
+The wither has the greatest natural health of all mobs in ''Minecraft'' (exceeded by the [[warden]], while [[Bedrock Edition]]'s wither still has the highest health), at {{Health|300}} in ''Java Edition'' or {{Health|600}} in Bedrock Edition. The wither is immune to [[fire]], [[lava]], [[drowning]] [[damage]], and [[freezing]]. Like other [[undead]] mobs, the wither is harmed by the [[Instant Health]] effect and healed by the [[Instant Damage]] effect as well as affected by weapons with the [[Smite]] enchantment. It is immune to all other [[status effect]]s, like the [[ender dragon]].
+
+Upon taking damage, the wither breaks all [[block]]s within a 3×4×3 area around it, including blast-resistant blocks like [[obsidian]], [[crying obsidian]], and [[ancient debris]], dropping them as [[item (entity)|items]] if possible. The wither is the only mob in the game that can destroy obsidian.
+
+The wither ''cannot'' break the following blocks: 
+
+* {{BlockLink|Barrier}}
+* {{BlockLink|Bedrock}}
+* {{BlockLink|End Portal|link=End Portal (block)}}
+* {{BlockLink|End Portal Frame}}
+* {{BlockLink|End Gateway|link=End Gateway (block)}}
+* {{BlockSprite|command-block}} {{BlockSprite|chain-command-block}} {{BlockSprite|repeating-command-block}} [[Command Block]]
+* {{BlockLink|Structure Block}}
+* {{BlockLink|Jigsaw Block}}
+* {{BlockLink|Light Block}}<!-- It has been tested. -->
+* {{BlockLink|Moving Piston}}
+* {{BlockLink|Moving Block}}{{only|be}}
+* {{BlockLink|Reinforced Deepslate}}
+{{IN|java}}, these blocks are listed under the {{cd|wither_immune}} [[tag]]. [[File:WitherAttack 2.png|thumb|right|alt=|The wither attacking a [[villager]].]]
+
+The wither's block-breaking behavior makes [[suffocation]] ineffective under most circumstances. However, the blocks listed above, as well as some natural structures that include them, can be used to suffocate the wither due to their wither immunity.
+
+The wither is hostile toward all [[mob]]s except:
+*[[Undead]] mobs
+**{{EntitySprite|Zombie}} {{EntitySprite|Zombie Villager}} {{EntitySprite|Husk}} {{EntitySprite|Drowned}} [[Zombie]]s and their variants
+**{{EntitySprite|Skeleton}} {{EntitySprite|Stray}} {{EntitySprite|Wither Skeleton}} [[Skeleton]]s and their variants
+**{{EntityLink|Zombified Piglin|Zombified piglin}}s
+**{{EntityLink|Skeleton Horse|Skeleton horse}}s and {{EntityLink|Zombie Horse|zombie horse}}s
+**{{EntityLink|Phantom}}
+**{{EntityLink|Zoglin}}
+*{{EntitySprite|Wither}} Other withers
+*{{EntityLink|Ghast}}s<ref>{{bug|MC-162557||Withers no longer attack ghasts|WAI}}</ref>
+* Mobs with the {{cd|Invulnerable}} [[NBT tag]].
+
+If the wither is idle, it simply hovers and is unable to gain altitude. On Normal or Hard [[difficulty]], it fires blue skulls in random directions until it finds a target.
+
+The wither's [[boss]] [[health bar]] color depends on the edition: Dark purple on [[Java Edition]], or pink on [[Bedrock Edition]]. It appears only when a [[player]] is looking in the wither's direction, including through walls. All withers display a boss bar on the screen. Renamed withers display the changed name above its boss bar.
+
+The sky darkens when the wither spawns (a kind of fog).
+
+===''Java Edition''===
+[[File:Wither with wither armor effect.gif|thumb|200x200px|Wither with 'wither armor' effect, after half health depleted.]]
+Upon noticing a [[mob]], the wither hovers above it and rapidly shoots black [[wither skull]]s. Each [[head]] fires independently, allowing a wither to attack up to three different mobs/[[player]]s at the same time. The main head controls the wither's movement and has a 0.1% chance to shoot a blue wither skull instead of the default black one.
+
+Whenever a wither kills another mob, a [[wither rose]] is planted if the ground is [[grass block]], [[dirt]], [[coarse dirt]], [[moss block]], [[mud]], [[netherrack]], [[soul sand]], or [[soul soil]] on ''Java Edition'', or otherwise dropped as an item at that mob's location; however, it may be destroyed by other wither skulls. Wither roses are planted/dropped even when the [[game rule]] {{cd|doMobLoot}} is set to {{cd|false}}.<ref>{{bug|MC-154922}}</ref>
+
+The wither has a [[passive]] [[regeneration]] rate of {{hp|1}} every 20 ticks (1 second), and a direct killing blow on a target instantly heals {{hp|5}}.
+
+When its health drops below half ({{hp|150}}), the wither gains a natural "wither armor" effect, which makes it immune to [[damage]] from [[arrow]]s and thrown [[trident]]s and causes it to fly at the same height as the target. The armor disappears if it regenerates above half health.
+
+=== Bedrock Edition ===
+Upon noticing a [[player]] or [[mob]], the wither flies to a random location and hovers in place. It shoots 3 black wither skulls and one blue wither skull before flying to another location. The time between each shot decreases as the wither loses health. On Normal [[difficulty]] or higher, if the wither has targeted an entity but cannot find a location to pathfind to, it shoots random blue skulls in a random direction along with the skulls directed toward the target.
+
+When a wither reaches halfway of its total health, it causes a large [[explosion]] that spawns 3 [[wither skeleton]]s (except on Easy difficulty), as well as gaining wither armor. Instead of flying to a random location, it dashes toward its target, destroying blocks and damaging mobs in its path. It also fires up to 4 skulls per burst: three black skulls followed by one blue skull. 
+
+It has different [[spawn]] and death animations, both of which involve the wither exploding. Wither roses always drop as an item when the wither kills a mob. Wither roses are dropped even when the [[game rule]] {{cd|doMobLoot}} is set to {{cd|false}}.<ref>{{bug|MCPE-73842}}</ref> The [[wither rose]] inflicts the [[Wither (effect)|Wither effect]] for a couple of seconds when stepped on.
+
+The sky [[light]] level drops to 11 and dark clouds appear from the moment the wither [[spawn]]s until it is dead, preventing [[zombie]]s, [[skeleton]]s, and [[drowned]] from burning in [[sun]]light.
+
+On Easy difficulty, the wither does not inflict the wither effect or summon wither skeletons.
+
+Withers will retain their anti-projectile armor after healing it over 1/2 of its total HP ({{hp|301}}), though it disappears after the game is restarted.<ref>{{bug|MCPE-161643}} – After healing a wither boss over 1/2 HP, it still retains its anti-projectile shield</ref>
+
+== Wither skull ==
+{{distinguish|Wither Skeleton Skull}}
+{{Entity
+| title = Wither Skull
+| image = <gallery>
+Wither Skull.png| Normal
+Dangerous Wither Skull.png|Dangerous
+</gallery>
+| size = Height: 0.3125 Blocks<br>Width: 0.3125 Blocks
+| networkid = '''[[JE]]''': 66
+}}
+
+When attacking, the wither rapidly fires explosive projectiles called wither skulls, which look like its own heads, at its target. There are two types of wither skulls: a fast-moving black one, and a slower blue one.
+* Black wither skulls explode with a blast power of 1, the same as a [[ghast]]'s fireball, and cannot break blocks with a [[blast resistance]] above 4.
+* Blue wither skulls have the same explosion strength, but move slower and are more destructive to terrain. Blue wither skulls break all breakable blocks (including [[obsidian]], [[ancient debris]], and [[Block of Netherite|blocks of netherite]]), but cannot break unbreakable blocks like [[bedrock]], [[end portal frame]]s, and [[reinforced deepslate]]. {{IN|education}}, blue wither skulls deal increased damage, but with the same explosion radius.
+
+If either type of wither skull hits a player or mob, it does {{hp|8}} damage on Normal difficulty. It also inflicts [[Wither (status effect)|Wither II]] for 10 seconds on Normal difficulty and 40 seconds on Hard, which turns the player's hearts black <span class="nowrap">({{healthbar|20|9px|withered=1}})</span> and drains health, similarly to [[Poison]]. However, unlike Poison, it can kill the player.
+
+Like other [[status effects]], the Wither effect can be cured by drinking [[milk]].
+
+{{IN|bedrock}} and [[Legacy Console Edition]], the blue skull can be deflected by hitting it with an empty hand, weapon, tool, or throwable projectiles such as tridents, arrows, [[snowball]]s, and throwable potions.
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Withers use the Hostile Creatures sound category for entity-dependent sound events. Wither skulls use the Friendly Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Wither idle1.ogg
+|sound2=Wither idle2.ogg
+|sound3=Wither idle3.ogg
+|sound4=Wither idle4.ogg
+|subtitle=Wither angers <ref group=sound>{{bug|MC-212623}}</ref>
+|source=hostile
+|description=Randomly
+|id=entity.wither.ambient
+|translationkey=subtitles.entity.wither.ambient
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Zombie breaks door.ogg
+|subtitle=Wither attacks
+|source=hostile
+|description=When a wither breaks blocks upon taking damage
+|id=entity.wither.break_block
+|translationkey=subtitles.entity.wither.shoot
+|volume=2.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Wither shoot.ogg
+|subtitle=Wither attacks
+|source=hostile
+|description=When a wither shoots a wither skull
+|id=entity.wither.shoot
+|translationkey=subtitles.entity.wither.shoot
+|volume=2.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Wither death.ogg
+|subtitle=Wither dies
+|source=hostile
+|description=When a wither dies
+|id=entity.wither.death
+|translationkey=subtitles.entity.wither.death
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Wither hurt1.ogg
+|sound2=Wither hurt2.ogg
+|sound3=Wither hurt3.ogg
+|sound4=Wither hurt4.ogg
+|subtitle=Wither hurts
+|source=hostile
+|description=When a wither is damaged
+|id=entity.wither.hurt
+|translationkey=subtitles.entity.wither.hurt
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Wither spawn.ogg
+|subtitle=Wither released
+|source=hostile
+|description=When a wither is finished charging up <ref group=sound>Does not trigger at all if the [[gamerule]] {{cd|globalSoundEvents}} is {{cd|false}}</ref>
+|id=entity.wither.spawn
+|translationkey=subtitles.entity.wither.spawn
+|volume=1.0
+|pitch=1.0
+|distance=16 (technical) / ∞ (effective) <ref group=sound>{{Bug|MC-177741}}</ref> <!-- explanation: Special:Diff/1571401 -->}}
+{{Sound table
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|subtitle=Explosion
+|source=block
+|description=When a wither is finished charging up or a wither's wither skull explodes
+|id=entity.generic.explode
+|translationkey=subtitles.entity.generic.explode
+|volume=4.0
+|pitch=0.56-0.84
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Wither idle1.ogg
+|sound2=Wither idle2.ogg
+|sound3=Wither idle3.ogg
+|sound4=Wither idle4.ogg
+|source=hostile
+|description=Randomly
+|id=mob.wither.ambient
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Zombie breaks door.ogg
+|source=hostile
+|description=When a wither breaks blocks upon taking damage
+|id=mob.wither.break_block
+|volume=1.0
+|pitch=1.0}}
+{{Sound table
+|sound=Wither shoot.ogg
+|source=hostile
+|description=When a wither shoots a wither skull
+|id=mob.wither.shoot
+|volume=3.0
+|pitch=1.0}}
+{{Sound table
+|sound=Wither death.ogg
+|source=hostile
+|description=While a wither is dying
+|id=mob.wither.death
+|volume=''varies''<ref group="sound" name="variesdeath">Is normally 1.0, but can be 0.75 or 0.5 {{More info|When do these other volumes occur? They are defined differently in sounds.json.}}</ref>
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Wither hurt1.ogg
+|sound2=Wither hurt2.ogg
+|sound3=Wither hurt3.ogg
+|sound4=Wither hurt4.ogg
+|source=hostile
+|description=When a wither is damaged
+|id=mob.wither.hurt
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Wither spawn.ogg
+|source=hostile
+|description=When a wither is finished charging up
+|id=mob.wither.spawn
+|volume=1.0
+|pitch=1.0}}
+{{Sound table
+|sound=Explosion1.ogg
+|sound2=Explosion2.ogg
+|sound3=Explosion3.ogg
+|sound4=Explosion4.ogg
+|source=block
+|description=When a wither is finished charging up, changes stages, is finished dying, or a wither's wither skull explodes
+|id=random.explode
+|volume=4.0
+|pitch=1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|showentitytags=y
+|generatetranslationkeys=java
+|displayname=Wither
+|spritetype=entity
+|nameid=wither}}
+{{ID table
+|displayname=Wither Skull
+|spritetype=entity
+|nameid=wither_skull
+|entitytags=impact_projectiles
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Wither
+|spritetype=entity
+|nameid=wither
+|id=52}}
+{{ID table
+|displayname=Wither Skull
+|spritetype=entity
+|nameid=wither_skull
+|id=89}}
+{{ID table
+|displayname=Wither Skull
+|spritetype=entity
+|spritename=dangerous-wither-skull
+|nameid=wither_skull_dangerous
+|id=91
+|foot=1}}
+
+=== Entity data ===
+
+{{el|java}}:
+{{main|Entity format}}
+Withers have entity data associated with them that contain various properties.
+{{/ED}}
+
+Wither skulls have entity data associated with them that contain various properties.
+{{/ED1}}
+
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|The Beginning?;The Beginning.}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="3">
+{{load advancements|Withering Heights;Monster Hunter;Monsters Hunted;It Spreads}}
+</table-progress-tracking>
+
+== History ==
+{{History|java}}
+{{History||1.4.2|snap=12w34a|[[File:Wither JE1 BE1.png|50px]] Added withers.
+|Withers currently do not spawn naturally. 
+|Withers have been left unfinished by [[Jeb]] and hidden in the code. They were discovered through the presence of its [[skin]] in the [[minecraft.jar|/mobs/ folder]]. 
+|Withers can be spawned only with edited [[spawner]]s, [[mods]], or hacks, and can crash the [[wikipedia:Java virtual machine|JVM]].}}
+{{History|||snap=12w34b|When the wither's health is taken down to half, it now gains wither armor, which makes it immune to [[arrow]]s.
+|The projectile firing rate and movement speed of withers has been increased.}}
+{{History|||snap=unknown|At [[wikipedia:PAX (event)|PAX]], [[Dinnerbone]] revealed that it would be possible to spawn withers by arranging [[wither skeleton skull]]s in some way.<ref>{{ytl|IqciEbjYd-I|Minecraft 1.4 - How to Spawn Wither Mob - Mojang PAX 2012 Live @ 3:07|Accelerated Ideas|t=03m07s}}</ref><ref>http://www.twitch.tv/pax2/b/330745811 (at 3:57:47)</ref>}}
+{{History|||snap=12w36a|Withers can now be spawned by arranging [[soul sand]] in a T shape and placing three wither skeleton skulls on top.
+|The wither now drops 20 [[experience]] and a [[nether star]] upon death.}}
+{{History|||snap=12w37a|Withers now make a massive explosion upon their creation after their [[health]] is fully charged.
+|When there are no targets, the wither sometimes shoots [[Wither#Wither Skull|blue wither skulls]], which move slower and can destroy any block besides [[bedrock]].}}
+{{History|||snap=12w38a|Added a [[sound]] when withers break [[block]]s.}}
+{{History|||snap=12w42b|The [[experience]] dropped by withers has been increased from 20 to 50 points.}}
+{{History|||snap=1.4|Various new sounds have been added for withers.}}
+{{History||1.4.4|snap=1.4.3|The oversight where withers can be created in [[peaceful]] difficulty has been fixed. Before this update, attempting to spawn the wither in peaceful resulted in a waste of [[soul sand]] and [[Wither#Wither Skull|skulls]].
+|Withers can no longer destroy [[end portal]]s, which are now supposed to be unbreakable.}}
+{{History||1.5|snap=13w05a|Withers are no longer able to ride [[minecart]]s.}}
+{{History||April 1, 2013|link=Java Edition 2.0|Added a [[pink wither]] to the april fools update, [[Java Edition 2.0|Minecraft 2.0]]. The pink wither is passive, starts with one head, and can be fed sugar to gain two more heads.}}
+{{History||1.7.2|snap=13w37a|Added [[achievement]]s for spawning and killing the wither.}}
+{{History||1.8|snap=14w04a|The [[player]] can now spawn withers by [[dispenser|dispensing]] the [[Wither#Wither Skull|wither skulls]].}}
+{{History|||snap=14w11b|The hitbox of the wither has been changed.}}
+{{History|||snap=14w20a|Withers no longer break [[barrier]]s.}}
+{{History|||snap=14w25a|Withers now move while invulnerable due to {{bug|MC-57569}}.
+|Withers can now be built sideways and upside-down instead of just upright.}}
+{{History|||snap=release|[[Barrier]]s can now be broken by withers again.}}
+{{History||1.8.1|snap=pre3|Barriers can no longer be broken by withers.}}
+{{History||1.9|snap=15w31a|Withers now have a uniquely colored boss bar.}}
+{{History|||snap=15w46a|Withers no longer move while invulnerable.}}
+{{History|||snap=15w49a|Withers no longer travel through portals.}}
+{{History||1.11|snap=16w32a|The [[entity]] ID has been changed from <code>WitherBoss</code> to <code>wither</code>.
+|The projectile entity ID has been changed from <code>WitherSkull</code> to <code>wither_skull</code>.}}
+{{History|||snap=16w38a|[[Structure block]]s and [[Structure Void|structure voids]] can no longer be destroyed by withers.}}
+{{History|||snap=16w40a|The [[tag]]s <code>xTile</code>, <code>yTile</code>, <code>zTile</code>, <code>inTile</code> and <code>inGround</code> have been removed from the wither skull [[Chunk format#Projectiles|entity data]].
+|The wither <code>life</code> tag is no longer used for anything, but still saved/read.}}
+{{History||1.12|snap=pre3|Withers can no longer break [[piston]] extensions or [[End Gateway (block)|end gateway]]s.}}
+{{History||1.14|snap=18w43a|[[File:Wither JE2 BE2.png|50px]] The texture of withers has been changed.
+|All [[mob]]s killed by withers now have one [[flower|wither rose]] planted at their location upon [[death]].}}
+{{History|||snap=18w44a|Withers now have [[loot table]]s.}}
+{{History||1.16|snap=20w07a|Withers can now also be summoned using [[soul soil]].}}
+{{History||1.17|snap=21w17a|Withers are now immune to [[freezing]].}}
+{{History||1.18|snap=21w37a|Fixed bug where withers do not pursue players in survival mode unless attacked.<ref>{{bug|MC-29274}}</ref>}}
+{{History|||snap=21w41a|[[File:Wither Skull JE3.png|50px]] Tweaked the Wither Skull's texture to use the new Wither face from the [[Texture Update]].}}
+{{History||1.19|snap=Deep Dark Experimental Snapshot 1|Add [[reinforced deepslate]], which cannot be broken by withers.}}
+{{History||1.19.3|snap=22w44a|[[File:Wither Spawn Egg JE1 BE1.png|32px]] Added [[spawn egg]]s for withers, which can only be obtained with commands as to avoid potential destruction of creative builds.<ref>{{bug|MC-189872|||Fixed}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.16.0|snap=build 4|[[File:Wither JE1 BE1.png|50px]] Added withers.
+|When withers are at half health, they spawn 4 [[wither skeleton]]s. 
+|Withers attack differently and have twice the amount of [[health]] as ''Java Edition'' withers.}}
+{{History|pocket}}
+{{History||1.0.2|[[Wither#Wither Skull|Wither skulls]] from withers can now be deflected with a [[sword]].}}
+{{History||1.1.0|snap=alpha 1.1.0.0|The [[entity]] ID has been changed from <code>wither.boss</code> to <code>wither</code>.}}
+{{History|bedrock}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Wither JE2 BE2.png|50px]] The texture of withers has been changed.}}
+{{History||1.13.0|snap=beta 1.13.0.9|All [[mob]]s killed by withers now have one [[flower|wither rose]] planted at their location upon [[death]].}}
+{{History||1.16.0|snap=beta 1.16.0.51|Withers can now also be summoned using [[soul soil]] instead of [[soul sand]].
+|Added [[piglin]]s, which attack withers.}}
+{{History||1.17.0|snap=beta 1.17.0.56|Withers are now immune to [[freezing]].}}
+{{History||1.19.60|snap=beta 1.19.60.20|[[File:Wither Spawn Egg JE1 BE1.png|32px]] Added [[spawn egg]]s for withers.}}
+
+{{History|console}}
+{{History||xbox=TU19|xbone=CU7|ps=1.12|switch=1.0.1|wiiu=Patch 1|[[File:Wither JE1 BE1.png|50px]] Added withers.}}
+{{History||xbox=TU60|xbone=CU51|ps=1.64|wiiu=Patch 30|switch=1.0.11|The behavior of withers has been changed to match the behavior of withers in Pocket Edition Alpha v0.16.0.|Withers now blow up and spawn [[wither skeleton]]s at half health. Upon death, withers stop moving and slowly grow in size while turning white until they [[explosion|explode]]. They also do the dash attack like {{in|bedrock|lc=}} and the amount of health that they get when spawning also depends on the difficulty. 
+|Withers are no longer able to regenerate health.}}
+
+{{History|new 3ds}}
+{{History||1.3.12|[[File:Wither JE1 BE1.png|50px]] Added withers.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+== Trivia ==
+[[File:Wither (painting texture) JE1 BE1.png|thumb|160px|The painting depicting how to spawn a wither]]
+* According to [[Jeb]], the wither was inspired by ''[https://terraria.wiki.gg/wiki/Terraria Terraria]'', which has a summonable boss mechanic. The name itself is inspired by a poison spell in another game made by Jeb called ''Whispers in Akarra''.<ref>https://minecraft.net/article/meet-wither</ref>
+* There is a [[painting]] showing the [[soul sand]] and [[wither skeleton skull]] formation needed to spawn a wither.
+* If the wither is damaged by the Void, it frantically attempts to fire blue skulls.
+* Above half health, the wither always attempts to stay a few blocks above the mob it is targeting. This means that attempting to build or climb up to hit the wither using a sword is essentially impossible.
+** If the wither is after a blaze and the blaze tries to fly up to it, the wither attempts to keep rising above the blaze, thus making both of them rise higher until they hit a ceiling or until the [[blaze]] despawns or dies.
+* Although the wither is 3.5 blocks tall, 3 blocks wide, and 1 block thick, its hitbox is only 3.5 blocks tall, 1 block wide, and 1 block thick.
+** The true dimensions of the wither are: 2.844 blocks tall (varies), 3 blocks wide, and 1.719 blocks long (also varies).
+* The wither appears on the four sides of chiseled [[red sandstone]].
+* The wither's smaller heads shoot targets slightly slower than the main head. The interval for smaller heads is 2&ndash;3 seconds, while the main head's always 2.
+* An enemy called the [[wither storm]] appears in ''[[Minecraft: Story Mode]]''. It was created by replacing the center block of soul sand with a [[command block]].
+* Despite not having visible feet, withers are still capable of making footstep sounds.<ref>{{bug|MC-92623}}</ref>
+* In [[Java Edition 3D Shareware v1.34]], withers drop red keys.
+* According to [[Quinn Richter]], Marketplace Partner Manager, the wither's name is "Simmons?", similar to the ender dragon's name being "Jean?".<ref>{{ytl|gtL_hkE_LVE|Ask Mojang #4: To The Moon! @ 3:40|Minecraft|November 8, 2019|t=220}}</ref>
+* A wither skull can be deflected by shooting an arrow at it.{{only|bedrock}} If a deflected wither skull hits the wither, the wither takes damage.{{only|bedrock}}
+* A wither and an ender dragon can engage in combat, but neither one damages the other.
+* Despite being immune to projectiles when it has "wither armor", it is still able to be hit by the [[warden]]'s sonic boom attack.
+** This is because the warden's sonic boom attack is not a projectile, but an instant damage attack. Therefore, the wither is unable to defend against it with the "armor".
+
+== Gallery ==
+<gallery>
+WitherPotionEffect.png|The withering effect after being damaged by a wither skull.
+Wither Shield.png|The "wither armor" that blocks [[arrow]]s.
+Wither with Armor.png|The wither and its armor.
+Wither recipe.png|A larger image to show how to [[summon]] the wither.
+Wither Invulnerable with Armor.png|The wither prepares for [[explosion]] with the invulnerable status after summoned.
+Wit.png|The pit created after the wither has charged.
+The Wither Attacking Horses.jpg|The wither attacking [[horses]].
+Wither (texture).png|The wither's texture.
+Wither attacking a sheep.jpg|Wither attacking a sheep.
+WitherAttack.png|Wither attacking a village.
+Click For Wither.png|A wither summoning setup.
+Sideways Wither.png|Image from [[Dinnerbone]] of a wither being built horizontally.
+Invisibility Wither.jpg|A player avoiding a wither by using the [[Invisibility]] effect.
+Pocket Edition Wither.jpg|First image of a wither being built in ''Bedrock Edition''.
+</gallery>
+
+=== In other media ===
+<gallery>
+File:Pretty Scary Update poster.png|Wither in promotional artwork for the [[Pretty Scary Update]].
+File:Wither Storm.jpg|[[Wither Storm]], a variant of Wither as it appears on ''[[Minecraft: Story Mode]]''.
+File:Wither boss Mobestiary.jpg|Wither pictured in the [[Minecraft Books#Minecraft Mobestiary|Mobestiary]].
+File:LEGO Wither.jpg|[[LEGO Minecraft]] wither minifigure.
+LEGO 21126-1.jpg|[[LEGO Minecraft]] Wither set.
+File:Acid Wither.png|"Acid Wither," an official T-Shirt design.
+File:Wither Head Shirt.png|"Jolly Mobs Flying Head," another T-Shirt design.
+</gallery>
+
+== See also ==
+* [[Ender dragon]], the other boss mob in ''[[Minecraft]]''
+* [[Tutorials/Defeating the wither]], a [[tutorial]] explaining different tactics to fight and [[kill]] the wither
+
+== References ==
+{{reflist}}
+
+== External links ==
+*[https://www.minecraft.net/en-us/article/meet-wither Meet the Wither] – Minecraft.net on February 13, 2017
+
+{{Entities}}
+
+[[Category:Boss mobs]]
+[[Category:Hostile mobs]]
+[[Category:Undead mobs]]
+[[Category:Monster mobs]]
+[[Category:Flying mobs]]
+
+[[cs:Wither]]
+[[de:Wither]]
+[[es:Wither]]
+[[fr:Wither]]
+[[it:Wither]]
+[[ja:ウィザー]]
+[[ko:위더]]
+[[nl:Wither]]
+[[pl:Wither]]
+[[pt:Wither]]
+[[ru:Иссушитель]]
+[[uk:Висушувач]]
+[[zh:凋灵]]
+[[Category:Ranged-attack mobs]]

@@ -1,0 +1,83 @@
+[[Commands]] are useful for map building, [[Creative]] mode, etc. The ones described on this page are useful for building an adventure map, testing mechanics and commands, or just for pure fun.
+
+== Invisible Item Frame {{only|je}}==
+[[Item Frame]] is an entity {{only|je|short=y}}. We can get an invisible [[Item Frame]] using {{cmd|give}} command. This is the command: <pre>/give @p minecraft:item_frame{EntityTag:{Invisible:1}}</pre>
+
+== Villager Trades ==
+'''Note: If you are too lazy to write these long commands, you can always use commands generators in the internet.'''
+<br><br>
+[[Villager]]s are [[passive mobs]] and they live in [[village]]s. We can [[trading|trade]] with them. By using a {{cmd|summon}} command, we can spawn villagers with custom [[trading|trades]]. <pre>/summon villager ~ ~1 ~ {VillagerData:{profession:farmer,level:2,type:plains},CustomName:"\"John\"",Offers:{Recipes:[{buy:{id:emerald,Count:1},sell:{id:wheat,Count:1},rewardExp:0b,maxUses:9999999}]}}</pre>
+This command will spawn a villager named John who sells 1 [[wheat]] for 1 [[emerald]].
+
+=== Profession and Types===
+You can edit the <code>profession:farmer</code> to other [[Villager#Professions|professions]], <code>type:plains</code> to specific [[biomes]]. You can see all the professions and types at [[Villager#Professions|here]].
+
+=== Custom Name ===
+You can change <code>CustomName</code> to any name.
+=== Id and Count ===
+Change the <code>id</code> to any items or blocks. <code>Count</code> defines the number of items.
+
+=== Reward Experience and Max Uses ===
+<code>rewardExp</code> is the [[experience]] you get when you [[Trading|traded]]. <code>maxUses</code> is how many times you can [[Trading|trade]] with.
+
+== Replacing Blocks ==
+By using {{cmd|fill}} command, you can replace a type of block in an area. 
+<pre>/fill 16 ~ 16 0 ~ 0 minecraft:stone replace minecraft:grass_block</pre>
+The command above will replace all [[grass blocks]] to [[stone]] in an area.
+The <code>16 ~ 16 0 ~ 0</code> are the [[coordinates]]. The block after <code>replace</code> is the block we want to replace.
+
+== Custom Enchantment Levels ==
+'''Note: Some [[Enchanting|enchantments]] won't work.'''
+<br><br>
+By using {{cmd|give}} command, we can get a [[netherite sword]] with a custom level of [[sharpness]].
+
+=== Single Enchantment ===
+<pre>/give @p minecraft:netherite_sword{Enchantments:[{id:sharpness,lvl:10}]} 1</pre>
+The command above will give you a netherite sword with Sharpness 10. You will see the enchantment as Sharpness X. You can change the <code>id</code> to any enchantment.
+
+=== Levels ===
+Change <code>lvl</code> to any number. The maximum number is 255, if your number is bigger than 255, The level will automatically change to 255.
+
+=== Double Enchantments ===
+To get more than one enchantment on a tool or weapon, add a comma after the first enchantment and add a new one.
+<pre>/give @p minecraft:netherite_sword{Enchantments:[{id:sharpness,lvl:10},{id:looting,lvl:10}]} 1</pre>
+This command added Sharpness 10 and [[Looting]] 10 to a netherite sword.
+
+== Death Scoreboard ==
+Map builders sometimes use a death scoreboard in a [[parkour]] map. You can use {{cmd|scoreboard}} [[command]] to do it.
+
+=== Create Scoreboard===
+First, write or paste this [[command]] below.
+<pre>/scoreboard objectives add Deaths deathCount</pre>
+This creates a death scoreboard. The <code>Deaths</code> in the [[command]] is the name of scoreboard, that means you can change it to any words.
+
+=== Show Scoreboard ===
+To show the scoreboard, write this [[command]].
+<pre>/scoreboard objectives setdisplay sidebar Deaths</pre>
+
+=== Delete Scoreboard ===
+If you don't want the scoreboard anymore, do this [[command]].
+<pre>/scoreboard objectives remove Deaths</pre>
+
+== Boss Bar ==
+This section shows you how to add a [[boss bar]] to an [[entity]].
+=== Create a Boss Bar ===
+First, write or paste this [[command]]:
+<pre>/bossbar add <bossbar id> "<name>"</pre>
+
+=== Make it Visible ===
+After creating a the Boss Bar, make it visible.
+<pre>/bossbar set minecraft:<bossbar id> players @a</pre>
+Now you can see a bossbar on top of your screen.
+
+=== Link to an entity===
+Lastly, you need to link it to your entity. Paste the command below to a [[Command Block|Repeating Command Block]].
+<pre>/execute store result bossbar minecraft:<bossbar id> value run data get entity <target> Health</pre>
+Now you can see your entity's health!
+
+=== Change Boss Bar Color ===
+The default color of the Boss Bar is white. To change it, do this command:
+<pre>/bossbar set minecraft:<bossbar id> color <color></pre>
+But there are only seven colors for you to choose: blue, green, pink, purple, red, white, yellow.
+
+{{Tutorials}}

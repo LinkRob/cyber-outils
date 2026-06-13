@@ -1,0 +1,496 @@
+{{about|the mob|the wearable armor-like item|Turtle Shell}}
+{{Entity
+|imagesize=240px
+| image = Turtle.png
+|invimage=Turtle Spawn Egg
+| health = {{hp|30}}
+| behavior = Passive
+| classification = [[Animal]]<br>[[Aquatic]]
+| size = '''{{IN|Java}}:'''<br>
+'''Adult:'''<br>Height: 0.4 Blocks<br>Width: 1.2 Blocks<br>
+'''Baby:'''<br>Height: 0.12 Blocks<br>Width: 0.36 Blocks<br>
+'''{{IN|Bedrock}}:'''<br>
+'''Adult:'''<br>Height: 0.4 Blocks<br>Width: 1.2 Blocks<br>
+'''Baby:'''<br>Height: 0.032 Blocks<br>Width: 0.096 Blocks
+| spawn = {{BiomeLink|Beach}}
+| usableitems = 
+{{drop|Block|Seagrass}}
+}}
+A '''turtle''' ({{in|Java}}), also known as a '''sea turtle''' ({{in|Bedrock}}), is a common, semi aquatic [[passive mob]] found in [[beach]] biomes. They are the only source of [[scute]]s, which drop from baby turtles when they mature into adults.
+
+== Spawning ==
+Turtles spawn on the sand in the [[Overworld]] on [[beach]]es with daylight, but not in its [[Beach#Snowy Beach|snowy variant]] or [[Beach#Stony Shore|stony shores]], occasionally in small groups of up to 5 individuals.
+
+10% of turtles spawned are babies.
+
+{{IN|Java}}, turtles spawn at [[light level]]s greater than 8, on [[sand]] blocks less than 4 blocks above [[sea level]].
+
+{{IN|bedrock}}, turtles spawn in groups of 2–6, at light level 7 or higher, at Y=60–67.
+
+== Drops ==
+When turtles [[die]], they drop:
+* 0–2 {{BlockLink|seagrass}}. The maximum amount is increased by 1 per level of [[Looting]], for a maximum of 0–5 with Looting III.
+* {{xp|1|3}}, if killed by a [[player]] or tamed [[wolf]].
+* 1 {{ItemLink|bowl}}, if killed by [[Thunderstorm#Lightning|lightning]].<ref>{{bug|MC-125562}} resolved as "Works as Intended"</ref>
+
+Baby turtles do not drop anything when they [[die]].
+
+When a baby turtle grows up to an adult it drops:
+* 1 {{ItemLink|scute}}
+
+Upon successful [[breeding]], {{xp|1|7}} is dropped.
+
+== Behavior ==
+Turtles are semi aquatic, meaning they travel on land and swim in [[water]]. They move slowly on land, but they can swim at a fast speed in the water. Like other passive [[mob]]s, they move around aimlessly and flee when attacked. When on land, they generally attempt to move to the nearest water source with direct sky access.{{verify|Sky access does not seem to matter|edition=java}} When in an enclosed area, such as a player-made enclosure, they generally swim in circles if the water is in the area, and rarely go on land to explore, if there is any.
+
+Turtles cannot be attached to [[lead]]s,<ref>{{bug|MC-125629}} resolved as "Works as Intended"</ref> but they can be led by a [[player]] holding [[seagrass]] within 10 blocks of the turtle.
+
+Turtles can be picked up by [[boat]]s{{only|java}} and [[minecart]]s.
+
+Turtles are killed instantly when struck by lightning.
+
+As with other [[aquatic mobs]], turtles suffer extra damage when hit by a [[trident]] with the [[Impaling]] enchantment,{{only|je}}{{until|Java Edition Combat Tests}} and cannot drown, despite the fact that real-life turtles breathe air.
+
+=== Predators ===
+Turtles and [[turtle egg]]s are attacked by the following mobs:
+{| class="wikitable mw-collapsible"
+!Mob
+!Attack baby turtles
+!Attack adult turtles
+!Attack turtle eggs
+|-
+|{{EntityLink|Zombie}}s, {{EntityLink|zombie villager}}s, {{EntityLink|husk}}s and {{EntityLink|drowned}}
+|{{Tc|yes}}
+|{{Tc|no}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Zombified piglin}}s,
+|{{Tc|no}}
+|{{Tc|no}}
+|{{Tc|yes}}
+|-
+|{{EntityLink|Skeleton}}s, {{EntityLink|stray}}s and {{EntityLink|wither skeleton}}s
+|{{Tc|yes}}
+|{{Tc|no}}
+|{{Tc|no}}
+|-
+|{{EntityLink|Goat}}s
+|{{Tc|Partial|Randomly}}
+|{{Tc|Partial|Randomly}}
+|{{Tc|no}}
+|-
+|Wild {{EntityLink|ocelot}}s, wild {{EntityLink|Wolf|wolves}}, stray {{EntityLink|cat}}s and {{EntityLink|fox}}es
+|{{Tc|yes}}
+|{{Tc|no}}
+|{{Tc|no}}
+|-
+|Tamed wolves
+|{{Tc|partial|When owner attacks}}
+|{{Tc|partial|When owner attacks}}
+|{{Tc|no}}
+|-
+|{{EntityLink|Zoglin}}s
+|{{Tc|yes}}
+|{{Tc|yes}}
+|{{Tc|no}}
+|-
+|{{EntityLink|id=vindicator|Vindicator#"Johnny"|Johnny vindicators}}
+|{{Tc|yes}}
+|{{Tc|yes}}
+|{{Tc|no}}
+|-
+|{{EntityLink|Warden}}s
+|{{Tc|Partial|Randomly}}
+|{{Tc|Partial|Randomly}}
+|{{Tc|N/A}}
+|-
+|{{EntityLink|Wither}}s
+|{{Tc|yes}}
+|{{Tc|yes}}
+|{{Tc|partial}}<ref group="note" name="partial">Unlike zombies, zombified piglins, and their variants, withers and ravagers do not intentionally break turtle eggs but are able to break turtle eggs if they are in its way.</ref>
+|-
+|{{EntityLink|Ravager}}s
+|{{Tc|no}}
+|{{Tc|no}}
+|{{Tc|partial}}<ref group="note" name="partial"/>{{only|bedrock|short=y}}
+|}
+
+Zombies and their variants deliberately trample on turtle eggs, causing them to break.
+<references group="note" />
+
+=== Home beach ===
+Turtles remember the block on which they hatch as their home beach. No matter how far away the turtle is, it always attempts to return to its home beach to lay its eggs after [[breeding]].
+
+If the player uses a tool enchanted with [[Silk Touch]] to obtain and move [[turtle egg]]s to a new location before hatching, the baby turtles remember the new hatching location as their home beach.
+
+If a turtle is spawned from a [[spawn egg]], summoned with the {{cmd|summon}} [[command]], or spawned by [[mob spawner]]s, it remembers the spawn location as its home beach.
+[[File:A Turtle Digging Sand.png|thumb|A turtle digs sand around the block on which it lays its eggs.]]
+
+=== Breeding ===
+[[File:A Turtle Lays Eggs.png|thumb|A turtle lays eggs after digging.]]
+Feeding two turtles [[seagrass]] causes them to enter [[breeding|love mode]], causing one of the turtles to have [[turtle egg|eggs]] in its [[inventory]] and appear a bit bigger (about 0.2 of a block) than normal turtles. The pregnant turtle then travels back to its home beach, which is where it first spawned. Upon arrival, it seeks a nearby [[sand]] block on which to lay its eggs. A turtle always lays eggs within 9 blocks from where it was born. The turtle digs vigorously while turning 360 degrees for several seconds a few times, and then lays 1–4 [[turtle egg]]s. Turtles have a 90-second cooldown after breeding {{in|Bedrock}}, and a five-minute cooldown {{in|Java}}.
+
+=== Eggs ===
+[[Turtle egg]]s can be placed on any block in clusters of up to 4, however, they hatch only on [[sand]], [[red sand]], or [[suspicious sand]], above or below water. Eggs can be broken without tools and can also be trampled by living entities falling or walking on them. When a multi-egg block is trampled, eggs are broken one at a time. A turtle can walk on the eggs without breaking them. Harvesting eggs with [[Silk Touch]] drops an egg, which the player can collect. Mining an egg with [[Silk Touch]] resets the egg's growth.
+
+Turtle eggs progress toward hatching by cracking. Cracking occurs during random ticks, and an egg hatches once it has cracked 3 times. When a multi-egg block hatches, all eggs within the block hatch simultaneously. Eggs grow fastest during the night and typically take 4 to 5 in-game days to hatch. See [[Turtle egg#Hatching]] for more details.
+
+=== Babies ===
+With a height of 0.12 blocks, baby turtles are among the smallest [[mob]]s in the game. Baby turtles are small enough that when they walk on [[soul sand]], they are entirely within the space at the top of the [[block]].
+
+Upon hatching, baby turtles search for the nearest water block within a 47×1×47 region two blocks below the turtle and attempt to approach it.
+
+Baby turtles take one Minecraft day to grow up (20 minutes). The growth can be accelerated using [[seagrass]]. Each use reduces the remaining growth duration by 10%. Upon becoming an adult, the turtle drops a [[scute]].
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Turtles use the Friendly Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Turtle idle1.ogg
+|sound2=Turtle idle2.ogg
+|sound3=Turtle idle3.ogg
+|subtitle=Turtle breathes <ref group=sound name=LousyEvents>{{Bug|MC-98316||Wrong subtitles caused by missing distinction}}</ref>
+|source=neutral
+|description=Randomly while on land
+|id=entity.turtle.ambient_land|idnote=<ref group=sound name=LousyEvents/>
+|translationkey=subtitles.entity.turtle.ambient_land|translationkeynote=<ref group=sound name=LousyEvents/>
+|volume=0.8 <ref group=sound>Except {{cd|idle2}}, which is 0.7</ref>
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|sound=Turtle death1.ogg
+|sound2=Turtle death2.ogg
+|sound3=Turtle death3.ogg
+|subtitle=Turtle dies
+|source=neutral
+|description=When an adult turtle dies
+|id=entity.turtle.death
+|translationkey=subtitles.entity.turtle.death
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Baby turtle death1.ogg
+|sound2=Baby turtle death2.ogg
+|subtitle=Turtle baby dies
+|source=neutral
+|description=When a baby turtle dies
+|id=entity.turtle.death_baby
+|translationkey=subtitles.entity.turtle.death_baby
+|volume=1.0
+|pitch=1.3-1.7
+|distance=16}}
+{{Sound table
+|sound=Turtle hurt1.ogg
+|sound2=Turtle hurt2.ogg
+|sound3=Turtle hurt3.ogg
+|sound4=Turtle hurt4.ogg
+|sound5=Turtle hurt5.ogg
+|subtitle=Turtle hurts
+|source=neutral
+|description=When an adult turtle is damaged
+|id=entity.turtle.hurt
+|translationkey=subtitles.entity.turtle.hurt
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Baby turtle hurt1.ogg
+|sound2=Baby turtle hurt2.ogg
+|subtitle=Turtle baby hurts
+|source=neutral
+|description=When a baby turtle is damaged
+|id=entity.turtle.hurt_baby
+|translationkey=subtitles.entity.turtle.hurt_baby
+|volume=1.0
+|pitch=1.3-1.7
+|distance=16}}
+{{Sound table
+|sound=Turtle egg hatch1.ogg
+|sound2=Turtle egg hatch2.ogg
+|sound3=Turtle egg hatch3.ogg
+|subtitle=Turtle Egg hatches
+|source=block
+|description=When a baby turtle is hatched
+|id=entity.turtle.egg_hatch
+|translationkey=subtitles.entity.turtle.egg_hatch
+|volume=0.7
+|pitch=0.9-1.1}}
+{{Sound table
+|sound=Turtle lay egg1.ogg
+|sound2=Turtle lay egg2.ogg
+|subtitle=Turtle lays egg
+|source=neutral
+|description=When a turtle lays an egg
+|id=entity.turtle.lay_egg
+|translationkey=subtitles.entity.turtle.lay_egg
+|volume=0.3
+|pitch=0.9-1.1
+|distance=16}}
+{{Sound table
+|sound=Turtle swim1.ogg
+|sound2=Turtle swim2.ogg
+|sound3=Turtle swim3.ogg
+|sound4=Turtle swim4.ogg
+|sound5=Turtle swim5.ogg
+|subtitle=Turtle swims <ref group=sound name=LousyEvents/>
+|source=neutral
+|description=Randomly while swimming
+|id=entity.turtle.swim|idnote=<ref group=sound name=LousyEvents/>
+|translationkey=subtitles.entity.turtle.swim|translationkeynote=<ref group=sound name=LousyEvents/>
+|volume=''varies'' <ref group=sound>Multiplied by 0.6 for {{cd|swim1}} and {{cd|swim4}}, 0.3 for {{cd|swim2}} and {{cd|swim5}}, and 0.2 for {{cd|swim3}}</ref>[[Category:Pages missing sound volume]]<!--Needs at minimum the min and max of the volume-->
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Turtle step1.ogg
+|sound2=Turtle step2.ogg
+|sound3=Turtle step3.ogg
+|sound4=Turtle step4.ogg
+|sound5=Turtle step5.ogg
+|subtitle=Turtle shambles
+|source=neutral
+|description=While an adult turtle is walking on land
+|id=entity.turtle.shamble
+|translationkey=subtitles.entity.turtle.shamble
+|volume=0.15
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Baby turtle step1.ogg
+|sound2=Baby turtle step2.ogg
+|sound3=Baby turtle step3.ogg
+|sound4=Baby turtle step4.ogg
+|subtitle=Turtle baby shambles
+|source=neutral
+|description=While a baby turtle is walking on land
+|id=entity.turtle.shamble_baby
+|translationkey=subtitles.entity.turtle.shamble_baby
+|volume=0.15
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Turtle idle1.ogg
+|sound2=Turtle idle2.ogg
+|sound3=Turtle idle3.ogg
+|source=neutral
+|description=Randomly
+|id=mob.turtle.ambient
+|volume=1.0
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Turtle death1.ogg
+|sound2=Turtle death2.ogg
+|sound3=Turtle death3.ogg
+|source=neutral
+|description=When an adult turtle dies
+|id=mob.turtle.death
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Baby turtle death1.ogg
+|sound2=Baby turtle death2.ogg
+|source=neutral
+|description=When a baby turtle dies
+|id=mob.turtle_baby.death
+|volume=1.0
+|pitch=1.3-1.7}}
+{{Sound table
+|sound=Turtle hurt1.ogg
+|sound2=Turtle hurt2.ogg
+|sound3=Turtle hurt3.ogg
+|sound4=Turtle hurt4.ogg
+|sound5=Turtle hurt5.ogg
+|source=neutral
+|description=When an adult turtle is damaged
+|id=mob.turtle.hurt
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Baby turtle hurt1.ogg
+|sound2=Baby turtle hurt2.ogg
+|source=neutral
+|description=When a baby turtle is damaged
+|id=mob.turtle_baby.hurt
+|volume=1.0
+|pitch=1.3-1.7}}
+{{Sound table
+|sound=Turtle egg hatch1.ogg
+|sound2=Turtle egg hatch2.ogg
+|sound3=Turtle egg hatch3.ogg
+|source=neutral
+|description=When a baby turtle is hatched
+|id=mob.turtle_baby.born
+|volume=1.0
+|pitch=1.0}}
+{{Sound table
+|sound=Turtle lay egg1.ogg
+|sound2=Turtle lay egg2.ogg
+|source=block
+|description=When a turtle lays an egg
+|id=block.turtle_egg.drop
+|volume=0.85
+|pitch=0.9}}
+{{Sound table
+|sound=Turtle swim1.ogg
+|sound2=Turtle swim2.ogg
+|sound3=Turtle swim3.ogg
+|sound4=Turtle swim4.ogg
+|sound5=Turtle swim5.ogg
+|source=neutral
+|description=While a turtle is swimming
+|id=mob.turtle.swim
+|volume=1.0
+|pitch=0.6-1.4}}
+{{Sound table
+|sound=Turtle step1.ogg
+|sound2=Turtle step2.ogg
+|sound3=Turtle step3.ogg
+|sound4=Turtle step4.ogg
+|sound5=Turtle step5.ogg
+|source=neutral
+|description=While an adult turtle is walking
+|id=mob.turtle.step
+|volume=1.0
+|pitch=1.0}}
+{{Sound table
+|sound=Baby turtle step1.ogg
+|sound2=Baby turtle step2.ogg
+|sound3=Baby turtle step3.ogg
+|sound4=Baby turtle step4.ogg
+|source=neutral
+|description=While a baby turtle is walking
+|id=mob.turtle_baby.step
+|volume=1.0
+|pitch=1.0
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|displayname=Turtle
+|spritetype=entity
+|nameid=turtle
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Turtle
+|spritetype=entity
+|nameid=turtle
+|id=74
+|foot=1}}
+
+=== Entity data ===
+
+Turtles have entity data associated with them that contains various properties.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load advancements|The Parrots and the Bats;Two by Two;It Spreads}}
+</table-progress-tracking>
+
+== History ==
+{{History||August 17, 2012|link={{reddit|11mprd/what_the_fucks_this_translations_fuck_up|c6nsuyn}}|On [[wikipedia:Reddit|Reddit]], [[Jeb]] was asked "I asked at pax about turtles, any work done about those?" and replied "No... I saw [http://www.mocreatures.org/ Mo' Creatures]' turtles and got a bit demotivated to do my own ones. Maybe later..."}}
+{{History||September 19, 2012|link={{reddit|104o0j/not_too_many_people_seem_to_have_noticed_this|c6akare}}|In a Reddit post anticipating the addition of another [[animal]] [[mob]] (which turned out to be the [[bat]] in 12w38a), Jeb replied to confirm that it would ''not'' be a turtle: "The truth is that I'll maybe end up adding turtles one day, it's just that Mo's turtles are difficult to top."}}
+{{History||December 26, 2017|link=https://minecraft.net/article/new-mob-approaches|[[File:Turtle (pre-release).png|50px]] Turtle mobs were announced at Minecraft.net.}}
+{{History|Java}}
+{{History||1.13|snap=18w07a|[[File:Turtle.png|50px]] [[File:Turtle.png|20px]] Added turtles and baby turtles.}}
+{{History|||snap=18w07b|Turtles are now bred using [[seagrass]], instead of [[raw cod]].}}
+{{History|||snap=18w11a|Added [[drowned]], which attack baby turtles.}}
+{{History||1.14|snap=18w44a|Added stray [[cat]]s, which attack baby turtles.}}
+{{History|||snap=19w07a|Added [[fox]]es, which attack baby turtles.}}
+{{History||1.15|snap=19w39a|[[File:Turtle 19w39a.png|50px]] [[File:Baby Turtle 19w39a.png|20px]] Due to a bug, the baby turtle and turtle [[model]]s are currently broken.<ref>{{bug|MC-161858}}</ref>}}
+{{History|||snap=19w40a|The turtle models have been fixed.}}
+{{History||1.18.2|snap=22w03a|Baby turtles no longer suffocate when on soul sand.<ref>{{bug|MC-245416|||Fixed}}</ref>}}
+{{History||1.19.3|snap=22w44a|Turtles now have a breeding delay like other mobs.<ref>{{bug|MC-137306|||Fixed}}</ref>}}
+{{History||1.20.2|snap=23w31a|Turtles now trigger [[sculk sensor]]s when they clear away sand.<ref>{{bug|MC-215768||Sculk sensors do not detect turtles clearing away sand|Fixed}}</ref>}}
+
+{{History|bedrock}}
+{{History||1.5.0|snap=beta 1.5.0.4|[[File:Turtle.png|50px]] [[File:Turtle.png|20px]] Added turtles (named sea turtles) and baby turtles.}}
+{{History||1.8.0|snap=beta 1.8.0.8|Added stray [[cat]]s, which attack baby turtles.}}
+{{History||1.13.0|snap=beta 1.13.0.1|Added [[fox]]es, which attack baby turtles.}}
+{{History||1.16.100|snap=beta 1.16.100.51|Sea turtles now play a sound when they lay eggs.}}
+
+{{History|console}}
+{{History||xbox=TU69|ps=1.76|wiiu=Patch 38|[[File:Turtle.png|50px]] [[File:Turtle.png|20px]] Added sea turtles and baby sea turtles.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Gallery ==
+=== Screenshots ===
+<gallery>
+File:Baby turtle egg.png|A baby turtle moving on the [[beach]] after being hatched.
+File:Turtle On Land.png|A turtle moving on land.
+File:Turtle In Water.png|A turtle swimming in a small pool of [[water]].
+File:Skeleton attacking baby turtles.jpg|A [[skeleton]] attacking a baby turtle.
+File:Wolf attacking baby turtles.jpg|A [[wolf]] attacking a group of baby turtles.
+File:Mating turtles.jpg|Two turtles [[breeding|mating]].
+File:Luring turtles.jpg|A [[player]] luring a group of turtles using [[seagrass]].
+File:Turtles laying eggs.png|Two turtles with some [[turtle egg]]s.
+File:Turtles with eggs.png|More turtles with eggs.
+File:Turtle Boat.png|A turtle picked up by a [[boat]].
+File:TurtleOverpopulation.png|A large number of turtles in an artificial [[lake]].
+</gallery>
+=== Developer screenshots ===
+<gallery>
+Turtle first screenshot.jpg|The first released screenshot of a turtle.
+Turtle mob.jpg|Turtle in early development.
+Dev 1.13 Turtle and Baby Turtle.jpg|A baby turtle on top of the head of an adult.
+</gallery>
+
+=== In other media ===
+<gallery>
+File:Update Aquatic.jpg|Turtles as seen in the [[Update Aquatic]] artwork.
+File:Turtle Artwork.png|Official turtle artwork.
+File:Newly Hatched.jpg|Artwork of baby turtles.
+File:Ruby Baby Turtle.png|A [[MCD:Ruby Baby Turtle|Ruby Baby Turtle]], a unique variation found in [[Minecraft Dungeons]].
+File:LEGO Turtle.jpg|[[Lego Minecraft]] Turtle.
+File:TurtleToBowl.gif|[[Mojang Studios]]' animation showing when a turtle becomes a [[bowl]].
+</gallery>
+
+=== Textures ===
+<gallery>
+File:Turtle (texture).png
+</gallery>
+
+== References ==
+{{reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/turtle Mob Menagerie: Turtle] – Minecraft.net on June 1, 2023
+
+{{Entities}}
+
+[[Category:Passive mobs]]
+[[Category:Aquatic mobs]]
+[[Category:Animal mobs]]
+
+[[de:Schildkröte]]
+[[es:Tortuga]]
+[[fr:Tortue]]
+[[hu:Teknős]]
+[[it:Tartaruga]]
+[[ko:거북]]
+[[ja:カメ]]
+[[pl:Żółw]]
+[[pt:Tartaruga]]
+[[ru:Черепаха]]
+[[uk:Черепаха]]
+[[zh:海龟]]

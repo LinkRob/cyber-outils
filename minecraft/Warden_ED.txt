@@ -1,0 +1,12 @@
+<div class="treeview">
+* {{nbt|compound}} Entity data
+** {{nbt inherit/entity}}
+** {{nbt inherit/mob}}
+** {{nbt|compound|anger}}: Anger management of the warden.
+*** {{nbt|list|suspects}}: List of suspects that have angered the warden.
+**** {{nbt|compound}} A suspect.
+***** {{nbt|int|anger}} The level of anger. It has a maximum value of 150 and decreases by 1 every second.
+***** {{nbt|int-array|uuid}}: The [[UUID]] of the entity that is associated with the anger, stored as four ints.
+</div><noinclude>
+[[Category:Entity data pages]]
+</noinclude>

@@ -1,0 +1,601 @@
+This page details the mechanics and specifications of [[model]]s and their uses in resource packs.
+
+== Introduction ==
+'''Block models''' are used to depict all the blocks in the game, whereas '''item models''' are used to display the items in the player's hand, on their head (helmets and hats), on the ground, in the inventory, in [[item frame]]s, and on [[armor stand]]s. As there are different variants of some blocks, '''block states''' are used to link these with the corresponding models. Each model and each block state has its own file, which is of the <code>.json</code> format. Even the icons used in the inventory are defined in these files.
+
+== File path ==
+In JSON files of models and block states, the resource location in the form of <code>namespace:path</code> (the <code>minecraft</code> namespace can be omitted) is used to represent the local file path. See also [[Resource_location#Locating_contents_in_packs]].
+
+In these files, the path corresponding to the resource location <code>namespace:path</code> is <code>assets/''namespace''/''object_type''/''path''.''suffix''</code>, where the path can contain subfolders separated by <code>/</code>, such as <code>namespace:foo/bar/baz</code> (<code>foo</code> and <code>bar</code> are folders, <code>baz</code> is the real file name).
+
+The object specified by a resource location and its corresponding object type and suffix are as follows:
+
+{|class="wikitable"
+!Object!!<code>''object_type''</code> substitution!!<code>''suffix''</code> substitution
+|-
+|Block States||<code>blockstates</code>||<code>json</code>
+|-
+|Models||<code>models</code>||<code>json</code>
+|-
+|Textures||<code>textures</code>||<code>png</code>
+|}
+
+== Block states ==
+
+There are several different variants of some blocks (like [[door]]s, which can be open or closed), hence each block has its own [[block state]] file, which lists all its existing variants and links them to their corresponding models. Blocks can also be composed of several different models at the same time, called "multipart". The models are then used depending on the block states of the block.
+
+These files are stored in the following folder: <code>assets/''<namespace>''/blockstates</code>. The files are used directly based on their filename, thus a block state file with another name than the existing ones does not affect any block.
+
+<div class="treeview">
+* {{nbt|compound}} The root tag
+** {{nbt|compound|variants}}: Holds the names of all the variants of the block. 
+*** {{nbt|compound}}{{nbt|list|A variant}}: Name of a variant, which consists of the relevant block states separated by commas. A block with just one variant uses <code>""</code> as a name for its variant. Each variant can have '''one model''' or an '''array of models''' and contains their properties. If set to an array, the model is chosen randomly from the options given, with each option being specified in separate subsidiary {{nbt|compound}}-tags. Item frames are treated as blocks and use <code>"map=false"</code> for a map-less item frame, and <code>"map=true"</code> for item frames with maps.
+**** {{nbt|compound|A model}}: Contains the properties of a model, if more than one model is used for the same variant. All specified models alternate in the game.
+***** {{nbt|string|model}}: Specifies the path to the model file of the block, in form of a [[#File path|resource location]]. 
+***** {{nbt|int|x}}: Rotation of the model on the x-axis in increments of 90 degrees.
+***** {{nbt|int|y}}: Rotation of the model on the y-axis in increments of 90 degrees.
+***** {{nbt|byte|uvlock}}: Can be <code>true</code> or <code>false</code> (default). Locks the rotation of the texture of a block, if set to <code>true</code>. This way the texture does not rotate with the block when using the x and y-tags above.
+***** {{nbt|int|weight}}: Sets the probability of the model for being used in the game, defaults to 1 (=100%). If more than one model is used for the same variant, the probability is calculated by dividing the individual model's weight by the sum of the weights of all models. (For example, if three models are used with weights 1, 1, and 2, then their combined weight would be 4 (1+1+2). The probability of each model being used would then be determined by dividing each weight by 4: 1/4, 1/4 and 2/4, or 25%, 25% and 50%, respectively.)
+**** {{nbt|string|model}}: Specifies the path to the model file of the block, in form of a [[#File path|resource location]]. 
+**** {{nbt|int|x}}: Rotation of the model on the x-axis in increments of 90 degrees.
+**** {{nbt|int|y}}: Rotation of the model on the y-axis in increments of 90 degrees.
+**** {{nbt|byte|uvlock}}: Can be <code>true</code> or <code>false</code> (default). Locks the rotation of the texture of a block, if set to <code>true</code>. This way the texture does not rotate with the block when using the x and y-tags above.
+** {{nbt|list|multipart}}: Used instead of '''variants''' to combine models based on [[block state]] attributes.
+*** {{nbt|compound|A case}} Determines a case and the model that should apply in that case.
+**** {{nbt|compound|when}}: A list of cases that have to be met for the model to be applied. If unset, the model always applies.
+***** {{nbt|list|OR}}: Matches if any of the contained cases return true. Cannot be set alongside other cases.
+****** {{nbt|compound|A condition}} A list of cases that all have to match the block to return true.
+******* {{nbt|string|''State''}} Name of a block state. A single case that has to match one of the block states. It can be set to a list separated by <code>|</code> to allow multiple values to match.
+***** {{nbt|list|AND}}: Matches if all of the contained cases return true. Cannot be set alongside other cases.
+****** {{nbt|compound|A condition}} A list of cases that all have to match the block to return true.
+******* {{nbt|string|''State''}} Name of a block state. A single case that has to match one of the block states. It can be set to a list separated by <code>|</code> to allow multiple values to match.
+***** {{nbt|string|''State''}} Name of a block state. A single case that has to match one of the block states. It can be set to a list separated by <code>|</code> to allow multiple values to match. Cannot be set alongside the OR-tag or AND-tag.
+**** {{nbt|compound}}{{nbt|list|apply}}: Determines the model(s) to apply and its properties. There can be '''one model''' or an '''array of models'''. If set to an array, the model is chosen randomly from the options given, with each option being specified in separate subsidiary {{nbt|compound}}-tags.
+***** {{nbt|compound|A model}}: Contains the properties of a model, if more than one model is used for the same variant. All specified models alternate in the game.
+****** {{nbt|string|model}}: Specifies the path to the model file of the block, in form of a [[#File path|resource location]]. 
+****** {{nbt|int|x}}: Rotation of the model on the x-axis in increments of 90 degrees.
+****** {{nbt|int|y}}: Rotation of the model on the y-axis in increments of 90 degrees.
+****** {{nbt|byte|uvlock}}: Can be <code>true</code> or <code>false</code> (default). Locks the rotation of the texture of a block, if set to <code>true</code>. This way the texture does not rotate with the block when using the x and y-tags above.
+****** {{nbt|int|weight}}: Sets the probability of the model for being used in the game, defaults to 1 (=100%). If more than one model is used for the same variant, the probability is calculated by dividing the individual model's weight by the sum of the weights of all models. (For example, if three models are used with weights 1, 1, and 2, then their combined weight would be 4 (1+1+2). The probability of each model being used would then be determined by dividing each weight by 4: 1/4, 1/4 and 2/4, or 25%, 25% and 50%, respectively.)
+***** {{nbt|string|model}}: Specifies the path to the model file of the block, in form of a [[#File path|resource location]]. 
+***** {{nbt|int|x}}: Rotation of the model on the x-axis in increments of 90 degrees.
+***** {{nbt|int|y}}: Rotation of the model on the y-axis in increments of 90 degrees.
+***** {{nbt|byte|uvlock}}: Can be <code>true</code> or <code>false</code> (default). Locks the rotation of the texture of a block, if set to <code>true</code>. This way the texture does not rotate with the block when using the x and y-tags above.
+</div>
+
+{| class="wikitable" data-description="uvlock example"
+|-
+| <code>"uvlock": true</code>
+| <code>"uvlock": false</code>
+|-
+| [[File:uvlock true.png|200px]]
+| [[File:uvlock false.png|200px]]
+|}
+
+=== Example: Wall Torch ===
+The wall [[torch]] has several variants: It can be placed at a wall facing in four different directions. This example is taken from the file <code>wall_torch.json</code>, which can be found at <code>assets/minecraft/blockstates</code>.
+
+;wall_torch.json
+<syntaxhighlight lang=json>
+{
+    "variants": {
+        "facing=east": { "model": "block/wall_torch" },
+        "facing=south": { "model": "block/wall_torch", "y": 90 },
+        "facing=west": { "model": "block/wall_torch", "y": 180 },
+        "facing=north": { "model": "block/wall_torch", "y": 270 }
+    }
+}
+</syntaxhighlight>
+A torch can be placed on all four sides of a block and therefore needs four different variants, one for each side. These are called <code>"facing=east"</code>, <code>"facing=west"</code>, <code>"facing=south"</code> and <code>"facing=north"</code>. All four variants use <code>"block/wall_torch"</code> as their model, which is rotated by a multiple of 90 degrees around the <code>"y"</code> axis to align with the different sides of the block they are placed on.
+
+=== Example: Grass Block ===
+
+The [[grass block]] has two variants, whereby the first one holds four different models. This example is taken from the file <code>grass_block.json</code>, which can be found at <code>assets/minecraft/blockstates</code>.
+
+;grass_block.json
+<syntaxhighlight lang=json>
+{
+    "variants": {
+        "snowy=false": [
+            { "model": "block/grass_block" },
+            { "model": "block/grass_block", "y": 90 },
+            { "model": "block/grass_block", "y": 180 },
+            { "model": "block/grass_block", "y": 270 }
+        ],
+        "snowy=true":  { "model": "block/grass_block_snow" }
+    }
+}
+</syntaxhighlight>
+The non-snow-covered grass block (<code>"snowy=false"</code>) holds four models, which all use the same block model, but each one is rotated by a multiple of 90 degrees. As there are four models and the <code>weight</code>-tag is not used for any of them, each one has a chance of 25% to be used every time a block is placed.
+
+=== Example: Oak Fence ===
+
+The oak fence uses the <code>multipart</code> format. This example is taken from <code>oak_fence.json</code> in <code>assets/minecraft/blockstates</code>.
+
+;oak_fence.json
+<syntaxhighlight lang=json>
+{
+    "multipart": [
+        {   "apply": { "model": "block/oak_fence_post" }},
+        {   "when": { "north": "true" },
+            "apply": { "model": "block/oak_fence_side", "uvlock": true }
+        },
+        {   "when": { "east": "true" },
+            "apply": { "model": "block/oak_fence_side", "y": 90, "uvlock": true }
+        },
+        {   "when": { "south": "true" },
+            "apply": { "model": "block/oak_fence_side", "y": 180, "uvlock": true }
+        },
+        {   "when": { "west": "true" },
+            "apply": { "model": "block/oak_fence_side", "y": 270, "uvlock": true }
+        }
+    ]
+}
+</syntaxhighlight>
+While the first model, the fence post, is always used, the other models are used only if certain conditions are met. Here the sides of the fence are applied only if there is another adjacent block next to this one. As there is just one model for the post and another one for all the sides of the fence, which then is rotated by increments of 90 degrees, the amount of models needed for all the different possible set-ups of fences can be reduced to two. Compared to the five models and 16 variants used in [[Java Edition 1.8]], this is a rather big improvement.
+
+=== Example: Redstone Wire ===
+
+The [[redstone]] wire model uses the <code>multipart</code> format. This example is taken from <code>redstone_wire.json</code> in <code>assets/minecraft/blockstates</code>
+
+;redstone_wire.json
+<syntaxhighlight lang=json>
+{
+    "multipart": [
+        {   "when": { "OR": [
+                {"north": "none", "east": "none", "south": "none", "west": "none"},
+                {"north": "side|up", "east": "side|up" },
+                {"east": "side|up", "south": "side|up" },
+                {"south": "side|up", "west": "side|up"},
+                {"west": "side|up", "north": "side|up"}
+            ]},
+            "apply": { "model": "block/redstone_dust_dot" }
+        },
+        {   "when": { "OR": [
+                { "north": "side|up" },
+                { "north": "none", "east": "none", "south": "side|up", "west": "none" }
+            ]},
+            "apply": { "model": "block/redstone_dust_side0" }
+        },
+        {   "when": { "OR": [
+                { "south": "side|up" },
+                { "north": "side|up", "east": "none", "south": "none", "west": "none" }
+            ]},
+            "apply": { "model": "block/redstone_dust_side_alt0" }
+        },
+        {   "when": { "OR": [
+                { "east": "side|up" },
+                { "north": "none", "east": "none", "south": "none", "west": "side|up" }
+            ]},
+            "apply": { "model": "block/redstone_dust_side_alt1", "y": 270 }
+        },
+        {   "when": { "OR": [
+                { "west": "side|up" },
+                { "north": "none", "east": "side|up", "south": "none", "west": "none" }
+            ]},
+            "apply": { "model": "block/redstone_dust_side1", "y": 270 }
+        },
+        {   "when": { "north": "up" },
+            "apply": { "model": "block/redstone_dust_up" }
+        },
+        {   "when": { "east": "up" },
+            "apply": { "model": "block/redstone_dust_up", "y": 90 }
+        },
+        {   "when": { "south": "up" },
+            "apply": { "model": "block/redstone_dust_up", "y": 180 }
+        },
+        {   "when": { "west": "up" },
+            "apply": { "model": "block/redstone_dust_up", "y": 270 }
+        }
+    ]
+}
+</syntaxhighlight>
+
+This model is dynamically created. With the first condition, it is determining cases where the <code>redstone_dust_dot</code> model should be added, which requires either all of the four sides being set to "none", or any two sides that form a corner both being set either to <code>up</code> or <code>side</code>.
+
+The last case tests only one condition, which asks if <code>"west"</code> is set to <code>"up"</code>, and if so it applies the model <code>redstone_dust_up</code>.
+
+== Block models ==
+
+The folder <code>assets/''<namespace>''/models/block</code> holds the model files for all the specified variants. The names of the files can be changed, but must always correspond with the names used in the variant files.
+
+<div class="treeview">
+* {{nbt|compound}} The root tag
+** {{nbt|string|parent}}: Loads a different model from the given path, in form of a [[#File path|resource location]]. If both <code>"parent"</code> and <code>"elements"</code> are set, the <code>"elements"</code> tag overrides the <code>"elements"</code> tag from the previous model.
+*** Can be set to <code>"builtin/generated"</code> to use a model that is created out of the specified icon. Note that only the first layer is supported, and rotation can be achieved only by using block states files.
+** {{nbt|byte|ambientocclusion}}: Whether to use [http://en.wikipedia.org/wiki/Ambient_occlusion ambient occlusion] (<code>true</code> - default), or not (<code>false</code>). Note:only works on Parent file
+** {{nbt|compound|display}}: Holds the different places where item models are displayed.
+*** {{nbt|compound|''Position''}}: Named <code>thirdperson_righthand</code>, <code>thirdperson_lefthand</code>, <code>firstperson_righthand</code>, <code>firstperson_lefthand</code>, <code>gui</code>, <code>head</code>, <code>ground</code>, or <code>fixed</code>. Place where an item model is displayed. Holds its rotation, translation and scale for the specified situation. '''fixed''' refers to item frames, while the rest are as their name states. Note that translations are applied to the model before rotations.
+**** {{nbt|list|rotation}}: Specifies the rotation of the model according to the scheme <code>[x, y, z]</code>.
+**** {{nbt|list|translation}}: Specifies the position of the model according to the scheme <code>[x, y, z]</code>. The values are clamped between -80 and 80.
+**** {{nbt|list|scale}}: Specifies the scale of the model according to the scheme <code>[x, y, z]</code>. If the value is greater than 4, it is displayed as 4.
+** {{nbt|compound|textures}}: Holds the textures of the model, in form of a [[#File path|resource location]] or can be another texture variable.
+*** {{nbt|string|particle}}: What texture to load particles from. This texture is also used as an overlay if you are in a [[nether portal]], and used for [[water]] and [[lava]]'s still textures.<ref>{{bug|MC-240042}}</ref> This texture is also considered a texture variable that can be referenced as <code>"#particle"</code>. Note: All breaking particles from non-model blocks are hard-coded, such as for [[Barrier|barriers]].
+*** {{nbt|string|''Texture variable''}}: Defines a texture variable and assigns a texture.
+** {{nbt|list|elements}}: Contains all the elements of the model. They can have only cubic forms. If both <code>"parent"</code> and <code>"elements"</code> are set, the <code>"elements"</code> tag overrides the <code>"elements"</code> tag from the previous model.
+*** {{nbt|compound}} An element.
+**** {{nbt|list|from}}: Start point of a cuboid according to the scheme <code>[x, y, z]</code>. Values must be between -16 and 32.
+**** {{nbt|list|to}}: Stop point of a cuboid according to the scheme <code>[x, y, z]</code>. Values must be between -16 and 32.
+**** {{nbt|compound|rotation}}: Defines the rotation of an element.
+***** {{nbt|list|origin}}: Sets the center of the rotation according to the scheme <code>[x, y, z]</code>.
+***** {{nbt|string|axis}}: Specifies the direction of rotation, can be <code>"x"</code>, <code>"y"</code> or <code>"z"</code>.
+***** {{nbt|float|angle}}: Specifies the angle of rotation. Can be 45 through -45 degrees in 22.5 degree increments.
+***** {{nbt|byte|rescale}}: Specifies whether or not to scale the faces across the whole block. Can be true or false. Defaults to false.
+**** {{nbt|byte|shade}}: Defines if shadows are rendered (<code>true</code> - default), not (<code>false</code>).
+**** {{nbt|compound|faces}}: Holds all the faces of the cuboid. If a face is left out, it does not render.
+***** {{nbt|compound|''Face''}}: Named <code>down</code>, <code>up</code>, <code>north</code>, <code>south</code>, <code>west</code> or <code>east</code>. Contains the properties of the specified face.
+****** {{nbt|list|uv:}} Defines the area of the texture to use according to the scheme <code>[x1, y1, x2, y2]</code>. The texture behavior is inconsistent if UV extends below 0 or above 16. If the numbers of <code>x1</code> and <code>x2</code> are swapped (e.g. from <code>0, 0, 16, 16</code> to <code>16, 0, 0, 16</code>), the texture flips. UV is optional, and if not supplied it automatically generates based on the element's position. 
+****** {{nbt|string|texture:}} Specifies the texture in form of the texture variable prepended with a <code>#</code>.
+****** {{nbt|string|cullface:}} Specifies whether a face does not need to be rendered when there is a block touching it in the specified position. The position can be: <code>down</code>, <code>up</code>, <code>north</code>, <code>south</code>, <code>west</code>, or <code>east</code>. It also determines the side of the block to use the light level from for lighting the face, and if unset, defaults to the side.
+****** {{nbt|int|rotation}}: Rotates the texture by the specified number of degrees. Can be 0, 90, 180, or 270. Defaults to 0. Rotation does not affect which part of the texture is used. Instead, it amounts to permutation of the selected texture vertexes (selected implicitly, or explicitly though <code>uv</code>).
+****** {{nbt|int|tintindex}}: Determines whether to tint the texture using a hardcoded tint index. The default value, -1, indicates not to use the tint. Any other number is provided to BlockColors to get the tint value corresponding to that index. However, most blocks do not have a tint value defined (in which case white is used). Furthermore, no vanilla block currently uses multiple tint values, and thus the tint index value is ignored (as long as it is set to something other than -1); it could be used for modded blocks that need multiple distinct tint values in the same block though.
+
+
+</div>
+
+=== Example: Standing Torch ===
+For simplicity, this example describes only the standing [[torch]], which is defined in the files <code>torch.json</code> and <code>template_torch.json</code> stored in the folder <code>assets/minecraft/models/block</code>. 
+
+; template_torch.json
+<syntaxhighlight lang=json>
+{
+   "ambientocclusion": false,
+   "textures": {
+       "particle": "#torch"
+   },
+   "elements": [
+       {   "from": [ 7, 0, 7 ],
+           "to": [ 9, 10, 9 ],
+           "shade": false,
+           "faces": {
+               "down": { "uv": [ 7, 13, 9, 15 ], "texture": "#torch" },
+               "up":   { "uv": [ 7,  6, 9,  8 ], "texture": "#torch" }
+           }
+       },
+       {   "from": [ 7, 0, 0 ],
+           "to": [ 9, 16, 16 ],
+           "shade": false,
+           "faces": {
+               "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#torch" },
+               "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#torch" }
+           }
+       },
+       {   "from": [ 0, 0, 7 ],
+           "to": [ 16, 16, 9 ],
+           "shade": false,
+           "faces": {
+               "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#torch" },
+               "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#torch" }
+           }
+       }
+   ]
+}
+</syntaxhighlight>
+
+This file is used to create the model of the torch, which is used for the normal, [[redstone torch]] and the [[soul fire torch]]. Therefore, the <code>"elements"</code> tag is used to create three elements or cuboids. Only two faces of each cuboid are rendered, as only two faces of each one have been specified. <code>"uv"</code> is used to determine the area where the texture is used. The texture variable <code>"#torch"</code> is used for the particles and the cuboids and has not yet been defined.
+
+; torch.json
+<syntaxhighlight lang=json>
+{
+   "parent": "block/template_torch",
+   "textures": {
+       "torch": "block/torch"
+   }
+}
+</syntaxhighlight>
+
+This file represents the model of the normal standing torch. It loads the model of previously defined standing torch with the help of <code>"parent"</code> and inherits all the properties of the file <code>template_torch.json</code>. As this file is used only for the normal torch, the texture can now be specified. The texture<code>"torch"</code> is now assigned to the texture variable <code>"torch"</code> (in form of a [[#File path|resource location]]) and therefore is used for the previously loaded model and its particles, as specified in the other file.
+
+=== Example: Any Block ===
+
+This example describes the fundamental structure of most normal blocks in ''Minecraft''. All these [[block]]s use the same basic model and apply their texture to it, as already described in the example above. This model is defined in the file <code>cube.json</code>, which can be found in the folder <code>assets/minecraft/models/block</code>.
+
+;cube.json
+<syntaxhighlight lang=json>
+{
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "texture": "#down", "cullface": "down" },
+        "up":    { "texture": "#up", "cullface": "up" },
+        "north": { "texture": "#north", "cullface": "north" },
+        "south": { "texture": "#south", "cullface": "south" },
+        "west":  { "texture": "#west", "cullface": "west" },
+        "east":  { "texture": "#east", "cullface": "east" }
+      }
+    }
+  ]
+}
+</syntaxhighlight>
+
+Features that have already been described above are not discussed further. The use of <code>"cullface": "down"</code> prevents the bottom face of the block from being rendered, if there is another adjacent block underneath it. The same applies to all the other faces of the block.
+
+=== Example: Sapling ===
+
+This example describes the fundamental structure used by all [[sapling]]s, without assigning a specific texture. The model is specified in <code>cross.json</code>, the texture would e.g. be assigned in <code>oak_sapling.json</code>. Both files are stored in the folder <code>assets/minecraft/models/block</code>.
+
+;cross.json
+
+<syntaxhighlight lang=json>
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "#cross"
+  },
+  "elements": [
+    {
+      "from": [ 0.8, 0, 8 ],
+      "to": [ 15.2, 16, 8 ],
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
+      "shade": false,
+      "faces": {
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross" }
+      }
+    },
+    {
+      "from": [ 8, 0, 0.8 ],
+      "to": [ 8, 16, 15.2 ],
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
+      "shade": false,
+      "faces": {
+        "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross" },
+        "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross" }
+      }
+    }
+  ]
+}
+</syntaxhighlight>
+
+To create the usual shape of the [[sapling]]s, both elements are being rotated by 45 degrees. Therefore, the origin and the axis of rotation are set to the specified values, the angle is set to 45 degrees and <code>"rescale"</code> is set to <code>true</code>. The latter causes the model to be scaled on the axes it has not been rotated on by 1 + 1 / (cos(angle) - 1), so that it takes up the same space as it did before rotating it (see comparison images). 
+
+{| class="wikitable" data-description="rescale example"
+|-
+| <code>"rescale": true</code>
+| <code>"rescale": false</code>
+|-
+| [[File:Block model rescale true.png|400px]]
+| [[File:Block model rescale false.png|400px]]
+|}
+
+=== Examples: Condensing multiple textures into one file ===
+Using the <code>"uv"</code> compound, textures can be read from one file and parts of the file can be used for each side of the block. <code>"uv"</code> doesn't take the pixels of the file, it instead takes percentages of the file in terms of 16; for example taking the top half of a file uses <code>"uv": [0,0, 16,8]</code>: from the coordinates ([0% of 16], [0% of 16]) – (0,0) – which is the top-left pixel, and ends at ([100% of 16], [50% of 16]) – (16,8), which is the middle-right pixel. Because this works in percentages, resizing an image from 16×16 to 32×32, 64×64, etc., does not require changing the model file.
+
+[[File:Fletching Table textures.png|right|72px]]
+In this example, a [[fletching table]] is used (see image) with combined textures  (in this example, saved as <code>fletching_table.png</code>): the top 16×16 pixels (if each of the textures are 32×32, etc., then the top 32×32, etc., textures are taken using the same code) textures the top of the block, the center 16×16 textures the front and back, and the bottom 16×16 textures the other sides. The bottom texture is <code>birch_planks</code>. For three textures, this code can be used:
+
+<syntaxhighlight lang=json>
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "block/fletching_table",
+        "all": "block/fletching_table",
+        "bottom": "block/birch_planks"
+    },
+    "elements": [
+        {
+           "from": [ 0, 0, 0 ],
+            "to": [ 16, 16, 16 ],
+            "faces": {
+                "down":  { "texture": "#bottom", "cullface": "down" },
+                "up":    { "uv": [0,0, 16,5.34], "texture": "#all", "cullface": "up" },
+                "north": { "uv": [0,5.35, 16,10.66], "texture": "#all", "cullface": "north" },
+                "south": { "uv": [0,5.35, 16,10.66], "texture": "#all", "cullface": "south" },
+                "west":  { "uv": [0,10.67, 16,16], "texture": "#all", "cullface": "west" },
+                "east":  { "uv": [0,10.67, 16,16], "texture": "#all", "cullface": "east" }
+            }
+        }
+    ]
+}
+</syntaxhighlight>
+
+[[File:Bone Block textures.png|right|72px]]
+In this example, only two textures are condensed into one file, in this case for a [[bone block]]. For two textures, this code can be used:
+<syntaxhighlight lang=json>
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "block/bone_block",
+        "all": "block/bone_block"
+    },
+    "elements": [
+        {
+           "from": [ 0, 0, 0 ],
+            "to": [ 16, 16, 16 ],
+            "faces": {
+                "down":  { "uv": [0,0, 16,8], "texture": "#all", "cullface": "down" },
+                "up":    { "uv": [0,0, 16,8], "texture": "#all", "cullface": "up" },
+                "north": { "uv": [0,8, 16,16], "texture": "#all", "cullface": "north" },
+                "south": { "uv": [0,8, 16,16], "texture": "#all", "cullface": "south" },
+                "west":  { "uv": [0,8, 16,16], "texture": "#all", "cullface": "west" },
+                "east":  { "uv": [0,8, 16,16], "texture": "#all", "cullface": "east" }
+            }
+        }
+    ]
+}
+</syntaxhighlight>
+
+[[File:Barrel textures.png|right|64px]]
+In this example, four textures are condensed into one file, in this case for a [[barrel]]. For four textures, this code can be used:
+<syntaxhighlight lang=json>
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "block/barrel",
+        "all": "block/barrel"
+    },
+    "elements": [
+        {
+           "from": [ 0, 0, 0 ],
+            "to": [ 16, 16, 16 ],
+            "faces": {
+                "down":  { "uv": [8,8, 16,16], "texture": "#all", "cullface": "down" },
+                "up":    { "uv": [8,0, 16,8], "texture": "#all", "cullface": "up" },
+                "north": { "uv": [0,8, 8,16], "texture": "#all", "cullface": "north" },
+                "south": { "uv": [0,8, 8,16], "texture": "#all", "cullface": "south" },
+                "west":  { "uv": [0,8, 8,16], "texture": "#all", "cullface": "west" },
+                "east":  { "uv": [0,8, 8,16], "texture": "#all", "cullface": "east" }
+            }
+        }
+    ]
+}
+</syntaxhighlight>
+
+== Item models ==
+
+As [[item]]s do not have different variants, there is no need to specify them. The folder <code>assets/''<namespace>''/models/item</code> contains all the model files. The names of the files are hardcoded and should not be changed.
+
+<div class="treeview">
+* {{nbt|compound}}: The root tag
+**{{nbt|string|parent}}: Loads a different model from the given path, in form of a [[#File path|resource location]]. If both <code>"parent"</code> and <code>"elements"</code> are set, the <code>"elements"</code> tag overrides the <code>"elements"</code> tag from the previous model.
+*** Can be set to <code>"item/generated"</code> to use a model that is created out of the specified icon.
+*** Can be set to <code>"builtin/entity"</code> to load a model from an entity file. As you cannot specify the entity, this does not work for all items (only for [[chest]]s, [[ender chest]]s, [[mob head]]s, [[shield]]s, [[banner]]s and [[trident]]s).
+** {{nbt|compound|display}}: Holds the different places where item models are displayed.
+*** {{nbt|compound|''Position''}}: Named <code>thirdperson_righthand</code>, <code>thirdperson_lefthand</code>, <code>firstperson_righthand</code>, <code>firstperson_lefthand</code>, <code>gui</code>, <code>head</code>, <code>ground</code>, or <code>fixed</code>. Place where an item model is displayed. Holds its rotation, translation and scale for the specified situation. '''fixed''' refers to item frames, while the rest are as their name states. Note that translations are applied to the model before rotations. If this is specified but not all of translation, rotation and scale are in it, the others aren't inherited from the parent.
+**** {{nbt|list|rotation}}: Specifies the rotation of the model according to the scheme <code>[x, y, z]</code>.
+**** {{nbt|list|translation}}: Specifies the position of the model according to the scheme <code>[x, y, z]</code>. If the value is greater than 80, it is displayed as 80. If the value is less than -80, it is displayed as -80.
+**** {{nbt|list|scale}}: Specifies the scale of the model according to the scheme <code>[x, y, z]</code>. If the value is greater than 4, it is displayed as 4.
+** {{nbt|compound|textures}}: Holds the textures of the model, in form of a [[#File path|resource location]] or can be another texture variable.
+*** {{nbt|string|layer''N''}}: Only used to specify the icon of the item used in the inventory. There can be more than just one layer (e.g. for [[spawn egg]]s), but the amount of possible layers is hardcoded for each item. Works only in combination with <code>"item/generated"</code>. 
+*** {{nbt|string|particle}}: What texture to load particles from. Used to determine the "crumb" particles generated by food items, as well as to determine the [[barrier]] particle (but it always uses <code>items/barrier.png</code> as blockbreaking particle), which otherwise uses "layer0".
+*** {{nbt|string|''Texture variable''}}: Defines a texture variable and assigns a texture.
+** {{nbt|string|gui_light}}: Can be <code>"front"</code> or <code>"side"</code>. If set to <code>"side"</code>, the model is rendered like a block. If set to <code>"front"</code>, model is shaded like a flat item. Defaults to <code>"side"</code>.
+** {{nbt|list|elements}}: Contains all the elements of the model. They can have only cubic forms. If both <code>"parent"</code> and <code>"elements"</code> are set, the <code>"elements"</code> tag overrides the <code>"elements"</code> tag from the previous model.
+*** {{nbt|compound}} An element.
+**** {{nbt|list|from}}: Start point of a cuboid according to the scheme <code>[x, y, z]</code>. Values must be between -16 and 32.
+**** {{nbt|list|to}}: Stop point of a cuboid according to the scheme <code>[x, y, z]</code>. Values must be between -16 and 32.
+**** {{nbt|compound|rotation}}: Defines the rotation of an element.
+***** {{nbt|list|origin}}: Sets the center of the rotation according to the scheme <code>[x, y, z]</code>.
+***** {{nbt|string|axis}}: Specifies the direction of rotation, can be <code>"x"</code>, <code>"y"</code> or <code>"z"</code>.
+***** {{nbt|float|angle}}: Specifies the angle of rotation. Can be 45 through -45 degrees in 22.5 degree increments.
+***** {{nbt|byte|rescale}}: Specifies whether or not to scale the faces across the whole block. Can be true or false. Defaults to false.
+**** {{nbt|byte|shade}}: Defines if shadows are rendered (<code>true</code> - default), not (<code>false</code>).
+**** {{nbt|compound|faces}}: Holds all the faces of the cuboid. If a face is left out, it does not render.
+***** {{nbt|compound|''Face''}}: Named <code>down</code>, <code>up</code>, <code>north</code>, <code>south</code>, <code>west</code> or <code>east</code>. Contains the properties of the specified face.
+****** {{nbt|list|uv:}} Defines the area of the texture to use according to the scheme <code>[x1, y1, x2, y2]</code>. If unset, it defaults to values equal to xyz position of the element. The texture behavior is inconsistent if UV extends below 0 or above 16. If the numbers of <code>x1</code> and <code>x2</code> are swapped (e.g. from <code>0, 0, 16, 16</code> to <code>16, 0, 0, 16</code>), the texture flips. UV is optional, and if not supplied it automatically generates based on the element's position. 
+****** {{nbt|string|texture:}} Specifies the texture in form of the texture variable prepended with a <code>#</code>.
+****** {{nbt|string|cullface:}} Specifies whether a face does not need to be rendered when there is a block touching it in the specified position. The position can be: <code>down</code>, <code>up</code>, <code>north</code>, <code>south</code>, <code>west</code>, or <code>east</code>. It also determines the side of the block to use the light level from for lighting the face, and if unset, defaults to the side.
+****** {{nbt|int|rotation}}: Rotates the texture by the specified number of degrees. Can be 0, 90, 180, or 270. Defaults to 0. Rotation does not affect which part of the texture is used. Instead, it amounts to permutation of the selected texture vertexes (selected implicitly, or explicitly though <code>uv</code>).
+****** {{nbt|int|tintindex}}: Determines whether to tint the texture using a hardcoded tint index. Tint indexes are hard coded into an item and each tint index represents a different color (as defined in the item class). Note that only certain blocks/items have a tint index; all others remain unaffected.
+** {{nbt|list|overrides}}: Determines cases in which a different model should be used based on item tags. All cases are evaluated in order from top to bottom and last predicate that matches overrides. However, overrides are ignored if it has been already overridden once, for example this avoids recursion on overriding to the same model.
+***{{nbt|compound|}} A case.
+****{{nbt|compound|predicate}}: Holds the cases.
+*****{{nbt|string|''Case''}} A single case tag. See [[#Item predicates|item predicates]] for a full list of available tags.
+**** {{nbt|string|model}}: The path to the model to use if the case is met, in form of a [[#File path|resource location]].
+</div>
+
+=== Simple example: 2D beds ===
+This example replaces the bed item render with the textures currently found {{in|bedrock|lc=}} and formerly found {{in|java|lc=}}, such as [[File:Red Bed 2D.png]]. This file should be placed in the {{cd|assets/minecraft/models/item}} folder with the name "{{cd|red_bed.json}}":
+
+<syntaxhighlight lang=json>
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "item/red_bed"
+    }
+}
+</syntaxhighlight>
+
+In this example, the {{cd|parent}} is set to {{cd|item/generated}}, which means that this item model is a flat texture. In the {{cd|textures}} tag, {{cd|layer0}} is set to the texture set for this item; in this case, the texture is called {{cd|red_bed}} and is found in the {{cd|assets/minecraft/textures/'''item'''}} folder. The "{{cd|red}}" can be changed out for all other colors of bed, but each must be put in a separate JSON file (e.g., {{cd|black_bed.json|green_bed.json|d=,}}, etc.). There must be item texture files (which is what {{cd|layer0}} is requesting) for beds found in the {{cd|textures/item}} folder; these textures can be found below:
+
+<gallery mode="nolines" widths="16px">
+Black Bed 2D.png
+Blue Bed 2D.png
+Brown Bed 2D.png
+Cyan Bed 2D.png
+Gray Bed 2D.png
+Green Bed 2D.png
+Light Blue Bed 2D.png
+Light Gray Bed 2D.png
+Lime Bed 2D.png
+Magenta Bed 2D.png
+Orange Bed 2D.png
+Pink Bed 2D.png
+Purple Bed 2D.png
+Red Bed 2D.png
+White Bed 2D.png
+Yellow Bed 2D.png
+</gallery>
+
+Rename the above files to {{cd|<''color''>_bed}} (keep the file extension {{cd|.png}}) and place them inside the {{cd|assets/minecraft/textures/item}} folder. Make sure to match the {{cd|layer0}} reference to the name of the item texture.
+
+=== Item predicates ===
+
+Some [[item]]s support additional predicates for model overrides. Below is a full list of available predicates.
+* <code>"angle"</code>: Used on [[compass]]es to determine the current angle, expressed in a decimal value of less than one.
+* <code>"blocking"</code>: Used on [[shield]]s to determine if currently blocking. If <code>1</code>, the player is blocking.
+* <code>"broken"</code>: Used on [[Elytra]] to determine if broken. If <code>1</code>, the Elytra is broken.
+* <code>"cast"</code>: Used on [[fishing rod]]s to determine if the fishing rod has been cast. If <code>1</code>, the fishing rod has been cast.
+* <code>"cooldown"</code>: Used on [[ender pearl]]s and [[chorus fruit]] to determine the remaining cooldown, expressed in a decimal value between 0 and 1.
+* <code>"damage"</code>: Used on items with durability to determine the amount of damage, expressed in a decimal value between 0 and 1.
+* <code>"damaged"</code>: Used on items with durability to determine if it is damaged. If <code>1</code>, the item is damaged. Note that if an item has the unbreakable tag, this may be <code>0</code> while the item has a non-zero <code>"damage"</code> tag.
+* <code>"lefthanded"</code>: Determines the model used by left handed players. It affects the item they see in inventories, along with the item players see them holding or wearing.
+* <code>"pull"</code>: Determines the amount a [[bow]] or [[crossbow]] has been pulled, expressed in a decimal value of less than one.
+* <code>"pulling"</code>: Used on [[bow]]s and [[crossbow]]s to determine if the bow is being pulled. If <code>1</code>, the bow is currently being pulled.
+* <code>"charged"</code>: Used on [[crossbow]]s to determine if they are charged with any projectile. If <code>1</code>, the crossbow is charged.
+* <code>"firework"</code>: Used on [[crossbow]]s. If <code>1</code>, the crossbow is charged with a firework rocket.
+* <code>"throwing"</code>: Used on [[trident]]s to determine if the trident is ready to be thrown by the player. If <code>1</code>, the trident is ready for fire.
+* <code>"time"</code>: Used on [[clock]]s to determine the current time, expressed in a decimal value of less than one.
+* <code>"custom_model_data"</code>: Used on any item and is compared to the [[Player.dat_format#General_Tags|<code>tag.CustomModelData</code> NBT]], expressed in an integer value. The number is still internally converted to float, causing a [https://en.wikipedia.org/wiki/Single-precision_floating-point_format#Precision_limitations_on_integer_values precision loss for some numbers above 16 million]. If the value read from the item data is greater than or equal to the value used for the predicate, the predicate is positive.
+* <code>"level"</code>: Used on [[light block]]s to determine the light level as contained in <code>BlockStateTag</code>, expressed in a decimal value between 0 and 1, where 1 is light level 15.
+* <code>"filled"</code>: Used on [[bundle]]s to determine the ratio of the bundle's current contents to its total capacity, expressed in a decimal value between 0 and 1.
+* <code>"tooting"</code>: Used on [[goat horn]]s to determine whether or not the player is tooting them. 1 for true, 0 for false.
+* <code>"trim_type"</code>: Used on [[armor]] to determine which material the applied trim is made of, expressed in a decimal value between 0 and 1.
+* <code>"brushing"</code>: Used on [[brush]]es to determine the brushing animation progress, expressed in a decimal value between 0 and 1.
+
+=== Example: Torch ===
+
+This example describes the [[torch]] as an [[item]]. The model can be found in the <code>torch.json</code>, which is stored in the folder <code>assets/minecraft/models/item</code>.
+
+; torch.json
+<syntaxhighlight lang="json">
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "block/torch"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ -90, 0, 0 ],
+      "translation": [ 0, 1, -3 ],
+      "scale": [ 0.55, 0.55, 0.55 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, -135, 25 ],
+      "translation": [ 0, 4, 2 ],
+      "scale": [ 1.7, 1.7, 1.7 ],
+      "scale": [ 0.9, 0.9, 0.9 ]
+    }
+  }
+}
+</syntaxhighlight>
+
+The <code>"parent"</code>-tag uses <code>"builtin/generated"</code>, so that the game uses the standard model of the torch, which has been generated out of the 2D graphic used for the item icon. The icon is specified with the <code>"layer0"</code>-tag and the texture, that has already been used for the block model, is used for the icon as well. As there is just one layer hard coded for the torch, there cannot be any more layers added. Furthermore, the display properties for the torch are specified, so that it displays correctly in every possible situation. The torch cannot be placed on a players head and uses the specified icon in the inventory, so there is no need to adjust the model for these situations. To line the model up with the players left or right hand in first and third person view, the model needs to be rotated, moved and scaled, which is done for each of the two situation separately.
+
+=== Example: Fishing Rod ===
+
+This example describes the [[fishing rod]] as of [[Java Edition 1.9]]. The model can be found in the <code>fishing_rod.json</code>, which is stored in the folder <code>assets/minecraft/models/item</code>.
+
+; fishing_rod.json
+<syntaxhighlight lang="json">
+{
+  "parent": "item/handheld_rod",
+  "textures": {
+    "layer0": "item/fishing_rod_uncast"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "cast": 1
+      },
+      "model": "item/fishing_rod_cast"
+    }
+  ]
+}
+</syntaxhighlight>
+
+In this model, the normal model is overridden if the fishing rod is cast, causing it to instead display the model <code>"item/fishing_rod_cast"</code>
+
+{{Tutorials}}

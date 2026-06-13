@@ -1,0 +1,324 @@
+{{split|Tutorials/Huge fungus farming|Huge fungus generation}}
+{{Cleanup|reason=overuse of headings, inconsistent capitalization, among other issues}}
+
+This page aims to discuss the generation and harvesting of huge fungus. Some theorized methods are also discussed, such as RNG manipulation and self-sustaining N-core designs.
+{{TOC|limit=3}}
+== Glossary ==
+{| class="fandom-table"
+!Term
+!Definition
+|-
+|'''Rates'''
+|The farm's collectable item output, normally measured in items per hour
+|-
+|'''Efficiency'''
+|The output compared to the maximum possible output, in this case, the number of blocks of a huge fungi that are harvested, compared to the number that can possibly generate
+|-
+|'''gt'''
+|Game ticks, 1/20th of a second
+|-
+|'''RNG'''
+|Random Number Generator, can be manipulated using the seed
+|-
+|'''hat'''
+|The 'leaves' of a huge fungus that generate around the trunk. This does not include vines
+|-
+|'''vines'''
+|The wart blocks/weeping vines generated on the bottom of a hat
+|-
+|'''ring value'''
+|Equidistant (square radii) layers from the center of the trunk
+|-
+|'''decoration'''
+|Shroomlights
+|-
+|'''peak'''
+|A region of the hat that is equidistant from the trunk, i.e. all have the same ring value
+|}
+
+== Growth mechanics ==
+
+=== Natural generation ===
+Huge fungi generate naturally in only 2 biomes situated in the Nether (DIM-1); the warped forest, where you can find warped huge fungi, and the crimson forest, where you can find crimson huge fungi. Huge fungi generate naturally only in their respective biome.
+
+Unlike player grown huge fungi, naturally generated huge fungi have a 1/10 chance of growing with a 3x3 plus shape of stem blocks with a distribution of air and stem blocks in the corner of the plus shape, rather than the 1×1 column of stem blocks that always generate with player grown variants. This increased trunk width does not increase the thickness of the surrounding wart block layers, but it does allow for a ring value of 4 which means that the bounding box of the leaves expands by another block. 
+[[File:3x3 huge fungus.png|center|thumb|584x584px|A huge fungus with a 3x3 trunk]]
+
+If a player applies bone meal to a fungus, and if that fungus is directly above its respective nylium block (e.g. warped fungus on warped nylium), there is be a 40% chance for it to grow. Using bone meal on a fungus 4 times increases the chance to 87.04%, and 99.998% within 20 attempts.
+
+A fungus plant (the 'sapling' of huge fungi), does not grow by itself through random ticks, unlike traditional saplings.
+
+When a fungus grows, it doesn't check for blocks above or around it, or which dimension it’s in, this allows for pistons to be situated adjacent to the trunk, allowing for extremely fast cycle speeds.
+
+A fungus does not grow if it is obscured by the height limit or if it is placed outside of the world.
+
+To determine the height of a huge fungus, a random integer is picked between 4 and 13 [inclusive], then there is a 1/12 chance for that integer to be doubled. This integer is the height of the trunk in stem blocks, meaning that the tallest tree can be 27 blocks tall (as the top is covered in hat blocks) with a 1/120 chance of generating.
+
+Now the process of generating the hat of the farm is quite complex in comparison
+
+First of all a hat height (h) value is found using the same equation for the height of the tree. This value is later used to determine multiple other variables that we’ll touch onto shortly
+
+The first of which is the hat’s height off the ground (i) which is found from taking the minimum value of either a random integer up to (1 + h/3) + 5, or h.
+
+The height of the hat from bottom to top (j) is found by h - i
+
+The ring value (l) at a specific height (k) is equal to 2 if k < h – a random integer up to 3, otherwise it is equal to 1, also if i > 8 and k < j + 4 then l = 3. This statement allows for 1 3-wide layer of a huge fungus to form, which can occur only in trees that are at least 8 blocks off the ground. While it may look like some huge fungi have more than 1 layer of 3 wide growth, these additional layers are actually vines which are generated separately from the ‘brim’ (3 wide layer).
+[[File:Probabilities of Huge Fungus for different zones.png|center|thumb|839x839px|Probabilities of various zones of a huge fungus being generated (click to view full size image)]]
+
+The height of each peak of a huge fungus is found by analyzing the value of a random integer up to 3, which was housed in the earlier equation used for calculating ‘l’.
+{| class="fandom-table"
+|Ring  Value
+|Random  Integer Value
+|Peak Height
+|-
+|1
+|0
+|1
+|-
+|1
+|1
+|2
+|-
+|1
+|2
+|3
+|-
+|2
+|0
+|5
+|-
+|2
+|1
+|4
+|-
+|2
+|2
+|3
+|-
+|3
+|<nowiki>-</nowiki>
+|Always 1
+|}
+
+
+To further our discussion on huge fungus generation we need to split it up into 4 distinct zones:
+
+Internal: redstone blocks
+
+External: white stained glass
+
+Corners: yellow stained glass
+
+Vines: lime stained glass
+[[File:Huge fungus generation zones with growth chances diagram.png|none|thumb|859x859px|Each zone has its own chance of generating a block per coordinate in 3D space, as well as a chance of the block being decorative.]]
+
+We ignore vines for the time being, they are here just to illustrate where the bottom of the hat begins.
+{| class="fandom-table"
+|'''Zone'''
+|'''Generation  Chance'''
+|'''Decoration  Chance'''
+|'''Weeping  Vine Chance'''
+|-
+|Internal
+|20%
+|10%
+|10%
+|-
+|External
+|98%
+|0.05%
+|7%
+|-
+|Corners
+|70%
+|1%
+|8.3%
+|}
+
+
+This truth table demonstrates the possible outcomes for a particular block
+{| class="fandom-table"
+|'''Generation'''
+|'''Decoration'''
+|'''Weeping  Vine'''
+|'''Result'''
+|-
+|True
+|True
+|<nowiki>-</nowiki>
+|Shroomlight
+|-
+|True
+|False
+|True
+|Weeping  Vine
+|-
+|True
+|False
+|False
+|Wart  Block
+|-
+|False
+|True
+|<nowiki>-</nowiki>
+|Air
+|-
+|False
+|False
+|<nowiki>-</nowiki>
+|Air
+|}
+[[File:Rarest huge fungus.png|center|thumb|899x899px|A theoretically possible huge fungus that can be grown after applying bone meal to a fungus, or by world generation. The chance of this happening is approximately 1 in 1.939×10<sup>468</sup>.]]
+
+=== Dispenser grown ===
+If bone meal is placed inside of a dispenser, and then that dispenser is pointing into a fungus plant on its respective nylium block, then there is a 40% chance of it growing per attempt. Dispensers can be used to automatically grow the fungus plant, and up to 5 can surround a fungus plant, allowing for fungi to grow at 5hz on average.
+
+Note: There is no diminish in return with bone meal efficiency, and dispensers used.
+
+== Block properties ==
+{| class="fandom-table"
+|+A table showing the various blocks that are heavily involved in a Huge Fungi Farm
+!'''Block'''
+!'''Hardness'''
+!'''Blast Res'''
+!'''Stack Size'''
+!'''Tool'''
+!'''Compostability'''
+!'''HFF (Huge Fungus Farm) Use'''
+|-
+|Stem
+|2
+|2
+|64
+|Axe
+|0%
+|Main block harvested for its general use as wood planks
+(cannot be used as fuel)
+|-
+|Wart Block
+|1
+|1
+|64
+|Hoe
+|85%
+|Used to regenerate bone meal through its high compostability
+|-
+|Shroomlight
+|1
+|1
+|64
+|Hoe
+|65%
+|An opaque light source, can also be used to regenerate bone meal
+|-
+|Weeping Vines
+|0
+|0
+|64
+|Shears
+|50%
+|A byproduct of crimson huge fungus normally discarded or composted into bone meal
+|-
+|Fungus
+|0 
+|0
+|64
+|Any
+|65%
+|Used to grow huge fungi
+|-
+|Nylium
+|0.4
+|1
+|64
+|Silk Touch Pickaxe
+|0%
+|The block that a fungus is planted on to grow it into a huge fungus. Can convert back to netherrack if it gets random ticked while an opaque block is adjacently above it. Bone meal used on nylium can generate nether foliage on top, and on its surrounding blocks
+|-
+|Netherrack
+|0.4
+|1
+|64
+|Pickaxe
+|0%
+|Can be converted to nylium when bone meal is used and a nylium block is within a one-block radius of it
+|}
+
+== Harvesting methods ==
+There are a multitude of ways in which huge fungi can be farmed, here are some of the more common and technical methods.
+
+=== Manual harvesting ===
+During the early game where redstone resources are limited, certain manual harvesting methods are utilised. While it is recommended that a player gathers resources to make a farm, rather than spending that time manually farming, certain manual harvesting methods have arisen.
+
+==== Nether exploration ====
+Collecting huge fungi blocks in their own biomes is a great way to collect a sufficient amount of wood and decorative blocks early game.
+
+The fastest way to use this method is to make an efficiency 5 netherite axe and hoe, then travel to the nether and fly around using an elytra until you come across a warped or crimson forest. In a crimson forest, be sure to bring warped fungus to repel hoglins (must be planted, with an area of effect of 15 blocks).
+
+After planting a fungus, build a 3x3 platform of gold blocks with a beacon on top for the haste 1 effect. Fly up from the beacon base and destroy the netherrack obstructing the beacon beam. The haste I effect reduce the mining time per stem block by 2gt.{{verify}} This also helps when mining wart blocks and shroomlights, as when combined with an efficiency III netherite or diamond hoe, you can mine each block in 1gt.{{verify}} Setting up and removing a 1 layer beacon in the nether takes on average 600gt, so this beacon method is effective only if you are mining more than 300 stem blocks, or if it is necessary for instant mining more than 38 blocks.
+[[File:Survival harvesting.png|center|thumb|731x731px|A player readies their efficiency 5 axe and hoe for a big stem-cutting session]]
+Once the beacon is set up, you can begin harvesting trees. Huge Fungi normally generate together in clumps. Climb to the top using twisting vines, and then mine from the top down. Be sure to use a hoe to mine the leaf blocks (wart blocks and shroomlights), and your axe to harvest the stems.
+
+To marginally increase speed, carry with you a few shulker boxes of unbreaking 3, efficiency 5, gold axes to reduce the mining speed by 1gt per stem block.
+
+==== Greenhouse ====
+[[File:Greenhouse method of farming huge fungus.png|center|thumb|458x458px|A handy scaffolding ladder, pictured top left, is used to climb to the top of the huge fungus]]
+Place 2 nylium in a 3x3 grid pattern with 6 blocks in between each one. Then construct a water stream platform beneath it. Have the water stream funnel the items into a chest storage, connected by a hopper. To use the manual farm, place down a fungus on each nylium block, then grow the fungi using bone meal. Now climb to the top using ladders, a bubble column, scaffolding or vines, and mine out the huge fungi from the top down. After harvesting the huge fungi, collect any items that didn't drop into the water stream below.
+[[File:Fully grown huge fungus greenhouse.png|center|thumb|612x612px|After the fungi have all been fertilized with bone meal, they are ready for chopping]]
+
+==== Block chamber/storage ====
+Build a traditional semi-automatic huge fungi farm, and connect the block stream to a block chamber. When you would like to harvest the blocks, climb to the top of the storage and mine them out using haste 2 and an efficiency 5 netherite axe and hoe.
+
+{{Yt|1=https://www.youtube.com/watch?v=jytLCfRu_54}}
+
+=== Semi-automatic ===
+Semi-automatic harvesting is when everything in a farm is self-sufficient except for the input.
+
+In the case of semi-automatic huge fungi farms, this would be the placement of fungi plants and often, but not always, supplying it with bone meal.
+
+===== Positives =====
+Fast rates, inexpensive, lag friendly on small scales, produces every block from the tree (wart blocks, shroomlights and weeping vines included)
+
+===== Negatives =====
+Usually quite block inefficient, consumes high amounts of bone meal although at an efficiency at least 12x that of playerless designs
+
+==== Single core ====
+{{Yt|1=https://www.youtube.com/watch?v=VvYJ1NkTZjQ}}{{Yt|1=https://www.youtube.com/watch?v=yY64bj2DjhA}}
+
+=== Fungus farming ===
+Using mud, both the fastest and simplest automatic fungus farm design can be created as hoppers placed beneath the mud instantly pick up the items removing the need to pause the farm to collect them
+
+{{Yt|1=https://www.youtube.com/watch?v=pxziRM_fshA}}
+
+=== Self-sustaining ===
+Once built, a Self-sustaining Huge Fungi Farm can run without player interaction as long as it is kept loaded.
+
+===== Positives =====
+Can run in loaded chunks without the need for a player to plant any fungus, can generate a surplus of bone meal
+
+===== Negatives =====
+Slow, more expensive to build, laggy, and limited (if any) wart blocks and shroomlights are produced, often unreliable.
+
+===== Growing area =====
+Max 5x5 area of nylium to grow fungus plants using bone meal.
+
+==== Flying machine ====
+Flying Machine pushing into a TNT dropping zone.
+
+{{Yt|1=https://www.youtube.com/watch?v=dEToZ4wLuqY}}
+
+==== Blast chamber ====
+Directly Above, Piston column pushes away trunk, while TNT dupers blow up the huge fungus from above
+
+{{Yt|1=https://www.youtube.com/watch?v=M51sTIwDo5w}}
+
+=== N-core ===
+Theoretically, the fastest way to harvest huge fungi
+[[File:2x cycling vertical selector pannel for a variable timing horizontal blastchamber.png|none|thumb|593x593px|A section of a horizontal blast chamber used in a 99% efficient ncore module]]
+[[File:Front view of a huge fungus ncore module.png|none|thumb|592x592px|Top layers of a huge fungus ncore module]]
+<br />
+
+=== RNG Huge Fungus farming ===
+Manipulate RNG to generate a 9 fungus (the max possible per bonemeal) on a 5x5 platform of nylium, which all grow on the first bone meal attempt to produce the largest huge fungi possible (7x7x27)
+
+{{Tutorials}}

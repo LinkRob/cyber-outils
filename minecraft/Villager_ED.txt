@@ -1,0 +1,19 @@
+<div class="treeview">
+* {{nbt|compound}} Entity data
+*** {{nbt inherit/breedable}}
+** {{nbt inherit/entity}}
+** {{nbt inherit/mob}}
+** {{nbt inherit/villager}}
+** {{nbt|list|Inventory}}: Each compound tag in this list is an item in the villager's inventory, up to a maximum of 8 slots. Items in two or more slots that can be stacked together are automatically condensed into one slot. If there are more than 8 slots, the last slot is removed until the total is 8. If there are 9 slots but two previous slots can be condensed, the last slot returns after the two other slots are combined.
+***{{nbt|compound}} An item in the inventory, excluding the Slot tag.
+**** {{nbt inherit/itemnoslot|indent=****}}
+** {{nbt|long|LastRestock}}: The last tick the villager went to their job site block to resupply their trades.
+** {{nbt|long|LastGossipDecay}}: The last tick all gossip of the villager has decreased strength naturally.
+** {{nbt|int|RestocksToday}}: The number of restocks a villager has done in 10 minutes from the last restock, or <code>0</code> if the villager has not restocked in the last 10 minutes. When a villager has restocked twice in less than 10 minutes, it waits at least 10 minutes for another restock.
+** {{nbt|byte|Willing}}: 1 or 0 (true/false) – true if the villager is willing to mate. Becomes true after certain trades (those that would cause offers to be refreshed), and false after mating.
+</div>
+
+{{LoadPage|Villager/DV|Villager type|h4}}
+{{LoadPage|Villager/DV2|Villager profession|h4}}<noinclude>
+[[Category:Entity data pages]]
+</noinclude>

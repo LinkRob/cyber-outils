@@ -1,0 +1,520 @@
+{{disclaimer}}
+
+This tutorial should only be used on a VPS/headless machine.
+
+Note: If your headless server has a graphics adapter only install libgl1-mesa-swx11 if you are experiencing any problems.
+
+Note: I am using the sun-java6-jdk but it should also work with the openjdk.
+
+Note: Beware to not only install a headless jdk i.e. openjdk-7-jre-headless beacause you are going to use a virtual head like a vnc server.
+
+== Ubuntu 10.04 ==
+
+I have got Tectonicus running this way on an EC2 Ubuntu 10.04 Lucid machine.
+
+* Install minimal xserver stack:<pre>sudo apt-get install xvfb libgl1-mesa-swx11 libxcursor1 libxrandr2 libxxf86vm1</pre> 
+* For testing purpose install mesa-utils and try xvfb-run glxinfo and xvfb-run glxgears:<pre>apt-get install mesa-utils and try xvfb-run glxinfo xvfb-run glxgears</pre>
+* Also test with <code>xvfb-run -a xrandr</code>. If you get this error: <pre>/usr/bin/xvfb-run: 182: xrandr: not found</pre>install x11-xserver-utils like so: <pre>sudo apt-get install x11-xserver-utils</pre>
+
+You now have all needed dependencies installed further Informations see [[Programs and editors/Tectonicus/VPS#Tectonicus Setup]]
+
+== Ubuntu 10.10 64 bit ==
+
+* I first ran the suggested above: sudo apt-get install xvfb libgl1-mesa-swx11 libxcursor1 libxrandr2 libxxf86vm1
+* Note: Not sure if these packages were required or not: libxcursor1 libxrandr2 libxxf86vm1
+* But was getting this error: Exception in thread "main" java.lang.UnsatisfiedLinkError: /opt/java/64/jre1.6.0_24/lib/amd64/xawt/libmawt.so: libXtst.so.6: cannot open shared object file: No such file or directory
+* The solution was to run: sudo apt-get install libxtst6 libxt6
+
+== Ubuntu 11.04 ==
+
+* Currently does not work. Does this require a patched xvfb?
+
+== Ubuntu 11.10 oneiric 64 bit ==
+It can be made to not use xvfb at all and by that skipping the patch thing + more since some necessary components were removed that allowed xvfb to use randr.
+
+I am using the fact that the Real VNC Server is capable of doing what's needed.
+
+Installation
+
+* $>sudo apt-get install vnc4server
+* Possibly: $>sudo apt-get install libgl1-mesa-swx11 libxcursor1 libxrandr2 libxxf86vm1
+
+Running
+
+* $>vncserver :1
+* $>export DISPLAY=:1
+* $>java -jar Tectonicus.jar config=config.xml
+
+For cleaning up after
+
+* $>vncserver -kill :1
+* $>export DISPLAY=
+
+The only thing not standard in my config.xml is force64BitNatives="true"
+
+All this can be easily be scripted and run as a cron job.
+
+== Ubuntu 12.10 (Quantal) 64 bit ==
+
+Same as above.  The only difference is getting hold of '''libgl1-mesa-swx11''' which appears to be deprecated for this version of Ubuntu.
+
+My solution was to get the package from [http://packages.ubuntu.com/precise/amd64/libgl1-mesa-swx11/download here] (from 12.04/Precise) and manually install it using dpkg.  Doing this may mean removing any other installation of libgl, so be sure that this is what you want (that is, that it will not break anything else doing so).
+
+Once all this is done, run through the steps above and tectonicus should work.
+
+Not the most ideal solution, but a solution nonetheless (until something better comes along).
+
+== Debian (e.g. all apt based distributions, also Ubuntu before 10.04) ==
+
+I have got Tectonicus running this way on an EC2 Debian 5.0 Lenny machine.
+
+To get tectonicus running you will need to recompile xvfb (yeah it's really sad, it is a one-line bug).
+
+* sudo apt-get build-dep xvfb
+* You will now have to add a deb-src repository to you /etc/apt/sources.list
+* sudo apt-get source xvfb
+* you will know get a directory called xorg-server-X.X.X we now need to patch the source.
+* wget https://bugs.launchpad.net/xorg-server/+bug/516123/+attachment/1126330/+files/xvfb-fbScreenInit-handling.patch
+* wget https://bugs.launchpad.net/xorg-server/+bug/516123/+attachment/1126331/+files/xvfb-randr.patch
+* '''You have to apply this patches in the right order'''
+* patch -p1  xorg-server-X.X.X/hw/vfb/InitOutput.c  xvfb-fbScreenInit-handling.patch
+* patch -p1  xorg-server-X.X.X/hw/vfb/InitOutput.c  xvfb-randr.patch
+* sudo apt-get install fakeroot
+* cd xorg-server-X.X.X
+* The next step will probably take hours.
+* dpkg-buildpackage -rfakeroot -uc -b
+* cd ..
+* dpkg -i xvfb_*.deb
+* sudo apt-get install libgl1-mesa-swx11 libxcursor1 libxrandr2 libxxf86vm1 x11-xserver-utils xfonts-base
+* Now try xvfb-run -a xrandr. If everything worked how its supposed to work you should get no errors.
+* For testing purpose install mesa-utils and try xvfb-run glxinfo and xvfb-run glxgears
+
+You now have all needed dependencies installed further Informations see [[Programs and editors/Tectonicus/VPS#Tectonicus Setup]]
+
+Note: If anyone knows an easier way to patch xvfb or could provide debs I would be grateful.
+
+== Debian 6.0 (Squeeze) ==
+
+I had to follow the above steps to patch and build xvfb but I also had to install a mesa lib.
+
+sudo apt-get install libgl1-mesa-swx11
+
+== Debian 8.0 (Jessie) ==
+
+Follow the prior steps for recompiling xvfb but use the following patch instead of the other two:
+* wget http://patchwork.freedesktop.org/patch/13852/raw/ -O xvfb-add-randr-support-v2.patch
+* patch -p1 xorg-server-X.X.X/hw/vfb/InitOutput.c xvfb-add-randr-support-v2.patch
+
+== OpenSuse ==
+
+Coming soon
+
+== Archlinux ==
+
+From Extra/Core repo:
+
+<blockquote>
+sudo pacman -Sy xorg-server-xvfb xorg-server-utils xorg-server libxcursor libgl mesa libxrandr xorg-xrandr libxxf86vm
+</blockquote>
+
+That is as far as I got.
+if anyone can track down the dependencies for arch we could get this together.
+
+Coming soon
+
+== RHEL/CentOS 5 (and likely other RPM based distributions) ==
+
+ # sudo yum install xorg-x11-server-Xvfb xorg-x11-server-utils glx-utils 
+* copy the xvfb-run script below to /usr/local/bin
+* For testing purpose try to run:
+ # xvfb-run glxinfo
+ # xvfb-run glxgears
+ # xvfb-run -a xrandr
+
+You now have all needed dependencies installed further Informations see [[Programs and editors/Tectonicus/VPS#Tectonicus Setup]]
+
+'''NOTE''': It turns out that you will also need the patches mentioned in the Debian instructions above and apply them to the xorg-x11-server-${VERSION}.src.rpm and then rebuild it (at least for RHEL/CentOS 5), otherwise the "xvfb-run -a xrandr" command will fail.
+
+CentOS 5.6 Source RPM (I had difficulty finding this)
+ftp://ftp.pbone.net/mirror/ftp.centos.org/5.6/updates/SRPMS/xorg-x11-server-1.1.1-48.76.el5_6.4.src.rpm
+
+
+Tutorial on how to patch XORG, by AltairPT
+
+I made this tutorial to show how to patch XORG, step by step so those that do not know much about Linux can still use this Tutorial. Sorry for the long read...
+
+
+To patch xorg you will need to create a new user account (if you are still using root, to prevent damage). Not going to explain here how because there is plenty of tutorials on how to do this over the Internet.
+
+1 - By default RHEL/CentOS 5 uses /usr/src/redhat as the location of the %_topdir macro. We should change this to avoid things go wrong.
+
+Add something like the following to ~/.rpmmacros
+
+  # Path to top of build area
+  %_topdir    /home/you/src/rpm
+
+
+2 - If you never worked with RPMs in this way create this directories:
+
+ # mkdir -p ~/src/rpm
+ # cd ~/src/rpm
+ # mkdir BUILD RPMS SOURCES SPECS SRPMS
+ # mkdir RPMS/{i386,i486,i586,i686,noarch,athlon}
+
+
+3 - Now it's time to download the xvfb source. 
+
+ # cd ~/src/rpm/
+ # wget ftp://ftp.pbone.net/mirror/ftp.centos.org/5.6/updates/SRPMS/xorg-x11-server-1.1.1-48.76.el5_6.4.src.rpm
+
+
+4 - Get the xorg-x11-server.spec from xvfb by installing:
+
+ # rpm -ivh xorg-x11-server-1.1.1-48.76.el5_6.4.src.rpm
+
+
+Now that we have the file we can go to the next step.
+
+
+5 - Get the patches from the sources provided on the Debian section:
+
+ # cd ~/src/rpm/SOURCES
+ # wget https://bugs.launchpad.net/xorg-server/+bug/516123/+attachment/1126330/+files/xvfb-fbScreenInit-handling.patch
+ # wget https://bugs.launchpad.net/xorg-server/+bug/516123/+attachment/1126331/+files/xvfb-randr.patch
+
+6 - To patch xvfb you will need to edit the .spec file:
+
+If you don't have nano, you could use your favorite text editor or download it.
+If you don't have SUDO access, install as root.
+
+ # sudo yum install nano
+
+Editing xorg-x11-server.spec:
+
+ # cd ..
+ # cd SPECS
+ # nano xorg-x11-server.spec
+
+Go down in the file and till you see:
+
+ ...
+ Patch3518:  xserver-1.1.1-randr-fix-mouse-crossing.patch
+ Patch3519:  xserver-1.1.1-xfree86-check-remainders-for-Nan.patch
+
+Under it add:
+
+ Patch3520: xvfb-fbScreenInit-handling.patch
+ Patch3521: xvfb-randr.patch
+
+In the end it should look like this
+
+ ...
+ Patch3518:  xserver-1.1.1-randr-fix-mouse-crossing.patch
+ Patch3519:  xserver-1.1.1-xfree86-check-remainders-for-Nan.patch
+ Patch3520: xvfb-fbScreenInit-handling.patch
+ Patch3521: xvfb-randr.patch
+ 
+ %define moduledir       %{_libdir}/xorg/modules
+ %define drimoduledir    %{_libdir}/dri
+ %define sdkdir          %{_includedir}/xorg
+
+Then add these lines to the end of the %prep section, after all the other %patch statements:
+
+ %patch3520 -p0
+ %patch3521 -p0
+
+Exit nano and save by pressing CTRL + X and then selecting Y
+
+
+7 - Now it is time to rebuild the package (this step takes a bit long... You could take that time to go for a snack or kill some creepers =] ):
+
+ # cd ~/src/rpm
+ # rpmbuild -ba SPECS/xorg-x11-server.spec
+
+'''NOTE''': This step might have work for some but for me, it didn't.
+I'll try to manually patch the file, since after compiling it this way it gave us the source code of the program.
+
+8 - Now it's time to install the package.
+
+ # cd ~/src/rpm/SRPMS 
+ # rpm -ivh xorg-x11-server-1.1.1-48.76.4.src.rpm
+
+Now after instaling, test xvfb:
+
+ # xvfb-run -a xrandr
+
+
+If it runs, congratulations, you've successfully patched XORG and installed it.
+
+If it doesn't run, redo the whole tutorial and be more careful that time.
+
+Tectonicus might not run well yet (Rasterizer errors) but I am working on it and if I find a way to fix it, I'll post it here later.
+
+
+9 - Manual Patch (if required):
+
+This is the case if the first 7 steps did not work correctly. You still need to make them to get here.
+
+'''NOTE:''' Any error in this part will make the compile fail, always doublecheck the code.
+
+Again I am going to use nano for this. You can use another editor if you feel like, even download it and edit it in your computer.
+
+ # cd ~/src/rpm/BUILD/xorg-server-1.1.1/hw/vfb
+ # nano InitOutput.c
+
+Do CTRL + W and search for:
+
+ #include "miline.h"
+
+Make it look like this:
+
+ #endif /* HAS_SHM */
+ #include "dix.h"
+ #include "miline.h"
+ #include "randrstr.h"
+ 
+ #define VFB_DEFAULT_WIDTH      1280
+ #define VFB_DEFAULT_HEIGHT     1024
+
+
+Now search (CTRL + W) for:
+
+ ret = fbScreenInit
+
+Make it look like this:
+
+ ret = fbScreenInit(pScreen, pbits, pvfb->width, pvfb->height, dpix, dpiy, pvfb->paddedWidth,pvfb->bitsPerPixel);
+     if (!ret) return FALSE;
+ 
+  #ifdef RENDER
+  
+     if (Render) 
+  	fbPictureInit (pScreen, 0, 0);
+  #endif
+ 
+      if (!miRandRInit(pScreen))
+          /* Not sure how to emit warnings in xorg. Should warn here though:
+  	 * ("Could not initialise RANDR\n");
+   	 */
+          return FALSE;
+  
+      miInitializeBackingStore(pScreen);
+  
+      /*
+
+This should be all for the manual patching.
+
+Time to recompile!
+
+ # cd ~/src/rpm/BUILD/cd ~/src/rpm/BUILD/xorg-server-1.1.1
+ # sudo ./configure
+ # sudo make
+ # sudo make install
+
+
+Now after this, test xvfb:
+
+ # xvfb-run -a xrandr
+
+
+If it runs, congratulations, you've successfully patched XORG and installed it.
+
+If it doesn't run, redo the whole tutorial and be more careful that time.
+
+Tectonicus might not run well yet (Rasterizer errors) but I am working on it and if I find a way to fix it, I'll post it here later.
+
+I hope I have been helpful, any questions, reach me at [http://forums.superialbuilders.com] and send a pm to "Altair" or E-Mail me at altair@sgc-clan.com, I'll try to help the best way I can.
+
+== xvfb-run script ==
+
+* For those who can't get this script via their distribution, here it is:
+
+ #!/bin/sh
+ #
+ # xvfb-run - run the specified command in a virtual X server
+ #
+ # This script starts an instance of Xvfb, the "fake" X server, runs a
+ # command with that server available, and kills the X server when
+ # done.  The return value of the command becomes the return value of
+ # this script.
+ #
+ # If anyone is using this to build a Debian package, make sure the
+ # package Build-Depends on xvfb, xbase-clients, and xfonts-base.
+ #
+ set -e
+ #
+ PROGNAME=xvfb-run
+ SERVERNUM=99
+ AUTHFILE=$(pwd)/.Xauthority
+ ERRORFILE=/dev/null
+ STARTWAIT=3
+ XVFBARGS="-screen 0 640x480x8"
+ LISTENTCP="-nolisten tcp"
+ XAUTHPROTO=.
+ #
+ # display a usage message
+ usage () {
+     cat << EOF
+ Usage: $PROGNAME [OPTION ...] COMMAND
+ #
+ run COMMAND (usually an X client) in a virtual X server environment
+ #
+ Options:
+ -a        --auto-servernum   try to get a free server number, starting at
+                                --server-num
+ -e FILE   --error-file=FILE  file used to store xauth errors and Xvfb output
+                                (defualt: $ERRORFILE)
+ -f FILE   --auth-file=FILE   file used to store auth cookie
+                                (default: ./.Xauthority)
+ -h        --help             display this usage message and exit
+ -n NUM    --server-num=NUM   server number to use (default: $SERVERNUM)
+ -l        --listen-tcp       enable TCP port listening in the X server
+ -p PROTO  --xauth-protocol=PROTO   X authority protocol name to use
+                                      (defaults to xauth's default)
+ -s ARGS   --server-args=ARGS  arguments (other than server number and -nolisten
+                                 tcp) to pass to the Xvfb server
+                                 (default: \"$XVFBARGS\")
+ -w DELAY  --wait=DELAY       delay in seconds to wait for Xvfb to start
+                                (default: $STARTWAIT)
+ EOF
+     :;
+ }
+ #
+ # find free server number by looking at .X*-lock files in /tmp
+ find_free_servernum() {
+     # ldv: FIXME: race condition.
+     i=$SERVERNUM
+     while [ -f /tmp/.X$i-lock ]; do
+         i=$(($i + 1))
+     done
+     echo $i;
+ }
+ #
+ # parse command line
+ ARGS=$(getopt --options +ae:f:hn:lp:s:w: \
+        --long auto-servernum,error-file:auth-file:,help,server-num:,listen-tcp,xauth-protocol:,server-args:,wait: \
+        --name "$PROGNAME" -- "$@")
+ #
+ if [ $? -ne 0 ]; then
+     echo "$PROGNAME: error while getting options" >&2
+     exit 1
+ fi
+ #
+ eval set -- "$ARGS"
+ #
+ while :; do
+     case "$1" in
+         -a|--auto-servernum) SERVERNUM=$(find_free_servernum) ;;
+         -e|--error-file) ERRORFILE="$2"; shift ;;
+         -f|--auth-file) AUTHFILE="$2"; shift ;;
+         -h|--help) SHOWHELP="yes" ;;
+         -n|--server-num) SERVERNUM="$2"; shift ;;
+         -l|--listen-tcp) LISTENTCP="" ;;
+         -p|--xauth-protocol) XAUTHPROTO="$2"; shift ;;
+         -s|--server-args) XVFBARGS="$2"; shift ;;
+         -w|--wait) STARTWAIT="$2"; shift ;;
+         --) shift; break ;;
+         *) echo "$PROGNAME: error while parsing option \"$1\"" >&2; USAGE=$(usage); echo "$USAGE" >&2; exit 1 ;;
+     esac
+     shift
+ done
+ #
+ if [ "$SHOWHELP" ]; then
+     usage
+     exit 0
+ fi
+ #
+ if [ -z "$*" ]; then
+     echo "$PROGNAME: need a command to run" >&2
+     exit 2
+ fi
+ #
+ if ! which xauth > /dev/null; then
+     echo "$PROGNAME: xauth command not found; exiting." >&2
+     exit 3
+ fi
+ #
+ # start Xvfb
+ rm -f $AUTHFILE
+ MCOOKIE=$(mcookie)
+ XAUTHORITY=$AUTHFILE xauth add :$SERVERNUM $XAUTHPROTO $MCOOKIE > $ERRORFILE 2>&1
+ XAUTHORITY=$AUTHFILE Xvfb :$SERVERNUM $XVFBARGS $LISTENTCP > $ERRORFILE 2>&1 &
+ XVFBPID=$!
+ sleep $STARTWAIT
+ #
+ # start the command and save its exit status
+ set +e
+ DISPLAY=:$SERVERNUM XAUTHORITY=$AUTHFILE $@ 2>&1
+ RETVAL=$?
+ set -e
+ #
+ # kill Xvfb now that the command has exited
+ kill $XVFBPID
+ #
+ # clean up
+ XAUTHORITY=$AUTHFILE xauth remove :$SERVERNUM > $ERRORFILE 2>&1
+ rm $AUTHFILE
+ #
+ # return the executed command's exit status
+ exit $RETVAL
+ #
+ # vim:set ai et sts=4 sw=4 tw=0: 
+
+== Windows 7 / Server 2008 R2==
+
+Running tectonicus on a Windows 7 or 2008 R2 server requires the use of VNC software. Most VNC applications mimick a display area on the server, as if you connected a monitor to it.
+
+'''NOTE:''' This tutorial is for the Windows 7 and Server 2008 R2 operating systems. Previous versions of Windows might work too with this method, but it's unconfirmed.
+
+Currently only Teamviewer has been tested successfully. Recommended is to stick to Teamviewer at this moment, unless you are unable to do so.
+
+'''Teamviewer Instructions:'''
+
+* Download and install Teamviewer on your server.
+* During installation, when asked, select Yes to enable remote connection to the server.
+* Now Teamviewer should be installed. Proceed to Extra's > Options.
+* Proceed to the Security tab. Setup a password for unattended access.
+* Set Access Control to Full access.
+* If you wish, you can setup display quality in the Remote Control tab.
+
+Your server should now be set and ready. Remember the ID given to your server.
+
+Now setup Teamviewer on your laptop, pc, or any computer that is used as a client to connect to the server. No special settings are required on the client. If you wish, sign up for an account, so you may register your server in a contact list.
+
+
+'''Firewall Instructions:'''
+
+Teamviewer runs on port 80, the HTTP port, by default. Unless you deny HTTP connections to your server, this port should be unblocked by default. 
+However, if you decide to use a different port, you may need to forward this port to your server, and open the port in your firewall. 
+
+
+'''Post Installation Notes:'''
+
+If you close teamviewer without logging out on the server, the server will still believe there is a screen for tectonicus to render on. This means that you can setup Task Scheduler to run tectonicus every once in a while. Note that you cannot use Remote Desktop, as this will reinitialize the screen in a way in which it does not support the hardware rendering needed by Tectonicus.
+
+Any and all problems related to your server's graphics card and its drivers may still occur, so if this doesn't work with Teamviewer: try it with a real screen attached to the server.
+
+== Tectonicus Setup ==
+
+You will need a minecraft.jar (Not the one you can download from minecraft.net). Start up the game and the auto-updater will download it to '.minecraft/bin', usually somewhere in your home directory.
+
+Please replace all /path/to/ to the correct path. 
+
+If you are gettin a biome related error use this flag for tectonicus <pre> useBiomeColours=false </pre>and of course you can use all other flags for tectonicus [[Programs and editors/Tectonicus#Additional Command Line Arguments]]
+
+* 64bit
+<code>xvfb-run -a '--server-args=-screen 0 1024x768x16' java -Dorg.lwjgl.opengl.Display.allowSoftwareOpenGL=true -Dorg.lwjgl.opengl.Display.noinput=true -jar /path/to/Tectonicus_v1.17.jar mode=cmd worldDir=/path/to/world signs=all outputDir=/path/to/output_dir minecraftJar=/path/to/downloaded/minecraft.jar force64BitNatives=true verbose=true numSamples=0</code>
+*32bit
+<code>xvfb-run -a '--server-args=-screen 0 1024x768x16' java -Dorg.lwjgl.opengl.Display.allowSoftwareOpenGL=true -Dorg.lwjgl.opengl.Display.noinput=true -jar /path/to/Tectonicus_v1.17.jar mode=cmd worldDir=/path/to/world signs=all outputDir=/path/to/output_dir minecraftJar=/path/to/downloaded/minecraft.jar verbose=true numSamples=0</code>
+
+Note: Tectonicus currently works in one of two ways: either the options can be passed through via command line or via console. So anyone out there who is placing their options in an xml file and is using 64 bit will need to enable the force64BitNatives command in the tweeks section of the xml config file. 
+
+* 64bit config file usage:
+<code>xvfb-run -a '--server-args=-screen 0 1024x768x16' java -Dorg.lwjgl.opengl.Display.allowSoftwareOpenGL=true -Dorg.lwjgl.opengl.Display.noinput=true -jar /path/to/Tectonicus_v1.17.jar config=/path/to/config.xml</code>
+
+== Feedback ==
+
+Please give me your feedback in the minecraft forum [http://www.minecraftforum.net/viewtopic.php?f=1022&t=95739] or via e-mail wallnuss13 [at] gmail [dot] com.
+
+[[zh:辅助程序与编辑器/Tectonicus/VPS]]
+[[Category:Tectonicus]]

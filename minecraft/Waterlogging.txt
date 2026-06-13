@@ -1,0 +1,867 @@
+{{Distinguish|Snowlogging}}
+{{cleanup}}
+[[File:Waterlogged Oak Fence.png|thumb|x150px|right|A waterlogged [[oak fence]].]]
+'''Waterlogging''' is the mechanic that allows non-cube [[blocks]] (that is, blocks that do not completely fill their block volume, such as doors, ladders, and plants) to be filled with a water source block. Both the non-cube block and the water source block occupy the same space. If the non-cube block is destroyed, the water source block remains.
+
+{{IN|be}}, generally all non-cube blocks can be waterlogged and none can be used to displace water source blocks, although they can still displace flowing water.
+
+== Mechanism ==
+{{IN|java}}, certain blocks have a {{cd|waterlogged}} block state that can be {{cd|true|d=or|false}}. This is a temporary solution; a [[Java Edition mentioned features#Full split of liquids from blocks|full separation]] of blocks and fluids is planned.<ref>{{reddit|a11ig3/umm_wasnt_the_new_update_supposed_to_make_water|eamrmid|We are still working on this, though, and hope to have similar functionality one day.|Dinnerbone|November 28, 2018|context=4}}</ref>
+
+{{IN|java}}, when the waterlogging block that can be pushed by the [[piston]] fails to be recovered within 2 [[tick]]s, the waterlogging state of the block is eliminated. Otherwise, the block can retain the waterlogging state. This feature can be used in the circuit of a "piston worm" as an alternative solution since [[dispenser|dispensers]] cannot be pushed by pistons {{in|java}}.
+
+{{IN|bedrock}}, waterlogging is handled by the game's layers system. Through editing, any block can be waterlogged, as well as other features such as placing multiple slabs into a single block. In normal gameplay, a player cannot displace water source blocks using doors or other non-cube blocks to create breathing spaces underwater, like one can do in ''Java Edition''. Only flowing water can be displaced in ''Bedrock Edition''.
+
+All waterlogged blocks share most properties as water source blocks, and as such, are non-flammable and explosion-proof even if said waterlogged block is flammable. Waterlogged Blocks are immune to freezing, and can interact with [[Lava]] to [[Fluid#Mixing|produce]] [[Cobblestone]] or [[Obsidian]], since Lava cannot convert waterlogged blocks to [[stone]].
+
+== Behavior ==
+Section may be incomplete.
+{| class="sortable wikitable"
+!Block
+!Can be in water in [[Java Edition|JE]]
+!Can be in water in [[Bedrock Edition|BE]]
+! class="unsortable" |Additional notes<!--
+
+Arrange in alphabetical order
+-->
+|-
+|{{BlockLink|Activator Rail}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockSprite|Small Amethyst Bud}}{{BlockSprite|Medium Amethyst Bud}}{{BlockSprite|Large Amethyst Bud}}{{BlockLink|Amethyst Cluster}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Anvil}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Attached Melon Stem}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Attached Pumpkin Stem}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Azalea}}
+| {{tc|No|Pops off}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water.
+|-
+|{{BlockLink|Bamboo}}
+| {{tc|No}}
+| {{tc|No}}
+|-
+|{{BlockLink|Bamboo Sapling}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails.
+|-
+|{{BlockLink|Banner|id=All Banners}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Barrier}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|Can only be waterlogged by players in Creative mode, using the [[Debug Stick]] {{Only|java}}, or through [[Commands/setblock|setblock]] commands.
+|-
+|{{BlockLink|Beacon}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Bed|id=All Beds}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|{{EffectLink|Water Breathing}} or {{EffectLink|Conduit Power}} is required to sleep in waterlogged beds.
+|-
+|{{BlockLink|Beetroots}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Bell}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Big Dripleaf}}
+| {{tc|Yes|Source}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}.
+|-
+|{{BlockLink|Big Dripleaf Stem}}
+| {{tc|Yes|Source}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}.
+|-
+|{{BlockLink|Border}}{{only|Education|short=1}}
+| {{tc}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Brewing Stand}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Bubble Column}}
+| {{tc|Yes|Inherent}}
+| {{tc|Yes|Inherent}}
+|-
+|{{BlockLink|Buttons}}
+| {{tc|No|Pops off}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water {{in|java}}.
+|-
+|{{BlockLink|Cactus}}
+| {{tc|No|Pops off}}
+| {{tc|Yes|Source}}
+|Cannot be placed inside water {{in|bedrock}}, even though they can technically be waterlogged. Also destroyed by flowing water
+|-
+|{{BlockLink|Cake}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Campfire}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|Campfires unlight upon becoming waterlogged.
+|-
+|{{BlockLink|Candle}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|source}}
+|Candles unlight upon becoming waterlogged. {{IN|bedrock}}, candles cannot be placed underwater, but can be waterlogged manually.<ref>{{bug|MCPE-130577}}</ref>
+|-
+|{{BlockLink|Carpet|id=All Carpets}}
+| {{tc|No|Pops off}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water.
+|-
+|{{BlockLink|Carrots}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Calibrated Sculk Sensor}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|Applies glowing effect to water it's placed in when activates. Calibrated Sculk Sensors are silent in water.
+|-
+|{{BlockLink|Cauldron}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|Waterlogged cauldrons fill up. If a cauldron contains a [[potion]] when it becomes waterlogged, the potion is replaced with water{{Only|Bedrock|short=1|Education}}
+|-
+|{{BlockLink|Cave Vines}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+| Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Colored Torch|id=All Colored Torches}}{{only|Bedrock|short=1|Education}}
+| {{tc}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Compound Creator}}{{only|Bedrock|short=1|Education}} 
+| {{tc}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}.
+|-
+|{{BlockLink|Chain}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Chest}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Chorus Flower}}
+| {{tc|No|No}}
+| {{tc|No|No}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Chorus Plant}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Cobweb}}
+| {{tc|No|Pops off}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water.
+|-
+|{{BlockLink|Cocoa}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Composter}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Compound Creator}}{{only|Bedrock|short=1|Education}}
+| {{tc}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}.
+|-
+|{{BlockLink|Conduit}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Coral|id=All Coral}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Coral Fan|id=All Coral Fans}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Inherent}}
+|Destroyed by flowing water {{in|bedrock}}.
+|-
+|{{BlockLink|Crimson Fungi}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Crimson Roots}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Daylight Detector}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Dead Bush}}
+| {{tc|No|Pops off}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water.
+|-
+|{{BlockLink|Dead Coral|id=All Dead Coral}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Dead Coral Fan|id=All Dead Coral Fans}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water {{in|bedrock}}.
+|-
+|{{BlockLink|Decorated Pot}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Detector Rail}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water {{in|bedrock}}.
+|-
+|{{BlockLink|Dirt Path}}
+| {{tc|No|No}}
+| {{tc|No|No}}
+|-
+|{{BlockLink|Door|id=All Doors}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Dragon Egg}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Element Constructor}}{{only|Bedrock|short=1|Education}}
+| {{tc}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}.
+|-
+|{{BlockLink|Enchanting Table}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|End Portal}}
+| {{tc|No}}
+| {{tc|No}}
+|-
+|{{BlockLink|End Portal Frame}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|End Rod}}
+| {{tc|No|Pops off}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}.
+|-
+|{{BlockLink|Ender Chest}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Fence|id=All Fences}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Farmland}}
+| {{tc|No|No}}
+| {{tc|No|No}}
+|-
+|{{BlockLink|Fence Gate|id=All Fence Gates}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Fern}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Destroyed by flowing water. 
+|-
+|{{BlockLink|Fire}}
+| {{tc|No|Extinguishes}}
+| {{tc|No|Extinguishes}}
+|Placement in water completely fails.
+|-
+|{{BlockLink|Flowers}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Destroyed by flowing water.
+|-
+|{{BlockLink|Flowering Azalea}}
+| {{tc|No|Pops off}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water.
+|-
+|{{BlockLink|Flower Pot}}
+| {{tc|No|Pops off}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water. Can still be waterlogged if it contains a plant.
+|-
+|{{BlockLink|Frogspawn}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Glass}}
+| {{tc|No}}
+| {{tc|No}}
+|Not being waterlogged reveals water texture thru transparent sides.
+|-
+|{{BlockLink|Glass Pane}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Glow Lichen}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{EntityLink|Glow Item Frame}}
+| {{tc}}
+| {{tc|Yes|Source}}
+|Handled only as a block in ''[[Bedrock Edition]].''
+|-
+|{{BlockLink|Grass}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Destroyed by flowing water.
+|-
+|{{BlockLink|Grindstone}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Hanging Roots}}
+| {{tc|Yes|Source}}
+| {{tc|No|Pops off}}
+|Could previously be waterlogged on Bedrock Edition, see {{bug|MCPE-128957}}. Placement in water completely fails{{in|bedrock}}.
+|-
+|{{BlockLink|Hanging Sign|id=All Wall Hanging Signs}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Hardened Glass}}{{only|Bedrock|short=1|Education}}
+| {{tc}}
+| {{tc|No}}
+|Not being waterlogged reveals water texture thru transparent sides.
+|-
+|{{BlockLink|Hardened Glass Pane}}{{only|Bedrock|short=1|Education}}
+| {{tc}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Hardened Stained Glass}}{{only|Bedrock|short=1|Education}}
+| {{tc}}
+| {{tc|No}}
+|Not being waterlogged reveals water texture thru transparent sides.
+|-
+|{{BlockLink|Hardened Stained Glass Pane|id=All Hardened Stained Glass Panes}}{{only|Bedrock|short=1|Education}} 
+| {{tc}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Heads|id=All Heads}}
+| {{tc|No|Pops off}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water.
+|-
+|{{BlockLink|Honey Block}}
+| {{tc|No}}
+| {{tc|No}}
+|Not being waterlogged reveals water texture thru transparent sides. 
+|-
+|{{BlockLink|Hopper}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Ice}}
+| {{tc|No}}
+| {{tc|No}}
+| Not being waterlogged reveals water texture thru transparent sides.
+|-
+|{{BlockLink|Iron Bars}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{EntityLink|Item Frame}}
+| {{tc}}
+| {{tc|Yes|Source}}
+|Handled as a block only {{in|bedrock}}.
+|-
+|{{BlockLink|Kelp}}
+| {{tc|Yes|Inherent}}
+| {{tc|Yes|Inherent}}
+|-
+|{{BlockLink|Kelp Plant}}
+| {{tc|Yes|Inherent}}
+| {{tc|Yes|Inherent}}
+|-
+|{{BlockLink|Lab Table}}{{only|Bedrock|short=1|Education}} 
+| {{tc}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}.
+|-
+|{{BlockLink|Ladder}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Lantern}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Large Fern}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+| Destroyed by flowing water.
+|-
+|{{BlockLink|Leaves|id=All Leaves}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+| Waterlogged leaf blocks do not spread water{{only|je}}.
+|-
+|{{BlockLink|Lectern}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Lever}}
+| {{tc|No|Pops off}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}.
+|-
+|{{BlockLink|Light Block}}
+| {{tc|Yes|Source}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}.
+|-
+|{{BlockLink|Lightning Rod}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Lily Pad}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+| Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Material Reducer}}{{only|Bedrock|short=1|Education}}
+| {{tc}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}.
+|-
+|{{BlockLink|Mangrove Propagule}}
+| {{tc|Yes|Source}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}.
+|-
+|{{BlockLink|Mangrove Roots}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Mushroom|id=Mushrooms}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Nether Portal}}
+| {{tc|No|Breaks}}
+| {{tc|No|Breaks}}
+| Only breaks if water is forced on the block instead of breaking in flowing water. Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Nether Sprouts}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Nether Wart}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Pink Petals}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Piston}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|{{IN|bedrock}}, piston heads extending into water do not become waterlogged, but can be waterlogged manually.
+|-
+|{{BlockLink|Pitcher Crop}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Poster}}{{only|Education|short=1}}
+| {{tc}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Potatoes}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Pointed Dripstone}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|Able to drip lava in a waterlogged state, see {{bug|MC-207419}}.
+|-
+|{{BlockLink|Soul Campfire}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|Extinguishes when waterlogged.
+|-
+|{{BlockLink|Soul Fire}}
+| {{tc|No|Extinguishes}}
+| {{tc|No|Extinguishes}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Soul Lantern}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Soul Torch}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|-
+|{{BlockLink|Powered Rail}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water {{in|bedrock}}.
+|-
+|{{BlockLink|Powder Snow}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|-
+|{{BlockLink|Pressure Plate|id=All pressure Plates}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Rail}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water in [[Bedrock Edition|''Bedrock Edition'']].
+|-
+|{{BlockLink|Redstone Comparator}}
+| {{tc|No|Pops off}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}.
+|-
+|{{BlockLink|Redstone Dust}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Redstone Repeater}}
+| {{tc|No|Pops off}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}.
+|-
+|{{BlockLink|Redstone Torch}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Sapling|id=All Saplings}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+| Destroyed by flowing water.
+|-
+|{{BlockLink|Scaffolding}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|source}}
+|-
+|{{BlockLink|Sculk Sensor}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+| Applies glowing effect to water it's placed in when activates. Sculk Sensors are silent in water. 
+|-
+|{{BlockLink|Sculk Shrieker}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|Sculk Shriekers are silent in water.
+|-
+|{{BlockLink|Sculk Vein}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|source}}
+|-
+|{{BlockLink|Sea Pickle}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water. Only waterlogged Sea Pickles emit light.
+|-
+|{{BlockLink|Seagrass}}
+| {{tc|Yes|Inherent}}
+| {{tc|Yes|Inherent}}
+|-
+|{{BlockLink|Shulker Box}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|
+|-
+|{{BlockLink|Sign|id=All Signs}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Slab|id=All Slabs}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Slate}}{{only|Education|short=1}}
+| {{tc}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Slime Block}}
+| {{tc|No}}
+| {{tc|No}}
+|Not being waterlogged reveals water texture thru transparent sides.
+|-
+|{{BlockLink|Small Dripleaf}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water.
+|-
+|{{BlockLink|Sniffer Egg}}
+| {{tc|No|No}}
+| {{tc|No|No}}
+|-
+|{{BlockLink|Snow layer}} 
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Monster Spawner}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Spore Blossom}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Stained Glass}}
+| {{tc|No}}
+| {{tc|No}}
+|Not being waterlogged reveals water texture thru transparent sides.
+|-
+|{{BlockLink|Stained Glass Pane|id=All Stained Glass Panes}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Stairs|id=All Stairs}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Stonecutter}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+| {{BlockLink|Structure Air}}{{Only|Bedrock|short=1|Education}}
+| {{tc}}
+| {{tc|No|No}}
+|
+|-
+|{{BlockSprite|Structure Void Be}}{{BlockLink|Structure Void}}
+| {{tc|No|No}}
+| {{tc|No|No}}
+|-
+|{{BlockLink|Sugar Cane}}
+| {{tc|No|No}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Sweet Berry Bush}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Tall Grass}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Destroyed by flowing water.
+|-
+|{{BlockLink|Tall Seagrass}}
+| {{tc|Yes|Inherent}}
+| {{tc|Yes|Inherent}}
+|-
+|{{BlockLink|Tinted Glass}}
+| {{tc|No}}
+| {{tc|No}}
+|Not being waterlogged reveals water texture thru transparent sides.
+|-
+|{{BlockLink|Torch}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Torchflower Crop|id=Torchflower Crop 2}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water in [[Bedrock Edition|''Bedrock Edition'']].
+|-
+|{{BlockLink|Trapdoor|id=All Trapdoors}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Trapped Chest}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Tripwire}}
+| {{tc|No|Pops off}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}.
+|-
+|{{BlockLink|Tripwire Hook}}
+| {{tc|No|Pops off}}
+| {{tc|Upcoming|Flowing and source}}
+|Removes flowing water it is placed in, see {{bug|MCPE-33345}}. 
+|-
+|{{BlockLink|Turtle Egg}}
+| {{tc|No}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Twisting Vines}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}. 
+|-
+|{{BlockLink|Twisting Vines Plant}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Underwater Torch}}{{only|bedrock|education|short=1}}
+| {{tc}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Vines}}
+| {{tc|No|Pops off}}
+| {{tc|Yes|Source}}
+|Destroyed by flowing water.
+|-
+|{{BlockLink|Wall|id=All Walls}}
+| {{tc|Yes|Source}}
+| {{tc|Yes|Source}}
+|-
+|{{BlockLink|Warped Fungi}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}. 
+|-
+|{{BlockLink|Warped Roots}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+| Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Wheat|link=Seeds}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|{{BlockLink|Weeping Vines}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}. 
+|-
+|{{BlockLink|Weeping Vines Plant}}
+| {{tc|No|Pops off}}
+| {{tc|No|Pops off}}
+|Placement in water completely fails {{in|bedrock}}.
+|-
+|All other [[block]]s
+| {{tc|No|No}}
+| {{tc|No|No}}
+|}
+
+See {{bug|MC-125351}} for more info on ''Java Edition''.
+
+==History==
+{{History|java classic}}
+{{History||May 22, 2009|link=wordofnotch:111386404|[[Notch]] pointed out that "odd-shaped" blocks would appear as if in air, and proposes potential fixes.}}
+{{History|java}}
+{{History||1.13|snap=18w10c|Added waterlogging.
+|[[Chest]]s, [[trapped chest]]s, [[stairs]], [[slab]]s, [[fence]]s, [[wall]]s, [[iron bars]], and [[glass pane]]s are now able to be waterlogged.}}
+{{History|||snap=18w10d|[[Ender chest]]s, [[trapdoor]]s, [[ladder]]s, and [[sign]]s are now able to be waterlogged.}}
+{{History|||snap=18w14b|Waterlogged blocks no longer remove the water they are inside when broken.<ref>{{bug|MC-125212}}</ref>}}
+{{History||1.14|snap=18w45a|Added [[scaffolding]], which can be waterlogged.}}
+{{History|||snap=19w02a|Added the [[campfire]], which can be waterlogged.}}
+{{History||1.16|snap=20w18a|[[Chain]]s can now be waterlogged.}}
+{{History||1.16.2|snap=20w30a|[[Lantern]]s and soul lanterns can now be waterlogged.}}
+{{History||October 22, 2020|link=https://web.archive.org/web/20201025215822/https://bugs.mojang.com/browse/MC-202638|A leaked screenshot was accidentally posted in a bug report that said "waterlogged-rail", which was later removed.}}
+{{History||1.17|snap=20w45a|Added [[candle]]s and [[amethyst cluster]]s, which can be waterlogged.
+|[[Rail]]s can now be waterlogged.}}
+{{History|||snap=20w48a|Added [[pointed dripstone]], which can be waterlogged.}}
+{{History|||snap=20w49a|Added [[sculk sensor]]s, which can be waterlogged.}}
+{{History|||snap=20w51a|Sculk sensors are now silent when waterlogged.}}
+{{History|||snap=21w03a|Added [[glow lichen]], which can be waterlogged.}}
+{{History|||snap=21w05a|Added [[small dripleaf]] and [[big dripleaf]], which can be waterlogged.}}
+{{History|||snap=21w10a|Changelog states that lightning rods can now be [[waterlogged]], though this is not the case.}}
+{{History|||snap=21w11a|[[Lightning rod]]s can now be waterlogged.}}
+{{History|||snap=21w17a|[[Hanging roots]] can now be waterlogged}}
+{{History||1.19|snap=Deep Dark Experimental Snapshot 1|Added [[sculk vein]]s and [[sculk shrieker]]s, which can be waterlogged.}}
+{{History|||snap=22w11a|Add [[mangrove roots]] and all types of [[mangrove]], which can be waterlogged.}}
+{{History|||snap=22w12a|[[Leaves]] can now be waterlogged.
+|[[Mangrove propagule]] no longer break by flowing water.<ref>{{bug|MC-249081}}</ref>}}
+{{History||1.19.3|snap=22w45a|[[Water bucket]]s can now be emptied into waterlogged blocks, instead of placing water against them.<ref>{{bug|MC-127110|||Fixed}}</ref>}}
+{{History||1.20<br>(Experimental)|link=1.19.4|snap=23w07a|Added [[decorated pot]]s, which can be waterlogged.}}
+{{History||1.20.2|snap=23w31a|[[Barrier]]s can now be waterlogged, but only by players in Creative mode.}}
+
+{{History|bedrock}}
+{{History||November 18, 2017|link={{ytl|mAapz_nIC_Y|t=9m49s}}|Flowing water was shown to intersect oak fences and grass, a feature that never actually made it into the game.}}
+{{History||1.2.13|snap=beta 1.2.13.5|Water now can be placed in the same blocks as [[slab]]s and [[stairs]].}}
+{{History||1.4.0|snap=beta 1.2.14.2|Water now can be placed inside of most non-cube blocks,{{info needed|What blocks specifically?}} instead of just slabs and stairs.}}
+{{History||?|Most land plants can no longer be waterlogged.{{info needed|which ones exactly?}}}}
+{{History||1.8.0|snap=?|Rail variants can no longer be waterlogged by flowing water.}}
+{{History||1.9.0|snap=beta 1.9.0.2|Added [[bell]]s, [[grindstone]]s and [[lantern]]s, which can be waterlogged.}}
+{{History||1.10.0|snap=beta 1.10.0.3|Added [[stonecutter]]s, [[campfire]]s and [[lectern]]s, which can be waterlogged.}}
+{{History||1.16.0|snap=beta 1.16.0.57|Added [[soul campfire]]s, [[quartz brick]]s, [[twisting vine]]s, [[chain]]s and variants of [[blackstone]], which can be waterlogged.}}
+{{History||1.18.0|snap=beta 1.18.0.22|Added [[sculk vein]]s, which can be waterlogged.}}
+{{history||Next Major Update<br>(Experimental)|link=Bedrock Edition 1.19.70|snap=beta 1.19.70.23|Added [[decorated pot]]s, which can be waterlogged.}}
+{{History|foot}}
+
+==Trivia==  
+*In ''Java Edition'', glass bottles can be filled up with water from waterlogged blocks, even if water is not accessible from the targeted area.<ref>{{bug|MC-171629|||Won't Fix}}</ref> In Bedrock Edition, this is not possible because waterlogged blocks in general cannot be used to fill empty bottles.<ref>{{bug|MCPE-83420}}</ref>
+
+==See also== 
+*[[Snowlogging]]
+
+==References==
+<references />
+
+{{gameplay}}
+
+[[es:Inundación]]
+[[ja:水没]]
+[[ko:침수]]
+[[pt:Inundação]]
+[[zh:含水]]

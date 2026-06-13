@@ -1,0 +1,926 @@
+{{needs update|inaccurate=0}}
+{{exclusive|java}}
+
+NBT tags can be specified for items and entities created with the {{cmd|give}} and {{cmd|summon}} commands. Each tag has the format <code><tagname>:<value></code> where <code><tagname></code> describes what it does, and <code><value></code> is what it applies. Multiple tags are separated by commas. (e.g. <code>{CustomName:'"Bob"', Invisible:true</code>). The contents of List tags are enclosed in square brackets <code>[]</code>, while the contents of Compound tags are enclosed in curly brackets <code>{}</code> – note that the entire data tag is itself a Compound tag (All within a set of <code>{}</code>). Tag names are case-sensitive, and white space is ignored. Additionally, some tags which are either true or false are stored as Byte tags (Example: <code>{NoAI:1b}</code>)
+
+The player can quickly find data tags (NBT) without the use of external editors by using {{cmd|data}} to figure out the data for each entity or block entity. See more about this in the article [[Commands/data]].
+
+See [[Chunk format#Entity format|Entity format]] for the various NBT Tags that are saved for each entity. This page also contains basic information for each NBT Tag.
+
+When None is used in a tag name that means that this tag can be put directly into the start of the dataTag.
+
+== Items ==
+These can be used in {{cmd|give}} and {{cmd|item}} commands as well as {{cmd|clear}}. For commands such as {{cmd|summon}} and {{cmd|setblock}}, place them inside of a tag.
+
+Example:
+
+<code><nowiki>{id:"minecraft:stone",Count:3b, ..., tag:{Name:'{"text":"Name Here"}', ...}}</nowiki></code>
+
+These tags can be used on any item.
+{| class="wikitable" style="width:100%" data-description="Tags on items"
+|-
+! width="10%" align="center" | NBT Tag
+! width="50%" align="center" | Description
+! width="10%" align="center" | Allowed amount of same NBT Tags
+! width="10%" align="center" | Required tagnames
+! width="20%" align="center" | Syntax
+|-
+| Item
+| Used for any instance of item(s), it includes the [[resource location]] of the item(s) (<code>id</code>), the number of items in the stack (<code>Count</code>) and the NBT data of the item(s) (<code>components</code>). It may also contain the <code>Slot</code> number which the item is in. Any item with a <code>Count</code> of less than 1 or more than 127 becomes [[Air]].
+| 1
+| id, Count
+| <code>{Item:{id:STRING,Count:BYTE,components:{''Item NBT data here''<nowiki>}}}</nowiki></code>
+A copyable example:
+
+<code><nowiki>{Item:{id:"minecraft:diamond_sword",Count:1b,components:{"minecraft:damage":10}}}</nowiki></code>
+|-
+| [[Enchanting#Enchantments|Enchantments]]
+| Used for the addition of enchantments to items, it includes the <code>id</code> of the enchantment and the level (<code>lvl</code>) of the enchantment. Can specify one enchantment or multiple enchantments. It is possible specify no enchantment, which still applies the enchantment glint over the item.
+| Any
+| All
+| <code>{Enchantments:[{id:STRING,lvl:SHORT}, ...]}</code>
+A copyable example: <code>{Enchantments:[{id:"minecraft:sharpness",lvl:1s}]}</code>
+|-
+|StoredEnchantments
+|Defines the enchantments stored in a enchanting book.
+|Any
+|None
+|{StoredEnchantments:[{id:"minecraft:mending",lvl:1s}]}
+|-
+|EntityTag
+|Used to add nbt arguments to spawn eggs or other items that summon entities such as armor stands or item frames.
+|1
+|None
+|{EntityTag:{''Entity NBT data here''<nowiki>}}</nowiki>
+|-
+| display
+| Used for the addition of a custom <code>Name</code>, colors (leather armor), and lore to items. <code>Lore</code> may have multiple lines. Names and lore must be passed as raw JSON text. 
+<code>color</code> can be designated by either game pre-defined colors or a hexadecimal color value. Be aware that using a hexadecimal color value needs a # (comment sign) before the code, which makes the whole value a string.
+
+For more information of usable pre-defined colors, see [https://minecraft.fandom.com/wiki/Formatting_codes#Color_codes Color codes]. A custom RGB color mixer can be found [https://www.w3schools.com/html/html_colors_hex.asp here].
+| Any
+| At least one
+|<code><nowiki>{display:{Name:STRING,Lore:[STRING,STRING, ...],color:INT}}</nowiki></code>
+
+An example using a pre-defined color and a hexadecimal color code:
+
+<code><nowiki>{display:{Name:'{"text":"Tunic of Destiny","color":"blue",...}',Lore:['{"text":"A magical blue tunic"}','{"text":"worn by the gods..."}',color:'#3C44AA']}}</nowiki></code>
+|-
+| AttributeModifiers
+| Can be used to add attributes to mobs or items. For more information, see [[Attribute]].
+| Any
+| All
+| <code>{AttributeModifiers:[{AttributeName:STRING,Amount:DOUBLE,Slot:STRING,Operation:INT,UUID:UUID}, ...]}</code>
+A copyable example: <code>{AttributeModifiers:[{AttributeName:"generic.max_health",Amount:8d,Slot:"mainhand",Operation:0,UUID:[I;13243,1439,1767,44564]}]}</code>
+|-
+| Unbreakable
+| Used to make items with durability that never degrades.
+| 1
+| All
+| <code>{Unbreakable:BYTE}</code>  (<code>1b</code> for true or <code>0b</code> for false)
+|-
+| SkullOwner
+| Used for getting player heads.
+| 1
+| All
+|<code>{SkullOwner:STRING}</code> (Enter a player's username to get their head)
+or <code><nowiki>{SkullOwner:{Name:STRING,Id:UUID,Properties:[{Value:STRING,Signature:STRING}]}}</nowiki></code>
+|-
+| HideFlags
+| Used to hide flags (the info in the tool tip) such as enchantments, CanDestroy, CanPlaceOn, etc. 
+To hide multiple tags, you need to add the value of the tags you want to hide. For example, if you want to hide the "Enchantments" and the "Attributes modifiers"
+tags, the value you need to put is 3 (1+2).
+| Any
+| All
+| <code>{HideFlags:INT}</code>
+
+The value ranges from 1 to 255, representing 255 combinations or 8 binary digits.<ref>There can be more or even wrong values, make sure you test them first! This tag may need major editing!</ref> 
+
+When adding to create a unique value:
+
+Adding 1 hides "Enchantments"
+
+Adding 2 hides "AttributeModifiers"
+
+Adding 4 hides "Unbreakable"
+
+Adding 8 hides "CanDestroy"
+
+Adding 16 hides "CanPlaceOn"
+
+Adding 32 hides other information, including potion effects, shield pattern info, "StoredEnchantments", written book "generation" and "author", "Explosion", "Fireworks", and map tooltips
+
+Adding 64 hides "Dyed" on leather armors
+
+Adding 128 hides "Upgrade" on armors
+
+In logical form:
+
+<code>(HideEnchantments) | (HideAttributeModifiers << 1) | (HideUnbreakable << 2) | (HideCanDestroy << 3) | (HideCanPlaceOn << 4) | (HideOthers << 5) | (HideDyed << 6) | (HideUpgrade << 7)</code>
+|-
+| CanDestroy
+| This tag is used when making adventure maps to allow a specific tool/item to break a block. Apply the tag to any item/tool. If the value is not a valid block or item it displays as "<code>missingno</code>".
+| 1
+| At least one
+| <code>{CanDestroy:[STRING, ...]}</code> (Each string specifies a block id or block tag followed by the blockstate and NBT)
+A copyable example:
+
+<code><nowiki>{CanDestroy:["minecraft:stone","#minecraft:logs","minecraft:player_head[rotation=8]{SkullOwner:{Name:'Dinnerbone'}}"]}</nowiki></code>
+|-
+| PickupDelay
+| The number of ticks before an item entity can be picked up.
+| 1
+| All
+| <code>{PickupDelay:INT}</code>
+|-
+| Age
+| The duration before an item disappears.
+| Any number. Set to -32768 for items that don't disappear. If Age counts up to 6000 (5 minutes if Age started at default value 0), the item disappears. 
+Allowed 1 amount of same NBT Tags.
+| All
+| <code>{Age:INT}</code>
+|-
+| generation (Minecraft [[Java Edition 1.8]])
+| Defines whether a written book is labeled as an "Original", a "Copy of Original", a "Copy of a copy" or "Tattered".
+| "Original", "Copy of Original", "Copy of a copy", "Tattered"
+Unknown amount of allowed same NBT Tags.
+| At least one
+| <code>{generation:INT}</code>
+0: Original
+
+1: Copy of original
+
+2: Copy of a copy
+
+3: Tattered
+|-
+|title
+|Defines the title of a written_book.
+|Any
+|String
+|<code>{title:"book title here"}</code>
+|-
+|author
+|defines the author of a written_book.
+Can be hidden by using <code>HideFlags:32</code>
+|Any
+|String
+|<code>{author:"book author here"}</code>
+|-
+|pages
+|An array that  defines the pages of a written_book.
+Note that for the book to properly display the text, a title and an author must also be provided, otherwise the book will display the message <code>* Invalid book tag *</code>
+|Any
+|At least one
+|<code>{pages:['{"text":"Any json text can be used here!"}','{"text":"Page 2!"}']}</code>
+|-
+|Fireworks
+|Used when giving yourself [[:en:Firework_Rocket|firework rockets]], this value defines what the rocket will do when launched: color, flight duration, shape, etc.
+|Any
+|At least one
+|<code><nowiki>{Fireworks:{Explosions:[{Colors:[I;INT, ...],FadeColors:[I;INT, ...],Flicker:BYTE,Trail:BYTE,Type:BYTE}, ...],Flight:BYTE}}</nowiki></code>
+A copyable example:
+
+<code><nowiki>{Fireworks:{Explosions:[{Type:3b,Flicker:1b,Colors:[I;4312372],FadeColors:[I;11743532]}],Flight:1b}}</nowiki></code>
+|}
+
+The following table describes more details on Enchantments sub-tag.
+{| class="wikitable" style="width:100%" data-description="More details about Enchantments"
+|-
+! width="10%" align="center" | Tagname
+! width="40%" align="center" | Description
+! width="10%" align="center" | Value Type
+! width="25%" align="center" | Allowed Values
+! width="15%" align="center" | Example
+|-
+| id
+| The [[resource location]] of an enchantment. See [[Enchanting]] for details on which id correlates to which enchantment.
+| String
+| Enchantment ID 
+| "minecraft:efficiency"
+|-
+| lvl
+| Determines the level of an enchantment. A level between one and ten displays properly on an item as a roman numeral, however, any value above that displays as  enchantment.level.lvl.
+| Short
+| -32768 to 32767
+| 4
+|}
+Example command: {{cmd|/give @p minecraft:carved_pumpkin{Enchantments:[{id:"minecraft:efficiency",lvl:5s}]} 1}}
+
+The following table describes more details on display sub-tag.
+{| class="wikitable" style="width:100%" data-description="More details about display"
+|-
+! width="10%" align="center" | Tagname
+! width="30%" align="center" | Description
+! width="10%" align="center" | Value Type
+! width="25%" align="center" | Allowed Values
+! width="25%" align="center" | Example
+|-
+| Name
+| The name of an item displayed in game. For blocks such as Chests and Dispensers the name replaces the default 'Chest' or 'Dispenser' in the upper left hand corner of the GUI. When used on command blocks the name is displayed when executing commands. This can be seen by using the {{cmd|say}} command.
+| String
+| Text with JSON object with key "text". It's value can be any character that is available within the Minecraft language files (Most characters on your keyboard)
+| <syntaxhighlight lang="json">
+{
+	"text": "Sample name"
+}
+</syntaxhighlight>
+|-
+| Lore
+| The text under the name of the item.
+| List of strings
+| Text with JSON array containing JSON objects with key "text". Their values can be any character that is available within the Minecraft language files (Most characters on your keyboard)
+| <syntaxhighlight lang="json">
+[
+	{
+		"text": "First line"
+	},
+	{
+		"text": "Second line"
+	}
+]
+</syntaxhighlight>
+|}
+Example command: {{cmd|<nowiki>/give @p minecraft:carved_pumpkin{display:{Name:'{"text":"Name here"}',Lore:['{"text":"Text for lore line"}']}} 1</nowiki>}}
+
+One can further modify the text with things like italics and boldness like so: {{cmd|<nowiki>/give @p minecraft:carved_pumpkin{display:{Name:'{"text":"Name here","italic":false,"bold":true}'}} 1</nowiki>}}
+
+The following table describes more details on the Fireworks sub-tag.
+{| class="wikitable"
+!Tagname
+!Description
+!Value Type
+!Allowed Values
+!Example
+|-
+|Flight
+|Defines the flight duration of the firework, the flight duration is how long the firework will wait until it explodes.
+|Byte
+| -128 to 127
+|<code>{Flight:2b}</code>
+|-
+|Explosions
+|Defines what the firework rocket will do when its flight duration runs out, this is what the firework star is used for. More than one effect can be added as more than one firework star can be added to a rocket
+<code>Colors</code> is the initial color of the explosion written in decimal format.
+
+<code>FadeColors</code> is the color that the explosion will fade to written in decimal format.
+
+<code>Flicker</code> is whether the whether the explosion flickers while it fades. This is the effect applied when you add glowstone to the firework star.
+
+<code>Trail</code> is whether the particles leave trails as they travel. This effect is applied when you add a diamond to the firework star.
+
+<code>Type</code> is the shape of the firework:
+
+0 is Small Ball,
+
+1 is Large Ball,
+
+2 is Star-shaped,
+
+3 is Creeper-shaped,
+
+4 is Burst
+|Array
+|Colors, FadeColors, Flicker, Trail, Type
+|<code>{Explosions:[{Type:3b,Flicker:1b,Colors:[I;4312372],FadeColors:[I;11743532]}]}</code>
+|}
+
+=== Blocks ===
+These tags are put on blocks as items.
+{| class="wikitable" style="width:100%" data-description="Block item tags"
+|-
+!width="15%" align="center" | Tagname
+! width="50%" align="center" | Description
+! width="17%" align="center" | Value Type
+! width="18%" align="center" | Example
+|-
+| CanPlaceOn
+| This tag is used when making adventure maps to determine which block(s) the player can place a block on. Also used on hoes to make them till dirt and on spawn eggs to place them.  If the value is not a valid block or item it displays as "<code>missingno</code>".
+| An array of strings, each one of which is a command argument of type [[Argument types#block_predicate|block_predicate]]. However, to use NBT tags, the NBT data of the block must be synchronized to the client (campfires and player heads are two of the blocks that do so).
+| <code><nowiki>{CanPlaceOn:["minecraft:stone","#minecraft:logs","minecraft:player_head[rotation=8]{SkullOwner:{Name:'Dinnerbone'}}"]}</nowiki></code>
+|-
+| BlockEntityTag
+| This is used for tile entities, and stores their data for when they are placed down
+| Differs based on the block, see {{slink|Tutorials/Command NBT tags|Blocks 2}} for details. Example: get a white shield by using a command: <code>/[[Commands/give|give]] @p shield{BlockEntityTag:{Base:0}}</code>
+| <code><nowiki>{BlockEntityTag:{Glowing:1b}}</nowiki></code>
+|-
+| BlockStateTag
+| This tag is used for blocks, and stores the block state when they are placed down.
+| A compound where each key is a block state key, and the value is the block state value to force place for this block. Differs based on the block, see [[Block states]] for details.
+| <code><nowiki>{BlockStateTag:{facing:"west",half:"top",shape:"straight"}}</nowiki></code>
+
+|}
+
+== Entities ==
+
+These tags are used when using the {{cmd|summon}} command to spawn [[entities]] or when using the {{cmd|data}} to edit the data of entities.
+{| class="wikitable mw-collapsible" style="width:100%" data-description="Tags for summoning entities"
+|-
+! width="10%" align="center" | NBT Tag
+! width="50%" align="center" | Description
+! width="10%" align="center" | Allowed tagnames
+! width="10%" align="center" | Required tagnames
+! width="20%" align="center" | Syntax
+|-
+| TileEntityData
+| Used to store all data kept within a block. Mainly used within blocks that can store items or contain various data values, e.g., Command blocks, Chests, Jukeboxes, Dispenser, Beacon, etc. 
+| CustomName, Items, Command, Levels, Primary, Secondary, Delay, MaxNearbyEntities, MaxSpawnDelay, MinSpawnDelay, RequiredPlayerRange, SpawnCount, SpawnRange, EntityID
+| None
+| <code>{TileEntityData:{''Entity NBT data here''<nowiki>}}</nowiki></code>
+|-
+| Motion
+| Determines the ''initial'' velocity of most entities (all other than Dragon Fireballs, Fireballs, Small Fireballs and Wither Skulls) upon being summoned. Must be entered as double precision floating point values (decimals). Example: {Motion:[0.0,1.0,0.0]} summons with an initial upward velocity of 1.0. The values could be only -10 to 10, because it could have been to be moved very fast. It normally could lead to a wall clip.
+| n/a
+| All
+| <code>{Motion:[DOUBLE,DOUBLE,DOUBLE]}</code>
+|-
+| direction
+| Similar to Motion, determines the ''initial'' velocity of Dragon Fireballs, Fireballs, Small Fireballs, and Wither Skulls upon being summoned. This tag is ''required'' to summon said entities, otherwise the command fails. Example: {direction:[0.0,1.0,0.0]} summons with an initial upward velocity of 1.0.
+
+This tag determines only the entity's velocity, not the direction that it's facing.
+| n/a
+| All
+| <code>{direction:[DOUBLE,DOUBLE,DOUBLE]}</code>
+|-
+| power
+| Similar to direction, but determines constant acceleration. Example: {power:[0.0,1.0,0.0]} gives the summoned entity a constant upward acceleration of 1.0.  Entities are still affected by drag when power is nonzero and eventually reaches a terminal velocity. Affects only Dragon Fireballs, Fireballs, Small Fireballs, and Wither Skulls.
+| n/a
+| All
+| <code>{power:[DOUBLE,DOUBLE,DOUBLE]}</code>
+|-
+| active_effects
+| Sets the effects that apply to a mob after it is summoned. Type '''-1''' to apply its countdown to '''infinity'''. It should hide its numbers to *.
+| Id, Duration, Amplifier, Ambient, ShowParticles
+| All
+| <code>{ActiveEffects:[{id:STRING,duration:NUMBER,amplifier:BYTE,ambient:BYTE,show_particles:BYTE,show_icon:BYTE}, ...]}</code>
+|-
+| rewardExp
+| Controls villagers giving xp for trading, set to true or false. Normally, villagers can reward you experience orbs.
+|
+| True/False
+| <code>{rewardExp:BYTE}</code> (<code>0b</code> for false or <code>1b</code> for true)
+|-
+|Passengers
+|Sets which entities are riding ''on top of'' the base entity.  Allows multiple entities to ride one base entity. Riding entities are still able to do all stuff they have coded. '''Like enemies shooting on each other etc.''' Do not use a recent mob (if it doesn't exist in your old version Minecraft).
+|all (not checked)
+|id
+|<code>{Passengers:[{id:STRING, ...}, ...]}</code>
+|-
+|ArmorItems
+|Defines what items are being worn by the mob. Items go in slots Feet, Legs, Chest, Head, in that order.
+|Item
+|None
+|<code><nowiki>{ArmorItems:[{Count:BYTE,id:STRING,tag:{...}},{Count:BYTE,id:STRING,tag:{...}},{Count:BYTE,id:STRING,tag:{...}},{Count:BYTE,id:STRING,tag:{...}}]}</nowiki></code>
+|-
+|HandItems
+|Defines what item is within the mainhand and offhand. First item is the mainhand, second is offhand. 
+|Item
+|None
+|<code><nowiki>{HandItems:[{Count:BYTE,id:STRING,tag:{...}},{Count:BYTE,id:STRING,tag:{...}}]}</nowiki></code>
+|-
+| HandDropChances 
+| Determines how likely it is for an entity to drop held Items. The tag Count in the equipment tag must be 1 or greater for this to work.
+| 2 separate float values, one for the main hand and one for the off-hand slot. 0.0-1.0 determines likelihood of dropping, but applies a random durability if it does. Anything greater than 1.0 makes it always drop with full durability.
+| Since it is a float value, it must be phrased as "X.Y", with X and Y being values of your choice.
+| <code>{HandDropChances:[FLOAT,FLOAT]}</code>
+|-
+| ArmorDropChances
+| Determines how likely it is for an entity to drop worn Items. The tag Count in the equipment tag must be 1 or greater for this to work.
+| 4 separate float values, one for each slot. 0.0-1.0 determines likelihood of dropping, but applies a random durability if it does. Anything greater than 1.0 makes it always drop with full durability.
+| Since it is a float value, it must be phrased as "X.Y", with X and Y being values of your choice.
+| <code>{ArmorDropChances:[FLOAT,FLOAT,FLOAT,FLOAT]}</code>
+|-
+| NoAI
+| Makes mobs have no AI, resulting in mobs not moving on their own. However, they still react to other changes in the environment. For example, the '''Zombie''' can still burn in the sun.
+| 
+| 
+| <code>{NoAI:BYTE}</code> (<code>0b</code> for false or <code>1b</code> for true)
+|-
+| NoGravity
+| Makes mobs unaffected by gravity. Mobs do not fall. Mobs cannot walk in the air.
+| 
+| 
+| <code>{NoGravity:BYTE}</code> (<code>0b</code> for false or <code>1b</code> for true)
+|-
+| Silent
+| Makes mobs silent. Does not work for certain sounds, see {{bug|MC-64242}}.
+| 
+| 
+| <code>{Silent:BYTE}</code> (<code>0b</code> for false or <code>1b</code> for true)
+|-
+| Fire
+| Determines how many ticks a mob is on fire. When Fire reaches one, the fire stops, and the mob no longer takes damage. When a mob is not on fire, this value is 1.
+|
+|
+| <code>{Fire:SHORT}</code> (ranges from 0 to 32767)
+|-
+| Invulnerable
+| Makes mobs invulnerable to everything except [[the Void]] and players in [[Creative|Creative Mode]]. Mobs do not attack or run away from invulnerable mobs.
+|
+|
+| <code>{Invulnerable:BYTE}</code> (<code>0b</code> for false or <code>1b</code> for true)
+|-
+| Attributes
+| Customizes the attributes of the entity. See [[Attribute]] for more details
+| Name: see [[Attribute]] for a list. Base: the amount to apply. Modifiers: how much and how it should vary. Contains values Name, Amount, Operation, UUID.
+| Name and Base
+| <code>{Attributes:[{Name:STRING,Base:DOUBLE,Modifiers:[{Name:STRING, Amount:DOUBLE,Operation:BYTE,UUID:[I;INT,INT,INT,INT]}]}</code>
+|-
+|Health
+|Number of hearts (for hearts above the default maximum you must change the base value of the 'generic.max_health' attribute).
+|All Mobs
+|Number in half hearts
+|<code>{Health:FLOAT}</code>
+|-
+|AngerTime, AngryAt
+|A neutral mob becomes aggressive toward <code>AngryAt</code> for <code>AngerTime</code> ticks.
+|Summoning neutral mobs
+|Number in ticks, paired with a UUID
+|<code>{AngerTime:INT,AngryAt:[I;INT,INT,INT,INT]}</code>
+|-
+|CustomName
+|''Summons a mob with a name that appears above their head.''
+|All Mobs
+|A JSON Text component
+|<code>{CustomName:'"Custom Name"'}</code> or you can use
+<code>{CustomName:'{"text":"Name Here ","color":"blue",...}'}</code>
+|-
+|CustomNameVisible
+|Alters the visibility of a custom name. 0b Means that the name is only visible when looking at the mob (default), and 1b means the name is always visible. Must use CustomName JSON code first to perform it.
+|All Mobs
+|Byte, 0b or 1b
+|<code>{CustomNameVisible:BYTE}</code> (<code>0b</code> for false or <code>1b</code> for true)
+|-
+|PersistenceRequired
+|Mobs are undisappearable on time. Tamed animals without commands can also evolve this action. 
+|All Mobs
+|True/False
+|<code>{PersistenceRequired:BYTE}</code> (<code>0b</code> for false or <code>1b</code> for true)
+|}
+The following table provides information on each tagname that can be added in an NBT Tag. These tagnames are specific to the {{cmd|summon}} command.
+{| class="wikitable" style="width:100%" data-description="Summon specific tags"
+|-
+! width="10%" align="center" | NBT Tag
+! width="50%" align="center" | Description
+! width="10%" align="center" | Used In
+! width="15%" align="center" | Value Type
+! width="15%" align="center" | Allowed Values
+|-
+| Type
+| Used to change the type of mobs, like horses. Setting a horse's type to 4 makes it a skeleton horse.
+| Summon
+| Integer
+| 1 - JavaOverflowLimit
+|-
+| Saddle
+| Used to spawn horses or pigs that have saddles on.
+| Summon
+| Boolean Binary
+| true / false or 1 / 0
+|-
+| Tame
+| Used to spawn tamed horses. 
+| Summon
+| Boolean Binary
+| true / false or 1 / 0
+|-
+| Variant
+| Changes the horse or axolotl variant. Setting no variant or putting an incorrect variant spawns a normal white horse or pink axolotl. See [[Item ID#Horse Variants|Horse Variants]] for the list of horse variants.
+| Summoning Horses
+| Integer
+| 1 - 1030
+|-
+| Size
+| Changes the size of a slime, magma cube or phantom summoned into the game. Anything higher than 255 summons size 255. Anything lower than 0 summons size 0. More than 32 tends to cause extreme lag.(The high size of slime or magma cube may gotta lead to a crash. Things on your world won't be saved if you restart the game.)
+| Summoning
+Slimes
+| Integer
+| 0 - 255
+|-
+| BlockState
+| Determines which block is being summoned when using /summon Falling_block. Use [[Data values]] to find out the ID of each block. You can also use F3+H in-game to show the ID's of items in-game.
+| Summoning Falling_block (AKA FallingBlock)
+| Block ID and Block States e.g.<code><nowiki>{BlockState:{Name:"minecraft:oak_log", Properties:{axis:"y"}}}</nowiki></code>
+| All Strings
+|-
+| Time
+| Whether or not the block despawns before hitting the ground. If set to 1 the block falls normally, if set to less than 1 it is set to 0. If set to 0 the block despawns immediately. Recommended to keep this value as 1.
+| Summoning Falling_block
+| Integer (Include Negatives)
+| -1 - 127
+|-
+| DropItem
+| Whether or not the block drops its item form if the block is unable to be placed. If set to 0 the block does not drop its respective item, if set to 1 the block drops its respective item.
+| Summoning Falling_block
+| Boolean Binary
+| 0 or 1
+|-
+| id
+| Determines the entity the other entity is riding on.
+| Summon
+| [[Resource location]] {id:"minecraft:creeper"}
+| Any resource location corresponding to an Entity
+|-
+| fuse
+| Determines how long it takes for PrimedTnt or a Creeper to explode.
+| Summon
+| Short
+| 0 - 32767
+|-
+| ExplosionPower
+| Used when summoning fireballs, [[Wither]]s, and [[Ghast]]s to set the power of the explosion
+| Summon
+| Integer
+| 0-127; Beyond 127 no explosion;
+|-
+| ExplosionRadius
+| Used when summoning [[Creeper]]s to set the radius of the explosion
+| Summon
+| Byte
+| 0-127
+|-
+| powered
+| Determines whether a [[Creeper]] is charged or not
+| Summon
+| Boolean Binary
+| 0 or 1
+|-
+|PersistenceRequired
+|Mobs are undisappearable on time. Tamed animals without commands can also evolve this action.
+|Summon
+|True/False
+|{PersistenceRequired:1} or {PersistenceRequired:0}
+|-
+|AttachFace
+|Determines what face the bottom of the shulker lies on.
+|Summoning Shulkers
+|Byte
+|0b - 5b
+|-
+|Peek
+|Determines how far the Shulkers upper half opens. Positive values make the upper half open with a spin, Negative values appear to make the upper half open without a spin.
+|Summoning Shulkers
+|Byte
+| -127b - 127b
+|-
+|APX
+|''More information is required on this entry. Appears to be approximated X position.''
+|Summoning Shulkers
+|Integer
+|Any whole number
+|-
+|APY
+|''More information is required on this entry. Appears to be approximated Y position.''
+|Summoning Shulkers
+|Integer
+|Any whole number
+|-
+|APZ
+|''More information is required on this entry. Appears to be approximated Z position.''
+|Summoning Shulkers
+|Integer
+|Any whole number
+|}
+
+=== Villager ===
+These tags are used when summoning villagers.  (Offers NBT can't be done in 1.14+)
+
+{| class="wikitable"
+!Tagname
+!Description
+!Value type
+!Syntax
+|-
+|Profession                      
+|Determines the profession of the villager         
+|Numerical, 0 - 5            
+|{Profession:#}
+|-
+|Offers  
+|Determines what the villager sells                                                                                                                        
+|A string
+|{Offers:{Recipes:[{buy:{id:"stone",Count:1},maxUses:9999999,
+sell:{id:"stone",Count:1<nowiki>}}</nowiki>]<nowiki>}}</nowiki>                                                                              
+|}
+
+=== Item Frame ===
+These tags are used when summoning itemframes.
+{| class="wikitable"
+!Tag name
+!Description
+!Value type
+!Syntax
+|-
+|Facing                      
+|Determines the direction of the item frame   
+|Numerical, 0 - 5 (0 up; 1 down; 2 south; 3 north; 4 east; 5 west)            
+|{Facing:#}
+|-
+|ItemRotation                    
+|Determines the rotation of the item in the item frame   
+|Numerical, 0 - 7 (Clockwise)           
+|{ItemRotation:#}
+|-
+|Item                    
+|Determines the item in the item frame   
+|A string            
+|{Item:{id:"minecraft:<item>",Count:<count>}}
+|-
+|Invisible                    
+|Determines if the item frame is invisible   
+|0b or 1b            
+|{Invisible:#}
+|-
+|Fixed                    
+|Determines if the item frame is fixed   
+|0b or 1b            
+|{Fixed:#}
+|}
+
+=== Potion ===
+These tags are used to customize potions
+{| class="wikitable"
+|+
+!Tagname
+!Description
+!Value type
+!Syntax
+|-
+|Potion
+|Determines which type of potion be receive in / give
+|minecraft:(potion effect)
+|{Potion:"minecraft:#"}
+|-
+|CustomPotionEffects
+|Customize the effect of potions
+|Numerical
+|{CustomPotionEffects:[{Id:#,Amplifier:#,Duration:#}]}
+|-
+|CustomPotionColor
+|Determines the Color of Potion Bottle (1.11+)
+|Decimal color code
+|{CustomPotionColor:#}
+|}
+
+=== Armor Stand ===
+
+These tags are used when summoning armor stands.
+
+{| class="wikitable" style="width:100%" data-description="Armor stand tags"
+|-
+! width="10%" align="center" | NBT Tag
+! width="50%" align="center" | Description 
+! width="10%" align="center" | Value type
+! width="30%" align="center" | Syntax
+|-
+| NoGravity
+| Toggles gravity
+| 0b or 1b (0b for false, 1b for true) 
+| {NoGravity:#}
+|-
+| ShowArms
+| Determines whether you can see the armor stand's arms or not.
+| Byte, 0b or 1b (0b for false, 1b for true) 
+| {ShowArms:#}
+|-
+| NoBasePlate
+| Determines whether the armor stand has a base plate or not.
+| Byte, 0b or 1b
+| {NoBasePlate:#}
+|-
+| Small
+| Determines whether the armor stand is small or not.
+| Byte, 0b or 1b
+| {Small:#}
+|-
+| Rotation
+| Changes the rotation of the armor stand
+| Byte, 0b or 1b
+| {Rotation:[#f,#f]}
+|-
+| Marker 
+| Small Hit box
+| Byte, 0b or 1b
+| {Marker:#}
+|-
+| Pose
+| Changes the pose of the armor stand's body parts. Any subtag can be ommited
+| Byte, 0b or 1b
+| {Pose:{Head:[#f,#f,#f],Body:[#f,#f,#f],LeftArm:[#f,#f,#f],RightArm:[#f,#f,#f],LeftLeg:[#f,#f,#f],RightLeg:[#f,#f,#f]<nowiki>}}</nowiki>
+|-
+| Invisible
+| Determines whether the armor stand is invisible or not.
+| Byte, 0b or 1b
+| {Invisible:#}
+|}
+'''Note:''' The Equipment tag also works for armor stands.
+
+=== Turtle ===
+These tags are used when summoning turtles.
+{| class="wikitable"
+!Tagname
+!Description
+!Value type
+!Syntax
+|-
+|HomePosX
+|Determines the X coordinate of a turtle's home beach.
+|Numerical
+|{HomePosX:#}
+|-
+|HomePosY
+|Determines the Y coordinate of a turtle's home beach.
+|Numerical
+|{HomePosY:#}
+|-
+|HomePosZ
+|Determines the Z coordinate of a turtle's home beach.
+|Numerical
+|{HomePosZ:#}
+|-
+|TravelPosX
+|Determines the distance a turtle can lay eggs from its home coordinates, on the X axis.
+|Numerical
+|{TravelPosX:#}
+|-
+|TravelPosY
+|Determines the distance a turtle can lay eggs from its home coordinates, on the Y axis.
+|Numerical
+|{TravelPosY:#}
+|-
+|TravelPosZ
+|Determines the distance a turtle can lay eggs from its home coordinates, on the Z axis.
+|Numerical
+|{TravelPosZ:#}
+|-
+|HasEgg
+|Determines if the turtle has an egg to lay
+|0 – 0b – false<br>1 – 1b – true
+|{HasEgg:#}
+|}
+
+== Blocks ==
+Tags used in {{cmd|setblock}} and {{cmd|fill}}:
+{| class="wikitable" style="width:100%" data-description="Block tags"
+|-
+! width="15%" align="center" | Tagname
+! width="50%" align="center" | Description
+! width="20%" align="center" | Value Type
+! width="15%" align="center" | Syntax
+|-
+| Command
+| Used with command blocks. Places command block with command.
+| A string
+| {Command:"desired command"}
+|-
+| auto
+| Used with command blocks. Places command block with "Always Active" rather than "Needs Redstone".
+| 0 - 0b - false<br>1 - 1b - true
+| {auto:#}
+|}
+'''Note:''' This is also used for [[Minecart with Command Block|Command Block Minecarts]]
+
+=== Generic ===
+These tags can be used on most tile entitied blocks
+{| class="wikitable" style="width:100%" data-description="Tile entity block tags"
+|-
+! width="15%" align="center" | Tagname
+! width="50%" align="center" | Description
+! width="20%" align="center" | Value Type
+! width="15%" align="center" | Syntax
+|-
+| CustomName
+| Displayed in the top left corner of the inventory, instead of the regular name. Works only where such a regular name exists.
+| A JSON text component
+| {CustomName:"\"Custom Name\""}
+|-
+| Lock
+| Says a name needed on a held item to open the inventory.
+| A string
+| {Lock:"Key's Name"}
+|}
+
+=== Beacon ===
+{| class="wikitable" style="width:100%" data-description="Beacon tags"
+|-
+! width="15%" align="center" | Tagname
+! width="50%" align="center" | Description
+! width="20%" align="center" | Value Type
+! width="15%" align="center" | Syntax
+|-
+| Primary
+| This determines the first [[status effect]] that the beacon creates. It defaults to level 1 of the effect.
+| An ID of a status effect.
+| {Primary:#}
+|-
+| Secondary
+| This determines the second status effect. If its the same as Primary, then it increases the status effect to level 2. Otherwise it is level 1.
+| Also an ID of a status effect.
+| {Secondary:#}
+|-
+|Levels
+|This number determines how many layers of valid blocks are below the beacon. This value updates automatically, and overrides /data inputs immediately.
+|Integer
+|{Levels:#}
+|}
+
+=== Spawner ===
+These tags are used when using {{cmd|setblock}} or {{cmd|summon}} (spawner minecarts) to create spawners. Add only those data tags you want to avoid a potential error.
+{| class="wikitable" style="width:100%" data-description="Monster spawner tags"
+|-
+! width="15%" align="center" | Tagname
+! width="50%" align="center" | Description
+! width="20%" align="center" | Value Type
+! width="15%" align="center" | Syntax
+|-
+| EntityId
+| Specifies what entity the spawner spawns.
+| A ID of a Mob
+| {SpawnData:{entity: {id: "minecraft:EntityName"}}
+|-
+| SpawnData
+| Used for spawners that spawn entities with data tags.
+| An entity NBT tag
+| {SpawnData:{NBT tag}}
+|- 
+| SpawnCount
+| How many entities the spawner can spawn at one time.
+| Integer
+| {SpawnCount:#}
+|-
+| SpawnRange
+| The range of which the entities can spawn.
+| Integer
+| {SpawnRange:#}
+|-
+| RequiredPlayerRange
+| The range of which a player must be in for the spawner to start spawning entities.
+| Integer
+| {RequiredPlayerRange:#}
+|-
+| Delay
+| The number of ticks before entities spawn when a player is first detected.
+| Integer
+| {Delay:#}
+|-
+| MinSpawnDelay
+| After the first spawn, this is the minimum amount of ticks before more entities can spawn.
+| Integer
+| {MinSpawnDelay:#}
+|-
+| MaxSpawnDelay
+| Similar to MinSpawnDelay. After the first spawn, this is the maximum amount of ticks before more entities can spawn.
+| Integer
+| {MaxSpawnDelay:#}
+|-
+| MaxNearbyEntities
+| Checks the number of entities within the spawn range ('SpawnRange' tag). If the number of entities it detects is over the set MaxNearbyEntities number, it does not spawn more entities unless the amount of entities within the spawn range is decreased.
+| Integer
+| {MaxNearbyEntities:#}
+|-
+| SpawnPotentials
+| Used when creating spawners that spawn multiple types of entities. A weighted list of entities to be spawned, including NBT tags.
+| A List
+| SpawnPotentials:[{data: {entity: {id: "minecraft:EntityName"} }, weight:#}]
+|-
+| Weight
+| Used if spawning multiple entities using SpawnPotentials. If the same as another SpawnPotentials entity, both have an even chance of spawning.
+| A number
+| {Weight:#}
+|-
+|}
+Sub-tags used in the SpawnPotentials data tag.
+{| class="wikitable" style="width:100%" data-description="Spawnpotentials tags"
+|-
+! width="15%" align="center" | Tagname
+! width="50%" align="center" | Description
+! width="15%" align="center" | Value Type
+! width="20%" align="center" | Syntax
+|-
+| Type
+| Determines the other entity that spawns with the entity specified in the EntityId data tag. MUST be used with SpawnPotentials.
+| A string
+| {SpawnPotentials:[{Type:"EntityName"}]}
+|-
+| Weight
+| Determines the chance of spawning the entity specified in the 'Type' sub-tag. If set to the same as another other entity's weight, they have the same chance of spawning.
+| A number
+| {SpawnPotentials:[{Weight:#}]}
+|-
+| Properties
+| Determines the entity data tag(s) that the entity (specified in the 'Type' sub-tag) is spawned with.
+| An entity NBT tag
+| {SpawnPotentials:[{Properties:{NBT tag}}]}
+|-
+|}
+== See also ==
+
+* [[Tutorials/Command blocks and functions]]
+
+== References ==
+{{reflist}}
+
+{{tutorials}}
+
+[[de:Anleitungen/Befehle mit NBT]]
+[[zh:教程/NBT命令标签]]
