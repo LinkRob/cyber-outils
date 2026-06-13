@@ -1,0 +1,301 @@
+{{exclusive|java}}
+
+Each level is its own folder. A level folder is often identified by having a [[#level.dat_format|level.dat]] file, along with other subfolders to store the maps and regions of the level.
+
+== Folders ==
+Level folders will always contain the items in '''bold''', and will sometimes contain the items in ''italics''.
+{| class="wikitable" data-description="Files and subfolders"
+|-
+! Relative Path
+! Article
+! Description
+|-
+| /'''level.dat'''
+| [[#level.dat format|(below)]]
+| Stores global information about the level.
+|-
+|/''level.dat_new''
+| —
+|Program writes new global information about the level and after that file is renamed to level.dat
+|-
+| /''level.dat_mcr''
+| —
+| A backup of the level.dat file before conversion from [[MCRegion]] to [[Anvil file format|Anvil]].
+|-
+| /''level.dat_old''
+| —
+| A backup of the previous level.dat file.
+|-
+| /'''session.lock'''
+| [[#session.lock format|(below)]]
+| Used to give write access to the last program to modify this file.
+|-
+| /''players''/''<player>.dat''
+| [[Player.dat format]]
+| Stores the individual states of the players that have played on this level, for versions before [[1.7.6]].
+|-
+| /'''playerdata'''/'''<uuid>.dat'''
+| [[Player.dat format]]
+| Stores the individual states of the players that have played on this level, since [[Java Edition 1.7.6|1.7.6]].
+|-
+| /'''stats'''/'''<uuid>.json'''
+| [[Statistics#Storage|Statistics storage format]]
+| Stores the [[statistics]] of the players that have played on this level, since [[Java Edition 1.7.2|1.7.2]].
+|-
+| /'''advancements'''/'''<uuid>.json'''
+| TBD <!--TODO document this format somewhere, then link to it here -->
+| Stores the [[advancements]] and unlocked recipes of the players that have played on this level, since 17w13a.
+|-
+| /'''data'''/''command_storage_<namespace>.dat''
+| [[Command storage format]]
+| Stores information about the general purpose, key/value [[command storage]], since 19w38a.
+|-
+| /'''data'''/''idcounts.dat''<br>/'''data'''/''map_<#>.dat''
+| [[Map item format]]
+| Stores the map data for the craftable [[Map]] items.
+|-
+| /'''data'''/''villages.dat''<br>/'''data'''/''villages_nether.dat''<br>/'''data'''/''villages_end.dat''
+| [[villages.dat format]]
+| Stores information about the [[Villages]] in the world. The "nether" and "end" files have been added in [[Java Edition 1.8|1.8]]. Replaced by point of interest region files in [[Java Edition 1.14|1.14]].
+|-
+
+|/''poi''/
+/'''DIM-1'''/''poi''/
+
+/'''DIM1'''/''poi''/
+|[[#poi format|(below)]]
+|Villager identified beds, job sites, and bells in the world. Nether portals, bee nests, bee hives, and lodestones also use this.
+|-
+| /'''data'''/'''raids.dat'''<br>/'''DIM-1'''/'''data'''/'''raids_nether.dat'''<br>/'''DIM1'''/'''data'''/'''raids_end.dat'''
+| [[raids.dat format]]
+| Stores information about the ongoing [[raid]]s in the world.
+|-
+|/'''datapacks'''/
+| [[Data pack]]
+| Stores the world's [[data pack]]s.
+|-
+| /'''entities'''/
+| —
+| Contains entity files for the [[Overworld]]. These used to be part of region.
+|-
+| /'''DIM-1'''/''entities''/
+| —
+| Contains entity files for [[The Nether]]. These used to be part of region.
+|-
+| /'''DIM1'''/''entities''/
+| —
+| Contains entity files for [[The End]]. These used to be part of region.
+|-
+| /'''region'''/
+| —
+| Contains region files for the [[Overworld]].
+|-
+| /'''DIM-1'''/''region''/
+| —
+| Contains region files for [[The Nether]].
+|-
+| /'''DIM1'''/''region''/
+| —
+| Contains region files for [[The End]].
+|-
+| /'''region'''/''r.<#>.<#>.mca''<br>/'''DIM-1'''/'''region'''/''r.<#>.<#>.mca''<br>/'''DIM1'''/'''region'''/''r.<#>.<#>.mca''
+/''poi''/''r.<#>.<#>.mca''
+
+/'''DIM-1'''/''poi''/''r.<#>.<#>.mca''
+
+/'''DIM1'''/''poi''/''r.<#>.<#>.mca''
+| [[Anvil file format]]
+| Individual region files.
+|-
+| /'''region'''/''r.<#>.<#>.mcr''<br>/'''DIM-1'''/''r.<#>.<#>.mcr''<br>/'''DIM1'''/''r.<#>.<#>.mcr''
+| [[Region file format]]
+| Backups of the region files before conversion from [[MCRegion]] to [[Anvil file format|Anvil]].
+|-
+| /''<#>''/''<#>''/''c.<#>.<#>.dat''
+| [[Java Edition Alpha level format|Alpha level format]]
+| Backups of the chunk files before conversion from the Alpha level format to [[MCRegion]].
+|}
+
+== level.dat format ==
+The level.dat file contains global information about the world such as the time of day, the singleplayer player, the level generator used, and the seed. When a world is loaded, the current <code>level.dat</code> is backed up to <code>level.dat_old</code>.
+It is an [[NBT Format|NBT]] file with this structure:
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+**{{nbt|compound|Data}}: This tag contains all the level data.
+***{{nbt|byte|allowCommands}}: 1 or 0 (true/false) - true if cheats are enabled.
+***{{nbt|double|BorderCenterX}}: Center of the world border on the X coordinate. Defaults to 0.
+***{{nbt|double|BorderCenterZ}}: Center of the world border on the Z coordinate. Defaults to 0.
+***{{nbt|double|BorderDamagePerBlock}}: Defaults to 0.2.
+***{{nbt|double|BorderSize}}: Width and length of the border of the border. Defaults to 60000000.
+***{{nbt|double|BorderSafeZone}}: Defaults to 5.
+***{{nbt|double|BorderSizeLerpTarget}}: Defaults to 60000000.
+***{{nbt|long|BorderSizeLerpTime}}: Defaults to 0.
+***{{nbt|double|BorderWarningBlocks}}: Defaults to 5.
+***{{nbt|double|BorderWarningTime}}: Defaults to 15.
+***{{nbt|int|clearWeatherTime}}: The number of ticks until "clear weather" has ended.
+***{{nbt|compound|CustomBossEvents}}: A collection of bossbars.
+****{{nbt|compound|''ID''}}: The ID of a bossbar (e.g. <code>custom:boss</code>)
+*****{{nbt|list|Players}}: A list of players that may see this boss bar.
+******{{nbt|int-array|UUID}}: The player's [http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html Universally Unique IDentifier].
+*****{{nbt|string|Color}}: ID of the color of the bossbar. Also sets the color of the display text of the bossbar, provided that the display text does not explicitly define a color for itself. See [[Formatting codes#Color codes|color codes]] for accepted values.
+*****{{nbt|byte|CreateWorldFog}}: 1 or 0 (true/false) - If the bossbar should create fog.
+*****{{nbt|byte|DarkenScreen}}: 1 or 0 (true/false) - If the bossbar should darken the sky.
+*****{{nbt|int|Max}}: The maximum health of the bossbar.
+*****{{nbt|int|Value}}: The current health of the bossbar.
+*****{{nbt|string|Name}}: The display name of the bossbar as a [[Commands#Raw JSON text|JSON text component]].
+*****{{nbt|string|Overlay}}: The ID of the overlay to be shown over the health bar. Accepted values are: <code>progress</code>, <code>notched_6</code>, <code>notched_10</code>, <code>notched_12</code>, and <code>notched_20</code>.
+*****{{nbt|byte|PlayBossMusic}}: 1 or 0 (true/false) - If the bossbar should initiate boss music.
+*****{{nbt|byte|Visible}}: 1 or 0 (true/false) - If the bossbar should be visible to the listed players.
+***{{nbt|compound|DataPacks}}: Options for datapacks.
+**** {{nbt|list|Disabled}}: List of disabled datapacks.
+***** {{nbt|string}}: A single datapack.
+**** {{nbt|list|Enabled}}: List of enabled datapacks. By default, this is populated with a single string "vanilla".
+***** {{nbt|string}}: A single datapack.
+***{{nbt|int|DataVersion}}: An integer displaying the [[data version]].
+***{{nbt|long|DayTime}}: The time of day. 0 is sunrise, 6000 is mid day, 12000 is sunset, 18000 is mid night, 24000 is the next day's 0. This value keeps counting past 24000 and does not reset to 0.
+***{{nbt|byte|Difficulty}}: The current difficulty setting. 0 is Peaceful, 1 is Easy, 2 is Normal, and 3 is Hard. Defaults to 2.
+***{{nbt|byte|DifficultyLocked}}: 1 or 0 (true/false) - True if the difficulty has been locked. Defaults to 0.
+***{{nbt|compound|DimensionData}}: This tag contains level data specific to certain dimensions.
+****{{nbt|compound|1}}: Data for The End
+*****{{nbt|compound|DragonFight}}: Data for the ender dragon fight. Only appears after the end is entered.
+******{{nbt|compound|ExitPortalLocation}}: Location of the End's exit portal that the ender dragon flies to upon its death
+*******{{nbt|byte|X}}: The X coordinate of the portal.
+*******{{nbt|byte|Y}}: The Y coordinate of the portal.
+*******{{nbt|byte|Z}}: The Z coordinate of the portal.
+******{{nbt|list|Gateways}}: Contains a list of locations of the [[End gateway portal]]s that ''haven't'' been spawned.
+*******{{nbt|int|}}: The angle of a future gateway, from 0 to 19. 0 is east of the exit portal, and numbers increase clockwise.
+******{{nbt|byte|DragonKilled}}: 1 or 0 (true/false) - If the dragon is currently alive.
+******{{nbt|long|DragonUUIDLeast}}: The least significant bits of the current Ender Dragon's [http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html Universally Unique IDentifier]. This is joined with DragonUUIDMost to form the dragon's unique ID.
+******{{nbt|long|DragonUUIDMost}}: The most significant bits of the current Ender Dragon's [http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html Universally Unique IDentifier]. This is joined with DragonUUIDLeast to form the dragon's unique ID.
+******{{nbt|byte|PreviouslyKilled}}: 1 or 0 (true/false) - If the ender dragon has ever been defeated. Used to determine EXP given by dragon
+*** {{nbt|compound|GameRules}}: The [[Commands/gamerule|gamerules]] used in the world.
+****{{nbt|string|Rule name}}: The value for the given rule.  This is always an NBT string, which is either <code>true</code> or <code>false</code> for the majority of rules (with it being a number for some other rules, and any arbitrary string for a user-defined rule)
+*** {{nbt|compound|WorldGenSettings}}: Used in 1.16, the generation settings for each dimension.
+****{{nbt|byte|bonus_chest}}: 1 or 0 (true/false) - Used to determine if the bonus chest should appear near the spawn point when a world is first entered. Only available in single player.
+****{{nbt|long|seed}}: the numerical seed of the world
+****{{nbt|byte|generate_features}}: 1 or 0 (true/false) - Whether structures should be generated or not
+****{{nbt|compound|dimensions}}: Contains all the dimensions.
+*****{{nbt|compound|''Dimension ID''}}: The root for [[Custom dimension|generator settings]]
+*** {{nbt|int|GameType}}: The default game mode for the singleplayer player when they initially spawn. 0 is [[Survival]], 1 is [[Creative]], 2 is [[Adventure]], 3 is [[Spectator]]. Note: Singleplayer worlds do not use this field to save which game mode the player is currently in.
+***{{nbt|string|generatorName}}: Used in 1.15 and below. The name of the generator; {{cd|default}}, {{cd|flat}}, {{cd|largeBiomes}}, {{cd|amplified}}, {{cd|buffet}}, {{cd|debug_all_block_states}} or {{cd|default_1_1}}.  Not case sensitive, but always written in the case here. The last one can only exist if the file was edited. It is a variation of the default generation. It can also be {{cd|customized}} if it is a customized world from before 1.13. In this case the world will become {{cd|default}} if opened using 1.13 or newer.
+***{{nbt|compound|generatorOptions}}: Used in 1.15 and below. Used in [[buffet]], [[superflat]], and [[old customized]] worlds. Format below.
+*** {{nbt|int|generatorVersion}}: Used in 1.15 and below. The version of the level generator. The effects of changing this are unknown, but values other than 0 have been observed.
+***{{nbt|byte|hardcore}}: 1 or 0 (true/false) - true if the player will respawn in [[Spectator]] on death in singleplayer. Affects all three game modes.
+***{{nbt|byte|initialized}}: 1 or 0 (true/false) - Normally true after a world has been initialized properly after creation. If the initial simulation was canceled somehow, this can be false and the world will be re-initialized on next load.
+***{{nbt|long|LastPlayed}}: The Unix time in milliseconds when the level was last loaded.
+***{{nbt|string|LevelName}}: The name of the level.
+***{{nbt|byte|MapFeatures}}: 1 or 0 (true/false) - true if the map generator should place structures such as villages, strongholds, and mineshafts. Defaults to 1. Always 1 if the world type is Customized.
+***{{nbt|compound|Player}}: The state of the Singleplayer player. This overrides the <player>.dat file with the same name as the Singleplayer player. This is only saved by Servers if it already exists, otherwise it is not saved for server worlds. See [[Player.dat format#NBT Structure|Player.dat Format]].
+***{{nbt|byte|raining}}: 1 or 0 (true/false) - true if the level is currently experiencing rain, snow, and cloud cover.
+***{{nbt|int|rainTime}}: The number of ticks before "raining" is toggled and this value gets set to another random value.
+***{{nbt|long|RandomSeed}}: The [[Seed (level generation)|random level seed]] used to generate consistent terrain.
+***{{nbt|long|SizeOnDisk}}: The estimated size in bytes of the level. Currently not modified or used by Minecraft, but was previously.
+***{{nbt|int|SpawnX}}: The X coordinate of the world spawn.
+***{{nbt|int|SpawnY}}: The Y coordinate of the world spawn.
+***{{nbt|int|SpawnZ}}: The Z coordinate of the world spawn.
+***{{nbt|byte|thundering}}: 1 or 0 (true/false) - If "raining" is true : true if the rain/snow/cloud cover is a lightning storm and dark enough for mobs to spawn under the sky. If "raining" is false, this has no effect.
+***{{nbt|int|thunderTime}}: The number of ticks before "thundering" is toggled and this value gets set to another random value.
+***{{nbt|long|Time}}: The number of ticks since the start of the level.
+***{{nbt|int|version}}: The [[NBT Format|NBT]] version of the level, with 1.2.1 being 19133.
+***{{nbt|compound|Version}}: Information about the ''Minecraft'' version the world was saved in.
+****{{nbt|int|Id}}: An integer displaying the [[data version]].
+****{{nbt|string|Name}}: The version name as a string, e.g. "15w32b".
+**** {{nbt|string|Series}}: Developing series. In 1.18 experimental snapshots, it was set to "ccpreview". In others, set to "main".
+****{{nbt|byte|Snapshot}}: 1 or 0 (true/false) – Whether the version is a snapshot or not.
+***{{nbt|int-array|WanderingTraderId}}: The UUID of the current wandering trader in the world saved as four ints.
+***{{nbt|int|WanderingTraderSpawnChance}}: The current chance of the wandering trader spawning next attempt; this value is the percentage and will be divided by 10 when loaded by the game, for example a value of 50 means 5.0% chance.
+***{{nbt|int|WanderingTraderSpawnDelay}}: The amount of ticks until another wandering trader is attempted to spawn
+***{{nbt|byte|WasModded}}: 1 or 0 (true/false) - true if the world was opened in a modified version.
+</div>
+
+== generatorOptions tag format ==
+The {{nbt|compound|generatorOptions}} tag format varies depending on the generator name. It only affects the [[Overworld]] dimension. This applies to 1.15 and below.
+
+This is the format for the [[Buffet]] [[world type]]:
+
+<div class="treeview">
+* {{nbt|compound|generatorOptions}}:
+** {{nbt|compound|biome_source}}:
+*** {{nbt|compound|options}}: Ignored if the [[Java Edition data values#Biome sources|biome source ID]] is <code>minecraft:vanilla_layered</code>.
+**** {{nbt|list|biomes}}:
+***** {{nbt|string}}: A [[Java Edition data values#Biomes|biome ID]]. If this or the biome source ID is omitted or invalid, the code assumes <code>minecraft:ocean</code>.
+**** {{nbt|byte|size}}: The size of the biomes. Only used when the biome source ID is <code>minecraft:checkerboard</code>. The biome squares will have sides of 2<sup><code><size></code></sup> (which can be < 1) [[chunk]]s. If no value is entered, the code assumes <code>2</code>.
+*** {{nbt|string|type}}: An applicable biome source ID. It determines how the biomes are distributed. Cannot be selected in-game and defaults to <code>minecraft:fixed</code> for unmodified [[world]]s.
+** {{nbt|compound|chunk_generator}}:
+*** {{nbt|compound|options}}:
+**** {{nbt|string|default_block}}: A [[Java Edition data values#Blocks|block ID]], by default <code>minecraft:stone</code>.
+**** {{nbt|string|default_fluid}}: A [[Java Edition data values#Fluids|fluid ID]], by default <code>minecraft:water</code>.
+*** {{nbt|string|type}}: An applicable [[Java Edition data values#Chunk generators|chunk generator ID]]. It determines the overall structure of the dimension. If this is omitted or invalid, the code assumes <code>minecraft:surface</code>.
+</div>
+
+This is the format for the [[Superflat]] world type:
+
+<div class="treeview">
+* {{nbt|compound|generatorOptions}}:
+**{{nbt|compound|structures}}:
+***{{nbt|compound|<structure name>}}: An empty compound named as the [[Superflat#Structure generation options|structure]], for example <code>decoration</code>. If parameters are set, for example <code>village(distance=9 size=1)</code>, then the compound contains this information.
+****{{nbt|string|<parameter name>}}: The parameter value is a number represented by a string.
+** {{nbt|list|layers}}:
+*** {{nbt|compound}}: A layer.
+**** {{nbt|string|block}}: The [[Java Edition data values#Blocks|block ID]].
+**** {{nbt|int|height}}: The height of the layer, used in worlds created before 1.13-pre5.
+**** {{nbt|byte|height}}: The height of the layer, used in worlds created since 1.13-pre5, if it's < 128 blocks.
+**** {{nbt|short|height}}: The height of the layer, used in worlds created since 1.13-pre5, if it's >= 128 blocks.
+** {{nbt|string|biome}}: The [[Java Edition data values#Biomes|biome ID]].
+** {{nbt|string|flat_world_options}}: The unescaped "[[server.properties#Java Edition 3|generator-settings]]" string. Only created if the [[world]] was generated through a [[server]]. Until snapshot 20w11a, it is not parsed by the game due to {{bug|MC-134900}}, thus the above compounds won't be created, making "generator-settings" ineffective.
+</div>
+
+This is the format for the [[Old Customized]] world type that existed before 18w06a:
+<div class="treeview">
+* {{nbt|string|generatorOptions}}: Controls options for the world generator. Used only if the world type is Superflat or Customized. The format for Superflat is a comma separated list of block IDs from the bottom of the map up, and each block ID may optionally be preceded by the number of layers and an "*" ("x" before 1.8). Damage values are not supported.<ref>http://www.reddit.com/r/Minecraft/comments/ywjbk/superflat_customization/c5zusxl</ref> See detailed format for Superflat world type: [[Special:Permalink/685992#Preset_code_format|before 1.8]] and in [[Special:Permalink/1178871#Preset_code_format|1.8-1.12]]. Refer also to [[Superflat#History]] that shows how the format has been changing over time. The format for Customized world type is an extremely long String which consists of ''name:value'' pairs resembling JSON (as shown in [[Old_Customized#Presets]]).
+</div>
+
+== session.lock format ==
+This file contains a single character ☃ (\u2603) encoded (E2 98 83) in UTF8.
+
+The process goes something like this:
+# Program opens session.lock
+# Program writes a single character ☃ to session.lock
+# Program tries to lock session.lock
+# If the lock on session.lock fails, program aborts and gives up its lock on the level.
+
+Minecraft can sometimes try to hold the lock on a level even after the player has started playing a different level, and this can cause strange behavior. It is recommended to ensure that Minecraft is closed before trying to acquire a lock on a level.
+
+== <samp>poi</samp> format ==
+Files in ''<samp>poi</samp>'' folder use similar structure to ''<samp>region</samp>'' [[Anvil file format|Anvil]] files (hence the ''<samp>mca</samp>'' extension), but the [[NBT Format|NBT]] content is different.
+
+<div class="treeview">
+* {{nbt|compound}} The root tag.
+**{{nbt|compound|Data}}: This tag contains all the level data.
+***{{nbt|compound|Sections}}: Keys are stringified chunk section's Y coordinate ''(can be negative, a section at Y=2 starts at block Y=32)''.
+****{{nbt|compound|<number>}}:
+*****{{nbt|byte|Valid}}: True (1) when created by the game, however, if the decoding of POI NBT (from the region file) data fails, and the game then save the region file again, it might save false (0). This key is internally set to true when the POI section is refreshed, and a refresh always happens when the chunk section (with terrain data) at the same coordinates is decoded. '''To sum up, it is very unlikely to get false.'''
+*****{{nbt|list|Records}}: May be empty.
+******{{nbt|compound}}: Single record.
+*******{{nbt|int-array|pos}}: 3-element array encoding X, Y and Z
+*******{{nbt|int|free_tickets}}: Indicates how many "tickets" are available for villagers to claim. A value of zero indicates that this poi is not available for any villager to claim. Internally Minecraft specifies a max tickets for each poi type. This is the maximum number of villagers which can "take a ticket" (aka be using that poi type at the same time; aka max number of villagers which can claim that poi and store it in their "brain"). As of 1.17 all villager eligible poi type's have a ticket limit of one (1), with the single exception being <code>minecraft:meeting</code>, (block minecraft:bell) which has a limit of 32. Poi entries which are not for villager interaction such as beehives, nether portals, lighting rods, etc., have a max ticket count of zero (0) and therefore will always have a '''free_tickets''' of zero as well.
+*******{{nbt|string|type}}: Type of the point, for example: <code>minecraft:home</code>, <code>minecraft:meeting</code>, <code>minecraft:butcher</code>, <code>minecraft:armorer</code>, etc.
+**{{nbt|int|DataVersion}}: An integer displaying the [[data version]].
+</div>
+
+== History ==
+{{History|java}}
+{{History||1.16|snap=20w14a|Timestamps are no longer written to the session.lock file.}}
+{{History||1.16|snap=pre1|A single character ☃(E2 98 83) is now written to the session.lock file.}}
+{{History|foot}}
+
+== See also ==
+* [[Bedrock Edition level format]]
+
+{{Java Edition}}
+[[Category:Java Edition|Level format]]
+[[Category:Development]]
+
+[[de:Level Format]]
+[[es:Nivel de formato de Java Edition]]
+[[fr:Format de niveau de version Java]]
+[[ja:Levelフォーマット/Java Edition]]
+[[ko:Java Edition 레벨 포맷]]
+[[nl:Level formaat]]
+[[pt:Formato de nível da Edição Java]]
+[[zh:世界格式]]

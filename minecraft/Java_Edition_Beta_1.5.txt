@@ -1,0 +1,178 @@
+{{version nav
+|title=Minecraft Beta 1.5
+|image=Beta 1.5.png
+|image2=Beta 1.5 menu.png
+|edition=java
+|version=Beta 1.5
+|date=April 19, 2011
+|clienthash=f5ce1699cd728213c21054fa2f1490d162b002b4
+|jsonhash=970c7f888d66a3a552c5a765892d4ebb90205206 |jsonfile=b1.5
+|serverdl=[http://files.betacraft.uk/server-archive/beta/b1.5.jar Server]
+|exedl=[http://files.betacraft.uk/server-archive/beta/b1.5.exe .exe]
+|prevparent=Beta 1.4
+|prev=Beta 1.4_01
+|next=Beta 1.5_01
+|nextparent=Beta 1.6
+}}
+
+{{redirect|Beta 1.5|beta versions for [[Bedrock Edition 1.5.0]]|Bedrock Edition 1.5.0/Development versions}}
+{{for|a guide about all content in this release and the other releases of Beta 1.5|Java Edition guides/Beta 1.5 releases}}
+
+'''Beta 1.5''' is a version of [[Java Edition Beta]] released on April 19, 2011,<ref>{{Word of Notch|4746701552|Minecraft Beta 1.5, and some thoughts on this blog|April 19, 2011}}</ref> which added [[statistics]] and [[Achievements#Java Edition|achievements]], new types of [[rail]]s and [[sapling]]s, and [[cobweb]]s among other changes and fixes.
+
+== Additions ==
+=== Blocks ===
+; [[File:Birch Sapling JE1.png|32px]] [[Birch Sapling]]
+* Grows into [[birch tree]]s.
+
+; [[File:Cobweb JE1 BE1.png|32px]] [[Cobweb]]
+* Unobtainable in the game without inventory editing until [[Beta 1.8]].
+
+; [[File:Detector Rail (NS) JE1 BE1.png|32px]] [[Detector Rail]]
+* Crafted with 1 [[stone pressure plate]], 6 [[iron ingot]]s and 1 [[Redstone|redstone dust]].
+* Used to detect minecarts on top of it; when activated, they produce redstone power.
+
+; [[File:Powered Rail (NS) JE1 BE1.png|32x32px]] [[Powered Rail]]
+* Crafted with 1 [[stick]], 6 [[gold ingot]]s and 1 redstone dust.
+* Needs to be powered by redstone.
+* Transmits redstone signal to 8 powered rails far.
+
+; [[File:Spruce Sapling JE1.png|32px]] [[Spruce Sapling]]
+* Grows into [[spruce tree]]s.
+
+===Mobs===
+; [[File:Charged Creeper JE1 BE1.png|32px]] [[Charged Creeper]]s
+* When struck by a lightning bolt, they now become a charged creeper, and have a much more powerful explosion.
+
+; [[Pig]]s
+* When struck by a lighting bolt they now become [[Zombified Piglin|zombie pigmen]].
+
+===Non-mob entities===
+; [[Lightning Bolt]]
+* May strike during thunderstorms, creating fire and dealing damage around it.
+
+===Gameplay===
+; [[Achievements#Java Edition|Achievements]]
+* Are now transferred between worlds.
+
+; [[Weather]]
+* Added natural occurring [[rain]], [[snowfall]]s, and [[thunderstorm]]s.
+
+===General===
+; [[Control]]s
+* {{key|Shift}} + clicking on something in a [[chest]] will immediately move the selected item(s) into the player's inventory and vice-versa.
+
+; [[Option]]s
+* Ability to change GUI size (Small, Normal, Large, Auto).
+* Advanced OpenGL (Occlusion Culling: doesn't render blocks that the player can't "see", helps performance in cards that support it).
+
+; [[Statistics]]
+* Are now transferred between worlds.
+
+==Changes==
+===Blocks===
+
+; [[Bed]]
+
+*Sleeping in thunderstorms is now possible, even in daytime.
+
+; [[Crying obsidian]]
+
+*Texture has now been removed from {{mono|[[terrain.png]]}}.
+
+; [[Fire]]
+
+*Now spreads much slower than before.
+
+; [[File:Grass Block JE4.png|32px]] [[Grass Block]]s
+
+*When using fancy graphics, the sides now use the same color as the top (example of a grass block in [[Java Edition Alpha 1.2.0|Alpha 1.2.0]]: [[File:Grass Block JE3 BE1.png|32px]]).
+
+; [[Ladder]]s
+
+*Its [[crafting]] recipe now produces 2 ladders to offset the fix of the staggered-ladder exploit.
+
+; [[Sapling]]s
+
+*Can now serve as fuel in [[furnace]]s.
+**Have the same smelting time as [[stick]]s.
+
+; [[Redstone Wire]]
+
+*Fully off redstone wire is no longer black.
+*Several changes in redstone wire rendering
+**Due this change, it no longer appears stretched when travelling vertically up a block. However, it still appears offset.
+
+===Items===
+
+; General
+
+*Dropped items in flowing [[water]] move faster than before.
+
+; [[Redstone|Redstone Dust]]
+
+*Can now be placed on [[snow]].
+
+===Mobs===
+
+; [[Pig]]s
+
+*When killed by burning, now drop [[cooked porkchop]]s upon death.
+
+; [[Wolf|Wolves]]
+
+*Now more common, even in non-[[taiga]]/[[forest]] biomes.
+
+===World generation===
+
+; [[Birch]] and [[spruce|spruce trees]]
+
+*Now drop [[birch sapling]]s and [[spruce sapling]]s, respectively.
+
+===General===
+
+; [[Control]]s
+
+*Pressing {{key|Tab}} will switch between input boxes.
+*{{key|Shift}} + {{key|F2}} no longer creates a 36450&times;17700 pixel screenshot.
+
+; Performance
+
+*Huge performance improvements for old and slow computers.
+
+==Fixes==
+;15 bugs fixed
+*Players are only 'on' a ladder (can climb it/fall slowly) if the lower half is in the ladder block, rather than any part of the player.
+**It is no longer possible to climb with a one-block gap in a ladder, or a ladder that starts at eye level.
+*On fancy graphics, the sides of grass blocks are now biome-specific and match the shade on the top.
+*Player movement through water has been fixed to previous speed.
+*Wolves' pathfinding now has a better understanding of doors. They will go through doors most of the time, but will sometimes get stuck on the 3-pixel thickness of the door.
+*The lighting on portals and ice has been fixed when using smooth lighting.
+*[[Stairs]] are no longer transparent to light.
+*On multiplayer, the health of [[wolves]] are now synchronized between server and client, causing wolves to only whimper when low on health, as opposed to all of the time.
+*Redstone in off state is red again.
+*Fixed saplings occasionally growing trees that stretch to world limit.
+*Crops hit with water now drop seeds and wheat, as opposed to just wheat.
+*Moving minecarts will continue to move if the world is closed.
+*The Mojang logo is the correct size when the client is maximized.
+*The exploit to make chests three or more side by side by placing a water source and placing a chest in that source has been fixed.
+*{{key|Shift}} + {{key|F2}} doesn't attempt to create massive .tga screenshots, which are more than 1GB in size, anymore.
+*Sugar cane can no longer be placed on any block that is not dirt.</onlyinclude>
+
+==Gallery==
+<gallery>
+Beta 1.5 Achievements.png|The achievement UI with the first achievement completed.
+File:Statistics UI Beta 1.5.png|The statistics UI
+</gallery>
+
+== References ==
+{{reflist}}
+
+{{Java Edition versions|Beta}}
+
+[[de:Versionen/Beta#1.5]]
+[[es:Java Edition Beta 1.5]]
+[[ja:Java Edition Beta 1.5]]
+[[nl:Beta 1.5]]
+[[ru:Beta 1.5]]
+[[zh:Java版Beta 1.5]]

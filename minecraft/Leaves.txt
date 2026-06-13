@@ -1,0 +1,754 @@
+{{Block
+| image = Oak Leaves.png
+| extratext = View [[#Renders|all renders]]
+| transparent = Partial <small>(diffuses sky light)</small>
+| light = No
+| tool = Shears
+| tool2 = Hoe
+| tool3 = Sword
+| renewable = Yes
+| stackable = Yes (64)
+| flammable = Yes (30)
+| lavasusceptible = Yes
+}}
+{{for|the non-solid block|Leaf Litter}}
+{{for|the removed Pocket Edition block|Leaves carried}}
+{{for|the item often incorrectly referred to as "alpha leaves"|Invalid Data Value Leaves}}
+'''Leaves''' are natural [[block]]s that generate as part of [[tree]]s. Despite being a full block, they can be [[Waterlogging|waterlogged]].
+
+== Obtaining ==
+=== Breaking ===
+{{see also|Fortune#Tabulated probabilities}}Hoes are the default tools for breaking leaves, but leaves can be obtained only with [[shears]] or [[Silk Touch]] enchanted tools.
+{{breaking row|horizontal=1|Leaves|Hoe|drop=0|shears=1|sword=0}}
+
+{| class="wikitable"
+! Drop
+! Source
+! No Fortune
+! Fortune I
+! Fortune II
+! Fortune III
+|-
+| style="text-align:left" | {{BlockLink|Jungle Sapling}}s
+| style="text-align:left" | {{BlockSprite|jungle-leaves}} Jungle Leaves
+| 2.5% ({{frac|1|40}})
+| 2.78% ({{frac|1|36}})
+| 3.125% ({{frac|1|32}})
+| 4.17% ({{frac|1|24}})
+|-
+| style="text-align:left" | {{BlockLink|Azalea}} or other {{BlockLink|Saplings}}
+| style="text-align:left" | {{BlockSprite|Azalea Leaves}} Azalea Leaves or other {{BlockSprite|Leaves}} Leaves
+| 5% ({{frac|1|20}})
+| 6.25% ({{frac|1|16}})
+| 8.33% ({{frac|1|12)}}
+| 10% ({{frac|1|10}})
+|-
+| style="text-align:left" | 1-2 {{ItemLink|Stick}}s
+| style="text-align:left" | {{BlockSprite|leaves}} All Leaves
+| 2% ({{frac|1|50}})
+| 2.22% ({{frac|1|45}})
+| 2.5% ({{frac|1|40}})
+| 3.33% ({{frac|1|30}})
+|-
+| style="text-align:left" | {{ItemLink|Apple}}s
+| style="text-align:left" | {{BlockSprite|Oak Leaves}} Oak and {{BlockSprite|Dark Oak Leaves}} Dark Oak Leaves
+| 0.5% ({{frac|1|200}})
+| 0.556% ({{frac|1|180}})
+| 0.625% ({{frac|1|160}})
+| 0.833% ({{frac|1|120}})
+|}
+
+=== Natural generation ===
+Leaves occur naturally on trees and azaleas throughout the [[Overworld]]. Specially, oak leaves are generate in [[jungle bush]]es. Oak leaves also generate in the tree at meeting point in plains [[village]]. Dark oak leaves also generate in [[woodland mansion]]s.
+
+=== Post-generation ===
+{{see also|Tutorials/Tree farming}}
+Leaves generate as part of trees grown from [[sapling]]s or [[azalea]].
+
+== Usage ==
+
+Leaves from trees spontaneously decay (disappear) when they receive a [[Tick#Random tick|block tick]] if they are not connected to a block with the <code>logs</code> tag ([[log]] or [[wood]] block), either directly or via other leaf blocks, with a maximum distance of 6 blocks{{only|je}} or 4 blocks{{only|be}}. Leaves placed by players never decay.
+
+Leaves that decay, or are destroyed without using [[Silk Touch]] or [[shears]], yield [[sapling]]s 5% ({{frac|1|20}}) of the time, sticks 2% of the time, and otherwise drop nothing. Jungle leaves drop saplings 2.5% ({{frac|1|40}}) of the time. Oak and dark oak leaves also have a separate but additional 0.5% ({{frac|1|200}}) chance of dropping an [[apple]], making it extremely rare but possible for a single leaf to drop a sapling, a stick and an apple at the same time. Rates are increased by the [[Fortune]] enchantment. Leaves that are burned do not yield saplings or apples.
+
+Leaves take on a different shade of green depending on the [[biome]] in which they are placed.
+
+Leaves are always [[transparent]] to [[light]], but cannot be seen through when the [[Options#Video Settings|graphics mode]] is set to "Fast"; the transparent regions are instead black{{only|je|short=true}}/dark green{{only|be|short=true}}. They diffuse sky light, causing the shadows they cast under trees.
+
+Leaves can be [[Waterlogging|waterlogged]], despite being a full block. Water does not spread out{{only|je}} and waterlogged leaves follow the same rules as any other [[Waterlogging#Mechanism|waterlogged]] block. When [[Concrete Powder|concrete powder]] is placed on any side of the waterlogged leaves it turns into [[concrete]], without the danger of the water running out of the block.
+
+Applying [[bone meal]] to mangrove leaves with a space beneath produces a hanging [[mangrove propagule]] with <code>age=0</code>.
+
+=== Redstone component ===
+{{Exclusive|java|section=1}}
+The state of a leaves block—including a player-placed block—changes after 1 game tick (half a redstone tick) when the distance to the nearest [[log]] or [[wood]] block changes, up to 6 blocks of leaves away. [[Observer]]s facing away from the leaves detect this change and transmit a redstone signal in the same game tick, making leaves useful for redstone signal transmission. This has been called "Leafstone" by the Minecraft Community.
+
+=== Piston interactivity ===
+Leaves are destroyed when pushed by [[piston]]s. They do not stick to sticky pistons, [[slime block]]s or [[honey block]]s.
+
+=== Composting ===
+Leaves have a 30% chance of increasing the compost level in a [[composter]] by 1. A stack of leaves yields an average of 2.74 [[bonemeal]].
+
+=== Bees ===
+Flowering azaleas leaves and cherry leaves function like any other [[flower]]s in their interaction and uses with [[bee]]s.
+
+=== Bee nests ===
+Oak and birch [[trees]] grown from [[saplings]] that are within 2 blocks of any flowering azalea leaves have a 5% chance to grow with [[bee nest]] and 1-3 bees in it.
+
+=== Color ===
+
+* In the inventory, {{BlockSprite|Oak Leaves}} oak, {{BlockSprite|Jungle Leaves}} jungle, {{BlockSprite|Acacia Leaves}} acacia, and {{BlockSprite|Dark Oak Leaves}} dark oak leaves are colored {{color|#48b518}}.
+* In the inventory, {{BlockSprite|Mangrove Leaves}} mangrove leaves are colored {{color|#92c648}}.
+* {{BlockSprite|Spruce Leaves}} Spruce leaves are colored {{color|#619961}}, and are not affected by biome or inventory color.<ref name="MC-3930">{{Cite bug|MC|3930|colormaps/foliage.png not affecting birch and spruce leaves, watercolor.png not changing water at all|date=November 28, 2012}}</ref>
+* {{BlockSprite|Birch Leaves}} Birch leaves are colored {{color|#80a755}}, and are not affected by biome or inventory color.<ref name="MC-3930"/>
+* {{BlockSprite|Azalea Leaves}} Azalea, {{BlockSprite|Flowering Azalea Leaves}} flowering azalea, {{BlockSprite|Cherry Leaves}} cherry leaves and {{BlockSprite|Pale Oak Leaves}} pale oak leaves are not colored.
+
+===== Biome colors =====
+These values are generated by the biome dyeing algorithm. See [[Color#Biome colors|Biome colors]] for more information.
+{| class="wikitable sortable mw-collapsible mw-collapsed" data-description="Biome colors"
+!Biome !! Temperature !! Downfall !! Foliage Color !! Block
+|-
+| (Default values)<br>{{BiomeLink|The Void}}<br>{{BiomeLink|River}}<br>{{BiomeLink|Warm Ocean}}<br>{{BiomeLink|Lukewarm Ocean}}<br>{{BiomeLink|Deep Lukewarm Ocean}}<br>{{BiomeLink|Ocean}}<br>{{BiomeLink|Deep Ocean}}<br>{{BiomeLink|Cold Ocean}}<br>{{BiomeLink|Deep Cold Ocean}}<br>{{BiomeLink|Deep Frozen Ocean}}<br>{{BiomeLink|Lush Caves}}{{only|je|short=1}}<br>{{BiomeLink|The End}}<br>{{BiomeLink|End Highlands}}<br>{{BiomeLink|End Midlands}}<br>{{BiomeLink|Small End Islands}}<br>{{BiomeLink|End Barrens}} || 0.5 || 0.5 || {{Color|#71a74d}} || [[File:Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Lush Caves}}{{only|be|short=1}} || 0.9 || 0.0 || {{Color|#a6a432}} || [[File:Lush Caves Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Plains}}<br>{{BiomeLink|Beach}}<br>{{BiomeLink|Sunflower Plains}}<br>{{BiomeLink|Dripstone Caves}}{{only|je|short=1}}<br>{{BiomeLink|Deep Dark}} || 0.8 || 0.4 || {{Color|#77ab2f}} || [[File:Plains Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Dripstone Caves}}{{only|be|short=1}} || 0.2 || 0.0 || {{Color|#70a26c}} || [[File:Dripstone Caves Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Snowy Plains}}<br>{{BiomeLink|Ice Spikes}}<br>{{BiomeLink|Snowy Taiga}}<br>{{BiomeLink|Frozen Ocean}}<br>{{BiomeLink|Frozen River}} || 0.0 || 0.5
+| rowspan="4" | {{Color|#60a17b}}
+| rowspan="4" | [[File:Snowy Plains Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Grove}} || -0.2 || 0.8
+|-
+| {{BiomeLink|Snowy Slopes}} || -0.3 || 0.9
+|-
+| {{BiomeLink|Frozen Peaks}}<br>{{BiomeLink|Jagged Peaks}} || -0.7 || 0.9
+|-
+| {{BiomeLink|Desert}}<br>{{BiomeLink|Savanna}}{{only|je|short=1}}<br>{{BiomeLink|Savanna Plateau}}{{only|je|short=1}}<br>{{BiomeLink|Windswept Savanna}}<br>{{BiomeLink|Nether Wastes}}<br>{{BiomeLink|Warped Forest}}<br>{{BiomeLink|Crimson Forest}}<br>{{BiomeLink|Soul Sand Valley}}<br>{{BiomeLink|Basalt Deltas}} || 2.0 || 0.0
+| rowspan="3" | {{Color|#aea42a}}
+| rowspan="3" | [[File:Desert Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Savanna}}{{only|be|short=1}}|| 1.2 || 0.0
+|-
+| {{BiomeLink|Savanna Plateau}}{{only|be|short=1}}|| 1.0 || 0.0
+|-
+| {{BiomeLink|Badlands}}<br>{{BiomeLink|Wooded Badlands}}<br>{{BiomeLink|Eroded Badlands}} || 2.0 || 0.0 || {{Color|#9e814d}}<ref group="n" name="preset">Color is preset</ref> || [[File:Badlands Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Swamp}} || 0.8 || 0.9 || {{Color|#6a7039}}<ref group="n" name="preset"/> || [[File:Swamp Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Mangrove Swamp}}|| 0.8 || 0.9 || {{Color|#8db127}}<ref group="n" name="preset"/> || [[File:Mangrove Swamp Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Forest}}<br>{{BiomeLink|Dark Forest}}<br>{{BiomeLink|Flower Forest}} || 0.7 || 0.8 || {{Color|#59ae30}} || [[File:Forest Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Birch Forest}}<br>{{BiomeLink|Old Growth Birch Forest}} || 0.6 || 0.6 || {{Color|#6ba941}} || [[File:Birch Forest Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Old Growth Pine Taiga}} || 0.3 || 0.8 || {{Color|#68a55f}} || [[File:Old Growth Pine Taiga Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Old Growth Spruce Taiga}}<br>{{BiomeLink|Taiga}} || 0.25 || 0.8 || {{Color|#68a464}} || [[File:Taiga Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Windswept Hills}}<br>{{BiomeLink|Windswept Gravelly Hills}}<br>{{BiomeLink|Windswept Forest}}<br>{{BiomeLink|Stony Shore}}|| 0.2 || 0.3 || {{Color|#6da36b}} || [[File:Windswept Hills Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Jungle}}<br>{{BiomeLink|Bamboo Jungle}}|| 0.95 || 0.9 || {{Color|#30bb0b}} || [[File:Jungle Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Sparse Jungle}} || 0.95 || 0.8 || {{Color|#3eb80f}} || [[File:Sparse Jungle Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Meadow}} || 0.5 || 0.8 || {{Color|#63a948}} || [[File:Meadow Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Cherry Grove}} || 0.5 || 0.8 || {{Color|#b6db61}}<ref group="n" name="preset"/> || [[File:Cherry Grove Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Stony Peaks}} || 1.0 || 0.3 || {{Color|#82ac1e}} || [[File:Stony Peaks Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Snowy Beach}} || 0.05 || 0.3 || {{Color|#64a278}} || [[File:Snowy Beach Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Mushroom Fields}} || 0.9 || 1.0 || {{Color|#2bbb0f}} || [[File:Mushroom Fields Oak Leaves.png|32px]]
+|}
+
+Unused biomes in {{BE}}.
+
+{| class="wikitable sortable mw-collapsible mw-collapsed" data-description="Unused biome colors"
+!Biome !! Temperature !! Downfall !! Foliage Color !! Block
+|-
+| (Default values)<br>{{BiomeLink|Deep Warm Ocean}}
+| 0.5 || 0.5 || {{Color|#71a74d}} || [[File:Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Snowy Mountains}}<br>{{BiomeLink|Legacy Frozen Ocean}} || 0.0 || 0.5
+| rowspan="2" | {{Color|#60a17b}} 
+| rowspan="2" | [[File:Snowy Plains Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Snowy Taiga Hills}}<br>{{BiomeLink|Snowy Taiga Mountains}} || -0.5 || 0.4
+|-
+| {{BiomeLink|Taiga Hills}}<br>{{BiomeLink|Taiga Mountains}} || 0.25 || 0.8 || {{Color|#68a464}} || [[File:Taiga Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Desert Hills}}<br>{{BiomeLink|Desert Lakes}} || 2.0 || 0.0 || {{Color|#aea42a}} || [[File:Desert Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Badlands Plateau}}<br>{{BiomeLink|Modified Badlands Plateau}}<br>{{BiomeLink|Modified Wooded Badlands Plateau}} || 2.0 || 0.0 || {{Color|#9e814d}}<ref group="n" name="preset"/> || [[File:Badlands Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Shattered Savanna Plateau}}
+| 1.0 || 0.5 || {{Color|#64b216}} || [[File:Windswept Savanna Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Swamp Hills}} || 0.8 || 0.5 || {{Color|#6a7039}}<ref group="n" name="preset"/> || [[File:Swamp Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Wooded Hills}}<br>{{BiomeLink|Tall Birch Hills}}<br>{{BiomeLink|Dark Forest Hills}} || 0.7 || 0.8 || {{Color|#59ae30}} || [[File:Forest Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Birch Forest Hills}} || 0.6 || 0.6 || {{Color|#6ba941}} || [[File:Birch Forest Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Giant Tree Taiga Hills}}<br>{{BiomeLink|Giant Spruce Taiga Hills}} || 0.3 || 0.8 || {{Color|#68a55f}} || [[File:Old Growth Pine Taiga Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|id=modified-gravelly-mountains|Gravelly Mountains+}}<br>{{BiomeLink|Mountain Edge}} || 0.2 || 0.3 || {{Color|#6da36b}} || [[File:Windswept Hills Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Jungle Hills}}<br>{{BiomeLink|Modified Jungle}}<br>{{BiomeLink|Bamboo Jungle Hills}} || 0.95 || 0.9 || {{Color|#30bb0b}} || [[File:Jungle Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Modified Jungle Edge}} || 0.95 || 0.8 || {{Color|#3eb80f}} || [[File:Sparse Jungle Oak Leaves.png|32px]]
+|-
+| {{BiomeLink|Mushroom Field Shore}} || 0.9 || 1.0 || {{Color|#2bbb0f}} || [[File:Mushroom Fields Oak Leaves.png|32px]]
+|}
+
+{{Reflist|group=n}}
+
+==== Snowy leaves ====
+{{Exclusive|Bedrock|section=1}}
+[[File:Snowyleaves.jpg|256px|thumb|The snowy leaves on a tree.]]
+Leaves appear as [[snow]]-covered during snowfall, however, these appearances are exclusive to {{BiomeLink|frozen ocean}}, {{BiomeLink|deep frozen ocean}}, {{BiomeLink|frozen river}}, {{BiomeLink|snowy beach}}, {{BiomeLink|snowy plains}}, and {{BiomeLink|snowy taiga}} biomes and their variants. Leaves are snow-covered only during snowfalls when fancy graphics are enabled. In [[mountain]]s biomes and variants leaves do not become frost covered during snowfall.
+== Sounds ==
+
+=== Other leaves ===
+{{Sound table/Block/Grass}}
+=== Azalea leaves ===
+{{Sound table/Block/Azalea leaves}}
+=== Cherry leaves ===
+{{Sound table/Block/Cherry leaves}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showitemtags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Oak Leaves
+|spritetype=block
+|nameid=oak_leaves
+|blocktags=lava_pool_stone_cannot_replace, leaves, mineable/hoe
+|itemtags=leaves}}
+{{ID table
+|displayname=Spruce Leaves
+|spritetype=block
+|nameid=spruce_leaves
+|blocktags=lava_pool_stone_cannot_replace, leaves, mineable/hoe
+|itemtags=leaves}}
+{{ID table
+|displayname=Birch Leaves
+|spritetype=block
+|nameid=birch_leaves
+|blocktags=lava_pool_stone_cannot_replace, leaves, mineable/hoe
+|itemtags=leaves}}
+{{ID table
+|displayname=Jungle Leaves
+|spritetype=block
+|nameid=jungle_leaves
+|blocktags=lava_pool_stone_cannot_replace, leaves, mineable/hoe
+|itemtags=leaves}}
+{{ID table
+|displayname=Acacia Leaves
+|spritetype=block
+|nameid=acacia_leaves
+|blocktags=lava_pool_stone_cannot_replace, leaves, mineable/hoe
+|itemtags=leaves}}
+{{ID table
+|displayname=Dark Oak Leaves
+|spritetype=block
+|nameid=dark_oak_leaves
+|blocktags=lava_pool_stone_cannot_replace, leaves, mineable/hoe
+|itemtags=leaves}}
+{{ID table
+|displayname=Mangrove Leaves
+|spritetype=block
+|nameid=mangrove_leaves
+|blocktags=lava_pool_stone_cannot_replace, leaves, mineable/hoe
+|itemtags=leaves}}
+{{ID table
+|displayname=Cherry Leaves
+|spritetype=block
+|nameid=cherry_leaves
+|blocktags=lava_pool_stone_cannot_replace, leaves, mineable/hoe
+|itemtags=leaves}}
+{{ID table
+|displayname=Azalea Leaves
+|spritetype=block
+|nameid=azalea_leaves
+|blocktags=lava_pool_stone_cannot_replace, leaves, mineable/hoe
+|itemtags=leaves}}
+{{ID table
+|displayname=Flowering Azalea Leaves
+|spritetype=block
+|nameid=flowering_azalea_leaves
+|blocktags=flowers, lava_pool_stone_cannot_replace, leaves, mineable/hoe
+|itemtags=flowers, leaves
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Leaves (oak, spruce, birch and jungle)
+|spritename=leaves
+|spritetype=block
+|nameid=leaves
+|id=18
+|translationkey=tile.leaves.oak.name, tile.leaves.spruce.name, tile.leaves.birch.name, tile.leaves.jungle.name}}
+{{ID table
+|displayname=Leaves (acacia and dark oak)
+|spritename=leaves
+|spritetype=block
+|nameid=leaves2
+|id=161
+|translationkey=tile.leaves2.acacia.name, tile.leaves.acacia.name, tile.leaves2.big_oak.name, tile.leaves.big_oak.name}}
+{{ID table
+|displayname=Mangrove Leaves
+|spritetype=block
+|nameid=mangrove_leaves
+|id=-472}}
+{{ID table
+|displayname=Cherry Leaves
+|spritetype=block
+|nameid=cherry_leaves
+|id=-548}}
+{{ID table
+|displayname=Azalea Leaves
+|spritetype=block
+|nameid=azalea_leaves
+|id=579}}
+{{ID table
+|displayname=Flowered Azalea Leaves
+|spritetype=block
+|nameid=azalea_leaves_flowered
+|id=580
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+{{/BS}}
+
+== History ==
+{{main|/History}}
+{{info needed section|weren't endermen able to pick up flowering azalea leaves at some point in Java Edition?}}
+{{History|java classic}}
+{{History||0.0.14a|[[File:Oak Leaves JE1.png|32px]] Added leaves.}}
+{{History||0.0.15a (Multiplayer Test 1)|[[File:Oak Leaves JE2.png|32px]] The [[texture]] of leaves has been changed.}}
+{{History||August 25, 2009|link=https://notch.tumblr.com/post/170887079/survival-mode-status-update-video-with-plenty-of|Demonstrated that leaves now drop [[sapling]]s.}}
+{{History||0.24_SURVIVAL_TEST|Leaves now drop saplings.}}
+{{History|java indev}}
+{{History||0.31|snap=20091223-2|Leaves now produce shadows.}}
+{{History||20100218|Leaves now decay.}}
+{{History|java infdev}}
+{{History||20100227-1|Leaves no longer decay.}}
+{{History||20100325|Leaves now decay again.}}
+{{History||20100413|Leaves no longer decay due to the addition of big trees.}}
+{{History||20100615|Leaves now decay again.}}
+{{History||20100616-1|[[File:Oak Leaves (fast) JE1.png|32px]] Leaves now use an opaque texture when the [[graphics setting]] is set to "Fast".}}
+{{History|java alpha}}
+{{History||v1.0.6|Leaves no longer decay.
+|Leaves now have a {{frac|1|20}} chance of dropping a sapling instead of {{frac|1|10}}.}}
+{{History||v1.0.6_01|Leaves now decay again when not connected to the ground or to a tree trunk.}}
+{{History||v1.1.0|[[Torch]]es can no longer be placed on tree leaves, but only in fast mode.{{info needed|What does this mean, exactly? Were torches placeable on leaves in fast graphics prior to this version, but no longer are? Or were they placeable regardless of graphics settings, but now can only be placed on leaves in Fast?}}}}
+{{History||v1.2.0|snap=preview|[[File:Oak Leaves JE3 BE4.png|32px]] [[File:Oak Leaves (fast) JE2 BE4.png|32px]] With the addition of [[biome]]s, the color of leaves have been changed.
+|Leaves no longer decay.}}
+{{History||v1.2.1|Leaf breaking particle colors now reflect the biome, instead of the grayscale texture.}}
+{{History||v1.2.3|Leaf decay has been re-introduced.}}
+{{History||v1.2.3_01|Leaf decay is now disabled, due to an infinite loop in the code.}}
+{{History|java beta}}
+{{History||1.0|Leaf decay has been re-introduced with the new behavior.}}
+{{History||1.1|Leaf decay has been rewritten, once again.}}
+{{History||1.2|[[File:Spruce Leaves JE1 BE2.png|32px]] [[File:Birch Leaves JE1 BE2.png|32px]] [[File:Spruce Leaves (fast) JE1 BE2.png|32px]] [[File:Birch Leaves (fast) JE1 BE2.png|32px]] Added spruce and birch leaves, which are colored {{color|#619961}} and {{color|#80a755}} respectively, and do not vary across biomes.
+|Spruce and birch leaves that decay, or are destroyed, drop oak saplings.}}
+{{History||1.5|Spruce and birch leaves now drop their respective saplings.}}
+{{History||1.6|snap=Test Build 3|Many disparities between the properties of leaves in Fast and Fancy graphics have been fixed.{{info needed|which?}}}}
+{{History||1.7|Added [[shears]], which collect leaves. Before, leaves could be obtained only via [[inventory]] editing.
+|Leaves no longer appear gray (blank and uncolored, default texture before the application of biome coloration) in the inventory.}}
+{{History||1.8|snap=Pre-release|Leaves placed by the [[player]] or an [[enderman]] no longer decay like normal leaves do.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 4|The [[Silk Touch]] enchantment can now be used to collect leaves. Any dropped leaves will always be oak, regardless of the tree.{{verify|type=changelog|edition=java}}}}
+{{History|||snap=Beta 1.9 Prerelease 6|Silk Touch now preserves the data value of broken leaves rather than always dropping oak. This now includes non-species metadata, allowing for the collection of [[Invalid Data Value Leaves|invalid data value leaves]] as an item.}}
+{{History|||snap=?|Spruce and birch leaves are now available directly in the creative inventory.}}
+{{History||1.1|snap=11w48a|Oak leaves now have a {{frac|1|200}} chance of dropping an [[apple]].}}
+{{History||1.2.1|snap=12w03a|[[File:Jungle Leaves JE1 BE2.png|32px]] [[File:Jungle Leaves (fast) JE1 BE1.png|32px]] Added jungle leaves.
+|Oak leaves now generate in [[jungle bush]]es.}}
+{{History||1.3.1|snap=12w18a|Jungle leaves now have a small chance of dropping [[cocoa beans]].}}
+{{History|||snap=12w19a|Jungle leaves no longer drop cocoa beans.}}
+{{History|||snap=12w22a|Water now slowly drips through leaves during [[rain]].}}
+{{History||1.4.6|snap=12w49a|Leaves now always drop the correct data values when collected via Silk Touch, making invalid data value leaves unobtainable in survival from this point onwards.}}
+{{History||1.7.2|snap=13w43a|[[File:Oak Leaves JE3 BE4.png|32px]] [[File:Oak Leaves JE3 BE4.png|32px]] [[File:Oak Leaves (fast) JE2 BE4.png|32px]] [[File:Oak Leaves (fast) JE2 BE4.png|32px]] Added acacia and dark oak leaves, which use separate but identical textures to oak leaves.}}
+{{History||1.8|snap=14w25a|[[File:Oak Leaves JE3 BE4.png|32px]] Jungle leaves now use the texture of oak leaves.<ref name="MC-56887">{{Cite bug|MC|56887|Jungle leaves have oak leaves texture|date=June 18, 2014}}</ref> This is an issue with the model, as it points to the exact same texture file as oak leaves do, making the jungle leaves texture file unused in this version.
+|[[File:Oak Leaves (fast) JE3.png|32px]] [[File:Spruce Leaves (fast) JE2.png|32px]] [[File:Birch Leaves (fast) JE2.png|32px]] [[File:Oak Leaves (fast) JE3.png|32px]] [[File:Oak Leaves (fast) JE3.png|32px]] [[File:Oak Leaves (fast) JE3.png|32px]] Leaves now render differently with the "Fast" graphics setting.
+|Leaves no longer have distinct texture files for fast and fancy graphics.}}
+{{History|||snap=14w25b|[[File:Jungle Leaves JE1 BE2.png|32px]] Jungle leaves now use their own texture again.<ref name="MC-56887"/>
+|[[File:Oak Leaves (fast) JE4.png|32px]] [[File:Spruce Leaves (fast) JE3.png|32px]] [[File:Birch Leaves (fast) JE3.png|32px]] [[File:Jungle Leaves (fast) JE2.png|32px]] [[File:Oak Leaves (fast) JE4.png|32px]] [[File:Oak Leaves (fast) JE4.png|32px]] Leaves now render differently in the "Fast" graphics setting - all transparent regions are set to black instead.<ref>{{Cite bug|MC|56914|Fast Graphics leaves texture|date=June 18, 2014}}</ref>}}
+{{History||1.11|snap=16w39a|Leaves now generate in [[woodland mansion]]s.}}
+{{History||1.13|snap=18w22a|Naturally-generated leaves now survive at a distance of up to 6 blocks from [[log]]s, instead of 4.}}
+{{History||1.14|snap=18w43a|Leaves now have a small chance to drop [[stick]]s when decaying.
+|[[File:Oak Leaves JE4.png|32px]] [[File:Spruce Leaves JE2.png|32px]] [[File:Birch Leaves JE2.png|32px]] [[File:Jungle Leaves JE2.png|32px]] [[File:Acacia Leaves JE2.png|32px]] [[File:Dark Oak Leaves JE2.png|32px]] [[File:Oak Leaves (fast) JE5.png|32px]] [[File:Spruce Leaves (fast) JE4.png|32px]] [[File:Birch Leaves (fast) JE4.png|32px]] [[File:Jungle Leaves (fast) JE3.png|32px]] [[File:Acacia Leaves (fast) JE1.png|32px]] [[File:Dark Oak Leaves (fast) JE1.png|32px]] The textures of all leaves have changed. This also results in birch, acacia and dark oak leaves having visually distinct textures from oak leaves.}}
+{{History|||snap=18w48a|Oak leaves now generate at some meeting points in plains [[village]]s.}}
+{{History|||snap=19w03a|Placing leaves into the brand-new [[composter]] has a 10% chance of raising the compost level by 1.}}
+{{History|||snap=19w05a|Leaves now have a 30% chance of increasing the compost level in a composter by 1.}}
+{{History||1.16|snap=20w15a|[[Hoe]]s can now break leaves quickly.}}
+{{History||October 3, 2020|link={{ytl|DWZIfsaIgtE|t=1781}}|[[File:Azalea Leaves JE1.png|32px]] [[File:Flowering Azalea Leaves JE1.png|32px]] Azalea and flowering azalea leaves are shown as part of [[lush caves]] at [[Minecraft Live 2020]].}}
+{{History||1.17|snap=21w05a|[[File:Azalea Leaves JE1.png|32px]] [[File:Flowering Azalea Leaves JE1.png|32px]] [[File:Azalea Leaves (fast).png|32px]] [[File:Flowering Azalea Leaves (fast).png|32px]] Added azalea and flowering azalea leaves.}}
+{{History|||snap=21w10a|Both types of azalea leaves now generate as part of azalea trees above a lush cave biome.}}
+{{History|||snap=21w13a|[[Bee]]s now see flowering azalea leaves as a pollen source.}}
+{{History||October 16, 2021|link={{ytl|https://youtu.be/w6zLprHHZOk}}|[[File:Mangrove Leaves JE1.png|32px]] Mangrove leaves were shown at [[Minecraft Live 2021]].}}
+{{History||1.19|snap=22w11a|[[File:Mangrove Leaves JE1.png|32px]] [[File:Mangrove Leaves (fast) JE1.png|32px]] Added mangrove leaves.}}
+{{History|||snap=22w12a|Leaves are now [[waterlogging|waterloggable]].
+|Mangrove leaves are now compostable.<ref>{{Cite bug|MC|249303|Mangrove leaves cannot be composted|date=March 20, 2022}}</ref>
+|Hoes can now mine mangrove leaves faster.<ref>{{Cite bug|MC|249270|Mangrove leaves do not have a hoe as their preferred tool|date=March 19, 2022}}</ref>}}
+{{History|||snap=22w13a|Mangrove leaves now can drop sticks when broken.}}
+{{History|||snap=22w14a|Due to the addition of the [[mangrove tree]] and [[mangrove swamp]], make mangrove leaves obtainable and renewable.}}
+{{History|||snap=22w15a|[[File:Mangrove Leaves JE2.png|32px]] [[File:Mangrove Leaves (fast) JE2.png|32px]] The texture of mangrove leaves has changed.
+|Mangrove leaves now drop when broken with [[Silk Touch]].<ref>{{bug|MC-249938}}</ref>}}
+{{History||1.20<br>(Experimental)|link=1.19.4|snap=23w07a|[[File:Cherry Leaves JE1.png|32px]] [[File:Cherry Leaves (fast) JE1.png|32px]] Added cherry leaves behind the [[Java Edition 1.20|Update 1.20 experimental datapack]].}}
+{{History|||snap=1.19.4 Pre-release 1|[[Bee]]s now see cherry leaves as flowers.}}
+{{History|||snap=1.19.4 Pre-release 4|[[File:Cherry Leaves JE2.png|32px]] [[File:Cherry Leaves (fast) JE2.png|32px]] Updated the texture of cherry leaves.}}
+{{History||1.20|snap=23w12a|Cherry leaves are now available without using the "Update 1.20" experimental datapack.}}
+
+{{History|pocket alpha}}
+{{History||Pre-release|[[File:Oak Leaves BE1.png|32px]] [[File:Spruce Leaves BE1.png|32px]] [[File:Oak Leaves BE1.png|32px]] Added oak, spruce, and birch leaves, all of which are tinted with {{color|#339933}}.}}
+{{History||v0.1.0|[[File:Oak Leaves (fast) BE1.png|32px]] [[File:Spruce Leaves (fast) BE1.png|32px]] [[File:Oak Leaves (fast) BE1.png|32px]] Added opaque item models for the block and item form of leaves when the graphics setting is ''not'' set to "Fancy".
+|[[File:Oak Leaves (item) BE1.png|32px]] [[File:Oak Leaves (item fast) BE1.png|32px]] Added an item model for oak leaves tinted with {{color|#59a53f}} and an inventory icon.
+|[[File:Spruce Leaves (item) BE1.png|32px]] [[File:Oak Leaves (item) BE1.png|32px]] [[File:Spruce Leaves (item fast) BE1.png|32px]] [[File:Oak Leaves (item fast) BE1.png|32px]] Oak Leaves in item form with damage value 1 and 2 use models of spruce and birch leaves, however still place oak leaves.}}
+{{History||v0.2.1|[[File:Placeholder Block JE1 BE1.png|32px]] [[File:Placeholder Block JE1 BE1.png|32px]] The item model use separate but identical magenta textures when "Fancy Graphics" are enabled/disabled and no longer tinted.
+|Oak leaves in item form with damage value 1 and 2 no longer use models of spruce and birch leaves.}}
+{{History||v0.2.1 alpha2|link=Pocket Edition v0.2.1 alpha2|[[File:Oak Leaves BE2.png|32px]] [[File:Oak Leaves BE2.png|32px]] [[File:Oak Leaves (fast) BE2.png|32px]] [[File:Oak Leaves (fast) BE2.png|32px]] The textures of oak and birch leaves have been changed.
+|[[File:Oak Leaves JE2.png|32px]] [[File:Oak Leaves (fast) JE1.png|32px]] The textures were taken from {{Editions|je}} [[Alpha v1.1.2_01]] and earlier.
+|[[File:Oak Leaves (item) BE2.png|32px]] [[File:Oak Leaves (item fast) BE2.png|32px]] The textures of oak leaves in item form have been changed to pre-tinted leaves.}}
+{{History||v0.3.0|Oak leaves now drop their item form when broken with shears.
+|Survival players no longer start out with an infinite amount of oak leaves in the inventory.
+|Breaking spruce or birch leaves with shears would drop strange leaves items that had a durability bar, and would stack to 1, sometimes appearing as infinity. Spruce leaves used the crafting table side texture on all sides on some devices.<ref>https://youtu.be/QEgyn70YzRk</ref>}}
+{{History||v0.3.2|[[File:Oak Leaves BE3.png|32px]] [[File:Spruce Leaves JE1 BE2.png|32px]] [[File:Birch Leaves BE1.png|32px]] [[File:Oak Leaves (fast) BE3.png|32px]] [[File:Spruce Leaves (fast) JE1 BE2.png|32px]] [[File:Birch Leaves (fast) BE1.png|32px]] The tints of oak, spruce, and birch leaves, have been changed to {{color|#48b518}}, {{color|#619961}}, and {{color|#80a755}}.
+|[[File:Oak Leaves (item) BE2.png|32px]] [[File:Oak Leaves (item) BE2.png|32px]] [[File:Oak Leaves (item fast) BE2.png|32px]] [[File:Oak Leaves (item fast) BE2.png|32px]] Added item form for birch and spruce leaves. They uses oak leaves in item form model.
+|Spruce and birch leaves no longer dropped glitched items when broken by shears.
+|The item form for spruce leaves would sometimes use the crafting table texture on all sides when dropped as an item or held in the player's hand.
+|Leaves now have a small chance to drop their respective sapling type when broken.}}
+{{History||v0.4.0|[[File:Spruce Leaves (item) BE2.png|32px]] [[File:Spruce Leaves (item fast) BE2.png|32px]] Spruce leaves in item form now have separate pre-tinted textures.
+|The item form for spruce leaves would no longer sometimes use the crafting table texture on all sides when dropped as an item or held in the player's hand.
+|Oak leaves now have a small chance to drop an apple when broken.}}
+{{History||v0.8.0|snap=build 1|[[File:Jungle Leaves BE1.png|32px]] [[File:Jungle Leaves (fast) JE1 BE1.png|32px]] Added jungle leaves to the [[creative inventory]]. If fancy graphics is enabled, the jungle leaves texture incorrectly uses a tinted still [[water]] texture for the top row of pixels. This texture is affected by the "Animated water" setting.
+|[[File:Oak Leaves JE3 BE4.png|32px]] [[File:Birch Leaves JE1 BE2.png|32px]] [[File:Oak Leaves (fast) JE2 BE4.png|32px]] [[File:Birch Leaves (fast) JE1 BE2.png|32px]] The textures of oak and birch leaves have been changed.}}
+{{History|||snap=build 5|[[File:Jungle Leaves JE1 BE2.png|32px]] The texture of jungle leaves with fancy graphics has been corrected.}}
+{{History||v0.9.0|snap=build 1|[[File:Oak Leaves BE4.png|32px]] [[File:Oak Leaves BE4.png|32px]] Added acacia and dark oak leaves. They use separate but identical textures to oak leaves.
+|[[File:Oak Leaves BE4.png|32px]] [[File:Spruce Leaves BE2.png|32px]] [[File:Birch Leaves BE3.png|32px]] [[File:Jungle Leaves BE3.png|32px]] The models of leaves have been changed. Jungle leaves are now permanently [[opaque]].
+|Jungle leaves can now be obtained in [[survival]] mode as part of jungle trees.
+|Leaves now release [[spider]]s, creating a higher amount of spiders in [[tree]]-rich [[biome]]s at [[night]] (version exclusive).}}
+{{History||v0.12.1|snap=build 1|[[File:Snowy Oak Leaves BE1.png|32px]] [[File:Snowy Spruce Leaves BE1.png|32px]] [[File:Snowy Birch Leaves BE1.png|32px]] [[File:Snowy Acacia Leaves BE1.png|32px]] [[File:Snowy Dark Oak Leaves BE1.png|32px]] Leaves in [[Biome#Snowy biomes|snowy biomes]] now gradually become frost-covered during [[snowfall]]. Jungle leaves don't have a snowy texture.}}
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Leaves now generate in [[woodland mansion]]s.}}
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.22|[[File:Jungle Leaves BE4.png|32px]] [[File:Snowy Jungle Leaves BE1.png|32px]] Jungle leaves are now transparent on higher-end devices when Fancy leaves are turned on. Jungle leaves now have a snowy texture.}}
+{{History||1.10.0|snap=beta 1.10.0.3|Leaves now have a small chance to drop [[stick]]s when decaying.
+|[[File:Oak Leaves BE5.png|32px]] [[File:Spruce Leaves BE3.png|32px]] [[File:Birch Leaves BE4.png|32px]] [[File:Jungle Leaves BE5.png|32px]] [[File:Acacia Leaves BE2.png|32px]] [[File:Dark Oak Leaves BE2.png|32px]] [[File:Snowy Oak Leaves BE2.png|32px]] [[File:Snowy Spruce Leaves BE2.png|32px]] [[File:Snowy Birch Leaves BE2.png|32px]] [[File:Snowy Jungle Leaves BE2.png|32px]] [[File:Snowy Acacia Leaves BE2.png|32px]] [[File:Snowy Dark Oak Leaves BE2.png|32px]] The textures of all leaves have been changed.}}
+{{History||1.11.0|snap=beta 1.11.0.1|Leaves can now be used to fill up [[composter]]s.}}
+{{History||Caves & Cliffs (experimental)|link=Bedrock Edition 1.17.0|snap=beta 1.16.220.52|[[File:Azalea Leaves BE1.png|32px]] [[File:Flowering Azalea Leaves BE1.png|32px]] [[File:Azalea Leaves (fast) BE1.png|32px]] [[File:Flowering Azalea Leaves (fast) BE1.png|32px]] Added azalea and flowering azalea leaves.}}
+{{History|||snap=beta 1.16.230.50|[[Bee]]s now interact with flowering azalea leaves as they do with regular [[flower]]s.}}
+{{History|||snap=beta 1.17.0.50|Azalea Leaves and Flowering Azalea Leaves now have a chance to drop [[azalea]] or [[flowering azalea]] when broken.}}
+{{History||1.17.0|snap=beta 1.17.0.52|Azalea Leaves now have correct color on maps.
+|Azalea Leaves and Flowering Azalea Leaves are no longer only available in [[experimental gameplay]].}}
+{{History||1.17.10|snap=beta 1.17.10.20|Spruce and birch leaves are affected by biome tinting if the Caves & Cliffs experimental gameplay toggle is enabled.<ref>{{Cite bug|MCPE|128996|Birch and spruce leaves color change depending on the biome|date=May 27, 2021}}</ref>}}
+{{History||1.17.30|snap=beta 1.17.20.20|Spruce and birch leaves are no longer affected by biome tinting.}}
+{{History||1.19.0|snap=beta 1.19.0.20|[[File:Mangrove Leaves BE1.png|32px]] [[File:Mangrove Leaves (fast) BE1.png|32px]] Added mangrove leaves.}}
+{{History||1.19.20|snap=beta 1.19.20.20|Azalea leaves and flowering azalea leaves can now be destroyed by [[ravagers]].}}
+{{History||Next Major Update<br>(Experimental)|link=Bedrock Edition 1.19.80|snap=beta 1.19.80.20|[[File:Cherry Leaves BE1.png|32px]] [[File:Cherry Leaves (fast) BE1.png|32px]] Added cherry leaves behind the "[[Bedrock Edition 1.20.0|Next Major Update]]" [[experimental]] toggle.}}
+{{History|||snap=beta 1.19.80.21|[[File:Cherry Leaves BE2.png|32px]] [[File:Cherry Leaves (fast) BE2.png|32px]] Updated the texture of cherry leaves.}}
+{{History||1.20.0|snap=beta 1.20.0.21|Cherry leaves are now available without using the "Next Major Update" experimental toggle.}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Oak Leaves JE3 BE1.png|32px]] [[File:Spruce Leaves JE1 BE1.png|32px]] [[File:Birch Leaves JE1 BE2.png|32px]] Added leaves.}}
+{{History||xbox=TU5|Leaf [[block]]s placed by the [[player]] no longer decay like normal leaves do.}}
+{{History||xbox=TU12|[[File:Jungle Leaves JE1 BE2.png|32px]] Added jungle leaves.}}
+{{History||xbox=TU14|ps=1.04|[[Water]] drip [[particles]] appear underneath leaves if it's [[rain]]ing.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|[[File:Oak Leaves JE3 BE4.png|32px]] [[File:Oak Leaves JE3 BE4.png|32px]] Added acacia and dark oak leaves.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|Leaves now have a small chance to drop [[stick]]s when decaying.
+|[[File:Oak Leaves JE4.png|32px]] [[File:Spruce Leaves JE2.png|32px]] [[File:Birch Leaves JE2.png|32px]] [[File:Jungle Leaves JE2.png|32px]] [[File:Acacia Leaves JE2.png|32px]] [[File:Dark Oak Leaves JE2.png|32px]] The textures of all leaves have been changed.}}
+
+{{History|New3DS}}
+{{History||0.1.0|[[File:Oak Leaves BE4.png|32px]] [[File:Spruce Leaves BE2.png|32px]] [[File:Birch Leaves BE3.png|32px]] [[File:Jungle Leaves BE3.png|32px]] [[File:Oak Leaves BE4.png|32px]] [[File:Oak Leaves BE4.png|32px]] Added leaves.}}
+{{History|foot}}
+
+<gallery>
+Jungle Leaves LCE1.png|Old [[Legacy Console Edition]]'s jungle leaves. This texture was also shown in the old {{el|be}}'s [[inventory]] sprite.
+Jungle Leaves (fast) LCE1.png|Old Legacy Console Edition's jungle leaves (Fast graphics).
+Old Leaves.png|Old leaves texture.
+</gallery>
+
+=== Data history ===
+{{info needed section|
+* Leaf decay handling prior to Beta 1.2
+* {{bug|MC-213767}}}}
+{{History|java beta}}
+{{History||1.2|[[File:Leaves (data value 3, 7, 11, 15) JE1.png|32px]] [[File:Leaves (fast data value 3, 7, 11, 15) JE1.png|32px]] A fourth type of leaves with data value 3, 7, 11 and 15 also exists. It uses a texture of oak and birch leaves and colored {{color|#619961}}.
+|Leaves pre-dating this update include multiple types of leaves, as the data indicating leaf type was previously used for decay calculations.}}
+{{History|java}}
+{{History||1.2.1|snap=12w03a|Oak trees pre-dating Beta 1.2 can include some jungle leaves as the data indicating leaf type had previously been used for decay calculations.
+|Leaves with data value 3, 7, 11, 15 replaced with jungle leaves.}}
+{{History||1.8|snap=14w10a|''minecraft:leaves2'' blocks with [[Java Edition data values/Pre-flattening/Block IDs/Before 14w25a|numerical metadata variants]] 2-3, 6-7, 10-11 and 14-15, which are inaccessible through normal gameplay, now have [[Missing model|no model]] [[File:Missing Model JE2.png|32px]] rather than appearing identical to either acacia or dark oak leaves.{{verify|use a texture pack to check if the even unused values indeed do follow dark oak's texture rather than acacia's like was the case for logs|type=changelog|edition=java}}}}
+{{History|||snap=14w25a|Leaves are now defined via [[block states]] rather than by numerical metadata. Prior to this version, the numerical metadata variants of ''minecraft:leaves'' were as follows:
+{{dvt|spritetype=block|sprite=oak-leaves|[[Leaves|Oak Leaves]]}}
+{{dvt|spritetype=block|sprite=spruce-leaves|[[Leaves|Spruce Leaves]]}}
+{{dvt|spritetype=block|sprite=birch-leaves|[[Leaves|Birch Leaves]]}}
+{{dvt|spritetype=block|sprite=jungle-leaves|[[Leaves|Jungle Leaves]]}}
+{{dvt|spritetype=block|sprite=oak-leaves|[[Leaves|Oak Leaves]] (check decay)}}
+{{dvt|spritetype=block|sprite=spruce-leaves|[[Leaves|Spruce Leaves]] (check decay)}}
+{{dvt|spritetype=block|sprite=birch-leaves|[[Leaves|Birch Leaves]] (check decay)}}
+{{dvt|spritetype=block|sprite=jungle-leaves|[[Leaves|Jungle Leaves]] (check decay)}}
+{{dvt|spritetype=block|sprite=oak-leaves|[[Leaves|Oak Leaves]] (persistent)}}
+{{dvt|spritetype=block|sprite=spruce-leaves|[[Leaves|Spruce Leaves]] (persistent)}}
+{{dvt|spritetype=block|sprite=birch-leaves|[[Leaves|Birch Leaves]] (persistent)}}
+{{dvt|spritetype=block|sprite=jungle-leaves|[[Leaves|Jungle Leaves]] (persistent)}}
+{{dvt|spritetype=block|sprite=oak-leaves|[[Leaves|Oak Leaves]] (persistent, check decay)}}
+{{dvt|spritetype=block|sprite=spruce-leaves|[[Leaves|Spruce Leaves]] (persistent, check decay)}}
+{{dvt|spritetype=block|sprite=birch-leaves|[[Leaves|Birch Leaves]] (persistent, check decay)}}
+{{dvt|spritetype=block|sprite=jungle-leaves|[[Leaves|Jungle Leaves]] (persistent, check decay)|foot=1}}
+The data values for ''minecraft:leaves2'' were as follows:
+{{dvt|spritetype=block|sprite=acacia-leaves|[[Leaves|Acacia Leaves]]}}
+{{dvt|spritetype=block|sprite=dark-oak-leaves|[[Leaves|Dark Oak Leaves]]}}
+{{dvt|sprite=missing-texture-block|dv=2-3|[[Java Edition removed blocks/Metadata variants#Boring variants|Inaccessible "boring" leaves blocks]]}}
+{{dvt|spritetype=block|sprite=acacia-leaves|dv=4|[[Leaves|Acacia Leaves]] (check decay)}}
+{{dvt|spritetype=block|sprite=dark-oak-leaves|[[Leaves|Dark Oak Leaves]] (check decay)}}
+{{dvt|sprite=missing-texture-block|dv=6-7|[[Java Edition removed blocks/Metadata variants#Boring variants|Inaccessible "boring" leaves blocks]]}}
+{{dvt|spritetype=block|sprite=acacia-leaves|dv=8|[[Leaves|Acacia Leaves]] (persistent)}}
+{{dvt|spritetype=block|sprite=dark-oak-leaves|[[Leaves|Dark Oak Leaves]] (persistent)}}
+{{dvt|sprite=missing-texture-block|dv=10-11|[[Java Edition removed blocks/Metadata variants#Boring variants|Inaccessible "boring" leaves blocks]]}}
+{{dvt|spritetype=block|sprite=acacia-leaves|dv=12|[[Leaves|Acacia Leaves]] (persistent, check decay)}}
+{{dvt|spritetype=block|sprite=dark-oak-leaves|[[Leaves|Dark Oak Leaves]] (persistent, check decay)}}
+{{dvt|sprite=missing-texture-block|dv=14-15|[[Java Edition removed blocks/Metadata variants#Boring variants|Inaccessible "boring" leaves blocks]]|foot=1}}}}
+{{History|||snap=14w26a|''minecraft:leaves2'' blocks with metadata values 2-3, 6-7, 10-11 and 14-15 have been completely removed from the game.}}
+{{History||1.13|snap=17w47a|The different variant block states for both the <code>leaves</code> and <code>leaves2</code> IDs have been split up into their own IDs.
+|Prior to [[Java Edition 1.13/Flattening|''The Flattening'']], these blocks' numeral IDs were 18 and 161.}}
+{{History|foot}}
+
+== Issues ==
+{{Issue list}}
+
+== Trivia ==
+* Occasionally, leaves grow through other blocks, acting as though they are still connected to the tree. They may also completely replace blocks they try to grow into.
+* Leaves do not prevent [[chest]]s from being opened.
+* Some trees seem to occasionally drop apples or saplings without being destroyed due to creation of leaf blocks not supported by logs.
+* The frost texture {{in|be}} is not an instant transition. Instead, the leaves slowly shift from their original color to the frosty one.
+== Gallery ==
+<gallery>
+Tree with mushroom on its leaves.png|A red [[mushroom]] is seen growing on the top of leaves.
+</gallery>
+
+{{info needed section|Missing images for Cold Swamp Leaves, Dark Oak Ocean Leaves, Dark Oak Sparse Jungle Leaves, and possibly Dark Forest Leaves variants for all 4 types of leaves listed below.}}
+
+==== Oak Leaves Renders ====
+<gallery>
+File:Oak Leaves.png | Leaves
+File:Windswept Savanna Oak Leaves.png | Windswept Savanna
+File:Mushroom Fields Oak Leaves.png | Mushroom Fields
+File:Jungle Oak Leaves.png | Jungle
+File:Sparse Jungle Oak Leaves.png | Sparse Jungle
+File:Stony Peaks Oak Leaves.png | Stony Peaks
+File:Forest Oak Leaves.png | Forest
+File:Birch Forest Oak Leaves.png | Birch Forest
+File:Plains Oak Leaves.png | Plains
+File:Cherry Grove Oak Leaves.png | Cherry Grove
+File:Lush Caves Oak Leaves.png | Lush Caves
+File:Desert Oak Leaves.png | Desert
+File:Ocean Oak Leaves.png | Ocean
+File:Meadow Oak Leaves.png | Meadow
+File:Dripstone Caves Oak Leaves.png | Dripstone Caves
+File:Snowy Beach Oak Leaves.png | Snowy Beach
+File:Snowy Plains Oak Leaves.png | Snowy Plains
+File:Taiga Oak Leaves.png | Taiga
+File:Old Growth Pine Taiga Oak Leaves.png | Old Growth Pine Taiga
+File:Windswept Hills Oak Leaves.png | Windswept Hills
+File:Badlands Oak Leaves.png | Badlands
+File:Swamp Oak Leaves.png | Swamp
+File:Swamp Oak Leaves (Cold).png | Swamp (Cold)
+</gallery>
+==== Jungle Leaves Rendering ====
+<gallery>
+File:Jungle Leaves.png | Leaves
+File:Windswept Savanna Jungle Leaves.png | Windswept Savanna
+File:Mushroom Fields Jungle Leaves.png | Mushroom Fields
+File:Jungle Jungle Leaves.png | Jungle
+File:Sparse Jungle Jungle Leaves.png | Sparse Jungle
+File:Stony Peaks Jungle Leaves.png | Stony Peaks
+File:Forest Jungle Leaves.png | Forest
+File:Birch Forest Jungle Leaves.png | Birch Forest
+File:Plains Jungle Leaves.png | Plains
+File:Cherry Grove Jungle Leaves.png | Cherry Grove
+File:Lush Caves Jungle Leaves.png | Lush Caves
+File:Desert Jungle Leaves.png | Desert
+File:Ocean Jungle Leaves.png | Ocean
+File:Meadow Jungle Leaves.png | Meadow
+File:Dripstone Caves Jungle Leaves.png | Dripstone Caves
+File:Snowy Beach Jungle Leaves.png | Snowy Beach
+File:Snowy Plains Jungle Leaves.png | Snowy Plains
+File:Taiga Jungle Leaves.png | Taiga
+File:Old Growth Pine Taiga Jungle Leaves.png | Old Growth Pine Taiga
+File:Windswept Hills Jungle Leaves.png | Windswept Hills
+File:Badlands Jungle Leaves.png | Badlands
+File:Swamp Jungle Leaves.png | Swamp
+File:Swamp Jungle Leaves (Cold).png | Swamp (Cold)
+</gallery>
+==== Acacia Leaves Rendering ====
+<gallery>
+File:Acacia Leaves.png | Leaves
+File:Windswept Savanna Acacia Leaves.png | Windswept Savanna
+File:Mushroom Fields Acacia Leaves.png | Mushroom Fields
+File:Jungle Acacia Leaves.png | Jungle
+File:Sparse Jungle Acacia Leaves.png | Sparse Jungle
+File:Stony Peaks Acacia Leaves.png | Stony Peaks
+File:Forest Acacia Leaves.png | Forest
+File:Birch Forest Acacia Leaves.png | Birch Forest
+File:Plains Acacia Leaves.png | Plains
+File:Cherry Grove Acacia Leaves.png | Cherry Grove
+File:Lush Caves Acacia Leaves.png | Lush Caves
+File:Desert Acacia Leaves.png | Desert
+File:Ocean Acacia Leaves.png | Ocean
+File:Meadow Acacia Leaves.png | Meadow
+File:Dripstone Caves Acacia Leaves.png | Dripstone Caves
+File:Snowy Beach Acacia Leaves.png | Snowy Beach
+File:Snowy Plains Acacia Leaves.png | Snowy Plains
+File:Taiga Acacia Leaves.png | Taiga
+File:Old Growth Pine Taiga Acacia Leaves.png | Old Growth Pine Taiga
+File:Windswept Hills Acacia Leaves.png | Windswept Hills
+File:Badlands Acacia Leaves.png | Badlands
+File:Swamp Acacia Leaves.png | Swamp
+File:Swamp Acacia Leaves (Cold).png | Swamp (Cold)
+</gallery>
+==== Dark Oak Leaves Rendering ====
+<gallery>
+File:Dark Oak Leaves.png | Leaves
+File:Windswept Savanna Dark Oak Leaves.png | Windswept Savanna
+File:Mushroom Fields Dark Oak Leaves.png | Mushroom Fields
+File:Jungle Dark Oak Leaves.png | Jungle
+File:Sparse Jungle Dark Oak Leaves.png | Sparse Jungle
+File:Stony Peaks Dark Oak Leaves.png | Stony Peaks
+File:Forest Dark Oak Leaves.png | Forest
+File:Birch Forest Dark Oak Leaves.png | Birch Forest
+File:Plains Dark Oak Leaves.png | Plains
+File:Cherry Grove Dark Oak Leaves.png | Cherry Grove
+File:Lush Caves Dark Oak Leaves.png | Lush Caves
+File:Desert Dark Oak Leaves.png | Desert
+File:Ocean Dark Oak Leaves.png | Ocean
+File:Meadow Dark Oak Leaves.png | Meadow
+File:Dripstone Caves Dark Oak Leaves.png | Dripstone Caves
+File:Snowy Beach Dark Oak Leaves.png | Snowy Beach
+File:Snowy Plains Dark Oak Leaves.png | Snowy Plains
+File:Taiga Dark Oak Leaves.png | Taiga
+File:Old Growth Pine Taiga Dark Oak Leaves.png | Old Growth Pine Taiga
+File:Windswept Hills Dark Oak Leaves.png | Windswept Hills
+File:Badlands Dark Oak Leaves.png | Badlands
+File:Swamp Dark Oak Leaves.png | Swamp
+File:Swamp Dark Oak Leaves (Cold).png | Swamp (Cold)
+</gallery>
+
+=== Renders ===
+; {{el|JE}}
+<div class="collapsible collapsed collapsetoggle-inline"><div></div><div class="collapsible-content">
+<div style="clear: both"></div>
+<gallery>
+Oak Leaves.png | Oak Leaves
+Spruce Leaves.png | Spruce Leaves
+Birch Leaves.png | Birch Leaves
+Jungle Leaves.png | Jungle Leaves
+Acacia Leaves.png | Acacia Leaves
+Dark Oak Leaves.png | Dark Oak Leaves
+Mangrove Leaves.png | Mangrove Leaves
+Cherry Leaves.png | Cherry Leaves
+Azalea Leaves.png | Azalea Leaves
+Flowering Azalea Leaves.png | Flowering Azalea Leaves
+</gallery></div></div>
+
+; {{el|BE}}
+<div class="collapsible collapsed collapsetoggle-inline"><div></div><div class="collapsible-content">
+<div style="clear: both"></div>
+<gallery>
+Oak Leaves BE.png | Oak Leaves
+Spruce Leaves BE.png | Spruce Leaves
+Birch Leaves BE.png | Birch Leaves
+Jungle Leaves BE.png | Jungle Leaves
+Acacia Leaves BE.png | Acacia Leaves
+Dark Oak Leaves BE.png | Dark Oak Leaves
+Mangrove Leaves BE.png | Mangrove Leaves
+Cherry Leaves BE.png | Cherry Leaves
+Azalea Leaves BE.png | Azalea Leaves
+Flowering Azalea Leaves BE.png | Flowering Azalea Leaves
+</gallery></div></div>
+
+; [[Options#Video Settings|Graphics mode]] is set to "Fast" in {{JE}}
+<div class="collapsible collapsed collapsetoggle-inline"><div></div><div class="collapsible-content">
+<div style="clear: both"></div>
+<gallery>
+Oak Leaves (fast).png | Oak Leaves
+Spruce Leaves (fast).png | Spruce Leaves
+Birch Leaves (fast).png | Birch Leaves
+Jungle Leaves (fast).png | Jungle Leaves
+Acacia Leaves (fast).png | Acacia Leaves
+Dark Oak Leaves (fast).png | Dark Oak Leaves
+Mangrove Leaves (fast).png | Mangrove Leaves
+Cherry Leaves (fast).png | Cherry Leaves
+Azalea Leaves (fast).png | Azalea Leaves
+Flowering Azalea Leaves (fast).png | Flowering Azalea Leaves
+</gallery></div></div>
+
+; Graphics mode is set to "Fast" in {{BE}}
+<div class="collapsible collapsed collapsetoggle-inline"><div></div><div class="collapsible-content">
+<div style="clear: both"></div>
+<gallery>
+Oak Leaves (fast) BE.png | Oak Leaves
+Spruce Leaves (fast) BE.png | Spruce Leaves
+Birch Leaves (fast) BE.png | Birch Leaves
+Jungle Leaves (fast) BE.png | Jungle Leaves
+Acacia Leaves (fast) BE.png | Acacia Leaves
+Dark Oak Leaves (fast) BE.png | Dark Oak Leaves
+Mangrove Leaves (fast) BE.png | Mangrove Leaves
+Cherry Leaves (fast) BE.png | Cherry Leaves
+Azalea Leaves (fast) BE.png | Azalea Leaves
+Flowering Azalea Leaves (fast) BE.png | Flowering Azalea Leaves
+</gallery></div></div>
+
+; Snowy leaves
+<div class="collapsible collapsed collapsetoggle-inline"><div></div><div class="collapsible-content">
+<div style="clear: both"></div>
+<gallery>
+Snowy Oak Leaves.png | Oak Leaves
+Snowy Spruce Leaves.png | Spruce Leaves
+Snowy Birch Leaves.png | Birch Leaves
+Snowy Jungle Leaves.png | Jungle Leaves
+Snowy Acacia Leaves.png | Acacia Leaves
+Snowy Dark Oak Leaves.png | Dark Oak Leaves
+</gallery></div></div>
+
+== References ==
+{{Reflist}}
+
+== External Links ==
+*[https://www.minecraft.net/en-us/article/block-week-leaves Block of the Week: Leaves] – Minecraft.net on August 18, 2017
+
+{{Blocks|vegetation}}
+
+[[Category:Plants]]
+[[Category:Natural blocks]]
+[[Category:Generated structure blocks]]
+[[Category:Flammable blocks]]
+
+[[de:Laub]]
+[[es:Hojas]]
+[[fr:Feuilles]]
+[[it:Foglie]]
+[[ja:葉]]
+[[ko:잎]]
+[[nl:Bladeren]]
+[[pl:Liście]]
+[[pt:Folhas]]
+[[ru:Листва]]
+[[th:ใบไม้]]
+[[uk:Листя]]
+[[zh:树叶]]

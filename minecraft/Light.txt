@@ -1,0 +1,717 @@
+{{distinguish|Lightning}}
+{{about|the game mechanic|the block called "Light" {{in|java}} and "Light Block" {{in|bedrock}}|Light Block}}{{Update|reason=Changes were made to mob spawning requirements.}}[[File:lighting_preview.png|200px|right]]'''Light''' (or '''lighting''') in ''[[Minecraft]]'' affects visibility, [[mob]] spawning, and [[plant]] growth. There are three aspects of ''Minecraft''<nowiki/>'s lighting system: light level, internal light level, and rendered brightness.
+
+== Light level ==
+
+Light levels can be found on the [[debug screen]] {{in|java}}. Light may come from two sources: the sky and certain blocks. There are 16 light levels, specified by an integer from 0 (the minimum) through 15 (the maximum).
+
+=== Block light ===
+Block light comes from light-emitting blocks, and spreads using a [[wikipedia:flood fill|flood fill]] algorithm.
+
+The block light level decreases by one for each meter (block) of [[taxicab distance]] from the light source. This applies to each of the 3 coordinate axes. In other words, the light level decreases diagonally by the sum of the distances along each axis. For example:
+* If a torch with light level 14 is placed on the floor, the light level of the adjacent floor blocks in all four directions is 13, while the diagonal blocks in all four directions have a light level of 12 (14 minus 1 south, minus 1 east).
+* If a torch with light level 14 is placed on a wall one block above the floor, then the block on the floor that is one block southeast of and below the torch has a light level of 11 (14 - 1 <sup>(south)</sup> - 1 <sup>(east)</sup> - 1 <sup>(down)</sup>).
+
+{{IN|bedrock}}, [[#Light-filtering blocks|light-filtering blocks]] can reduce more than 1 level of block light.
+
+On a surface, this effect produces a diamond-shaped pattern of illumination around the light source.
+
+{{IN|java}}, when calculating lighting, the shapes of some blocks are detected: pistons, daylight detectors, enchanting tables, farmland, lecterns, stonecutters, dirt paths, snow, end portal frames, slabs and stairs, so that the light passing through them can spread only in specific directions. For example, dirt paths prevents the light from propagating downward, but the light can propagate in other directions.
+
+=== Sky light ===
+
+The sky light level for blocks exposed to broad daylight is 15. Sky light cast onto blocks can spread to darker areas using a flood fill algorithm. Sky light is not reduced at night; rather, the spawning of mobs is determined by [[#Internal light level|internal light values]].
+
+[[Opaque]] blocks can prevent the spread of sky light. By contrast, transparent blocks such as [[glass]] and [[iron bars]] have no effect on the sky light level. All light-filtering blocks, however, reduce the spread of sky light.
+
+When sky light of a level of 15 spreads down through a transparent block, the level remains unchanged. When it spreads horizontally or upward, it reduces 1 light level. However, when it spreads through a [[#Light-filtering blocks|light-filtering block]], it does not follow the above two rules and attenuates specific light levels. 
+
+Sky light with a level less than 15 spreads as block light - when it propagates to adjacent (including top and bottom, six blocks in total) blocks, it is attenuated until it is 0.
+
+{{IN|java}}, when calculating lighting, the shapes of some blocks are detected: piston, daylight detectors, enchanting table, farmland, lectern, stonecutter, grass path, snow, end portal frame, slabs, and stairs. They have directional opacity, so that the light passing through them can spread only in specific directions. For example, the grass path prevents the light from propagating downward, but the light can propagate in other directions.
+
+=== Light-filtering blocks ===
+{{IN|java}}, all of the following light-filtering blocks decrease sky light by 1 level (but do not affect block light).
+{| class="wikitable" data-description="Light-filtering blocks"
+|+Light-filtering blocks in ''[[Java Edition]]''
+!Icon
+!Block
+|-
+![[File:Water JE16-a1.png|25px]]
+|[[Water]]
+|-
+![[File:Waterlogged Oak Fence.png|25px]]
+|All transparent [[Waterlogging|waterlogged]] blocks
+|-
+![[File:Bubble Column.png|25px]]
+|[[Bubble Column]]
+|-
+![[File:Ice.png|25px]]
+|[[Ice]]
+|-
+![[File:Frosted Ice.png|25px]]
+|[[Frosted Ice]]
+|-
+![[File:Cobweb.png|25px]]
+|[[Cobweb]]
+|-
+![[File:Oak Leaves.png|25px]]
+|[[Leaves]]
+|-
+![[File:Slime Block.png|25px]]
+|[[Slime Block]]
+|-
+![[File:Honey Block.png|25px]]
+|[[Honey Block]]
+|-
+![[File:Monster Spawner.png|25px]]
+|[[Monster Spawner]]
+|-
+![[File:Lava.gif|25px]]
+|[[Lava]]
+|-
+![[File:Beacon.png|25px]]
+|[[Beacon]]
+|-
+![[File:End Gateway.png|25px]]
+|[[End Gateway (block)|End Gateway]]
+|-
+![[File:Chorus Plant.png|25px]]
+|[[Chorus Plant]]
+|-
+![[File:Chorus Flower.png|25px]]
+|[[Chorus Flower]]
+|-
+![[File:Shulker Box.png|25px]]
+|[[Shulker Box]]
+|}
+
+{{IN|bedrock}}, light-filtering blocks can reduce more levels of block or sky light. The following values are the amounts by which each block decreases the light level.
+{| class="wikitable" data-description="Light-filtering blocks"
+|+ Light-filtering blocks {{in|bedrock}}
+! Icon
+! Block
+! Amount of decrease
+|-
+! [[File:Beacon.png|25px]]
+| [[Beacon]]
+| 14
+|-
+! [[File:Anvil BE.png|25px]]
+| [[Anvil]]
+|rowspan="6"| 3
+|-
+! [[File:Hopper.png|25px]]
+| [[Hopper]]
+|-
+! [[File:Brewing Stand.png|25px]]
+| [[Brewing Stand]]
+|-
+! [[File:Cauldron.png|25px]]
+| [[Cauldron]]
+|-
+! [[File:Ice.png|25px]]
+| [[Ice]]
+|-
+! [[File:Frosted Ice.png|25px]]
+| [[Frosted Ice]]
+|-
+! [[File:Water BE.gif|25px]]
+| [[Water]]
+|2
+|-
+! [[File:Cobweb.png|25px]]
+| [[Cobweb]]
+|rowspan="4"| 1
+|-
+! [[File:Oak Leaves BE.png|25px]]
+| [[Leaves]]
+|-
+! [[File:Powder Snow.png|25px]]
+| [[Powder Snow]]
+|-
+! [[File:Stone Slab.png|25px]]
+| [[Slab]]s (except double slabs)
+|}
+
+=== Light-emitting blocks ===
+{| style="float:left"
+|-
+|The following values are the brightness of the blocks themselves.
+|-
+|
+{| class="wikitable" data-description="Block brightness"
+! Light Level
+! Block
+|-
+| 15
+| {{BlockLink|Beacon}}, {{BlockLink|id=conduit-active|Conduit}}, {{BlockLink|End Gateway}}, {{BlockLink|End Portal}}, {{BlockLink|Fire}}, {{BlockSprite|Sea Pickle}} Four waterlogged [[Sea Pickle|Sea Pickles]], {{BlockLink|Froglight}}, {{BlockLink|Glowstone}}, {{BlockLink|Jack o'Lantern}}, {{BlockLink|Lantern}}, {{BlockLink|Lava}}, {{BlockLink|Lava Cauldron}}, {{BlockSprite|Campfire}} Lit [[Campfire]], {{BlockSprite|lit-redstone-lamp}} Lit [[Redstone Lamp]], {{BlockLink|id=respawn-anchor-side|Respawn Anchor}} fully charged, {{BlockLink|Sea Lantern}}, {{BlockLink|Shroomlight}}
+|-
+| 14
+| {{BlockLink|Colored Torches}}{{only|ee|be|short=1}}, {{BlockLink|id=lit-cave-vines|Cave Vines|Cave Vines}} with berries, {{BlockLink|End Rod}}, {{BlockLink|Torch}}, {{BlockLink|Underwater Torch}}{{only|ee|be|short=1}}
+|-
+| 13
+| {{BlockLink|id=lit-blast-furnace|Blast Furnace}} when lit, {{BlockLink|id=lit-furnace|Furnace}} when lit, {{BlockLink|id=lit-Smoker|Smoker}} when lit
+|-
+| 12
+| {{BlockSprite|Candle}} Four lit [[Candle]]s, {{BlockLink|Glowing Obsidian}}{{only|ee|be|short=1}}, {{BlockSprite|Sea Pickle}} Three waterlogged [[Sea Pickle]]s
+|-
+| 11
+| {{BlockLink|Nether Portal}}, {{BlockLink|id=respawn-anchor-side-3|Respawn Anchor}} {{frac|3|4}} charged
+|-
+| 10
+| {{BlockLink|Crying Obsidian}}, {{BlockSprite|Soul Campfire}} Lit [[Soul Campfire]], {{BlockLink|Soul Fire}}, {{BlockLink|Soul Lantern}}, {{BlockLink|Soul Torch}}
+|-
+| 9
+| {{BlockSprite|Candle}} Three lit [[Candle]]s, {{BlockSprite|Deepslate Redstone Ore}} Lit [[Deepslate Redstone Ore]], {{BlockSprite|Redstone Ore}} Lit [[Redstone Ore]], {{BlockSprite|Sea Pickle}} Two waterlogged [[Sea Pickle]]s
+|-
+| 7
+| {{BlockLink|Enchanting Table}}, {{BlockLink|Ender Chest}}, {{BlockLink|Glow Lichen}}, {{BlockSprite|Redstone Torch}} Lit [[Redstone Torch]], {{BlockLink|id=respawn-anchor-side-2|Respawn Anchor}} {{frac|1|2}} charged
+|-
+| 6
+| {{BlockSprite|Sea Pickle}} One waterlogged [[Sea Pickle]], {{BlockLink|Sculk Catalyst}}, {{BlockSprite|Candle}} Two lit [[Candle]]s
+|-
+| 5
+| {{BlockLink|Amethyst Cluster}}
+|-
+| 4
+| {{BlockLink|Large Amethyst Bud}}
+|-
+| 3
+| {{BlockLink|Magma Block}}, {{BlockSprite|Candle}} One lit [[Candle]], {{BlockLink|id=respawn-anchor-side-1|Respawn Anchor}} {{frac|1|4}} charged
+|-
+| 2
+| {{BlockLink|Medium Amethyst Bud}}
+|-
+| 1
+| {{BlockLink|Brewing Stand}}, {{BlockLink|Brown Mushroom}}, {{BlockLink|Dragon Egg}}, {{BlockLink|End Portal Frame}}, {{BlockLink|Sculk Sensor}}, {{BlockLink|Small Amethyst Bud}}
+|-
+| 0–15
+| {{BlockLink|id=light-15|Light Block}}
+|}
+|}
+
+[[File:LightEmittingBlocks.png|thumb|right|Comparison of the different light levels that [[block]]s emit.]]
+{{-}}
+
+==Internal light level==
+[[File:Internal light with time and skylight.gif|thumb|400px|Internal sky light versus time and sky light]]
+The '''internal light level''' is used for calculations within the game. The game uses the internal light level of one block to compute aspects of the game, which include mob [[spawn]]ing, plant growth, and [[Daylight Detector|daylight detector]] outputs.
+
+The game uses sky light, time, and weather to calculate an '''internal sky light''' value (also known as '''darkening sky light'''), then uses the maximum level of the block light and the internal sky light to calculate the internal light (formula: <code>(max(internal sky light,block light))</code>). This value is an integer with a maximum level of 15; it can also be negative.
+
+Here are the levels of '''internal sky light''' at a sky light of '''level 15''':
+{{-}}
+{| class="wikitable" style="text-align:center"
+! rowspan="2" |Internal sky light
+! colspan="2" |Clear
+! colspan="2" |Rain or Snowfall
+! colspan="2" | Thunder
+|-
+!Time '''↓'''!! Time '''↑'''
+!Time '''↓'''!!Time '''↑'''
+! Time '''↓''' !! Time '''↑'''
+|-
+|4
+| colspan="2" |13,670&ndash;(Midnight/18,000)-22,330
+(8,660 Gtk/7:13)
+| colspan="2" |13,670&ndash;(Midnight/18,000)-22,330
+(8,660 Gtk/7:13)
+| colspan="2" |13,670&ndash;(Midnight/18,000)-22,330
+(8,660 Gtk/7:13)
+|-
+|5
+|22,331&ndash;22,491
+(160 Gtk/8 sec)
+|13,509&ndash;13,669
+(160 Gtk/8 sec)
+|22,331&ndash;22,565
+()
+|13,436&ndash;13,669
+()
+|22,331&ndash;22,671
+()
+|13,330&ndash;13,669
+()
+|-
+|6
+|22,492&ndash;22,652
+(160 Gtk/8 sec)
+|13,348&ndash;13,508
+(160 Gtk/8 sec)
+|22,566&ndash;22,798
+()
+|13,203&ndash;13,435
+()
+|22,672&ndash;23,010
+()
+|12,990&ndash;13,329
+()
+|-
+|7
+|22,653&ndash;22,812{{only|short=1|java}}<br />22,653&ndash;22,813{{only|short=1|bedrock}}J: (159 Gtk/7.95 sec)
+
+B: (160 Gtk/8 sec)
+|13,188&ndash;13,347
+(159 Gtk/7.95 sec)
+|22,799&ndash;23,031
+()
+|12,969&ndash;13,202
+()
+|23,011&ndash;23,352
+()
+|12,648&ndash;12,989
+()
+|-
+|8
+|22,813{{only|short=1|java}}&ndash;22,973<br />22,814{{only|short=1|bedrock}}&ndash;22,973
+J: (160 Gtk/8 sec)
+
+B: (159 Gtk/7.95 sec)
+|13,027&ndash;13,187
+(160 Gtk/8 sec)
+|23,032&ndash;23,266
+()
+|12,734&ndash;12,968
+()
+|23,353&ndash;23,700
+()
+|12,300&ndash;12,647
+()
+|-
+|9
+|22,974&ndash;23,134
+(160 Gtk/8 sec)
+|12,867&ndash;13,026
+(159 Gtk/7.95 sec)
+|23,267&ndash;23,504
+()
+|12,497&ndash;12,733
+()
+|23,701-(Dawn/24,000/0)&ndash;59 
+(240 Gtk/12 sec)
+|11,941{{only|short=1|java}}&ndash;(Dusk/12,000)-12,299<br />11,942{{only|short=1|bedrock}}&ndash;(Dusk/12,000)-12,299
+J:(358 Gtk/17.9 sec)
+
+B:(357 Gtk/17.85 sec)
+|-
+|10
+|23,135&ndash;23,296
+(161 Gtk/8.05 sec)
+|12,705&ndash;12,866
+(161 Gtk/8.05 sec)
+|23,505&ndash;23,745
+()
+|12,256&ndash;12,496
+()
+| colspan="2" |60&ndash;(Noon/6,000)-11,940{{only|short=1|java}}<br />60&ndash;(Noon/6,000)-11,941{{only|short=1|bedrock}}J: (11,880 Gtk/9:54)
+
+B: (11,881 Gtk/9:54)
+|-
+|11
+|23,297&ndash;23,459
+(162 Gtk/8.1 sec)
+|12,542&ndash;12,704
+(162 Gtk/8.1 sec)
+|23,746&ndash;23,991
+()
+|12,010&ndash;12,255
+()
+| colspan="2" |N/A
+|-
+|12
+|23,460&ndash;23,623{{only|short=1|java}}<br />23,460&ndash;23,624{{only|short=1|bedrock}}J: (163 Gtk/8.15 sec)
+
+B: (164/8.2 sec)
+|12,377&ndash;12,541
+(164 Gtk/8.2 sec)
+| colspan="2" |23,992&ndash;(Dawn/24,000/0)(Noon/6,000)(Dusk/12,000)-12,009
+(12,017 Gtk/10:00.85)
+| colspan="2" |N/A
+|-
+|13
+|23,624{{only|short=1|java}}&ndash;23,790<br />23,625{{only|short=1|bedrock}}&ndash;23,790
+J: (166 Gtk/8.3 sec)
+
+B: (165 Gtk/8.25 sec)
+|12,210&ndash;12,376
+(166 Gtk/8.3 sec)
+| colspan="2" |N/A
+| colspan="2" |N/A
+|-
+| 14
+|23,791&ndash;23,960
+(169 Gtk/8.45 sec) 
+|12,041&ndash;12,209
+(168 Gtk/8.4 sec)
+| colspan="2" |N/A
+| colspan="2" |N/A
+|-
+| 15
+| colspan="2" |23,961&ndash;(Dawn/24,000/0)(Noon/6,000)(Dusk/12,000)-12,040
+| colspan="2" |N/A
+| colspan="2" |N/A
+|}
+
+To obtain an internal sky light for a sky light level ''s'' less than 15, take the internal level ''L'' at 15 and subtract from it the difference between 15 and ''s'': ''L''&minus;(15&minus;''s'').
+
+{| class="wikitable"
+!Icon
+!Time
+!Internal sky light when sky light is 15
+|-
+!{{EnvSprite|sun}}
+| noon, during clear weather
+|15
+|-
+! {{EnvSprite|rain}}<br>{{EnvSprite|snowfall}}
+|noon, during [[Rain]] or [[Snowfall]]
+|12
+|-
+!{{EnvSprite|thunderstorm}}
+|noon, during a [[Thunderstorm]]
+|10<ref group="storm">During thunderstorms, hostile mobs are allowed to spawn as if the internal sky light level were actually 5.</ref>
+|-
+!{{EnvSprite|moon}}
+|midnight, during clear weather
+|4
+|}
+
+{{notelist|storm}}
+
+===Effects of internal light===
+
+''Keep in mind that the internal light level is only one of the considerations that apply to mob [[spawn]]ing and plant growth.''
+
+====Mobs ====
+Mobs may ignore the light level they are supposed to spawn in after using {{cmd|fill}}.<ref>{{Cite bug|MC|156880|Mobs spawn where they should not be able to after using /fill|date=July 16, 2019}}</ref>
+{| class="wikitable" style="text-align:center;" data-description="Effects of various internal light-levels"
+|-
+!Light level >
+Mob v
+!0
+!1
+!2
+!3
+!4
+! 5
+!6
+! 7
+!8
+! 9
+!10
+!11
+!12
+!13
+!14
+!15
+|-
+!{{EntitySprite|bat}} [[Bat]]s
+| colspan="4" {{tc|no|Spawn at y: 0–62}}
+| colspan="4" {{tc|neutral|Spawn at y: 0–62 from October 20 to November 3}}{{only|short=1|java}}
+| colspan="8" {{tc|unknown|Do not spawn}}
+|-
+!{{EntitySprite|blaze}} [[Blaze]]s
+| colspan="12" {{tc|no|Spawn in [[Nether Fortress]]es}}
+| colspan="4" {{tc|unknown|Do not spawn}}
+|-
+!{{EntitySprite|wither-skeleton}} [[Wither Skeleton]]s
+| colspan="8" {{tc|no|Spawn in [[Nether Fortress]]es}}
+| colspan="8" {{tc|unknown|Do not spawn}}
+|-
+!{{EntitySprite|zombified-piglin}} [[Zombified Piglin]]s
+| colspan="12" {{tc|no|Spawn in [[the Nether]]}}
+| colspan="4" {{tc|unknown|Do not spawn}}
+|-
+! {{EntitySprite|slime}} [[Slime]]s ([[slime chunk]])
+| colspan="16" {{tc|no|Spawn in [[slime chunk]]s at y: -64–40}}
+|-
+! {{EntitySprite|slime}} [[Slime]]s ([[swamp]])
+| colspan="8" {{tc|no|Spawn in [[swamp]] biomes at y: 50–70}}
+| colspan="8" {{tc|unknown|Do not spawn}}
+|-
+!{{EntitySprite|zombie}} [[Zombie]]s<br>{{EntitySprite|skeleton}} [[Skeleton]]s<br>{{EntitySprite|chicken-jockey}} [[Chicken jockey]]s
+| colspan="1" {{tc|no|Spawn in the [[Overworld]]}}
+| colspan="7" {{tc|neutral|Skeletons spawn in the Nether}}
+| colspan="4" {{tc|unknown|Do not spawn}}
+| colspan="4" {{tc|yes|Do not spawn, burn in [[sunlight]]}}
+|-
+!{{EntitySprite|drowned}} [[Drowned]]
+| colspan="1" {{tc|no|Spawn in [[ocean]]s and [[river]]s}}
+| colspan="11" {{tc|unknown|Hostile, do not spawn}}
+| colspan="4" {{tc|yes|Burn in [[sunlight]], ignore player outside water when in sunlight}}
+|- 
+!{{EntitySprite|creeper}}[[Creeper]]s<br>{{EntitySprite|witch}} [[Witch]]es
+| colspan="1" {{tc|no|Spawn in the Overworld}}
+| colspan="15" {{tc|unknown|Do not spawn}}
+|-
+!{{EntitySprite|phantom}} [[Phantom]]s
+| colspan="8" {{tc|no|Spawn in the Overworld if player hasn't entered a [[bed]] in over 3 in-game days}}
+| colspan="4" {{tc|unknown|Do not spawn}}
+| colspan="4" {{tc|yes|Burn in [[sunlight]]}}
+|-
+!{{EntitySprite|spider}} [[Spider]]s<br>{{EntitySprite|cave-spider}} [[Cave spider]]s<br>{{EntitySprite|spider-jockey}} [[Spider jockey]]
+| colspan="1" {{tc|no|Spawn in the Overworld}}
+| colspan="11" {{tc|unknown|Hostile, do not spawn}}
+| colspan="4" {{tc|yes|Do not spawn, [[neutral]] unless provoked}}
+|-
+!{{EntitySprite|silverfish}} [[Silverfish]]
+| colspan="12" {{tc|no|Spawn from [[monster spawner]]s in the Overworld}}
+| colspan="4" {{tc|unknown|Hostile, do not spawn}}
+|-
+!{{EntitySprite|enderman}} [[Endermen]]
+| colspan="1" {{tc|no|Spawn in all three dimensions}}
+| colspan="7" {{tc|neutral|Spawn in [[the Nether]]}}
+| colspan="8" {{tc|yes|Do not spawn, teleport randomly in Overworld}}
+|}
+
+====Blocks====
+
+{| class="wikitable" style="text-align:center;" data-description="Effects of various internal light levels"
+|-
+! width="1%" |Block
+! width="4%" |Level 0–3
+! width="4%" | Level 4–7
+! width="1%" |Level 8
+! width="2%" |Level 9
+! width="2%" |Level 10
+! width="1%" |Level 11
+! width="1%" |Level 12
+! width="3%" |Level 13–15
+|-
+!{{BlockLink|Snow}}<ref group="note" name="melting">Sunlight does not affect snow or ice melting.</ref>
+| colspan="5" {{tc|yes|Forms}}
+| {{tc|unknown|Neither forms nor melts}}<ref group="note">{{Cite bug|MC|217420|Snow neither forms nor melts at block light level 11|date=March 1, 2021}}</ref>
+| colspan="2" {{tc|no|Melts}}
+|-
+!{{BlockLink|Ice}}<ref group="note"name="melting" />
+| colspan="4" {{tc|yes|Forms}}
+| {{tc|unknown|Neither forms nor melts}}<ref group="note">{{Cite bug|MC|217424|Ice neither forms nor melts at block light level 10|date=March 1, 2021}}</ref>
+| colspan="3" {{tc|no|Melts}}
+|-
+!{{BlockLink|Mushrooms}}
+| colspan="7" {{tc|yes|Spread}}
+| {{tc|no|Uproot unless on [[mycelium]], [[podzol]], or [[nylium]]}}
+|-
+!{{BlockLink|Saplings}}<br>{{BlockLink|Pumpkin Seeds|text=Pumpkin|id=pumpkin-stem}} or [[Melon Seeds|Melon]] stems<br>{{BlockLink|Bamboo}}<br><ref group="note">For growth, the relevant light level is that in the block above the plant. The growth of pumpkins or melons from a stem checks the light above the stem, not the block where the pumpkin or melon grows.</ref>
+| colspan="3" {{tc|unknown|Does not grow}}
+| colspan="5" {{tc|yes|Grows}}
+|-
+!{{BlockLink|Wheat|link=Wheat Seeds}}<br>{{BlockLink|Carrots}}<br>{{BlockLink|Potatoes}}<br>{{BlockLink|Beetroots|link=Beetroot Seeds}}<ref group="note">For growth, the relevant light level is that in the block above the plant. For uprooting, the relevant light level is the plant block itself.</ref>
+| colspan="2" {{tc|no|Uproot}}
+| colspan="1" {{tc|unknown|Does not grow}}
+| colspan="5" {{tc|yes|Grows}}
+|-
+!{{BlockLink|Grass Block}}<br>{{BlockLink|Mycelium}}<ref group="note" name="grass">The relevant light level is that in the air block above it.</ref>
+| {{tc|no|Becomes dirt if opaque block or partially transparent block on top}}
+| colspan="2" {{tc|unknown|Does not spread}}
+| colspan="5" {{tc|yes|Spreads to nearby dirt (see below)}}
+|-
+!{{BlockLink|Dirt}}<ref group="note" name="grass" />
+| {{tc|unknown|Does not accept spread}}
+| colspan="7" {{tc|yes|Accepts spread if there is no opaque or semi-transparent block on top}}
+|-
+!{{BlockLink|Frosted Ice}}
+| colspan="8" |''<sub>See [[Frosted Ice]] for details</sub>''
+
+|-
+!{{BlockLink|Daylight detector}}
+| colspan="8" |Output
+|}
+
+{{notelist}}
+
+== Rendered brightness==
+[[File:1.9 lighting curves (gamma=0).png|thumb|right|Examples of the internal lightmap texture (the game's brightness setting is at the default of 50). Horizontal axis is block light, vertical is sky light.]]
+
+The game uses the light level (instead of internal light level), time, and weather to compute the rendered brightness of a given block or an entity. Light is completely monochromatic and cannot be truly colored.
+
+As mentioned above, sky light is not reduced at night, instead, the brightness curve itself changes based on the time. Entities cast circular{{only|java}} or tridecagonal{{only|bedrock}} shadows; however, these are unrelated to the rendering of blocks.
+
+In general, lighting due to blocks results in a higher brightness, which is balanced by the fact that light due to blocks effectively starts at 14 (solid light source blocks emit a level of 15, but that applies to the light source block itself) while sky light brightness is 15 outdoors. Light due to blocks also tends toward orange in the middle ranges, while sky light in the [[Overworld]] daytime is white.
+
+In the [[Overworld]] with the "Moody" brightness setting, full daylight reaches 98% brightness,<ref name="luma" group="luma">Brightness here refers to [[wikipedia:Rec. 601|ITU-R BT.601]] luminance value (luma)</ref> while at night brightness is reduced to about 17%<ref name="luma" group="luma" /> and is shaded blue. Full darkness is about 5% brightness.<ref name="luma" group="luma" />
+
+In [[the Nether]], sky lighting doesn't play a role since there is no source of sky light (although if there were, it would reach about 99% brightness.<ref name="luma" group="luma" />) Full darkness with the "Moody" brightness setting is at about 25% brightness,<ref name="luma" group="luma" /> slightly darker than a block light level of 7 and no sky light in the Overworld, and is shaded orange like block light.
+
+In [[the End]], sky lighting wouldn't play a role even if there were a source of sky light; this can also be seen if [[lightning]] is summoned in the End (there is no flash of brightness like there is in other dimensions). Full darkness in the End with the "Moody" brightness setting is about 28% brightness,<ref name="luma" group="luma" /> and is shaded toward a bluish-green rather than the orange of the Nether and of block lighting.
+
+In [[Java Edition 20w14∞]], most unique dimensions have unique lighting system. However, most of the Easter egg dimensions do not have darkness at all. Instead, they are fully bright, but in an Easter egg dimension called <code>gallery</code> has the blue lighting nearly identical to the Overworld at night (only significantly brighter). Easter egg dimensions that resembles the Overworld with just world generation modifications (namely <code>busy</code>, <code>chess</code>, <code>decay</code>, <code>holes</code>, <code>pillars</code>, <code>rooms</code>, <code>slime</code>, and <code>zone</code>) have the same lighting as in the Overworld. <code>blacklight</code> has the inverted lighting system derived from the Overworld. <code>colors</code>, <code>red</code>, <code>green</code>, and <code>blue</code> dimensions resembles the Overworld with lighting mixed with dimensional [[tint]]ing, and <code>darkness</code> is blended with darkness at higher distances far away from the origin. Its darkness cannot be fixed with [[Night Vision]] effect.
+
+{| class="wikitable" style="text-align:center" data-description="Light spread schematic"
+|+Light level of daylight/biome
+|-
+!Light level ><br>Biome/time of day v
+!0
+!1
+!2
+!3
+!4
+!5
+!6
+! 7
+!8
+!9
+!10
+!11
+!12
+! 13
+!14
+!15
+|-
+!Overworld (day)
+| colspan="16" style="background-image: linear-gradient(to right, rgb(250,250,250), white)" |
+|-
+!Overworld (night, approximate)
+| colspan="16" style="background-image: linear-gradient(to right, rgb(42, 42, 71), rgb(81, 69, 87), rgb(120, 101, 107), rgb(181, 163, 149), white)" |
+|-
+![[Java Edition 20w14∞#World generation|Blacklight]] (day)
+| colspan="16" style="background-image: linear-gradient(to right, rgb(5, 5, 5), black)" |
+|-
+![[Java Edition 20w14∞#World generation|Blacklight]] (night, approximate)
+| colspan="16" style="background-image: linear-gradient(to right, rgb(213, 213, 184), rgb(174, 186, 168), rgb(135, 154, 148), rgb(74, 92, 106), black)" |
+|}
+
+{{notelist|luma}}
+{{-}}
+===Smooth lighting===
+
+[[File:SmoothAnimSmal.gif|frame|The difference between Smooth Lighting on and off.]]
+
+'''Smooth lighting''' is a lighting engine that blends light levels across block faces and darkens corners using [[Wikipedia:Ambient occlusion|ambient occlusion]] to add semi-realistic shadows and glowing from light sources. It affects only rendered brightness, not the light level, so it has no effect on mob spawning or crop growth. It is set on by default. [[Painting]]s, [[item frame]]s<ref>{{Cite bug|MC|1531|No smooth lighting on item frames and paintings|date=October 31, 2012}}</ref> and [[water]] surfaces<ref>{{Cite bug|MC|227302|Smooth lighting doesn't work properly on the water surface|date=June 3, 2021}}</ref> are unaffected.{{only|java}}
+
+Smooth lighting can be turned on or off in the video settings.
+{{-}}
+
+===Ambient occlusion in Minecraft===
+
+{{Cleanup|section=section}}
+
+In many newer games, ambient occlusion is mainly generated dynamically by the GPU.
+But ''Minecraft'' calculates ambient occlusion in the code based on voxel placement and brightness levels. 
+
+Ambient occlusion is responsible for adding shading to an ordinary texture. It is a layer of translucent textures, on top of the normal textures.
+Overlaying these AO textures onto a texture is called AO mapping.
+There are about five AO texture patterns used in ''Minecraft'''s smooth lighting, excluding flips and rotations, and only three patterns algorithmically. Strictly speaking, it's probably more than that. That's when the intensity changes with the brightness level. But they are solved by [[tint]].
+
+===AO texture pattern===
+
+{{Cleanup|section=section}}
+
+If AO mapping is selected only to the northwest of the voxel, the following pattern is possible.
+
+{| class="wikitable"
+!Number
+!Image
+|-
+| 0
+| style="background-color:#8af" |[[File:Aomap example (W).png|120px]] [[File:Aomap example (NW).png|120px]] [[File:Aomap example (N).png|120px]]
+|-
+|1
+| style="background-color:#8af" |[[File:Aomap example (nW).png|100px]] [[File:Aomap example (n-w).png|120px]] [[File:Aomap example (Nw).png|100px]]
+|-
+|2
+| style="background-color:#8af" |[[File:Aomap example (w).png|120px]] [[File:Aomap example (nw).png|80px]] [[File:Aomap example (n).png|120px]]
+|-
+|3
+| style="background-color:#8af" |[[File:Aomap example (none).png|120px]]
+|}
+
+These classifications allow one the ability to deduce a pattern from the placement of each voxel.
+The following function can then be used to compute the opacity of the voxels' vertices, depending on the presence of the side and corner voxels.
+
+ function vertexAO(side1, side2, corner) {
+   return 3 - (side1 + side2 + corner)
+ }
+
+This generates a 2x2 pixel image using the values of each vertex. The pixels are small, but when zoomed in using anti-aliasing, it gradates.
+
+[[File:Ao texture (x40).png]] [[File:Ao texture (x40 anti-aliasing).png]]
+
+==History==
+
+{{History|java pre-classic}}
+{{History||Cave game tech test|link=Cave game tech test|The lighting engine in [[Classic]] was simple, with only two light levels, bright and dark. "Sunlight" is emitted by the top edge of the map and hits any block that is under it, regardless of distance. It passes through transparent blocks to light blocks underneath. Blocks that do not receive light are in a dim shadow that remains at the same level of brightness no matter how far they are from a light source. {{Needs testing|How the light level 'dark' prior to Indev has the luminance value of?}} }}
+{{History|java classic}}
+{{History||May 26, 2009|link=wordofnotch:113224701|Notch discussed the feasibility of having dynamic lighting with limited range, allowing possibilities like defining blocks like lava to emit light.}}
+{{History|java indev}}
+{{History||0.31|snap=20091223-1|Added 10 degrees of brightness, with a maximum of 9 for full daylight and a minimum of 0 for almost complete darkness. Brightness is a linear scale and represents its value divided by 8; for example 8 is 100% ({{frac|8|8}}) and 7 is 87.5% ({{frac|7|8}})..}}
+{{History|||snap=20100109|There are now 16 degrees of brightness, with a maximum of 15 for full daylight and a minimum of 0 for almost complete darkness.
+|Sunlight now has a maximum light value of 15.}}
+{{History|||snap=20100204-2|Passive mobs now spawn only in higher light levels, and hostile mobs spawn only in the dark.}}
+{{History||20100212-1|Sunlight's light value steadily decreases from dusk, until it reaches a night-time minimum value of 4, representing moonlight.}}
+{{History|java alpha}}
+{{History||unknown|Lighting is no longer linear.
+|Each brightness value below 15 is 80% as bright as the one above it. For example, 14 is 80% as bright as 15, and 13 is 64% as bright as 15.
+|Sunlight now has its own light array and optimizations to make dawn and dusk smoother. During dusk, nighttime, and dawn, a "darkness" value is subtracted from the sky to create the effects of different times of day.}}
+{{History||v1.2.0|snap=preview|Added [[the Nether]], where light decreases by 10% each level, rather than the normal 20%. 
+|Hostile mobs could spawn in higher light levels at lower depths, using the formula 16 − (Layer / 8). At level 8 and below, mobs could spawn even in sunlight.}}
+{{History||v1.2.1|Notch reverted mob spawning to the original method, saying, "It was way too annoying. I have plans on what to do with this."}}
+{{History|java beta}}
+{{History||1.3|Smooth lighting engine added with the help of MrMessiah.<ref>https://web.archive.org/web/0/http://notch.tumblr.com/post/3446675806/minecraft-beta-1-3</ref>}}
+{{History||1.8|snap=Pre-release|Implemented a new lighting engine. The lighting on a block is given a tint based on the most prominent source of light.
+|Day/night cycles no longer require chunk updates and have a smooth transition.
+|Artificial light now gives a subtle "flicker."}}
+{{History|java}}
+{{History||1.4.2|snap=12w39a|Dinnerbone fixed black patches in world generation,<ref>{{tweet|Dinnerbone|250952827608915969|Remember that silly lighting bug where world would generate with big black patches? Well you may not remember it in the future; it's fixed.|September 26, 2012}}</ref> and began overhauling the lighting systems such as changing the lighting of blocks to allow for directional lighting.<ref>{{tweet|Dinnerbone|250904989885661184|It's such a small thing to look at, but this required unbelievable amounts of code changing :D|September 26, 2012}}</ref><ref>http://www.reddit.com/r/Minecraft/comments/10g4mi/dinnerbone_at_this_point_i_think_its_almost/</ref>}}
+{{History||1.5|snap=13w05a|Improved lighting interaction with stairs.}}
+{{History|||snap=13w06a|Several lighting optimizations.}}
+{{History|||snap=13w09a|Added three different levels of smooth lighting: Off, Minimum, and Maximum. Minimum uses the old Smooth Lighting, and Maximum fixes a bug with stairs.}}
+{{History||1.7.2|snap=13w36a|Black patches in world generation and structure generation were made a lot less common.<ref>{{tweet|jeb|362559336033165312|Finally! Much fewer "black spots" in the terrain generator, such a relief {{=}})|July 31, 2013}}</ref>}}
+{{History||1.8|snap=14w30a|The lighting engine was significantly improved, removing most black spots present in world generation.}}
+{{History||1.14|snap=18w43a|The lighting system has been rewritten.}}
+{{History|||snap=18w46a|Added support for directional opacity of [[block]]s.}}
+{{History||1.14.2|snap=pre4|All light is now re-calculated the first time a world saved in a previous version is opened.}}
+{{History||1.17|snap=21w13a|Added [[light block]]s, which helps the placement of light.}}
+{{History|||snap=Pre-release 2|Smooth lighting now works properly underwater.<ref>{{Cite bug|MC|68129|Smooth lighting doesn't work properly underwater|date=August 18, 2014}}</ref>}}
+{{History||1.19.3|snap=Release Candidate 1|The "Maximum" and "Minimum" settings for smooth lighting have been merged, since there is no difference between them.<ref>{{bug|MC-58668||Smooth Lighting Minimum and Maximum levels no longer differ|Fixed}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.7.0|Added toggleable smooth lighting.}}
+{{History||v0.8.0|snap=build 2|Removed the ability to toggle smooth lighting.}}
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Readded the Smooth Lighting toggle to Video options.}}
+{{History|foot}}
+
+==Issues==
+{{Issue list}}
+
+==Trivia==
+*In ''Minecraft's'' source code, the luminescences are defined using the floating point values in the third column. These floating point numbers are fractions of 16, but are multiplied by 15 to get the integer light value. This means that both 0/16 and 1/16 (0.0 and 0.0625) correspond to the integer light value 0.
+
+==Gallery==
+<gallery>
+Lighting-Moody.png|Lighting, the wool block is exposed to sunlight ("Moody" brightness setting).
+Lighting-Bright.png|Lighting, the wool block is exposed to sunlight ("Bright" brightness setting).
+Void_Lighting.png|Lighting in the Void. Particles and entities are illuminated based on the light level at level 0.
+Coral_reef_at_night.png|Light being emitted from sea pickles, a sea lantern, and to a lesser extent, magma blocks.
+Light_bug.png|Only the flowing water is lighted by a magma block.
+Notch_Light.png|A teaser from Notch showing the new lighting system for the [[Adventure Update]].
+Notch_Day_Lighting.jpg|Lighting during the day.
+Notch_Night_Lighting.png|Lighting during the night.
+Jeb Light.png|Bugged light from a torch.
+Dinnerbone Light.jpg|Bugged light creating stripes similar to the [[stripe lands]].
+Ulraf Light 1.jpg|Light underground.
+Ulraf Light 2.jpg|Light underground.
+</gallery>
+
+==References==
+{{reflist}}
+
+{{Environment}}
+{{Blocks}}
+
+[[Category:Mechanics]]
+
+[[de:Licht]]
+[[es:Luz]]
+[[fr:Éclairage]]
+[[it:Luce]]
+[[ja:明るさ]]
+[[ko:밝기]]
+[[nl:Licht]]
+[[pl:Światło]]
+[[pt:Iluminação]]
+[[ru:Свет]]
+[[uk:Світло]]
+[[zh:亮度]]

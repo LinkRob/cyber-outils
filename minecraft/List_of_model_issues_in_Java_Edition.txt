@@ -1,0 +1,962 @@
+This page aims to document some easily-fixable issues with Java Edition's default model files in as much detail as is needed. Screenshots of the problems with said models are included for comparison purposes, as to show the changes the fixes make.
+
+A resource pack containing all of these fixes may be linked here in the future. Copying the model files directly from this wiki page is not recommended, as they have been reformatted specially for viewing purposes.
+
+== Visual problems ==
+{{info needed section|Examples of other things to note:
+* Beacons missing cullface and unneeded inner face
+* Unneeded torch faces in repeaters/comparators
+* Torch shading in repeaters/comparators
+* Anvils not culling
+* Chorus flowers not culling
+* Floor bells UV and not culling
+* Sunflowers element size
+* Four turtle eggs not culling
+* Brewing stand arm brightness and not culling
+* Torches not culling, off redstone torch AO?
+* Doors AO
+* Fence gates culling
+* Dripleaf plane mapping
+* Spore blossom plane mapping
+* Extra face in candle cakes
+* Small dripleaf stem size
+* Tripwire hook asymmetry where the stick connects to the ring
+* If not fixed by the full release of 1.20: calibrated sculk sensor amethyst size
+* If not fixed by the full release of 1.20: pitcher plant plane sizes}}
+
+=== Fire: misconfigured inner planes ===
+: ''Associated bug reports: {{bug|MC-216200}}''
+
+When fire was changed to use block models in 1.8, the conversion resulting in two of the planes being converted incorrectly, resulting in subtle visual differences. This is best seen when looking at fire from above, which reveals a lack of a "square" on the inside as there was previously (and still is on Bedrock Edition, making this also a parity issue), with it instead looking more rectangular.
+
+This is easily fixable, as the first two elements are rendering the fire texture on the wrong side, and are also rotated in the incorrect direction. Flipping these as follows yields a more correct model. The pre-1.8 model appears to apply the alternate fire texture on some of these planes, however, so it may be worth further modifying the fire model as to load both of the fire textures and apply them accordingly.
+
+<gallery>
+Correct fire model (pre-1.8).png|How the fire model used to look (1.7.9)
+Incorrect fire model (1.18.1).png|How the fire model currently looks, which is incorrect (1.18.1)
+Fixed fire model (1.18.1).png|The fire model with the provided fix applied (1.18.1)
+</gallery>
+
+{| class="wikitable"
+! Current model
+! Fixed model
+|-
+! colspan="2" | template_fire_floor.json
+|-
+|
+ ...
+ {
+  "from":     [  0,    0, 8.8 ],
+  "to":       [ 16, 22.4, 8.8 ],
+  "rotation": {
+   "origin": [ 8, 8, 8 ], "axis": "x", "angle": <span style="color:red">-22.5</span>, "rescale": true
+  },
+  "shade":    false,
+  "faces":    {
+    "<span style="color:red">south</span>": { "uv": [ 0, 0, 16, 16 ], "texture": "#fire" 
+  }
+ },
+ {
+  "from":     [  0,    0, 7.2 ],
+  "to":       [ 16, 22.4, 7.2 ],
+  "rotation": {
+   "origin": [ 8, 8, 8 ], "axis": "x", "angle": <span style="color:red">22.5</span>, "rescale": true
+  },
+  "shade":    false,
+  "faces":    {
+   "<span style="color:red">north</span>": { "uv": [ 0, 0, 16, 16 ], "texture": "#fire" }
+  }
+ },
+ ...
+|
+ ...
+ {
+  "from":     [  0,    0, 8.8 ],
+  "to":       [ 16, 22.4, 8.8 ],
+  "rotation": {
+   "origin": [ 8, 8, 8 ], "axis": "x", "angle": <span style="color:green">22.5</span>, "rescale": true
+  },
+  "shade":    false,
+  "faces":    {
+    "<span style="color:green">north</span>": { "uv": [ 0, 0, 16, 16 ], "texture": "#fire" 
+  }
+ },
+ {
+  "from":     [  0,    0, 7.2 ],
+  "to":       [ 16, 22.4, 7.2 ],
+  "rotation": {
+   "origin": [ 8, 8, 8 ], "axis": "x", "angle": <span style="color:green">-22.5</span>, "rescale": true
+  },
+  "shade":    false,
+  "faces":    {
+   "<span style="color:green">south</span>": { "uv": [ 0, 0, 16, 16 ], "texture": "#fire" }
+  }
+ },
+ ...
+|}
+
+=== Coral wall fans: incorrect plane mirroring ===
+: ''Associated bug reports: {{bug|MC-203036}}, {{bug|MC-214691}}''
+
+Snapshot 21w13a fixed a large number of 2D block models such that the positions of pixels would remain consistent when viewed from the front and the back, rather than the texture mapping being identical on the rear, which looked strange. A small number remained, however, with coral fans being one of them. As texture mapping is all that needs changed, this is an easy fix, although care has to be taken such that no undesirable mirror symmetry effects arise.
+
+Another thing worth noting here is that coral fan models reference a main template model. Most template models are prefixed with "template_", however coral fan template models are not, which is inconsistent and confusing. This section will not go into detail as to all that needs changed, as this does not result in any in-game visual differences (the changes are trivial anyways, as all of the other coral fan models just need "template_" added to their referenced parent model).
+
+<gallery>
+Coral fan face-on (1.18.1).png|How coral fans currently look from face-on, and should continue to
+Incorrect coral fan mirroring (1.18.1).png|How coral fans currently look from above - pixel positions are inconsistent
+Correct coral fan mirroring (1.18.1).png|How coral fans look from above with the fix - pixel positions are consistent (note the one sticking out to the right, and how it matches what's seen from face-on)
+</gallery>
+
+{| class="wikitable"
+! Current model
+! Fixed model
+|-
+! <span style="color:red">coral_wall_fan.json</span>
+! <span style="color:green">template_coral_wall_fan.json</span>
+|-
+|
+ ...
+ {
+  "from":     [  0, 8,  0 ],
+  "to":       [ 16, 8, 16 ],
+  "rotation": {
+   "origin": [ 8, 8, 14 ], "axis": "x", "angle": 22.5, "rescale": true
+  },
+  "shade":    false,
+  "faces":    {
+   "up":   { "uv": <span style="color:red">[  0,  0, 16, 16 ]</span>, "texture": "#fan" },
+   "down": { "uv": [ 16, 16,  0,  0 ], "texture": "#fan" }
+  }
+ },
+ {
+  "from":     [  0, 8,  0 ],
+  "to":       [ 16, 8, 16 ],
+  "rotation": {
+   "origin": [ 8, 8, 14 ], "axis": "x", "angle": -22.5, "rescale": true
+  },
+  "shade":    false,
+  "faces":    {
+   "up":   { "uv": [  0,  0, 16, 16 ], "texture": "#fan" },
+   "down": { "uv": <span style="color:red">[ 16, 16,  0,  0 ]</span>, "texture": "#fan" }
+  }
+ }
+ ...
+|
+ ...
+ {
+  "from":     [  0, 8,  0 ],
+  "to":       [ 16, 8, 16 ],
+  "rotation": {
+   "origin": [ 8, 8, 14 ], "axis": "x", "angle": 22.5, "rescale": true
+  },
+  "shade":    false,
+  "faces":    {
+   "up":   { "uv": <span style="color:green">[ 16,  0, 0, 16 ]</span>, "texture": "#fan" },
+   "down": { "uv": [ 16, 16, 0,  0 ], "texture": "#fan" }
+  }
+ },
+ {
+  "from":     [  0, 8,  0 ],
+  "to":       [ 16, 8, 16 ],
+  "rotation": {
+   "origin": [ 8, 8, 14 ], "axis": "x", "angle": -22.5, "rescale": true
+  },
+  "shade":    false,
+  "faces":    {
+   "up":   { "uv": [ 0,  0, 16, 16 ], "texture": "#fan" },
+   "down": { "uv": <span style="color:green">[ 0, 16, 16,  0 ]</span>, "texture": "#fan" }
+  }
+ }
+ ...
+|}
+
+=== Dragon egg: redundant faces and incorrect element sizes ===
+: ''Associated bug reports: {{bug|MC-120417}}, {{bug|MC-199238}}''
+
+Another casualty of flawed model conversion in 1.8, one of the top cuboids comprising the dragon egg was created at the wrong size. This not only causes the shape of the dragon egg to be incorrect, with it having a weird and pointy top as opposed to the smoother curve it had previously, it also causes the texture on that cuboid to be unnaturally squished and causing it to misalign with the usual 16&times;16 grid that blocks are expected to conform to.
+
+The dragon egg is also a major offender when it comes to rendering extra planes for no reason. Being composed of a total of eight stacked cuboids, every single face of each cuboid is rendered no matter what, which both strains the game ''and'' bloats the model file. The majority of other model files don't define faces that can never be seen without clipping inside of the block, and faces which are obscured by adjacent blocks typically have <samp>cullface</samp> defined as to remove those faces when they can't be seen. By removing these unnecessary faces, we can reduce the model file size by seven whole lines.
+
+There are also some other, more minor, problems with the model file:
+* The model file explicitly disables ambient occlusion. This does nothing, as the dragon egg emits a light level of 1, and all light sources will have ambient occlusion disabled no matter what. ({{bug|MC-50734}}) We can therefore save a line by deleting this from the model.
+* None of the textures or parent models referenced are namespaced, which is unlike a majority of other model files. While adding these namespaces may be considered as somewhat undoing the debloating discussed here earlier, it's good practice to namespace things, and Minecraft's model files should be posing as a good role model for resource pack developers.
+
+The fixes detailed below implement fixes for both of these issues as well as the more focal hidden face removal.
+
+; Current as of 1.18.1
+<gallery>
+Dragon egg bottom without cullface.png|The bottom of the dragon egg atop a block - the bottom face is not culled
+Dragon egg top without cullface.png|The top of the dragon egg with a block above it - the top face is not culled
+Dragon egg with inner faces.png|The faces which exist inside the dragon egg, only visible in Spectator or clipping inside the block
+Dragon egg side view (1.18.1).png|The dragon egg as seen from the side, highlighting the weird pixel sizes and pointiness
+</gallery>
+
+; Intended appearances
+<gallery>
+Dragon egg bottom with cullface.png|The bottom of the dragon egg atop a block - the bottom face is culled
+Dragon egg top with cullface.png|The top of the dragon egg with a block above it - the top face is culled
+Dragon egg without inner faces.png|The dragon egg without redundant faces inside, as seen in Spectator
+Dragon egg side view (fixed).png|The dragon egg as seen from the side, highlighting the normal pixel sizes and roundness
+Dragon egg side view (pre-1.8).png|Compare: The dragon egg as seen from the side in 1.7.9, prior to 1.8's incorrect conversion
+</gallery>
+
+{| class="wikitable"
+! Current model
+! Fixed model
+|-
+! colspan="2" | dragon_egg.json
+|-
+|
+ {
+  "parent": <span style="color:red">"block/block",</span><ref name="namespaceDE" group="🐲">Namespace addition</ref>
+  <span style="color:red">"ambientocclusion": false,</span><ref group="🐲">Unneeded AO-disabling line removal</ref>
+  "textures": {
+   "particle": <span style="color:red">"block/dragon_egg",</span><ref name="namespaceDE" group="🐲"/>
+   "all":      <span style="color:red">"block/dragon_egg"</span><ref name="namespaceDE" group="🐲"/>
+ },
+ "elements": [
+   {
+    "from":  [  6, 15,  6 ],
+    "to":    [ 10, 16, 10 ],
+    "faces": {
+     <span style="color:red">"down":  { "uv": [ 6,  6, 10, 10 ], "texture": "#all" },</span><ref name="removalDE" group="🐲">Unneeded face removal</ref>
+     "up":    { "uv": [ 6,  6, 10, 10 ], "texture": "#all" },
+     "north": { "uv": [ 6, 15, 10, 16 ], "texture": "#all" },
+     "south": { "uv": [ 6, 15, 10, 16 ], "texture": "#all" },
+     "west":  { "uv": [ 6, 15, 10, 16 ], "texture": "#all" },
+     "east":  { "uv": [ 6, 15, 10, 16 ], "texture": "#all" }
+    }
+   },
+   {
+    "from": [  5, 14,  5 ],
+    "to":   [ 11, 15, 11 ],
+    "faces": {
+     <span style="color:red">"down":  { "uv": [ 5,  5, 11, 11 ], "texture": "#all" },</span><ref name="removalDE" group="🐲"/>
+     "up":    { "uv": [ 5,  5, 11, 11 ], "texture": "#all" },
+     "north": { "uv": [ 5, 14, 11, 15 ], "texture": "#all" },
+     "south": { "uv": [ 5, 14, 11, 15 ], "texture": "#all" },
+     "west":  { "uv": [ 5, 14, 11, 15 ], "texture": "#all" },
+     "east":  { "uv": [ 5, 14, 11, 15 ], "texture": "#all" }
+    }
+   },
+   {
+    "from":  <span style="color:red">[  5, 13,  5 ]</span>,<ref name="badshapeDE" group="🐲">Shape fixing</ref>
+    "to":    <span style="color:red">[ 11, 14, 11 ]</span>,<ref name="badshapeDE" group="🐲"/>
+    "faces": {
+     <span style="color:red">"down":  { "uv": [ 4,  4, 12, 12 ], "texture": "#all" },</span><ref name="removalDE" group="🐲"/>
+     "up":    { "uv": [ 4,  4, 12, 12 ], "texture": "#all" },
+     "north": { "uv": [ 4, 13, 12, 14 ], "texture": "#all" },
+     "south": { "uv": [ 4, 13, 12, 14 ], "texture": "#all" },
+     "west":  { "uv": [ 4, 13, 12, 14 ], "texture": "#all" },
+     "east":  { "uv": [ 4, 13, 12, 14 ], "texture": "#all" }
+    }
+   },
+   {
+    "from":  [  3, 11,  3 ],
+    "to":    [ 13, 13, 13 ],
+    "faces": {
+     <span style="color:red">"down":  { "uv": [ 3,  3, 13, 13 ], "texture": "#all" },</span><ref name="removalDE" group="🐲"/>
+     "up":    { "uv": [ 3,  3, 13, 13 ], "texture": "#all" },
+     "north": { "uv": [ 3, 11, 13, 13 ], "texture": "#all" },
+     "south": { "uv": [ 3, 11, 13, 13 ], "texture": "#all" },
+     "west":  { "uv": [ 3, 11, 13, 13 ], "texture": "#all" },
+     "east":  { "uv": [ 3, 11, 13, 13 ], "texture": "#all" }
+    }
+   },
+   {
+    "from":  [  2,  8,  2 ],
+    "to":    [ 14, 11, 14 ],
+    "faces": {
+     <span style="color:red">"down":  { "uv": [ 2, 2, 14, 14 ], "texture": "#all" },</span><ref name="removalDE" group="🐲"/>
+     "up":    { "uv": [ 2, 2, 14, 14 ], "texture": "#all" },
+     "north": { "uv": [ 2, 8, 14, 11 ], "texture": "#all" },
+     "south": { "uv": [ 2, 8, 14, 11 ], "texture": "#all" },
+     "west":  { "uv": [ 2, 8, 14, 11 ], "texture": "#all" },
+     "east":  { "uv": [ 2, 8, 14, 11 ], "texture": "#all" }
+    }
+   },
+   {
+    "from":  [  1, 3,  1 ],
+    "to":    [ 15, 8, 15 ],
+    "faces": {
+     "down":  { "uv": [ 1, 1, 15, 15 ], "texture": "#all" },
+     "up":    { "uv": [ 1, 1, 15, 15 ], "texture": "#all" },
+     "north": { "uv": [ 1, 3, 15,  8 ], "texture": "#all" },
+     "south": { "uv": [ 1, 3, 15,  8 ], "texture": "#all" },
+     "west":  { "uv": [ 1, 3, 15,  8 ], "texture": "#all" },
+     "east":  { "uv": [ 1, 3, 15,  8 ], "texture": "#all" }
+    }
+   },
+   {
+    "from":  [  2, 1,  2 ],
+    "to":    [ 14, 3, 14 ],
+    "faces": {
+     "down":  { "uv": [ 2, 2, 14, 14 ], "texture": "#all" },
+     <span style="color:red">"up":    { "uv": [ 2, 2, 14, 14 ], "texture": "#all" },</span><ref name="removalDE" group="🐲"/>
+     "north": { "uv": [ 2, 1, 14,  3 ], "texture": "#all" },
+     "south": { "uv": [ 2, 1, 14,  3 ], "texture": "#all" },
+     "west":  { "uv": [ 2, 1, 14,  3 ], "texture": "#all" },
+     "east":  { "uv": [ 2, 1, 14,  3 ], "texture": "#all" }
+    }
+   },
+   {
+    "from":  [  3, 0,  3 ],
+    "to":    [ 13, 1, 13 ],
+    "faces": {
+     "down":  { "uv": [ 3, 3, 13, 13 ], "texture": "#all" },
+     <span style="color:red">"up":    { "uv": [ 3, 3, 13, 13 ], "texture": "#all" },</span><ref name="removalDE" group="🐲"/>
+     "north": { "uv": [ 3, 0, 13,  1 ], "texture": "#all" },
+     "south": { "uv": [ 3, 0, 13,  1 ], "texture": "#all" },
+     "west":  { "uv": [ 3, 0, 13,  1 ], "texture": "#all" },
+     "east":  { "uv": [ 3, 0, 13,  1 ], "texture": "#all" }
+    }
+   }
+  ]
+ }
+|
+ {
+  "parent":   <span style="color:green">"minecraft:block/block",</span><ref name="namespaceDE" group="🐲"/>
+ 
+  "textures": {
+   "particle": <span style="color:green">"minecraft:block/dragon_egg",</span><ref name="namespaceDE" group="🐲"/>
+   "all":      <span style="color:green">"minecraft:block/dragon_egg"</span><ref name="namespaceDE" group="🐲"/>
+ },
+ "elements": [
+   {
+    "from":  [  6, 15,  6 ],
+    "to":    [ 10, 16, 10 ],
+    "faces": {
+ 
+     "up":    { "uv": [ 6,  6, 10, 10 ], "texture": "#all"<span style="color:green">, "cullface": "up"</span><ref name="culladdDE" group="🐲">Cullface addition</ref> },
+     "north": { "uv": [ 6, 15, 10, 16 ], "texture": "#all" },
+     "south": { "uv": [ 6, 15, 10, 16 ], "texture": "#all" },
+     "west":  { "uv": [ 6, 15, 10, 16 ], "texture": "#all" },
+     "east":  { "uv": [ 6, 15, 10, 16 ], "texture": "#all" }
+    }
+   },
+   {
+    "from":  [  5, 14,  5 ],
+    "to":    [ 11, 15, 11 ],
+    "faces": {
+ 
+     "up":    { "uv": [ 5,  5, 11, 11 ], "texture": "#all" },
+     "north": { "uv": [ 5, 14, 11, 15 ], "texture": "#all" },
+     "south": { "uv": [ 5, 14, 11, 15 ], "texture": "#all" },
+     "west":  { "uv": [ 5, 14, 11, 15 ], "texture": "#all" },
+     "east":  { "uv": [ 5, 14, 11, 15 ], "texture": "#all" }
+    }
+   },
+   {
+    "from": <span style="color:green">[  4, 13,  4 ]</span>,<ref name="badshapeDE" group="🐲"/>
+    "to":   <span style="color:green">[ 12, 14, 12 ]</span>,<ref name="badshapeDE" group="🐲"/>
+    "faces": {
+ 
+     "up":    { "uv": [ 4,  4, 12, 12 ], "texture": "#all" },
+     "north": { "uv": [ 4, 13, 12, 14 ], "texture": "#all" },
+     "south": { "uv": [ 4, 13, 12, 14 ], "texture": "#all" },
+     "west":  { "uv": [ 4, 13, 12, 14 ], "texture": "#all" },
+     "east":  { "uv": [ 4, 13, 12, 14 ], "texture": "#all" }
+    }
+   },
+   {
+    "from":  [  3, 11,  3 ],
+    "to":    [ 13, 13, 13 ],
+    "faces": {
+ 
+     "up":    { "uv": [ 3,  3, 13, 13 ], "texture": "#all" },
+     "north": { "uv": [ 3, 11, 13, 13 ], "texture": "#all" },
+     "south": { "uv": [ 3, 11, 13, 13 ], "texture": "#all" },
+     "west":  { "uv": [ 3, 11, 13, 13 ], "texture": "#all" },
+     "east":  { "uv": [ 3, 11, 13, 13 ], "texture": "#all" }
+    }
+   },
+   {
+    "from":  [  2,  8,  2 ],
+    "to":    [ 14, 11, 14 ],
+    "faces": {
+ 
+     "up":    { "uv": [ 2, 2, 14, 14 ], "texture": "#all" },
+     "north": { "uv": [ 2, 8, 14, 11 ], "texture": "#all" },
+     "south": { "uv": [ 2, 8, 14, 11 ], "texture": "#all" },
+     "west":  { "uv": [ 2, 8, 14, 11 ], "texture": "#all" },
+     "east":  { "uv": [ 2, 8, 14, 11 ], "texture": "#all" }
+    }
+   },
+   {
+    "from":  [  1, 3,  1 ],
+    "to":    [ 15, 8, 15 ],
+    "faces": {
+     "down":  { "uv": [ 1, 1, 15, 15 ], "texture": "#all" },
+     "up":    { "uv": [ 1, 1, 15, 15 ], "texture": "#all" },
+     "north": { "uv": [ 1, 3, 15,  8 ], "texture": "#all" },
+     "south": { "uv": [ 1, 3, 15,  8 ], "texture": "#all" },
+     "west":  { "uv": [ 1, 3, 15,  8 ], "texture": "#all" },
+     "east":  { "uv": [ 1, 3, 15,  8 ], "texture": "#all" }
+    }
+   },
+   {
+    "from":  [  2, 1,  2 ],
+    "to":    [ 14, 3, 14 ],
+    "faces": {
+     "down":  { "uv": [ 2, 2, 14, 14 ], "texture": "#all" },
+ 
+     "north": { "uv": [ 2, 1, 14,  3 ], "texture": "#all" },
+     "south": { "uv": [ 2, 1, 14,  3 ], "texture": "#all" },
+     "west":  { "uv": [ 2, 1, 14,  3 ], "texture": "#all" },
+     "east":  { "uv": [ 2, 1, 14,  3 ], "texture": "#all" }
+    }
+   },
+   {
+    "from":  [  3, 0,  3 ],
+    "to":    [ 13, 1, 13 ],
+    "faces": {
+     "down":  { "uv": [ 3, 3, 13, 13 ], "texture": "#all"<span style="color:green">, "cullface": "down"</span><ref name="culladdDE" group="🐲"/> },
+ 
+     "north": { "uv": [ 3, 0, 13,  1 ], "texture": "#all" },
+     "south": { "uv": [ 3, 0, 13,  1 ], "texture": "#all" },
+     "west":  { "uv": [ 3, 0, 13,  1 ], "texture": "#all" },
+     "east":  { "uv": [ 3, 0, 13,  1 ], "texture": "#all" }
+    }
+   }
+  ]
+ }
+|}
+
+<references group="🐲"/>
+
+=== Stem crops: incorrect plane mirroring and sizes, unwanted shading ===
+: ''Associated bug reports: {{bug|MC-96463}} (currently WAI), {{bug|MC-212630}} (currently WF), {{bug|MC-236474}} (currently a duplicate), {{bug|MC-236476}} (currently WF)''
+
+Melon stems and pumpkin stems are perhaps the worst affected by 1.8's move to block models, with three visual problems arising from the conversion:
+
+* They use the shading usually reserved for larger, 3D blocks, resulting in them looking much darker than normal.
+** This was also the case for other cross-shaped blocks such as flowers, but was fixed in the following week.
+* The constituent planes are configured in a way that results in an unnatural "mirror symmetry" effect arising when viewed from some angles.
+** This too was the case for other cross-shaped blocks for a while, before eventually being fixed in the next major update.
+* The constituent planes are also very subtly wider than that of other cross models.
+** Again, this issue also arose for other crosses, but was fixed after a few weeks in their case.
+
+Alongside this, the names of the stem template models are simply atrocious, being massively inconsistent with the very models that reference them, alongside just not having that preceding "template_".
+
+; Current as of 1.18.1
+<gallery>
+Stem model (1.18.1).png|A stem as seen from one of the angles that reveals unnatural mirroring - also note the shading
+Attached stem model (1.18.1).png|An attached stem as seen from one of the angles that reveals unnatural mirroring - also note the shading
+</gallery>
+
+; Intended appearances
+<gallery>
+Stem model (fixed).png|A stem as seen from the same angle with the fixes applied - note the brightness and no mirroring
+Attached stem model (fixed).png|An attached stem as seen from the same angle with the fixes applied - note the brightness and no mirroring
+Stem model (pre-1.8).png|A stem as it appears before 1.8
+Attached stem model (pre-1.8).png|An attached stem as it appears before 1.8
+</gallery>
+
+{| class="wikitable"
+! Current model
+! Fixed model
+|-
+! <span style="color:red">stem_growth{AGE}.json</span>
+! <span style="color:green">template_stem_stage{AGE}.json</span>
+|-
+|
+ {
+  "ambientocclusion": false,
+  "textures": {
+   "particle": "#stem"
+ },
+ "elements": [
+   {
+    "from":     [ <span style="color:red"> 0</span><ref name="wideplaneST" group="🍈">Plane resizing</ref>,          -1, 8 ],
+    "to":       [ <span style="color:red">16</span><ref name="wideplaneST" group="🍈"/>, {2*AGE + 1}, 8 ],
+    "rotation": {
+     "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true
+    },
+ 
+    "faces":    {
+     "north": { "uv": [  0, 0, 16, 10 ], "texture": "#stem", "tintindex": 0 },
+     "south": { "uv": <span style="color:red">[ 16, 0,  0, 10 ]</span>,<ref name="mirrorST" group="🍈">Plane mirroring</ref> "texture": "#stem", "tintindex": 0 }
+    }
+   },
+   {
+    "from":     [ 8,          -1, <span style="color:red"> 0</span><ref name="wideplaneST" group="🍈"/> ],
+    "to":       [ 8, {2*AGE + 1}, <span style="color:red">16</span><ref name="wideplaneST" group="🍈"/> ],
+    "rotation": {
+     "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true
+    },
+ 
+    "faces":    {
+     "west": { "uv": [  0, 0, 16, 10 ], "texture": "#stem", "tintindex": 0 },
+     "east": { "uv": <span style="color:red">[ 16, 0,  0, 10 ]</span>,<ref name="mirrorST" group="🍈"/> "texture": "#stem", "tintindex": 0 }
+    }
+   }
+  ]
+ }
+|
+ {
+  "ambientocclusion": false,
+  "textures": {
+   "particle": "#stem"
+ },
+ "elements": [
+   {
+    "from":     [ <span style="color:green"> 0.8</span><ref name="wideplaneST" group="🍈"/>,          -1, 8 ],
+    "to":       [ <span style="color:green">15.2</span><ref name="wideplaneST" group="🍈"/>, {2*AGE + 1}, 8 ],
+    "rotation": {
+     "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true
+    },
+    <span style="color:green">"shade":    false,</span><ref name="shadingremovalST" group="🍈">Dark shading fix</ref>
+    "faces":    {
+     "north": { "uv": [ 0, 0, 16, 10 ], "texture": "#stem", "tintindex": 0 },
+     "south": { "uv": <span style="color:green">[ 0, 0, 16, 10 ]</span>,<ref name="mirrorST" group="🍈"/> "texture": "#stem", "tintindex": 0 }
+    }
+   },
+   {
+    "from":     [ 8,          -1, <span style="color:green"> 0.8</span><ref name="wideplaneST" group="🍈"/> ],
+    "to":       [ 8, {2*AGE + 1}, <span style="color:green">15.2</span><ref name="wideplaneST" group="🍈"/> ],
+    "rotation": {
+     "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true
+    },
+    <span style="color:green">"shade":    false,</span><ref name="shadingremovalST" group="🍈"/>
+    "faces":    {
+    "west": { "uv": [ 0, 0, 16, 10 ], "texture": "#stem", "tintindex": 0 },
+    "east": { "uv": <span style="color:green">[ 0, 0, 16, 10 ]</span>,<ref name="mirrorST" group="🍈"/> "texture": "#stem", "tintindex": 0 }
+    }
+   }
+  ]
+ }
+|-
+! <span style="color:red">stem_fruit.json</span>
+! <span style="color:green">template_attached_stem.json</span>
+|-
+|
+ {
+  "ambientocclusion": false,
+  "textures": {
+   "particle": "#stem"
+  },
+  "elements": [
+   {
+    "from":     [ <span style="color:red"> 0</span><ref name="wideplaneST" group="🍈"/>, -1, 8 ],
+    "to":       [ <span style="color:red">16</span><ref name="wideplaneST" group="🍈"/>,  7, 8 ],
+    "rotation": {
+     "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true
+    },
+ 
+    "faces":    {
+     "north": { "uv": [  0, 0, 16, 8 ], "texture": "#stem", "tintindex": 0 },
+     "south": { "uv": <span style="color:red">[ 16, 0,  0, 8 ]</span>,<ref name="mirrorST" group="🍈"/> "texture": "#stem", "tintindex": 0 }
+    }
+   },
+   {
+    "from":     [ 8, -1, <span style="color:red"> 0</span><ref name="wideplaneST" group="🍈"/> ],
+    "to":       [ 8,  7, <span style="color:red">16</span><ref name="wideplaneST" group="🍈"/> ],
+    "rotation": {
+     "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true
+    },
+ 
+    "faces":    {
+     "west": { "uv": [  0, 0, 16, 8 ], "texture": "#stem", "tintindex": 0 },
+     "east": { "uv": <span style="color:red">[ 16, 0,  0, 8 ]</span>,<ref name="mirrorST" group="🍈"/> "texture": "#stem", "tintindex": 0 }
+    }
+   },
+   {
+    "from":  [ 0,  0, 8 ],
+    "to":    [ 9, 16, 8 ],
+ 
+    "faces": {
+     "north": { "uv": [ 9, 0, 0, 16 ], "texture": "#upperstem", "tintindex": 0 },
+     "south": { "uv": [ 0, 0, 9, 16 ], "texture": "#upperstem", "tintindex": 0 }
+    }
+   }
+  ]
+ }
+|
+ {
+  "ambientocclusion": false,
+  "textures": {
+   "particle": "#stem"
+  },
+  "elements": [
+    {
+     "from":     [ <span style="color:green"> 0.8</span><ref name="wideplaneST" group="🍈"/>, -1, 8 ],
+     "to":       [ <span style="color:green">15.2</span><ref name="wideplaneST" group="🍈"/>,  7, 8 ],
+     "rotation": {
+      "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true
+     },
+     <span style="color:green">"shade":    false,</span><ref name="shadingremovalST" group="🍈"/>
+     "faces":    {
+      "north": { "uv": [ 0, 0, 16, 8 ], "texture": "#stem", "tintindex": 0 },
+      "south": { "uv": <span style="color:green">[ 0, 0, 16, 8 ]</span>,<ref name="mirrorST" group="🍈"/> "texture": "#stem", "tintindex": 0 }
+     }
+   },
+   {
+    "from":     [ 8, -1, <span style="color:green"> 0.8</span><ref name="wideplaneST" group="🍈"/> ],
+    "to":       [ 8,  7, <span style="color:green">15.2</span><ref name="wideplaneST" group="🍈"/> ],
+    "rotation": {
+     "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true
+    },
+    <span style="color:green">"shade":    false,</span><ref name="shadingremovalST" group="🍈"/>
+    "faces":    {
+     "west": { "uv": [ 0, 0, 16, 8 ], "texture": "#stem", "tintindex": 0 },
+     "east": { "uv": <span style="color:green">[ 0, 0, 16, 8 ]</span>,<ref name="mirrorST" group="🍈"/> "texture": "#stem", "tintindex": 0 }
+    }
+   },
+   {
+    "from":  [ 0,  0, 8 ],
+    "to":    [ 9, 16, 8 ],
+    <span style="color:green">"shade": false,</span>
+    "faces": {
+     "north": { "uv": [ 9, 0, 0, 16 ], "texture": "#upperstem", "tintindex": 0 },
+     "south": { "uv": [ 0, 0, 9, 16 ], "texture": "#upperstem", "tintindex": 0 }
+    }
+   }
+  ]
+ }
+|}
+
+<references group="🍈"/>
+
+=== Potted plants: unwanted shading ===
+: ''Associated bug reports: {{bug|MC-129826}}''
+
+In much the same way as melon and pumpkin stems as described above, the majority of plants placed inside of pots had directional shading unaccountably applied to them, which has yet to be removed. This has subsequently affected all potted crosses added after the fact, with the important exception of the mangrove propagule, which has its own model rather than referring to the same template model. Despite the mangrove propagule highlighting this glaring inconsistency, it still remains to be fixed.
+
+Potted crosses are yet another example of many models referencing a parent template, with this template being one more example of the many templates which are not marked as such. Like with previously mentioned cases, example name changes are provided, which will require all models that point to it to be accordingly repointed.
+
+<gallery>
+Incorrect potted cross model (1.19).png|How potted crosses currently look, which is incorrect (1.19)
+Fixed potted cross model (1.19).png|Potted crosses with the provided fix applied (1.19)
+</gallery>
+
+{| class="wikitable"
+! Current model
+! Fixed model
+|-
+! <span style="color:red">flower_pot_cross.json</span>
+! <span style="color:green">template_potted_cross.json</span>
+|-
+|
+ {
+  "ambientocclusion": false,
+  "textures": {
+   "particle": "block/flower_pot",
+   "flowerpot": "block/flower_pot",
+   "dirt": "block/dirt"
+  },
+ "elements": [
+{
+   "from": [ 5, 0, 5 ],
+   "to": [ 6, 6, 11 ],
+   "faces": {
+    "down":  { "uv": [ 5, 5, 6, 11 ], "texture": "#flowerpot", "cullface": "down" },
+    "up":    { "uv": [ 5, 5, 6, 11 ], "texture": "#flowerpot" },
+    "north": { "uv": [ 10, 10, 11, 16 ], "texture": "#flowerpot" },
+    "south": { "uv": [ 5, 10, 6, 16 ], "texture": "#flowerpot" },
+    "west":  { "uv": [ 5, 10, 11, 16 ], "texture": "#flowerpot" },
+    "east":  { "uv": [ 5, 10, 11, 16 ], "texture": "#flowerpot" }
+   }
+  },
+  {   "from": [ 10, 0, 5 ],
+            "to": [ 11, 6, 11 ],
+            "faces": {
+                "down":  { "uv": [ 10, 5, 11, 11 ], "texture": "#flowerpot", "cullface": "down" },
+                "up":    { "uv": [ 10, 5, 11, 11 ], "texture": "#flowerpot" },
+                "north": { "uv": [ 5, 10, 6, 16 ], "texture": "#flowerpot" },
+                "south": { "uv": [ 10, 10, 11, 16 ], "texture": "#flowerpot" },
+                "west":  { "uv": [ 5, 10, 11, 16 ], "texture": "#flowerpot" },
+                "east":  { "uv": [ 5, 10, 11, 16 ], "texture": "#flowerpot" }
+            }
+        },
+        {   "from": [ 6, 0, 5 ],
+            "to": [ 10, 6, 6 ],
+            "faces": {
+                "down":  { "uv": [ 6, 10, 10, 11 ], "texture": "#flowerpot", "cullface": "down" },
+                "up":    { "uv": [ 6, 5, 10, 6 ], "texture": "#flowerpot" },
+                "north": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" },
+                "south": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" }
+            }
+        },
+        {   "from": [ 6, 0, 10 ],
+            "to": [ 10, 6, 11 ],
+            "faces": {
+                "down":  { "uv": [ 6, 5, 10, 6 ], "texture": "#flowerpot", "cullface": "down" },
+                "up":    { "uv": [ 6, 10, 10, 11 ], "texture": "#flowerpot" },
+                "north": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" },
+                "south": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" }
+            }
+        },
+        {   "from": [ 6, 0, 6 ],
+            "to": [ 10, 4, 10 ],
+            "faces": {
+                "down": { "uv": [ 6, 12, 10, 16 ], "texture": "#flowerpot", "cullface": "down" },
+                "up":   { "uv": [ 6, 6, 10, 10 ], "texture": "#dirt" }
+            }
+        },
+        {   "from": [ 2.6, 4, 8 ],
+            "to": [ 13.4, 16, 8 ],
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
+            "faces": {
+                "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant" },
+                "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant" }
+            }
+        },
+        {   "from": [ 8, 4, 2.6 ],
+            "to": [ 8, 16, 13.4 ],
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
+            "faces": {
+                "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant" },
+                "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant" }
+            }
+        }
+    ]
+}
+
+|
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle":  "minecraft:block/flower_pot",
+    "flowerpot": "minecraft:block/flower_pot",
+    "dirt":      "minecraft:block/dirt"
+  },
+  "elements": [
+    {
+	  "from":  [ 5, 0,  5 ],
+      "to":    [ 6, 6, 11 ],
+      "faces": {
+        "down":  { "uv": [  5,  5,  6, 11 ], "texture": "#flowerpot", "cullface": "down" },
+        "up":    { "uv": [  5,  5,  6, 11 ], "texture": "#flowerpot" },
+        "north": { "uv": [ 10, 10, 11, 16 ], "texture": "#flowerpot" },
+        "south": { "uv": [  5, 10,  6, 16 ], "texture": "#flowerpot" },
+        "west":  { "uv": [  5, 10, 11, 16 ], "texture": "#flowerpot" },
+        "east":  { "uv": [  5, 10, 11, 16 ], "texture": "#flowerpot" }
+      }
+    },
+    {
+	  "from":  [ 10, 0,  5 ],
+      "to":    [ 11, 6, 11 ],
+      "faces": {
+        "down":  { "uv": [ 10,  5, 11, 11 ], "texture": "#flowerpot", "cullface": "down" },
+        "up":    { "uv": [ 10,  5, 11, 11 ], "texture": "#flowerpot" },
+        "north": { "uv": [  5, 10,  6, 16 ], "texture": "#flowerpot" },
+        "south": { "uv": [ 10, 10, 11, 16 ], "texture": "#flowerpot" },
+        "west":  { "uv": [  5, 10, 11, 16 ], "texture": "#flowerpot" },
+        "east":  { "uv": [  5, 10, 11, 16 ], "texture": "#flowerpot" }
+      }
+    },
+    {
+	  "from":  [  6, 0, 5 ],
+      "to":    [ 10, 6, 6 ],
+      "faces": {
+        "down":  { "uv": [ 6, 10, 10, 11 ], "texture": "#flowerpot", "cullface": "down" },
+        "up":    { "uv": [ 6,  5, 10,  6 ], "texture": "#flowerpot" },
+        "north": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" },
+        "south": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" }
+      }
+    },
+    {
+	  "from":  [  6, 0, 10 ],
+      "to":    [ 10, 6, 11 ],
+      "faces": {
+        "down":  { "uv": [ 6,  5, 10,  6 ], "texture": "#flowerpot", "cullface": "down" },
+        "up":    { "uv": [ 6, 10, 10, 11 ], "texture": "#flowerpot" },
+        "north": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" },
+        "south": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" }
+      }
+    },
+    {
+	  "from":  [  6, 0,  6 ],
+      "to":    [ 10, 4, 10 ],
+      "faces": {
+        "down": { "uv": [ 6, 12, 10, 16 ], "texture": "#flowerpot", "cullface": "down" },
+        "up":   { "uv": [ 6,  6, 10, 10 ], "texture": "#dirt" }
+      }
+    },
+    {
+	  "from":     [  2.6,  4, 8 ],
+      "to":       [ 13.4, 16, 8 ],
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
+	  "shade": false,
+      "faces":    {
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant" }
+      }
+    },
+    {
+	  "from":     [ 8,  4,  2.6 ],
+      "to":       [ 8, 16, 13.4 ],
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
+	  "shade": false,
+      "faces":    {
+        "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant" },
+        "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant" }
+      }
+    }
+  ]
+}
+|-
+! <span style="color:red">tinted_flower_pot_cross.json</span>
+! <span style="color:green">template_potted_tinted_cross.json</span>
+|-
+|
+{
+    "ambientocclusion": false,
+    "textures": {
+        "particle": "block/flower_pot",
+        "flowerpot": "block/flower_pot",
+        "dirt": "block/dirt"
+    },
+    "elements": [
+        {   "from": [ 5, 0, 5 ],
+            "to": [ 6, 6, 11 ],
+            "faces": {
+                "down":  { "uv": [ 5, 5, 6, 11 ], "texture": "#flowerpot", "cullface": "down" },
+                "up":    { "uv": [ 5, 5, 6, 11 ], "texture": "#flowerpot" },
+                "north": { "uv": [ 10, 10, 11, 16 ], "texture": "#flowerpot" },
+                "south": { "uv": [ 5, 10, 6, 16 ], "texture": "#flowerpot" },
+                "west":  { "uv": [ 5, 10, 11, 16 ], "texture": "#flowerpot" },
+                "east":  { "uv": [ 5, 10, 11, 16 ], "texture": "#flowerpot" }
+            }
+        },
+        {   "from": [ 10, 0, 5 ],
+            "to": [ 11, 6, 11 ],
+            "faces": {
+                "down":  { "uv": [ 10, 5, 11, 11 ], "texture": "#flowerpot", "cullface": "down" },
+                "up":    { "uv": [ 10, 5, 11, 11 ], "texture": "#flowerpot" },
+                "north": { "uv": [ 5, 10, 6, 16 ], "texture": "#flowerpot" },
+                "south": { "uv": [ 10, 10, 11, 16 ], "texture": "#flowerpot" },
+                "west":  { "uv": [ 5, 10, 11, 16 ], "texture": "#flowerpot" },
+                "east":  { "uv": [ 5, 10, 11, 16 ], "texture": "#flowerpot" }
+            }
+        },
+        {   "from": [ 6, 0, 5 ],
+            "to": [ 10, 6, 6 ],
+            "faces": {
+                "down":  { "uv": [ 6, 10, 10, 11 ], "texture": "#flowerpot", "cullface": "down" },
+                "up":    { "uv": [ 6, 5, 10, 6 ], "texture": "#flowerpot" },
+                "north": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" },
+                "south": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" }
+            }
+        },
+        {   "from": [ 6, 0, 10 ],
+            "to": [ 10, 6, 11 ],
+            "faces": {
+                "down":  { "uv": [ 6, 5, 10, 6 ], "texture": "#flowerpot", "cullface": "down" },
+                "up":    { "uv": [ 6, 10, 10, 11 ], "texture": "#flowerpot" },
+                "north": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" },
+                "south": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" }
+            }
+        },
+        {   "from": [ 6, 0, 6 ],
+            "to": [ 10, 4, 10 ],
+            "faces": {
+                "down": { "uv": [ 6, 12, 10, 16 ], "texture": "#flowerpot", "cullface": "down" },
+                "up":   { "uv": [ 6, 6, 10, 10 ], "texture": "#dirt" }
+            }
+        },
+        {   "from": [ 2.6, 4, 8 ],
+            "to": [ 13.4, 16, 8 ],
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
+            "faces": {
+                "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant", "tintindex": 0 },
+                "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant", "tintindex": 0 }
+            }
+        },
+        {   "from": [ 8, 4, 2.6 ],
+            "to": [ 8, 16, 13.4 ],
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
+            "faces": {
+                "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant", "tintindex": 0 },
+                "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant", "tintindex": 0 }
+            }
+        }
+    ]
+}
+
+|
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle":  "minecraft:block/flower_pot",
+    "flowerpot": "minecraft:block/flower_pot",
+    "dirt":      "minecraft:block/dirt"
+  },
+  "elements": [
+    {
+	  "from":  [ 5, 0,  5 ],
+      "to":    [ 6, 6, 11 ],
+      "faces": {
+        "down":  { "uv": [  5,  5,  6, 11 ], "texture": "#flowerpot", "cullface": "down" },
+        "up":    { "uv": [  5,  5,  6, 11 ], "texture": "#flowerpot" },
+        "north": { "uv": [ 10, 10, 11, 16 ], "texture": "#flowerpot" },
+        "south": { "uv": [  5, 10,  6, 16 ], "texture": "#flowerpot" },
+        "west":  { "uv": [  5, 10, 11, 16 ], "texture": "#flowerpot" },
+        "east":  { "uv": [  5, 10, 11, 16 ], "texture": "#flowerpot" }
+      }
+    },
+    {
+	  "from":  [ 10, 0,  5 ],
+      "to":    [ 11, 6, 11 ],
+      "faces": {
+        "down":  { "uv": [ 10,  5, 11, 11 ], "texture": "#flowerpot", "cullface": "down" },
+        "up":    { "uv": [ 10,  5, 11, 11 ], "texture": "#flowerpot" },
+        "north": { "uv": [  5, 10,  6, 16 ], "texture": "#flowerpot" },
+        "south": { "uv": [ 10, 10, 11, 16 ], "texture": "#flowerpot" },
+        "west":  { "uv": [  5, 10, 11, 16 ], "texture": "#flowerpot" },
+        "east":  { "uv": [  5, 10, 11, 16 ], "texture": "#flowerpot" }
+      }
+    },
+    {
+	  "from":  [  6, 0, 5 ],
+      "to":    [ 10, 6, 6 ],
+      "faces": {
+        "down":  { "uv": [ 6, 10, 10, 11 ], "texture": "#flowerpot", "cullface": "down" },
+        "up":    { "uv": [ 6,  5, 10,  6 ], "texture": "#flowerpot" },
+        "north": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" },
+        "south": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" }
+      }
+    },
+    {
+	  "from":  [  6, 0, 10 ],
+      "to":    [ 10, 6, 11 ],
+      "faces": {
+        "down":  { "uv": [ 6,  5, 10,  6 ], "texture": "#flowerpot", "cullface": "down" },
+        "up":    { "uv": [ 6, 10, 10, 11 ], "texture": "#flowerpot" },
+        "north": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" },
+        "south": { "uv": [ 6, 10, 10, 16 ], "texture": "#flowerpot" }
+      }
+    },
+    {
+	  "from":  [  6, 0,  6 ],
+      "to":    [ 10, 4, 10 ],
+      "faces": {
+        "down": { "uv": [ 6, 12, 10, 16 ], "texture": "#flowerpot", "cullface": "down" },
+        "up":   { "uv": [ 6,  6, 10, 10 ], "texture": "#dirt" }
+      }
+    },
+    {
+	  "from":     [  2.6,  4, 8 ],
+      "to":       [ 13.4, 16, 8 ],
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
+	  "shade": false,
+      "faces":    {
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant", "tintindex": 0 },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant", "tintindex": 0  }
+      }
+    },
+    {
+	  "from":     [ 8,  4,  2.6 ],
+      "to":       [ 8, 16, 13.4 ],
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
+	  "shade": false,
+      "faces":    {
+        "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant", "tintindex": 0  },
+        "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#plant", "tintindex": 0  }
+      }
+    }
+  ]
+}
+|}
+[[Category:Lists]]

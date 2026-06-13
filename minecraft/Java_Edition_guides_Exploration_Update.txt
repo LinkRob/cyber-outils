@@ -1,0 +1,387 @@
+{{Guide nav
+|edition=java
+|name=Exploration Update
+|vers=
+* {{vl|je 1.11|}}
+* {{vl|je 1.11.1|}}
+* {{vl|je 1.11.2|}}
+|prev= Frostburn Update
+|next= World of Color Update
+}}
+This guide is a simplified overview of all the changes in the [[Exploration Update]] ({{edition|java}} 1.11.x releases), which assumes at least some familiarity with the [[Frostburn Update]] (Java Edition 1.10.x releases).
+
+== Mobs ==
+=== New ===
+{|{{Simple Guide table|New Mobs}}
+|-
+|[[Vindicator]] 
+| [[File:Vindicator JE1 BE1.png|128px]] 
+|
+* Vindicators only spawn in the new [[woodland mansion]]s during world generation
+|
+{{Drop|Item|Emerald|0|1}}
+*{{xp|5}}, plus {{xp|1|3}} per equipment piece (when killed by a [[player]] or tamed [[wolf]])
+'''Spawned Equipment'''
+{{Drop|Item|Iron Axe}}
+|
+* One of the two new [[illager]]s
+* Hostile towards [[player]]s and [[villager]]s
+* Separates their arms when aggravated, and holds an [[iron axe]] in their main hand.
+* When named {{cd|Johnny}}, they attack all nearby mobs except other illagers.
+|-
+|[[Evoker]] 
+| [[File:Evoker Revision 1.png|128px]] 
+|
+* Evokers only spawn in the new [[woodland mansion]]s during world generation
+|
+{{Drop|Item|Totem of Undying|1}}
+{{Drop|Item|Emerald|0|1}}
+*{{xp|10}} (when killed by a [[player]] or tamed [[wolf]])
+|
+* One of the two new [[illager]]s.
+* Hostile towards [[player]]s and [[villager]]s.
+* In battle, they summon [[vex]]es and [[Evoker#Evoker Fangs|fangs]] to attack.
+** Raises their arms when casting a spell.
+* Changes any blue colored [[sheep]] red within a radius of 16 blocks.
+|-
+|[[Vex]] 
+| [[File:Vex JE1 BE1.png|128px]] 
+|
+* Only spawn when summoned by an [[evoker]].
+|
+*{{xp|5}} (when killed by a [[player]] or tamed [[wolf]])
+|
+* Can phase through blocks
+* Hostile towards [[player]]s and [[villager]]s
+* Shows red marks when about to attack
+* Holds an [[iron sword]] in their main hand
+|-
+|[[Llama]]
+| {{animate|Creamy Llama Revision 1.png; White Llama Revision 1.png; Brown Llama Revision 1.png; Gray Llama Revision 1.png|128px}}
+|
+* Spawns in [[Extreme Hills]] biomes
+|
+* {{Drop|Item|Leather|0|2}}
+* {{xp|1|3}} (when killed by a [[player]] or tamed [[wolf]])
+* Anything equipped, such as {{blockLink|carpets|link=Carpet}} or a {{blockLink|chest}}.
+* All items in their [[inventory]].
+|
+* Attacks by spitting.
+** When hit, they spit at the player, dealing {{Health|1}} damage.
+** If not in a caravan group, they are always aggressive toward wolves.
+* Can be equipped with a carpet for decoration and a chest for storage.
+** Differently colored carpets have different textures when placed on llamas.
+** Amount of storage slots available depends on the strength of the llama.
+* When leashed, up to 10 llamas will be attracted and try to form a caravan.
+** Caravan groups are passive to all mobs.
+* Tamed llamas can be bred with hay bales.
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Mobs}}
+|-
+|[[Blaze]]
+| [[File:Blaze JE1 BE1.png|128px]]
+|
+* Will take {{Health|1}} damage when hit by a [[splash water bottle]]
+|-
+|[[Creeper]] 
+| [[File:Creeper.png|128px]]
+|
+* If a creeper is inflicted with a [[potion effect]], its [[explosion]] will cause a [[Lingering Potion|lingering effect]] of the potion
+|-
+|[[Enderman]]
+| [[File:Enderman.png|128px]]
+|
+* Will take {{Health|1}} damage when hit by a [[splash water bottle]]
+|-
+|[[Husk]] 
+| [[File:Husk JE1 BE1.png|128px]]
+|
+* Now try to avoid [[water]]
+|-
+|[[Shulker]] 
+|[[File:Shulker.png|128px]]
+|
+* Now drops 0–1 [[shulker shell]]s
+|}
+
+== Blocks ==
+=== New ===
+{|{{Simple Guide table|New Blocks}}
+|-
+|[[Observer]] 
+| [[File:Observer JE3.png|84px]]
+|
+{{Crafting
+  |A1=Cobblestone
+  |B1=Cobblestone
+  |C1=Cobblestone
+  |A2=Redstone Dust
+  |B2=Redstone Dust
+  |C2=Nether Quartz
+  |A3=Cobblestone
+  |B3=Cobblestone
+  |C3=Cobblestone
+  |Output=Observer
+  |type=Redstone
+}}
+| Pickaxe
+|
+* Outputs a [[redstone]] signal when it detects a block update
+|-
+|[[Shulker Box]] 
+|{{animate|White Shulker Box Revision 1.png;Orange Shulker Box Revision 1.png;Magenta Shulker Box Revision 1.png;Light Blue Shulker Box Revision 1.png;Yellow Shulker Box Revision 1.png;Lime Shulker Box Revision 1.png;Pink Shulker Box Revision 1.png;Gray Shulker Box Revision 1.png;Light Gray Shulker Box Revision 1.png;Cyan Shulker Box Revision 1.png;Purple Shulker Box Revision 1.png;Blue Shulker Box Revision 1.png;Brown Shulker Box Revision 1.png;Green Shulker Box Revision 1.png;Red Shulker Box Revision 1.png;Black Shulker Box Revision 1.png|84px}}
+|
+{{Crafting
+  |B1=Shulker Shell
+  |B2=Chest
+  |B3=Shulker Shell
+  |Output=Shulker Box
+  |type=Decoration block
+}}
+{{Crafting
+  |ingredients=Any [[Shulker Box]] +<br />Matching [[Dye]]
+  |Shulker Box; Any Shulker Box
+  |Matching Dye
+  |Output=Matching Shulker Box
+  |Olink=Shulker Box
+  |type=Decoration block
+}}
+| Pickaxe
+|
+* Similar to a [[chest]], but keeps its content when broken
+** Cannot be placed inside another shulker box
+** Breaks when pushed by a [[piston]]
+** [[Dispenser]]s will place the shulker box in front of it
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Blocks}}
+|-
+|[[Bed]]
+|[[File:Red Bed JE1 BE1.png|84px]]
+|
+* If the player clicks on the bed, but is not right beside it, it now shows the message: "You may not rest now, the bed is too far away"
+** Previously the player would get no message, but would be unable to sleep
+|-
+|[[Cauldron]] 
+|[[File:Cauldron JE1.png|84px]]
+|
+* Washing dyed [[leather armor]] and dyed [[banner]]s now remove 1 water level from the cauldron
+* Using a [[water bottle]] now refills 1 water level to a cauldron
+|-
+|[[End Gateway (block)|End Gateway]] 
+|[[File:End Gateway JE2 BE1.png|84px]]
+|
+* Now uses a magenta-colored beam when teleporting [[Entity|entities]], rather than yellow
+|-
+|[[Flower Pot]] 
+|[[File:Flower Pot JE2.png|84px]]
+|
+* The potted plant can now be removed from the pot, by pressing {{control|use}}
+|-
+|[[Furnace]] 
+|[[File:Furnace (S) 14w25a.png|84px]]
+|
+* Iron and golden [[tools]] and [[armor]] can be [[Smelting|smelted]] into [[nugget]]s. Iron and golden [[horse armor]] can also be smelted.
+** Yield one iron or golden nugget per [[item]] respectively.
+|}
+
+== Items ==
+=== New ===
+{|{{Simple Guide table|New Items}}
+|-
+|[[Shulker Shell]]
+|[[File:Shulker Shell JE1 BE1.png|84px]]
+|
+* Has a 50% chance of being dropped by a [[shulker]] upon death
+|
+* To make [[shulker box]]es
+|-
+|[[Totem of Undying]]
+|[[File:Totem of Undying JE1 BE1.png|84px]]
+|
+* [[Evoker]]s will always drop one upon death
+|
+* Holding it in either hand will resurrect the player upon taking lethal damage
+* Gives the player the [[Absorption]] and [[Regeneration]] effects when activated
+* Does not prevent death by {{cmd|kill}} or [[the Void]]
+* Has an animation when activated, which uses the item's texture and model
+|-
+|[[Explorer Map]]
+|{{animate|Ocean Explorer Map JE1 BE1.png;Woodland Explorer Map JE1 BE1.png|84px}}
+|
+* Can be obtained from [[cartographer]] villagers
+|
+* Used to locate [[ocean monument]]s and the new [[woodland mansion]]s
+* Works like a map, but shows the outlines of land and a single [[structure]] icon
+* Fills in the map with block colors once the player starts exploring the area shown
+* Ocean explorer maps are slightly blue, while woodland explorer maps are slightly brown
+|-
+|[[Iron Nugget]]
+|[[File:Iron Nugget JE1 BE1.png|84px]]
+|
+{{Crafting
+|Iron Ingot
+|Output= Iron Nugget,9
+|type=Material
+}}
+{{Smelting
+|Iron Sword; {Any iron tools}; {Any iron armor}; {Any chainmail armor}; Iron Horse Armor
+|Iron Nugget
+}}
+|
+* Used to craft [[iron ingot]]s
+|-
+|Zombie Villager,<br>Wither Skeleton,<br>Skeleton Horse,<br>Zombie Horse,<br>Donkey, Mule,<br>Elder Guardian,<br>Husk, Stray,<br>Polar Bear,<br>Llama,<br>Vindicator,<br>Evoker and Vex<br>[[Spawn Eggs]]
+|{{Animate|Zombie Villager Spawn Egg JE1 BE1.png;Wither Skeleton Spawn Egg JE1 BE1.png;Skeleton Horse Spawn Egg JE1 BE1.png;Zombie Horse Spawn Egg JE1 BE2.png;Donkey Spawn Egg JE1 BE1.png;Mule Spawn Egg JE1 BE1.png;Elder Guardian Spawn Egg JE1 BE1.png;Husk Spawn Egg JE1 BE2.png;Stray Spawn Egg JE1 BE2.png;Polar Bear Spawn Egg JE1 BE1.png;Llama Spawn Egg JE1 BE1.png;Vindicator Spawn Egg JE1 BE1.png;Evoker Spawn Egg JE1 BE1.png;Vex Spawn Egg JE1 BE1.png|84px}}
+|
+* Obtained from the creative inventory.
+|
+* Can be used to spawn the respective mob.
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Items}}
+|-
+|[[Map]]
+|[[File:Map.png|84px]]
+|
+* Now shows the land properly when used in [[the End]]
+|-
+|[[Shield]]
+|[[File:Shield JE1.png|84px]]
+|
+* Will now keep [[enchantment]] level and [[durability]] when [[crafted]] with [[banner]]s
+|}
+
+== Non-mob entities ==
+=== New ===
+{|{{Simple Guide table|New Non-mob entities}}
+|-
+|[[Evocation fang]]s 
+| [[File:Evoker Fangs Revision 1.png|128px]] 
+|
+* Only spawn when summoned by an [[evoker]]
+|
+
+|
+* Always deals {{Health|6}} damage, ignoring [[armor]]
+* Naturally spawned fangs do not harm [[illager]]s
+
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Non-mob entities}}
+|-
+|[[Firework Rocket|Fireworks]]
+| [[File:Firework Rocket JE1 BE1.png|84px]] 
+|
+* While flying using [[elytra]], {{control|using}} a firework will give the player a boost for a certain amount of time. This will emit [[particle]]s when in use.
+** Fireworks stay at the [[player]]s location until they disappear or [[explode]].
+** Longer flight duration on the rocket will make the boost last longer. You can increase the flight duration of a firework by crafting it with [[gunpowder]] in the other slots.
+** Fireworks with an explosion will deal damage at the end of their flight.
+* Firework explosions now [[Damage|hurt]] surrounding [[mob]]s and players.
+** The damage radius of the explosion is about 2-3 blocks and is the same for any shape (large ball, creeper, burst, etc.) and the damage decreases with the distance to the explosion.
+** The damage amount at close range is about {{hp|5}} without [[armor]] on, and with full [[diamond armor]], it equates to about {{Hp|1}}.
+** [[Death message]] is "[player] went off with a bang".
+|}
+
+== Structures ==
+=== New ===
+{|{{Simple Guide table|New Structures}}
+|-
+| [[Woodland Mansion]]
+| [[File:Woodland Mansion JE1 BE1.png|256px]]
+|
+* Generates in [[Roofed Forest]] biomes
+|
+* The structure contains various [[chest]]s in the different rooms
+||
+* [[Evoker]]s
+* [[Vindicator]]s
+|
+* The [[woodland mansion]] is a rare structure, which is the only place where [[illager]]s spawn naturally and where a [[totem of undying]] can be obtained. The structure consists mainly of [[dark oak planks]] and [[cobblestone]], and has various [[chest]]s with loot scattered in it.
+|}
+
+== Gameplay ==
+=== Changed ===
+{|{{Simple Guide table|Changed Gameplay}} 
+|-
+| [[Chat]]
+|
+* Messages can now be 256 characters long instead of 100.
+* Some warnings now appear above the hotbar instead in the chat, like "Press [key] to dismount" had.
+** "You can only sleep at night"
+** "You may not rest now, there are monsters nearby"
+** "This bed is occupied"
+** "Height limit for building is 256 blocks"
+** "Unable to open. Loot not generated yet."
+** "You may not rest now, the bed is too far away"
+|-
+| {{ItemLink|id=shield|Shields}}
+|
+* Now block 100%, as opposed to 66.6%, of the damage dealt in melee combat.
+** Zombies without any weapons will not deal any damage to the player, nor damage the shield's durability.
+** Creeper explosions deal 0 damage to the player.
+** Wither skeletons will not inflict the wither effect when hit by them.
+** Burning zombies will not set the player on fire.
+** Mobs with axes will now disable the shield if they attack a blocking player.
+|-
+| [[Attack indicator]]
+|
+* When in crosshair mode, the [[weapon]] is fully cooled, and a [[mob]] or [[entity]] is in range of attack, the attack indicator will be visible and will include a small plus sign (+) underneath the crosshair.
+|}
+
+== Enchantments ==
+=== New ===
+{|class="wikitable"
+|-
+![[Enchantment]]
+!Max Level
+!Applicable Items
+!Notes
+|-
+|[[Curse of Binding]]
+|I
+|{{ItemSprite|Diamond Helmet|link=Helmet}}{{ItemSprite|Diamond Chestplate|link=Chestplate}}{{ItemSprite|Diamond Leggings|link=Leggings}}{{ItemSprite|Diamond Boots|link=Boots}}{{ItemSprite|Elytra|link=Elytra}}{{BlockSprite|Carved Pumpkin|link=Pumpkin}}{{BlockSprite|Heads}}
+|
+*One of the two new 'curse' [[enchantments]], which have negative effects
+*Curse of Binding will bind [[armor]] items to you, making you unable to drop it or take it off
+**The item only drops when the player [[die]]s
+*Cursed [[tools]], armor and [[books]] can be found as [[loot]] in some generated [[structures]]
+|-
+|[[Curse of Vanishing]]
+|I
+|{{ItemSprite|Diamond Helmet|link=Helmet}}{{ItemSprite|Diamond Chestplate|link=Chestplate}}{{ItemSprite|Diamond Leggings|link=Leggings}}{{ItemSprite|Diamond Boots|link=Boots}}{{ItemSprite|Diamond Pickaxe|link=Pickaxe}}{{ItemSprite|Diamond Shovel|link=Shovel}}{{ItemSprite|Diamond Axe|link=Axe}}{{ItemSprite|Fishing Rod|link=Fishing Rod}}{{ItemSprite|Diamond Sword|link=Sword}}{{ItemSprite|Bow|link=Bow}}{{ItemSprite|Diamond Hoe|link=Hoe}}{{ItemSprite|Shears|link=Shears}}{{ItemSprite|Flint and Steel|link=Flint and Steel}}{{ItemSprite|Carrot on a Stick|link=Carrot on a Stick}}{{ItemSprite|Shield|link=Shield}}{{ItemSprite|Elytra|link=Elytra}}{{BlockSprite|Carved Pumpkin|link=Pumpkin}}{{BlockSprite|Heads}}
+|
+**One of the two new 'curse' [[enchantments]], which have negative effects
+*Curse of Vanishing will make the [[item]] disappear if the player [[die]]s
+**{{cmd|gamerule keepInventory true}} will prevent this
+*Cursed [[tools]], [[armor]] and [[books]] can be found as [[loot]] in some generated [[structures]]
+|-
+|[[Sweeping Edge]]
+|III
+|{{ItemSprite|Diamond Sword|link=Sword}}
+|
+*Can be applied to a [[sword]] to increase the [[damage]] of the [[sweep attack]].
+|}
+
+=== Changed ===
+{|{{Simple Guide table|Changed Enchantments}} 
+|-
+| [[Mending]] and [[Infinity]]
+|
+* Are no longer compatible with each other on [[bow]]s when trying to apply them with an [[anvil]] or when using the {{cmd|enchant}} command.
+|-
+| [[Anvil]]s
+|
+Anvils will no longer apply [[enchanted book]]s to [[item]]s, if the result has no effect
+** This can occur if all enchantments on the book are incompatible with existing enchantments on the item.
+** This can also occur if the enchanted book has no enchantments.
+|}
+
+[[es:Guías de Java Edition/Exploration Update]]
+[[ja:ガイド/Java Edition/エクスプロレーション・アップデート]]
+[[zh:Java版指南/探险更新]]

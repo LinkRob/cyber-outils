@@ -1,0 +1,1797 @@
+{{Needs update|section=0|Update to 1.19.4 and 1.20.}}
+{{about|values from ''Minecraft: Java Edition'' since Java Edition 1.13|values until Java Edition 1.12.2|/Pre-flattening|values from Classic|/Classic|values from Indev|/Indev}}
+{{exclusive|java}}
+
+These '''data values''' refer to the different types of blocks, items and other features on {{el|je}} and are used in many places in ''Minecraft''. [[#Blocks|Block IDs]] are used to define blocks placed in the world. [[#Items|Item IDs]] are valid only for items (including items in chests and items dropped in the world). All block IDs that do not have a gray background in this page are also valid item IDs. There are also [[#Entities|entity IDs]] for entities such as mobs and projectiles.
+
+{{TOC|right}}
+
+== IDs ==
+These IDs are in the [[resource location]] format, with their [[Resource location#minecraft namespace|{{cd|minecraft}} namespace]] omitted. The game accepts these [[resource location]]s either with or without the {{cd|minecraft:}} prefix.
+{{LoadPage|{{FULLPAGENAME}}/Blocks|Blocks|h3}}
+
+=== Fluids ===
+
+{| class="wikitable sortable"
+! Fluid
+! [[Resource location]]
+|-
+| [[Air|Empty]]
+| {{code|empty}}
+|-
+| [[File:Lava.png|30px]] [[Flowing Lava]]
+| {{code|flowing_lava}}
+|-
+| [[File:Water.png|30px]] [[Flowing Water]]
+| {{code|flowing_water}}
+|-
+| [[File:Lava.png|30px]] [[Lava]]
+| {{code|lava}}
+|-
+| [[File:Water.png|30px]] [[Water]]
+| {{code|water}}
+|}
+
+{{LoadPage|{{FULLPAGENAME}}/Items|Items|h3}}
+
+{{LoadPage|{{FULLPAGENAME}}/Entities|Entities|h3}}
+
+{{LoadPage|{{FULLPAGENAME}}/Effects|Effects|h3}}
+
+=== Enchantments ===
+
+{| class="wikitable stikitable sortable"
+! Enchantment
+! [[Resource location]]
+|-
+| [[Aqua Affinity]]
+| {{code|aqua_affinity}}
+|-
+| [[Bane of Arthropods]]
+| {{code|bane_of_arthropods}}
+|-
+| [[Curse of Binding]]
+| {{code|binding_curse}}
+|-
+| [[Blast Protection]]
+| {{code|blast_protection}}
+|-
+| [[Channeling]]
+| {{code|channeling}}
+|-
+| [[Depth Strider]]
+| {{code|depth_strider}}
+|-
+| [[Efficiency]]
+| {{code|efficiency}}
+|-
+| [[Feather Falling]]
+| {{code|feather_falling}}
+|-
+| [[Fire Aspect]]
+| {{code|fire_aspect}}
+|-
+| [[Fire Protection]]
+| {{code|fire_protection}}
+|-
+| [[Flame]]
+| {{code|flame}}
+|-
+| [[Fortune]]
+| {{code|fortune}}
+|-
+| [[Frost Walker]]
+| {{code|frost_walker}}
+|-
+| [[Impaling]]
+| {{code|impaling}}
+|-
+| [[Infinity]]
+| {{code|infinity}}
+|-
+| [[Knockback]]
+| {{code|knockback}}
+|-
+| [[Looting]]
+| {{code|looting}}
+|-
+| [[Loyalty]]
+| {{code|loyalty}}
+|-
+| [[Luck of the Sea]]
+| {{code|luck_of_the_sea}}
+|-
+| [[Lure]]
+| {{code|lure}}
+|-
+| [[Mending]]
+| {{code|mending}}
+|-
+| [[Multishot]]
+| {{code|multishot}}
+|-
+| [[Piercing]]
+| {{code|piercing}}
+|-
+| [[Power]]
+| {{code|power}}
+|-
+| [[Projectile Protection]]
+| {{code|projectile_protection}}
+|-
+| [[Protection]]
+| {{code|protection}}
+|-
+| [[Punch]]
+| {{code|punch}}
+|-
+| [[Quick Charge]]
+| {{code|quick_charge}}
+|-
+| [[Respiration]]
+| {{code|respiration}}
+|-
+| [[Riptide]]
+| {{code|riptide}}
+|-
+| [[Sharpness]]
+| {{code|sharpness}}
+|-
+| [[Silk Touch]]
+| {{code|silk_touch}}
+|-
+| [[Smite]]
+| {{code|smite}}
+|-
+| [[Soul Speed]]
+| {{code|soul_speed}}
+|-
+| [[Sweeping Edge]]
+| {{code|sweeping}}
+|-
+| [[Swift Sneak]]
+| {{cd|swift_sneak}}
+|-
+| [[Thorns]]
+| {{code|thorns}}
+|-
+| [[Unbreaking]]
+| {{code|unbreaking}}
+|-
+| [[Curse of Vanishing]]
+| {{code|vanishing_curse}}
+|}
+
+{{LoadPage|{{FULLPAGENAME}}/Biomes|Biomes|h3}}
+
+{{LoadPage|{{FULLPAGENAME}}/Particles|Particles|h3}}
+
+=== Dimensions ===
+
+{| class="wikitable sortable"
+! Dimension
+! [[Resource location]]
+! Numeric ID
+|-
+| {{EnvSprite|overworld}} [[Overworld]]
+| {{code|overworld}}
+| 0
+|-
+| {{EnvSprite|the-nether}} [[The Nether]]
+| {{code|the_nether}}
+| -1
+|-
+| {{EnvSprite|the-end}} [[The End]]
+| {{code|the_end}}
+| 1
+|}
+
+=== Chunk generators ===
+
+Used in the [[Buffet]] world type and internally when generating any world.
+
+{| class="wikitable sortable"
+! [[Resource location]]
+! class="unsortable" | Image
+|-
+| {{code|noise}}
+|
+|-
+| {{code|flat}}
+|
+|-
+| {{code|debug}}
+|
+|}
+
+=== Biome sources ===
+
+Used in the Buffet world type and internally when generating any world.
+
+{| class="wikitable sortable"
+! [[Resource location]]
+! class="unsortable" | Image
+|-
+| {{code|fixed}}
+|[[File:Voidland.png|150px]]
+|-
+| {{code|checkerboard}}
+|[[File:Buffet world with the Caves generator and checkerboard biomes of size 0.png|150px]]
+
+
+
+|-
+| {{code|the_end}}
+|[[File:EnderIslandsRender.jpg|150px]]
+|-
+| {{code|multi_noise}}
+|Really quite complicated, and can't be done justice with a single image
+|}
+
+===Structures===
+
+{|class="wikitable sortable"
+! Name
+! [[Resource location]]
+|-
+|[[Jungle pyramid]]
+|{{code|jungle_pyramid}}
+|-
+|[[Plains]] [[Village]]
+|{{code|village_plains}}
+|-
+|[[Snowy Plains|Snowy]] [[Village]]
+|{{code|village_snowy}}
+|-
+|[[Savanna]] [[Village]]
+|{{code|village_savanna}}
+|-
+|[[Desert]] [[Village]]
+|{{code|village_desert}}
+|-
+|[[Taiga]] [[Village]]
+|{{code|village_taiga}}
+|-
+|[[End City]]
+|{{code|end_city}}
+|-
+|[[Ruined Portal]]
+|{{code|ruined_portal}}
+|-
+|[[Desert]] [[Ruined Portal]]
+|{{code|ruined_portal_desert}}
+|-
+|[[Jungle]] [[Ruined Portal]]
+|{{code|ruined_portal_jungle}}
+|-
+|[[Windswept Hills|Mountain]] [[Ruined Portal]]
+|{{code|ruined_portal_mountain}}
+|-
+|[[The Nether|Nether]] [[Ruined Portal]]
+|{{cd|ruined_portal_nether}}
+|-
+|[[Ocean]] [[Ruined Portal]]
+|{{cd|ruined_portal_ocean}}
+|-
+|[[Swamp]] [[Ruined Portal]]
+|{{cd|ruined_portal_swamp}}
+|-
+|[[Igloo]]
+|{{code|igloo}}
+|-
+|[[Stronghold]]
+|{{code|stronghold}}
+|-
+|[[Bastion Remnant]]
+|{{code|bastion_remnant}}
+|-
+|[[Desert pyramid]]
+|{{code|desert_pyramid}}
+|-
+|[[Nether Fossil]]
+|{{code|nether_fossil}}
+|-
+|[[Buried Treasure]]
+|{{code|buried_treasure}}
+|-
+|[[Woodland Mansion]]
+|{{code|mansion}}
+|-
+|[[Shipwreck]]
+|{{code|shipwreck}}
+|-
+|[[Ocean Monument]]
+|{{code|monument}}
+|-
+|[[Swamp hut]]
+|{{code|swamp_hut}}
+|-
+|[[Nether Fortress]]
+|{{code|fortress}}
+|-
+|[[Pillager Outpost]]
+|{{code|pillager_outpost}}
+|-
+|[[Ocean#Warm Ocean|Warm]] [[Ocean Ruins]]
+|{{code|ocean_ruin_warm}}
+|-
+|[[Ocean#Cold Ocean|Cold]] [[Ocean Ruins]]
+|{{code|ocean_ruin_cold}}
+|-
+|[[Mineshaft]]
+|<code>mineshaft</code>
+|-
+|[[Badlands]] [[Mineshaft]]
+|{{cd|mineshaft_mesa}}
+|-
+|[[Ancient City]]
+|{{cd|ancient_city}}
+|}
+
+=== Features ===
+
+:{| class="wikitable sortable collapsible collapsed"
+!Feature||[[Resource location]]
+|-
+|[[Acacia]] tree||<code>acacia</code>
+|-
+| [[Amethyst Geode|Amethyst geode]]||<code>amethyst_geode</code>
+|-
+| [[Azalea tree]]||<code>azalea_tree</code>
+|-
+| [[Bamboo]] (no podzol)||<code>bamboo_no_podzol</code>
+|-
+| Bamboo (have podzol)||<code>bamboo_some_podzol</code>
+|-
+| Bamboo [[jungle tree]]s||<code>bamboo_vegetation</code>
+|-
+| [[Basalt]] [[blob]]s in [[netherrack]]||<code>basalt_blobs</code>
+|-
+| [[Basalt pillar]]||<code>basalt_pillar</code>
+|-
+| [[Birch]] tree ||<code>birch</code>
+|-
+| Birch tree (0.2% bee nest)||<code>birch_bees_0002</code>
+|-
+| Birch tree (2% bee nest)||<code>birch_bees_002</code>
+|-
+| Birch tree (5% bee nest)||<code>birch_bees_005</code>
+|-
+| Birch trees ([[Birch Forest#Old Growth Birch Forest|old growth birch forest]])||<code>birch_tall</code>
+|-
+| [[Blackstone]] [[blob]]s in [[netherrack]]||<code>blackstone_blobs</code>
+|-
+| [[Blue Ice|Blue ice]] patch||<code>blue_ice</code>
+|-
+| [[Bonus Chest|Bonus chest]]||<code>bonus_chest</code>
+|-
+| [[Glow Berries|Cave vines]]||<code>cave_vine</code>
+|-
+| Cave vines in moss||<code>cave_vine_in_moss</code>
+|-
+| [[Chorus plant]]||<code>chorus_plant</code>
+|-
+| Clay pool with [[Dripleaf|dripleaves]]||<code>clay_pool_with_dripleaves</code>
+|-
+| Clay with dripleaves||<code>clay_with_dripleaves</code>
+|-
+| [[Crimson Forest|Crimson forest]] vegetation||<code>crimson_forest_vegetation</code>
+|-
+| Crimson forest vegetation (grown from [[Bone Meal|bone meal]])||<code>crimson_forest_vegetation_bonemeal</code>
+|-
+| [[Huge fungus|Huge crimson fungus]]||<code>crimson_fungus</code>
+|-
+| Huge crimson fungus (planted)||<code>crimson_fungus_planted</code>
+|-
+| [[Dark Forest|Dark forest]] trees and [[huge mushroom]]s||<code>dark_forest_vegetation</code>
+|-
+| [[Dark oak]] tree||<code>dark_oak</code>
+|-
+| [[Basalt]] delta||<code>delta</code>
+|-
+| [[Desert Well|Desert well]]||<code>desert_well</code>
+|-
+| [[Clay]] [[disk]]||<code>disk_clay</code>
+|-
+| [[Grass block]] disk||<code>disk_grass</code>
+|-
+| [[Gravel]] disk||<code>disk_gravel</code>
+|-
+| [[Sand]] disk||<code>disk_sand</code>
+|-
+| [[Dripleaf]]||<code>dripleaf</code>
+|-
+| [[Dripstone cluster]]||<code>dripstone_cluster</code>
+|-
+| [[End gateway]] (delayed)||<code>end_gateway_delayed</code>
+|-
+| [[End gateway]] (exit)||<code>end_gateway_return</code>
+|-
+| End island||<code>end_island</code>
+|-
+| [[End spike]]||<code>end_spike</code>
+|-
+| Fancy [[oak]] tree||<code>fancy_oak</code>
+|-
+| Fancy oak tree with [[beehive]]||<code>fancy_oak_bees</code>
+|-
+| Fancy oak tree (0.2% bee nest)||<code>fancy_oak_bees_0002</code>
+|-
+| Fancy oak tree (2% bee nest)||<code>fancy_oak_bees_002</code>
+|-
+| Fancy oak tree (5% bee nest)||<code>fancy_oak_bees_005</code>
+|-
+| [[Flower]] patch (default)||<code>flower_default</code>
+|-
+| Flower patch ([[Forest#Flower Forest|flower forest]])||<code>flower_flower_forest</code>
+|-
+| Flower patch ([[Mountains#Meadow|meadow]])||<code>flower_meadow</code>
+|-
+| Flower patch ([[plains]])||<code>flower_plain</code>
+|-
+| [[Flower|Blue orchid]] patch ||<code>flower_swamp</code>
+|-
+| Flower patch ([[forest]])||<code>forest_flowers</code>
+|-
+| [[Forest rock]]||<code>forest_rock</code>
+|-
+| [[Fossil]] (coal ore)||<code>fossil_coal</code>
+|-
+| [[Fossil]] (diamond ore)||<code>fossil_diamonds</code>
+|-
+| Freeze surface ||<code>freeze_top_layer</code>
+|-
+| [[Glow Lichen|Glow lichen]]||<code>glow_lichen</code>
+|-
+| [[Glowstone blob]]||<code>glowstone_extra</code>
+|-
+| [[Huge mushroom|Huge brown mushroom]]||<code>huge_brown_mushroom</code>
+|-
+| [[Huge mushroom|Huge red mushroom]]||<code>huge_red_mushroom</code>
+|-
+| [[Ice Patch|Ice patch]]||<code>ice_patch</code>
+|-
+| [[Ice spike]]||<code>ice_spike</code>
+|-
+| [[Iceberg]] ([[Blue Ice|blue ice]])||<code>iceberg_blue</code>
+|-
+| Iceberg ([[Packed Ice|packed ice]])||<code>iceberg_packed</code>
+|-
+| [[Jungle Bush|Jungle bush]]||<code>jungle_bush</code>
+|-
+| [[Jungle tree]]||<code>jungle_tree</code>
+|-
+| Jungle tree (no [[vines]]) ||<code>jungle_tree_no_vine</code>
+|-
+| [[Kelp]] plant ||<code>kelp</code>
+|-
+| [[Lava lake]]||<code>lake_lava</code>
+|-
+| Large [[basalt columns]]||<code>large_basalt_columns</code>
+|-
+| Large [[dripstone]]||<code>large_dripstone</code>
+|-
+| [[Lush Caves|Lush cave]] clay surface||<code>lush_caves_clay</code>
+|-
+| [[Mangrove]]||<code>mangrove</code>
+|-
+| Mangrove vegetation||<code>mangrove_vegetation</code>
+|-
+| [[Mountains|Meadow]] trees||<code>meadow_trees</code>
+|-
+| Giant [[jungle tree]]||<code>mega_jungle_tree</code>
+|-
+| Giant [[spruce]] tree (pine-shaped)||<code>mega_pine</code>
+|-
+| Giant [[spruce]] tree (spruce-shaped)||<code>mega_spruce</code>
+|-
+| [[Dungeon]]||<code>monster_room</code>
+|-
+| [[Moss Block|Moss]] patch||<code>moss_patch</code>
+|-
+| Moss patch (grown from bone meal)||<code>moss_patch_bonemeal</code>
+|-
+| Moss patch on ceilings|| <code>moss_patch_ceiling</code>
+|-
+| Moss vegetation||<code>moss_vegetation</code>
+|-
+| [[Huge mushroom]]s ([[Mushroom Fields|mushroom fields]])||<code>mushroom_island_vegetaation</code>
+|-
+| [[Nether Sprouts|Nether sprouts]]||<code>nether_sprouts</code>
+|-
+| Nether sprouts (grown from bone meal)||<code>nether_sprouts_bonemeal</code>
+|-
+| [[Oak]] tree||<code>oak</code>
+|-
+| Oak tree (0.2% bee nest)||<code>oak_bees_0002</code>
+|-
+| Oak tree (2% bee nest)||<code>oak_bees_002</code>
+|-
+| Oak tree (5% bee nest)||<code>oak_bees_005</code>
+|-
+| [[Ancient Debris|Ancient debris]] (large)||<code>ore_ancient_debris_large</code>
+|-
+| Ancient debris (small) ||<code>ore_ancient_debris_small</code>
+|-
+| [[Andesite]] [[ore (feature)|ore blob]]||<code>ore_andesite</code>
+|-
+| [[Blackstone]] blob||<code>ore_blackstone</code>
+|-
+| [[Clay]] blob||<code>ore_clay</code>
+|-
+| [[Coal Ore|Coal ore]] blob||<code>ore_coal</code>
+|-
+| [[Coal Ore|Coal ore]] (reduced air exposure)||<code>ore_coal_buried</code>
+|-
+| Large [[Copper Ore|copper ore]] blob||<code>ore_copper_large</code>
+|-
+| [[Copper Ore|Copper ore]] blob||<code>ore_copper_small</code>
+|-
+| [[Diamond Ore|Diamond ore]] (no air exposure)||<code>ore_diamond_buried</code>
+|-
+| Small diamond ore blob||<code>ore_diamond_large</code>
+|-
+| Large diamond ore blob||<code>ore_diamond_small</code>
+|-
+| [[Diorite]] blob||<code>ore_diorite</code>
+|-
+| [[Dirt]] blob||<code>ore_dirt</code>
+|-
+| [[Emerald Ore|Emerald ore]] blob||<code>ore_emerald</code>
+|-
+| [[Gold Ore|Gold ore]] blob||<code>ore_gold</code>
+|-
+| [[Gold Ore|Gold ore]] (reduced air exposure)||<code>ore_gold_buried</code>
+|-
+| [[Granite]] blob||<code>ore_granite</code>
+|-
+| [[Gravel]] blob (nether)||<code>ore_gravel</code>
+|-
+| [[Gravel]] blob||<code>ore_gravel_nether</code>
+|-
+| [[Infested Block|Infested stone]] blob||<code>ore_infested</code>
+|-
+| [[Iron Ore|Iron ore]] blob||<code>ore_iron</code>
+|-
+| Small iron ore blob||<code>ore_iron_small</code>
+|-
+| [[Lapis Lazuli Ore|Lapis lazuli ore]] blob||<code>ore_lapis</code>
+|-
+| Lapis lazuli ore (no air exposure)||<code>ore_lapis_buried</code>
+|-
+| [[Magma Block|Magma block]] blob||<code>ore_magma</code>
+|-
+| [[Nether Gold Ore|Nether gold ore]] blob||<code>ore_nether_gold</code>
+|-
+| [[Nether Quartz Ore|Nether quartz ore]] blob||<code>ore_quartz</code>
+|-
+| [[Redstone Ore|Redstone ore]] blob||<code>ore_redstone</code>
+|-
+| [[Soul Sand|Soul sand]] blob||<code>ore_soul_sand</code>
+|-
+| [[Tuff]] blob||<code>ore_tuff</code>
+|-
+| [[Sweet Berries|Sweet berry]] bush patch||<code>patch_berry_bush</code>
+|-
+| Brown [[mushroom]] patch||<code>patch_brown_mushroom</code>
+|-
+| [[Cactus]] patch||<code>patch_cactus</code>
+|-
+| [[Roots|Crimson root]] patch||<code>patch_crimson_roots</code>
+|-
+| [[Dead Bush|Dead bush]] patch||<code>patch_dead_bush</code>
+|-
+| [[Fire]] patch ||<code>patch_fire</code>
+|-
+| [[Grass]] patch||<code>patch_grass</code>
+|-
+| [[Grass]] and fern patch ([[jungle]])||<code>patch_grass_jungle</code>
+|-
+| Large fern patch||<code>patch_large_fern</code>
+|-
+| [[Melon]] patch||<code>patch_melon</code>
+|-
+| [[Pumpkin]] patch||<code>patch_pumpkin</code>
+|-
+| Red [[mushroom]] Patch||<code>patch_red_mushroom</code>
+|-
+| Soul [[fire]] patch ||<code>patch_soul_fire</code>
+|-
+| [[Sugar Cane|Sugar cane]] patch||<code>patch_sugar_cane</code>
+|-
+| [[Flower|Sunflower]] patch||<code>patch_sunflower</code>
+|-
+| [[Grass]] and fern patch ([[taiga]])||<code>patch_taiga_grass</code>
+|-
+| Tall [[grass]] patch||<code>patch_tall_grass</code>
+|-
+| [[Lily Pad|Lily pad]] patch||<code>patch_waterlily</code>
+|-
+| [[Pile]] of [[Hay Bale|hay bales]]||<code>pile_hay</code>
+|-
+| Pile of [[Packed Ice|packed]] and [[Blue Ice|blue ice]]||<code>pile_ice</code>
+|-
+| [[Melon]] pile ||<code>pile_melon</code>
+|-
+| [[Pumpkin]] pile||<code>pile_pumpkin</code>
+|-
+| [[Snow]] pile||<code>pile_snow</code>
+|-
+| [[Spruce]] tree (pine-shaped)||<code>pine</code>
+|-
+| [[Pointed Dripstone|Pointed dripstone]]||<code>pointed_dripstone</code>
+|-
+| Rooted [[azalea tree]]||<code>rooted_azalea_tree</code>
+|-
+| [[Sculk (disambiguation)|Sculk]] patch ([[ancient city]])||<code>sculk_patch_ancient_city</code>
+|-
+| Sculk patch ([[deep dark]])||<code>sculk_patch_deep_dark</code>
+|-
+| [[Sculk vein]]||<code>sculk_vein</code>
+|-
+| [[Sea Pickle|Sea pickles]]||<code>sea_pickle</code>
+|-
+| [[Seagrass]] (60% tall)||<code>seagrass_mid</code>
+|-
+| [[Seagrass]] (30% tall)||<code>seagrass_short</code>
+|-
+| [[Seagrass]] (short)||<code>seagrass_simple</code>
+|-
+| [[Seagrass]] (40% tall)||<code>seagrass_slightly_less_short</code>
+|-
+| [[Seagrass]] (80% tall)||<code>seagrass_tall</code>
+|-
+| Single [[grass]] plant||<code>single_piece_of_grass</code>
+|-
+| Small [[basalt columns]]||<code>small_basalt_columns</code>
+|-
+| [[Spore Blossom|Spore blossom]]||<code>spore_blossom</code>
+|-
+| [[Lava]] [[spring]] (snow and packed ice)||<code>spring_lava_frozen</code>
+|-
+| [[Lava]] [[spring]] (nether)||<code>spring_lava_nether</code>
+|-
+| [[Lava]] [[spring]] (overworld)||<code>spring_lava_overworld</code>
+|-
+| Nether lava spring (hidden)||<code>spring_nether_closed</code>
+|-
+| Nether lava spring (visible)||<code>spring_nether_open</code>
+|-
+| [[Water]] [[spring]]||<code>spring_water</code>
+|-
+| [[Spruce]] tree (spruce-shaped)||<code>spruce</code>
+|-
+| Tall [[birch]] tree with [[bee nest]]||<code>super_birch_bees</code>
+|-
+| Tall [[birch]] tree (0.2% bee nest)||<code>super_birch_bees_0002</code>
+|-
+| [[Oak]] tree (swamp)||<code>swamp_oak</code>
+|-
+| Tall mangrove||<code>tall_mangrove</code>
+|-
+| [[Birch]] and [[oak]] trees||<code>trees_birch_and_oak</code>
+|-
+| Trees ([[Forest#Flower Forest|flower forest]])||<code>trees_flower_forest</code>
+|-
+| Trees ([[Mountains#Grove|grove]])||<code>trees_grove</code>
+|-
+| Trees ([[jungle]])||<code>trees_jungle</code>
+|-
+| Trees ([[Old Growth Taiga#Old Growth Pine Taiga|old growth pine taiga]])||<code>trees_old_growth_pine_taiga</code>
+|-
+| Trees ([[Old Growth Taiga#Old Growth Spruce Taiga|old growth spruce taiga]])||<code>trees_old_growth_spruce_taiga</code>
+|-
+| Trees ([[plains]])||<code>trees_plains</code>
+|-
+| Trees ([[savanna]])||<code>trees_savanna</code>
+|-
+| Sparse [[jungle tree]]s||<code>trees_sparse_jungle</code>
+|-
+| Trees ([[taiga]])||<code>trees_taiga</code>
+|-
+| Waterside trees||<code>trees_water</code>
+|-
+| Trees ([[Windswept Hills|windswept hills]])||<code>trees_windswept_hills</code>
+|-
+| [[Twisting Vines|Twisting vines]]||<code>twisting_vines</code>
+|-
+| Twisting vines (grown from bone meal)||<code>twisting_vines_bonemeal</code>
+|-
+| Underwater [[Magma Block|magma blocks]]||<code>underwater_magma</code>
+|-
+| [[Vines]]||<code>vines</code>
+|-
+| [[Void Start Platform|Void start platform]]||<code>void_start_platform</code>
+|-
+| [[Coral Reef]]||<code>warm_ocean_vegetation</code>
+|-
+| [[Warped Forest|Warped forest]] vegetation||<code>warped_forest_vegetation</code>
+|-
+| Warped forest vegetation (grown from [[Bone Meal|bone meal]])||<code>warped_forest_vegetation_bonemeal</code>
+|-
+| [[Huge fungus|Huge warped fungus]]||<code>warped_fungus</code>
+|-
+| Huge warped fungus (planted)||<code>warped_fungus_planted</code>
+|-
+| [[Weeping Vines|Weeping vines]]||<code>weeping_vines</code>
+|}
+== Block states ==
+{{Needs update|section=0|Missing a lot of block states and the blocks in the block states.}}
+==== age ====
+Tracks the age of plants to handle growth and of fire to handle spread.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|0}} to {{code|1}})
+| {{BlockLink|Bamboo}}
+|-
+| Integer ({{code|0}} to {{code|2}})
+| {{BlockLink|Cocoa}}
+|-
+| Integer ({{code|0}} to {{code|3}})
+| 
+* {{BlockLink|Nether Wart}}
+* {{BlockLink|Beetroots}}
+* {{BlockLink|Frosted Ice}}
+* {{BlockLink|Sweet Berry Bush}}
+|-
+| Integer ({{code|0}} to {{code|5}})
+| {{BlockLink|Chorus Flower}}
+|-
+| Integer ({{code|0}} to {{code|7}})
+| 
+* {{BlockLink|Wheat Crops}}
+* {{BlockLink|Pumpkin Stem}}
+* {{BlockLink|Melon Stem}}
+* {{BlockLink|Carrots}}
+* {{BlockLink|Potatoes}}
+|-
+| Integer ({{code|0}} to {{code|15}})
+| 
+* {{BlockLink|Fire}}
+* {{BlockLink|Cactus}}
+* {{BlockLink|Sugar Cane}}
+|-
+| Integer ({{code|0}} to {{code|25}})
+| {{BlockLink|Kelp}}
+|}
+
+==== attached ====
+Whether the tripwire hook is connected to a valid tripwire circuit or not.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|Tripwire Hook}}
+* {{BlockLink|Tripwire}}
+|}
+
+==== attachment ====
+How this block is attached to the block it is on.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| 
+* {{code|ceiling}}
+* {{code|double_wall}}
+* {{code|floor}}
+* {{code|single_wall}}
+| {{BlockLink|Bell}}
+|}
+
+==== axis ====
+What axis the block is oriented to.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| 
+* {{code|x}}
+* {{code|y}}
+* {{code|z}}
+| 
+* {{BlockLink|id=oak-log|Log}} (including all variants, wood, bamboo, and stripped versions of bamboo, logs, and wood)
+* {{BlockLink|id=crimson-stem|Stem}} (including all variants, hyphae, and stripped versions of both stems and hyphae)
+* {{BlockLink|Basalt}} (including polished basalt)
+* {{BlockLink|Bone Block}}
+* {{BlockLink|Verdant Froglight}} (including Ochre and Pearlescent varients)
+* {{BlockLink|Muddy Mangrove Roots}}
+* {{BlockLink|Chain}}
+* {{BlockLink|Hay Bale}}
+* {{BlockLink|Purpur Pillar}}
+* {{BlockLink|Quartz Pillar}}
+* {{BlockLink|Deepslate}} (including infested varient)
+|-
+| 
+* {{code|x}}
+* {{code|z}}
+| {{BlockLink|Nether Portal (block)|Nether Portal|id=nether-portal}}
+|}
+
+==== bites ====
+The number of bites taken from the cake.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|0}} to {{code|6}})
+| {{BlockLink|Cake}}
+|}
+
+==== bottom ====
+Whether this scaffolding is floating (shows the bottom).
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|Scaffolding}}
+|}
+
+==== charges ====
+Tracks the remaining uses of respawn anchors.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|0}} to {{code|4}})
+| {{BlockLink|Respawn Anchor}}
+|}
+
+==== conditional ====
+Whether or not the command block is conditional.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|id=command-block|Command Block}} (any variant)
+|}
+
+==== delay ====
+The amount of time between receiving a signal and responding.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|1}} to {{code|4}})
+| {{BlockLink|Redstone Repeater}}
+|}
+
+==== disarmed ====
+Whether the tripwire is broken using shears or not.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|Tripwire}}
+|}
+
+==== distance ====
+The distance from a base block.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|0}} to {{code|7}})
+| {{BlockLink|Scaffolding}}
+|-
+| Integer ({{code|1}} to {{code|7}})
+| {{BlockLink|id=oak-leaves|Leaves}} (any)
+|}
+
+==== down ====
+Determines whether something is below the block.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|Brown Mushroom Block}}
+* {{BlockLink|Chorus Plant}}
+* {{BlockLink|Mushroom Stem}}
+* {{BlockLink|Red Mushroom Block}}
+|}
+
+==== drag ====
+Determines whether the bubble column is a whirlpool or upwards.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|Bubble Column}}
+|}
+
+==== east ====
+Determines whether something is on the east side of the block.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|id=oak-fence|Fence}} (any, including nether brick)
+* {{BlockLink|id=glass-pane|Glass Pane}} (including all stained colors)
+* {{BlockLink|Brown Mushroom Block}}
+* {{BlockLink|Chorus Plant}}
+* {{BlockLink|Fire}}
+* {{BlockLink|Iron Bars}}
+* {{BlockLink|Mushroom Stem}}
+* {{BlockLink|Red Mushroom Block}}
+* {{BlockLink|Tripwire}}
+* {{BlockLink|Vines}}
+|-
+| 
+* {{code|none}}
+* {{code|side}}
+* {{code|up}}
+| {{BlockLink|Redstone Dust}}
+|-
+| 
+* {{code|low}}
+* {{code|none}}
+* {{code|tall}}
+| {{BlockLink|id=Cobblestone Wall|Wall}} (any)
+|}
+
+==== eggs ====
+The amount of eggs in this block.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|1}} to {{code|4}})
+| {{BlockLink|Turtle Egg}}
+|}
+
+==== enabled ====
+Whether or not the hopper can collect and transfer items.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|Hopper}}
+|}
+
+==== extended ====
+Whether or not the piston is extended.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|Sticky Piston}}
+* {{BlockLink|Piston}}
+|}
+
+==== eye ====
+Whether the frame contains an eye of ender.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|End Portal Frame}}
+|}
+
+==== face ====
+What side of a block the attached block is on.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| 
+* {{code|ceiling}}
+* {{code|floor}}
+* {{code|wall}}
+| 
+* {{BlockLink|id=oak-button|Button}} (any)
+* {{BlockLink|Grindstone}}
+* {{BlockLink|Lever}}
+|}
+
+==== facing ====
+For most blocks, what direction the block faces.
+
+For wall-attached [[bell]]s as well as [[cocoa]], the opposite is true.<ref>{{bug|MC-193943}}</ref>
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| 
+* {{code|down}}
+* {{code|east}}
+* {{code|north}}
+* {{code|south}}
+* {{code|west}}
+* {{code|up}}
+| 
+* {{BlockLink|Amethyst Cluster}} (any stage)
+* {{BlockLink|id=command-block|Command Block}} (any variant)
+* {{BlockLink|id=shulker-box|Shulker Box}} (any color)
+* {{BlockLink|Barrel}}
+* {{BlockLink|Dispenser}}
+* {{BlockLink|Dropper}}
+* {{BlockLink|End Rod}}
+* {{BlockLink|Moving Piston}}
+* {{BlockLink|Observer}}
+* {{BlockLink|Piston}}
+* {{BlockLink|Piston Head}}
+* {{BlockLink|Sticky Piston}}
+|-
+| 
+* {{code|east}}
+* {{code|north}}
+* {{code|south}}
+* {{code|west}}
+| 
+* {{BlockLink|Anvil}} (any durability)
+* {{BlockLink|id=white-wall-banner|Banner}} (any wall variant)
+* {{BlockLink|id=white-bed|Bed}} (any)
+* {{BlockLink|id=tube-coral-wall-fan|Coral Wall Fan}} (any variant, including dead)
+* {{BlockLink|id=oak-button|Button}} (any)
+* {{BlockLink|id=oak-door|Door}} (any)
+* {{BlockLink|id=oak-fence-gate|Fence Gate}} (any)
+* {{BlockLink|id=white-glazed-terracotta|Glazed Terracotta}} (any color)
+* {{BlockLink|id=player-head|Mob head}} (any)
+* {{BlockLink|id=oak-wall-sign|Signs}} (any wall variant)
+* {{BlockLink|id=oak-stairs|Stairs}} (any)
+* {{BlockLink|id=oak-trapdoor|Trapdoor}} (any, including iron)
+* {{BlockLink|Attached Melon Stem}}
+* {{BlockLink|Attached Pumpkin Stem}}
+* {{BlockLink|Bell}}
+* {{BlockLink|Beehive}}
+* {{BlockLink|Bee Nest}}
+* {{BlockLink|Blast Furnace}}
+* {{BlockLink|Campfire}}
+* {{BlockLink|Carved Pumpkin}}
+* {{BlockLink|Chest}}
+* {{BlockLink|Cocoa}}
+* {{BlockLink|End Portal Frame}}
+* {{BlockLink|Ender Chest}}
+* {{BlockLink|Furnace}}
+* {{BlockLink|Grindstone}}
+* {{BlockLink|Jack o'Lantern}}
+* {{BlockLink|Ladder}}
+* {{BlockLink|Lectern}}
+* {{BlockLink|Lever}}
+* {{BlockLink|Loom}}
+* {{BlockLink|Redstone Comparator}}
+* {{BlockLink|Redstone Repeater}}
+* {{BlockLink|Redstone Wall Torch}}
+* {{BlockLink|Smoker}}
+* {{BlockLink|Soul Campfire}}
+* {{BlockLink|Soul Wall Torch}}
+* {{BlockLink|Stonecutter}}
+* {{BlockLink|Trapped Chest}}
+* {{BlockLink|Tripwire Hook}}
+* {{BlockLink|Wall Torch}}
+|-
+| 
+* {{code|down}}
+* {{code|east}}
+* {{code|north}}
+* {{code|south}}
+* {{code|west}}
+| {{BlockLink|Hopper}}
+|}
+
+==== half ====
+For tall plants and doors, which half of the door or plant occupies the block space. For trapdoors and stairs, what part of the block space they are in.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| 
+* {{code|lower}}
+* {{code|upper}}
+| 
+* {{BlockLink|id=oak-door|Door}} (any)
+* {{BlockLink|Tall Seagrass}}
+* {{BlockLink|Sunflower}}
+* {{BlockLink|Lilac}}
+* {{BlockLink|Rose Bush}}
+* {{BlockLink|Peony}}
+* {{BlockLink|Tall Grass}}
+* {{BlockLink|Large Fern}}
+|-
+| 
+* {{code|bottom}}
+* {{code|top}}
+| 
+* {{BlockLink|id=oak-stairs|Stairs}} (any)
+* {{BlockLink|id=oak-trapdoor|Trapdoor}} (any, including iron)
+|}
+
+==== hanging ====
+Whether or not the lantern hangs on the ceiling.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+|
+* {{BlockLink|Lantern}}
+* {{BlockLink|Soul Lantern}}
+|}
+
+==== has_book ====
+Whether or not this lectern holds a book.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|Lectern}}
+|}
+
+==== has_bottle_0 ====
+Whether or not a bottle is in slot 1 of the brewing stand.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|Brewing Stand}}
+|}
+
+==== has_bottle_1 ====
+Whether or not a bottle is in slot 2 of the brewing stand.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|Brewing Stand}}
+|}
+
+==== has_bottle_2 ====
+Whether or not a bottle is in slot 3 of the brewing stand.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|Brewing Stand}}
+|}
+
+==== has_record ====
+True when the jukebox contains a music disc.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|Jukebox}}
+|}
+
+==== hatch ====
+Determines how close an egg is to hatching; starts at 0 and is randomly incremented.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|0}} to {{code|2}})
+| {{BlockLink|Turtle Egg}}
+|}
+
+==== hinge ====
+Identifies the side the hinge is on (when facing the same direction as the door's inside).
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| 
+* {{code|left}}
+* {{code|right}}
+| {{BlockLink|id=oak-door|Door}} (any)
+|}
+
+==== honey_level ====
+The level of honey inside the beehive and bee nest.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|0}} to {{code|5}})
+|
+* {{BlockLink|Beehive}}
+* {{BlockLink|Bee Nest}}
+|}
+
+==== in_wall ====
+If true, the gate is lowered by three pixels, to accommodate attaching more cleanly with walls.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|id=oak-fence-gate|Fence Gate}} (any)
+|}
+
+==== instrument ====
+The instrument sound the note block makes when it gets powered or used.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| 
+* {{code|banjo}}
+* {{code|basedrum}}
+* {{code|bass}}
+* {{code|bell}}
+* {{code|bit}}
+* {{code|chime}}
+* {{code|cow_bell}}
+* {{code|digeridoo}}
+* {{code|flute}}
+* {{code|guitar}}
+* {{code|harp}}
+* {{code|hat}}
+* {{code|iron_xylophone}}
+* {{code|snare}}
+* {{code|xylophone}}
+| {{BlockLink|Note Block}}
+|}
+
+==== inverted ====
+Whether the daylight detector detects light (false) or darkness (true).
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|Daylight Detector}}
+|}
+
+==== layers ====
+How many layers of snow are on top of each other.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|1}} to {{code|8}})
+| {{BlockLink|Snow}}
+|}
+
+==== leaves ====
+How big the leaves are on this bamboo.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| 
+* {{code|large}}
+* {{code|none}}
+* {{code|small}}
+| {{BlockLink|Bamboo}}
+|}
+
+==== level ====
+How much water or lava is in this block or cauldron.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|0}} to {{code|3}})
+| {{BlockLink|Cauldron}} ([[water]] and [[Powder Snow|powder snow]])
+|-
+| Integer ({{code|0}} to {{code|8}})
+| {{BlockLink|Composter}}
+|-
+| Integer ({{code|0}} to {{code|15}})
+| 
+* {{BlockLink|Water}}
+* {{BlockLink|Lava}}
+* {{BlockLink|Light}}
+|}
+
+==== lit ====
+Whether the block is turned on or off.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|Blast Furnace}}
+* {{BlockLink|Campfire}}
+* {{BlockLink|Furnace}}
+* {{BlockLink|Redstone Ore}}
+* {{BlockLink|Redstone Torch}}
+* {{BlockLink|Redstone Wall Torch}}
+* {{BlockLink|Redstone Lamp}}
+* {{BlockLink|Smoker}}
+* {{BlockLink|Soul Campfire}}
+|}
+
+==== locked ====
+Whether the repeater can change it is powered state (false) or not (true).
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|Redstone Repeater}}
+|}
+
+==== mode ====
+The mode the comparator or structure block is in.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| 
+* {{code|compare}}
+* {{code|subtract}}
+| {{BlockLink|Redstone Comparator}}
+|-
+| 
+* {{code|corner}}
+* {{code|data}}
+* {{code|load}}
+* {{code|save}}
+| {{BlockLink|Structure Block}}
+|}
+
+==== moisture ====
+How wet the farmland is.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|0}} to {{code|7}})
+| {{BlockLink|Farmland}}
+|}
+
+==== north ====
+Determines whether something is on the north side of the block.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|id=oak-fence|Fence}} (any, including nether brick)
+* {{BlockLink|id=glass-pane|Glass Pane}} (including all stained colors)
+* {{BlockLink|Brown Mushroom Block}}
+* {{BlockLink|Chorus Plant}}
+* {{BlockLink|Fire}}
+* {{BlockLink|Iron Bars}}
+* {{BlockLink|Mushroom Stem}}
+* {{BlockLink|Red Mushroom Block}}
+* {{BlockLink|Tripwire}}
+* {{BlockLink|Vines}}
+|-
+| 
+* {{code|up}}
+* {{code|side}}
+* {{code|none}}
+| {{BlockLink|Redstone Dust}}
+|-
+| 
+* {{code|low}}
+* {{code|none}}
+* {{code|tall}}
+| {{BlockLink|id=Cobblestone Wall|Wall}} (any)
+|}
+
+==== note ====
+The note the note block plays when it gets powered.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|0}} to {{code|24}})
+| {{BlockLink|Note Block}}
+|}
+
+==== occupied ====
+If there's already a player in this bed.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|id=white-bed|Bed}} (any)
+|}
+
+==== open ====
+Whether the door is open or closed.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|id=oak-door|Door}} (any)
+* {{BlockLink|id=oak-fence-gate|Fence Gate}} (any)
+* {{BlockLink|id=oak-trapdoor|Trapdoor}} (any, including iron)
+* {{BlockLink|Barrel}}
+|}
+
+==== orientation ====
+Direction the arrows point, followed by the position of the line face.
+
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| 
+* {{code|down_east}}
+* {{code|down_north}}
+* {{code|down_south}}
+* {{code|down_west}}
+* {{code|east_up}}
+* {{code|north_up}}
+* {{code|south_up}}
+* {{code|up_east}}
+* {{code|up_north}}
+* {{code|up_south}}
+* {{code|up_west}}
+* {{code|west_up}}
+| 
+{{BlockLink|Jigsaw Block}}
+|}
+
+==== part ====
+Whether this is the foot or head end of the bed.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| 
+* {{code|foot}}
+* {{code|head}}
+| {{BlockLink|id=white-bed|Bed}} (any)
+|}
+
+==== persistent ====
+Whether leaves decay (false) or not (true)
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|id=oak-leaves|Leaves}} (any)
+|}
+
+==== pickles ====
+The amount of pickles in this block.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|1}} to {{code|4}})
+| {{BlockLink|Sea Pickle}}
+|}
+
+==== power ====
+The power level of Redstone emission.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|0}} to {{code|15}})
+| 
+* {{BlockLink|Redstone Dust}}
+* {{BlockLink|Light Weighted Pressure Plate}}
+* {{BlockLink|Heavy Weighted Pressure Plate}}
+* {{BlockLink|Daylight Detector}}
+* {{BlockLink|Target}}
+|}
+
+==== powered ====
+Whether the block is powered.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|id=oak-button|Button}} (any)
+* {{BlockLink|id=oak-door|Door}} (any)
+* {{BlockLink|id=oak-fence-gate|Fence Gate}} (any)
+* {{BlockLink|id=oak-pressure-plate|Pressure Plate}} (any non-weighted)
+* {{BlockLink|id=oak-trapdoor|Trapdoor}} (any, including iron)
+* {{BlockLink|Activator Rail}}
+* {{BlockLink|Detector Rail}}
+* {{BlockLink|Lectern}}
+* {{BlockLink|Lever}}
+* {{BlockLink|Note Block}}
+* {{BlockLink|Observer}}
+* {{BlockLink|Powered Rail}}
+* {{BlockLink|Redstone Comparator}}
+* {{BlockLink|Redstone Repeater}}
+* {{BlockLink|Tripwire}}
+* {{BlockLink|Tripwire Hook}}
+|}
+
+==== rotation ====
+The rotation of standing heads, signs and banners.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|0}} to {{code|15}})
+| 
+* {{BlockLink|id=white-banner|Banner}} (any non-wall variant)
+* {{BlockLink|id=player-head|Mob head}} (any)
+* {{BlockLink|id=oak-sign|Signs}} (any non-wall variant)
+|}
+
+==== shape ====
+The way this block connects to its neighbors.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| 
+* {{code|ascending_east}}
+* {{code|ascending_north}}
+* {{code|ascending_south}}
+* {{code|ascending_west}}
+* {{code|east_west}}
+* {{code|north_south}}
+| 
+* {{BlockLink|Powered Rail}}
+* {{BlockLink|Detector Rail}}
+* {{BlockLink|Activator Rail}}
+|-
+| 
+* {{code|inner_left}}
+* {{code|inner_right}}
+* {{code|outer_left}}
+* {{code|outer_right}}
+* {{code|straight}}
+| {{BlockLink|id=oak-stairs|Stairs}} (any)
+|-
+| 
+* {{code|ascending_east}}
+* {{code|ascending_north}}
+* {{code|ascending_south}}
+* {{code|ascending_west}}
+* {{code|east_west}}
+* {{code|north_south}}
+* {{code|north_east}}
+* {{code|north_west}}
+* {{code|south_east}}
+* {{code|south_west}}
+| {{BlockLink|Rail}}
+|}
+
+==== short ====
+Whether this piston head's arm is 4/16th of a block shorter
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|Piston Head}}
+|}
+
+==== signal_fire ====
+Whether this campfire has higher smoke or not.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|Campfire}}
+* {{BlockLink|Soul Campfire}}
+|}
+
+==== snowy ====
+Whether this block uses the snowy side texture.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|Grass Block}}
+* {{BlockLink|Podzol}}
+* {{BlockLink|Mycelium}}
+|}
+
+==== south ====
+Determines whether something is on the south side of the block.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|id=oak-fence|Fence}} (any, including nether brick)
+* {{BlockLink|id=glass-pane|Glass Pane}} (including all stained colors)
+* {{BlockLink|Brown Mushroom Block}}
+* {{BlockLink|Chorus Plant}}
+* {{BlockLink|Fire}}
+* {{BlockLink|Iron Bars}}
+* {{BlockLink|Mushroom Stem}}
+* {{BlockLink|Red Mushroom Block}}
+* {{BlockLink|Tripwire}}
+* {{BlockLink|Vines}}
+|-
+| 
+* {{code|none}}
+* {{code|side}}
+* {{code|up}}
+| {{BlockLink|Redstone Dust}}
+|-
+| 
+* {{code|low}}
+* {{code|none}}
+* {{code|tall}}
+| {{BlockLink|id=Cobblestone Wall|Wall}} (any)
+|}
+
+==== stage ====
+Whether this sapling is ready to grow.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Integer ({{code|0}} to {{code|1}})
+| 
+* {{BlockLink|id=oak-sapling|Sapling}} (any)
+* {{BlockLink|Bamboo}}
+|}
+
+==== triggered ====
+Whether this block has been activated.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|Dispenser}}
+* {{BlockLink|Dropper}}
+|}
+
+==== type ====
+Determines the variant of this block.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| 
+* {{code|normal}}
+* {{code|sticky}}
+| 
+* {{BlockLink|Piston Head}}
+* {{BlockLink|Moving Piston}}
+|-
+| 
+* {{code|left}}
+* {{code|right}}
+* {{code|single}}
+| 
+* {{BlockLink|Chest}}
+* {{BlockLink|Trapped Chest}}
+|-
+| 
+* {{code|bottom}}
+* {{code|double}}
+* {{code|top}}
+| {{BlockLink|id=oak-slab|Slab}} (any)
+|}
+
+==== unstable ====
+Whether the TNT explodes when punched or not.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| {{BlockLink|TNT}}
+|}
+
+==== up ====
+Determines whether something is above the block.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|id=Cobblestone Wall|Wall}} (any)
+* {{BlockLink|Brown Mushroom Block}}
+* {{BlockLink|Chorus Plant}}
+* {{BlockLink|Fire}}
+* {{BlockLink|Mushroom Stem}}
+* {{BlockLink|Red Mushroom Block}}
+* {{BlockLink|Vines}}
+|}
+
+==== waterlogged ====
+Whether the block has water in it.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|id=tube-coral|Coral}} (all non-block variants, including dead variants)
+* {{BlockLink|id=oak-fence|Fence}} (any, including nether brick)
+* {{BlockLink|id=glass-pane|Glass Pane}} (including all stained colors)
+* {{BlockLink|id=oak-sign|Signs}} (all variants, including wall signs)
+* {{BlockLink|id=stone-slab|Slab}} (any)
+* {{BlockLink|id=oak-stairs|Stairs}} (any)
+* {{BlockLink|id=oak-trapdoor|Trapdoor}} (any, including iron)
+* {{BlockLink|id=Cobblestone Wall|Wall}} (any)
+* {{BlockLink|Campfire}}
+* {{BlockLink|Chain}}
+* {{BlockLink|Chest}}
+* {{BlockLink|Conduit}}
+* {{BlockLink|Ender Chest}}
+* {{BlockLink|Iron Bars}}
+* {{BlockLink|Ladder}}
+* {{BlockLink|Lantern}}
+* {{BlockLink|Scaffolding}}
+* {{BlockLink|Sea Pickle}}
+* {{BlockLink|Soul Lantern}}
+* {{BlockLink|Trapped Chest}}
+|}
+
+==== west ====
+Determines whether something is on the west side of the block.
+{| class="wikitable"
+! State value
+! Blocks
+|-
+| Boolean ({{code|false}} or {{code|true}})
+| 
+* {{BlockLink|id=oak-fence|Fence}} (any, including nether brick)
+* {{BlockLink|id=glass-pane|Glass Pane}} (including all stained colors)
+* {{BlockLink|Brown Mushroom Block}}
+* {{BlockLink|Chorus Plant}}
+* {{BlockLink|Fire}}
+* {{BlockLink|Iron Bars}}
+* {{BlockLink|Mushroom Stem}}
+* {{BlockLink|Red Mushroom Block}}
+* {{BlockLink|Tripwire}}
+* {{BlockLink|Vines}}
+|-
+| 
+* {{code|none}}
+* {{code|side}}
+* {{code|up}}
+| {{BlockLink|Redstone Dust}}
+|-
+| 
+* {{code|low}}
+* {{code|none}}
+* {{code|tall}}
+| {{BlockLink|id=Cobblestone Wall|Wall}} (any)
+|}
+
+{{LoadPage|{{FULLPAGENAME}}/Protocol and data versions|Protocol and data versions|h2}}
+
+{{Java Edition}}
+
+[[Category:Development]]
+
+[[de:Datenwert]]
+[[es:Valores de datos de Java Edition]]
+[[fr:Valeurs]]
+[[hu:Adatértékek]]
+[[ja:Java Editionのデータ値]]
+[[ko:데이터 값]]
+[[nl:Javaeditie datawaarden]]
+[[pl:ID]]
+[[pt:Valores de dados da Edição Java]]
+[[ru:Значения данных]]
+[[tr:Data değerleri]]
+[[zh:Java版数据值]]

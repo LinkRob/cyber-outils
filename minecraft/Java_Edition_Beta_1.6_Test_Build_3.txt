@@ -1,0 +1,797 @@
+{{Missing information|bugs that have been fixed in [[Java Edition Beta 1.6|Beta 1.6]] that haven't been tested in this version}}
+{{version nav
+|title=Minecraft Beta 1.6 Test Build 3
+|image=Beta 1.6 Test Build 3.png
+|image2=Beta 1.6 Test Build 3 menu.png
+|edition=java
+|date=May 25, 2011<ref name="releasedate">See the value of LastModified on the [https://s3.amazonaws.com/MinecraftDownload/ index for the MinecraftDownload page] - "2011-05-25T08:36:23.000Z".</ref>
+|clientdl=[https://archive.org/download/Minecraft-JE-Beta/Prereleases/b1.6-tb3/b1.6-tb3.jar Client]
+|jsondl=[https://archive.org/download/Minecraft-JE-Beta/Prereleases/b1.6-tb3/b1.6-tb3.json .json]
+|serverdl=[https://files.betacraft.uk/server-archive/beta/prerelease/b1.6-tb3.jar Server]
+|prevparent=Beta 1.5_02
+|prev=
+|next=Beta 1.6 (preview)
+|nextparent=Beta 1.6.1
+}}<onlyinclude>
+
+'''Beta 1.6 Test Build 3''' is a version used to test [[Java Edition Beta 1.6]] the day before its release. It was never officially released to the public, however, both the client and the server are packed in an archive that can be found on the legacy update server.<ref>https://s3.amazonaws.com/MinecraftDownload/prerelease/build.zip</ref>
+
+== Additions ==
+===Blocks===
+; [[File:Dead Bush JE1 BE1.png|32px]] [[Dead bush]]
+* Found in [[Desert]]s.
+
+; [[File:Grass JE1.png|32px]] [[Grass]]
+* Found in certain [[biome]]s.
+* [[Seed]]s are now found in grass; using a [[hoe]] on the ground no longer yields seeds.
+
+; [[File:Fern JE1.png|32px]] [[Fern]]
+* Has the same characteristics as grass.
+
+; [[File:Oak Trapdoor JE1 BE1.png|32px]] [[Trapdoor]]
+
+=== Items ===
+
+; [[File:Map (item) JE1 BE1.png|32px]] [[Map]]s
+* Lets the player scope out different biomes.
+
+=== General ===
+
+; [[Splash|Splashes]]
+* Added "It's groundbreaking!"
+* Added "Let our battle's begin!"
+* Added "The sky is the limit!"
+
+===Command format===
+; [[Server.properties]]
+* Added new settings:
+** <code>view-distance</code>.
+** <code>allow-nether</code>.
+
+===Gameplay=== 
+; [[Multiplayer]]
+* Added [[The Nether|Nether]] support.
+
+==Changes==
+===Blocks===
+; General
+* Blocks destroyed by other players in multiplayer now show the breaking block particle effect.
+* It's no longer possible to build solid blocks on the top layer of the map.
+* Blocks that don't change appearance when the data changes don't send block updates when their data changes now.
+
+; [[File:Red Bed JE1 BE1.png|32px]] [[Bed]]s
+* Trying to sleep in the nether causes the bed to explode.
+
+; [[File:Dispenser (S) JE1.png|32px]] [[Dispenser]]s
+* When activated, it will make sounds and trigger particles in multiplayer.
+
+; [[File:Oak Door (Right) JE4 BE1.png|32px]] [[Door]]s
+* Now make sound for other players in multiplayer.
+
+; [[File:Fire JE1.png|32px]] [[Fire]]
+* Has been severely nerfed so it spreads slower, and doesn't spread infinitely.
+
+; [[File:Ice (item) JE1 BE1.png|32px]] [[Ice]]
+* Now regenerates regardless of whether it's snowing or not
+
+; [[File:Jukebox JE1 BE1.png|32px]] [[Jukebox]]
+* Now ''supports'' more than 15 different music discs. 
+** No additional music discs were added until [[Java Edition 1.0.0]]. The fifteenth music disc was only added in [[Java Edition 1.19]] and the sixteenth in [[Java Edition 1.20]], well over a decade later.
+
+; {{Animate|Red Mushroom JE2.png;Brown Mushroom JE2.png|32px}} [[Mushroom]]s
+* Now spread, albeit slowly.
+
+; {{Animate|Powered Rail (NS) JE2 BE2.png; Powered Powered Rail (NS) JE2 BE2.png|32px}} [[Powered rail]]s
+* Now speedier to offset the loss of glitch-boosters.
+
+; [[File:Water JE11.gif|32px]] [[Water]]
+* Below a layer of source blocks no longer behaves like source blocks.
+
+===Items===
+; [[File:Arrow JE2 BE1.png|32px]] [[Arrow]]s
+* When shot by one player, can now be picked up by other players.
+
+===Non-mob entities===
+; [[File:Oak Boat JE1.png|32px]] [[Boat]]s & [[File:Minecart_JE2_BE1.png|32px]] [[minecart]]s
+* Can't go through [[nether portal|portals]] that are empty or occupied.
+
+===Gameplay===
+; [[Lighting]]
+* The lighting on block icons in the inventory has been changed to appear brighter.
+
+; [[Player]]s
+* When stuck in walls, will slide towards the nearest gap if there is one.
+
+===General===
+; [[Control]]s
+* {{key|Shift}}+clicking while crafting makes as much as possible and moves it straight to player's inventory.
+* {{key|Shift}}+clicking something in player's inventory will push it directly in player's hot bar and vice-versa.
+
+; Network traffic
+* Compressed network traffic more aggressively.
+
+; [[Texture pack]]s
+* Added support for <code>misc\grasscolor.png</code> and <code>misc\foliagecolor.png</code> images.
+
+===World generation===
+
+* A line of up to 7 chests will generate near the spawn point, containing each Item/block in the game, even the ones that shouldn't be obtainable. The content of the chest is the following: (the repeating of the first 38 Items after the Powered Rail is found In-game in the chests, the reason is unknown.)
+
+{| class="wikitable collapsible collapsed"
+|+
+Chest Content
+!Item
+!Quantity
+|-
+|[[File:Detector Rail (NS) JE1 BE1.png|16px]] [[Detector Rail]]
+|64
+|-
+|[[File:Cobweb JE1 BE1.png|16px]] [[Cobweb]]
+|64
+|-
+|[[File:Grass JE1.png|16px]] [[Grass]]
+|64
+|-
+|[[File:Dead Bush JE1 BE1.png|16px]] [[Dead Bush]]
+| 64
+|-
+|[[File:White Wool JE1 BE1.png|16px]] [[Wool]]
+|64
+|-
+|[[File:Dandelion JE2.png|16px]] [[Dandelion]]
+|64
+|-
+|[[File:Rose JE2.png|16px]] [[Rose]]
+|64
+|-
+|[[File:Red Mushroom JE2.png|16px]] [[Red Mushroom]]
+|64
+|-
+|[[File:Brown Mushroom JE2.png|16px]] [[Brown Mushroom]]
+|64
+|-
+|[[File:Block of Gold JE3 BE1.png|16px]] [[Block of Gold]]
+|64
+|-
+|[[File:Block of Iron JE2 BE1.png|16px]] [[Block of Iron]]
+|64
+|-
+|[[File:Smooth Stone Slab JE1 BE1.png|16px]] [[Smooth Stone Slab]]
+| 64
+|-
+|[[File:Double Smooth Stone Slab JE1 BE1.png|16px]] [[Double Smooth Stone Slab]]
+|64
+|-
+|[[File:Bricks JE2 BE1.png|16px]] [[Bricks]]
+|64
+|-
+|[[File:TNT JE2 BE1.png|16px]] [[TNT]]
+|64
+|-
+|[[File:Bookshelf JE1.png|16px]] [[Bookshelf]]
+|64
+|-
+|[[File:Mossy Cobblestone JE1.png|16px]] [[Mossy cobblestone]]
+|64
+|-
+|[[File:Obsidian JE1 BE1.png|16px]] [[Obsidian]]
+| 64
+|-
+|[[File:Torch JE3 BE1.png|16px]] [[Torch]]
+|64
+|-
+|[[File:Fire.png|16px]] [[Fire]]
+|64
+|-
+|[[File:Spawner JE1.png|16px]] [[Monster spawner]]
+|64
+|-
+|[[File:Oak Stairs (N) JE1 BE1.png|16px]] [[Wooden Stairs]]
+|64
+|-
+|[[File:Chest (S) JE1.png|16px]] [[Chest]]
+|64
+|-
+|[[File:Redstone Wire Cross (texture) JE2 BE1.png|16px]] [[Redstone dust|Redstone Wire]]
+| 64
+|-
+|[[File:Diamond Ore JE1 BE1.png|16px]] [[Diamond ore]]
+|64
+|-
+|[[File:Block of Diamond JE2 BE1.png|16px]] [[Block of Diamond]]
+|64
+|-
+|[[File:Crafting Table JE1 BE1.png|16px]] [[Crafting Table]]
+|64
+|-
+|[[File:Wheat Age 0 (texture) JE1 BE1.png|16px]] [[Wheat Seeds]]
+|64
+|-
+|[[File:Farmland JE1 BE1.png|16px]] [[Farmland]]
+|64
+|-
+|[[File:Furnace (S) JE2 BE1.png|16px]] [[Furnace]]
+|64
+|-
+|[[File:Lit Furnace (S) JE2 BE1.png|16px]] [[Lit Furnace]]
+| 64
+|-
+|[[File:Oak Wall Sign (S) JE1 BE1.png|16px]] Wall [[Sign]]
+|64
+|-
+|[[File:Oak Standing Sign (S) JE1 BE1.png|16px]] Standing [[Sign]]
+|64
+|-
+|[[File:Oak Door (bottom texture) JE1.png|16px]] [[Wooden Door]]
+|64
+|-
+|[[File:Ladder (S) JE2 BE1.png|16px]] [[Ladder]]
+|64
+|-
+|[[File:Rail (NS) JE2 BE1.png|16px]] [[Rail]]
+|64
+|-
+|[[File:Farmland JE1 BE1.png|16px]] [[Farmland]]
+|64
+|-
+|[[File:Cobblestone Stairs (N) JE1 BE1.png|16px]] [[Cobblestone Stairs]]
+|64
+|-
+|[[File:Wall Lever (S) JE5-L3.png|16px]] [[Lever]]
+|64
+|-
+|[[File:Stone Pressure Plate JE1.png|16px]] [[Stone pressure plate]]
+|64
+|-
+|[[File:Iron Door (bottom texture) JE1 BE1.png|16px]] [[Iron door]]
+|64
+|-
+|[[File:Oak Pressure Plate JE1.png|16px]] [[Wooden pressure plate]]
+|64
+|-
+|[[File:Redstone Ore JE1 BE1.png|16px]] [[Redstone ore]]
+|64
+|-
+|[[File:Redstone Ore JE1 BE1.png|16px]] Lit [[Redstone ore]]
+|64
+|-
+|[[File:Off Redstone Torch (texture) JE1 BE1.png|16px]] Unlit [[Redstone torch]]
+|64
+|-
+|[[File:Redstone Torch JE4.png|16px]] [[Redstone torch]]
+|64
+|-
+|[[File:Stone Button (item) JE1.png|16px]] [[Stone button]]
+|64
+|-
+|[[File:Snow (layers 1) JE1 BE1.png|16px]] [[Snow]]
+|64
+|-
+|[[File:Snow Block JE1 BE1.png|16px]] [[Snow block]]
+|64
+|-
+|[[File:Cactus JE2 BE1.png|16px]] [[Cactus]]
+|64
+|-
+|[[File:Clay JE1 BE1.png|16px]] [[Clay]]
+|64
+|-
+|[[File:Sugar Cane (texture) JE1.png|16px]] [[Reeds]]
+|64
+|-
+|[[File:Jukebox JE1 BE1.png|16px]] [[Jukebox]]
+|64
+|-
+|[[File:Oak Fence JE4 BE2.png|16px]] [[Fence]]
+|64
+|-
+|[[File:Carved Pumpkin (S) JE1 BE1.png|16px]] [[Pumpkin]]
+|64
+|-
+|[[File:Netherrack JE1.png|16px]] [[Netherrack]]
+|64
+|-
+|[[File:Soul Sand JE1 BE1.png|16px]] [[Soul sand]]
+|64
+|-
+|[[File:Glowstone JE1.png|16px]] [[Glowstone]]
+|64
+|-
+|[[File:Nether Portal (inventory) (NESW) JE2.png|16px]] [[Nether Portal (block)|Portal]]
+|64
+|-
+|[[File:Jack o'Lantern (S) JE1 BE1.png|16px]] [[jack o'Lantern]]
+|64
+|-
+|[[File:Cake (inventory) JE2.png|16px]] [[Cake]]
+|64
+|-
+|[[File:Off Redstone Repeater (texture) JE1 BE1.png|16px]] [[Redstone repeater]]
+|64
+|-
+|[[File:On Redstone Repeater (texture) JE1 BE1.png|16px]] Powered [[Redstone repeater]]
+|64
+|-
+|[[File:Chest (S) JE1.png|16px]] [[Locked Chest]]
+|64
+|-
+|[[File:Oak Trapdoor (D) JE1 BE1.png|16px]] [[Trapdoor]]
+|64
+|-
+|[[File:Stone JE2 BE1.png|16px]] [[Stone]]
+|64
+|-
+|[[File:Grass Block JE4.png|16px]] [[Grass block]]
+|64
+|-
+|[[File:Dirt JE1 BE1.png|16px]] [[Dirt]]
+|64
+|-
+|[[File:Cobblestone JE2 BE1.png|16px]] [[Cobblestone]]
+|64
+|-
+|[[File:Oak Planks JE3 BE1.png|16px]] [[Wooden Planks]]
+|64
+|-
+|[[File:Oak Sapling JE4.png|16px]] [[Sapling]]
+|64
+|-
+|[[File:Bedrock JE1 BE1.png|16px]] [[Bedrock]]
+|64
+|-
+|[[File:Water (inventory) JE5.png|16px]] Flowing [[Water]]
+|64
+|-
+|[[File:Water (inventory) JE5.png|16px]] Still [[Water]]
+|64
+|-
+|[[File:Lava (inventory) JE5.png|16px]] Flowing [[Lava]]
+|64
+|-
+|[[File:Lava (inventory) JE5.png|16px]] Still [[Lava]]
+|64
+|-
+|[[File:Sand JE2 BE1.png|16px]] [[Sand]]
+|64
+|-
+|[[File:Gravel JE2 BE1.png|16px]] [[Gravel]]
+|64
+|-
+|[[File:Gold Ore JE2 BE1.png|16px]] [[Gold ore]]
+|64
+|-
+|[[File:Iron Ore JE1 BE1.png|16px]] [[Iron ore]]
+|64
+|-
+|[[File:Coal Ore JE1 BE1.png|16px]] [[Coal ore]]
+|64
+|-
+|[[File:Oak Log (UD) JE2 BE1.png|16px]] [[Log]]
+|64
+|-
+|[[File:Oak Leaves JE3 BE4.png|16px]] [[Leaves]]
+|64
+|-
+|[[File:Sponge JE1 BE1.png|16px]] [[Sponge]]
+|64
+|-
+|[[File:Glass JE3 BE1.png|16px]] [[Glass]]
+|64
+|-
+|[[File:Lapis Lazuli Block JE1 BE1.png|16px]] [[Lapis Lazuli Block]]
+|64
+|-
+|[[File:Dispenser (S) JE1.png|16px]] [[Dispenser]]
+|64
+|-
+|[[File:Sandstone JE1 BE1.png|16px]] [[Sandstone]]
+|64
+|-
+|[[File:Note Block JE1 BE1.png|16px]] [[Note Block]]
+|64
+|-
+|[[File:Bed (bottom texture) JE1 BE1.png|16px]] [[Bed]]
+|64
+|-
+|[[File:Powered Rail (NS) JE1 BE1.png|16px]] [[Powered Rail]]
+|64
+|-
+|[[File:Detector Rail (NS) JE1 BE1.png|16px]] [[Detector Rail]]
+|64
+|-
+|[[File:Cobweb JE1 BE1.png|16px]] [[Cobweb]]
+|64
+|-
+|[[File:Grass JE1.png|16px]] [[Grass]]
+|64
+|-
+|[[File:Dead Bush JE1 BE1.png|16px]] [[Dead Bush]]
+|64
+|-
+|[[File:White Wool JE1 BE1.png|16px]] [[Wool]]
+|64
+|-
+|[[File:Dandelion JE2.png|16px]] [[Dandelion]]
+|64
+|-
+|[[File:Rose JE2.png|16px]] [[Rose]]
+|64
+|-
+|[[File:Red Mushroom JE2.png|16px]] [[Red Mushroom]]
+|64
+|-
+|[[File:Brown Mushroom JE2.png|16px]] [[Brown Mushroom]]
+|64
+|-
+|[[File:Block of Gold JE3 BE1.png|16px]] [[Block of Gold]]
+|64
+|-
+|[[File:Block of Iron JE2 BE1.png|16px]] [[Block of Iron]]
+|64
+|-
+|[[File:Smooth Stone Slab JE1 BE1.png|16px]] [[Smooth Stone Slab]]
+|64
+|-
+|[[File:Double Smooth Stone Slab JE1 BE1.png|16px]] [[Double Smooth Stone Slab]]
+|64
+|-
+|[[File:Bricks JE2 BE1.png|16px]] [[Bricks]]
+|64
+|-
+|[[File:TNT JE2 BE1.png|16px]] [[TNT]]
+|64
+|-
+|[[File:Bookshelf JE1.png|16px]] [[Bookshelf]]
+|64
+|-
+|[[File:Mossy Cobblestone JE1.png|16px]] [[Mossy cobblestone]]
+|64
+|-
+|[[File:Obsidian JE1 BE1.png|16px]] [[Obsidian]]
+|64
+|-
+|[[File:Torch JE3 BE1.png|16px]] [[Torch]]
+|64
+|-
+|[[File:Fire.png|16px]] [[Fire]]
+|64
+|-
+|[[File:Spawner JE1.png|16px]] [[Monster spawner]]
+|64
+|-
+|[[File:Oak Stairs (N) JE1 BE1.png|16px]] [[Wooden Stairs]]
+|64
+|-
+|[[File:Chest (S) JE1.png|16px]] [[Chest]]
+|64
+|-
+|[[File:Redstone Wire Cross (texture) JE2 BE1.png|16px]] [[Redstone dust|Redstone Wire]]
+|64
+|-
+|[[File:Diamond Ore JE1 BE1.png|16px]] [[Diamond ore]]
+|64
+|-
+|[[File:Block of Diamond JE2 BE1.png|16px]] [[Block of Diamond]]
+|64
+|-
+|[[File:Crafting Table JE1 BE1.png|16px]] [[Crafting Table]]
+|64
+|-
+|[[File:Wheat Age 0 (texture) JE1 BE1.png|16px]] [[Wheat Seeds]]
+|64
+|-
+|[[File:Farmland JE1 BE1.png|16px]] [[Farmland]]
+|64
+|-
+|[[File:Furnace (S) JE2 BE1.png|16px]] [[Furnace]]
+|64
+|-
+|[[File:Lit Furnace (S) JE2 BE1.png|16px]] [[Lit Furnace]]
+|64
+|-
+|[[File:Oak Wall Sign (S) JE1 BE1.png|16px]] Wall [[Sign]]
+|64
+|-
+|[[File:Oak Standing Sign (S) JE1 BE1.png|16px]] Standing [[Sign]]
+|64
+|-
+|[[File:Oak Door (bottom texture) JE1.png|16px]] [[Wooden Door]]
+|64
+|-
+|[[File:Ladder (S) JE2 BE1.png|16px]] [[Ladder]]
+|64
+|-
+|[[File:Rail (NS) JE2 BE1.png|16px]] [[Rail]]
+|64
+|-
+|[[File:Farmland JE1 BE1.png|16px]] [[Farmland]]
+|64
+|-
+|[[File:Cobblestone Stairs (N) JE1 BE1.png|16px]] [[Cobblestone Stairs]]
+|64
+|-
+|[[File:Wall Lever (S) JE5-L3.png|16px]] [[Lever]]
+|64
+|-
+|[[File:Stone Pressure Plate JE1.png|16px]] [[Stone pressure plate]]
+|64
+|-
+|[[File:Iron Door (bottom texture) JE1 BE1.png|16px]] [[Iron door]]
+|64
+|-
+|[[File:Oak Pressure Plate JE1.png|16px]] [[Wooden pressure plate]]
+|64
+|-
+|[[File:Redstone Ore JE1 BE1.png|16px]] [[Redstone ore]]
+|64
+|-
+|[[File:Redstone Ore JE1 BE1.png|16px]] Lit [[Redstone ore]]
+|64
+|-
+|[[File:Off Redstone Torch (texture) JE1 BE1.png|16px]] Unlit [[Redstone torch]]
+|64
+|-
+|[[File:Redstone Torch JE4.png|16px]] [[Redstone torch]]
+|64
+|-
+|[[File:Stone Button (item) JE1.png|16px]] [[Stone button]]
+|64
+|-
+|[[File:Snow (layers 1) JE1 BE1.png|16px]] [[Snow]]
+|64
+|-
+|[[File:Snow Block JE1 BE1.png|16px]] [[Snow block]]
+|64
+|-
+|[[File:Cactus JE2 BE1.png|16px]] [[Cactus]]
+|64
+|-
+|[[File:Clay JE1 BE1.png|16px]] [[Clay]]
+|64
+|-
+|[[File:Sugar Cane (texture) JE1.png|16px]] [[Reeds]]
+|64
+|-
+|[[File:Jukebox JE1 BE1.png|16px]] [[Jukebox]]
+|64
+|-
+|[[File:Oak Fence JE4 BE2.png|16px]] [[Fence]]
+|64
+|-
+|[[File:Carved Pumpkin (S) JE1 BE1.png|16px]] [[Pumpkin]]
+|64
+|-
+|[[File:Netherrack JE1.png|16px]] [[Netherrack]]
+|64
+|-
+|[[File:Soul Sand JE1 BE1.png|16px]] [[Soul sand]]
+|64
+|-
+|[[File:Glowstone JE1.png|16px]] [[Glowstone]]
+|64
+|-
+|[[File:Nether Portal (inventory) (NESW) JE2.png|16px]] [[Nether Portal (block)|Portal]]
+|64
+|-
+|[[File:Jack o%27Lantern (S) JE1 BE1.png|16px]] [[jack o'Lantern]]
+|64
+|-
+|[[File:Cake (inventory) JE2.png|16px]] [[Cake]]
+|64
+|-
+|[[File:Off Redstone Repeater (texture) JE1 BE1.png|16px]] [[Redstone repeater]]
+|64
+|-
+|[[File:On Redstone Repeater (texture) JE1 BE1.png|16px]] Powered [[Redstone repeater]]
+|64
+|-
+|[[File:Chest (S) JE1.png|16px]] [[Locked Chest]]
+|64
+|-
+|[[File:Oak Trapdoor (D) JE1 BE1.png|16px]] [[Trapdoor]]
+|64
+|-
+|[[File:Iron Shovel JE1.png|16px]] [[Iron Shovel]]
+|1
+|-
+|[[File:Iron Axe JE3.png|16px]] [[Iron Axe]]
+|1
+|-
+|[[File:Iron Pickaxe JE1.png|16px]] [[Iron Pickaxe]]
+|1
+|-
+|[[File:Flint and Steel JE3 BE1.png|16px]] [[Flint and Steel]]
+|1
+|-
+|[[File:Apple JE1 BE1.png|16px]] [[Apple]]
+|1
+|-
+|[[File:Bow JE2 BE1.png|16px]] [[Bow]]
+|1
+|-
+|[[File:Arrow (item) JE1 BE1.png|16px]] [[Arrow]]
+|64
+|-
+|[[File:Coal JE2 BE1.png|16px]] [[Coal]]
+|64
+|-
+|[[File:Diamond JE1 BE1.png|16px]] [[Diamond]]
+|64
+|-
+|[[File:Iron Ingot JE2 BE1.png|16px]] [[Iron Ingot]]
+|64
+|-
+|[[File:Gold Ingot JE2 BE1.png|16px]] [[Gold Ingot]]
+|64
+|-
+|[[File:Iron Sword JE1 BE1.png|16px]] [[Iron Sword]]
+|1
+|-
+|[[File:Wooden Sword JE1 BE1.png|16px]] [[Wooden Sword]]
+|1
+|-
+|[[File:Wooden Shovel JE1 BE1.png|16px]] [[Wooden Shovel]]
+|1
+|-
+|[[File:Wooden Axe JE1 BE1.png|16px]] [[Wooden Axe]]
+|1
+|-
+|[[File:Wooden Pickaxe JE1 BE1.png|16px]] [[Wooden Pickaxe]]
+|1
+|-
+|[[File:Stone Sword JE1 BE1.png|16px]] [[Stone Sword]]
+|1
+|-
+|[[File:Stone Shovel JE1 BE1.png|16px]] [[Stone Shovel]]
+|1
+|-
+|[[File:Stone Axe JE1 BE1.png|16px]] [[Stone Axe]]
+|1
+|-
+|[[File:Stone Pickaxe JE1 BE1.png|16px]] [[Stone Pickaxe]]
+|1
+|-
+|[[File:Diamond Sword JE1 BE1.png|16px]] [[Diamond Sword]]
+|1
+|-
+|[[File:Diamond Shovel JE1 BE1.png|16px]] [[Diamond Shovel]]
+|1
+|-
+|[[File:Diamond Axe JE1 BE1.png|16px]] [[Diamond Axe]]
+|1
+|-
+|[[File:Diamond Pickaxe JE1 BE1.png|16px]] [[Diamond Pickaxe]]
+|1
+|-
+|[[File:Golden Sword JE2 BE1.png|16px]] [[Golden Sword]]
+|1
+|-
+|[[File:Golden Shovel JE2 BE1.png|16px]] [[Golden Shovel]]
+|1
+|-
+|[[File:Golden Axe JE2 BE1.png|16px]] [[Golden Axe]]
+|1
+|-
+|[[File:Golden Pickaxe JE2 BE1.png|16px]] [[Golden Pickaxe]]
+|1
+|-
+|[[File:Stick JE1 BE1.png|16px]] [[Stick]]
+|64
+|-
+|[[File:Bowl JE1 BE1.png|16px]] [[Bowl]]
+|64
+|-
+|[[File:String JE1 BE1.png|16px]] [[String]]
+|64
+|-
+|[[File:Minecart with Chest (item) JE1 BE1.png|16px]] [[Minecart with Chest]]
+|1
+|-
+|[[File:Minecart with Furnace (item) JE1.png|16px]] [[Minecart with Furnace]]
+|1
+|-
+|[[File:Egg JE1 BE1.png|16px]] [[Egg]]
+|16
+|-
+|[[File:Compass JE1 BE1.png|16px]] [[Compass]]
+|64
+|-
+|[[File:Fishing Rod JE1 BE1.png|16px]] [[Fishing Rod]]
+|1
+|-
+|[[File:Clock JE1 BE1.png|16px]] [[Clock]]
+|64
+|-
+|[[File:Glowstone Dust JE1 BE1.png|16px]] [[Glowstone Dust]]
+|64
+|-
+|[[File:Raw Cod JE1 BE1.png|16px]] [[Raw Fish]]
+|1
+|-
+|[[File:Cooked Cod JE1 BE1.png|16px]] [[Cooked Fish]]
+|1
+|-
+|[[File:Ink Sac JE1 BE1.png|16px]] [[Ink Sac]]
+|64
+|-
+|[[File:Bone JE1 BE1.png|16px]] [[Bone]]
+|64
+|-
+|[[File:Sugar JE1 BE1.png|16px]] [[Sugar]]
+|64
+|-
+|[[File:Cake (item) JE1 BE1.png|16px]] [[Cake]]
+|1
+|-
+|[[File:Red Bed (item) JE1 BE1.png|16px]] [[Bed]]
+|1
+|-
+|[[File:Redstone Repeater (item) JE1.png|16px]] [[Redstone Repeater]]
+|64
+|-
+|[[File:Cookie JE1 BE1.png|16px]] [[Cookie]]
+|8
+|-
+|[[File:Map (item) JE1 BE1.png|16px]] [[Map]]
+|1
+|-
+|[[File:Music Disc 13 JE1 BE1.png|16px]] [[Music Disc]]
+|1
+|-
+|[[File:Music Disc Cat JE1 BE1.png|16px]] [[Music Disc]]
+|1
+|}
+
+==Bugs==
+
+*{{key|Shift}}+clicking into a chest with no empty slots results in a slightly glitched "Saving Chunks" screen.
+
+==Gallery==
+<gallery>
+B1.6-tb3 Unlicensed.png|Unlicensed copy
+B16tb3unlicnesed.png|Unlicensed copy menu
+B16tb3multiplayer.png|Unlicensed copy Multiplayer
+Notch Fire Spread 1.png|Notch demonstrating the new fire spread.
+Notch Fire Spread 2.png|Notch demonstrating the new fire spread.
+Notch Fire Spread 3.png|Notch demonstrating the new fire spread.
+Notch Fire Spread 4.png|Notch demonstrating the new fire spread.
+Notch Fire Spread 5.png|Notch demonstrating the new fire spread.
+Notch Fire Spread 6.jpg|Notch demonstrating the new fire spread.
+Notch Fire Spread 7.jpg|Notch demonstrating the new fire spread.
+Notch Fire Spread 8.jpg|Notch demonstrating the new fire spread.
+Notch Fire Spread 9.png|Notch demonstrating the new fire spread.
+</gallery>
+
+==Trivia==
+
+* <!--The previous Beta 1.6 Test Builds (1 & 2) were released privately.{{cn}} Beta 1.6 Test Build 3 was accidentally released to the public.-->
+* Advanced OpenGL is enabled by default in this version. In [[Java Edition Beta 1.6|Beta 1.6]] Advanced OpenGL was removed temporarily until [[Java Edition Beta 1.6.5|Beta 1.6.5]] due to bugs.
+** Advanced OpenGL will crash [[Minecraft]] on some computers.
+* Picking up multiple stacks of items takes a few ticks to finish, unlike the final version where it only takes one.
+* The fix for the crash when riding a vehicle or animal through a nether portal is done differently.{{Verify|type=change|edition=java|In what way?}}
+* Session requests are performed over HTTP instead of HTTPS.
+** Session requests fail on any code other than HTTP 200, instead of only with HTTP 400.
+* Connection to the server is closed differently; no thread is used in this build.
+* GL state when rendering items is not properly reset, which may lead to graphical artifacts.{{Verify|type=change|edition=java|In what way?}}
+* Tall grass renders differently:
+
+{{Animate|Tall grass in Beta 1.6 Test Build 3.png;Tall grass in Beta 1.6.png|360px}}
+
+===Validity===
+
+While modern versions of ''Minecraft'' are hosted on <code>s3.amazonaws.com/Minecraft.Download</code>, this version is hosted on <code>s3.amazonaws.com/MinecraftDownload</code> (without the period). At first it may seem that this site is not owned by [[Mojang Studios]], but it can be verified as Mojang-owned in several ways:
+
+*The legacy ''Minecraft'' [[launcher]] (from 2013) uses this site to update, which can be verified through a decompiler.
+*''Minecraft'' [[Classic]] was loaded from <code>s3.amazonaws.com/MinecraftDownload/classic/minecraft.jar</code> when it could still be accessed on [[minecraft.net]].<ref>While the page for classic is no longer accessible, [http://web.archive.org/web/20150910183326/https://minecraft.net/classic/play archived versions] do include this link.</ref></onlyinclude>
+
+==References==
+{{reflist}}
+
+{{Java Edition versions|Beta}}
+
+[[de:Beta 1.6 Test Build 3]]
+[[es:Java Edition Beta 1.6 Test Build 3]]
+[[ja:Java Edition Beta 1.6 Test Build 3]]
+[[pt:Edição Java Beta 1.6 Test Build 3]]
+[[ru:Beta 1.6 Test Build 3 (Java Edition)]]
+[[zh:Java版Beta 1.6 Test Build 3]]

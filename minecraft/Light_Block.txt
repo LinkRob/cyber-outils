@@ -1,0 +1,167 @@
+{{about|the invisible light-producing block|light producing blocks in general|Light#Light level}}
+
+{{Block
+| image = <gallery>
+Light 0.png | Light
+Light 0 BE1.png | Light Block
+</gallery>
+| extratext = View [[#Renders|all renders]]
+| transparent = Yes
+| tool = None
+| renewable = No
+| stackable = Yes (64)
+| tntres = 3600000.8
+| hardness = -1
+| light = See {{slink||Usage}}
+| flammable = No
+| lavasusceptible = No
+}}
+
+'''Light blocks''' ({{in|Bedrock}}) or '''lights''' ({{in|Java}}) are [[invisible block]]s, primarily intended for map makers, that can produce any [[light]] level from 0 to 15. The light block is also the only light-emitting block capable of producing light level 8.
+
+== Obtaining ==
+Light blocks cannot be mined, similar to [[air]], and can be targeted only if the player is holding a Light item in the main hand. Light blocks with a light level of 0 are functionally identical to air.
+
+They do not attach to any [[block]], meaning that breaking an adjacent block does not remove the light block. However, they can be broken by replacing them with another block.<ref>{{bug|MC-263398|||WAI}}</ref> The exception is [[water]] (including, {{in|be}}, flowing water), which can occupy the same space as a light block. See [[Waterlogging]] for more information.
+
+{{IN|Java}}, light blocks are available in the Creative [[inventory]]. Across both Java and Bedrock editions, they can also be obtained by using commands such as {{cmd|give}}. {{IN|be}}, specifying the data value from 0 to 15 determines the block's [[light]] level; if the data value is not specified, the light block emits a light level of 0. The command is: {{Cmd|give <target> light_block [amount: int] [data: int (0 - 15)] [components: [[JSON|json]]]}}. {{IN|java}}, using {{cmd|give ? minecraft:light{BlockStateTag:{level:"<int>"}<nowiki/>} }} can give a light block with a specific light level and corresponding texture. If the level is below 0, the non-bulb texture is used, and above 15 the level 15 texture. If the block state is not specified or not between 0 and 15, the light block emits a light level of 15.
+
+== Usage ==
+[[File:Particle light.png|thumb|A Light block with a light level of 9.]]
+
+A light block is intended for use in adventure maps.
+
+Each light block (as a [[block]] or as an [[item]]) has an associated [[light]] level, which can be anything from 0 to 15. In the [[player]]'s [[inventory]], light blocks display their light level in the top-left corner and appear "brighter" at higher light levels.
+
+{{iN|bedrock}}, light blocks appear to be slippery, much like [[ice]]. This can be seen by walking over the top of one with the help of another block.
+
+Light blocks have a hitbox only when a light block is selected in the main hand; the particle appears only when selected in the main hand in creative mode, similar to [[barrier]]s.
+
+When pressing use on a light block while a light block is held in the main hand, the light level of the light block increases by one, if the light level is already 15, it resets to 0.
+
+Light blocks are detected by [[observer]]s and can be [[waterlogging|waterlogged]]. It can be pushed and pulled by [[piston]]s.{{only|Bedrock}}
+
+=== Light source ===
+Light blocks produce their associated [[light]] level.
+
+== Sounds ==
+{{Sound table/Block/Normal}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Light
+|spritetype=block
+|nameid=light
+|blocktags=dragon_transparent,wither_immune
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Light Block
+|spritetype=block
+|nameid=light_block
+|id=470
+|foot=1}}
+
+=== Block states ===
+{{see also|Block states}}
+
+{{/BS}}
+
+== History ==
+{{History|java}}
+{{History||1.17|snap=21w13a|[[File:Light 0 JE1.png|32px]] [[File:Light 1 JE1.png|32px]] [[File:Light 2 JE1.png|32px]] [[File:Light 3 JE1.png|32px]] [[File:Light 4 JE1.png|32px]] [[File:Light 5 JE1.png|32px]] [[File:Light 6 JE1.png|32px]] [[File:Light 7 JE1.png|32px]] [[File:Light 8 JE1.png|32px]] [[File:Light 9 JE1.png|32px]] [[File:Light 10 JE1.png|32px]] [[File:Light 11 JE1.png|32px]] [[File:Light 12 JE1.png|32px]] [[File:Light 13 JE1.png|32px]] [[File:Light 14 JE1.png|32px]] [[File:Light 15 JE1.png|32px]] Added lights.
+|[[File:Light (held) JE1.png|32px]] Unlike {{in|Bedrock}}, while a player is holding the item, a [[particle]] is displayed similar to a [[barrier]].}}
+{{History|||snap=21w18a|[[File:Light 0 JE2.png|32px]] [[File:Light 1 JE2.png|32px]] [[File:Light 2 JE2.png|32px]] [[File:Light 3 JE2.png|32px]] [[File:Light 4 JE2.png|32px]] [[File:Light 5 JE2.png|32px]] [[File:Light 6 JE2.png|32px]] [[File:Light 7 JE2.png|32px]] [[File:Light 8 JE2.png|32px]] [[File:Light 9 JE2.png|32px]] [[File:Light 10 JE2.png|32px]] [[File:Light 11 JE2.png|32px]] [[File:Light 12 JE2.png|32px]] [[File:Light 13 JE2.png|32px]] [[File:Light 14 JE2.png|32px]] [[File:Light 15 JE2.png|32px]] Textures of lights have been changed.}}
+{{History||1.17|snap=21w20a|[[File:Light 0 JE3.png|32px]] [[File:Light 1 JE3.png|32px]] [[File:Light 2 JE3.png|32px]] [[File:Light 3 JE3.png|32px]] [[File:Light 4 JE3.png|32px]] [[File:Light 5 JE3.png|32px]] [[File:Light 6 JE3.png|32px]] [[File:Light 7 JE3.png|32px]] [[File:Light 8 JE3.png|32px]] [[File:Light 9 JE3.png|32px]] [[File:Light 10 JE3.png|32px]] [[File:Light 11 JE3.png|32px]] [[File:Light 12 JE3.png|32px]] [[File:Light 13 JE3.png|32px]] [[File:Light 14 JE3.png|32px]] [[File:Light 15 JE3.png|32px]] The textures of lights have been changed once again.}}
+{{History||1.18|snap=21w42a|The respective item texture of lights is now used as the particle instead of four yellow stars, matching {{el|be}}.<ref>{{bug|MC-233771}}</ref>
+|The texture for the four stars now used only as placeholder texture by item model.<ref>{{bug|MC-239401}}</ref>}}
+{{History||1.19|snap=22w11a|[[Wither]]s and [[ender dragon]]s can no longer [[break]] light blocks.}}
+{{History||1.19.3|snap=22w44a|Light blocks are now available in the creative inventory, but only if cheats are enabled.}}
+{{History|||snap=22w45a|Moved light blocks behind the Operator Utilities tab in the creative inventory. The tab is only available if cheats are enabled and the "Operator Items Tab" option in the controls menu is turned on.}}
+
+{{History|bedrock}}
+{{History||1.13.0|snap=beta 1.13.0.4|Added textures for Light Blocks.}}
+{{History|||snap=beta 1.13.0.9|[[File:Light 0 BE1.png|32px]] [[File:Light 1 BE1.png|32px]] [[File:Light 2 BE1.png|32px]] [[File:Light 3 BE1.png|32px]] [[File:Light 4 BE1.png|32px]] [[File:Light 5 BE1.png|32px]] [[File:Light 6 BE1.png|32px]] [[File:Light 7 BE1.png|32px]] [[File:Light 8 BE1.png|32px]] [[File:Light 9 BE1.png|32px]] [[File:Light 10 BE1.png|32px]] [[File:Light 11 BE1.png|32px]] [[File:Light 12 BE1.png|32px]] [[File:Light 13 BE1.png|32px]] [[File:Light 14 BE1.png|32px]] [[File:Light 15 BE1.png|32px]] Added Light Blocks.}}
+{{History||1.17.30|snap=beta 1.17.20.22|Light Blocks now reveal a particle when the player is holding the item, showing the respective item texture as the particle.}}
+{{History|||snap=beta 1.17.30.20|Right-clicking a light block with another now changes its light level by 1.
+|Left-clicking a Light Block while holding a light block now removes it.}}
+{{History||1.18.0|snap=beta 1.18.0.22|Light blocks are now invulnerable to explosions.}}
+{{History|foot}}
+
+== Renders ==
+; Light
+<gallery>
+Light 0 JE3.png | 
+Light 1 JE3.png | 
+Light 2 JE3.png | 
+Light 3 JE3.png | 
+Light 4 JE3.png | 
+Light 5 JE3.png | 
+Light 6 JE3.png | 
+Light 7 JE3.png | 
+Light 8 JE3.png | 
+Light 9 JE3.png | 
+Light 10 JE3.png | 
+Light 11 JE3.png | 
+Light 12 JE3.png | 
+Light 13 JE3.png | 
+Light 14 JE3.png | 
+Light 15 JE3.png |
+</gallery>
+
+; Light Block
+<gallery>
+Light 0 BE.png |
+Light 1 BE.png |
+Light 2 BE.png |
+Light 3 BE.png |
+Light 4 BE.png |
+Light 5 BE.png |
+Light 6 BE.png |
+Light 7 BE.png |
+Light 8 BE.png |
+Light 9 BE.png |
+Light 10 BE.png |
+Light 11 BE.png |
+Light 12 BE.png |
+Light 13 BE.png |
+Light 14 BE.png |
+Light 15 BE.png |
+</gallery>
+
+== Gallery ==
+<gallery>
+File:Light (shown) JE1.png|The light block as seen with a structure block in save mode.
+File:LightBlockAndALightBlockBehindGlass.png|A light block and a light block behind the glass.
+</gallery>
+
+== Issues ==
+{{Issue list}}
+
+== References ==
+{{Reflist}}
+
+{{Blocks|command}}
+
+[[Category:Non-solid blocks]]
+[[Category:Light sources]]
+
+[[de:Lichtblock]]
+[[es:Bloque de luz]]
+[[fr:Bloc de lumière]]
+[[ja:ライトブロック]]
+[[pl:Blok światła]]
+[[pt:Bloco de luz]]
+[[ru:Блок света]]
+[[zh:光源方块]]

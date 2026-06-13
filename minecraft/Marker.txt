@@ -1,0 +1,52 @@
+{{for}}
+{{exclusive|java}}
+{{Entity
+| image = blank.png
+| health = None
+| behavior = None
+| size = None
+}}
+'''Markers''' are [[Entity|entities]] intended for use in [[data pack]]s and map-making. They can only be created with the {{cmd|summon}} command or with [[Spawn Egg#Item data|custom spawn eggs]]. 
+
+== Behavior ==
+Markers are intended to have minimal behavior. Markers do not move, do not take damage, do not make sounds, and cannot be given status effects. They cannot support passengers (even when summoned with a Passengers tag, the passengers are not created).
+
+Markers do not cause any updates. Markers only exist on the server side,<ref>https://www.minecraft.net/en-us/article/minecraft-snapshot-21w15a</ref> so they do not render. Using the [[Debug screen#More debug-keys|debug key combination]] {{Key|F3+B}}, which normally draws the hitboxes of all visible entities, does not show a hitbox for a marker. Using {{Key|F3+I}} while aiming at a marker does not copy the entity data to the clipboard. They do not count towards the E-value (total amount of entities) listed on the [[debug screen]]. Markers do not obstruct the placement of blocks, nor do they push players or other entities away from their own position.
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|firstcolumnname=Entity
+|generatetranslationkeys=java
+|displayname=Marker
+|nameid=marker
+|foot=1|translationkey=entity.minecraft.marker}}
+
+=== Entity data ===
+{{see also|Entity format}}
+Markers have entity data associated with them that contain various properties of the [[entity]].
+
+{{/ED}}
+
+== History ==
+{{History||August 25, 2014|link={{tweet|SeargeDP|503950854265634817}}|Searge "definitely [hints] at a marker entity in the future".}}
+{{History|java}}
+{{History||1.17|snap=21w15a|Added markers.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== References ==
+{{reflist}}
+{{Entities}}
+
+[[Category:Entities]]
+
+
+[[de:Markierer]]
+[[ja:マーカー]]
+[[lzh:標]]
+[[pt:Marcador]]
+[[zh:标记]]

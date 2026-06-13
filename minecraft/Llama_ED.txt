@@ -1,0 +1,22 @@
+<div class="treeview">
+* {{nbt|compound}} Entity data
+*** {{nbt inherit/breedable}}
+** {{nbt inherit/entity}}
+** {{nbt inherit/mob}}
+** {{nbt|byte|Bred}}: 1 or 0 (true/false) - Unknown. Remains 0 after breeding. If true, causes it to stay near other llamas with this flag set.
+** {{nbt|byte|ChestedHorse}}: 1 or 0 (true/false) - true if the llama has chests.
+** {{nbt|compound|DecorItem}}: The item the llama is wearing, without the Slot tag. Typically a [[Carpet#Data values|carpet]].
+*** {{nbt inherit/item|indent=***}}
+** {{nbt|int|DespawnDelay}}: A timer for trader llamas to despawn, present only in {{cd|trader_llama}}. The trader llama despawns when this value reaches 0.
+** {{nbt|byte|EatingHaystack}}: 1 or 0 (true/false) - true if grazing.
+** {{nbt|list|Items}}: List of items. Exists only if {{cd|ChestedHorse}} is true.
+*** {{nbt|compound}} An item, including the Slot tag.
+**** {{nbt inherit/item|indent=****}}
+** {{nbt|int-array|Owner}}: The [[UUID]] of the player that tamed the llama, stored as four ints. Has no effect on behavior. Does not exist if there is no owner.
+** {{nbt|int|Variant}}: The variant of the llama. 0 = Creamy, 1 = White, 2 = Brown, 3 = Gray.
+** {{nbt|int|Strength}}: Ranges from 1 to 5, defaults to 3.  Determines the number of items the llama can carry (items = 3 × strength).  Also increases the tendency of wolves to run away when attacked by llama spit. Strengths 4 and 5 always causes a wolf to flee.
+** {{nbt|byte|Tame}}: 1 or 0 (true/false) - true if the llama is tamed.
+** {{nbt|int|Temper}}: Ranges from 0 to 100; increases with feeding. Higher values make a llama easier to tame.
+</div>{{LoadPage|Llama/DV|Llama Variant|h4}}<noinclude>
+[[Category:Entity data pages]]
+</noinclude>

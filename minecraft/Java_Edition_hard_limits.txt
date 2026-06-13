@@ -1,0 +1,133 @@
+This page documents historical '''hard limits''' of mainly earlier versions of ''Java Edition''. These are defined as boundaries which exist due to the game's code and data types, as opposed to limits which have been implemented intentionally (see [[World boundary]]) or effects due to precision loss (see [[Java Edition distance effects]]).
+
+== Current limits ==
+=== Horizontal limits ===
+==== Precision loss errors (X/Z: ±2) ====
+{{main|Java Edition distance effects}}
+
+There has been a large variety of precision loss errors throughout the game's history. There are generally very few in modern versions, although more can be found in earlier versions. These can be loosely defined as hard limits due to being limitations of the floating-point data type itself. However, due to their variety, they are not included here.
+
+Double-precision floating point precision loss issues also run rampant at excessive distances.
+
+==== The End generation breakdown (X/Z: ±370,727) ====
+[[The End]]'s generation is completely absent in repeating concentric rings centered on the world.<ref>{{bug|MC-159283}}</ref> This is due to an integer overflow, causing a square root to be taken from a negative number. Since this integer overflow happens based on the ''squared'' distance (creating very high values rapidly), multiple overflows happen within a reachable distance, creating rings of void and landscape which get thinner the further away they are from the origin. The first ring of void starts at 370,727 blocks away from the center and ends at 524,288 blocks away from the center, where terrain continues generating until the next integer overflow occurs. Interestingly, all the rings (whether they are void or land) approximately cover the same area.
+
+==== Lighting breakdown (X/Z: ±33,554,432) ====
+Due to the lighting being controlled by precision-losing 32-bit float,{{verify}} all light ceases beyond 2{{^|25}} blocks. All blocks appear completely black and are unaffected by sky and block light (light-emitting blocks may create a local area of light in its block space, but this cannot extend). As a result, hostile mob spawning is extremely common and [[mushroom]]s can spawn naturally. It is effectively mandatory to use the night vision effect to facilitate any reasonable exploration beyond this point.
+
+When teleporting to far distances, it is possible to find regions of full light. These will cause dark regions when blocks are updated.
+
+==== Village generation limit (X/Z: ±1,073,741,824) ====
+Beyond this point, [[village]]s seem to stop generating correctly anymore. The only part which generates is the very center, sometimes with accompanying villagers - every other part is missing.
+
+It has been sighted in some superflat worlds that strange phantom villages composed solely of block light can generate.
+
+The reasoning for this happening remains unknown and it is not known if this is tied to jigsaw blocks.
+
+==== 32-bit limit (X/Z: >±2,147,483,647) ====
+A hard limit exists at X/Z: ±2,147,483,647&mdash;the mathematical limit of a signed 32-bit integer&mdash;and attempting to travel or load chunks beyond here simply causes the game to crash. 147 blocks beyond this point and the world renderer stops working and you can get stuck. All fast graphic clouds are stretched. It is advisable to set the world border to at least several hundred blocks before this limit and make sure not to teleport past this.
+
+==== 64-bit limit (X/Z: >±9,223,372,036,854,775,807) ====
+The very last hard limit exists at X/Z: >±9,223,372,036,854,775,807 blocks&mdash;the mathematical limit of a signed 64-bit integer value&mdash;and attempting to travel or load chunks beyond here simply causes the game to crash.
+
+=== Vertical limits ===
+
+==== Lighting breakdown (Y: ±129 - ±2,048) ====
+The player's skin, and an item in a player's arm starts rendering incorrectly, resulting in no lighting at all.
+All lighting will stop working at 2,048 blocks. The effects may be slightly different in this case however, as full light has been noticed at negative coordinates.
+
+==== Absolute limit (Y: ±2^1024)====
+{{Needs testing|this does not seem to be the case in versions more recent than 1.12}}
+The maximum possible [[Altitude|height]] is >±1.797693134862315907729305190789×10<sup>308</sup> (2<sup>1024</sup>), the limit where mathematics break down in the game's code. In attempting to teleport beyond this limit, the game interprets the number as infinity and refuses to carry out the teleportation.
+
+The reason why going this high is not restricted by the 32-bit, 64-bit, 128-bit, etc is because chunks do not load past 320 blocks which means that there is nothing to render.
+
+== Historical limits ==
+=== Horizontal limits ===
+{{info needed section|the fast cloud render limit. They become stripes afterwards}}
+[[File:Java Edition hard limits map.png|thumb|500px|Edge map.]]
+====Chunk spawn glitch (X/Z: ±524,288–X/Z: ±2,146,959,360)====
+From Beta 1.6 Test Build 3 to Beta 1.7.3 inclusive, if the player moves to 524,288 on one or both axes, the player can allow the chunk they originally spawned in to re-appear. These chunks repeat every 2¹⁹ blocks on both the cardinal and diagonals. once the player reaches X/Z: 32,505,856, trees and entities can reappear past X/Z 32,000,000, even though vegetation and entities are not supposed to generate out this far because of the block limit at X/Z: 32,000,000. However, because of the block render limit at X/Z: 2,147,483,519, the maximum distance that trees and entities can spawn at is X/Z: 2,146,959,360. If the player does happen to generate natural terrain beyond X/Z: 32,000,000, then any trees or other entities that spawn begin to decay but the image remains frozen in place. For example: a flower generated in the fake chunks drops the flower item as if it has decayed, but the flower still appears in place, unable to be removed. It does this infinitely and causes countless entities to begin spawning, causing lag spikes.
+
+==== Item entity render limit (X/Z: >±67,108,864) ====
+{{info needed section|start and end versions.}}
+Beyond this point in some versions, [[item (entity)|items]] stop rendering entirely and dropping an item will make it stop rendering beyond this point.
+
+==== Third person view limit (X/Z: >±268,435,456) ====
+{{info needed section|start and end versions, positions...}}
+Beyond this point in some versions, third person view will always place the camera directly inside the player's head regardless of the presence of any potentially obstructing blocks.
+
+==== 32-bit limit (X/Z: >±2,147,483,647) ====
+At X/Z: ±2,147,483,647, blocks are no longer rendered, giving way to an empty sky. At X/Z: ±2,147,483,794 (maximum 32-bit integer), the game is likely to crash, or the player gets stuck. However, chunks still generate along with clouds. Fast graphics clouds are however insanely stretched. It is very dangerous to reach X/Z ±4,294,967,296 or higher, as the chances of crashing (assuming the player has 64-bit Java) are extremely high and get higher the further the player goes.
+
+* X/Z ±2,147,483,647: Terrain disappears completely. Beyond here, the game crashes.
+
+==== Cloud render limit (X/Z: ±25,769,803,000–±25,769,804,000) ====
+Between X/Z: ±25,769,803,000 and X/Z: ±25,769,804,000, fancy clouds stop rendering (Varies between maps). Fast graphic clouds, however, can stop rendering or either become glitched stripe lines which also can dissappear afterwards. Beyond this point, only the sky, sun, moon and void remain. The reason why this occurs is because a "cloud pixel" is a 12x12 block section. Dividing the two aforementioned numbers by 12 returns 2,147,483,583.33 and 2,147,483,666.67, respectively.<ref>[https://youtu.be/Ny3QUldgldI?si=7LonfWoVS6cRPR5w&watch=594s https://youtu.be/Ny3QUldgldI?si=7LonfWoVS6cRPR5w] at 9:53</ref>
+
+==== Chunk overflow limit (X/Z: >±34,359,738,368) ====
+If someone makes it to X/Z: ±34,359,738,368 (2<sup>35</sup>), away from spawn, chunks will start "looping". While made completely unobservable due to blocks also being 32-bit integers, exceeding this limit should cause chunks from the exact opposite overflow point to begin loading. Doubling distance again will put the player in the equivalent position to (0,0), and once more will appear at the overflow point once more. As a result, this is the end of ''Minecraft''. 
+
+As soon as this limit is approached, the game freezes and crashes presumably due to the 32-bit block coordinate limit, resulting in an '''Out of memory''' screen. However, in some cases, the player may be able to move past this limit for a few seconds before ''Minecraft'' crashes. A chunk is 16 × 16 blocks, and 34,359,738,368 = 2,147,483,648 × 16, so the chunk coordinates are 32-bit integers as well. If you were 160ish blocks away, you would crash and the game will remain unresponsive until you force quit.
+
+==== Player Movement limit (X/Z: >±2,251,799,813,685,248) ====
+If the player manages to surpass the Chunk overflow limit, then as they travel outwards, their movement will begin to lose precision in a similar way to Minecraft Bedrock Edition beyond 2^22. Beyond blocks 2<sup>51</sup> away, it is no longer possible for the player to move along the axis they are traveling using normal walking speed.
+
+==== 64-bit integer limit (X/Z: >±9,223,372,036,854,775,807) ====
+The highest signed value for 64-bit machines is X/Z ±9,223,372,036,854,775,807. However, it may not be possible (through in-game methods) to go near this point, since the vast majority of people experience instant client freeze, followed by the client crashing.
+
+==== 64-bit chunk overflow limit (X/Z: >±147,573,952,589,676,412,928) ====
+If chunks are patched to use 64-bit integers, then the farthest that you would be able to travel without crashing is roughly 147.573 quintillion blocks, or 2<sup>67</sup> blocks out. However, due to the player position itself losing precision at this point, the actual limit is likely closer. 
+
+==== 128-bit Indev limit (X/Z: >340,282,366,920,938,463,463,374,607,431,768,211,456) ====
+The position of the player can be modified with an NBT editor in Indev, and the maximum distance that can be achieved using this method is X/Z: 2<sup>128</sup>, or roughly 340 undecillion. If the player teleports to said coordinates in the version of Indev that pushes the player back into the map, the player is pushed from X/Z: 2<sup>128</sup> to X/Z: 2,147,483,648 in about 5 minutes. As the player is pushed back, the sun and moon begin to render back in. When the player reaches X/Z 2,147,483,648, the game crashes,
+
+==== 64-bit floating point limit (X/Z: >±1.797693134862315907729305190789&times;10{{^|308}}<ref>Or >±179,769,313,486,231,590,772,930,519,078,902,473,361,797,697,894,230,657,273,430,081,157,732,675,805,500,963,132,708,477,322,407,536,021,120,113,879,871,393,357,658,789,768,814,416,622,492,847,430,639,474,124,377,767,893,424,865,485,276,302,219,601,246,094,119,453,082,952,085,005,768,838,150,682,342,462,881,473,913,110,540,827,237,163,350,510,684,586,298,239,947,245,938,479,716,304,835,356,329,624,224,137,216 to be exact.</ref>) ====
+On August 1, 2018, a YouTube user named "Aura Gunner" made a video showing the player teleporting to 1.797693134862315907729305190789 x 10^308 (past 2<sup>1024</sup>) on the X-axis.<ref>Video reupload https://www.youtube.com/watch?v=OiqM07e7Odw</ref> Because 1.797693134862315907729305190789 x 10^308 is the maximum 64-bit floating-point integer, it caused the player's X coordinate to roll over to read "Infinity". It is impossible to go further since this is the physical limit at which Java can render, and the game always crashes at this distance.
+
+=== Vertical limits ===
+==== (Y: <&minus;2,147,483,647) ====
+{{cleanup|section=1|organize}}
+In Beta 1.7.3, as the player falls below Y=&minus;2,147,483,647, the darkness of being in the void disappears. Instead of darkness, the void now looks like an empty world. It has a sky, a sun, and a moon, and they are all visible depending on the time of day. Despite this, the player still receives damage from the void.
+
+* In Release 1.6.2 for 64-bit machines, the limit of how high up the player can teleport is +4,999,999,999,999,999 blocks high. Prior to Beta 1.8, the player could teleport up to the limit for 64-bit machines
+
+==== (Y: <&plus;2,147,483,647) ====
+
+In Beta 1.7.3, as it rains when the player fly's up to the coordinates Y=&plus;2,147,483,647, the snow disappears. Instead of snow being there, the sky now looks like an empty world. It has the, sun, moon, and they are all visible depending on the time of day.
+
+==== (Y: >+22,502) and (Y: <-30,722) ====
+At an unknown version and higher versions, at coordinates 22,502+ blocks up the Y axis, when it snows, there will be a lighting bug with the snow. This is due to the lighting system being based on a combination of block light and sky light. Block light is emitted by certain light sources or generated by other blocks, while sky light is determined by the time of day and the presence of sky visibility it does not have to be snowing it applies with the character.
+
+At extreme coordinate values or distances far from the world spawn point, the rendering engine may encounter limitations in its ability to calculate and propagate lighting correctly. It's possible that the lighting calculations become way less accurate or consistent, leading to graphical glitches or anomalies like the axis Y=22,502 with snow rendering, it stops at the coordinates, Y=24,618. Until you reach the 32-bit integer limit where snow does not exist.
+
+You can still see your avatar having this bug even over the 32-bit integer limit, hence meaning this glitch goes on forever. If you set the time to midnight a yellow tint can be observed at night. In darkness it is really black, in the dark areas at midnight. In light areas this effect is fine and snow in light does not have an effect of turning yellow even though in the dark areas. If a lightning bolt happens to spawn right in front of you, you can see its light. This also happens in the sky, so it does not have to be on you. The light bug also happens on other particles too.
+
+All this also happens in the void too, but the only difference is that snow and lightning can't show in the void, but if you tried it with the void it would happen at -30,722 instead and would end at -32,703.
+
+== History ==
+{{History|java beta}}
+{{History||1.6|snap=Test Build 3|Chunk duplication occurs every 2{{^|19}}{{verify}} blocks and repeats every 524,288 blocks.}}
+{{History||1.8|snap=pre1|Chunk duplication has been patched.}}
+{{History|java}}
+{{History||1.14|snap=18w43a|Lightning breaks completely at X/Z ±33,554,432 or Y ±2048.<ref>{{bug|MC-194878}}</ref>}}
+{{History|||snap=?|Villages are glitched at high distances.<ref name="Village">{{bug|MC-201113}}</ref>}}
+{{History|foot}}
+
+== Gallery ==
+<gallery>
+32BitBorder.png|Picture of someone going to the 32 bit integer limit in Vanilla 1.8 using external programs
+FarLandsEnd.png|The end of Minecraft terrain generation at X: 2,147,483,794, about 147 blocks over the 32-bit limit. World rendering stops working at this point.
+FarLandsEndNether.png|The end of Minecraft terrain generation in the Nether at X: 2,147,483,644.
+ChunkEndOverwrite.png|X: 34,359,738,079, where chunks start to become overwritten.
+ChunkEndOverwritePauseScreen.png|Same location as the previous screenshot, but the game is paused (notice the super high CPU usage).
+RainRenderingStop.png|Y: 2,147,483,647 this is where snow rendering completely stops this is because it is corrupted
+PlayerTeleportingToNaNInVinnillaMinecraftWithoutMods.png|ZX: Player Teleporting To NaN In Vanilla Minecraft
+FarlandsEndWithExternalProgram.png|X: Player Teleporting To 2,147,483,794 In Beta Minecraft With A External Program No Mods.
+File:PastHardLimit.png|Screenshot Taken past the 2^1024 Hard Limit
+</gallery>
+
+== References ==
+{{Reflist}}
+
+[[zh:Java版中的距离现象/Beta1.8之前版本的现象]]

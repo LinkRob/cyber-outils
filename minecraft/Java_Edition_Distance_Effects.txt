@@ -1,0 +1,282 @@
+{{about|effects which arise due to precision loss|effects which arise due to integer limits|Java Edition hard limits}}
+{{see also|Bedrock Edition distance effects}}
+{{Exclusive|Java}}
+In {{el|je}}, certain game mechanics start to break down as the player's distance from the center of the world increases.
+
+== Vanilla bounds (X/Y/Z ±0–29,999,984) ==
+
+=== On the X/Z axis ===
+
+==== Translucent rendering breakdown ====
+
+====== X/Z: 8,388,608 ======
+The effects of this can first be seen after this point. The preferred method of testing this involves stacking two translucent blocks, such as two different colors of stained glass, in a square shape, and then walking up against this square to slow movement. When crossing from one block into another, the top face of the bottom block should not render at all until a certain distance is covered, at which point it should pop into view as expected.
+
+====== X/Z: 16,777,216 ======
+Said effect's precision is now halved, allowing for the tops of two blocks at a time to appear periodically invisible.
+
+==== Temperature distribution precision loss ====
+
+===== X/Z: 16,777,216 =====
+As snow or rain fall is handled on a per-block basis, the effects of precision loss here can only be seen once when single-precision floating-point precision itself can no longer represent blocks (integers) individually. This can be fixed by changing the floats responsible for this to doubles, or even integers as these do not use any decimal points.
+
+Beyond this point, while not immediately obvious at first glance (especially due to the vertical variation in almost all biomes where this effect can be seen), the patterns resulting from snow landing on surfaces become much more angular than before, being commonly composed of large rectangles, thin lines and lone dots which are either filled with snow or have them completely absent. This is similarly true with water, with ice corresponding to cold blocks and water to warmer blocks.
+
+As temperature varies with height, in order to properly see the effects of this, it is strongly recommended to build a flat plane for snow to accumulate on instead, or to generate a [[Superflat]] world with snow/ice set to generate with it as it would naturally. A modified Tunnelers' Dream preset set to generate 94 layers of black concrete (Looking At Block should say 93 for the top concrete layer) is ideal for this case, providing a roughly 50/50 density of snowy and clear blocks, with black providing maximum contrast.
+
+Teleporting to 16,777,216 on both axes should show four quadrants - one with normal looking snow/ice generation, and three with far more angular features due to the precision loss exceeding a full block. During times of precipitation, it can be seen that the blocky patterns of snow/ice match up with the weather directly above - snowy areas have snowfall where areas with no snow cover have rain. This is obviously true anywhere and is unrelated to precision loss, but (especially in the case of already-generated worlds) this can be used to prove that the precision loss lies with temperature calculation and is not merely a world generation issue disjoint from it.<gallery>
+Snow precision normal.png|An example of snow generated correctly near the spawn point.
+Snow precision broken.png|An example of snow generated at high distances. Notice the differing consistency composed of squares and lines.
+Snow gen v1.png|Snow generated in an extreme hills biome in 1.8, showing intended behavior
+Snow gen v2.png|The exact same area as generated in 1.9, showing the newly broken generation
+</gallery>
+
+==== Sounds ====
+
+====== X/Z: 16,777,216 ======
+Sounds use single precision for placement instead of double precision, meaning that sounds can now be misplaced by a full block. This becomes more severe at every power of 2. This can be fixed by switching to double precision.
+
+== Beyond the vanilla world boundary (X/Z ±29,999,984–2,147,483,647) ==
+{{disclaimer|1=section}}Horizontal distances far beyond 29,999,984 cannot be reached within vanilla Minecraft. One chunk after this, there exists an invisible wall at exactly X/Z = ±30,000,000. Chunks will stop generating after 30,000,240 blocks. This is a manually added and intentional limit, meaning that it can be removed with very simple mods, allowing terrain to generate up to X/Z = ±2,147,483,647, even without other modifications.
+
+=== On the X/Z axis ===
+
+==== Translucent rendering breakdown ====
+
+====== X/Z: past ±33,554,432 ======
+The effect's intensity will again double for every power of two crossed beyond this point. It also becomes very obvious in natural generation at extreme distances, specifically in cold areas; as ice and water are both translucent blocks and are intended to be visible through each other, viewing them when at such far distances from the origin will make very exaggerated versions of this effect obvious.
+
+==== Further temperature distribution precision loss ====
+At X/Z = ±33,554,432, the precision is halved again, resulting in even more blocky snow and ice. This effect's precision is halved at every exponent of 2 from this point on.
+
+==== Sound positioning errors ====
+The placement of sounds is halved at every exponent of 2 that is passed. It becomes very severe beyond 2{{^|28}} (268,435,456 blocks), where the precision can only represent multiples of 32. This can be fixed by switching to double precision.
+
+==== Lighting engine breakdown ====
+Bevond X/Z ±33,554,432, lighting stops working and shuts down due to a lighting engine rewrite in 1.14. From 1.14 through 1.16, teleporting there shows the transition between light and dark. In 1.17 and above, the game crashes when the player tries to load a chunk in the dark side from the light side. Teleporting past it works fine and the game will not crash, even in 1.17 and above, but the player needs night vision to see the world normally. The reason for this is unknown, and more investigation on this is necessary, although the most likely guess is an integer overflow.<sup>[That remains to be tested]</sup>
+
+=== Unknown (possibly 64-bit?) ===
+
+==== Entities ====
+* The player may easily get stuck in the positive sides of blocks after 2{{^|30}} (1,073,741,824 blocks).
+
+== Beyond the 32-bit limit (X/Z ±2,147,483,647-9,223,372,036,854,775,807) ==
+{{disclaimer|1=section}}
+{{info needed section|<br>
+* If you use an NBT editor to set your position to a few quadrillion blocks on the Y-axis in modern versions, the skybox will start flashing weird purple and blue colors 
+* Block model issues at extreme distances
+* Noise generation overflow points
+* Cave generation breakdown (similar to Bedrock Edition)}}
+The [[wikipedia:Double-precision floating-point format|standard format for doubles]] dedicates 52 bits to the fraction, as opposed to the 23 bits used by the [[wikipedia:Single-precision floating-point format|32-bit float]]. As a result, beyond 2^30 or 1,073,741,824 blocks, the player would only be off by (2^30)/(2^52) = 1/2^22 = 1/4,194,304 blocks, which is absolutely indistinguishable from the distance back at spawn. This is around equivalent to the precision of 2 to 4 blocks out on Bedrock Edition.
+
+Each doubling, however, will indeed half the precision used, up to a point where every single element of the game ends up breaking down. With mods that replace 32-bit integers with 64-bit integers, it is possible to generate and render terrain up to 2^63 - 1 without crashing. These mods also include an optional Stripe Lands fix for easier exploration of extreme 64-bit distances.
+
+=== 64-bit precision loss ===
+''Minecraft: Java Edition'' uses [[wikipedia:Double-precision floating-point format|64-bit floating point precision]] for entity positions and other calculations. Several mechanics which do not break down within vanilla bounds break down at very high distances similarly to Bedrock Edition, which in contrast, uses 32-bit floating point precision.
+
+==== On the X/Z axis ====
+
+====== Minor effects ======
+At 2^31 or 2,147,483,648 blocks, you can no longer swim in newer versions. This is the same precision loss as 4 blocks out in bedrock edition.
+
+At 2^35 or 34,359,738,368 blocks, biome fill noise overflows on that coordinate leading the exposed stone taking place in many areas in older versions (that is under the assumption that they use 32-bit integers, as 2^31 × 16 = 2^35). In between the vertical stone slices, there are blocks which vary on which biome it is based on, such as dirt and sand, going all the way down to bedrock level. These are known as the biome fill Far Lands. Sandstone generation is rare at these distances, restricted to desert pyramids and villages. It is however possible to push the overflow farther using 64-bit integers. In newer versions, simplex noise is used for soil depth. When it overflows, it will make the soil always 3 blocks deep after a certain distance.
+
+At X/Z = ±2^36 from spawn is where a spawn chunk glitch begins to occur as it would in Beta 1.7.3, by going on one horizontal axis while keeping the other close to or equal to zero. This spawn chunk glitch begins there as opposed to 524,288 blocks, or 32,768 chunks from spawn in Beta 1.7.3, as it used 32-bit integers, with 15 bits being dedicated for each axis, but it's unknown what the other two bits are dedicated for. It is even possible to interact and modify the blocks of this chunk, and it would affect the actual spawn chunk. This chunk glitch would occur at every multiple of 2^36 (2^32 chunks) from this point onwards, as it currently uses 64-bit integers, with 32 bits for each axis. When this overflows, the game is confused on what chunks to load, and it will load the spawn chunks, as these are always loaded. This is caused by the chunk coordinates stored in memory being a 64-bit integer for the entire coordinates rather than for each axis. Other chunks are only loaded when the player is near them, so the overflowing is unnoticeable outside of this spawn chunk glitch.
+
+At X/Z = ±2^37, or 137,438,953,472 blocks from the center, the slowest method of travel becomes impossible, sneaking on [[blue ice]] with [[Cobweb|cobwebs]] while touching [[powder snow]] and under the effect of [[slowness]] VI (achievable with a potion of the Turtle Master II) while using an item. It is also impossible to walk into an object at a 0.0025-degree angle. Lower angles do not yield similar results at lower coordinates. The coordinates of all entities are slices of 32,768 (multiples of 1/32,768) blocks. This is the equivalent precision loss at 256 blocks of distance in Bedrock Edition.
+
+At 2^38, or 274,877,906,944 blocks, sneaking on [[blue ice]] with [[Cobweb|cobwebs]] and under the effect of [[slowness]] VI while using an item becomes impossible. The coordinates of all entities are slices of 16,384 (multiples of 1/16384) blocks, the equivalent precision loss at 512 blocks of distance in Bedrock Edition.
+
+At 2^39, or 549,755,813,888 blocks, sneaking on [[blue ice]] with [[Cobweb|cobwebs]] and under the effect of [[slowness]] V while using an item becomes impossible. The coordinates of all entities are slices of 8192 (multiples of 1/8192) blocks, the equivalent precision loss at 1,024 blocks of distance from spawn in Bedrock Edition.
+
+At 2^41, or 2,199,023,255,552 blocks, sneaking on [[blue ice]] with [[Cobweb|cobwebs]] while using an item becomes impossible. The coordinates of all entities are slices of 2048 (multiples of 1/2048) blocks, the equivalent precision loss at 4,096 blocks of distance from spawn in Bedrock Edition.
+
+At 2^43, or 8,796,093,022,208 blocks, it becomes impossible to move in cobwebs on blue ice while using an item. The coordinates of all entities are slices of 512 (multiples of 1/512) blocks, the equivalent precision loss at 16,384 blocks of distance from spawn in Bedrock Edition.
+
+At 2^44, or 17,592,186,044,416 blocks, it becomes impossible to sneak diagonally on top of soul sand with cobwebs while drawing back a bow. The coordinates of all entities are slices of 256 (multiples of 1/256) blocks, the equivalent precision loss at 32,768 blocks of distance from spawn in Bedrock Edition.
+
+At 2^45, or 35,184,372,088,832 blocks, it becomes impossible to sneak diagonally on top of soul sand with cobwebs. Sneaking vertically and out starts to become jittery. The coordinates of all entities are slices of 128 (multiples of 1/128) blocks, the equivalent precision loss at 65,536 blocks of distance from spawn in Bedrock Edition.
+
+====== Moderate effects ======
+Eventually, some common forms of movement begin to glitch. In addition, blocks with detailed models begin to render incorrectly.
+
+At 2^48, or 281,474,976,710,656 blocks, jitter is easily noticeable. The coordinates of all entities are slices of 16 (multiples of 1/16) blocks, the equivalent precision loss at 524,288 blocks of distance from spawn in Bedrock Edition. In modern versions, the skybox starts flashing first at this point, firstly appearing to change color very slightly, but this is barely noticeable at this point, but gets more severe every power of two, but this effect does not happen in 1.13 and earlier. Such effects have been recorded on the Y axis, long before 64-bit mods for new versions were available.
+
+====== Major effects ======
+At 2^49, or 562,949,953,421,312 blocks out, fences and cacti begin to render incorrectly, their models and textures being distorted or stretched to a full block. Coordinates of all entities are multiples of 1/8.
+
+At 2^50, or 1,125,899,906,842,624 blocks, moving while [[sneaking]] becomes nearly impossible. The coordinates of all entities are slices of 4 (multiples of 1/4) blocks, the equivalent precision loss at 2,097,152 blocks of distance from spawn in Bedrock Edition.
+
+It becomes increasingly more difficult to traverse the world on foot from X/Z = ±2^51 (or 2,251,799,813,685,248) blocks from the center onwards. In order to continue navigating around the world, Players need to use [[Ender pearl|ender pearls]], [[chorus fruit]], [[elytra]] with [[Firework|fireworks]] or a [[Riptide]] [[trident]] (if raining or underwater), horseback, [[Boat|boats]], or any method that would be at least five blocks per second normally, meaning moving in normal walking speed is impossible. One can travel on foot past 2,251,799,813,685,248 by jumping one time and sprinting. One cannot jump normally either. The [[Jump Boost]] effect does not work. [[Stairs]] and [[Slab|slabs]] or blocks less than half a block tall are not working past this point. Entities less than half a block wide (such as [[Item (entity)|items]] and [[silverfish]]) will inevitably fall through the edges of blocks, but can still stand on the center of said blocks. This happens as a result of hitboxes of entities smaller than a valid position (unit of the last place on the double) getting their hitbox rounded to a width of zero, making them fall through the world. Status effect particles snap to the center of the player, causing them to bunch around the center of the screen. The coordinates of all entities are slices of 2, half-multiples of blocks, the equivalent precision loss at 4,194,304 blocks of distance from spawn in Bedrock Edition.
+
+At 2^52, or 4,503,599,627,370,496 blocks, coordinates of all entities are integers (1 block), meaning that all entities are on the edges of blocks. As a result, most entities less than one full block wide, including [[players]], always fall through blocks. The only entities that can stand on blocks from this point onward are [[Boat|boats]], [[Minecart|minecarts]] on rails (when placed correctly), [[Spider|spiders]], [[Horse|horses]], [[Iron golem|iron golems]], [[Polar bear|polar bears]], and [[Ravager|ravagers]]. Despite appearing to be more than one block wide, wardens will also fall through blocks due to their hitbox being less than a block wide. The player falls through blocks if the player rides any entity other than the ones described above, uses an ender pearl, or teleports beyond this coordinate. If only one coordinate exceeds this value, blocks will still have collision detection from the side. The player can still be considered "under" blocks, preventing [[Phantom|phantoms]] from spawning. Thus, it is theoretically possible to travel to and from the Stripe Lands in survival using above-average in speed [[Horse|horses]]. The minimum movement speed is increased to ten blocks per second, meaning that sprinting, boats (except in frozen oceans), horses (except for the faster ones mentioned above), and swimming are no longer usable sources of movement. To fly in Creative mode, the player must sprint or look directly along an axis. In addition, flying at this coordinate is bumpy, even when the player is sprinting and looking directly along an axis. Most blocks that normally render as partial blocks are either stretched to become full blocks, or squished to become 2-dimensional, such as flowers and fences. The exception is a few blocks that render normally no matter how far out the player travels, such as [[Chest|chests]] and [[Bell|bells]], as they are treated as entities. If both coordinates exceed this value, partial blocks that normally render as 2D this far out become 1-dimensional and are therefore completely invisible (although it may be possible for a torch's flame to remain visible). Riding [[Minecart|minecarts]] on active [[Powered rail|powered rails]] becomes impossible. This is the same precision loss distance as it would be 8,388,608 blocks from spawn in Bedrock Edition.
+
+====== Game-breaking effects ======
+At 2^53, or 9,007,199,254,740,992 blocks, the floating point precision errors cause only blocks with even coordinates not divisible by 4 to render, and are stretched to 2 blocks wide. Blocks at other coordinates are rounded to the nearest multiple of 4 and render 2-dimensional. Blocks render only if they are "exposed" to air or another see-through block (such as [[Glass|glass blocks]]). This phenomenon is known as the Stripe Lands. In contrast, they start at X/Z ±16,777,216 in [[Bedrock Edition]], as the block rendering coordinates use 32-bit floats instead. In the Corner Stripe Lands, blocks with both coordinates 2 mod 4 render double length and double width, blocks with 1 such coordinate render 2D and double length, and blocks with no such coordinate render as one-dimensional (thus, the block is completely invisible unless the player is inside it). Coordinates of all entities are multiples of 2. This does not impact the way maps are rendered in any way. 2D blocks are non-solid, even from the sides. However, [[Ghast|ghasts]], large [[Slime|slimes]], and large [[Magma cube|magma cubes]] treat both 2D and 3D blocks as solid because they are more than 2 blocks wide. The minimum speed is increased to 20 blocks per second, meaning that slow Creative mode flight and [[Horse|horses]] are no longer possible to move with, leaving only flight by an elytra (either with [[Firework rocket|firework rockets]] or a Riptide trident) and teleportation by any means (such as by chorus fruit or commands). Because the majority of blocks do not render in the stripe lands, this is noticeable only when viewed on a map. Fast Creative mode flight only works if the player looks directly along an axis. Building can only happen in "valid" double positions, even with an optional Stripe Lands fix. The aformentioned skybox flashing gets to a point where it starts to change color every time the camera moves, flashing it weird blue and purple colors, although this flashing only occurs in 1.14 and onwards.
+
+At 2^54, or 18,014,398,509,481,984 blocks, horizontal block rendering stops completely in older versions, leaving only vertical block rendering in its place, marking the start of the Slice Lands.<sup>[unofficial name]</sup> Blocks whose sides are not "exposed", such as naturally-generated water, are completely invisible, unless an optional Stripe Lands fix is applied. At this point, the slices are 4 blocks apart, but the gap widths double for every power of 2. Coordinates of all entities are multiples of 4. It is difficult to place blocks from this point onward. The player must look at an existing block and extend it along an axis. The only way to generate blocks (to place on) without external tools is to use [[Structure block|structure blocks]], even with a Stripe Lands fix. Block rendering essentially stops completely in the Corner Slice Lands; almost all blocks are rendered as one-dimensional, and are therefore impossible to see. Only certain [[block entities]] and any normally visible [[water]] side textures render in this area, which means that due to the End having no liquids, this region is almost completely empty. Blocks in the Corner Slice Lands are only visible with the Stripe Lands fix being turned on. The minimum movement speed is now 40 blocks per second. As a result, [[ender pearls]] are useless at that distance, and teleportation is now only possible by chorus fruit, or by commands. Elytras either require a steep angle or a Riptide trident in rain to propel the player. [[Trident|Tridents]], [[Arrow|arrows]] shot from [[Bow|bows]] or [[Crossbow|crossbows]] and [[Ender dragon|ender dragons]] are the only other entities that can move horizontally beyond this point, other than the player, as ghasts can no longer move horizontally (but they do remain airborne), while large slimes and magma cubes that are four blocks large will fall into the void. In modern versions (at least from 1.12 if not earlier), the Slice Lands don't exist. Instead, the gaps at the Stripe Lands gets wider at every exponent of 2. In the Nether, even this far out, ghasts may still spawn.
+
+At 2^55, or 36,028,797,018,963,968 blocks, the minimum movement speed is increased to 80 blocks per second, meaning that thrown [[Trident|tridents]] cannot move horizontally and the use of an [[elytra]] requires a [[Riptide]] trident. It becomes impossible to look horizontally in third person view. Coordinates of all entities are multiples of 8. Ender dragons cannot move horizontally anymore either.
+
+The Far Lands start at about 53.9 quadrillion blocks out in Beta 1.8 to 1.14, but due to the modulo patch, they don't exactly start at <sup>9,223,372,036,854,775,807</sup>/<sub>171.103</sub>. Instead, they generate a bit after, about few million blocks. In Beta 1.8 to relase 1.7, they start at exactly 59,505,378,859,423,448 blocks. In 1.7 to 1.14, they start at 53,905,379,846,882,792 blocks, due to a very slight change in the coordinate scale, which is unnoticably small for the 32-bit versions, regardless of the world seed, and if the player kept on going on one axis while keeping the other at or close to zero, for every multiple of 2^36 inside the Far Lands, the spawn chunk glitch described above will occur inside the Far Lands. If the Stripe Lands fix is off, then the Far Lands, combined with the Slice Lands, result in trippy visuals, unofficially dubbed the "Slice Far Lands", as if the terrain was drawn on a canvas. In the negative directions, the Far Lands will start at exactly 2^63/171.103 or 53,905,378,846,979,747 blocks. The modulo patch works by taking the noise coordinate, stored as a double, converting it to a 64-bit integer, and taking its modulo 16,777,216. When the 64-bit integer overflows, the modulo breaks, and the noise coordinate will accumulate and reach 2^31, like it did in the older versions, where the double noise cooordinate was just converted to a 32-bit integer. The negative axes will start from 2^32, so the Far Lands will generate immediately after the 64-bit overflow.
+
+At 2^56, or 72,057,594,037,927,936 blocks, coordinates of all entities are multiples of 16, equivalent to one chunk section. The visual gaps are 16 blocks wide. All entities are on the edges of chunks, although it is not noticeable at all, as almost all entities fall through the world before this could be noticed. The minimum movement speed is increased to 160 blocks per second, meaning that [[Arrow|arrows]] cannot move horizontally and [[Riptide]] starts to become less usable at low levels. Teleportation using [[chorus fruit]] becomes impossible. More specifically, [[Riptide]] I works only if the player looks directly along an axis and does it many times. 
+
+At 2^57, or 144,115,188,075,855,872 blocks, coordinates of all entities are multiples of 32, equivalent to two chunks section. The visual gaps are 32 blocks wide. The minimum movement speed is increased to 320 blocks per second, meaning that levels of [[Riptide]] below level II no longer work, and Riptide II barely works. More specifically, [[Riptide]] II works only if the player looks directly along an axis and does it many times. Much like in Beta after 268,435,456 blocks out, frustum culling loses precision, causing terrain flickering to occur, As the game sometimes thinks you are facing somewhere you are not, and renders chunks accordingly. This is also a floating-point precision loss bug, and it happened a lot closer in Beta, as it used single precision for world rendering. It could only be noticed when the unit of the last place on the double exceeds a full chunk.
+
+At about this distance, the Far Lands will start to repeat segments of the broken terrain that is generating. The reason for this is the selector noise generator, essential for terrain position, losing precision for each power of two; however, this remains to be confirmed. On both axes, the patterns repeat in a grid-like pattern.
+
+Furthermore, at around 184 quadrillion blocks from spawn, depth noise will overflow, but the effects are invisible within the Far Lands, As it dwarfs the incredibly large fraction value in the Far Lands.
+
+At 2^58, or 288,230,376,151,711,744 blocks, coordinates of all entities are multiples of 64, equivalent to four chunks section. The visual gaps are 64 blocks wide. The minimum movement speed is increased to 640 blocks per second, meaning that no method of vanilla movement works, even [[Riptide]] III, leaving teleportation by commands as the only viable option remaining.
+
+At 2^59, or 576,460,752,303,423,488 blocks, coordinates of all entities are multiples of 128, equivalent to eight chunks section. The visual gaps are 128 blocks wide. The minimum movement speed is increased to 1,280 blocks per second, meaning that [[Riptide]] levels below IX no longer work. The world is completely invisible with a render distance of 7 chunks or less without an optional Stripe Lands Fix. The phenomenon is called the Invisible Stripe Lands. With the Stripe Lands fix, the most severe terrain flickering in Beta can be seen here, as this is the equivalent precision loss effect of 1,073,741,824 blocks from spawn in single precision.
+
+At 2^60, or 1,152,921,504,606,846,976 blocks, coordinates of all entities are multiples of 256, equivalent to 16 chunks section. The visual gaps are 256 blocks wide. The minimum movement speed is increased to 2,560 blocks per second, meaning that [[Riptide]] levels below XVIII no longer work. Any variation in the Far Lands has been almost entirely replaced by repeating patterns at this point.
+
+At 2^61, or 2,305,843,009,213,693,952 blocks, coordinates of all entities are multiples of 512, equivalent to 32 chunks section. The visual gaps are 512 blocks wide. The minimum movement speed is increased to 5,120 blocks per second.
+
+The selector noise generator overflows at 4,312,430,308,754,600,200 blocks, causing the Farther Lands to appear. This makes every single repeating pattern in the Far Lands vanish, leaving no variation in the strips that generate. In the Corner Far Lands, this makes the terrain to appear completely flat. These have been named the Farthest Lands, and are a 64-bit version of the normal Far Lands.
+
+At 2^62, or 4,611,686,018,427,387,904 blocks, coordinates of all entities are multiples of 1,024, equivalent to 64 chunks section. The visual gaps are 1,024 blocks wide. The minimum movement speed is increased to 10,240 blocks per second.
+
+At 2^63, or 9,223,372,036,854,775,808 blocks, terrain will stop generating, and the game will crash when trying to load any chunks beyond this point, unless a BigInteger mod is used, as this is the maximum 64-bit integer value. Coordinates of all entities are multiples of 2,048, equivalent to 128 chunks section. The visual gaps are 2,048 blocks wide, and the minimum movement speed is increased to 20,480 blocks per second.
+
+the Y axis:
+* Flying upwards or downwards in Creative becomes impossible after 2^52 blocks.<ref name="heightvideo">https://youtu.be/SYuocMFOD6w</ref>
+* Falling downwards becomes impossible after 2^55 blocks.<ref name="heightvideo"/>
+*In recent versions, NBT editing the player's position past 20,000,000 blocks on the Y axis will automatically teleport the player downward.
+<gallery>
+File:64bit farther lands.png
+File:64-bit Corner Far Lands.png
+File:1.2.5 biome fill Corner Far Lands.png
+</gallery>
+
+
+====Stripe Lands====
+As 52 bits are dedicated to the fraction in the double format rather than 23 in the single format, after 2^53 or 9,007,199,254,740,992 blocks out, precision breaks to consider only every second block, and so on. The rendering breaks down in an effectively identical manner to Bedrock Edition and yields the famous Stripe Lands as a result.
+
+Fluids break down differently from blocks; while block rendering breaks down to form the usual stripes, fluids will instead stretch to the size of the precision loss, with the start of the Stripe Lands causing each liquid to become two blocks long, then four at the next doubling, and so on. In 1.14 or newer versions, the game freezes when rendering the Stripe Lands, so the Stripe Lands fix is nescassery to render terrain further out.
+
+<gallery>
+1.2.5 Stripe Lands.png
+1.2.5 Corner Stripe Lands.png
+File:Screenshot 2022-06-22 2.44.39 PM.png
+File:Screenshot 2022-07-10 9.08.47 AM.png
+</gallery>
+
+==Beyond the 64-bit Limit (X/Z ±9,223,372,036,854,775,808-2^1024)==
+{{disclaimer|1=section}}
+{{info needed section|<br>
+* Distance Effects beyond 9,223,372,036,854,775,807 in Modern Versions}}Beyond the 64-bit integer limit, the precision loss becomes greater by every passing exponent of two. It is possible to get terrain to generate and render at this distance, with the use of BigInteger mods. These mods also replace floating-point values with BigDecimals, which fix most distance effects, and terrain no longer flickers at extreme distances. These data types use an array of smaller numbers, as the number of bits in the computers are the maximum amount of memory addresses, and not the maximum size of a calculable value. Therefore, it is possible to calculate with 128, or even 256-bit integers, even on 32, or 16-bit systems. BigIntegers and BigDecimals do not overflow, and can go until the game's memory is filled completely with these numbers. This mod is available for 1.3.2, 1.12, and 1.20.1. These also include an optional, or an always turned-on Stripe Lands FIx. The BigInt mods for 1.12.2 and 1.20.1 also fixes hitboxes, so the player and other entities do not fall through the world, making the game completely playable at these distances, even beyond 2^1024, the maximum 64-bit floating point number. As a result, this completely patches the game to the point that the Stripe Lands are removed entirely. The 1.20.1 mod also fixes the skybox flashing as well as the lighting breakdown.
+
+On the X/Z axis 
+
+At 2<sup>64</sup>, or 18,​446,​744,​073,​709,​551,​616 blocks, coordinates of all entities are multiples of 4,096, equivalent to 256 chunks section. The visual gaps are 4,096 blocks wide. The minimum movement speed is increased to 40,960 blocks per second. 
+
+At 2<sup>65</sup>, or 36,893,488,147,419,103,232 blocks, coordinates of all entities are multiples of 8,192, equivalent to 512 chunks section. The visual gaps are 8,192 blocks wide. The minimum movement speed is increased to 81,920 blocks per second. 
+
+At 2<sup>67</sup>, or around 147 quintillion blocks from spawn, the biome fill noise generator, assuming it use 64-bit integers, overflows, resulting in the biome fill noise Far Lands in older versions.  
+
+At 2<sup>69</sup>, or 590,295,810,358,705,651,712 blocks, coordinates of all entities are multiples of 131,072, equivalent to 8,192 chunks section. The visual gaps are 131,072 blocks wide. The minimum movement speed is increased to 1,310,720 blocks per second. 
+
+At 2<sup>70</sup>, or 1,180,591,620,717,411,303,424 blocks, coordinates of all entities are multiples of 262,144, equivalent to 16,384 chunks section. The visual gaps are 262,144 blocks wide. The minimum movement speed is increased to 2,621,440 blocks per second. 
+
+At 2<sup>77</sup>, or 151,115,727,451,828,646,838,272 blocks, coordinates of all entities are multiples of 33,554,432, equivalent to 2,097,152 chunks section. The visual gaps are 33,554,432 blocks wide. The minimum movement speed is increased to 335,544,320 blocks per second. At this point, it would take going faster than the speed of light to move, which is 299,792,458 blocks per second. To put it into perspective, the observable universe is 93 billion light years in diameter, or approximately 8.79 × 10<sup>26</sup> meters, or blocks. It would take light 10.5 million years to reach that distance in Minecraft. As a comparison, the Andromeda Galaxy is 2.537 million light-years from Earth, and Messier 82, the Cigar Galaxy, 11.42 million light-years from Earth. 
+
+At 2<sup>80</sup>, or 1,208,925,819,614,629,174,706,176 blocks, coordinates of all entities are multiples of 2,147,483,648, equivalent to 134,217,728 chunks section. The visual gaps are 2,147,483,648 blocks wide. 
+
+At 1,808,764,368,955,220,466,364,897 blocks, the Far Lands would appear in modern versions of the game, starting from 1.14, at exactly 2^25, or 33,554,432 times the distance of the normal 64-bit Far Lands. This is due to a change in the Far Lands patch, which now takes the double Noise Cooordinate, converts it to a 64-bit integer, and them divides it by 33,554,432. 
+
+At about 9 × 2<sup>82</sup>, or 43,521,329,506,126,650,289,422,336 blocks on both axes, the Corner Farther Lands begin to thin out into pillars due to floating-point overflows in the quintic in the terrain generation algorithms. As the quintics are multiplied together on both axes, the degradation would happen much faster than on one axis. Some even dubbed this part of the degradation as the Pillar Lands <sup>[unofficial name]</sup>. 
+
+At around 6.75 × 2<sup>83</sup> or 65,281,994,259,189,975,434,133,503 blocks on both axes, the terrain will thin out to a skygrid, and at about <sup>10</sup>/<sub>3</sub> × 2<sup>87</sup> or 515,808,349,702,241,781,207,968,426 blocks on both axes, it will disappear completely. The Edge Far Lands and its further variations will generate normally well beyond this point. 
+
+At 2^84, or 19,342,813,113,834,066,795,298,816 blocks, coordinates of all entities are multiples of 34,259,738,368, equivalent to 2,147,483,648 chunks section. The visual gaps are 34,259,738,368 blocks wide. 
+
+At 2^89, or 618,970,019,642,690,137,449,562,112 blocks, coordinates of all entities are multiples of 1,099,511,627,776, equivalent to 68,719,476,736 chunks, or 2,147,483,648 regions section. The visual gaps are 1,099,511,627,776 blocks wide. 
+
+The precision will be halved every time the player passes an exponent of 2. 
+
+The Edge Far Lands will start to deteriorate at over 8.175 quindecillion blocks out on the X axis, giving way to the Fringe Lands. The first stage of the decay appears at 8.175100408620 x 10^48 blocks. The second stage is at 8.576 x 10^48 The third stage would begin at 9.162999 × 10<sup>48</sup> blocks, and the fourth stage at about 1.0299981089 × 10<sup>49</sup> blocks. The true hard limit of terrain generation is unknown, although it is predicted to be around 2.51 × 10<sup>51</sup> blocks, but due to additional octaves of low and high noise, as well as selector noise starting to have their own Fringe Lands, the limit is likely much closer. In newer versions, the stages of the degradation would happen at those exact same numbers, but the terrain would thin out without the comb-like artifacts. When the terrain is completely gone, only water with a bedrock floor will appear. This ocean won't degrade, as it comes from an instruction in the game filling every air block below Y=63 with water (the uppermost layer of water is replaced with ice if it is located in a cold biome). This does not use a noise generator, meaning this would never overflow. On the Z axis, the degrading is much more gradual. It starts at 9.17 × 10<sup>48</sup>, and the terrain slowly fades out into a skygrid, which will thin out relly slowly. The hard limit here is predicted to be more than 10^100, a googol blocks, or ten duotrigintillion blocks, but extra octaves and noise generators make the end much closer than predicted, but the sheer size of this already makes a Minecraft world, under these instructions, 76 orders of base-10 magnitudes larger than the observable universe, which is a measly 93 billion light-years across in diameter!  
+
+2^1024 is the maximum value for a 64-bit floating-point value in Java. Beyond this point, the player's coordinates would roll over to read "infinity," as the 64-bit float has run out of bits to represent coordinate data, possible to achieve with Cheat Engine in Beta. There is also the likelihood that the game would crash, but it is not confirmed, and it may or may not happen at random. It's impossible to go further than this point without BigDecimals, as a value of "infinity" breaks rendering code in Java Edition. BigInts and BigDecimals can go and generate terrain much further out, as they don't overflow until they fill the game's memory. 
+
+On the Y axis 
+
+* Entity positions lose precision for every exponent of two passed.
+*The skybox flashing continues until 2^1024.
+*The player cannot surpass 2^1024 on the Y axis since it is the position limit for floats.<ref>[https://youtu.be/SYuocMFOD6w?t=235 https://youtu.be/SYuocMFOD6w?t=234]</ref>
+==== Skygrid====
+The skygrid is a distance effect that occurs in the Corner Fringe Lands. This effect occurred on Bedrock Edition until the Far Lands were pushed beyond the 32-bit integer limit in [[Bedrock Edition beta 1.17.20.20]], as a vanilla parity fix.
+
+Due to precision loss becoming more extreme at greater distances, features affected at it will behave different depending on how far out they are.
+
+=== Rain and snow rendering===
+''First affected bracket:''
+
+''First affected version: Unspecified Classic''
+
+''Last affected version: Indev 2010-02-14 2''
+
+''Second affected bracket:''
+
+''First affected version: Alpha v1.0.4''
+
+''Last affected version: Alpha v1.1.2_01''
+
+''Third affected bracket:''
+
+''First affected version: Beta 1.6.5''
+
+''Still affects the current release (1.19) and snapshot (1.19.1-rc1)''
+
+''Suspected to affect as far back as Beta 1.5, but cannot be reasonably tested due to frequent crashes'' 
+
+;16,384 - 262,143 blocks
+Beyond this point on the Y axis, one can start to see the first signs of snow and rain jittering, up to 65,535 blocks. This can only be reasonably seen with snowflakes with a mainly horizontal trajectory, as vertical travelling snowflakes are moving at a speed where travel still appears mostly smooth. Beyond 65,536 and especially 131,072 blocks, the effect becomes very obvious for almost all snow.
+;262,144+ blocks
+Above 262,144 blocks, the first signs of geometrical distortion in the snow itself can be seen - very little non-misshapen snow is present beyond here, and most of it has transformed into either lone rectangles, or the odd paired rectangles similar in shape to a pause button.
+
+Deformations progress after every power of two surpassed from this point. Past 16,777,216 blocks, snow becomes a nearly unrecognizable pattern of suspended vertical lines.
+;2,147,483,647+ blocks
+Beyond this point snow will just stop rendering, even when you go to -10 blocks lower then the 32-bit integer limit the snow acts like the 32-bit integer limit bug, but the sky remains fine, as it is completely unrelated. But, when going below the 32-bit integer limit, rain appears. It is unknown as to why this happens.
+;114,688+ blocks
+Back when snow was added, when it is snowing, if you are at the coordinates of Y=114,688, there is a lighting bug with the snow. This is because the lighting system is based on a combination of block light and sky light. Block light is emitted by certain light sources or generated by other blocks (such as glowstone blocks, sea lanterns, shroomlights and froglights), while sky light is determined by the time of day and the presence of sky visibility.
+
+At extreme coordinate values or distances far from the world center, the rendering engine may encounter limitations in its ability to calculate and propagate lighting correctly. It is possible that the lighting calculations have become inaccurate and/or inconsistent, leading to graphical glitches or anomalies like at Y=114,688 with snow rendering and even when the level.dat tries to process it the 
+
+===Translucent rendering breakdown===
+''First affected version: 13w41a''
+
+''Still affects the current release (1.19) and snapshot (1.19.1-rc1)''
+
+;8,388,608 - 16,777,215 blocks
+The effects of this can first be seen after this point. The preferred method of testing this involves stacking two translucent blocks, such as two different colors of stained glass, in a square shape, and then walking up against this square to slow movement. When crossing from one block into another, the top face of the bottom block should not render at all until a certain distance is covered, at which point it should pop into view as expected.
+;16,777,216 - 33,554,431 blocks
+The buggy effect's precision is now halved, allowing for the tops of two blocks at a time to appear periodically invisible.
+;33,554,432+ blocks
+The effect's intensity will again double for every power of two crossed beyond this point. It also becomes very obvious in natural generation at extreme distances, specifically in cold areas; as ice and water are both translucent blocks and are intended to be visible through each other, viewing them when at such far distances from the origin will make very exaggerated versions of this effect obvious.
+===Sound positioning errors===
+{{section needed}}
+===Temperature distribution breakdown===
+''First affected version: 16w02a''
+
+''Still affects 1.19 and snapshot 1.19.1-rc1''
+
+;16,777,216 - 33,554,431 blocks
+As snowfall and rainfall are handled on a per-block basis, the effects of precision loss here can only be seen once precision itself can no longer represent blocks (integers) individually.
+
+Beyond this point, while perhaps not immediately obvious (especially due to the vertical variation in almost all biomes where this effect can be seen), the patterns resulting from snow landing on surfaces become much more angular than before, being commonly composed of large rectangles, thin lines and lone dots which are either filled with snow or have it completely absent. This is similarly true of water, with ice corresponding to cold blocks and water to warmer blocks.
+
+As temperature varies with height, in order to properly see the effects of this, it is strongly recommended to build a flat plane for snow to accumulate on instead, or to generate a [[Superflat]] world with snow/ice set to generate with it as it would naturally. A modified Tunnelers' Dream preset set to generate 94 layers of black concrete (Looking At Block should say 93 for the top concrete layer) is ideal for this case, providing a roughly 50/50 density of snowy and clear blocks, with black providing maximum contrast.
+
+Teleporting to 16,777,216 on both axes should show four quadrants - one with normal looking snow and ice generation, and three with far more angular features due to the precision loss exceeding a full block. During times of precipitation, it can be seen that the blocky patterns of snow and ice match up with the weather directly above - snowy areas have snowfall where areas with no snow cover have rain. This is obviously true anywhere and is unrelated to precision loss, but, especially in the case of already-generated worlds, this can be used to prove that the precision loss lies with temperature calculation and is therefore not a mere world generation issue disjoint from[[File:Fringe Lands.png|thumb|The Fringe Land as it appears nearly 5 quattuordecillion blocks on the x-axis and 1 billion on the z-axis showing Minecraft's far lands breaking down faster on the x-axis when moving the higher distances on the z-axis and vice versa. ]]
+
+==References==
+{{Reflist}}
+
+{{DEFAULTSORT:Distance effects}}
+
+[[ja:距離効果/Java Edition]]
+[[zh:Java版距离现象]]

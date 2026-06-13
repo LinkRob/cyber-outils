@@ -1,0 +1,139 @@
+The '''loading world screen''' is a screen displayed when generating or loading a [[world]]. It shows the percentage of the loading progress.
+
+== Java Edition ==
+[[File:Chunk colormap.gif|thumb|Chunk colormap of [[Seed (level generation)#Seed 0|seed 0]].]]
+
+The loading screen {{in|Java}} shows a chunk '''colormap''', which is a square that visualizes the rendering of 43 by 43 [[chunk]]s (688 by 688 blocks). It populates with colored pixels that change color and expand as chunks load. Each pixel represents a chunk, and the color represents the chunk status. It has a [[Background|dirt background]] in world generation.
+
+{| class="wikitable" data-description="Color codes" style="text-align:center;"
+|-
+!Chunk Status
+!R!!G!!B
+!<abbr title="Hexadecimal color code">Hex<abbr><abbr title="Hexadecimal color code"><abbr>
+|- style="background-color: #000; color: #FFF"
+|Empty
+|0
+|0
+|0
+|000000
+|- style="background-color: #999; color: #FFF"
+|Structure Starts
+|153
+|153
+|153
+|999999
+|- style="background-color: #5F6191; color: #FFF"
+|Structure References
+|95
+|97
+|145
+|5F6191
+|- style="background-color: #80B252; color: #FFF"
+|Biomes
+|128
+|178
+|82
+|80B252
+|- style="background-color: #D1D1D1; color: #000"
+|Noise
+|209
+|209
+|209
+|D1D1D1
+|- style="background-color: #726809; color: #FFF"
+|Surface
+|114
+|104
+|9
+|726809
+|- style="background-color: #6D665C; color: #FFF"
+|Carvers
+|109
+|102
+|92
+|6D665C
+|- style="background-color: #303572; color: #FFF"
+|Liquid Carvers
+|48
+|53
+|114
+|303572
+|- style="background-color: #21C600; color: #FFF"
+|Features
+|33
+|198
+|0
+|21C600
+|- style="background-color: #CCC; color: #000"
+|Light
+|204
+|204
+|204
+|CCCCCC
+|- style="background-color: #F26060; color: #fff"
+|Spawn
+|242
+|96
+|96
+|F26060
+|- style="background-color: #EEE; color: #000"
+|Heightmaps
+|238
+|238
+|238
+|EEEEEE
+|- style="background-color: #FFF; color: #000"
+|Full
+|255
+|255
+|255
+|FFFFFF
+|}
+
+== Bedrock Edition ==
+[[File:Bedrock Loading Screen.png|alt=|thumb|The loading screen in Bedrock Edition.]]
+The loading screen {{in|bedrock}} shows the menu screen [[panorama]] in the background with an [[experience]] progress bar, and [[loading tips]].
+
+== Legacy Console Edition ==
+[[File:Loading Screen Legacy Console Edition.png|thumb|The loading screen in Legacy Console Edition.]]
+The loading screen {{in|console}} shows the menu screen [[panorama]] in the background with a solid green progress bar and some text, as well as [[loading tips]] at the bottom of the screen.
+
+== History ==
+[[File:Progress bar.png|thumb|Loading screen in Java Edition before 1.3.1 update]]
+{{History|java classic}}
+{{History||0.0.12a|Added a "Generating level" screen.}}
+{{History||0.0.13a_03|The dirt background is now darker.|The loading level screen now displays a progress bar.}}
+{{History|java}}
+{{History||1.3.1|snap=12w18a|Removed progress bar, and the text become same with the text when logging into a server.}}
+{{History|||snap=12w21a|Removed all texts on the loading screen.}}
+{{History|||snap=12w25a|Revert texts to pre-12w18a, but the progress bar not reverted.}}
+{{History||1.13|snap=17w43a|Added percent to texts.}}
+{{History|||snap=17w45a|Removed all percent texts shown except "Preparing spawn area" stage.}}
+{{History||1.14|snap=18w43a|Added more detailed information for "Preparing spawn area".}}
+{{History|||snap=19w02a|Added a chunk colormap when loading a [[world]], replaced detailed text which shown since 18w43a.}}
+{{History||1.14.1|snap=Pre-Release 1|Changed chunk colormap to show 43 by 43 chunks instead of 45 by 45, creating a black border around the finished colormap.}}
+{{History||1.20|snap=23w16a|Added new "Initialize Light" chunk status and removed "Liquid Carvers" and "Heightmaps" statuses. Also added a new color for "Light" chunk status, while "Carvers" will now use the "Liquid Carvers" color.}}
+{{History|pocket alpha}}
+{{History||v0.1.0|Added loading screen.}}
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|Added gameplay tips to the loading screen.
+|Changed the style of progress bar when loading world, make it more similar the boss bar in Java Edition.}}
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch= 1.0.1|Added loading screen.
+|Added gameplay tips to the loading screen.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Gallery ==
+<gallery>
+LoadingScreen-MCClassicRemake.png|World generation loading screen in the Minecraft Classic remake.
+Reading world data... screen.png|Old reading world data screen.
+Joining world... screen.png|Old joining world screen.
+Saving world screen.png|Old saving world screen.
+</gallery>
+
+[[Category:UI]]
+
+[[zh:世界加载界面]]

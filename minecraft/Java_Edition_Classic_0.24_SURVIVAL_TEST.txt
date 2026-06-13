@@ -1,0 +1,159 @@
+{{Underscore title|Java Edition Classic 0.24_SURVIVAL_TEST}}
+{{for|developmental versions of 0.24|{{PAGENAME}}/Development}}
+{{Lost version|commonfake=1}}
+{{version nav
+|title=0.24_SURVIVAL_TEST
+|image=Classic 0.24_SURVIVAL_TEST.png
+|edition=java
+|prefix=Classic
+|date=September 1, 2009
+|clientdl=Client not archived
+|serverdl=No corresponding server
+|prevparent=0.0.23a
+|prev=0.0.23a_01
+|next=0.24_SURVIVAL_TEST_01
+|nextparent=0.25 SURVIVAL TEST
+}}
+
+'''0.24_SURVIVAL_TEST'''<ref name="creeper">{{ytl|wH0AxeY_r2Y|Minecraft Survival Mode - Reaper Creeper|Telkir|September 1, 2009}}</ref> was a version of [[Classic]] and the first version of [[Survival Test]], released on September 1, 2009,<ref>[[WordOfNotch:177210159|"Survival Mode Test Released"]] – [[The Word of Notch]]</ref>  at 16:54 UTC.<ref>[[#logs|IRC logs]]: "''A11:54:53 <08Notch> http://www.minecraft.net/survivaltest/''" (16:54:53 UTC)</ref>
+
+== Additions ==
+
+=== Entities ===
+; [[File:Sign Entity.png|x32px]] [[Sign]]s<ref>{{ytl|QAARP2qdtww|Minecraft Survival development update|Internet Video Archive}}</ref>
+* Added as an entity.
+* Can be spawned by pressing {{Key|B}}.
+* Cannot be edited.
+* Always says: "This is a test of the signs. Each line can be 15 chars!".
+
+=== Items ===
+; [[File:Arrow JE1.png|x32px]] [[Arrow]]s
+* Can be shot by pressing {{Key|Tab}}.
+** Took 7 shots to kill [[mob]]s. Deal {{hp|3}} damage.
+
+=== Mobs ===
+; [[File:Creeper JE1.png|x32px]] [[Creeper]]s
+* Are a lot darker than normal.
+** Return to normal when hit.
+* [[Explode]] on death.
+* Deal {{hp|2}} to {{hp|6}} damage upon hit and up to {{hp|12}} damage upon death in its explosion.{{verify|type=untestable}}
+* They make melee attacks instead of blowing up near the [[player]].
+
+; [[File:Pig JE1.png|x32px]] [[Pig]]s
+* The first [[passive mob]] to be added into the game.
+
+; [[File:Skeleton JE1.png|x32px]] [[Skeleton]]s
+* Deal {{hp|1}} to {{hp|6}} damage.
+
+; [[File:Zombie JE2 BE1.png|x32px]] [[Zombie]]s
+* Deal {{hp|1}} to {{hp|7}} damage.
+
+=== Gameplay ===
+; [[Survival]] mode
+
+; Score
+* Score can only be seen after death.
+* Killing [[zombie]]s give 100 points.
+* Killing [[skeleton]]s give 100 points.
+* Killing [[creeper]]s give 250 points.
+* Killing [[pig]]s give 10 points.
+
+; [[Armor]]
+* Visual feature only, provides no protection.
+* Can only be worn as a [[helmet]] or [[chestplate]] by zombies and skeletons.
+
+; [[Particles]]
+* Re-added sapling particles, although they are now darker than before.{{verify|type=untestable}}
+
+; [[Drops]]
+* Blocks and mobs are now able to drop items:
+** Most blocks drop themselves, with exceptions:
+** Leaves drop saplings ({{frac|1|10}} chance).
+** Grass block drops dirt.
+** Logs drop 3-5 planks.
+
+=== General ===
+; [[Options]] menu
+* Bobbing and the View Bobbing option added.
+* 3D anaglyph added.
+* Level size options under "Generate New Level" are now closer together.
+
+== Changes ==
+
+=== Mobs ===
+; General
+* [[Mob]]s and [[player]]s jump back and flash white when taking damage and have a dying animation.
+* Enemies fall over when killed.
+
+; [[Human]]
+* Changed skin from [[File:Steve Revision 1.png|x32px]] to [[File:Steve.png|x32px]], removing the beard.
+* Can no longer be spawned by pressing {{key|G}}.
+
+=== Gameplay ===
+; [[Controls]]
+* Right-click to build and left-click to [[mine]].
+* The [[player]] can auto-jump again.
+* Player reach reduced by 1 block.
+
+; Block outline
+* White block selection box removed.
+** As a result of this, [[sapling]]s and [[flower]]s no longer disappear if selected in darkness.
+
+=== Items ===
+; {{Animate|Red Mushroom JE1.png;Brown Mushroom JE1.png|32px}} [[Mushroom]]s
+* Brown mushrooms heal {{hp|5}} when eaten.
+* Red mushroom deplete {{hp|3}} when eaten.
+* Mushrooms no longer decay in darkness.
+; [[File:Oak Sapling JE2.png|32px]] [[Sapling]]s
+* Will now grow into a tree if there is enough space and it is placed on grass.
+
+=== World generation ===
+; General
+* New level generator.
+** More cliffs.
+** Longer and narrower [[caves]].
+*** The deeper down in the world, the bigger the caves are.
+** A layer of lava now generates above the bedrock layer.<ref>[[#logs|IRC logs]]: "''P1:23:30 <Drakim> yeah, guys, the bottom is all lava''"</ref>
+
+=== General ===
+; Performance
+* Faster rendering.
+
+== Removed ==
+* Removed [[Creative]] mode.
+* Removed liquid raising, although [[sand]] and [[gravel]] will still fall through liquids.
+
+== Bugs ==
+* If a creeper blows up a [[liquid]], the liquid will drop itself.<ref name="creeper" /><ref>[[#logs|IRC logs]]: "''A11:57:36 <Sharkz> creeper took out loads of water and it dropped water blocks i can place to raise water level''"</ref>
+* Cracking animation only shows on one side of a block.<ref>[[#logs|IRC logs]]: "''A11:59:28 <liq3> Notch: Cracks are only drawning on one face. :(''"</ref>
+* Skeletons can enter 1-block high holes.{{verify|type=untestable}}
+* Minecraft crashed upon loading for some users.<ref>[[#logs|IRC logs]]: "''P12:00:12 <darkparadox> it says the game broke :\''"</ref>
+* OpenGL invalid value bug.<ref>[[#logs|IRC logs]]: "''P12:02:40 <Zarigani> OpenGL Exception: invalid value 1281''"</ref>
+* Arrows do not deal damage after flying for more than 1 second. 
+* Middle-clicking a block (pick-block) adds it into the player's [[inventory]] even when they do not yet have that block.<ref>[[#logs|IRC logs]]: "''P12:47:58 <AnnihilatorBeta> if you middle mouse click on a block, you'll get it added to your inventory'' [...] ''P12:52:31 <Mikeh> I had 42 soil chunks, Middle clicked a mushroom and now I have 42 red mushrooms, Wooooo''"</ref>
+** Only works on blocks that could previously be copied.<ref>[[#logs|IRC logs]]: "''P12:53:08 <Snowman> You can't clone ore'' [...] ''P12:53:47 <setveen> Well notch, not really a problem with survivor, but when you middle click an admin block, nothing happenes''"</ref>
+** Doing so will replace the block type of whatever you are holding, but not its amount.
+* Placing a block at the build limit will consume the block, destroying it without placing anything.
+* Looking at glass no longer makes glass textures directly behind it disappear.{{verify|type=untestable}}
+* Walking on the very edge of a block will cause the amount of sounds required to play to build up. Once the player stands on a block, those sounds play every 0.125 seconds.
+
+== Gallery ==
+<gallery>
+Classic 0.24 SURVIVAL TEST Screenshot 1.jpg|The world flooded with lava by a player.
+Classic 0.24 SURVIVAL TEST Screenshot 2.jpg|A captured pig.
+Classic 0.24 SURVIVAL TEST Screenshot 3.jpg|Mushrooms generated in a cave.
+Classic 0.24 SURVIVAL TEST Screenshot 4.png|"Game over!" screen.
+0.24_SURVIVAL_TEST_thumbnail.jpg|Thumbnail from a dead 0.24st video.
+</gallery>
+
+== References ==
+* {{anchor|logs}}[https://archive.org/download/Minecraft_IRC_Logs_2009/DBN-IRC-Logs/ IRC logs] on Archive.org; #minecraft.20090901.log. September 1, 2009 (UTC&minus;5).
+{{Reflist}}
+
+{{Java Edition versions|Classic}}
+
+[[es:Java Edition Classic 0.24 SURVIVAL TEST]]
+[[ru:Classic 0.24 SURVIVAL TEST]]
+[[zh:Java版Classic 0.24 SURVIVAL TEST]]
+[[pt:Edição_Java_Classic_0.24_SURVIVAL_TEST]]
+[[ja:Java_Edition_Classic_0.24_SURVIVAL_TEST]]

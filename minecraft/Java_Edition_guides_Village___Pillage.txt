@@ -1,0 +1,705 @@
+{{Guide nav
+|edition=java
+|name=Village & Pillage
+|vers=
+* {{vl|je 1.14|}}
+* {{vl|je 1.14.1|}}
+* {{vl|je 1.14.2|}}
+* {{vl|je 1.14.3|}}
+* {{vl|je 1.14.4|}}
+|prev=Update Aquatic
+|next=Buzzy Bees
+}}
+{{for|the Bedrock Edition version of this guide|Bedrock Edition guides/Village & Pillage}}
+
+This guide is a simplified overview of all the changes in the [[Village & Pillage]] update ({{edition|java}} 1.14.x releases), which assumes at least some familiarity with [[Update Aquatic]] (Java Edition 1.13.x releases).
+
+== Mobs ==
+
+=== New ===
+
+{| {{Simple Guide table|New Mobs}} 
+|-
+| [[Brown Mooshroom]] || [[File:Brown Mooshroom.png|128px|center]] ||
+* Red mooshrooms will turn into brown mooshrooms when struck by [[lightning]].
+* Breeding two red [[mooshroom]]s has <sup>1</sup>⁄<sub>1024</sub> chance to spawn a brown baby variant, and vice versa.
+|| 
+{{Drop|Item|Leather|0|2}}
+{{Drop|Item|Raw Beef|1|3}}
+{{Drop|Item|Steak|1|3}} (If Killed by Fire)
+*{{xp|1|3}} (when killed by a [[player]] or tamed [[wolf]])
+||
+* Brown mooshrooms will give the player [[suspicious stew]] when fed a flower and milked with a bowl.
+|-
+| [[Cat]] || {{animate|Tuxedo Cat.png;Siamese Cat.png;Red Cat.png;Persian Cat.png;Ragdoll Cat.png;White Cat.png;Jellie Cat.png;Black Cat.png;Tabby Cat.png;British Shorthair Cat.png;Calico Cat.png|128px}} ||
+* Stray cats can be found wandering in villages.
+* A single stray black cat can be found inside [[witch hut]]s.
+|| {{Drop|Item|String|0|2}}
+*{{xp|1|3}} (when killed by a [[player]] or tamed [[wolf]])
+||
+* Cats can be tamed with raw fish.
+* [[Phantom]]s will not swoop in to attack a player if a cat is nearby.
+* Cats will seek active furnaces, beds, and chests to sit on.
+* When waking up from a bed, there is a chance a tamed cat will give their owner one [[rabbits foot]], [[rabbit hide]], [[string]], [[rotten flesh]], [[feather]], [[raw chicken]], or [[phantom membrane]].
+|-
+| [[Fox]] ||
+{{animate|Fox.png;Snow Fox.png;Sitting Fox.png;Sitting Snow Fox.png;Sleeping Fox.png;Sleeping Snow Fox.png|128px}}
+{{animate|Baby Fox.png;Baby Snow Fox.png;Sitting Baby Fox.png;Sitting Baby Snow Fox.png;Sleeping Baby Fox.png;Sleeping Baby Snow Fox.png|84px}}
+||
+* Foxes can spawn in [[taiga]] and [[snowy taiga]] biomes.
+* Foxes can also spawn in taiga villages in groups of 1–3.
+||
+*{{xp|1|2}} (when killed by a [[player]] or tamed [[wolf]])
+||
+* Wolves and polar bears are aggressive towards foxes.
+* Baby foxes born by breeding two adult foxes will be loyal towards the player.
+* Foxes will eat any food-item, and can pick up any item in their mouth.
+* Foxes sleep during the day and are active at night.
+|-
+| [[Panda]] || [[File:Panda.png|128px|center]] ||
+* Pandas spawn in [[bamboo forest]] biomes.
+|| {{Drop|Item|Bamboo|0|2}}
+*{{xp|1|3}} (when killed by a [[player]] or tamed [[wolf]])
+||
+* Pandas can spawn with either an aggressive, lazy, playful, weak or worried personality.
+* Pandas will eat [[bamboo]], but can only be bred if there is at least eight bamboo blocks within five blocks of each panda.
+* Pandas will pickup and eat [[cake]] that is thrown to them.
+* Worried pandas will shake and cover their face during [[thunderstorm]]s.
+|-
+| [[Pillager]] || [[File:Pillager.png|128px|center]] ||
+* Pillagers spawn as part of [[illager patrol]]s, which consist of a maximum of five pillagers. Illager patrols can spawn in any biome except mushroom fields and its variants.
+* They can only [[Pillager#Spawning|spawn]] in below light level 8, only at night, like monsters. {{verify|Pillager#Spawning doesn't mention light level for JE, monsters don't depend on time}}
+* Pillagers spawn around [[pillager outpost]]s.
+* Pillagers spawn as part of [[raid]]s.
+|| {{Drop|Item|Crossbow|0|1}}
+*{{xp|5}}, plus {{xp|1|3}} per equipment piece (when killed by a [[player]] or tamed [[wolf]])
+||
+* Pillagers which spawn with an [[ominous banner]] on their head are known as [[raid captain]]s. When a player kills a raid captain, the player will receive the [[Bad Omen]] effect.
+|-
+| [[Ravager]] || [[File:Ravager.png|128px|center]] ||
+* Ravagers have a chance to spawn as part of [[raid]]s.
+||
+* {{Drop|Item|Saddle|1}}
+*{{xp|20}} (when killed by a [[player]] or tamed [[wolf]])
+||
+* The ravager will destroy leaves and all crops it comes in contact with, except for melon and pumpkin stems.
+|-
+| [[Trader Llama]] || {{Animate|Creamy Trader Llama.png;White Trader Llama.png;Brown Trader Llama.png;Gray Trader Llama.png|128px}} ||
+* Trader llamas spawn in the world with [[wandering trader]]s.
+||
+* {{Drop|Item|Leather|0|2}}
+* {{xp|1|3}} (when killed by a [[player]] or tamed [[wolf]])
+* Anything equipped, such as {{blockLink|carpets|link=Carpet}} or a {{blockLink|chest}}.
+* All items in their [[inventory]].
+||
+* Trader llamas are hostile toward all zombie variants, and [[illagers]]. They will also become hostile toward mobs and players that attack the wandering trader they are leashed to.
+|-
+| [[Wandering Trader]] || [[File:Wandering Trader.png|96px|center]] ||
+* Wandering traders spawn randomly in the world within a 48 block radius of the player. 
+||
+* Wandering traders have a chance of dropping a [[Milk Bucket|bucket of milk]] or [[Potion of Invisibility]] if they are holding it when killed.
+||
+* Wandering traders randomly spawn in the world with two [[trader llama]]s.
+* Only one wandering trader will exist in the world at any given time, new wandering traders will not spawn until an existing wandering trader despawns.
+* At the night (or when light level is 7 and below) wandering traders drink potion of invisibility. When light level is above 7, they drink bucket of milk and cancel any effects they have. 
+|}
+
+=== Changed ===
+
+{| {{Simple Guide table|Changed Mobs}} 
+|-
+| [[Creeper]] || [[File:Creeper.png|84px|center]] ||
+* Creepers now drop [[music disc]]s when killed by strays.
+|-
+| [[Evoker]] || [[File:Evoker.png|84px|center]] ||
+* Evokers can now spawn as part of raids.
+*Evokers which spawn with an [[ominous banner]] on their head are known as [[raid captain]]s. When a player kills a raid captain, the player will receive the [[Bad Omen]] effect.
+|-
+| [[Ocelot]]s || [[File:Ocelot.png|128px|center]] || 
+* Ocelots can no longer be tamed to get cats.
+|-
+| [[Phantom]] || [[File:Phantom.png|128px|center]] ||
+* Phantoms will no longer swoop to attack a player if a cat is nearby.
+|-
+| [[Villager]] ||
+{{Animate|Desert Armorer.png; Desert Butcher.png; Desert Cartographer.png; Desert Cleric.png; Desert Farmer.png; Desert Fisherman.png; Desert Fletcher.png; Desert Leatherworker.png; Desert Librarian.png; Desert Nitwit.png; Desert Shepherd.png; Desert Mason.png; Desert Toolsmith.png; Desert Weaponsmith.png; Jungle Armorer.png; Jungle Butcher.png; Jungle Cartographer.png; Jungle Cleric.png; Jungle Farmer.png; Jungle Fisherman.png; Jungle Fletcher.png; Jungle Leatherworker.png; Jungle Librarian.png; Jungle Nitwit.png; Jungle Shepherd.png; Jungle Mason.png; Jungle Toolsmith.png; Jungle Weaponsmith.png; Plains Armorer.png; Plains Butcher.png; Plains Cartographer.png; Plains Cleric.png; Plains Farmer.png; Plains Fisherman.png; Plains Fletcher.png; Plains Leatherworker.png; Plains Librarian.png; Plains Nitwit.png; Plains Shepherd.png; Plains Mason.png; Plains Toolsmith.png; Plains Weaponsmith.png; Savanna Armorer.png; Savanna Butcher.png; Savanna Cartographer.png; Savanna Cleric.png; Savanna Farmer.png; Savanna Fisherman.png; Savanna Fletcher.png; Savanna Leatherworker.png; Savanna Librarian.png; Savanna Nitwit.png; Savanna Shepherd.png; Savanna Mason.png; Savanna Toolsmith.png; Savanna Weaponsmith.png; Snowy Armorer.png; Snowy Butcher.png; Snowy Cartographer.png; Snowy Cleric.png; Snowy Farmer.png; Snowy Fisherman.png; Snowy Fletcher.png; Snowy Leatherworker.png; Snowy Librarian.png; Snowy Nitwit.png; Snowy Shepherd.png; Snowy Mason.png; Snowy Toolsmith.png; Snowy Weaponsmith.png; Swamp Armorer.png; Swamp Butcher.png; Swamp Cartographer.png; Swamp Cleric.png; Swamp Farmer.png; Swamp Fisherman.png; Swamp Fletcher.png; Swamp Leatherworker.png; Swamp Librarian.png; Swamp Nitwit.png; Swamp Shepherd.png; Swamp Mason.png; Swamp Toolsmith.png; Swamp Weaponsmith.png; Taiga Armorer.png; Taiga Butcher.png; Taiga Cartographer.png; Taiga Cleric.png; Taiga Farmer.png; Taiga Fisherman.png; Taiga Fletcher.png; Taiga Leatherworker.png; Taiga Librarian.png; Taiga Nitwit.png; Taiga Shepherd.png; Taiga Mason.png; Taiga Toolsmith.png; Taiga Weaponsmith.png|84px}}
+|| 
+* Villagers now have biome specific skins.
+** Villager skins now reflect their unique profession.
+** Villagers can now change their profession at will. (according to which job site block is nearby)
+*** Once a villager has leveled up, it cannot change their profession.
+** Villagers now have a new profession, the mason.
+* Villager trading has been overhauled.
+** Villagers now have levels and require experience to unlock the next tier of trades; level 1 is novice, level 2 is apprentice, level 3 is journeyman, level 4 is expert, and level 5 is master.
+** Villagers cannot restock trades instantly anymore, however, they can restock up to two times per day at their job site block.
+** They can now increase/decrease their trade prices.
+** Villagers will hold items in their hands to the player when the player holds an item which the villager has a trade offer for.
+* Villagers now will sleep in beds at night.
+* Villagers now have [[Villager#Schedules|schedules]]. Their schedule includes working, gathering, as well as sleeping in beds at night.
+* Villagers now gossip at meeting points during their schedule. There are six types of gossip: {{code|major_negative|minor_negative|major_positive|minor_positive|trading|golem|d=and}}, each gossip will have an effect on the village, such as spawning in an iron golem in the village center, or increasing/lowering trade prices for the player.
+* When bells are rung or when a raid is happening, villagers will retreat into their houses.
+** Villagers will ring bells during raids themselves to alert other villagers.
+** Villagers will sweat during raids.
+** When a raid is successfully cleared, villagers will celebrate by setting off [[firework rocket]]s, and cheering.
+* When a player has the [[Hero of the Village]] effect applied, villagers will gift the player various different items, as well as decrease their trade prices.
+
+|-
+| [[Vindicator]] || [[File:Vindicator.png|84px|center]] ||
+
+* Vindicators now spawn as part of [[raid]]s.
+*Vindicators which spawn with an [[ominous banner]] on their head are known as [[raid captain]]s. When a player kills a raid captain, the player will receive the [[Bad Omen]] effect.
+|-
+| [[Witch]] || [[File:Witch.png|84px|center]] ||
+* Witches can now spawn as part of a [[raid]].
+** Witches will heal raid members during attacks with healing potions.
+|}
+
+== Blocks ==
+
+=== New ===
+
+{| {{Simple Guide table|New Blocks}}
+|-
+| [[Bamboo]] || [[File:Small Leaves Bamboo.png|84px|center]] || 
+* Bamboo can be found in [[bamboo forest]] and [[jungle]] biomes.
+||
+Sword
+|| 
+* Bamboo can be used to craft [[scaffolding]].
+* Bamboo can be used to craft [[sticks]].
+* Bamboo can be feed to [[panda]]s, this can be used to speed up the growth of baby pandas.
+* Bamboo can be planted on [[grass]], [[dirt]], [[sand]], [[podzol]], [[coarse dirt]], or [[red sand]].
+* Bamboo will grow to between twelve and sixteen blocks tall.
+|-
+| [[Cornflower]] || [[File:Cornflower.png|84px|center]] ||
+* Corn flowers can be found in [[plains]] biomes.
+||Any||
+* Cornflowers can be used to craft [[suspicious stew]] with the [[Jump Boost]] effect.
+|-
+| [[Lily of the Valley]] || [[File:Lily of the Valley.png|84px|center]] ||
+* Lily of the Valley can be found in [[forest]] biomes.
+||Any||
+* Lily of the Valley can be used to craft [[suspicious stew]] with the [[Poison]] effect.
+|-
+| [[Wither Rose]] || [[File:Wither Rose.png|84px|center]] || 
+* A wither rose will drop from mobs killed by a [[Wither]].
+||Any||
+* Wither Roses can be used to craft [[suspicious stew]] with the [[Wither (status effect)|Wither]] effect.
+* Any mob standing on a Wither rose will be inflicted with one second of the Wither effect for as long as they continue to touch it.
+|-
+| [[Sweet Berry Bush]]es || {{animate|Sweet Berry Bush Age 0 JE1 BE1.png;Sweet Berry Bush Age 1 JE1 BE1.png;Sweet Berry Bush Age 2 JE1 BE1.png;Sweet Berry Bush Age 3 JE1 BE1.png|84px}} ||
+* Sweet berry bushes can be found naturally in all taiga variants.
+* Sweet berry bushes can be planted with [[sweet berries]].
+||Any||
+* Sweet berry bushes drop sweet berries by {{control|using}} or when broken, dropping 1-2 berries at age three, and 2-3 berries at age four.
+* Sweet berry bushes slow players while standing in them at age one, as well as deal damage to players while moving at age two and above. Standing still while in sweet berry bushes will deal no damage.
+|-
+| [[Barrel]] || [[File:Barrel JE1 BE1.png|84px|center]] ||
+{{Crafting|A1=Any Planks|B1=Any wood Slab|C1=Any Planks|A2=Any Planks|C2=Any Planks|A3=Any Planks|B3=Any wood Slab|C3=Any Planks|Output=Barrel}}
+* Barrels can be found around and in fisher cottages in villages.
+||Axe
+||
+* Barrels are a storage block similar to [[chest]]s, with twenty-seven inventory spaces.
+* The main difference between barrels and chests is that barrels can be opened from any side, regardless of orientation or whether there's a solid block on top.
+* Unemployed villagers will take on the fisherman profession when near a barrel that hasn't been taken by another.
+|-
+| [[Blast Furnace]] || [[File:Blast Furnace JE1 BE1.png|84px|center]] ||
+{{Crafting|A1=Iron Ingot|B1=Iron Ingot|C1=Iron Ingot|A2=Iron Ingot|B2=Furnace|C2=Iron Ingot|A3=Smooth Stone|B3=Smooth Stone|C3=Smooth Stone|Output=Blast Furnace}}
+* Blast furnaces can be found naturally in villages.
+||Pickaxe
+||
+* The blast furnace is used to smelt ores, as well as smeltable tools and armor. The blast furnace smelts items at twice the speed of a [[furnace]].
+* Unemployed villagers will take on the armorer profession when near a blast furnace that hasn't been taken by another.
+|-
+| [[Smoker]] || [[File:Smoker.png|84px|center]] ||
+{{Crafting|B1=Any Log;Any Stripped Log;Any Wood;Any Stripped Wood|A2=Any Log;Any Stripped Log;Any Wood;Any Stripped Wood|B2=Furnace |C2=Any Log;Any Stripped Log;Any Wood;Any Stripped Wood|B3=Any Log;Any Stripped Log;Any Wood;Any Stripped Wood|Output=Smoker}}
+||Pickaxe||
+* Smokers are used to cook food items twice as fast as a regular furnace.
+* Unemployed villagers will take on the butcher profession when near a smoker that hasn't been taken by another.
+|-
+| [[Loom]] || [[File:Loom JE1 BE1.png|84px|center]] ||
+{{Crafting|B2=String|C2=String|B3=Any Planks|C3=Any Planks|Output=Loom}}
+||Axe||
+* Looms allow the player to apply patterns to banners.
+* Unemployed villagers will take on the shepherd profession when near a loom that hasn't been taken by another.
+|-
+| [[Cartography Table]] || [[File:Cartography Table JE2 BE1.png|84px|center]] ||
+{{Crafting|A1=Paper|B1=Paper|A2=Any Planks|B2=Any Planks|A3=Any Planks|B3=Any Planks|Output=Cartography Table}}
+* Cartography tables can be found naturally in villages.
+||Axe
+||
+* Cartography tables are used for cloning, expanding, and zooming out maps.
+* They can also be used to lock maps, by using [[glass pane]]s, making them no longer able to update.
+* Unemployed villagers will take on the cartographer profession when near a cartography table that hasn't been taken by another.
+|-
+| [[Fletching Table]] || [[File:Fletching Table JE2 BE1.png|84px|center]] ||
+{{Crafting|A1=Flint|B1=Flint|A2=Any Planks|B2=Any Planks|A3=Any Planks|B3=Any Planks|Output=Fletching Table}}
+* Fletching tables can generate naturally within villages.
+|Axe
+|
+* Unemployed villagers will take on the fletcher profession when near a fletching table that hasn't been taken by another.
+|-
+| [[Smithing Table]] || [[File:Smithing Table JE2 BE2.png|84px|center]] ||
+{{Crafting|A1=Iron Ingot|B1=Iron Ingot|A2=Any Planks|B2=Any Planks|A3=Any Planks|B3=Any Planks|Output=Smithing Table}}
+* Smithing tables generate naturally as part of [[plains]] [[village]] toolsmiths houses.
+||Axe
+|
+* Unemployed villagers will take on the toolsmith profession when near a smithing table that hasn't been taken by another.
+|-
+| [[Composter]] ||
+{{Animate|Composter (level 0).png;Composter (level 7).png;Composter (level 8).png|84px}}
+||
+{{Crafting|ingredients = Any Wood [[Fence]] +<br>Any [[Planks]]|A1=Any wood Fence|C1=Any wood Fence|A2=Any wood Fence|C2=Any wood Fence|A3=Any Planks|B3=Any Planks|C3=Any Planks|Output=Composter}}
+* Composters can be found around farms in villages.
+||Axe
+||
+* Composters can be used to turn certain items into bone meal.
+* Unemployed villagers will take on the farmer profession when near a composter that hasn't been taken by another.
+|-
+| [[Lectern]] || [[File:Lectern.png|84px|center]] ||
+{{Crafting|A1=Any wood Slab|B1=Any wood Slab|C1=Any wood Slab|B2=Bookshelf|B3=Any wood Slab|Output=Lectern}}
+* Lecterns generate naturally as part of libraries in villages.
+||Axe||
+* The lectern allows multiple players to read the same book at the same time.
+* Lecterns holding a book will also output a redstone pulse when a page is turned.
+* Unemployed villagers will take on the librarian profession when near a lectern that hasn't been taken by another.
+|-
+| [[Grindstone]] || [[File:Grindstone JE2 BE2.png|84px|center]] ||
+{{Crafting|A1=Stick|B1=Stone Slab|C1=Stick|A2=Any Planks|C2=Any Planks|Output=Grindstone}}
+* A grindstone will generate naturally as part of the [[blacksmith]] structure in villages.
+||Pickaxe||
+* The grindstone is used to repair items and tools by combining two items or tools of the same type together, this will remove all enchantments apart from [[curse]]s.
+* A single item can be used in the grindstone to remove all enchantments from it apart from curses.
+* Unemployed villagers will take on the weaponsmith profession when near a grindstone that hasn't been taken by another.
+|-
+| [[Stonecutter]] || [[File:Stonecutter.gif|84px|center]] ||
+{{Crafting|B2=Iron Ingot|A3=Stone|B3=Stone|C3=Stone|Output=Stonecutter}}
+||Pickaxe||
+* Stonecutters can be used to craft stone related blocks, such as walls, stairs, or slabs.
+* Unemployed villagers will take on the mason profession when near a stonecutter that hasn't been taken by another.
+|-
+| [[Bell]] || [[File:Bell.png|84px|center]] ||
+* Bells generate naturally in village centers.
+||Pickaxe
+|
+* Bells can be purchased from either apprentice-level armorer, toolsmith or weaponsmith villagers for 36 emeralds each.
+* Bells are also used to alert nearby villagers to return to their houses.
+* Bells will resonate and highlight nearby raiders during a raid.
+* Villagers will ring the bell during raids to alert other villagers.
+|-
+| [[Campfire]] || [[File:Campfire JE2 BE2.gif|84px]] ||
+{{Crafting
+|B1= Stick
+|A2= Stick
+|B2= Coal; Charcoal
+|C2= Stick
+|A3= Any Log; Any Stripped Log; Any Wood; Any Stripped Wood; Any Stem; Any Stripped Stem; Any Hyphae; Any Stripped Hyphae
+|B3= Any Log; Any Stripped Log; Any Wood; Any Stripped Wood; Any Stem; Any Stripped Stem; Any Hyphae; Any Stripped Hyphae
+|C3= Any Log; Any Stripped Log; Any Wood; Any Stripped Wood; Any Stem; Any Stripped Stem; Any Hyphae; Any Stripped Hyphae
+|Output= Campfire
+|type= Decoration block
+}}
+* Campfires can be found naturally in [[Taiga]] [[village]]s.
+* Fisherman [[villager]]s can sell campfires.
+||Axe (drops charcoal)||
+* Campfires emit a light level of 15.
+* Campfires can be unlit by waterlogging it and lit by a fire source.
+* Campfires can be used to cook food items.
+* Campfires damage mobs standing on top of them.
+|-
+| [[Lantern]] || [[File:Lantern.png|84px|center]] ||
+{{Crafting|A1=Iron Nugget|B1=Iron Nugget|C1=Iron Nugget|A2=Iron Nugget|B2=Torch|C2=Iron Nugget|A3=Iron Nugget|B3=Iron Nugget|C3=Iron Nugget|Output=Lantern}}
+* Lanterns generate naturally in [[snowy tundra]] [[village]]s.
+||Pickaxe||
+* Lanterns can be used as a light source, it can be placed on top of and below solid blocks, iron bars, and glass panes.
+* Lanterns emit a light level of 15.
+* Lanterns can be used as a decorative block.
+|-
+| [[Scaffolding]] || [[File:Scaffolding.png|84px|center]] ||
+{{Crafting|A1=Bamboo|B1=String|C1=Bamboo|A2=Bamboo|C2=Bamboo|A3=Bamboo|C3=Bamboo|Output=Scaffolding,6}} 
+||Any (when broken all connected scaffolding will break as well) ||
+* Scaffolding is designed to be used for building in survival.
+* Standing in scaffolding and {{control|jumping}} will allow the player to climb, while {{control|sneaking}} will allow the player to descend through the scaffolding. If there is no block below the scaffolding block the player is on the player will not descend through the block.
+|-
+| [[Sign]]s for all wood types ||
+{{Animate|Spruce Wall Sign.png;Birch Wall Sign.png;Jungle Wall Sign.png;Acacia Wall Sign.png;Dark Oak Wall Sign.png|84px}}<br>
+{{Animate|Spruce Standing Sign.png;Birch Standing Sign.png;Jungle Standing Sign.png;Acacia Standing Sign.png;Dark Oak Standing Sign.png|84px}}
+||
+{{Crafting|A1=Spruce Planks;Birch Planks;Jungle Planks;Acacia Planks;Dark Oak Planks|B1=Spruce Planks;Birch Planks;Jungle Planks;Acacia Planks;Dark Oak Planks|C1=Spruce Planks;Birch Planks;Jungle Planks;Acacia Planks;Dark Oak Planks|A2=Spruce Planks;Birch Planks;Jungle Planks;Acacia Planks;Dark Oak Planks|B2=Spruce Planks;Birch Planks;Jungle Planks;Acacia Planks;Dark Oak Planks|C2=Spruce Planks;Birch Planks;Jungle Planks;Acacia Planks;Dark Oak Planks|B3= Stick|Output=Spruce Sign,3;Birch Sign,3;Jungle Sign,3;Acacia Sign,3;Dark Oak Sign,3}}
+||Axe||
+* All sign variants retain the same use as the original sign.
+* While the default text color is black, the color can be changed with [[dye]]s.
+|-
+| [[Stone]] [[Slab]] and [[Stairs]] || [[File:Stone Slab.png|84px|center]]<br>[[File:Stone Stairs.png|84px|center]] ||
+{{Crafting|A2=Stone|B2=Stone|C2=Stone|Output=Stone Slab,6}}
+{{Crafting|A1=Stone|A2=Stone|B2=Stone|A3=Stone|B3=Stone|C3=Stone|Output=Stone Stairs,4}}
+||Pickaxe||
+* Stone slabs and stone stairs can be used as decorative blocks.
+|-
+| [[Mossy Cobblestone]] [[Slab]] and [[Stairs]] || [[File:Mossy Cobblestone Slab.png|84px|center]]<br>[[File:Mossy Cobblestone Stairs.png|84px|center]] ||
+{{Crafting|A2=Mossy Cobblestone|B2=Mossy Cobblestone|C2=Mossy Cobblestone|Output=Mossy Cobblestone Slab,6}}
+{{Crafting|A1=Mossy Cobblestone|A2=Mossy Cobblestone|B2=Mossy Cobblestone|A3=Mossy Cobblestone|B3=Mossy Cobblestone|C3=Mossy Cobblestone|Output=Mossy Cobblestone Stairs,4}}
+||Pickaxe||
+* Mossy cobblestone slabs and mossy cobblestone stairs can be used as decorative blocks.
+|-
+| [[Stone Brick Wall]] || [[File:Stone Brick Wall.png|84px|center]] ||
+{{Crafting|A2=Stone Bricks|B2=Stone Bricks|C2=Stone Bricks|A3=Stone Bricks|B3=Stone Bricks|C3=Stone Bricks|Output=Stone Brick Wall,6}}
+||Pickaxe||
+* Stone brick walls can be used as a decorative block, as well as a barrier to keep mobs both inside a space, or outside one.
+|-
+| [[Mossy Stone Brick]] [[Slab]], [[Stairs]] and [[Wall]] || [[File:Mossy Stone Brick Slab.png|84px|center]]<br>[[File:Mossy Stone Brick Stairs.png|84px|center]]<br>[[File:Mossy Stone Brick Wall.png|84px|center]] ||
+{{Crafting|A2=Mossy Stone Bricks|B2=Mossy Stone Bricks|C2=Mossy Stone Bricks|Output=Mossy Stone Brick Slab,6}}
+{{Crafting|A1=Mossy Stone Bricks|A2=Mossy Stone Bricks|B2=Mossy Stone Bricks|A3=Mossy Stone Bricks|B3=Mossy Stone Bricks|C3=Mossy Stone Bricks|Output=Mossy Stone Brick Stairs,4}}
+{{Crafting|A2=Mossy Stone Bricks|B2=Mossy Stone Bricks|C2=Mossy Stone Bricks|A3=Mossy Stone Bricks|B3=Mossy Stone Bricks|C3=Mossy Stone Bricks|Output=Mossy Stone Brick Wall,6}}
+||Pickaxe||
+* Mossy stone brick slabs and mossy stone brick stairs can be used as decorative blocks.
+* Mossy stone brick walls can be used as a decorative block, as well as a barrier to keep mobs both inside a space, or outside one.
+|-
+| [[Andesite]], [[Diorite]] and [[Granite]]<br>[[Slab]], [[Stairs]] and [[Wall]] || {{Animate|Andesite Slab.png;Diorite Slab.png;Granite Slab.png|84px}}<br><br>{{Animate|Andesite Stairs.png;Diorite Stairs.png;Granite Stairs.png|84px}}<br><br>{{Animate|Andesite Wall.png;Diorite Wall.png;Granite Wall.png|84px}} ||
+{{Crafting|A2=Andesite;Diorite;Granite|B2=Andesite;Diorite;Granite|C2=Andesite;Diorite;Granite|Output=Andesite Slab,6;Diorite Slab,6;Granite Slab,6}}
+{{Crafting|A1=Andesite;Diorite;Granite|A2=Andesite;Diorite;Granite|B2=Andesite;Diorite;Granite|A3=Andesite;Diorite;Granite|B3=Andesite;Diorite;Granite|C3=Andesite;Diorite;Granite|Output=Andesite Stairs,4;Diorite Stairs,4;Granite Stairs,4}}
+{{Crafting|A2=Andesite;Diorite;Granite|B2=Andesite;Diorite;Granite|C2=Andesite;Diorite;Granite|A3=Andesite;Diorite;Granite|B3=Andesite;Diorite;Granite|C3=Andesite;Diorite;Granite|Output=Andesite Wall,6;Diorite Wall,6;Granite Wall,6}}
+|| Pickaxe ||
+* Andesite, Diorite and Granite slabs and stairs can be used as decorative blocks.
+* Andesite, Diorite and Granite walls can be used as a decorative block, as well as a barrier to keep mobs both inside a space, or outside one.
+|-
+| [[Polished Andesite]], [[Polished Diorite]] and [[Polished Granite]]<br>[[Slab]] and [[Stairs]] || {{Animate|Polished Andesite Slab.png;Polished Diorite Slab.png;Polished Granite Slab.png|84px}}<br><br>{{Animate|Polished Andesite Stairs.png;Polished Diorite Stairs.png;Polished Granite Stairs.png|84px}} ||
+{{Crafting|A2=Polished Andesite;Polished Diorite;Polished Granite|B2=Polished Andesite;Polished Diorite;Polished Granite|C2=Polished Andesite;Polished Diorite;Polished Granite|Output=Polished Andesite Slab,6;Polished Diorite Slab,6;Polished Granite Slab,6}}
+{{Crafting|A1=Polished Andesite;Polished Diorite;Polished Granite|A2=Polished Andesite;Polished Diorite;Polished Granite|B2=Polished Andesite;Polished Diorite;Polished Granite|A3=Polished Andesite;Polished Diorite;Polished Granite|B3=Polished Andesite;Polished Diorite;Polished Granite|C3=Polished Andesite;Polished Diorite;Polished Granite|Output=Polished Andesite Stairs,4;Polished Diorite Stairs,4;Polished Granite Stairs,4}}
+|| Pickaxe ||
+* Polished Andesite, Polished Diorite and Polished Granite slabs and stairs can be used as decorative blocks.
+|-
+| [[Sandstone]] and [[Red Sandstone]] [[Wall]] || {{Animate|Sandstone Wall.png;Red Sandstone Wall.png|84px}} ||
+{{Crafting|A2=Sandstone;Red Sandstone|B2=Sandstone;Red Sandstone|C2=Sandstone;Red Sandstone|A3=Sandstone;Red Sandstone|B3=Sandstone;Red Sandstone|C3=Sandstone;Red Sandstone|Output=Sandstone Wall,6;Red Sandstone Wall,6}}
+||Pickaxe||
+* Sandstone and Red Sandstone walls can be used as a decorative block, as well as a barrier to keep mobs both inside a space, or outside one.
+|-
+| [[Cut Sandstone]] and [[Cut Red Sandstone]] [[Slab]] || {{Animate|Cut Sandstone Slab JE1 BE1.png;Cut Red Sandstone Slab JE1 BE1.png|84px}} ||
+{{Crafting|A2=Cut Sandstone;Cut Red Sandstone|B2=Cut Sandstone;Cut Red Sandstone|C2=Cut Sandstone;Cut Red Sandstone|Output=Cut Sandstone Slab,6;Cut Red Sandstone Slab,6}}
+||Pickaxe||
+* Cut Sandstone and Cut Red Sandstone slabs can be used as decorative blocks.
+|-
+| [[Smooth Sandstone]] and [[Smooth Red Sandstone]] [[Slab]] and [[Stairs]] || {{Animate|Smooth Sandstone Slab.png;Smooth Red Sandstone Slab.png|84px}}<br><br>{{Animate|Smooth Sandstone Stairs.png;Smooth Red Sandstone Stairs.png|84px}} ||
+{{Crafting|A2=Smooth Sandstone;Smooth Red Sandstone|B2=Smooth Sandstone;Smooth Red Sandstone|C2=Smooth Sandstone;Smooth Red Sandstone|Output=Smooth Sandstone Slab,6;Smooth Red Sandstone Slab,6}}
+{{Crafting|A1=Smooth Sandstone;Smooth Red Sandstone|A2=Smooth Sandstone;Smooth Red Sandstone|B2=Smooth Sandstone;Smooth Red Sandstone|A3=Smooth Sandstone;Smooth Red Sandstone|B3=Smooth Sandstone;Smooth Red Sandstone|C3=Smooth Sandstone;Smooth Red Sandstone|Output=Smooth Sandstone Stairs,4;Smooth Red Sandstone Stairs,4}}
+||Pickaxe||
+* Smooth Sandstone and Smooth Red Sandstone stairs and slabs can be used as decorative blocks.
+|-
+| [[Brick Wall]] || [[File:Brick Wall.png|84px|center]] ||
+{{Crafting|A2=Bricks|B2=Bricks|C2=Bricks|A3=Bricks|B3=Bricks|C3=Bricks|Output=Brick Wall,6}}
+||Pickaxe||
+* Brick walls can be used as a decorative block, as well as a barrier to keep mobs both inside a space, or outside one.
+|-
+| [[Prismarine Wall]] || [[File:Prismarine Wall.png|84px|center]] ||
+{{Crafting|A2=Prismarine|B2=Prismarine|C2=Prismarine|A3=Prismarine|B3=Prismarine|C3=Prismarine|Output=Prismarine Wall,6}}
+||Pickaxe||
+* Prismarine walls can be used as a decorative block, as well as a barrier to keep mobs both inside a space, or outside one.
+|-
+| [[Nether Brick Wall]] || [[File:Nether Brick Wall.png|84px|center]] ||
+{{Crafting|A2=Nether Bricks|B2=Nether Bricks|C2=Nether Bricks|A3=Nether Bricks|B3=Nether Bricks|C3=Nether Bricks|Output=Nether Brick Wall,6}}
+||Pickaxe||
+* Nether brick walls can be used as a decorative block, as well as a barrier to keep mobs both inside a space, or outside one.
+|-
+| [[Red Nether Brick]] [[Slab]], [[Stairs]] and [[Wall]] || [[File:Red Nether Brick Slab.png|84px|center]]<br>[[File:Red Nether Brick Stairs.png|84px|center]]<br>[[File:Red Nether Brick Wall.png|84px|center]] ||
+{{Crafting|A2=Red Nether Bricks|B2=Red Nether Bricks|C2=Red Nether Bricks|Output=Red Nether Brick Slab,6}}
+{{Crafting|A1=Red Nether Bricks|A2=Red Nether Bricks|B2=Red Nether Bricks|A3=Red Nether Bricks|B3=Red Nether Bricks|C3=Red Nether Bricks|Output=Red Nether Brick Stairs,4}}
+{{Crafting|A2=Red Nether Bricks|B2=Red Nether Bricks|C2=Red Nether Bricks|A3=Red Nether Bricks|B3=Red Nether Bricks|C3=Red Nether Bricks|Output=Red Nether Brick Wall,6}}
+||Pickaxe||
+* Red nether brick slabs and stairs can be used as decorative blocks.
+* Red nether brick walls can be used as a decorative block, as well as a barrier to keep mobs both inside a space, or outside one.
+|-
+| [[Smooth Quartz]] [[Slab]] and [[Stairs]] || [[File:Quartz Slab.png|84px|center]]<br>[[File:Quartz Stairs.png|84px|center]] ||
+{{Crafting|A2=Smooth Quartz|B2=Smooth Quartz|C2=Smooth Quartz|Output=Smooth Quartz Slab,6}}
+{{Crafting|A1=Smooth Quartz|A2=Smooth Quartz|B2=Smooth Quartz|A3=Smooth Quartz|B3=Smooth Quartz|C3=Smooth Quartz|Output=Smooth Quartz Stairs,4}}
+||Pickaxe||
+* Smooth quartz slabs and smooth quartz stairs can be used as decorative blocks.
+|-
+| [[End Stone Brick]] [[Slab]], [[Stairs]] and [[Wall]] || [[File:End Stone Brick Slab.png|84px|center]]<br>[[File:End Stone Brick Stairs.png|84px|center]]<br>[[File:End Stone Brick Wall.png|84px|center]] ||
+{{Crafting|A2=End Stone Bricks|B2=End Stone Bricks|C2=End Stone Bricks|Output=End Stone Brick Slab,6}}
+{{Crafting|A1=End Stone Bricks|A2=End Stone Bricks|B2=End Stone Bricks|A3=End Stone Bricks|B3=End Stone Bricks|C3=End Stone Bricks|Output=End Stone Brick Stairs,4}}
+{{Crafting|A2=End Stone Bricks|B2=End Stone Bricks|C2=End Stone Bricks|A3=End Stone Bricks|B3=End Stone Bricks|C3=End Stone Bricks|Output=End Stone Brick Wall,6}}
+||Pickaxe||
+* End stone brick slabs and end stone brick stairs can be used as decorative blocks.
+* End stone brick walls can be used as a decorative block, as well as a barrier to keep mobs both inside a space, or outside one.
+|-
+| [[Jigsaw Block]] || [[File:Jigsaw_Block.png|84px]] ||
+* Jigsaw blocks can be obtained by using the {{control|pick block}} [[control]], or by using various [[commands]], such as {{cmd|give @s minecraft:jigsaw}}. 
+* They also spawn when a player uses a [[structure block]] to spawn certain structures. ([[Pillager outpost]]/[[Village]])
+|| Jigsaw blocks cannot be broken in [[survival]]. || {{info needed}}
+|}
+
+=== Changed ===
+
+{| {{Simple Guide table|Changed Blocks}} 
+|-
+| [[Brewing Stand]] ||
+[[File:Brewing Stand.png|84px|center]]
+||
+* Brewing stands can now be found in village temples.
+* Unemployed villagers will take on the cleric profession when near a brewing stand that hasn't been taken by another.
+|-
+| [[Carpet]] ||
+{{Animate|White Carpet.png;Orange Carpet.png;Magenta Carpet.png;Light Blue Carpet.png;Yellow Carpet.png;Lime Carpet.png;Pink Carpet.png;Gray Carpet.png;Light Gray Carpet.png;Cyan Carpet.png;Purple Carpet.png;Blue Carpet.png;Brown Carpet.png;Green Carpet.png;Red Carpet.png;Black Carpet.png|84px}}
+||
+{{Crafting|A1= White Carpet|B1= White Carpet|C1= White Carpet|A2= White Carpet|B2= Matching Dye|C2= White Carpet|A3= White Carpet|B3= White Carpet|C3= White Carpet|Output= Matching Carpet,8}}
+* Can now be crafted by surrounding a dye with white carpet.
+|-
+| [[Chorus Flower]] || {{Animate|Chorus Flower.png;Chorus Flower Dead.png|84px}}
+||
+* Chorus flowers now break when shot with an [[arrow]].
+|-
+| [[Dispenser]] || [[File:Dispenser.png|84px|center]] ||
+* Dispensers with shears can now shear sheep standing in front of the dispenser.
+|-
+| All [[Leaves]] || 
+{{Animate|Acacia Leaves.png;Birch Leaves.png;Dark Oak Leaves.png;Jungle Leaves.png;Oak Leaves.png;Spruce Leaves.png|84px}}
+||
+* Leaves now have a chance of dropping [[stick]]s.
+|-
+| [[Nether Brick Fence]] || [[File:Nether Brick Fence.png|84px|center]] ||
+{{Crafting|A2=Nether Bricks|B2=Nether Brick|C2=Nether Bricks|A3=Nether Bricks|B3=Nether Brick|C3=Nether Bricks|Output=Nether Brick Fence,3|}} 
+* Previously the recipe used all nether bricks, this is now changed to take both nether brick and nether bricks to avoid conflict with the recipe for [[Nether Brick Wall]]s.
+|-
+| [[Pressure Plate]]s || {{animate|Stone Pressure Plate.png;Oak Pressure Plate.png;Birch Pressure Plate.png;Spruce Pressure Plate.png;Jungle Pressure Plate.png;Acacia Pressure Plate.png;Dark Oak Pressure Plate.png|84px}} ||
+* Pressure plates can now be placed on [[iron bar]]s and [[glass pane]]s.
+|-
+| [[Sign]] || [[File:Oak Wall Sign.png|84px|center]]<br>[[File:Oak Standing Sign.png|84px|center]] ||
+* Signs can now only be crafted with matching wood planks.
+* The color of text on signs can be changed with dye now.
+* All original signs have been changed to oak signs.
+* Signs now support editing anywhere on the sign, without having to backspace to the place where the edit is to be made.
+* Signs now have copy and paste support.
+|-
+| All [[Slab]]s and [[Stair]]s || ||
+* Slabs and stairs now have directional opacity, meaning sides that are not completely solid will not block light.
+|-
+| [[Smooth Stone Slab]] || [[File:Smooth Stone Slab.png|84px|center]] ||
+* Name changed from stone slab to smooth stone slab.
+* Recipe now uses [[smooth stone]] instead of [[stone]].
+|-
+| [[Torch]] || [[File:Torch JE6 BE2.png|84px|center]] ||
+* Torches can now be placed on [[iron bar]]s and [[glass pane]]s.
+|-
+| [[Vines]] || [[File:Vines.png|84px|center]] ||
+* Vines can now be climbed without supporting blocks by holding {{control|jump}}.
+|}
+
+== Items ==
+
+=== New ===
+
+{| {{Simple Guide table|New Items}} 
+|-
+| [[Banner Pattern]] || [[File:Banner Pattern JE1 BE1.png|84px|center]] ||
+{{Crafting|Paper|Enchanted Golden Apple;Wither Skeleton Skull;Creeper Head;Oxeye Daisy|Output=Banner Pattern Thing; Banner Pattern Skull; Banner Pattern Creeper; Banner Pattern Flower|ingredients=[[Paper]] + Chosen Design Item}}
+||
+* Banner patterns can be used in a [[loom]] to apply the chosen pattern to that banner.
+*The globe banner pattern cannot be crafted, and is only obtainable from master-level cartographer villagers.
+|-
+| [[Black Dye]] || [[File:Black Dye JE1 BE1.png|84px|center]] ||
+{{Crafting|B2=Ink Sac;Wither Rose|Output=Black Dye|shapeless=true}}
+||
+* Black dye is used in place of ink sacs as dye in all recipes.
+|-
+| [[Blue Dye]] || [[File:Blue Dye JE1 BE1.png|84px|center]] ||
+{{Crafting|B2=Lapis Lazuli;Cornflower|Output=Blue Dye|shapeless=true}}
+||
+* Blue dye is used in place of lapis lazuli as dye in all recipes.
+|-
+| [[Brown Dye]] || [[File:Brown Dye JE1 BE1.png|84px|center]] ||
+{{Crafting|B2=Cocoa Beans|Output=Brown Dye|shapeless=true}}
+||
+* Brown dye is used in place of cocoa beans as dye in all recipes.
+|-
+| [[White Dye]] || [[File:White Dye JE1 BE1.png|84px|center]] ||
+{{Crafting|B2=Bone Meal;Lily of the Valley|Output=White Dye|shapeless=true}}
+||
+* White dye is used in place of bone meal as dye in all recipes.
+|-
+| [[Crossbow]] || [[File:Crossbow.png|84px|center]] || 
+{{Crafting|A1=Stick|B1=Iron Ingot|C1=Stick|A2=String|B2=Tripwire Hook|C2=String|B3=Stick|Output=Crossbow}}
+||
+* The crossbow is a ranged weapon that has a longer range, as well as being able to deal more damage than a [[bow]].
+*Crossbows can fire [[fireworks]], as well as [[arrows]].
+|-
+| Leather [[Horse Armor]] || [[File:Leather Horse Armor JE1 BE3.png|84px]] ||
+{{crafting
+|A1= Leather
+|C1= Leather
+|A2= Leather
+|B2= Leather
+|C2= Leather
+|A3= Leather
+|C3= Leather
+|Output= Leather Horse Armor
+}}
+||
+* Leather Horse Armor can be put on horses like other horse armor.
+* It can be dyed similar to leather armor.
+|-
+| [[Suspicious Stew]] || [[File:Suspicious Stew JE1 BE1.png|84px|center]] ||
+{{Crafting|A2=Brown Mushroom|B2=Red Mushroom|A3=Bowl|B3=Any Flower|Output=Suspicious Stew|shapeless=true}}
+||
+* Suspicious stew gives a status effect to the player after eating it, the effect given depends on the flower used to craft it.
+* The effect is hidden after suspicious stew is crafted, making it impossible to tell ones with negative effect from ones with positive effects.
+|-
+| [[Sweet Berries]] || [[File:Sweet Berries JE1 BE1.png|84px|center]] || Sweet berries can be harvested from [[sweet berry bush]]es. Additionally sweet berries can be found in taiga village house chests. ||
+* Sweet berries give {{hunger|2}} hunger points when eaten.
+* Sweet berries can be {{control|used}} on grass blocks, dirt, podzol, coarse dirt, and farmland to plant a sweet berry bush sapling.
+* Used to breed [[foxes]].
+|-
+|
+[[Spawn Egg]]<br>
+(Cat, Fox, Panda, Pillager, Ravager, Trader Llama, Wandering Trader)
+|{{animate|Cat Spawn Egg.png;Fox Spawn Egg.png;Panda Spawn Egg.png;Pillager Spawn Egg.png;Ravager Spawn Egg.png;Trader Llama Spawn Egg.png;Wandering Trader Spawn Egg.png|84px}}
+|
+* Can be obtained only via creative inventory. 
+|
+* Has the same function as other [[spawn egg]]s.
+|}
+
+=== Changed ===
+
+{| {{Simple Guide table|Changed Items}}
+|-
+| [[Bone Meal]] || [[File:Bone Meal.png|84px|center]] ||
+* Bone meal can now be used to craft white dye.
+* Bone meal can no longer be used as a dye, it can still be used as a fertilizer though.
+* Bone meal can now be obtained from a [[composter]].
+|-
+| [[Cocoa Beans]] || [[File:Cocoa Beans JE4 BE2.png|84px|center]] ||
+* Cocoa beans are now used to craft brown dye.
+* Cocoa beans can no longer be used as a dye.
+* Name changed from cocoa beans to cocoa.
+|-
+| [[Ink Sac]] || [[File:Ink Sac JE2 BE2.png|84px|center]] ||
+* Ink sacs can now be used to craft black dye.
+* Ink sacs can no longer be used as a dye.
+|-
+| [[Lapis Lazuli]] || [[File:Lapis Lazuli JE2 BE2.png|84px|center]] ||
+* Lapis lazuli can now be used to craft blue dye.
+* Lapis lazuli can no longer be used as a dye.
+|-
+| [[Green Dye]] || [[File:Green Dye JE2 BE2.png|84px|center]] ||
+* Name changed from Cactus Green to Green Dye to remain consistent with other dyes.
+|-
+| [[Red Dye]] || [[File:Red Dye JE2 BE2.png|84px|center]] ||
+* Name changed from Rose Red to Red Dye to remain consistent with other dyes.
+|-
+| [[Yellow Dye]] || [[File:Yellow Dye JE2 BE2.png|84px|center]] ||
+* Name changed from Dandelion Yellow to Yellow Dye to remain consistent with other dyes.
+|-
+| [[Book and Quill]] || [[File:Book and Quill.png|84px|center]] || 
+* While writing you can now edit any part of the page.
+* The maximum number of pages has been raised to one hundred.
+|}
+
+== Biomes ==
+
+=== New ===
+{| {{Simple Guide table|New Biomes}} 
+|-
+|[[Bamboo Jungle]]
+|[[File:Bamboo Jungle.png|184px|center]]
+|Bamboo Jungles generate in large patches within regular jungles. Trees are much less dense in this variant than in the main jungle, comparable to the [[jungle edge]], but boasts countless amounts of [[bamboo]] across its landscape. [[Podzol]] generates on the jungle floor in this biome. It is home to all jungle mobs, including [[panda]]s, which are exclusive to this biome.
+|
+*[[Jungle pyramid]]s.
+|-
+|[[Bamboo Jungle Hills]]
+|[[File:Bamboo Jungle Hills.png|184px|center]]
+|The bamboo jungle hills biome is similar to the bamboo jungle, though with steeper terrain just like the regular jungle hills variant. Large amounts of bamboo cover the landscape, and patches of podzol replace [[grass block]]s.
+|
+* Jungle pyramids.
+|}
+
+== Events ==
+
+=== New ===
+
+{|class="wikitable"
+! Name !! Trigger !! Description 
+|-
+| [[Raid]] || A raid is triggered when a player with the [[Bad Omen]] effect enters a village. ||
+During a raid a combination of pillagers, vindicators, evokers, witches, and ravagers, the combination being dependant on the level of the bad omen effect, will spawn around a village. A boss bar at the top of the screen will show the number of raid enemies still alive within the village.
+|}
+
+== Effects ==
+
+=== New ===
+
+{|{{Simple Guide table|New Effects}} 
+|-
+|[[Bad Omen]]
+|[[File:Bad Omen JE2 BE2.png|84px|center]]
+| The Bad Omen effect is given to the player when they kill the leader of an [[illager patrol]] or [[raid captain]].
+|
+*If the player enters a village while having the Bad Omen effect a [[raid]] will be triggered.
+|-
+|[[Hero of the Village]]
+|[[File:Hero of the Village JE1 BE2.png|84px|center]]
+|The Hero of the Village effect is given to the player after they have successfully defended the village from a raid.
+|
+*If the player kills all of the illagers during the raid, the player will receive the Hero of the Village effect. This effect lasts for 2 in-game days.
+|}
+
+== Enchantments ==
+
+=== New ===
+{| class="wikitable"
+|-
+! Enchantment
+! Max Level
+! Applicable Items
+! Notes
+|-
+|[[Multishot]]
+|I
+|{{ItemSprite|Crossbow|link=Crossbow}}
+|
+*Fires three arrows while only consuming one. If an arrow hits, the other two vanish.
+|-
+|[[Piercing]]
+|IV
+|{{ItemSprite|Crossbow|link=Crossbow}}
+|
+*Allows arrows to pass through as many entities as the enchantment level.
+|-
+|[[Quick Charge]]
+|III
+|{{ItemSprite|Crossbow|link=Crossbow}}
+|
+*Speeds up the charging of the crossbow.
+|}
+
+== Structures ==
+
+=== New ===
+
+{|{{Simple Guide table|New Structures}}
+|-
+| [[Pillager outpost]] || [[File:Pillager outpost main.png|278px|center]] || Pillager outposts can generate in any biome a village can generate in. ||
+* The structure contains one chest at the very top.
+||
+* [[Pillager]]s
+*[[Iron Golem]]s
+|| The pillager outpost can have a combination of smaller structures surrounding it, these structures include a cage, targets, logs, and a tent.
+|-
+|[[Village|Snowy Villages]]
+|[[File:18w49a.jpg|278px|center]]
+|Snowy villages can generate in [[snowy tundra]] biomes.
+|
+* Many different buildings can contain chests which will have various loot based on the snowy tundra.
+|
+* [[Villager]]s
+* [[Iron Golem]]s
+* [[Cat]]s
+* [[Pig]]s
+* [[Cow]]s
+* [[Sheep]]
+|The snowy village is a variant of the village, designed specifically for [[snowy tundra]] biomes. It is the only place where [[lantern]]s can naturally generate. The structures are made up of various [[spruce wood]] and [[stripped logs]]. Some buildings resemble igloos and are constructed from either [[snow]], [[ice]] or [[blue ice]].
+|}
+
+[[es:Guías de Java Edition/Village & Pillage]]
+[[ja:ガイド/Java Edition/ヴィレッジ・アンド・ピレッジ]]
+[[ru:Руководства по Java Edition/Village & Pillage]]
+[[zh:Java版指南/村庄与掠夺]]

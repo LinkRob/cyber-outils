@@ -1,0 +1,133 @@
+{{for|the official [[Bedrock Edition]] equivalent to mods|Add-on}}{{for|the official mechanism in [[Java Edition]] similar to mods|Data Pack}}
+{{Disclaimer}}
+{{msgbox|title=Articles about mods are currently being transferred to the [[ftb:|Feed The Beast Wiki]].|text=This page is for general information about mods only, not descriptions of specific mods.<br>Visit the Feed The Beast Wiki for up-to-date, detailed modding information.|class=msgbox-magenta}}
+{{exclusive|java}}
+[[File:Indev World Generator.png|thumb|right|An example of a world generator mod (custom [[Indev]] map generator)]]
+'''Mods''' (short for '''modifications''') are alterations to the code of any edition of ''[[Minecraft]]''. All mods change ''Minecraft''{{sp|hair}}'s game content in some way, such as to make minor adjustments to the game's mechanics or implement entirely new features. 
+
+== Description == 
+[[File:Shading.png|thumb|right|The "OptiFine" mod that supports "shaders" in-game which only changes the look. With different "shaders", Minecraft can look very different from Vanilla.]]
+Most mods add content to the game to alter [[gameplay]], fix [[bugs]], change the creative feel, or give the player more options in how they interact with the ''Minecraft'' [[world]]. Some mods may be bigger expansions, while others add more settings and options to optimize the speed, graphics, or gameplay of the game. Server mods or plugins mainly give server admins more options and ease of use, and most mods for single-player have a server version that allows or enhances the mod in multiplayer. Notably, a significant amount of Java Edition [[Tutorials/Block and item duplication|item duplication glitches]] are not patched in Java Edition (either never patched or in the case of TNT duplication, patched then reverted) but mods that patch them are available.
+
+When the base game is updated, the developer of a mod must update the mod accordingly; otherwise, the mod might not work on the newest version of the game. 
+
+An official way of creating additional features for Minecraft worlds, called [[add-ons]], is available for {{edition|bedrock}}.
+
+== Types of mods ==
+[[File:Minecraftoptifine.jpg|thumb|right|Minecraft can be made to look very different with the addition of shaders and worldgen mods.]]
+=== Client-based ===
+
+Client mods are direct modifications of the ''Minecraft'' game files. They are not custom clients, as they require modification of the {{mono|[[client.jar]]}} file. These require mod loaders such as [https://files.minecraftforge.net Forge], [https://fabricmc.net/ Fabric], [https://quiltmc.org Quilt], [https://neoforged.net/ NeoForge], or [https://www.spigotmc.org Spigot] (server-side only).
+
+Because the ''Minecraft'' server software ignores custom content from the client side, most of the client mods which add new content to the game do not work in [[multiplayer]] unless a modification has also been installed on the server. Some authors of client mods have made server versions of their mods available, and others have not. A few of the Loader/API-type client mods and many of the functional client mods (e.g. [[ftb:OptiFine|OptiFine]] or [[ftb:TooManyItems|TooManyItems]]) have effect in [[multiplayer]] straight away, without any modification on server side.
+
+=== Server-based ===
+
+[[Server]] mods are modifications to the official ''Minecraft'' server software. They are commonly designed to make the administration of servers easier by implementing tiered privileges for commands (such as kicking, banning, etc.). They are frequently implemented as "wrappers" which do not modify the main server .jar file, instead of monitoring its output and sending commands to it. Server-based mods may also be called plugins depending on the mod loader.
+
+=== Mod packs ===
+
+Mod packs are collections of mods that have been put together and configured so that they all work together. Mod packs are often centered around a general theme like tech, quests, or magic. Mod packs often have either custom launchers or installers that make installing and running the mod pack easy. Some of the most popular mod packs include [[ftb:Feed The Beast|Feed The Beast]], [[ftb:Tekkit|Tekkit]], [[ftb:RLCraft|RLCraft]], and [[ftb:Hexxit|Hexxit]].
+
+In addition to making it easy to install mod pack clients, certain launchers can also download server mod packs.
+
+== Crash reports ==
+
+If ''Minecraft'' crashes, a modified game is flagged in the crash report.
+
+The crash report text includes one of these lines near the bottom:
+
+ Is Modded: Probably not. Jar signature remains and the client brand is untouched
+ Is Modded: Very likely; Jar signature invalidated
+ Is Modded: Definitely: client brand changed to (present loader, such as "fml,forge", "modloader", or "fabric")
+ Is Modded: Unknown (can't tell)
+
+A shortened example crash report is given below:
+
+{{cr|1=
+---- Minecraft Crash Report ----
+// Uh... Did I do that?
+
+Time: 1/1/17 12:00 AM
+Description: Manually triggered debug crash
+
+
+A detailed walkthrough of the error, its code path, and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_131, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 524288000 bytes (500 MB) / 536870912 bytes (512 MB) up to 1073741824 bytes (1024 MB)
+	JVM Flags: 4 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -XX:+DisableExplicitGC
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	Launched Version: 1.12
+	LWJGL: 2.9.4
+	OpenGL: AMD Radeon (TM) R9 999 GL version 9.9.99999 Compatibility Profile Context 99.99.999.999, ATI Technologies Inc.
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: No
+	'''Is Modded: Probably not. Jar signature remains and client brand is untouched.'''
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 9x Intel(R) Core(TM) i9-9999Z CPU @ 9.99GHz
+}}
+
+The code that checks for mods is fairly simple, and it's not always correct; it may say 'probably not' even with mods installed. However, it's very difficult to get the 'very likely' message if you haven't modified your ''Minecraft'' .jar file somehow, so that's essentially a 'yes'. There's also a 'definitely' message, seen when a Bukkit server crashes and under other similar circumstances, like when the Minecraft Forge API is installed.
+
+'Probably not' appears when the client/server brand appears to the in-game check to be unaltered (often termed 'vanilla') and the <code>META-INF</code> folder is still there. 'Very likely' appears when the <code>META-INF</code> folder is not present but the client/server brand seems to be vanilla. 'Definitely' plus the client name appears when the client is not vanilla:
+
+ Is Modded: Definitely: Client brand changed to 'fml,forge'
+
+== See also ==
+
+*[[Add-on]]s, an official feature {{in|Bedrock}} that allows developers to more easily add content to the game.
+*[[Programs and editors/Modding]] showcases tools for installing and making mods.
+
+== External links ==
+*[https://www.curseforge.com/minecraft/mc-mods Mods list on CurseForge]
+*[https://modrinth.com/mods Mods list on Modrinth]
+*[https://mcpedl.com MCPEDL.com], a list of Bedrock Edition mods and add-ons.
+
+==Gallery==
+<gallery>
+OWIAS.jpg|thumb|right|The Aether, a popular mod released in 2011 created by [[Kingbdogz]].
+BhgKLyM.jpg|thumb|right|The Aether is similar to the unimplemented [[sky dimension]].
+Twilight Forest.jpg|thumb|right|The Twilight Forest, another popular dimension mod.
+Tamedkargooalexmobs.png|thumb|A [[tamed]] kangaroo with [[netherite]] [[armor]] from the mod Alex's Mobs.
+macaw bridges.png|thumb|right|The Macaw's Bridges mod adds bridges to the game.
+An Army of Mountaineers Raiding a Village With a Spinosaurus.png|thumb|An army of mountaineers, led by their rampart captain, decided to raid a village with a ''Spinosaurus''. This is an illager mod that was added into Minecraft.
+Note: These Mountaineers are from ''[[Minecraft Dungeons]]'', a Minecraft spin-off.
+Piglin Pillagers.png|thumb|This is a mod that adds piglin pillagers into Minecraft. This mod is based on a pillager, except the mod changed the pillager's head into a piglin head and the color of the feet. The piglin pillager acts just like a normal pillager, except wither skeletons attack the piglin pillager, meaning the person who added this mod slightly changed the behavior of the piglin pillager.
+</gallery>
+
+{{Mods}}
+{{Java Edition}}
+
+[[Category:Mods]]
+[[Category:Community]]
+
+[[de:Modifikation]]
+[[es:Modificaciones]]
+[[fr:Mods]]
+[[hu:Modok]]
+[[it:Modifiche]]
+[[ja:Mod]]
+[[ko:모드]]
+[[nl:Mods]]
+[[pl:Modyfikacje]]
+[[pt:Modificações]]
+[[ru:Модификации]]
+[[th:ม็อด]]
+[[tr:Modlar]]
+[[uk:Модифікації]]
+[[zh:加载器Mod]]

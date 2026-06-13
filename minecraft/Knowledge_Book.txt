@@ -1,0 +1,102 @@
+{{exclusive|java}}
+{{Item
+| image = Knowledge Book.png
+| renewable = No
+| stackable = No
+| rarity = Epic
+}}
+A '''knowledge book''' is a utility item that reveals available [[crafting]] recipes to the player when {{control|used|use}}.
+
+== Obtaining ==
+Knowledge books can be obtained only by using [[commands]], as it is not found in the [[creative]] inventory; therefore, it is impossible to obtain in other modes such as [[survival]] and [[adventure]] except with commands.
+
+For example, to give oneself a knowledge book that reveals the recipes for [[bucket]]s and [[flower pot]]s, use: {{cmd|1=<nowiki>give @s minecraft:knowledge_book[minecraft:recipes=["minecraft:bucket","minecraft:flower_pot"]]</nowiki>}}.
+
+== Usage ==
+Knowledge books are used to reveal recipes to the player who uses it, by adding it to their [[recipe book]]. Using a knowledge book consumes it, removing it from the player's inventory.
+
+Knowledge books are especially useful to mapmakers in conjunction with {{cmd|gamerule doLimitedCrafting true}}, because then any item is craftable only if its recipe is unlocked first.
+
+== Sounds ==
+{{Sound table
+|sound=Chiseled bookshelf insert1.ogg
+|sound2=Chiseled bookshelf insert2.ogg
+|sound3=Chiseled bookshelf insert3.ogg
+|sound4=Chiseled bookshelf insert4.ogg
+|subtitle=Book placed
+|source=block
+|description=When a knowledge book is placed in a chiseled bookshelf
+|id=block.chiseled_bookshelf.insert
+|translationkey=subtitles.chiseled_bookshelf.insert
+|volume=0.8
+|pitch=''varies'' <ref group=sound>Can be 1.0, 0.85, or 1.1 for each sound</ref>
+|distance=16}}
+{{Sound table
+|sound=Chiseled bookshelf pickup1.ogg
+|sound2=Chiseled bookshelf pickup2.ogg
+|sound3=Chiseled bookshelf pickup3.ogg
+|subtitle=Book taken
+|source=block
+|description=When a knowledge book is removed from a chiseled bookshelf
+|id=block.chiseled_bookshelf.pickup
+|translationkey=subtitles.chiseled_bookshelf.take
+|volume=0.8
+|pitch=''varies'' <ref group=sound>Can be 1.0, 0.8, or 1.1 for each sound</ref>
+|distance=16
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Knowledge Book
+|spritetype=item
+|nameid=knowledge_book
+|form=item
+|foot=1}}
+
+=== Item data ===
+Recipe books use the NBT tag <code>Recipes</code> to indicate the recipes they contain.
+
+''The following NBT structure is provided to show how the <code>Recipes</code> tag is organized, and is not comprehensive above the <code>tag</code> tag. The full NBT for an item can be found [[Chunk format#Items and XP Orbs|here]].''
+
+<div class="treeview" style="margin-top: 0;">
+* {{nbt|compound}} Entity data
+** {{nbt|compound|Item}}: The item
+*** {{nbt|compound|tag}}: Additional information about the item. This tag is optional for most items.
+**** {{nbt|list|Recipes}}: The list of recipes this book contains.
+***** {{nbt|string}} the name of a recipe, for instance <code>minecraft:gold_nugget</code> or <code>minecraft:gold_ingot_from_nuggets</code>
+</div>
+
+== History ==
+{{History|java}}
+{{History||1.12|snap=17w13a|[[File:Knowledge Book JE1.png|32px]] Added knowledge books.}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], this [[item]]'s numeral ID was 453.}}
+{{History||1.14|snap=18w43a|[[File:Knowledge Book JE2.png|32px]] The texture of knowledge books has now been changed.}}
+{{History||1.20|snap=1.20 Release Candidate 1|Knowledge books can now be placed in [[chiseled bookshelf|chiseled bookshelves]].}}
+{{History|Foot}}
+
+== Issues ==
+{{Issue list}}
+
+== See also ==
+* [[Book]]
+* [[Enchanted Book]]
+* {{cmd|recipe}} command
+
+{{Items}}
+
+[[Category:Non-renewable resources]]
+
+[[de:Buch des Wissens]]
+[[es:Enciclopedia]]
+[[fr:Livre des connaissances]]
+[[ja:知恵の本]]
+[[ko:지식의 책]]
+[[lzh:天工開物]]
+[[pl:Księga wiedzy]]
+[[pt:Enciclopédia]]
+[[ru:Книга знаний]]
+[[zh:知识之书]]

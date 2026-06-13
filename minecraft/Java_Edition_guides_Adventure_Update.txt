@@ -1,0 +1,1322 @@
+{{Guide nav
+|edition = Java
+|vers=
+* {{vl|je Beta 1.8|Beta 1.8}}
+* {{vl|je Beta 1.8.1|Beta 1.8.1}}
+* {{vl|je 1.0.0|}}
+* {{vl|je 1.0.1|}}
+|next = 1.1
+|prev = Beta 1.7 releases
+}}
+This guide is a simplified overview of all the changes in the [[Adventure Update]] ({{edition|java}} Beta 1.8.x - 1.0.x releases), which assumes at least some familiarity with Beta 1.7.x releases.
+
+== Mobs ==
+=== New ===
+{|{{Simple Guide table|New Mobs}}
+|-
+|[[Mooshroom]]
+|[[File:Red Mooshroom JE1.png|128px]]
+|
+* [[Mushroom Island]]s
+
+|{{Drop|Item|Leather|0-2}}
+{{Drop|Item|Raw Beef|1-3}}
+*{{xp|1|3}} (when killed by a [[player]] or tamed [[wolf]])
+
+|
+* Use a bowl on it to get Mushroom Stew.
+* Can be sheared, which drops red mushrooms and turns it into a normal cow.
+* Otherwise functions identically to a cow.
+|-
+|[[Snow Golem]]
+|[[File:Snow Golem JE1 BE1.png|128px]]
+|
+{{FakeImage|align=none|style=display:inline-block;margin:0|{{BlockGrid|scale=2|p=Carved Pumpkin|s=Snow Block|p|s|s}}|Snow golem build configuration.}}
+|{{Drop|Item|Snowball|0-15}}
+|
+* Will attack hostile mobs by throwing snowballs at them.
+* Is passive towards players.
+|-
+|[[Villager]]
+|{{animate|Farmer.png;Librarian.png;Priest.png;Blacksmith.png;Butcher.png|128px}}
+|
+* [[Village]]s
+|
+* None
+|
+|-
+|[[Magma Cube]]
+|[[File:Magma Cube Revision 1.png|128px]]
+|
+* [[The Nether]]
+|
+*Large: {{xp|4}} (when killed by a [[player]] or tamed [[wolf]])
+*Medium: {{xp|2}} (when killed by a [[player]] or tamed [[wolf]])
+* Small: {{xp|1}} (when killed by a [[player]] or tamed [[wolf]])
+|
+* Come in 3 sizes.
+* The 2 larger sizes split into multiple smaller versions when killed.
+|-
+|[[Blaze]]
+|[[File:Blaze JE1 BE1.png|128px]]
+|
+* [[Nether Fortress]]es
+|{{Drop|Item|Blaze Rod|0-1}}
+*{{xp|10}} (when killed by a [[player]] or tamed [[wolf]])
+|
+* There are spawners in nether fortresses.
+* Can hover in the air.
+* Launch fireballs that ignite any block, mob or player that is hit.
+|-
+|[[Cave Spider]]
+|[[File:Cave Spider JE1 BE1.png|128px]]
+|
+* [[Mineshaft]]s
+|{{Drop|Item|String|0-2}}
+*{{xp|5}} (when killed by a [[player]] or tamed [[wolf]])
+|
+* There are spawners in mineshafts.
+* Can poison players.
+* Smaller than normal spiders, letting them fit through 1-block wide spaces.
+|-
+|[[Silverfish]] 
+|[[File:Silverfish.png|128px]]
+|
+* [[Stronghold]]s
+|
+*{{xp|5}} (when killed by a [[player]] or tamed [[wolf]])
+|
+* There are spawners in strongholds.
+* Spawn when an infested block is broken.
+|-
+|[[Enderman]]
+|[[File:Enderman.png|128px]]
+|
+* Dark environments in [[The Overworld]]
+* [[The End]]
+|{{Drop|Item|Ender Pearl|0-1}}
+*{{xp|5}} (when killed by a [[player]] or tamed [[wolf]])
+|
+* If a player "stares" at it, it will attack the player.
+* Have the ability to teleport, and will periodically do so while attacking.
+* Will teleport away from projectiles and sunlight.
+* is harmed when in contact with water.
+|-
+|[[Ender Dragon]]
+|[[File:Ender Dragon.gif|128px]]
+|
+* [[The End]]
+|
+*{{xp|12}},000
+|
+* The final boss of the game.
+|}
+
+== Blocks ==
+=== New ===
+{|{{Simple Guide table|New Blocks}}
+|-
+|[[Monster Egg|Monster Egg Blocks]]
+|{{Animate|Stone Bricks JE1 BE1.png;Stone JE4.png;Cobblestone JE3 BE2.png|84px}}
+|
+* [[Creative]] mode inventory only.
+|
+* Pickaxe (does not drop item)
+|
+* When mined, a silverfish spawns that immediately attacks the player.
+|-
+|[[Stone Bricks]]
+|{{Animate|Stone Bricks JE1 BE1.png|84px}}
+|
+{{Crafting
+|A2=Stone
+|A3=Stone
+|B2=Stone
+|B3=Stone
+|Output = Stone Bricks,4}}
+|
+* Pickaxe
+|
+*Building material
+|-
+|[[Mossy Stone Bricks]]<br>and<br>[[Cracked Stone Bricks]]
+|[[File:Mossy Stone Bricks JE1 BE1.png|84px]]<br><br>[[File:Cracked Stone Bricks JE1 BE1.png|84px]]
+|
+* Generate in [[strongholds]].
+|
+* Pickaxe
+|
+*Building material
+|-
+|[[Stone Brick]]<br>[[Slabs]] and [[Stairs]]
+|[[File:Stone Brick Slab JE1 BE1.png|84px]]<br><br>[[File:Stone Brick Stairs (N) JE3 BE1.png|84px]]
+|
+{{Crafting
+|A2=Stone Bricks
+|B2=Stone Bricks
+|C2=Stone Bricks
+|Output = Stone Brick Slab,6}}
+{{Crafting
+|A1=Stone Bricks
+|A2=Stone Bricks
+|A3=Stone Bricks
+|B2=Stone Bricks
+|B3=Stone Bricks
+|C3=Stone Bricks
+|Output = Stone Brick Stairs,4}}
+|
+* Pickaxe
+|
+*Allows players to walk upwards without jumping.
+|-
+|[[Brick]]<br>[[Slabs]] and [[Stairs]]
+|[[File:Brick Slab JE1.png|84px]]<br><br>[[File:Brick Stairs JE1.png|84px]]
+|
+{{Crafting
+|A2=Bricks
+|B2=Bricks
+|C2=Bricks
+|Output = Brick Slab,6}}
+{{Crafting
+|A1=Bricks
+|A2=Bricks
+|A3=Bricks
+|B2=Bricks
+|B3=Bricks
+|C3=Bricks
+|Output = Brick Stairs,4}}
+|
+* Pickaxe
+|
+*Allows players to walk upwards without jumping.
+|-
+|[[Fence Gate]]
+|[[File:Oak Fence Gate JE2.png|84px]]
+|
+{{Crafting
+|A2=Stick
+|A3=Stick
+|B2=Oak Wood Planks
+|B3=Oak Wood Planks
+|C2=Stick
+|C3=Stick
+|Output = Oak Fence Gate}}
+|
+* Axe
+|
+* While closed, mobs and players cannot jump over it.
+|-
+|[[Glass Pane]]
+|[[File:Glass Pane JE1 BE1.png|84px]]
+|
+{{Crafting
+|A2=Glass
+|A3=Glass
+|B2=Glass
+|B3=Glass
+|C2=Glass
+|C3=Glass
+|Output = Glass Pane,16}}
+|
+* Pickaxe (only drops if [[Silk Touch]] is used)
+|
+* Can be used as a transparent decorative block.
+|-
+|[[Iron Bars]]
+|[[File:Iron Bars (EW) JE1 BE1.png|84px]]
+|
+{{Crafting
+|A2=Iron Ingot
+|A3=Iron Ingot
+|B2=Iron Ingot
+|B3=Iron Ingot
+|C2=Iron Ingot
+|C3=Iron Ingot
+|Output = Iron Bars,16}}
+|
+* Pickaxe
+|
+* Can be used as a transparent decorative block.
+|-
+|[[Cauldron]]
+|[[File:Cauldron JE1.png|84px]]
+|
+{{Crafting
+|A1= Iron Ingot
+|C1= Iron Ingot
+|A2= Iron Ingot
+|C2= Iron Ingot
+|A3= Iron Ingot
+|B3= Iron Ingot
+|C3= Iron Ingot
+|Output= Cauldron
+|type= Brewing
+}}
+|
+* Pickaxe
+|
+* A decorative block that can store water.
+|-
+|[[Brewing Stand]]
+|[[File:Brewing Stand (empty) JE1 BE1.png|84px]]
+|
+{{Crafting
+|head=1
+|B2= Blaze Rod 
+|A3= Cobblestone |B3= Cobblestone |C3= Cobblestone
+|Output= Brewing Stand
+|foot=1
+}}
+|
+* Pickaxe
+|
+* Used to create potions
+|-
+|[[Enchantment Table]]
+|[[File:Enchanting Table JE1 BE1.png|84px]]
+|
+{{Crafting
+|B1= Book
+|A2= Diamond
+|B2= Obsidian
+|C2= Diamond
+|A3= Obsidian
+|B3= Obsidian
+|C3= Obsidian
+|Output=Enchanting Table
+|type=Decoration block
+}}
+|
+* Pickaxe
+|
+* Used to enchant tools, weapons and armor
+|-
+|[[Melon]]
+|[[File:Melon JE2 BE2.png|84px]]
+|
+{{Crafting
+|A1=Melon Slice
+|A2=Melon Slice
+|A3=Melon Slice
+|B1=Melon Slice
+|B2=Melon Slice
+|B3=Melon Slice
+|C1=Melon Slice
+|C2=Melon Slice
+|C3=Melon Slice
+|Output = Melon}}
+|
+* Sword/Axe
+|
+* Drops melon slices when broken.
+|-
+|[[Melon Stem]]s and<br>[[Pumpkin Stem]]s
+|{{Animate|Stem Age 0 JE1.png;Stem Age 1 JE1.png;Stem Age 2 JE1.png;Stem Age 3 JE1.png;Stem Age 4 JE1.png;Stem Age 5 JE1.png;Stem Age 6 JE1.png;Stem Age 7 JE1.png|84px}}
+|
+*Created by planting the corresponding seeds on farmland.
+|
+*Any
+|
+*Mature stems randomly grow melons or pumpkins on adjacent farmland blocks.
+|-
+|[[Vines]]
+|[[File:Vines (N) JE1.png|84px]]
+|
+* Generates on [[oak trees]] in swamps.
+|
+* Shears
+|
+* Can be placed on the side of any block that fills its whole cube and blocks entity movement.
+|-
+|[[Lily Pad]]
+|[[File:Lily Pad JE1 BE1.png|84px]]
+|
+* Generates in the water in [[swamp]]s.
+|
+* Any tool
+|
+* Can be used to stand on water.
+|-
+|[[Mycelium]]
+|[[File:Mycelium JE1 BE1.png|84px]]
+|
+* Generates instead of grass on the surface of [[mushroom biome]]s.
+|
+* Shovel
+|
+* Mushrooms can grow on this block regardless of light level.
+|-
+|[[Mushroom Block]]
+|{{Animate|Brown Mushroom Block JE1 BE1.png;Red Mushroom Block JE1 BE1.png;Mushroom Stem (ES) JE1 BE1.png|84px}}
+|
+* Can only found as part of [[huge mushroom]] structures.
+|
+* Axe
+|
+* Drops mushrooms of the same color.
+* Not obtainable without commands in this version.
+|-
+|[[Nether Bricks]]
+|[[File:Nether Bricks JE1 BE1.png|84px]]
+|
+* Generates in [[nether fortress]]es.
+|
+* Pickaxe
+|
+*Building material
+|-
+|[[Nether Brick Stairs]]
+|[[File:Nether Brick Stairs (N) JE3 BE1.png|84px]]
+|
+* Generates in nether fortresses.
+|
+* Pickaxe
+|
+* Can be used as a building block.
+|-
+|[[Nether Brick Fence]]
+|[[File:Nether Brick Fence JE1 BE1.png|84px]]
+|
+* Generates in nether fortresses.
+|
+* Pickaxe
+|
+* Functions the same as normal fences.
+|-
+|[[Nether Wart]] Crops
+|{{Animate|Nether Wart Age 0 JE1.png;Nether Wart Age 1-2 JE1.png;Nether Wart Age 3 JE1.png|84px}}
+|
+* Can be found growing inside special rooms in nether fortresses.
+|
+* Any tool
+|
+* An essential ingredient in [[potion]]s
+|-
+|[[End Portal Frame]]
+|{{Animate|End Portal Frame JE2.png;Filled End Portal Frame JE2.png|84px}}
+|
+* Found in [[stronghold]] portal rooms.
+|
+* Indestructible
+|
+* Putting an eye of ender into each portal frame block activates the end portal.
+|-
+|[[End Portal (block)]]
+|[[File:End Portal.png|84px]]
+|
+* Created when an end portal is activated.
+|
+* Indestructible
+|
+* Entities and players that touch this block are teleported to the end.
+|-
+|[[End Stone]]
+|[[File:End Stone JE1 BE1.png|84px]]
+|
+* Generates in [[the end]].
+|
+* Pickaxe
+|
+* One of the few materials not destroyed by the [[ender dragon]].
+|-
+|[[Dragon Egg]]
+|[[File:Dragon Egg JE1.png|84px]]
+|
+* Obtained from defeating the ender dragon.
+|
+* Any tool
+|
+* The rarest item in the game, only one will naturally exist per world.
+|}
+
+== Items ==
+=== New ===
+{|{{Simple Guide table|New Items}}
+|-
+|[[Music Disc]]
+|{{Animate|Music Disc Blocks JE1 BE1.png;Music Disc Chirp JE1 BE1.png;Music Disc Far JE1 BE1.png;Music Disc Mall JE1 BE1.png;Music Disc Mellohi JE1 BE1.png;Music Disc Stal JE1 BE1.png;Music Disc Strad JE1 BE1.png;Music Disc Ward JE1 BE1.png;Music Disc 11 JE1 BE1.png|84px}}
+|
+* Added multiple new discs that are only obtainable in creative mode.
+|
+* Added the "Blocks", "Chirp", "Far", "Mall", "Mellohi", "Stal", "Strad", "Ward" and "11" music discs.
+* Can be played in a [[Jukebox]] to produce music.
+|-
+|[[Raw Chicken]]
+|[[File:Raw Chicken JE1 BE1.png|84px]]
+|
+* Obtained by killing [[Chickens]].
+|
+* Restores {{Hunger|2}} and 1.2 saturation.
+|-
+|[[Cooked Chicken]]
+|[[File:Cooked Chicken JE1 BE1.png|84px]]
+|
+{{Smelting
+|Raw Chicken
+|Cooked Chicken
+}}
+|
+* Restores {{Hunger|6}} and 7.2 saturation.
+|-
+|[[Raw Beef]]
+|[[File:Raw Beef JE1 BE1.png|84px]]
+|
+* Obtained by killing [[Cows]].
+|
+* Restores {{Hunger|3}} and 1.8 saturation.
+|-
+|[[Steak]]
+|[[File:Steak JE1 BE1.png|84px]]
+|
+{{Smelting
+|Raw Beef
+|Steak
+}}
+|
+* Restores {{Hunger|8}} and 12.8 saturation.
+|-
+|[[Rotten Flesh]]
+|[[File:Rotten Flesh JE1.png|84px]]
+|
+* Now drops from [[zombies]] and [[zombie pigmen]].
+* Replaces [[feather]]s and [[cooked porkchop]]s as the drops of those mobs.
+* Gives you the [[Hunger (status effect)|Hunger]] debuff.
+|
+* Restores {{Hunger|4}} and 0.8 saturation.
+|-
+|[[Melon Slice]]
+|[[File:Melon Slice JE1 BE1.png|84px]]
+|
+* Obtained by breaking [[Melons]].
+|
+* Restores {{Hunger|2}} and 1.2 saturation.
+* Used to craft glistering melons.
+|-
+|[[Melon Seeds]]
+|[[File:Melon Seeds.png|84px]]
+|
+{{Crafting
+|B2=Melon Slice
+|Output = Melon Seeds,4}}
+* Found in mineshaft chests.
+|
+* Melon seeds are used to grow melons.
+|-
+|[[Pumpkin Seeds]]
+|[[File:Pumpkin Seeds.png|84px]]
+|
+{{Crafting
+|B2=Pumpkin
+|Output = Pumpkin Seeds,4}}
+* Found in mineshaft chests.
+|
+* Pumpkin seeds are used to grow pumpkins.
+|-
+|[[Ender Pearl]]
+|[[File:Ender Pearl JE1.png|84px]]
+|
+* Obtained by killing [[Endermen]].
+|
+* When thrown, will teleport the player wherever it lands.
+* Used to craft the Eye of Ender.
+|-
+|[[Eye of Ender]]
+|[[File:Eye of Ender JE1 BE1.png|84px]]
+|
+{{Crafting
+  |Blaze Powder
+  |Ender Pearl
+  |Output=Eye of Ender
+  |type=Miscellaneous
+}}
+|
+* When thrown, flies in the direction of the stronghold.
+* Used to activate the End Portal.
+|-
+|[[Blaze Rod]]
+|[[File:Blaze Rod JE1 BE1.png|84px]]
+|
+* Obtained by killing [[Blaze]]s.
+|
+* Used to craft brewing stands.
+* Used to craft blaze powder.
+|-
+|[[Blaze Powder]]
+|[[File:Blaze Powder JE1.png|84px]]
+|
+{{Crafting
+|Blaze Rod
+|Output= Blaze Powder,2
+|type= Brewing
+}}
+|
+* Used to craft strength potions.
+* Used to craft the Eye of Ender.
+|-
+|[[Magma Cream]]
+|[[File:Magma Cream JE1.png|84px]]
+|
+{{Crafting
+|Blaze Powder
+|Slimeball
+|Output= Magma Cream
+|type= Brewing
+}}
+|
+* Used to craft fire resistance potions.
+|-
+|[[Spider Eye]]
+|[[File:Spider Eye JE1 BE1.png|84px]]
+|
+* Obtained by killing [[Spider]]s.
+|
+* Used to craft poison potions.
+* Used to craft fermented spider eyes.
+|-
+|[[Fermented Spider Eye]]
+|[[File:Fermented Spider Eye JE1 BE1.png|84px]]
+|
+{{Crafting
+|Brown Mushroom
+|Sugar
+|Spider Eye
+|Output= Fermented Spider Eye
+|type= Brewing
+}}
+|
+* Used to reverse the effects of potions.
+* Used to craft weakness potions.
+|-
+|[[Ghast Tear]]
+|[[File:Ghast Tear JE1 BE1.png|84px]]
+|
+* Obtained by killing [[Ghast]]s.
+|
+* Used to craft regeneration potions.
+|-
+|[[Gold  Nuggets]]
+|[[File:Gold Nugget JE1.png|84px]]
+|
+{{Crafting
+|Gold Ingot
+|Output= Gold Nugget, 9
+|type= Material
+}}
+* Also drop from [[zombie pigmen]].
+|
+* Used to craft gold ingots.
+* Used to craft glistering melons.
+|-
+|[[Glistering Melon]]
+|[[File:Glistering Melon Slice JE1 BE1.png|84px]]
+|
+{{Crafting
+|A1= Gold Nugget
+|B1= Gold Nugget
+|C1= Gold Nugget
+|A2= Gold Nugget
+|B2= Melon Slice 
+|C2= Gold Nugget
+|A3= Gold Nugget
+|B3= Gold Nugget
+|C3= Gold Nugget
+|Output= Glistering Melon Slice
+|type= Brewing
+}}
+|
+* Used to craft healing potions.
+|-
+|[[Nether Wart]]
+|[[File:Nether Wart (item) JE1.png|84px]]
+|
+* Found growing in special rooms inside Nether Fortresses.
+|
+* Can be farmed on soul sand in The Nether.
+* An essential ingredient in potions.
+|-
+|[[Glass Bottle]]
+|[[File:Glass Bottle JE1 BE1.png|84px]]
+|
+{{Crafting
+|A2= Glass
+|C2= Glass
+|B3= Glass
+|Output= Glass Bottle,3
+|type= Brewing
+}}
+|
+* Can be filled with water.
+|-
+|[[Water Bottle]]
+|[[File:Water Bottle JE1 BE1.png|84px]]
+|
+* Obtained by using a glass bottle on water or a cauldron.
+|
+* Can be used to create potions.
+|}
+
+== Potions ==
+=== New ===
+{|{{Simple Guide table|New Potions}}
+|-
+|{{ItemLink|Awkward Potion}}
+|
+{{Brewing
+|Nether Wart
+|Awkward Potion
+|base=Water Bottle
+}}
+|
+* None
+|-
+|{{ItemLink|Mundane Potion}}
+|
+{{Brewing
+|Redstone Dust
+|Mundane Potion
+|base=Water Bottle
+}}
+|
+* None
+|-
+|{{ItemLink|Thick Potion}}
+|
+{{Brewing
+|Glowstone Dust
+|Thick Potion
+|base=Water Bottle
+}}
+|
+* None
+|-
+|{{ItemLink|Potion of Healing}}
+|
+{{Brewing
+|Glistering Melon
+|Potion of Healing
+}}
+|
+* [[Instant Health]]
+|-
+|{{ItemLink|Potion of Fire Resistance}}
+|
+{{Brewing
+|Magma Cream
+|Potion of Fire Resistance
+}}
+|
+* [[Fire Resistance]]
+|-
+|{{ItemLink|Potion of Regeneration}}
+|
+{{Brewing
+|Ghast Tear
+|Potion of Regeneration
+}}
+|
+* [[Regeneration]]
+|-
+|{{ItemLink|Potion of Strength}}
+|
+{{Brewing
+|Blaze Powder
+|Potion of Strength
+}}
+|
+* [[Strength]]
+|-
+|{{ItemLink|Potion of Swiftness}}
+|
+{{Brewing
+|Sugar
+|Potion of Swiftness
+}}
+|
+* [[Swiftness]]
+|-
+|{{ItemLink|Potion of Poison}}
+|
+{{Brewing
+|Spider Eye
+|Potion of Poison
+}}
+|
+* [[Poison]]
+|-
+|{{ItemLink|Potion of Weakness}}
+|
+{{Brewing
+|Fermented Spider Eye
+|Potion of Weakness
+}}
+|
+* [[Weakness]]
+|-
+|{{ItemLink|Potion of Harming}}
+|
+{{Brewing
+|Fermented Spider Eye
+|Potion of Harming
+|base=Potion of Healing
+}}
+|
+* [[Instant Damage]]
+|-
+|{{ItemLink|Potion of Slowness}}
+|
+{{Brewing
+|Fermented Spider Eye
+|Potion of Slowness
+|base=Potion of Swiftness
+}}
+|
+* [[Slowness]]
+|}
+== Effects ==
+=== New ===
+{|{{Simple Guide table|New Effects}}
+|-
+|[[Speed]]
+|[[File:Speed JE1 BE1.png|84px]]
+|Potions of Swiftness
+|Increases Movement Speed
+|-
+|[[Slowness]]
+|[[File:Slowness JE1 BE1.png|84px]]
+|Potions of Slowness
+|Decreases Movement Speed
+|-
+|[[Haste]]
+|[[File:Haste JE1 BE1.png|84px]]
+|None
+|Increases Mining Speed
+|-
+|[[Mining Fatigue]]
+|[[File:Mining Fatigue JE1 BE1.png|84px]]
+|None
+|Decreases Mining Speed
+|-
+|[[Strength]]
+|[[File:Strength JE1 BE1.png|84px]]
+|Potions of Strength
+|Increases Attack Strength
+|-
+|[[Weakness]]
+|[[File:Weakness JE1 BE1.png|84px]]
+|Potions of Weakness
+|Decreases Attack Strength
+|-
+|[[Jump Boost]]
+|[[File:Jump Boost JE1 BE1.png|84px]]
+|None
+|Increases Jump Height
+|-
+|[[Nausea]]
+|[[File:Nausea JE1 BE1.png|84px]]
+|None
+|Distorts the Screen
+|-
+|[[Regeneration]]
+|[[File:Regeneration JE1 BE1.png|84px]]
+|Potions of Regeneration, Golden Apples
+|Health increases over time
+|-
+|[[Poison]]
+|[[File:Poison JE1 BE1.png|84px]]
+|Potions of Poison
+|Health decreases over time
+|-
+|[[Resistance]]
+|[[File:Resistance JE1 BE1.png|84px]]
+|None
+|Decreases damage taken
+|-
+|[[Fire Resistance]]
+|[[File:Fire Resistance JE1 BE1.png|84px]]
+|Potions of Fire Resistance
+|Provides immunity to fire and lava
+|-
+|[[Water Breathing]]
+|[[File:Water Breathing JE1 BE1.png|84px]]
+|None
+|Provides immunity to drowning
+|-
+|[[Invisibility]]
+|[[File:Invisibility JE1 BE1.png|84px]]
+|None
+|Makes the subject invisible
+|-
+|[[Blindness]]
+|[[File:Blindness JE1 BE1.png|84px]]
+|None
+|Decreases Vision
+|-
+|[[Night Vision]]
+|[[File:Night Vision JE1 BE1.png|84px]]
+|None
+|Increases Vision
+|-
+|[[Hunger]]
+|[[File:Hunger JE1 BE1.png|84px]]
+|Rotten Flesh, Raw Chicken
+|Increases hunger loss rate
+|-
+|[[Instant Health]]
+|
+|Potions of Healing
+|Health increases immediately
+|-
+|[[Instant Damage]]
+|
+|Potions of Harming
+|Health decreases immediately
+|}
+
+== Non-mob entities ==
+=== New ===
+{|{{Simple Guide table|New Non-mob entities}}
+|-
+|[[Experience Orbs]]
+|[[File:Experience Orb Value -32768-2.png|84px]]
+|
+* Can be obtained by gathering experience orbs from defeating mobs and players.
+|
+|
+* Adds to the player's total experience when collected.
+|-
+|[[End Crystal]]
+|[[File:End Crystal JE1 BE1.gif|84px]]
+|
+* Generates on top of end pillars.
+|
+|
+* Creates a beam that heals the ender dragon.
+|}
+
+== Structures ==
+=== New ===
+{|{{Simple Guide table|New Structures}}
+|-
+|[[Village]]
+|[[File:OakHouse.png|256px]]
+|[[Plains]]
+|Can generate blacksmith buildings with 1 chest
+|[[Villagers]]
+|
+*Clusters of buildings made from oak wood and cobblestone connected by pathways.
+|-
+|[[Huge mushroom]]
+|{{Animate|Huge Brown Mushroom JE1 BE1.png;Huge Red Mushroom JE1 BE1.png|256px}}
+|[[Mushroom biome]]s
+|No
+|None
+|
+*The giant forms of [[mushroom]]s.
+|-
+|[[Ravine]]
+|[[File:DoubleRavine.png|256px]]
+|Underground
+|No
+|None
+|
+*long and tall cracks of air that carve a large empty space into the earth.
+|-
+|[[Mineshaft]]
+|{{Animate|Old Mineshaft.png;Cave Spider Spawner Area JE1 BE1.png|256px}}
+|Underground
+|Chests are randomy scattered throughout the structure
+|[[Cave Spider]]s from spawners, other monsters from natural spawning
+|
+*Maze-like tunnel systems filled with wooden supports and minecart rails.
+|-
+|[[Nether Fortress]]
+|{{Animate|Nether Fortress Bridge JE1 BE1.png;Nether Fortress Well JE1 BE1.png|256px}}
+|[[The Nether]]
+|No
+|[[Blazes]] from spawners, [[magma cubes]] and [[zombie pigmen]]
+|
+*Huge elevated netherbrick fortresses that spawn in the nether.
+|-
+|[[Stronghold]]
+|[[File:StrongholdPortalRoom JE1 BE1.png|256px]]
+|Underground
+|Chests can be found in multiple different types of rooms
+|[[Silverfish]] from spawners and infested blocks, other monsters from natural spawning
+|
+*Large subterranean fortresses made from stone bricks and other materials.
+*Contain portals to the End.
+|-
+|[[Obsidian platform]]
+|[[File: Obsidian platform.png|256px]]
+|[[The End]]
+|No
+|None
+|
+* Where players entering The End always spawn.
+|-
+|[[End spike|Obsidian Pillar]]
+|[[File: Obsidian Pillar JE1 BE1.png|256px]]
+|[[The End]]
+|No
+|None
+|
+* Generate throughout the end's central island.
+* Are capped by an [[End Crystal]] that heals the enderdragon.
+|-
+|[[Exit Portal]]
+|[[File:EnderDragonPortal JE1 BE1.png|256px]]
+|[[The End]]
+|No
+|None
+|
+* The only way back to the [[Overworld]] without dying.
+* Contains the [[Dragon Egg]].
+|}
+
+== Biomes ==
+An entirely new terrain generator has been added, containing numerous new [[Biomes]]:
+=== New ===
+{|{{Simple Guide table|New Biomes}}
+|-
+|[[Forest]]
+|[[File:Forest.png|250px]]
+|
+* Very similar to beta forests
+|
+*[[Oak tree]]s
+*[[Birch tree]]s
+|-
+|[[Plains]]
+|[[File:Plains.png|250px]]
+|
+* Larger than before
+|
+* [[Villages]]
+|-
+|[[Desert]]
+|[[File:Desert.png|250px]]
+|
+* Larger than before
+|
+* [[Cacti]]
+|-
+|[[Swamp]]
+|[[File:Beta 1.8.1.png|250px]]
+|
+* A flat biome with vine-covered trees and large shallow lakes
+|
+* [[Oak tree]]s
+|-
+|[[Extreme Hills]]
+|[[File:Extreme Hills Edge-Old.png|250px]]
+|
+* A biome with bluish grass and very tall mountains
+|
+* [[Oak tree]]s
+|-
+|[[Taiga]]
+|[[File:Snowy Taiga.png|250px]]
+|
+* A snowy forest with spruce trees
+|
+* [[Spruce tree]]s
+|-
+|[[Ice Plains]]
+|[[File:Iceplainsb1.9.png|250px]]
+|
+* Similar to plains, but snowy
+|
+* [[Oak tree]]s
+|-
+|[[Ice Mountains]]
+|[[File:Snowy Mountains.png|250px]]
+|
+* Similar to extreme hills, but snowy
+|
+* [[Oak tree]]s
+|-
+|[[River]]
+|[[File:River.png|250px]]
+|
+* A long and thin canal of water
+|
+|-
+|[[Frozen River]]
+|[[File:Frozen River.png|250px]]
+|
+* The snowy variant of rivers
+|
+|-
+|[[Ocean]]
+||[[File:Ocean b4 1.13.png|250px]]
+|
+* Replaces old oceans (generated structures).
+* Deeper and vaster than before.
+* Floor is now made up of sand, dirt, and clay.
+* Clay is now more commonly found due to this.
+|
+|-
+|[[Frozen Ocean]]
+|[[File:Old Frozen Ocean.png|250px]]
+|
+* The snowy variant of oceans
+|
+|-
+|[[Mushroom Island]]
+|[[File:Mushroom Fields.png|250px]]
+|
+* A rare biome often found on islands in the ocean, covered in mycelium and giant mushrooms
+|
+* [[Huge mushroom]]s
+|-
+|[[Mushroom Island Shore]]
+|[[File:Mushroom Field Shore.png|250px]]
+|
+* The flat shores of mushroom islands
+|
+* [[Huge mushroom]]s
+|-
+|[[The End]]
+|[[File:End.png|250px]]
+|
+* A new dimension containing the ender dragon
+|
+* [[Obsidian platform]]
+* [[End spike|Obsidian pillar]]
+* [[Exit portal]]
+|-
+|}
+
+== Gameplay ==
+=== New ===
+{|{{Simple Guide table|New Gameplay}}
+|-
+| [[Creative Mode]] ||A new gamemode in which the player can fly, cannot take damage, can break any block instantly, and has an inventory containing an infinite supply of most blocks and items.
+|-
+| [[Flying]] ||A new ability available in creative mode, activated by double-tapping the jump key.
+|-
+| [[Sprinting]] ||Double-tapping the forward key allows you to move faster at the cost of losing [[hunger]].
+|-
+| [[Hunger]] ||Food no longer instantly heals, but instead fills up a hunger bar. Sprinting and regenerating health drains hunger.
+|-
+| [[Experience]] ||Killing mobs gives you experience points which can be used in enchanting.
+|-
+| [[Enchanting]] ||Using an enchanting table you can spend experience points to apply enchantments to items.
+|-
+| [[Brewing]] ||Using a brewing stand you can brew ingredients into water bottles to create potions.
+|}
+
+== Enchantments ==
+=== New ===
+{|class="wikitable"
+|-
+![[Enchantment]]
+!Max Level
+!Applicable Items
+!Notes
+|-
+|[[Unbreaking]]
+|III
+|{{ItemSprite|Diamond Helmet|link=Helmet}}{{ItemSprite|Diamond Chestplate|link=Chestplate}}{{ItemSprite|Diamond Leggings|link=Leggings}}{{ItemSprite|Diamond Boots|link=Boots}}{{ItemSprite|Diamond Pickaxe|link=Pickaxe}}{{ItemSprite|Diamond Shovel|link=Shovel}}{{ItemSprite|Diamond Axe|link=Axe}}{{ItemSprite|Fishing Rod|link=Fishing Rod}}{{ItemSprite|Diamond Sword|link=Sword}}{{ItemSprite|Bow|link=Bow}}{{ItemSprite|Diamond Hoe|link=Hoe}}{{ItemSprite|Shears|link=Shears}}{{ItemSprite|Flint and Steel|link=Flint and Steel}}
+|
+*Increases item durability.
+|-
+|[[Protection]]
+|IV
+|{{ItemSprite|Diamond Helmet|link=Helmet}}{{ItemSprite|Diamond Chestplate|link=Chestplate}}{{ItemSprite|Diamond Leggings|link=Leggings}}{{ItemSprite|Diamond Boots|link=Boots}}
+|
+*Decreases incoming damage.
+|-
+|[[Blast Protection]]
+|IV
+|{{ItemSprite|Diamond Helmet|link=Helmet}}{{ItemSprite|Diamond Chestplate|link=Chestplate}}{{ItemSprite|Diamond Leggings|link=Leggings}}{{ItemSprite|Diamond Boots|link=Boots}}
+|
+*Decreases incoming explosion damage.
+|-
+|[[Fire Protection]]
+|IV
+|{{ItemSprite|Diamond Helmet|link=Helmet}}{{ItemSprite|Diamond Chestplate|link=Chestplate}}{{ItemSprite|Diamond Leggings|link=Leggings}}{{ItemSprite|Diamond Boots|link=Boots}}
+|
+*Decreases incoming fire damage.
+|-
+|[[Projectile Protection]]
+|IV
+|{{ItemSprite|Diamond Helmet|link=Helmet}}{{ItemSprite|Diamond Chestplate|link=Chestplate}}{{ItemSprite|Diamond Leggings|link=Leggings}}{{ItemSprite|Diamond Boots|link=Boots}}
+|
+*Decreases incoming projectile damage.
+|-
+|[[Aqua Affinity]]
+|I
+|{{ItemSprite|Diamond Helmet|link=Helmet}}
+|
+*Increases underwater mining rate.
+|-
+|[[Respiration]]
+|III
+|{{ItemSprite|Diamond Helmet|link=Helmet}}
+|
+*Increases underwater breathing time.
+|-
+|[[Feather Falling]]
+|IV
+|{{ItemSprite|Diamond Boots|link=Boots}}
+|
+*Decreases incoming fall damage.
+|-
+|[[Efficiency]]
+|V
+|{{ItemSprite|Diamond Pickaxe|link=Pickaxe}}{{ItemSprite|Diamond Shovel|link=Shovel}}{{ItemSprite|Diamond Axe|link=Axe}}
+|
+*Increases Mining Speed.
+|-
+|[[Fortune]]
+|III
+|{{ItemSprite|Diamond Pickaxe|link=Pickaxe}}{{ItemSprite|Diamond Shovel|link=Shovel}}{{ItemSprite|Diamond Axe|link=Axe}}
+|
+*Increases item drops from blocks.
+|-
+|[[Silk Touch]]
+|I
+|{{ItemSprite|Diamond Pickaxe|link=Pickaxe}}{{ItemSprite|Diamond Shovel|link=Shovel}}{{ItemSprite|Diamond Axe|link=Axe}}
+|
+*Allows certain blocks to drop themselves instead of their normal drops.
+|-
+|[[Sharpness]]
+|V
+|{{ItemSprite|Diamond Sword|link=Sword}}
+|
+*Increases damage.
+|-
+|[[Smite]]
+|V
+|{{ItemSprite|Diamond Sword|link=Sword}}
+|
+*Increases damage against undead mobs.
+|-
+|[[Bane of Arthropods]]
+|V
+|{{ItemSprite|Diamond Sword|link=Sword}}
+|
+*Increases damage against arthropod mobs.
+|-
+|[[Fire Aspect]]
+|II
+|{{ItemSprite|Diamond Sword|link=Sword}}
+|
+*Lights enemies on fire.
+|-
+|[[Knockback]]
+|II
+|{{ItemSprite|Diamond Sword|link=Sword}}
+|
+*Increases knockback.
+|-
+|[[Looting]]
+|III
+|{{ItemSprite|Diamond Sword|link=Sword}}
+|
+*Increases item drops from mobs.
+|}
+
+== Achievements ==
+=== New ===
+{{Achievements/JE
+ |id=1
+ |head=1
+ |title=Sniper Duel
+ |fancy=1
+ |Bow
+ |Kill a [[skeleton]] with an arrow from more than 50 meters
+ |Monster Hunter
+ |Use a launched [[arrow]] to kill a [[skeleton]], [[wither skeleton]], or a [[Skeleton|stray]] from 50 or more blocks away, horizontally.
+ |snipeSkeleton
+}}
+{{Achievements/JE
+ |title=DIAMONDS!
+ |Diamond Ore
+ |Acquire diamonds with your iron tools
+ |Acquire Hardware
+ |Pick up a [[diamond]] from the ground.
+ |diamonds
+}}
+{{Achievements/JE
+ |title=Enchanter
+ |Enchantment Table
+ |Use a book, obsidian and diamonds to construct an enchantment table
+ |DIAMONDS!
+ |Pick up an [[enchantment table]] from a [[crafting table]] output.
+ |enchantments
+}}
+{{Achievements/JE
+ |title=Overkill
+ |fancy=1
+ |Diamond Sword
+ |Deal nine hearts of damage in a single hit
+ |Enchanter
+ |Damage can be dealt to any mob, even those that do not have nine hearts of health overall.
+ |overkill
+}}
+{{Achievements/JE
+ |title=Librarian
+ |Bookshelf
+ |Build some [[bookshelves]] to improve your [[enchantment table]]
+ |Enchanter
+ |Pick up a bookshelf from a [[crafting table]] output.
+ |bookcase
+}}
+{{Achievements/JE
+ |title=We Need to Go Deeper\Into The Nether
+ |Obsidian
+ |Build a portal to [[the Nether]]
+ |DIAMONDS!\Acquire Hardware
+ |Enter a [[nether portal]], and be teleported to the opposite dimension.\Light a nether portal.
+ |portal\
+}}
+{{Achievements/JE
+ |title=Return to Sender
+ |fancy=1
+ |Ghast Tear
+ |Destroy a [[Ghast]] with a fireball
+ |We Need to Go Deeper\Into The Nether
+ |Kill a ghast using a [[ghast fireball]].
+ |ghast\
+}}
+{{Achievements/JE
+ |title=Into Fire
+ |Blaze Rod
+ |Relieve a [[Blaze]] of its [[Blaze Rod|rod]]
+ |We Need to Go Deeper\Into The Nether
+ |Pick up a blaze rod from the ground.
+ |blazeRod\
+}}
+{{Achievements/JE
+ |title=Local Brewery
+ |Potion of Regeneration
+ |Brew a potion
+ |Into Fire
+ |Pick up a [[potion]] from a [[brewing stand]] potion slot. An already-created potion placed and removed qualifies.
+ |potion
+}}
+{{Achievements/JE
+ |title=The End?
+ |fancy=1
+ |Eye of Ender
+ |Locate the End
+ |Into Fire
+ |Enter an [[end portal]].
+ |theEnd
+}}
+{{Achievements/JE
+ |title=The End.
+ |fancy=1
+ |Dragon Egg
+ |Defeat the [[Ender Dragon]]
+ |The End?
+ |Enter the end [[exit portal]].
+ |theEnd2\
+}}
+
+[[ja:ガイド/Java Edition/アドベンチャー・アップデート]]
+[[ru:Руководства по Java Edition/Adventure Update]]
+[[uk:Керівництво по Java Edition/Adventure Update]]
+[[zh:Java版指南/冒险更新]]

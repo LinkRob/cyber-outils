@@ -1,0 +1,131 @@
+{{Effect
+|title={{EffectSprite|mining-fatigue}} Mining Fatigue
+|image=Mining Fatigue.png
+|sources=See {{slink||Causes}}
+|particle= {{EffectSprite|particle-mining-fatigue}} {{color|#4A4217}} (dark khaki)
+|type=Negative
+}}
+
+'''Mining Fatigue''' is an [[effect]] that reduces mining and attack speed, opposite to [[Haste]].
+
+== Effect ==
+;Attack speed
+The effect decreases [[attack speed]] by 10% × ''level'', equivalent to the attack speed cooldown attribute{{only|java}} decreasing by 0.2 × ''level''. For the in-game default level III, attack speed decreases by 30% (attack speed cooldown attribute decreases by 0.6).
+
+;Mining speed
+The mining speed is reduced to 0.30^''level''</sup> of the normal mining speed. For the in-game default level III, the speed is reduced to 0.3<sup>3</sup> (0.027×) of normal speed, taking 37 times longer than usual to break a block with the proper tool for that block.
+
+{| class="wikitable"
+|+Mining Fatigue effects
+!
+!Level 1
+!Level 2
+!Level 3
+!Level 4+
+|-
+|Attack speed
+|90%
+|80%
+|70%
+|60%
+|-
+|Mining speed
+|30% (3.3×)
+|9% (11.1×)
+|2.7% (37×)
+|0.81% (123.5×)
+|}
+
+Negative levels increase attack speed, but still act as level 4 with respect to mining.
+
+While afflicted, a player can still [[craft]] and ride entities as usual, but cannot remove most vehicles due to how slowly the vehicle can be broken.
+
+The affliction is cured by drinking [[milk]], although milk does not prevent a subsequent affliction by an [[Elder Guardian|elder guardian]], which can happen within a few seconds{{only|java}} or immediately.{{only|bedrock}} [[Axolotl]]s can also remove this effect, if the player helps an axolotl kill a mob while an axolotl was battling that mob.
+
+== Causes ==
+The only natural cause of Mining Fatigue is from affliction by an [[elder guardian]], and the only natural effect level is III. Other levels can be achieved via [[commands]]. 
+
+{{IN|java}}, once per minute, elder guardians in the vicinity search for any player within 50 blocks to afflict with Mining Fatigue III. A player cannot defend from this attack. Concealment behind blocks, underground, or by a [[potion of invisibility]] offers no defense.
+
+{{IN|bedrock}}, elder guardians within range afflict Mining Fatigue III immediately. Drinking [[milk]] to remove the effect results in re-infliction immediately after drinking the milk.
+
+{| class="wikitable" data-description="Causes"
+ ! Cause
+ ! Potency
+ ! Length
+ ! Notes
+|-
+ | {{EntityLink|Elder Guardian}}
+ | III
+ | 5:00
+ | Only when the player is not affected.
+|}
+
+== Notes ==
+* The effect does not affect [[block]] breaking in [[Creative]] mode, or blocks that are [[instant mining|broken instantly]] by default.
+* Other conditions which reduce mining speed include: being underwater; riding a [[horse]] or a [[pig]], being on a [[ladder]], or in a [[boat]] or a [[minecart]].
+
+== Advancements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load advancements|How Did We Get Here?}}
+</table-progress-tracking>
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|shownumericids=1
+|generatetranslationkeys=java
+|nameid=mining_fatigue
+|displayname=Mining Fatigue
+|spritetype=effect
+|id=4
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=1
+|generatetranslationkeys=bedrock
+|nameid=mining_fatigue
+|displayname=Mining Fatigue
+|spritetype=effect
+|id=4
+|translationkey=potion.digSlowDown
+|foot=1}}
+
+== History ==
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|Mining Fatigue is added along with 18 other status effects but is currently unobtainable in regular gameplay.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|[[File:Mining Fatigue JE1 BE1.png|18px]] The effect sprite for Mining Fatigue has been added to <samp>[[inventory.png]]</samp>.
+|[[Milk]] now cancels the Mining Fatigue effect.}}
+{{History||1.8|snap=14w25a|Mining Fatigue mechanics have been adjusted; speed no longer reduces at 20% per level.
+|Mining Fatigue III has been made obtainable via [[elder guardian]]s.}}
+{{History||1.9|snap=15w34b|Mining Fatigue now affects the new {{cd|attackSpeed}} [[attribute]].}}
+{{History||1.14|snap=18w43a|[[File:Mining Fatigue JE2.png|18px]] The effect icon texture of Mining Fatigue has been changed.}}
+{{History|||snap=18w43b|[[File:Mining Fatigue JE3 BE2.png|18px]] The icon was fixed.}}
+
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=build 1|[[File:Mining Fatigue JE1 BE1.png|18px]] Added Mining Fatigue.
+|Mining Fatigue is currently unobtainable.}}
+{{History||v0.16.0|snap=build 1|Mining Fatigue III has been made obtainable via [[elder guardian]]s.}}
+{{History|bedrock}}
+{{History||?|[[File:Mining Fatigue JE3 BE2.png|18px]] The texture was updated.}}
+
+{{History|console}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|switch=1.0.1|[[File:Mining Fatigue JE1 BE1.png|18px]] Added Mining Fatigue.
+|Mining Fatigue is obtained from [[elder guardian]]s.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Mining Fatigue JE3 BE2.png|18px]] The effect icon texture of Mining Fatigue has been changed.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+{{Effects}}
+
+[[de:Abbaulähmung]]
+[[es:Fatiga minera]]
+[[ja:採掘速度低下]]
+[[pt:Cansaço]]
+[[zh:挖掘疲劳]]
