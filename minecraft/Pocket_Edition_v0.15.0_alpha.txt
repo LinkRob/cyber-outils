@@ -1,0 +1,321 @@
+{{version nav
+|title=v0.15.0
+|edition=Pocket Edition
+|image=FriendlyUpdatePE.png
+|image2=Pocket Edition 0.15.0.png
+|image3=Windows 10 Edition Beta 0.15.0.png
+|name=[[Friendly Update]]
+|internal='''Windows 10''' 0.150.0.0
+|date='''Android''' – June 10, 2016<br>'''iOS, Fire OS, Windows Phone, Windows 10, Gear VR''' – June 13, 2016
+|prevparent=v0.14.0 alpha
+|prev=v0.14.3 alpha
+|next=v0.15.1 alpha
+|nextparent=v0.16.0 alpha
+|devversions=
+'''[[:Category:Pocket Edition v0.15.0 alpha builds|Builds]]''' (3)<br/>
+([[Pocket Edition v0.15.0 alpha/Development versions|View all]])<br/>
+'''[[:Category:Pocket Edition Alpha 0.15.0 realms builds|Realms builds]]''' (3)<br/>
+([[Pocket Edition Alpha Realms/Development versions|View all]])
+}}<onlyinclude>
+
+{{for|a guide about all content in this release and the other releases of the Friendly Update|Bedrock Edition guides/Friendly Update}}
+'''v0.15.0''', the first release of the '''[[Friendly Update]]''',<ref>[http://www.mojang.com/2016/06/whats-in-015-the-friendly-update-for-pocket-win-10/ "What's in 0.15, The Friendly Update, for Pocket / Win 10?"] - Mojang, June 3, 2016</ref> was a major update to ''[[Pocket Edition|Minecraft: Pocket Edition]]'' that was released on June 10 and 13, 2016. It added many new features such as [[piston]]s, [[horse]]s, the full implementation of [[Realms]], [[name tag]]s, [[achievement]]s, [[jungle temple]]s, [[carrot on a stick|carrots on sticks]], and many other new additions and changes.
+
+During the Friendly Update development, [[Pocket Realms]] was essentially finished but still had to be beta-tested – three builds were released to the public to test. Unofficially, these builds were referred to in-game as "Alpha 0.15.0" (only the first one), but the developers had stated they did not contain the new features yet. Afterward, regular beta builds for the full update were rolled out like normal, and the full implementation of Realms came in the official release of 0.15. This version dropped support for Android 2.3 Gingerbread and iOS 6.
+
+== Additions ==
+=== Blocks ===
+; [[Observer]]
+* Ported from the [[Pocket Edition|Pocket]] and [[Windows 10 Edition|Windows 10]] Editions.
+** May have slight behavior differences due to how redstone works in the Java edition compared to Pocket and Windows 10 Edition.
+* Outputs a redstone signal when it detects a block update.
+** Normal BUDs still remain.
+
+; [[Pistons]] and [[sticky piston]]s
+* Can push blocks when powered by [[redstone]].
+** [[Sticky Piston]]s can also pull the blocks
+* {{Version exclusive}}: New animation; piston arm is visibly thicker at the bottom.
+* {{Version exclusive}}: Can push [[block entities]] such as [[chest]]s.
+* {{Version exclusive}}: Block [[entities]] that stick to walls (such as [[lever]]s) can now be placed on pistons or sticky pistons.
+
+=== Items ===
+; [[Raw mutton]]
+* Drops from [[sheep]].
+* Restores {{hunger|2}} and 1.2 saturation.
+* Can be cooked into [[cooked mutton]].
+
+; [[Cooked mutton]]
+* Restores {{hunger|6}} and 9.6 saturation.
+
+; [[Fire charge]]s
+* Produces fire when {{control|used}}.
+* Can be fired out from [[dispenser]]s.
+
+; [[Spawn egg]]s
+** [[Horse]]
+** [[Zombie horse]]
+** [[Skeleton horse]]
+** [[Mule]]
+** [[Donkey]]
+** [[Stray]]
+** [[Husk]]
+** [[Wither skeleton]]
+
+; [[Name tag]]s
+* Name it in an [[anvil]], then right-click a mob to name it.
+
+; [[Lead]]s
+* Can be used to bind mobs to fences or lead them around
+* Right-click mob first, then right-click fence or right-click the mob again to get the leash back
+* Crafted with 4 [[string]] and 1 [[slimeball]], yields 2 leads
+
+; [[Carrot on a stick]]
+* Used to control [[pig]]s
+** When held, it dictates the direction pigs [[player]]s are riding will head in
+* Nearby pigs flock towards players holding it
+* Pigs start slow but end up going about 5 [[block]]s per second
+* Slowly loses [[durability]] when riding pigs
+* The pigs 'eat' the [[carrot]] eventually, leaving the player a [[fishing rod]] and will require another carrot to continue riding
+* Can be {{control|use|text=used}} to give the pig a short speed boost
+** This takes up a chunk of the durability
+* To craft, the carrot must be placed at a diagonal below the fishing rod
+
+; [[Tipped arrow]]s
+* {{Version exclusive}}: Made with potion [[cauldron]]s.
+
+; [[Horse armor]]
+* Exist in diamond, iron, gold and leather variants
+** {{Version exclusive}} Leather armors can be dyed using a [[cauldron]].
+** Leather armors can be crafted with [[leather]].
+
+=== Mobs ===
+; [[Horse]]
+* Creation assisted & inspired by DrZhark's [[Mods/Mo' Creatures|Mo' Creatures]] mod
+* To tame, ride them, and get thrown off a few times until hearts appear
+* Can be bred using Golden Apples & Golden Carrots
+* Drop Leather when killed
+* Health can be restored using Bread, Sugar, Hay Bales, Wheat, Apples, Golden Apples & Golden Carrots
+* Baby Horses can be grown the same way
+* Players riding saddled Horses are granted full control over the Horse's movement
+* Color, style, maximum health, jump height, and speed vary between Horses
+* Open your inventory, right-click a Horse, or press the inventory key while sneaking and looking at a Horse to access their inventory to deal with their storage, armor, and saddle
+* Rarely spawn in small groups
+
+; [[Skeleton horse]] traps.
+* Introduced as the code of the normal Horse, although require third-party modifications to be used in the game. There is no current use of it at this time.
+
+; [[Donkey]]
+* Like horses, but smaller and gray, and can carry chests with 15 slots on their saddles.
+
+; [[Mule]]
+* Obtained by breeding a horse with a donkey
+* Can wear chests on their saddles, just like donkeys
+* Not breedable with horses, donkeys, or other mules
+
+; [[Husk]]
+* 80% of [[zombie]]s spawned above ground in [[desert]], [[desert hills]] and desert biomes will be Husks.
+** All spawns where the zombie does not have a view of the sky will be normal zombies or zombie villagers.
+* Behaves mostly like a regular zombie
+* Its <code>ZombieType</code> tag is 6.
+* Does not burn in sunlight.
+* Can spawn as a baby or as a [[chicken jockey]].
+* Applies [[hunger]] when attacking, duration depends on raw [[regional difficulty]].
+** Duration is 7 × floor (RegionalDifficulty) seconds
+** [[Hunger]] is only applied if the Husk has an empty hand.
+* Visually 2 pixels taller than a zombie, but has the same hitbox.
+
+; [[Stray]]
+* 80% of [[skeleton]]s spawned above ground in [[ice plains]], [[ice mountains]] and [[ice plains spikes]] [[biome]]s will be strays.
+** All spawns where the skeleton does not have a view of the sky will be normal skeletons.
+** [[Spider]]s spawned in cold biomes have a chance of having a stray riding them.
+* Acts mostly like a regular skeleton.
+* Its <code>SkeletonType</code> tag is 2.
+* Drops are the same as skeletons, but also have a 50% chance to drop 1 [[tipped arrow]] of {{EffectLink|Slowness}} when killed by the [[player]]. With looting, chance increases to {{frac|2×level+1|2×level+2}}.
+* Shoots tipped arrows of Slowness (0:30) at the target.
+
+=== World generation ===
+; [[Jungle temple]]
+* Built out of various kinds of [[cobblestone]].
+* Contain multiple [[tripwire]] traps triggering [[dispenser]]s filled with [[arrow]]s.
+* Loot chests include bones, rotten flesh, gold ingots, iron ingots, diamonds and emeralds.
+
+; [[Village]]s
+* Added new [[village]] types
+* Taiga village
+** Uses [[Wood|spruce wood]] instead of [[oak]].
+* {{Version exclusive}}: Ice plain village
+** Uses [[Wood|spruce wood]] instead of [[oak]].
+* {{Version exclusive}}: Cold taiga village
+** Uses [[Wood|spruce wood]] instead of [[oak]].
+* Savanna village
+** Uses [[Wood|acacia wood]] instead of [[oak]].
+** Cobblestone is not replaced with acacia wood.
+* Zombie village
+** {{Version exclusive}}: Buildings generate with [[mossy cobblestone]] floors and [[cobweb]]s.
+** Spawn [[zombie villager]]s instead of normal [[villager]]s.
+** The village generates without any [[door]]s or torches.
+
+=== Gameplay ===
+; [[Achievements]] 
+* Now working on iOS and Android
+** {{Version exclusive}}: More [[achievements]]. {{Info needed|What exactly?}}
+
+; Interact buttons
+* Boost, used when riding a [[pig]] with a [[carrot on a stick]].
+* Name, used for name [[mobs]] using [[name tag]]s.
+* Leash, used for leashing a mob with a [[lead]].
+* Take Picture, used for taking pictures with a [[camera]] (currently not available in-game, but in the files).
+
+; [[Pig]] riding
+* Possible with [[Carrot on a Stick]]
+* Should using [[Saddle]]
+* {{Version exclusive}}: New sound when accelerates.
+
+=== General ===
+; [[GUI]]
+* Moved hunger bars and health to above the hotbar ('''Large devices only''')
+
+; [[Resource pack]]s
+* Some [[resource pack]]s aren't complete.
+* In the game and the [[options]] menu, they are referred to as [[texture pack]]s, but in the game, when you manage the available resource packs from the options menu, there are options to move them around and select multiple [[resource pack]]s, like in the PC version. Also, there is a folder called resource_packs, where the resource pack files are stored in the files.
+
+; [[Sounds]]
+* {{Version exclusive}}: Added [[sounds]] for jumping on [[block]]s.
+
+; [[Splash]]
+* {{Version exclusive}}: Added "BAYKN" splash
+
+; [[Title screen]]
+* '''Skins''' button
+** Is now an icon.
+* New '''Store''' Button
+** Used for buying [[skin pack]]s and [[resource pack]]s.
+
+; Other
+* Online multiplayer with Xbox Live friends.
+* New UI for the main menu, shared with the Windows 10 Edition.
+* New UI for the skins menu. It has a skin selection carousel that is similar to Console Edition.
+* {{Version exclusive}}: Added eating animation for [[animal]]s when feeding them.
+
+== Changes ==
+=== Blocks ===
+; [[Trapdoor]]s
+* No longer require supporting blocks.
+
+; [[Painting]]s
+* Now have sounds when placed and broken.
+
+; [[Nether reactor core]]
+* Different texture due to bug switching its texture with the Plastic [[resource pack]] (if you use the Plastic [[resource pack]], the original texture is then shown on the block). It is still unobtainable.
+
+; [[Rose bush]]
+* Texture is ported from [[Legacy Console Edition|Console Edition]]
+
+; [[Peony]]
+* Texture is ported from [[Legacy Console Edition|Console Edition]]
+
+=== Items ===
+; [[Shears]]
+* Now lose durability when breaking any block.
+
+; [[Map]] 
+* Can now be crafted with eight papers and a compass. The option to use nine papers still exists.
+
+=== Mobs ===
+; All [[Mobs]]
+* When named to "Dinnerbone" or "Grumm" make [[mobs]] upside-down.
+
+; [[Skeleton]]s
+* Added animation for shooting [[arrow]]s and recharging [[bow]]s.
+
+; [[Wither skeleton]]s
+* Added animation when walking with a sword.
+
+; [[Rabbit]]s
+* When renamed to "Toast" they change their texture.
+
+; [[Sheep]]
+* When named to "jeb_" have rainbow [[effect]] on [[skin]].
+
+; [[Enderman]] 
+* Can now rarely spawn in the Nether with a <sup>1</sup>⁄<sub>153</sub> rate.
+* Compared to <sup>100</sup>⁄<sub>153</sub> for zombie pigmen.
+* Can now naturally pick up [[netherrack]].
+
+=== World generation ===
+; [[Desert temple]]s
+* Now generate [[enchanted book]]s in [[chests]].
+
+=== General ===
+* Added title screen
+* Added new scroll bar
+* Online play uses less bandwidth.
+* [[Note blocks]] are louder.
+* When [[player]]'s name is Dinnerbone or Grumm, the [[player]]'s model changes to an upside-down model.
+* Drops iOS 7 and earlier support; iOS 8 or later required
+* Removed some splashes:
+** "Notch <3 ez!"
+** "Seecret Friday update!"
+* Changed some splashes:
+** "Uses C++!" to "Made in C++!"
+** "minecraftApp!" to "MCPE!"
+** "The Work of Notch!" to "The Work of Many!"
+** "Play minecraftApp, Watch Topgear, Get Pig!" to "Play Minecraft, Watch Topgear, Get Pig!"
+* [[Inventory]] button
+** Now is more transparent.
+
+== Fixes ==
+; 29 bugs fixed
+* Fixed a lot of crashes.
+* Fixed a couple of bugs causing data to be lost or world corruption.
+* A whole bunch of redstone fixes from the community feedback.
+* Lots of multiplayer desynchronization fixes.
+* Less flickering of the block selection highlight.
+* Glass doesn’t become green anymore.
+* Fixed chests generation in dungeons and desert temples.
+* Walking far from spawn generates a lot less jittering now.
+* {{bug|MCPE-5473}} – Can't see water under ice.
+* {{bug|MCPE-7318}} – When red sand falls on torches it turns into regular sand.
+* {{bug|MCPE-7903}} – Cactus on hotbar has broken texture.
+* {{bug|MCPE-11400}} – Chests in desert temple generation bug.
+* {{bug|MCPE-11500}} – Note Block's audio is too low.
+* {{bug|MCPE-11703}} – Incorrect position when fence gate is opened.
+* {{bug|MCPE-12038}} – Fly and Sneak float (touch input).
+* {{bug|MCPE-12127}} – Desert temple generation glitch.
+* {{bug|MCPE-12394}} – Cobblestone wall are connected to sideways fence gate.
+* {{bug|MCPE-12516}} – Items and yourself cannot fall into cauldrons.
+* {{bug|MCPE-12540}} – Hopper texture bug.
+* {{bug|MCPE-12673}} – Angry Wolf texture missing.
+* {{bug|MCPE-12960}} – Nether Wart block has wrong shape when placed at soul sand.
+* {{bug|MCPE-12961}} – Paintings not adhered to the wall.
+* {{bug|MCPE-13619}} – Cannot Shift + place containers whilst flying.
+* {{bug|MCPE-13949}} – Lava rendering issue as seen in the Nether.
+* {{bug|MCPE-14066}} – The player can put torches, ladders, and vines in pressure plates and daylight sensor.
+* {{bug|MCPE-14174}} – Redstone does not align correctly when "cut" by farmland block and grass path block.
+* {{bug|MCPE-14238}} – Fences and Cobblestone Wall placed in Item Frames are invisible.
+* {{bug|MCPE-14255}} – Colored armor doesn't show color when in hotbar, but does when you tap inventory button.
+* {{bug|MCPE-14871}} – Crash.
+
+== Trivia ==
+* This update had the shortest amount of development builds to date for a major update, with 3 (6 if Realms is included) builds being released in the timespan of only 10 days.
+* This update was the second to have an official name.
+* This update had the most minor versions of any Pocket Edition update, with 10.
+
+==Gallery==
+<gallery>
+Pig Riding Splash.jpg
+</gallery>
+
+== References ==
+{{reflist}}</onlyinclude>
+
+{{Pocket Edition versions|Alpha}}
+
+[[de:Pocket Edition Alpha 0.15.0]]
+[[el:Edición Pocket v0.15.0 alpha]]
+[[es:Pocket Edition v0.15.0 alpha]]
+[[fr:Version portable Alpha 0.15.0]]
+[[ja:Pocket Edition v0.15.0 alpha]]
+[[pt:Edição Pocket v0.15.0 alpha]]
+[[ru:Alpha 0.15.0 (Pocket Edition)]]
+[[zh:携带版0.15.0]]

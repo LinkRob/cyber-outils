@@ -1,0 +1,11 @@
+<div class="treeview"><onlyinclude>
+*{{nbt|compound}} The root tag.
+**{{nbt|byte|Count}}: Number of [[item]]s stacked in this inventory slot. Any item can be stacked, even if unstackable through normal means. Values below 0 cause the item to be treated as air, resulting in the item being removed.
+** {{nbt|byte|Slot}}: The inventory slot the item is in.
+** {{nbt|string|id}}: [[Data values|Item/Block ID]]. If not specified, gets treated as air, resulting in the item being removed.
+** {{nbt|compound|tag}}: Additional information about the item, discussed more in the subsections of [[Player.dat format#Item structure|the item structure section]]. This tag is optional for most items. Unlike other entity or block NBT, this tag is never deserialized and can hold user defined tags that are not used by the game by standard.{{{1|}}}{{{1|}}}{{{1|}}}
+</onlyinclude></div><noinclude>
+[[Category:Top-level data pages]]
+[[ja:Player.datフォーマット/Item]]
+[[zh:Player.dat格式/物品]]
+</noinclude>

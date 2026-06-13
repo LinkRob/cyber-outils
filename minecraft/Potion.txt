@@ -1,0 +1,958 @@
+{{about|the drinkable potions|the throwable potions|Splash Potion|the throwable potions that leave a lingering area of effect|Lingering Potion}}
+{{Redirect|Potion of Water Breathing|the potion in Minecraft Dungeons|MCD:Potion of Water Breathing}}{{About|the mechanics of potions|instructions on how to brew potions, and their recipes|Brewing}}{{update|The texture for ''[[Bedrock Edition]]'' is different, please add it.
+
+Some potions texture/color was changed as of 1.19.4 pre-release 3, please add them.}}
+{{Item
+| image = Water Bottle.png
+| extratext = View [[#Potions|all potions]]
+| renewable = '''Uncraftable, Luck{{only|je|short=y}}, Decay{{only|be|short=y}}''': No<br>'''All others''': Yes
+| stackable = BE: No<br/>JE: No{{until|Java Combat Tests}}<br>Yes (16){{upcoming|Java Combat Tests}}
+}}'''Potions''' are bottled substances designed to inflict [[effects]]. They are created by [[brewing]] and when drunk give the player an [[effect]] for a limited time. All potions are brewed from a '''water bottle''', which is considered a type of potion but has no effects.
+
+== Obtaining ==
+
+=== Mob loot ===
+
+==== Witches ====
+
+[[Witch]]es can drop potions of Healing, Fire Resistance, Swiftness, or Water Breathing if they die while drinking that potion.
+
+==== Wandering traders ====
+
+[[Wandering trader]]s have a chance to drop a Potion of Invisibility if they die while drinking the potion.
+
+=== Fishing ===
+[[Water bottle]]s can be [[fishing|fished]] up as junk items.
+
+=== Brewing ===
+{{main|Brewing}}
+
+Almost all potions are obtained by [[brewing]].
+
+The Potion of Luck{{only|java|short=1}} and the Potion of Decay{{only|bedrock|short=1}} cannot be brewed. A command to give a Luck Potion is {{cmd|give @s minecraft:potion{Potion:luck} }}, while a Potion of Decay can be obtained via {{cmd|give @s potion 1 36}}. Both are also available in the [[creative inventory]].
+
+=== Chest loot ===
+
+Two Health II potions can be found in the brewing stand on ships in [[end cities]], and one splash potion of Weakness can be found in a brewing stand in [[igloo]] basements.
+
+{{In|Bedrock}}, the cauldron in a [[swamp hut]] contains a random potion.
+{{LootChestItem|potion-of-regeneration,potion-of-water-breathing,potion-of-healing}}
+
+=== Bartering ===
+[[Piglin]]s may [[barter]] a potion or a splash potion of Fire Resistance when given a [[gold ingot]].
+
+== Usage ==
+
+Potions are used by pressing and holding {{control|use}} with the potion bottle in hand, as with all consumable items. When drunk they bestow the corresponding [[status effect]] to the player.
+
+Drinking a potion while already under the effects of the same potion does not add onto the effect's duration, but simply resets it. A potion effect does not "downgrade" if a lower level is activated. For example, if a [[player]] has [[Regeneration]] II, drinking a regular potion of Regeneration does not have any effect.
+
+Using a potion on a cauldron does not transfer the potion to the cauldron, but begins to play the drinking animation.{{only|java|short=1}}
+
+=== Modifiers ===
+{{main|Brewing}}
+
+Potions can be modified in five ways. 
+# Brewing [[glowstone dust]] into certain potions will ''enhance'' their level of effect. 
+# Adding [[redstone]] will ''extend'' the duration of the effect.
+# Brewing [[gunpowder]] into a potion makes it into a ''splash'' potion (area effect).
+# Adding [[dragon's breath]] to a splash potion creates a [[lingering potion]] (area effect that lingers on the ground).
+# Brewing a [[fermented spider eye]] into specific potions modifies their effect, usually inverting it, which is referred to as "corruption". 
+
+The modifications of Enhancement and Extension are mutually exclusive. 
+
+Enhancing most potions trades some of its duration for a bigger effect. For example, the base Regeneration works for 44 seconds whereas Regeneration II lasts for only 22 seconds but heals more per tick during that time. 
+
+Extending a potion generally makes it last {{frac|8|3}} as long as its base potion, so a duration of 3 minutes becomes 8 minutes. 
+==== Corruption ====
+The usual result of corruption is to invert the potion's effect (for example Swiftness becomes Slowness). Interestingly, corrupting Poison (continuous damage effect) creates a Potion of Harming, an instant damage effect, instead of the continuous healing effect (regeneration) one would normally expect. Corrupting a Potion of Night Vision turns it into a Potion of Invisibility rather than an inverse effect that might be something like blindness.
+
+Corrupting an extended or enhanced potion results in a corrupted potion with the same modifier, if it is supported by the corrupted effect. All of the "corrupted" potions except Harming can be extended, but it is the only one that can be enhanced. {{IN|bedrock}}, the corruption of Healing II or Poison II potions results in a potion of Harming I.
+
+=== Base potions ===
+
+Base potions are potions that have no effect when the player drinks them, but are necessary as the basis for other potions.
+
+{| class="wikitable col-1-center col3-left" data-description="Base potions"
+! Icon
+! Name
+! Use
+|-
+| {{Slot|Water Bottle|link=none}}
+! Water Bottle
+| The base for the Awkward Potion and Potions of Weakness.
+|-
+| rowspan="3"| {{Slot|Water Bottle|link=none}}
+! Awkward Potion
+| The base for all other effect potions.
+|-
+! Mundane Potion
+| Only usable as an alternative base for  Potion of Weakness.{{only|bedrock}}
+|-
+! Thick Potion
+| No use.
+|}
+
+=== Effect potions ===
+
+==== Potions with positive effects ====
+
+{| class="wikitable col-1-center" data-description="Positive potions"
+! Icon
+! Name
+! Duration
+! Effect
+! Description
+|-
+| rowspan="3" | {{Slot|Potion of Regeneration|link=none}}
+! {{text anchor|Potion of Regeneration}}{{Anchor|Potion of Regeneration}}
+| 0:45
+| rowspan="3" | {{EffectLink|Regeneration}}
+| Restores {{hp|18}} health over time, {{hp|1}} every 50 [[tick]]s (2.5 seconds).
+|-
+! Potion of Regeneration +
+| 1:30{{only|java|short=1}}<br>2:00{{only|bedrock|short=1}}
+| Restores {{hp|36}}{{only|java|short=1}} or {{hp|48}}{{only|bedrock|short=1}} health over time, {{hp|1}} every 50 ticks (2.5 seconds).
+|-
+! Potion of Regeneration II
+| 0:22.5
+| Restores {{hp|18}} health over time, {{hp|1}} every 25 ticks (1.25 seconds).
+|-
+| rowspan="3" | {{Slot|Potion of Swiftness|link=none}}
+! {{text anchor|Potion of Swiftness}}{{Anchor|Potion of Swiftness}}
+| 3:00
+| rowspan="3" | {{EffectLink|Speed}}
+| rowspan="2" | Increases speed and jump distance by 20% and increases FOV (6.6 meters per second sprinting).
+|-
+! Potion of Swiftness +
+| 8:00
+|-
+! Potion of Swiftness II
+| 1:30
+| Increases speed and jump distance by 40% and increases FOV (8 meters per second sprinting).
+|-
+| rowspan="2" | {{Slot|Potion of Fire Resistance|link=none}}
+! {{text anchor|Potion of Fire Resistance}}{{Anchor|Potion of Fire Resistance}}
+| 3:00
+| rowspan="2" | {{EffectLink|Fire Resistance}}
+| rowspan="2" | Gives immunity to all heat-related damage.
+|-
+! Potion of Fire Resistance +
+| 8:00
+|-
+| rowspan="2" | {{Slot|Potion of Healing|link=none}}
+! {{text anchor|Potion of Healing}}{{Anchor|Potion of Healing}}
+| Instant
+| rowspan="2" | {{EffectLink|Instant Health}}
+| Restores {{hp|4}} health.
+|-
+! Potion of Healing II
+| Instant
+| Restores {{hp|8}} health (doubles with every additional level).
+|-
+| rowspan="2" | {{Slot|Potion of Night Vision|link=none}}
+! {{text anchor|Potion of Night Vision}}{{Anchor|Potion of Night Vision}}
+| 3:00
+| rowspan="2" | {{EffectLink|Night Vision}}
+| rowspan="2" | Visually brightens everything to a light level of 15, brightens up water with a blue shine, brightens up lava with an orange shine (other players cannot see the enhanced lighting without this effect).
+|-
+! Potion of Night Vision +
+| 8:00
+|-
+| rowspan="3" | {{Slot|Potion of Strength|link=none}}
+! {{text anchor|Potion of Strength}}{{Anchor|Potion of Strength}}
+| 3:00
+| rowspan="3" | {{EffectLink|Strength}}
+| rowspan="2" | Increases melee damage by {{hp|3}}.{{only|java}}<br>Increases melee damage by 30% of the base damage and {{Hp|1}}.{{only|bedrock}}
+|-
+! Potion of Strength +
+| 8:00
+|-
+! Potion of Strength II
+| 1:30
+| Increases melee damage by {{hp|6}} (+ {{hp|3}} per tier).{{only|java}}<br>Increases melee damage by 69% of the base damage and {{Hp|1.3}}. 
+For each level: (<math>BaseDamage\times1.3^{level}+{1.3^{level}-1\over0.3}</math>).{{only|bedrock}}
+|-
+| rowspan="3" | {{Slot|Potion of Leaping|link=none}}
+! {{text anchor|Potion of Leaping}}{{Anchor|Potion of Leaping}}
+| 3:00
+| rowspan="3" | {{EffectLink|Jump Boost}}
+| rowspan="2" | Allows the player to jump {{frac|1|2}} blocks higher and reduces fall damage.
+|-
+!Potion of Leaping +
+| 8:00
+|-
+! Potion of Leaping II
+| 1:30
+| Further increases jump height to {{frac|2|1|2}} blocks and further reduces fall damage.
+|-
+| rowspan="2" | {{Slot|Potion of Water Breathing|link=none}}
+! style="white-space:nowrap" | {{text anchor|Potion of Water Breathing}}{{Anchor|Potion of Water Breathing}}
+| 3:00
+| rowspan="2" | {{EffectLink|Water Breathing}}
+| rowspan="2" | Allows the entity to swim without drowning or needing to surface for air. The oxygen bar does not decrease when underwater.
+|-
+! Potion of Water Breathing +
+| 8:00
+|-
+| rowspan="2" | {{Slot|Potion of Invisibility|link=none}}
+! {{text anchor|Potion of Invisibility}}{{Anchor|Potion of Invisibility}}
+| 3:00
+| rowspan="2" | {{EffectLink|Invisibility}}
+| rowspan="2" |
+Makes player  disappear from view. Mobs can detect and track the player only at close range, although the range increases when the player wears armor. The splash version make mobs or other players invisible. Some items are unaffected and so remain visible. These include: armor, items held in hand, arrows stuck into the player, a [[pig]]'s saddle, a [[llama]]'s carpet pattern, a [[shulker]]'s yellow head, and the glowing eyes of [[spider]]s, [[Phantom|phantoms]], and [[enderman|endermen]].
+|-
+! Potion of Invisibility +
+| 8:00
+|-
+| rowspan="2" | {{Slot|Potion of Slow Falling|link=none}}
+! {{text anchor|Potion of Slow Falling}}{{Anchor|Potion of Slow Falling}}
+| 1:30
+| rowspan="2" | {{EffectLink|Slow Falling}}
+| rowspan="2" | The mob/player falls at a much slower rate, and damage from hitting the ground is reduced to zero. A sprinting  leap of almost 6 blocks becomes possible and farmland is not affected by the player falling onto it.
+|-
+! Potion of Slow Falling +
+| 4:00
+|-
+| {{Slot|Potion of Luck|link=none}}
+! {{text anchor|Potion of Luck}}<br>{{only|java|short=1}}{{only|Console|short=1}}{{Anchor|Potion of Luck}}
+| 5:00
+| {{EffectLink|Luck}}
+| Increases the luck [[Attribute#Attributes for players|attribute]] by 1 point.
+|}
+
+==== Potions with negative effects ====
+
+{| class="wikitable col-1-center" data-description="Negative potions"
+! Icon
+! Name
+! Duration
+! Effect
+! Description
+|-
+| rowspan="3" | {{Slot|Potion of Poison|link=none}}
+! {{text anchor|Potion of Poison}}{{Anchor|Potion of Poison}}
+| 0:45
+| rowspan="3" | {{EffectLink|Poison}}
+| Causes up to {{hp|36|poisoned=1}} damage over time at a rate of 1 every 50 ticks, but does not reduce health below {{hp|1}}.
+|-
+! Potion of Poison +
+| 1:30
+| Causes up to {{hp|72|poisoned=1}}{{only|java|short=1}} or {{hp|96|poisoned=1}}{{only|bedrock|short=1}} damage over time, but does not reduce health below {{hp|1}}.
+|-
+! Potion of Poison II
+| 0:21.6{{only|java|short=1}}<br>0:22.5{{only|bedrock|short=1}}
+| Causes up to {{hp|38|poisoned=1}} damage over time, but does not reduce health below {{hp|1}}.
+|-
+| rowspan="2" | {{Slot|Potion of Weakness|link=none}}
+! {{text anchor|Potion of Weakness}}{{Anchor|Potion of Weakness}}
+| 1:30
+| rowspan="2" | {{EffectLink|Weakness}}
+| rowspan="2" | Reduces melee damage by {{hp|4}}.{{only|java}}<br>Reduces melee damage by 20% of the base damage and {{hp|0.5}}.{{only|bedrock}}
+|-
+! Potion of Weakness +
+| 4:00
+|-
+| rowspan="3" | {{Slot|Potion of Slowness|link=none}}
+! {{text anchor|Potion of Slowness}}{{Anchor|Potion of Slowness}}
+| 1:30
+| rowspan="3" | {{EffectLink|Slowness}}
+| rowspan="2" | Slows players and mobs by 15%, to about 4.75 blocks per second sprinting.
+|-
+! Potion of Slowness +
+| 4:00
+|-
+! Potion of Slowness IV<!--The IV is correct, it is not Slowness II-->
+| 0:20
+| Slows players and mobs by 60%, to about 2.25 blocks per second sprinting.
+|-
+| rowspan="2" |{{Slot|Potion of Harming|link=none}}
+! {{text anchor|Potion of Harming}}{{Anchor|Potion of Harming}}
+| Instant
+| rowspan="2" | {{EffectLink|Instant Damage}}
+| Damages {{hp|6}}.
+|-
+! Potion of Harming II
+| Instant
+| Damages {{hp|12}} (doubles with every additional level).
+|-
+| {{Slot|Potion of Decay|link=none}}
+! Potion of Decay<br>{{only|bedrock|short=1}}{{Anchor|Potion of Decay}}
+| 0:40
+| {{EffectLink|Wither|link=Wither (status effect)}}
+| Damages {{hp|1|withered=1}} every second, making a total of {{hp|40|withered=1}} damage. 
+|-
+| {{Slot|Potion of Infestation|link=none}}
+! Potion of Infestation{{Anchor|Potion of Infestation}}
+| 3:00
+| {{EffectLink|Infested}}
+| Has a chance of spawning [[silverfish]] when the effected mob takes damage.
+|-
+| {{Slot|Potion of Oozing|link=none}}
+! Potion of Oozing{{Anchor|Potion of Oozing}}
+| 3:00
+| {{EffectLink|Oozing}}
+| Causes two medium [[slime]]s to spawn on the effected mob's death.
+|-
+| {{Slot|Potion of Weaving|link=none}}
+! Potion of Weaving{{Anchor|Potion of Weaving}}
+| 3:00
+| {{EffectLink|Weaving}}
+| Causes [[cobweb]]s to spawn around when the effected mob dies, and makes it easier to walk through cobwebs.
+|-
+| {{Slot|Potion of Wind Charging|link=none}}
+! Potion of Wind Charging{{Anchor|Potion of Wind Charging}}
+| 3:00
+| {{EffectLink|Wind Charged}}
+| Makes a [[wind charge]] explosion after a mob dies. 
+|}
+
+==== Potions with mixed effects ====
+
+{| class="wikitable col-1-center col-2-center" data-description="Base potions"
+! Icon
+! Name
+! Duration
+! Effect
+! Description
+|-
+| rowspan="3" | {{Slot|Potion of the Turtle Master|link=none}}
+! {{text anchor|Potion of the Turtle Master}}
+| style="text-align:center" | 0:20
+| rowspan="3" | {{EffectLink|Slowness}}<br>{{EffectLink|Resistance}}
+| rowspan="2" | Slows players and mobs by 60%, to about 2.25 blocks per second sprinting, and reduces their damage taken by 60%.
+|-
+! Potion of the Turtle Master +<br>
+| 0:40
+|-
+! Potion of the Turtle Master II<br>
+| 0:20
+| Slows players and mobs by 90%, to about 0.5625 blocks per second sprinting, and reduces their damage taken by 80%.
+|}
+
+=== Uncraftable Potion ===
+
+{{IN|java}}, the Uncraftable Potion is a potion with no effect that is unobtainable in regular gameplay.
+
+It is also available in splash potion and lingering potion forms, as well as for tipped arrows.
+
+It can be obtained using the following command: {{cmd|give @s minecraft:potion}}. It is also obtained any time a potion has invalid or missing potion effect tags, and thus serves as a placeholder.
+
+{| class="wikitable" style="text-align: center;" data-description="Unused potions"
+! Icon
+! Name
+! Effect
+|-
+| {{Slot|Uncraftable Potion|link=none}}
+! Uncraftable Potion
+| No effect
+|}
+
+=== Joke potions===
+
+====[[Java Edition 15w14a]]====
+
+{| class="wikitable col-1-center col-2-center" data-description="Base potions"
+!Icon
+!Name
+!Duration
+!Effect
+! Description 
+|-
+|{{Slot|Potion of Slowness Revision 1|link=none}}
+!{{text anchor|Potion of Caring}}
+| style="text-align:center" |Instant
+|{{EffectLink|id=Slowness Revision 1|Caring}}
+| rowspan="3" |Changes the mob AI to move toward the nearest mob as if it were to attack it.
+|-
+| rowspan="2" |{{Slot|Potion of Poison Revision 1|link=none}}
+!{{text anchor|Potion of Caring}}
+| style="text-align:center" |Instant
+| rowspan="2" | {{EffectLink|id=Poison Revision 1|Caring}} 
+|-
+! {{text anchor|Potion of Caring II}}
+| style="text-align:center" |Instant
+|-
+| rowspan="2" |{{Slot|Potion of Weakness Revision 1|link=none}}
+!{{text anchor|Potion of Sharing}}
+| style="text-align:center" |1:30
+| rowspan="2" |{{EffectLink|id=Weakness Revision 1|Sharing}}
+| rowspan="2" |Drops items in a random amount of time, ranging from food to rare items like [[saddle]]s or [[diamond]]s.
+|-
+!{{text anchor|Potion of Sharing +}}
+| style="text-align:center" |4:00
+|}
+
+==== [[Java Edition 23w13a_or_b]]====
+
+{{Empty section}}
+
+===Undead mobs===
+
+The effects given by Potions of Healing and Harming are opposite on undead mobs, which includes skeletons and zombies. Potions of Healing cause harm, and Harming heals them. In addition, undead mobs are not affected by Poison or Regeneration. 
+
+{{IN|bedrock}}, hitting an undead mob with a Regeneration Potion will always register as Regeneration I, no matter the level of the used potion.
+
+===Mud conversion===
+
+Using a water bottle, splash water bottle, or lingering water bottle on [[dirt]], [[coarse dirt]], or [[rooted dirt]] will convert it into [[mud]], returning a glass bottle with it. This process can be automated with a [[dispenser]]. 
+
+===Filling cauldrons with Potions===
+
+{{IN|Bedrock|Legacy Console}} potion bottles may be used on a cauldron to fill it. Using a glass bottle on a cauldron filled with a potion drains it and fills the bottle. Potions cannot be combined in a cauldron, nor can they be mixed with water, but as an added bonus if you use a stack of arrows in a full cauldron you get a stack of tipped arrows. for 1 layer you get 16, 2 layers 32.
+
+==Custom effects==
+
+{{IN|java}}, potions can also be obtained with any status effect using {{cmd|give}} and the tag <code>custom_potion_effects</code>, which is an array of effects for the potion. See [[Item format#Potion Effects]] for more information, and [[status effect]] for a list of effects and IDs.
+
+==Sounds==
+{{edition|java}}:
+{{Sound table
+|sound=Drink.ogg
+|subtitle=Sipping
+|source=player
+|description=While a player is drinking a potion
+|id=entity.generic.drink
+|translationkey=subtitles.entity.generic.drink
+|volume=0.5
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|sound=Witch drink1.ogg
+|sound2=Witch drink2.ogg
+|sound3=Witch drink3.ogg
+|sound4=Witch drink4.ogg
+|subtitle=Witch drinks
+|source=hostile
+|description=When a witch drinks a potion
+|id=entity.witch.drink
+|translationkey=subtitles.entity.witch.drink
+|volume=1.0
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Wandering trader drink potion.ogg
+|sound2=Drink.ogg
+|subtitle=Wandering Trader drinks potion
+|source=neutral
+|description=While a [[wandering trader]] is drinking a potion to become invisible during nighttime
+|id=entity.wandering_trader.drink_potion
+|translationkey=subtitles.entity.wandering_trader.drink_potion
+|volume=''varies'' <ref group=sound>0.35 for the first sound, 0.325 for the second sound</ref>
+|pitch=0.9-1.0
+|distance=16}}
+{{Sound table
+|sound=Bottle empty1.ogg
+|sound2=Bottle empty2.ogg
+|subtitle=Bottle empties
+|source=block
+|description=When a water bottle is emptied
+|id=item.bottle.empty
+|translationkey=subtitles.item.bottle.empty
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Bottle fill water1.ogg
+|sound2=Bottle fill water2.ogg
+|sound3=Bottle fill water3.ogg
+|sound4=Bottle fill water4.ogg
+|subtitle=Bottle fills
+|source=block
+|description=When a water bottle is filled
+|id=item.bottle.fill
+|translationkey=subtitles.item.bottle.fill
+|volume=1.0
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{edition|bedrock}}:
+{{Sound table
+|type=bedrock
+|sound=Drink.ogg
+|source=player
+|description=When a player drinks a potion
+|id=random.drink
+|volume=0.35
+|pitch=0.9-1.1}}
+{{Sound table
+|sound=Witch drink1.ogg
+|sound2=Witch drink2.ogg
+|sound3=Witch drink3.ogg
+|sound4=Witch drink4.ogg
+|source=hostile
+|description=When a witch drinks a potion
+|id=mob.witch.drink
+|volume=1.0
+|pitch=1.0}}
+{{Sound table
+|sound=Wandering trader drink potion.ogg
+|sound2=Drink.ogg
+|source=neutral
+|description=When a wandering trader drinks a potion to become invisible during nighttime
+|id=mob.wanderingtrader.drink_potion
+|volume=''varies'' <ref group=sound>0.7 for the first sound, 0.65 for the second sound</ref>
+|pitch=0.8-1.2}}
+{{Sound table
+|rowspan=4
+|sound=Water Splash Old.ogg
+|source=block
+|description=When a potion is placed in a cauldron<wbr><ref group=sound name=potionsplash>{{Bug|MCPE-174867}}</ref>
+|id=cauldron.fillpotion
+|volume=0.1
+|pitch=1.0}}
+{{Sound table
+|source=block
+|description=When a potion is taken from a cauldron<wbr><ref group=sound name=potionsplash/>
+|id=cauldron.takepotion
+|volume=0.1
+|pitch=1.0}}
+{{Sound table
+|source=block
+|description=When water from a bottle is placed in a cauldron<wbr><ref group=sound name=potionsplash/>
+|id=cauldron.fillwater
+|volume=0.1
+|pitch=1.0}}
+{{Sound table
+|source=block
+|description=When water from a bottle is taken from a cauldron<wbr><ref group=sound name=potionsplash/>
+|id=cauldron.takewater
+|volume=0.1
+|pitch=1.0}}
+{{Sound table
+|sound=Bottle empty1.ogg
+|sound2=Bottle empty2.ogg
+|source=sound<!--bottle-->
+|description=When a water bottle or potion is emptied<wbr>{{Upcoming|BE 1.20.40}}
+|id=bottle.empty
+|volume=1.0
+|pitch=1.0}}
+{{Sound table
+|sound=Bottle fill water1.ogg
+|sound2=Bottle fill water2.ogg
+|sound3=Bottle fill water3.ogg
+|sound4=Bottle fill water4.ogg
+|source=sound<!--bottle-->
+|description=When a water bottle or potion is filled<wbr>{{Upcoming|BE 1.20.40}}
+|id=bottle.fill
+|volume=1.0
+|pitch=1.0
+|foot=1}}
+
+==Data values==
+===ID===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Potion
+|spritetype=item
+|nameid=potion
+|form=item
+|translationkey=item.minecraft.potion,item.minecraft.potion.effect.empty,item.minecraft.potion.effect.water,item.minecraft.potion.effect.mundane,item.minecraft.potion.effect.thick,item.minecraft.potion.effect.awkward,item.minecraft.potion.effect.night_vision,item.minecraft.potion.effect.invisibility,item.minecraft.potion.effect.leaping,item.minecraft.potion.effect.fire_resistance,item.minecraft.potion.effect.swiftness,item.minecraft.potion.effect.slowness,item.minecraft.potion.effect.water_breathing,item.minecraft.potion.effect.healing,item.minecraft.potion.effect.harming,item.minecraft.potion.effect.poison,item.minecraft.potion.effect.regeneration,item.minecraft.potion.effect.strength,item.minecraft.potion.effect.weakness,item.minecraft.potion.effect.levitation,item.minecraft.potion.effect.luck,item.minecraft.potion.effect.turtle_master,item.minecraft.potion.effect.slow_falling,item.minecraft.potion.effect.infested,item.minecraft.potion.effect.oozing,item.minecraft.potion.effect.weaving,item.minecraft.potion.effect.wind_charged
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|notshowbeitemforms=y
+|generatetranslationkeys=y
+|displayname=Potion
+|spritetype=item
+|nameid=potion
+|id=426
+|form=item
+|translationkey=potion.emptyPotion.name,potion.mundane.name,potion.mundane.extended.name,potion.thick.name,potion.awkward.name,potion.nightVision.name,potion.invisibility.name,potion.jump.name,potion.fireResistance.name,potion.moveSpeed.name,potion.moveSlowdown.name,potion.heal.name,potion.harm.name,potion.poison.name,potion.regeneration.name,potion.damageBoost.name,potion.weakness.name,potion.wither.name,potion.turtleMaster.name,potion.slowFalling.name
+|foot=1}}
+
+=== Metadata===
+{{IN|bedrock}}, potions use the following item data values to indicate the kind of potion:
+{{/DV}}
+
+===Item data===
+
+====Java Edition====
+
+<div class="treeview">
+* {{nbt|compound|tag}}: The item's '''tag''' tag.
+{{:Player.dat_format/Potion}}
+</div>
+Normal potions use an NBT "Potion" tag to indicate the potion type. The values of the tag (to be prefixed with <code>minecraft:</code>) are:
+{| class="wikitable sortable" style="text-align: center;" data-description="Potion NBT data"
+!Potion
+! Regular
+!Level II
+!Extended + 
+|-
+|Uncraftable Potion
+|anything except the below
+|–
+|–
+|-
+|Water Bottle
+|{{code|water}} 
+|–
+|–
+|-
+|Mundane Potion
+|{{code|mundane}}
+|–
+|–
+|-
+|Thick Potion
+|{{code|thick}}
+|–
+|–
+|-
+|Awkward Potion
+|{{code|awkward}}
+|–
+|–
+|-
+|Night Vision
+|{{code|night_vision}}
+|–
+|{{code|long_night_vision}}
+|-
+|Invisibility
+|{{code|invisibility}}
+|–
+|{{code|long_invisibility}}
+|-
+|Leaping
+|{{code|leaping}}
+|{{code|strong_leaping}}
+|{{code|long_leaping}}
+|-
+|Fire Resistance
+|{{code|fire_resistance}}
+|–
+|{{code|long_fire_resistance}}
+|-
+|Swiftness
+|{{code|swiftness}}
+|{{code|strong_swiftness}}
+|{{code|long_swiftness}}
+|-
+|Slowness
+|{{code|slowness}}
+|{{code|strong_slowness}}
+|{{code|long_slowness}}
+|-
+|Water Breathing
+|{{code|water_breathing}}
+|–
+|{{code|long_water_breathing}}
+|-
+|Instant Health
+|{{code|healing}}
+|{{code|strong_healing}}
+|–
+|-
+|Harming
+|{{code|harming}}
+|{{code|strong_harming}}
+|–
+|-
+|Poison
+|{{code|poison}}
+|{{code|strong_poison}}
+|{{code|long_poison}}
+|-
+|Regeneration
+|{{code|regeneration}}
+|{{code|strong_regeneration}}
+| {{code|long_regeneration}}
+|-
+|Strength
+|{{code|strength}} 
+| {{code|strong_strength}}
+|{{code|long_strength}}
+|-
+|Weakness
+|{{code|weakness}}
+|–
+|{{code|long_weakness}}
+|-
+|Luck
+|{{code|luck}}
+|–
+|–
+|-
+|The Turtle Master
+|{{code|turtle_master}}
+|{{code|strong_turtle_master}}
+|{{code|long_turtle_master}}
+|-
+|Slow Falling
+|{{code|slow_falling}}
+|–
+|{{code|long_slow_falling}}
+|-
+|Infested
+|{{code|infested}}
+|–
+|–
+|-
+|Oozing
+|{{code|oozing}}
+|–
+|–
+|-
+|Weaving
+|{{code|weaving}}
+|–
+|–
+|-
+|Wind Charged
+|{{code|wind_charged}}
+|–
+|–
+|}
+
+====Bedrock Edition====
+
+:See [[Bedrock Edition level format/Item format]].
+
+==Achievements==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Local Brewery|Taste of your own Medicine}}
+</table-progress-tracking>
+
+==Advancements==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{Load advancements|Local Brewery;A Furious Cocktail;How Did We Get Here?;Husbandry}}
+</table-progress-tracking>
+
+==History==
+{{Info needed section|Potion of Weakness;Uncraftable Potion texture in JE 1.11}}
+{{History|java beta}}
+{{History||July 7, 2010|link=https://web.archive.org/web/0/http://notch.tumblr.com/post/779956568/the-rationale-for-redstone|[[Brewing|Alchemy]] was first hinted by [[Notch]] when he explained why [[redstone ore]] disintegrates into "[[redstone|dust]]". He states that dust would be used later in potions.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|[[Jeb]] tweeted a screenshot showing potion durations and [[glass bottle]]s.<ref>{{tweet|jeb|118681103350501376|This will probably ->NOT<- be included in Beta 1.9, but it's a nice screenshot: http://i.imgur.com/oK2tE.png |September 28, 2011}}</ref>
+|Potions are [[brewing|brewed]] using [[cauldron]]s<ref>{{tweet|jeb|119466949708222465|Potions are delayed because *add to cauldron, pick up, look at tooltip, pour back into cauldron, repeat* was extremely tedious|September 30, 2011}}</ref> by combining ingredients and other potions in cauldrons. Cauldrons, although they are functional and can be used to brew potions, are unavailable in this update.
+|In total, there are 161 possible potion combinations and 2,653 different types of potions.<ref>{{tweet|jeb|120520408792432641|In the prerelease, there are 161 brewable unique potions. Unless we change it, there are 2,653 with all ingredients added.|October 3, 2011}}</ref>
+|[[Jeb]] later tweeted that both [[Notch]] and he had come up with a different way to [[brewing|brew]] potions, which was revealed to be [[brewing stand]]s.<ref>{{tweet|jeb|119710836469149697|A quick discussion with @notch led me in on a new way of doing the potion brewing. Cauldron is out...|September 30, 2011}}</ref>}}
+{{History|||snap=Beta 1.9 Prerelease 3|[[Brewing stand]]s have been implemented, which has replaced the (previously unimplemented) [[cauldron]]s' [[brewing]] functionality, so potions are now obtainable without mods. Potions Brewed in the previous version will now be glitched. Water Bottles have been added.}}
+{{History||1.3.1|snap=12w21b|[[File:Water Bottle JE1 BE1.png|32px]] Water bottles have been added to the [[Creative inventory]].}}
+{{History||1.3.1|snap=12w22a|[[File:Potion of Fire Resistance JE1 BE1.png|32px]] [[File:Potion of Swiftness JE1 BE1.png|32px]] [[File:Potion of Slowness JE1 BE1.png|32px]] [[File:Potion of Healing JE1 BE1.png|32px]] [[File:Potion of Harming JE1 BE1.png|32px]] [[File:Potion of Poison JE1 BE1.png|32px]] [[File:Potion of Regeneration JE1 BE1.png|32px]] [[File:Potion of Strength JE1 BE1.png|32px]] [[File:Potion of Weakness JE1 BE1.png|32px]] Potions have been added to the [[Creative]] [[inventory]]. This includes extended-enhanced potions with both extended duration and enhanced effect for four potion effects.}}
+{{History||1.4.2|snap=12w32a|[[File:Potion of Night Vision JE1 BE1.png|32px]] Added potion of [[Night Vision]]. However, it is [[brewing|unbrewable]] at the time.}}
+{{History|||snap=12w38a|Added Healing and Harming potions to the Creative inventory.}}
+{{History||1.5|snap=?|Extended-enhanced potions are no longer available in the Creative inventory for all four potion effects. {{info needed}}{{verify}}<!--only checked v1.4.7 and v1.5.2, but did not check any version in between, please check all-->}}
+{{History|||snap=12w34a|[[File:Potion of Invisibility JE1 BE1.png|32px]] Added potions of [[Invisibility]].
+|Potions of Night Vision are now [[brewing|brewable]].}}
+{{History|||snap=12w38a|[[Witch]]es now cast potions at [[player]]s and can rarely [[drops|drop]] potions upon [[death]].}}
+{{History|||snap=12w39a|Potions are now customizable using NBT editors or MCEdit.}}
+{{History||1.6.1|snap=?|Potions of [[Weakness]] now reduce [[damage]] by half hearts, instead of 1 heart as it was before.}}
+{{History|||snap=13w23a|Potions of [[Healing]] and [[Regeneration]] have been nerfed (by 33.3% and 50%).}} 
+{{History||1.7.2|snap=13w36a|[[File:Potion of Water Breathing JE1 BE1.png|32px]] Added potions of [[Water Breathing]].
+|[[Water bottle]]s can now be obtained as one of the "junk" [[item]]s from [[fishing]].}}
+{{History||1.8|snap=14w27a|[[File:Potion of Leaping JE1 BE1.png|32px]] Added potions of [[Leaping]].}}
+{{History||1.8.1|snap=pre1|Potion of Leaping can now be extended.}}
+{{History||1.9|snap=15w31a|Numeric IDs are no longer used for potions. Instead, an NBT "Potion" [[tag]] is used, e.g. {{cmd|give @p minecraft:potion 1 0 {Potion:"minecraft:swiftness"} }}. See [[/Before 1.9|here]] for the old numeric IDs. This means the order of potion effects have changed in the Creative inventory.
+|Splash potions now have a separate data value and ID name.
+|[[File:Water Bottle JE1 BE1.png|32px]] [[File:Water Bottle JE1 BE1.png|32px]] [[File:Water Bottle JE1 BE1.png|32px]] Added Mundane, Thick and Awkward potions to the [[creative]] [[inventory]].
+|Mixed potions' colors now blend.}}
+{{History|||snap=15w33a|Added [[lingering potion]]s, which are [[brewing|brewed]] with [[splash potion]]s and [[dragon breath]] after splash potions are brewed with potions and [[gunpowder]].
+|The duration of potions of [[Poison]] has been extended, the duration of potions of [[Regeneration]] has been extended, and the duration of potions of [[Poison]] II has been reduced.
+|Potion of [[Strength]] has been changed from 130% increase to 3-point increase.
+|Potion of [[Weakness]] has been changed to 4-point decrease, was 0.5-point decrease.}}
+{{History|||snap=15w44b|[[File:Uncraftable Potion JE1.png|32px]] Added the uncraftable potion.
+|[[File:Potion of Luck JE1.png|32px]] Added potions of [[Luck]].}}
+{{History||1.11|snap=16w33a|A [[water bottle]] is now able to add 1 water level to a [[cauldron]].}}
+{{History|||snap=16w38a|The uncraftable potion is now magenta, has no glint, and is now obtained anytime a potion is specified with invalid or missing potion effect [[tag]]s.
+|Due to the [[water bottle]] without tags being changed to the uncraftable potion, the [[brewing]] icon has also been changed to the uncraftable potion in [[creative]] [[inventory]].
+|The uncraftable potion has been removed from the [[creative]] [[inventory]].}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], this [[item]]'s numeral ID was 373.}}
+{{History|||snap=18w07a|[[File:Potion of the Turtle Master JE1 BE1.png|32px]] Added potion of the Turtle Master, which gives Slowness IV and Resistance IV for 1 minute.
+|Extended potions give both effects for 3 minutes.
+|Level 2 potions give level VI of both effects for 1 minute.}}
+{{History|||snap=18w14a|[[File:Potion of Slow Falling JE1 BE1.png|32px]] Added potions of [[Slow Falling]].}}
+{{History|||snap=18w16a|Regular and extended potions of the Turtle Master now give only Resistance III.
+|Level 2 potions of the Turtle Master now give only Resistance IV. This is because Resistance VI made the player invincible.}}
+{{History||1.14|snap=18w43a|[[File:Potion of Night Vision JE2 BE2.png|32px]] [[File:Potion of Invisibility JE2 BE2.png|32px]] [[File:Potion of Leaping JE2 BE2.png|32px]] [[File:Potion of Fire Resistance JE2 BE2.png|32px]] [[File:Potion of Swiftness JE2 BE2.png|32px]] [[File:Potion of Slowness JE2 BE2.png|32px]] [[File:Potion of the Turtle Master JE2 BE2.png|32px]] [[File:Potion of Water Breathing JE2 BE2.png|32px]] [[File:Potion of Healing JE2 BE2.png|32px]] [[File:Potion of Harming JE2 BE2.png|32px]] [[File:Potion of Poison JE2 BE2.png|32px]] [[File:Potion of Regeneration JE2 BE2.png|32px]] [[File:Potion of Strength JE2 BE2.png|32px]] [[File:Potion of Weakness JE2 BE2.png|32px]] [[File:Potion of Luck JE2.png|32px]] [[File:Potion of Slow Falling JE2 BE2.png|32px]] [[File:Water Bottle JE2 BE2.png|32px]] [[File:Uncraftable Potion JE2.png|32px]]<br>[[File:Potion of Night Vision.gif|32px]] [[File:Potion of Invisibility.gif|32px]] [[File:Potion of Leaping.gif|32px]] [[File:Potion of Fire Resistance.gif|32px]] [[File:Potion of Swiftness.gif|32px]] [[File:Potion of Slowness.gif|32px]] [[File:Potion of the Turtle Master.gif|32px]] [[File:Potion of Water Breathing.gif|32px]] [[File:Potion of Healing.gif|32px]] [[File:Potion of Harming.gif|32px]] [[File:Potion of Poison.gif|32px]] [[File:Potion of Regeneration.gif|32px]] [[File:Potion of Strength.gif|32px]] [[File:Potion of Weakness.gif|32px]] [[File:Potion of Luck.gif|32px]] [[File:Potion of Slow Falling.gif|32px]] The textures of potions have been changed.}}
+{{History|||snap=19w06a|[[Wandering trader]]s now drink [[Invisibility]] potions at [[night]] and [[milk bucket]]s at dawn.}}
+{{History||1.16|snap=20w09a|[[Fire resistance]] potions can now be obtained through [[bartering]].}}
+{{History||1.16.2|snap=20w28a|Water bottles can now be obtained through [[bartering]].|Potions and splash potions of Fire Resistance now have a {{frac|8|459}} (~1.74%) chance of being offered by [[piglin]]s when bartering.}}
+{{History||1.18|snap=21w39a|Potions of Water Breathing can now generate in [[buried treasure]] chests.}}
+{{History||1.19|snap=Deep Dark Experimental Snapshot 1|Potions of Healing now generate in [[ancient city]] chests.}}
+{{History|||snap=22w11a|Water bottles can now be used on [[dirt]], [[coarse dirt]], or [[rooted dirt]] to turn it into [[mud]].}}
+{{History|||snap=22w13a|Potions of Healing no longer generate in [[ancient city]] [[chest]]s.|Potions of Regeneration may now be found in [[ancient city]] [[chest]]s.}}
+{{History||1.19.4|snap=Pre-release 1|Potions no longer have an enchantment glint.}}
+{{History|||snap=Pre-release 3|[[File:Potion of Night Vision JE3.png|32px]] [[File:Potion of Invisibility JE3.png|32px]] [[File:Potion of Leaping JE3.png|32px]] [[File:Potion of Fire Resistance JE3.png|32px]] [[File:Potion of Swiftness JE3.png|32px]] [[File:Potion of Slowness JE3.png|32px]] [[File:Potion of the Turtle Master JE3.png|32px]] [[File:Potion of Water Breathing JE3.png|32px]] [[File:Potion of Harming JE3.png|32px]] [[File:Potion of Poison JE3.png|32px]] [[File:Potion of Strength JE3.png|32px]] Changed colors of the following potions (all forms): Night Vision, Invisibility, Leaping, Fire Resistance, Swiftness, Slowness, Turtle Master, Water Breathing, Harming, Poison, Strength, Resistance.}}
+{{History||1.20|snap=23w12a|Wither [[effect]] particle colors have been adjusted to make them more distinguishable.
+|The potion of [[Slow Falling]] has had its color tweaked to make it more distinguishable from the potion of [[Invisibility]].}}
+{{History||1.20.2|snap=23w32a|Game no longer uses numerical values for potion IDs.|Renamed the following tags:
+* <code>CustomPotionEffects</code> -> <code>custom_potion_effects</code>
+* <code>Id</code> (integer) -> <code>id</code> (string, resource location)
+* <code>Ambient</code> -> <code>ambient</code>
+* <code>Amplifier</code> -> <code>amplifier</code>
+* <code>Duration</code> -> <code>duration</code>
+* <code>ShowParticles</code> -> <code>show_particles</code>
+* <code>ShowIcon</code> -> <code>show_icon</code>}}
+{{History|java upcoming}}
+{{History||Combat Tests|snap=Combat Test 7c|Potions with the same tags can now stack to 16.}}
+{{History|||snap=Combat Test 8b|Potions (and liquid food) can now be drank faster (20 ticks, was 32 ticks).}}
+{{History|upcoming java}}
+{{History||Villager Trade Rebalance<br>(Experimental)|link=Java Edition 1.20.2|snap=23w31a|[[Wandering trader]]s now have a chance to [[trading|buy]] a water bottle or sell a potion of Invisibility.}}
+
+{{History|pocket alpha}}
+{{History||v0.12.1|snap=build 1|[[File:Water Bottle JE1 BE1.png|32px]] [[File:Potion of Night Vision JE1 BE1.png|32px]] [[File:Potion of Invisibility JE1 BE1.png|32px]] [[File:Potion of Leaping JE1 BE1.png|32px]] [[File:Potion of Fire Resistance JE1 BE1.png|32px]] [[File:Potion of Swiftness JE1 BE1.png|32px]] [[File:Potion of Slowness JE1 BE1.png|32px]] [[File:Potion of Water Breathing JE1 BE1.png|32px]] [[File:Potion of Healing JE1 BE1.png|32px]] [[File:Potion of Harming JE1 BE1.png|32px]] [[File:Potion of Poison JE1 BE1.png|32px]] [[File:Potion of Regeneration JE1 BE1.png|32px]] [[File:Potion of Strength JE1 BE1.png|32px]] [[File:Potion of Weakness JE1 BE1.png|32px]] Added potions.
+|Water bottles, mundane, long mundane, thick, and awkward potions are all available in the Creative inventory.}}
+{{History||v0.13.0|snap=build 1|Potions of [[Leaping]] are now obtainable in [[survival]].}}
+{{History||v0.14.0|snap=build 1|Potions can now be used to fill 1/3 layer of [[cauldron]], filling cauldron with different [[liquids|liquid]] empties the cauldron.
+|Using a [[glass bottle]] to a [[cauldron]] filled by a potion now fills the glass bottle with that potion.
+|[[Swamp hut]]s now generate [[cauldron]]s filled with a random potion, making potions now obtainable in [[survival]] without [[brewing]].
+|Potions of [[Healing]], [[Fire Resistance]], [[Water Breathing]] and [[Swiftness]] can now be obtained by killing [[witch]]es while they're drinking potions.}}
+{{History||v0.16.0|snap=build 4|[[File:Potion of Decay BE1.png|32px]] Added potions of [[Wither (status effect)|Decay]].}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|2 Potions of [[Healing]] II can now be found in a [[brewing stand]] inside [[end ship]]s.}}
+{{History|bedrock}}
+{{History||1.4.0|snap=beta 1.2.14.2|Potions of [[Water Breathing]] and potions of [[Regeneration]] can now be found inside [[buried treasure]] chests.}}
+{{History||1.5.0|snap=beta 1.5.0.4|[[File:Potion of the Turtle Master JE1 BE1.png|32px]] Added potions of the Turtle Master.}}
+{{History||1.6.0|snap=beta 1.6.0.5|[[File:Potion of Slow Falling JE1 BE1.png|32px]] Added potions of [[Slow Falling]].}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Water Bottle JE2 BE2.png|32px]] [[File:Potion of Night Vision JE2 BE2.png|32px]] [[File:Potion of Invisibility JE2 BE2.png|32px]] [[File:Potion of Leaping JE2 BE2.png|32px]] [[File:Potion of Fire Resistance JE2 BE2.png|32px]] [[File:Potion of Swiftness JE2 BE2.png|32px]] [[File:Potion of Slowness JE2 BE2.png|32px]] [[File:Potion of Water Breathing JE2 BE2.png|32px]] [[File:Potion of Healing JE2 BE2.png|32px]] [[File:Potion of Harming JE2 BE2.png|32px]] [[File:Potion of Poison JE2 BE2.png|32px]] [[File:Potion of Regeneration JE2 BE2.png|32px]] [[File:Potion of Strength JE2 BE2.png|32px]] [[File:Potion of Weakness JE2 BE2.png|32px]] [[File:Potion of Decay BE2.png|32px]] [[File:Potion of the Turtle Master JE2 BE2.png|32px]] [[File:Potion of Slow Falling JE2 BE2.png|32px]] The textures of potions have been changed.}}
+{{History||1.11.0|snap=beta 1.11.0.3|Potions of [[Invisibility]] can now be obtained by killing [[wandering trader]]s while they're drinking potions.}}
+{{History||1.16.0|snap=beta 1.15.0.51|Added potions of [[Slowness]] IV, which can be brewed from potions of Slowness using glowstone dust.}}
+{{History|||snap=beta 1.16.0.57|[[Fire resistance]] potions can now be obtained through [[bartering]].}}
+{{History||1.16.100|snap=beta 1.16.100.54|Water Bottles can now be obtained through [[bartering]].|Potions and splash potions of Fire Resistance now have a {{frac|8|459}} (~1.74%) chance of being offered by [[piglin]]s when bartering.}}
+{{History||1.19.80|snap=beta 1.19.80.21|Changed potion colors for the following potions: Fire Resistance, Harming, Invisibility, Leaping, Night Vision, Poison, Slowness, Strength, Swiftness, Turtle Master, and Water Breathing.
+|Removed enchantment glint from splash potions.}}
+
+{{History|console}}
+{{History||xbox=TU7|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Water Bottle JE1 BE1.png|32px]] [[File:Potion of Fire Resistance JE1 BE1.png|32px]] [[File:Potion of Swiftness JE1 BE1.png|32px]] [[File:Potion of Slowness JE1 BE1.png|32px]] [[File:Potion of Healing JE1 BE1.png|32px]] [[File:Potion of Harming JE1 BE1.png|32px]] [[File:Potion of Poison JE1 BE1.png|32px]] [[File:Potion of Regeneration JE1 BE1.png|32px]] [[File:Potion of Strength JE1 BE1.png|32px]] [[File:Potion of Weakness JE1 BE1.png|32px]] Added potions.}}
+{{History||xbox=TU8|Added the awkward potion to the [[Creative]] menu.}}
+{{History||xbox=TU14|ps=1.04|[[File:Potion of Night Vision JE1 BE1.png|32px]] [[File:Potion of Invisibility JE1 BE1.png|32px]] Added potions of [[Night Vision]] and potions of [[Invisibility]].
+|Awkward potion is no longer obtainable from the [[Creative inventory]].
+|Extended-enhanced potions are now listed individually for four potion effects.}}
+{{History||xbox=TU31|xbone=CU19|ps=1.22|wiiu=Patch 3|[[File:Potion of Leaping JE1 BE1.png|32px]] [[File:Potion of Water Breathing JE1 BE1.png|32px]] Added potions of [[Jump Boost|Leaping]] and potions of [[Water Breathing]]. These are both available in four variants unlike ''Java'' and ''Bedrock'' where the latter group only added two variants of water breathing and three variants for leaping.}}
+{{History||xbox=TU34|xbone=CU22|ps=1.25|wiiu=Patch 4|Removed two of the four types of water breathing potions and splash potions.}}
+{{History||xbox=TU46|xbone=CU36|ps=1.38|wiiu=Patch 15|[[File:Potion of Luck JE1.png|32px]] Added potions of [[Luck]].
+|Added [[lingering potion]]s, which are [[brewing|brewed]] with [[splash potion]]s and [[dragon breath]] after splash potions are brewed with potions and [[gunpowder]].
+|Removed all types of extended-enhanced potions for all five potion effects.
+|Potions effects are now arranged more like ''Java Edition''.}}
+{{History||xbox=TU69|xbone=none|ps=1.76|wiiu=Patch 38|switch=none|[[File:Potion of Decay BE1.png|32px]] [[File:Potion of the Turtle Master JE1 BE1.png|32px]] [[File:Potion of Slow Falling JE1 BE1.png|32px]] Added potions of [[Wither (status effect)|Decay]], Turtle Master, and [[Slow Falling]].}}
+{{History||xbox=none|xbone=none|ps=1.83|wiiu=none|switch=none|Awkward potion is once again obtainable from the Creative inventory.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Water Bottle JE2 BE2.png|32px]] [[File:Potion of Night Vision JE2 BE2.png|32px]] [[File:Potion of Invisibility JE2 BE2.png|32px]] [[File:Potion of Leaping JE2 BE2.png|32px]] [[File:Potion of Fire Resistance JE2 BE2.png|32px]] [[File:Potion of Swiftness JE2 BE2.png|32px]] [[File:Potion of Slowness JE2 BE2.png|32px]] [[File:Potion of Water Breathing JE2 BE2.png|32px]] [[File:Potion of Healing JE2 BE2.png|32px]] [[File:Potion of Harming JE2 BE2.png|32px]] [[File:Potion of Poison JE2 BE2.png|32px]] [[File:Potion of Regeneration JE2 BE2.png|32px]] [[File:Potion of Strength JE2 BE2.png|32px]] [[File:Potion of Weakness JE2 BE2.png|32px]] [[File:Potion of Luck JE2.png|32px]] [[File:Potion of Decay BE2.png|32px]] [[File:Potion of the Turtle Master JE2 BE2.png|32px]] [[File:Potion of Slow Falling JE2 BE2.png|32px]] The textures of potions have been changed.}}
+
+{{History|New 3DS}}
+{{History||0.1.0|[[File:Water Bottle JE1 BE1.png|32px]] [[File:Potion of Night Vision JE1 BE1.png|32px]] [[File:Potion of Invisibility JE1 BE1.png|32px]] [[File:Potion of Leaping JE1 BE1.png|32px]] [[File:Potion of Fire Resistance JE1 BE1.png|32px]] [[File:Potion of Swiftness JE1 BE1.png|32px]] [[File:Potion of Slowness JE1 BE1.png|32px]] [[File:Potion of Healing JE1 BE1.png|32px]] [[File:Potion of Harming JE1 BE1.png|32px]] [[File:Potion of Poison JE1 BE1.png|32px]] [[File:Potion of Regeneration JE1 BE1.png|32px]] [[File:Potion of Strength JE1 BE1.png|32px]] [[File:Potion of Weakness JE1 BE1.png|32px]] Added potions.
+|Water bottles, mundane, thick, and awkward potions are all available in the Creative inventory.}}
+{{History||1.3.12|[[File:Potion of Decay BE1.png|32px]] Added potions of [[Wither (status effect)|Decay]].}}
+{{History||1.7.10|Added [[lingering potion]]s, which are [[brewing|brewed]] with [[splash potion]]s and [[dragon breath]] after splash potions are brewed with potions and [[gunpowder]].}}
+{{History|foot}}
+
+<gallery>
+Health_Potion.png|Thick Potion with status effects of Mining Fatigue (duration 4:00) and Instant Health II (duration 4:00).
+Invisible_sheep.png|An invisible sheep. Its wool can still be seen.
+New Potion Colors.png|The new potion colors.
+</gallery>
+
+==Issues==
+{{issue list}}
+
+==Trivia==
+*A potion can reach a maximum tier of 127, but using the {{cmd|effect}} [[commands|command]], effect levels can reach 255.
+*When a player drinks two potions by quickly switching to another potion immediately after drinking one, the second drinking animation is not shown.{{verify|type=current|Still in recent versions?}} 
+*A potion of [[Poison]] II lasts for 22.5 seconds, but it is displayed as 22 seconds because the [[item]] hover display shows rounded-down integer values.
+*The "Local Brewery" [[advancement]] uses the Uncraftable Potion texture for its icon.
+
+==Unused potions ==
+''[[Bedrock Edition]]'' has [[History of textures/Unused textures#Unused potions|unused potion textures]] for several [[effect]]s, along with their [[Splash Potion#Unused splash potions|splash variants]]. These effects are: [[Absorption]], [[Blindness]], [[Haste]], [[Health Boost]], [[Hunger]], [[Mining Fatigue]], [[Nausea]], [[Resistance]], [[Saturation]], and [[Levitation]], as well as the [[Luck]] potion textures also present in [[Java Edition]]. These unused textures were added along with the other potion textures in [[Pocket Edition v0.12.1 alpha]], except for the potion of levitation, which was added in [[Pocket Edition 1.0.0]]. The textures were changed along with the other potion textures during the [[texture update]] in [[Bedrock Edition 1.10.0]]. Strangely, the potion of levitation texture is a duplicate of the splash potion of levitation texture.
+<gallery>
+Potion of Absorption BE2.png|Potion of Absorption
+Potion of Blindness BE2.png|Potion of Blindness
+Potion of Haste BE2.png|Potion of Haste
+Potion of Health Boost BE2.png|Potion of Health Boost
+Potion of Hunger BE2.png|Potion of Hunger
+Potion of Mining Fatigue BE2.png|Potion of Mining Fatigue
+Potion of Nausea BE2.png|Potion of Nausea
+Potion of Resistance BE2.png|Potion of Resistance
+Potion of Saturation BE2.png|Potion of Saturation
+Potion of Levitation BE2.png|Potion of Levitation
+</gallery>
+
+==Gallery==
+===Potions===
+;Java Edition
+<gallery>
+Water Bottle.png|Water Bottle
+Potion of Night Vision.png|Potion of Night Vision
+Potion of Invisibility.png|Potion of Invisibility
+Potion of Leaping.png|Potion of Leaping
+Potion of Fire Resistance.png|Potion of Fire Resistance
+Potion of Swiftness.png|Potion of Swiftness
+Potion of Slowness.png|Potion of Slowness
+Potion of the Turtle Master.png|Potion of the Turtle Master
+Potion of Water Breathing.png|Potion of Water Breathing
+Potion of Healing.png|Potion of Healing
+Potion of Harming.png|Potion of Harming
+Potion of Poison.png|Potion of Poison
+Potion of Regeneration.png|Potion of Regeneration
+Potion of Strength.png|Potion of Strength
+Potion of Weakness.png|Potion of Weakness
+Potion of Slow Falling.png|Potion of Slow Falling
+Potion of Luck.png|Potion of Luck
+Potion of Decay.png|Potion of Decay
+Uncraftable Potion.png|Uncraftable Potion
+</gallery>
+
+===Screenshots===
+<gallery>
+OK2tE.png|Potion effects showing up in [[inventory]].
+PotionBubbles.png|The bubbles emitted when a player drinks a potion.
+Nightvision.png|The effect of night vision (left image is with night vision, right image is without).
+NetherPotionEffect.png|The view when a player uses night vision in the Nether.
+PotionTable.png|A brewing stand with a potion displayed next to it.
+MinecraftPotionsClean.png|A guide to brewing before [[Java Edition 1.6.1|1.6]].
+</gallery>
+
+=== In other media===
+<gallery>
+File:Elixir (MCSM).png|The [[Minecraft Story Mode:Elixir|Elixir]], a unique potion featured in [[Minecraft Story Mode]].
+File:Witch Potion (Dungeons).png|A potion thrown by a [[MCD:Witch|witch]], as depicted in [[Minecraft Dungeons]].
+File:Strength Potion.png|A [[MCD:Strength Potion|strength potion]], as it appears in Minecraft Dungeons.
+File:Swiftness Potion.png|A [[MCD:Swiftness Potion|Swiftness Potion]], as depicted in Minecraft Dungeons.
+File:Potion of Water Breathing (MCD).png|A [[MCD:Potion of Water Breathing|Potion of Water Breathing]], as it appears in Minecraft Dungeons.
+File:Bottle Lamp.jpg|An officially licensed bottle LED desk lamp.
+File:Potion Bottle Bottle.jpg|A water bottle depicting many potions.
+</gallery>
+
+==See also==
+*{{ItemLink|Glass Bottle}}
+*{{ItemLink|Medicine}}
+*{{ItemLink|Splash Potion}}
+*{{ItemLink|Lingering Potion}}
+
+==Notes==
+<references group="note" />
+
+==References==
+{{reflist}}
+
+==External links==
+*[https://www.minecraft.net/en-us/article/taking-inventory--potion Taking Inventory: Potion] – Minecraft.net on May 11, 2022
+*[http://potioncraft.net Minecraft Potions - A Visual Guide] (version 1.9)
+
+{{items}}
+{{effects}}
+
+[[Category:Food]]
+
+[[de:Trank]]
+[[es:Poción]]
+[[fr:Potion]]
+[[hu:Bájital]]
+[[it:Pozione]]
+[[ja:ポーション]]
+[[ko:물약]]
+[[nl:Dranken]]
+[[pl:Mikstury]]
+[[pt:Poção]]
+[[ru:Зелья]]
+[[uk:Зілля]]
+[[zh:药水]]

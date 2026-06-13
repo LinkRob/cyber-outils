@@ -1,0 +1,135 @@
+{{exclusive|java}}
+{{for|technical information regarding models|Tutorials/Models}}
+'''Models''' are three-dimensional shapes used in ''Minecraft'' which are used to display objects encountered in the game.
+
+In {{el|je}}, the models pertaining to the vast majority of [[block]]s and [[item]]s can be configured, as well as those of a small selection of [[entities]].
+
+== Uses of models ==
+Non-hardcoded models are used in-game in the following contexts:
+{| class="wikitable"
+! Use case
+! Uses
+! Image
+! Respects {{code|shade{{=}}false}}?
+|-
+! colspan="4" | Blocks
+|-
+! Placed blocks
+| All blocks excluding those listed [[#Blocks and fluids|here]]
+|
+| {{tc|Yes}}
+|-
+! [[Falling block]]s
+| All blocks excluding those listed [[#Blocks and fluids|here]]
+|
+| {{tc|Yes}}
+|-
+! [[Moving Piston|Piston-moved blocks]]
+| All blocks excluding those listed [[#Blocks and fluids|here]]
+|
+| {{tc|Yes}}
+|-
+! Lit [[TNT]]
+| TNT
+|
+| {{tc|No}}
+|-
+! colspan="4" | Items
+|-
+! Items in the inventory
+| All items excluding air
+|
+| {{tc|No}}
+|-
+! Items in the player's hand (first person)
+| All items excluding air{{verify|Is it true for tridents?}}
+|
+| {{tc|No}}
+|-
+! Items in the player's hand (third person)<br>Items held by other players<br>Items held by mobs
+| All items excluding air{{verify|Is it true for tridents?}}
+|
+| {{tc|No}}
+|-
+! Items on the ground
+| All items excluding air
+|
+| {{tc|No}}
+|-
+! Items in item frames
+| All items excluding air
+|
+| {{tc|No}}
+|-
+! [[Totem of undying]] animation
+| Totem of undying
+|
+| {{tc|No}}{{verify}}
+|}
+
+== Objects which cannot be remodelled ==
+{{info needed section|Objects needing testing:
+* Trident
+* Bell
+* Is the shield model hardcoded and non-customizable, even if the shield item definition isn't required to point to it?}}
+While most blocks and items can have their model changed, there are a multitude of things that cannot.
+
+For example, no entities (with the exception of [[item frame]]s and [[glow item frame]]s) can have their model changed {{in|JE}} with resource packs alone.
+
+=== Blocks and fluids ===
+{{Non-remodellable blocks}}
+
+Even these blocks (with the exception of the three air variants)<ref>{{bug|MC-239407}}</ref> have particle textures defined in dedicated model files, however it still stands that actual visual models cannot be changed.
+
+Sub-elements of blocks, such as passively emitted particles and the book on top of the [[enchanting table]], cannot be modified, even though the base block can.
+
+== History ==
+{{needs updating|
+* When were "texture overlays" like those used for a grass block added and removed? Pretty sure is in 14w25a, since that version made the sides of grass blocks its own element
+* Nearly everything after 1.9 is missing}}
+{{History|java pre-classic}}
+{{History||?|Blocks exist, however their models are completely hardcoded, and as such cannot be configured outside of modding.}}
+{{History|java}}
+{{History||1.8|snap=14w06a|Added custom [[block]] models.}}
+{{History|||snap=14w07a|The model format has now been rewritten. Instead of having just "planes", it now has "planes" and "cubes". 
+|The rotation of objects are now limited to one directional rotation per object in increments of 22.5 degrees.}}
+{{History|||snap=14w11a|[[Light]]ing on solid [[block]] no longer makes inner sections completely black.}}
+{{History|||snap=14w11b|Generic blocks now load models instead of pre-defined shapes.}}
+{{History|||snap=April 12, 2014|slink={{reddit|22vu5w/upcoming_changes_to_the_block_model_system}}
+|[[Ryan Holtz|TheMogMiner]] posts about upcoming changes to the model format.}}
+{{History|||snap=14w17a|Converted most of the remaining static blocks to the model format.
+|Added <code>"rotateVariantTextures"</code> to preserve uv details through rotation.}}
+{{History|||snap=14w25a|The directional attribute from the uv definition has now been removed and replaced it with explicit texture references. <code>"textureFacing"</code> has been replaced with <code>"texture"</code> parameter, which is now prepended with the hash symbol (#).
+|"useAmbientOcclusion" has now been renamed to "ambientocclusion".
+|"rotateVariantTextures" has now been renamed to "UV lock".
+|"cull" has now been renamed to "cullface", specifies the opposite of which neighboring face causes culling to occur.
+|Rotation has now been made more verbose, it is now more clear that it can occur only on a single axis. Example, the rotation for one of the two faces of the <code>"cross"</code> model is now: <code>"rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },</code>.
+|The folder <code>models/blocks/meshes</code> has now been removed and model files are now stored in models/block</code>.
+|The folder blockstates has now been added and stores the model selection files previously found in <code>models/block</code>.
+|The model format now supports custom [[item]] models.}}
+{{History|||snap=14w27a|[[Block]] state names have now been replaced with data that better reflects the internal data. This does not yet reflect all data for some blocks and switches to using the actual stored data in a future version when numerical data values are completely dropped in favor of block states.}}
+{{History|||snap=14w27b|The block state files now support an array of models allowing for random models.}}
+{{History|||snap=14w30a|Added the item model <code>"builtin/entity"</code>.}}
+{{History||1.8.2|snap=pre5|slink=1.8.2-pre5|The tag "translation" is now limited to the range of -24 to 24.
+|The tag "scale" is now limited to 4 or less.}}
+{{History||1.9|snap=15w31a|UV is now optional, and if not supplied it automatically generates based on the element's position. 
+|Added different models/textures for different [[damage]] values, [[item]] states, and whether the [[player]] is left handed. This works on [[compass]]es, [[clock]]s, and anything that can have a durability bar. It also contains additional tags for [[bow]]s and [[fishing rod]]s.
+|Models can now be put together based on block state attributes, such as [[fence]]s. As a result, the vanilla set of [[block]] models was reduced by almost 300 models.
+|Block model JSON is now strict, comments and quoteless identifiers are now not allowed.
+|"display" tag defaults have now been changed, and the <code>"thirdperson"</code> and <code>"firstperson"</code> tags have now been replaced with <code>"thirdperson_righthand"</code>, <code>"thirdperson_lefthand"</code>, <code>"firstperson_righthand"</code>, and <code>"firstperson_lefthand"</code>.
+|"parent" and "elements" tags can now coexist, though the top level elements tag overwrites all former ones.
+|The option to disable alternate [[block]] models has now been removed.
+|Multipart tag functionality added.}}
+{{History||1.14|snap=18w43a|Added the item model property <code>"custom_model_data"</code>.}} 
+{{History||1.15.2|snap=Pre-Release 1|The gui_light parameter for item models has been added.}}
+{{History|foot}}
+
+{{Java Edition}}
+
+[[de:Modelldaten]]
+[[es:Modelo]]
+[[fr:Modèles]]
+[[ja:モデル]]
+[[pl:Modele bloków]]
+[[pt:Modelo]]
+[[zh:模型]]

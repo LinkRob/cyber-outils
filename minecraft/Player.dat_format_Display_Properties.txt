@@ -1,0 +1,11 @@
+<div class="treeview"><onlyinclude>
+** {{nbt|compound|display}}: Display properties.
+*** {{nbt|int|color}}: The color of the leather armor. The tooltip displays "Dyed" if advanced tooltips are disabled, otherwise it displays the hexadecimal color value. Color codes are the hex code of the color converted to a decimal number, or can be calculated from the Red, Green and Blue components using this formula:<br>'''<span style="color:red">Red</span>[[wikipedia:Logical shift|<<]]16 + <span style="color:green">Green</span><<8 + <span style="color:blue">Blue</span>'''<ref>For positive values larger than 0x00FFFFFF, the top byte is ignored. All negative values produce white.</ref>
+*** {{nbt|string|Name}}: The JSON text component to use to display the item.
+*** {{nbt|list|Lore}}: List of strings to display as lore for the item.
+**** {{nbt|string}} A JSON text component representing a line of text for the lore of an item.
+** {{nbt|integer|HideFlags}}: Bit field determining which parts of the tooltip to hide on an item. 1 for "Enchantments", 2 for "AttributeModifiers", 4 for "Unbreakable", 8 for "CanDestroy", 16 for "CanPlaceOn", 32 for various other information (including potion effects, "StoredEnchantments", written book "generation" and "author", "Explosion", "Fireworks", amount of items in a bundle, and map tooltips), 64 for "Dyed" on leather armor, and 127 for [[armor trim]] information. For example, setting to 3 (''1 + 2'') would hide both "Enchantments" (''1'') and "AttributeModifiers" (''2'') tags, and setting to 127{{until|java 1.20}}/255{{upcoming|java 1.20}} would hide everything.
+</onlyinclude></div><noinclude>
+[[Category:Top-level data pages]]
+[[zh:Player.dat格式/显示属性]]
+</noinclude>

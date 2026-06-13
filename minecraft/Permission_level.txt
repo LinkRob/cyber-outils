@@ -1,0 +1,75 @@
+
+'''Permission level''' is used to describe permissions of a player or a command executor.
+
+For example, {{in|bedrock}}, {{cmd|setmaxplayers}} can't be executed in a command block, because this command requires executor to have permission of level 3, while command blocks have a permission level of only 1.
+
+== Effect ==
+
+Levels are incremental, meaning level ''n'' + 1 allows anything level ''n'' allows.
+
+=== ''Java Edition'' ===
+
+; Level 1 (moderator)
+: Player can bypass [[spawn protection]].
+; Level 2 (gamemaster)
+: Player or executor can use more [[commands]] and player can use [[command blocks]].
+; Level 3 (admin)
+: Player or executor can use commands related to multiplayer management.
+; Level 4 (owner)
+: Player or executor can use all of the commands, including commands related to server management.
+
+=== Bedrock Edition ===
+
+:In different levels, the corresponding command can be used by the player. All levels inherit commands from levels before them.
+
+== Definition ==
+=== ''Java Edition'' ===
+{{IN|java}}, permission level can be 0 (all), 1 (moderator), 2 (gamemaster), 3 (admin), and 4 (owner).
+
+* A [[command block]] or a [[minecart with command block]] has permission level of 2.
+* The console of a [[server]] has permission level of 4.
+* A [[Function_(Java_Edition)|function]] has permission level of 2 (but it can be changed in [[server.properties]]).
+* For a player:
+** If the player is an op in dedicated server, their permission level is specified in ops file, and its default value is specified in [[server.properties]].
+** If the player is in a singleplayer world or is the owner of a LAN world, and cheats are enabled, permission level is 4.
+** If the player is in a cheat-allowed LAN world, permission level is 4.
+** Otherwise, permission level is 0.{{needs testing|how about Realms owner?}}
+
+=== Bedrock Edition ===
+{{IN|bedrock}}, permission level can be '''0''' (Any / Normal), '''1''' (Game Directors / Operator), '''2''' (Admin / Host), '''3''' (Host / Automation), and '''4''' (Owner / Admin). (The first names in parentheses are from [https://learn.microsoft.com/en-us/minecraft/creator/commands/commands the official documentation], and the second names are from the debug infomation of [[BDS]])
+
+* A command block or a minecart with command block has permission level of 1.
+* The console of a [[BDS|server]] has permission level of 4.
+* A [[Function_(Bedrock_Edition)|function]] as well as a script in Add-ons has permission level of 1.
+* For a player:
+** If in [[BDS|dedicated server]], the player's '''"Operator Commands"''' option is enabled in the "Player Permission" screen, their permission level is 1 by default (which can be changed in [[server.properties]]).
+** If in a singleplayer world or a LAN world,  the player's '''"Operator Commands"''' option is enabled in the "Player Permission" screen, permission level is 3.
+** Otherwise, the player's permission level is 0.{{needs testing}}
+
+Note that permission level differs from level in pause menu screen and "Player Permission" screen {{in|bedrock}}, which includes Visitor/Member/Operator/Custom. However, operator in singleplayer world always have command permission level of 3, because its '''Operator Commands''' is enabled. Similarly, visitors and members have a permission level of 0.
+
+== History ==
+{{expand section}}
+
+{{History|java}}
+{{History||1.14.4|snap=Pre-Release 4|Added <code>function-permission-level</code> option that controls what permission level [[Function (Java Edition)|functions]] have.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+== See also ==
+
+* [[Commands]]
+* [[Server.properties]]
+* [[Commands/op]]
+
+{{Java Edition}}
+{{Bedrock Edition}}
+
+[[Category:Server]]
+
+[[ja:権限レベル]]
+[[pt:Nível de permissão]]
+[[uk:Рівень дозволу]]

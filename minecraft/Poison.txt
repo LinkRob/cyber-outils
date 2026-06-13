@@ -1,0 +1,305 @@
+{{About||the fatal effect in Bedrock Edition|Fatal Poison|the effect in ''Minecraft Dungeons''|MCD:Poison}}
+{{Effect
+|title={{EffectSprite|poison}} Poison
+|image=poison.png
+|sources=See {{slink||Causes}}
+|particle= {{EffectSprite|particle-poison}} #4E9331 (green)
+|type=Negative
+|group=Potion
+|group2=Splash Potion
+|group3=Lingering Potion
+|group4=Arrow
+|1-1=Potion of Poison.png
+|2-1=Splash Potion of Poison.png
+|3-1=Lingering Potion of Poison.png
+|4-1=Arrow of Poison.png
+}}
+'''Poison''' is an [[effect]] that inflicts [[damage]] over time. It is similar to [[Wither (effect)|Wither]], but it drains health faster and it cannot kill (it will, however, reduce the [[player]]'s health all the way to 1 ({{hp|1|notag=1|poisoned=1}})).
+
+It can be cured by drinking [[milk bucket|milk]], [[honey bottle|honey]] or [[medicine|antidote]].{{only|bedrock|education|short=1}}
+
+== Effect ==
+The amount of [[damage]] inflicted to the affected entity is shown in the table below:
+
+{| class="wikitable" style="text-align:center"
+ ! Level !! Ticks per {{hp|1|notag=1}} !! {{hp|1|notag=1}} per second
+ |-
+ | 1 || 25 || {{hp|0.8}}
+ |-
+ | 2 || 12 || {{hp|1.66}}
+ |-
+ | 3<ref group="note" name ="immunity 1">Due to [[damage immunity]], the effective rate of damage is 12 ticks ({{hp|2|notag=1}} × 0.8 per second).</ref> || 6 || {{hp|3.32}}
+ |-
+ | 4<ref group="note" name="immunity 1"/> || 3 || {{hp|6.66}}
+ |-
+ | 5+<ref group="note" name ="immunity 2">Due to [[damage immunity]], the effective rate of damage is 10 ticks ({{hp|2|notag=1}} × 1 per second).</ref> || 1 || {{hp|20}}
+ |}
+
+{{notelist|columns=1}}
+
+The player's hearts turn yellow-green ({{hp|2|poisoned=1|notag=1}})({{hp|2|notag=1|hardcore=1|poisoned=1}} on [[Hardcore|hardcore mode]]).
+
+The [[damage]] stops when the affected entity is at 1 ({{hp|1|notag=1}}) [[health]], but can resume if healing occurs and the affected entity is at more than 1 ({{hp|1|notag=1}}) [[health]] before the effect expires. 
+
+Amplifiers outside the range 0–31 (corresponding to levels 1–32) are treated [[Wikipedia:Modulo operation|modulo]] 32 (as though reduced by 32 until they are within the range, or alternatively as the remainder from the division by 32, i.e. 33 or 65 is treated as 1).
+
+The effect can be removed by drinking [[Milk Bucket|milk]] or [[Honey Bottle|honey]]. {{IN|education|bedrock}} when education options are enabled, drinking [[antidote]] also removes poison.
+
+== Causes ==
+{| class="wikitable sortable" data-description="Causes"
+ ! Cause
+ ! Potency
+ ! Length
+ ! Lifetime damage
+ ! Notes
+ |-
+ | {{ItemLink|Potion of Poison}}
+ | I
+ | 0:45
+ | {{hp|36}}
+ |
+ |-
+ | {{ItemLink|Potion of Poison}} (extended)
+ | I
+ | 1:30{{only|java|short=1}}<br> 2:00{{only|bedrock|short=1}}
+ | {{hp|72}}{{only|java|short=1}}<br/> {{hp|96}}{{only|bedrock|short=1}}
+ |
+ |-
+ | {{ItemLink|Potion of Poison}} II
+ | II
+ | 0:21{{only|java|short=1}}<br> 0:22{{only|bedrock|short=1}}
+ | {{hp|35}}{{only|java|short=1}}<br> {{hp|36}}{{only|bedrock|short=1}}
+ |
+ |-
+ | {{ItemLink|Splash Potion of Poison}}
+ | I
+ | 0:45{{only|java|short=1}}<br> 0:33{{only|bedrock|short=1}}
+ | {{hp|36}}{{only|java|short=1}}<br> {{hp|26}}{{only|bedrock|short=1}}
+ |{{EntityLink|Witch}}es throw this splash potion if their target has {{hp|8}} or more health.
+ |-
+ | {{ItemLink|Splash Potion of Poison}} (extended)
+ | I
+ | 1:30
+ | {{hp|72}}
+ |
+ |-
+ | {{ItemLink|Splash Potion of Poison}} II
+ | II
+ | 0:21{{only|java|short=1}}<br> 0:16{{only|bedrock|short=1}}
+ | {{hp|35}}{{only|java|short=1}}<br> {{hp|26}}{{only|bedrock|short=1}}
+ |
+ |-
+ | {{ItemLink|Lingering Potion of Poison}}
+ | I
+ | 0:11
+ | {{hp|8}}
+ |
+ |-
+ | {{ItemLink|Lingering Potion of Poison}} (extended)
+ | I
+ | 0:22{{only|java|short=1}}<br> 0:30{{only|bedrock|short=1}} 
+ | {{hp|17}}{{only|java|short=1}}<br> {{hp|24}}{{only|bedrock|short=1}} 
+ |
+ |-
+ | {{ItemLink|Lingering Potion of Poison}} II
+ | II
+ | 0:05
+ | {{hp|8}}
+ |
+ |-
+ | {{ItemLink|Arrow of Poison}}
+ | I
+ | 0:05
+ | {{hp|4}}
+ | 
+ |-
+ | {{ItemLink|Arrow of Poison}} (extended)
+ | I
+ | 0:11{{only|java|short=1}}<br> 0:15{{only|bedrock|short=1}} 
+ | {{hp|8}}{{only|java|short=1}}<br/> {{hp|12}}{{only|bedrock|short=1}}
+ | 
+ |- 
+ | {{ItemLink|Arrow of Poison}} II
+ | II
+ | 0:02
+ | {{hp|3}}
+ |
+ |-
+ | {{ItemLink|Cookie}}
+ | I
+ | 0:45
+ | {{hp|36}}
+ | Affects only [[parrot]]s.{{only|java|short=y}} Has no effect other than the particles as the parrot is killed instantly.
+ |- 
+ | {{ItemLink|Poisonous Potato}}
+ | I
+ | 0:05
+ | {{hp|4}}
+ | 60% chance
+ |- 
+ | {{ItemLink|id=pufferfish|Pufferfish (item)|Pufferfish}}
+ | II
+ | 1:00
+ | {{hp|48}}
+ | 
+ |- 
+ | {{ItemLink|Suspicious Stew}}
+ | I
+ | 0:12
+ | {{hp|9}}
+ | Must be crafted from a {{BlockLink|Lily of the Valley}}
+ |- 
+ | {{ItemLink|Suspicious Stew}}
+ | I
+ | 0:14
+ | {{hp|11}}
+ | [[Trade]]d from expert farmer [[villager]]s
+ |- 
+ | {{ItemLink|Spider Eye}}
+ | I
+ | 0:05
+ | {{hp|2}}
+ | Dropped from [[spiders]] and apply poison when eaten
+ |- 
+ | {{EntityLink|Cave Spider}}
+ | I
+ | 0:07 (normal difficulty)<br>0:15 (hard difficulty)
+ | {{hp|5}} (normal difficulty)<br/>{{hp|12}} (hard difficulty)
+ | Given when it attacks an entity 
+ |- 
+ | {{EntityLink|Pufferfish}}
+ | I
+ | 0:03 (partially inflated)<br>0:06 (fully inflated)
+ | {{hp|2}} (partially inflated)<br>{{hp|4}} (fully inflated)
+ | Only when touched.
+ |-
+ | {{EntityLink|Bee}}
+ | I
+ | 0:10 (normal difficulty)<br>0:18 (hard difficulty)
+ | {{hp|8}} (normal difficulty)<br>{{hp|14}} (hard difficulty)
+ | Given when it attacks an entity
+|}
+
+== Brewing ==
+{| class="wikitable" style="text-align: center;" data-description="Negative effect potions"
+!width="90px"| Potion
+! Reagent, Base
+!width="90px"| {{ItemSprite|Redstone Dust}} Extended
+!width="90px"| {{ItemSprite|Glowstone Dust}} Enhanced
+! Effects
+|-
+! {{Slot|Potion of Poison[&cPoison (<nowiki>0:45</nowiki>)]}}<br>Potion of Poison
+| {{Brewing Stand
+ |Input= Spider Eye
+ |Output2= Awkward Potion
+ }}
+| {{Slot|Potion of Poison[&cPoison (<nowiki>1:30</nowiki>)]}}<br>Potion of Poison (extended)
+| {{Slot|Potion of Poison[&cPoison II (<nowiki>0:22</nowiki>)]}}<br>Potion of Poison
+| [[Poison]]<br>Damages by {{hp|1|9px}} every 1.25 seconds.
+'''Enhanced:''' [[Poison]] '''II'''<br>Damages by {{hp|1|9px}} every 0.6 seconds.
+|}
+
+== Immune mobs ==
+[[Undead]] mobs, [[spider]]s, [[cave spider]]s, and [[ender dragon]]s are unaffected by Poison. [[Witch]]es are 85% resistant to damage from Poison in ''Java Edition'' and fully immune in Bedrock Edition.
+
+== Data values ==
+=== ID ===
+{{EffectIDLink}}
+{{edition|java}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=java
+|displayname=Poison
+|spritetype=effect
+|nameid=poison
+|id=19
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Poison
+|spritetype=effect
+|nameid=poison
+|id=19
+|foot=1}}
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Taste of Your Own Medicine}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|How Did We Get Here?;A Furious Cocktail}}
+</table-progress-tracking>
+{{notelist}}
+
+== History ==
+{{History|java beta}}
+{{History||1.8|snap=Pre-release|Added Poison.
+|Added [[cave spider]]s, which inflict Poison upon attacking.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease 2|[[File:Poison JE1 BE1.png|18px]] Now has an effect icon.
+|Poison [[potion]]s have been added, but are unobtainable without inventory editing.
+|Added [[spider eye]]s, which give Poison when eaten.}}
+{{History|||snap=Beta 1.9 Prerelease 3|Poison [[potion]]s have been revamped and made obtainable in the inventory through brewing.}}
+{{History|||snap=Beta 1.9 Prerelease 4|[[Splash potion]]s have been added, including splash potions of Poison.}}
+{{History||1.4.2|snap=12w34a|Added [[poisonous potato]]es, which have a chance to give Poison when eaten.
+|Added [[witch]]es, which may throw splash potions of Poison.}}
+{{History||1.7.2|snap=13w36a|Added [[pufferfish (item)|pufferfish]], which give Poison when eaten.}}
+{{History||1.9|snap=15w31a|Added [[tipped arrow]]s, including arrows of Poison, which are currently unobtainable in survival.}}
+{{History|||snap=15w33a|Added [[lingering potion]]s of Poison.
+|Extended potions of Poison have had their effect duration reduced from 2:00 to 1:30.
+|Strong potions of Poison have had their effect duration reduced from 0:22.5 to 0:21.6.}}
+{{History|||snap=15w44b|Arrows of Poison can now be obtained by firing an arrow into a Poison lingering potion [[area effect cloud|cloud]].}}
+{{History|||snap=16w06a|Arrows of Poison can now be crafted using lingering potions in the crafting table.
+|Arrows of Poison can no longer be obtained by firing arrows into a Poison lingering potion [[area effect cloud|cloud]].}}
+{{History||1.12|snap=pre3|[[Cookie]]s now give [[parrot]]s the Poison effect, though this isn't visible as the parrot is instantly killed.}}
+{{History||1.13|snap=18w08b|Added [[pufferfish]] mobs, which inflict Poison to nearby mobs.}}
+{{History||1.14|snap=18w43a|[[File:Poison JE2.png|18px]] The effect icon texture for Poison has been changed.
+|Added [[suspicious stew]], which can give the Poison effect when crafted with a [[lily of the valley]] or found in [[shipwreck]]s.}}
+{{History|||snap=18w43b|[[File:Poison JE3 BE2.png|18px]] Fixed the icon.}}
+{{History||1.15|snap=19w34a|Added [[bee]]s, which can give the [[player]] Poison.}}
+{{History|||snap=19w35a|[[Honey bottle]]s now remove the Poison effect when consumed.}}
+{{History||1.17|snap=20w46a|The level of Poison given by pufferfish has been reduced from IV to II.<ref>{{bug|MC-197276}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||v0.11.0|snap=build 1|[[File:Poison JE1 BE1.png|18px]] Added Poison.
+|Poison can be obtained by eating [[rotten flesh]], [[pufferfish (item)|pufferfish]] or being attacked by a [[cave spider]] on normal and hard difficulty.}}
+{{History||v0.12.1|snap=build 1|Eating rotten flesh no longer inflicts Poison.
+|Poison can be obtained from eating [[poisonous potato]]es, [[spider eye]]s, [[potion|potions of Poison]], as well as [[splash potion|splash potions of Poison]].}}
+{{History||v0.14.0|snap=build 1|Added [[witch]]es, which throw splash potions of Poison. However, the witch, itself, is immune to Poison.}}
+{{History||v0.15.0|snap=build 1|Added [[Arrow#Tipped arrows|arrows of Poison]], which inflict Poison effect.}}
+{{History|pocket}}
+{{History||1.0.0|snap=alpha 0.17.0.1|Poison can now be obtained from [[Lingering Potion|lingering potions of Poison]].}}
+{{History|bedrock}}
+{{History||1.4.0|snap=beta 1.2.14.2|Added [[pufferfish]] mobs, which inflict Poison to nearby mobs.}} 
+{{History|||snap=beta 1.2.20.1|[[Antidote]]s now remove the Poison effect when consumed.}} 
+{{History||1.11.0|snap=beta 1.11.0.5|[[File:Poison JE3 BE2.png|18px]] The effect icon texture for Poison has been changed.}}
+{{History||1.13.0|snap=beta 1.13.0.9|Poison can now be obtained from [[suspicious stew]].}} 
+{{History||1.14.0|snap=beta 1.14.0.1|Added [[bee]]s, which can give the [[player]] Poison.
+|[[Honey bottle]]s now remove the Poison effect when consumed.}}
+{{History||1.18.30|snap=beta 1.18.30.20|Poison damage is now reduced by the [[Protection]] enchantment to match ''Java Edition''.<ref>{{bug|MCPE-40651|||Fixed}}</ref>}}
+{{History||1.19.10|snap=beta 1.19.10.23|The strength of the Poison effect given by [[Pufferfish (item)|pufferfish]] has been decreased.}}
+{{History|foot}}
+
+== Issues ==
+
+{{issue list}}
+
+== Trivia ==
+*According to most medical and zoological terminology, "poison" specifically refers to a toxin that is delivered to an organism via contact or ingestion. As [[bee]]s, [[cave spider]]s, and [[Tipped Arrow|poison tipped arrow]]s inject the player with toxins rather, they deliver venom, not poison.
+*[[Pufferfish]] are both venomous and poisonous in-game, while real-life pufferfish are poisonous but not venomous, and their spines are used only for intimidation purposes.
+
+== References ==
+{{Reflist}}
+
+{{Effects}}
+
+[[de:Vergiftung]]
+[[es:Veneno]]
+[[pt:Veneno]]
+[[ja:毒]]
+[[zh:中毒]]

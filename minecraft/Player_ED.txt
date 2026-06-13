@@ -1,0 +1,67 @@
+<div class="treeview">
+* {{nbt|compound}} The root tag. In [[Java Edition level format|level.dat]] files, this tag is called "Player".
+** Tags for all entities, except the id, CustomName and CustomNameVisible
+** {{nbt inherit/entity}}
+** Tags for all mobs, except HandItems, ArmorItems, HandDropChances, ArmorDropChances, CanPickUpLoot, PersistenceRequired and Leash
+** {{nbt inherit/mob}}
+** {{nbt|compound|abilities}}: The abilities this player has.
+***{{nbt|byte|flying}}: 1 or 0 (true/false) - true if the player is currently flying.
+*** {{nbt|float|flySpeed}}: The flying speed, always 0.05.
+*** {{nbt|byte|instabuild}}: 1 or 0 (true/false) - true if the player can instantly destroy blocks. This is true for Creative mode, and false for other game modes.
+*** {{nbt|byte|invulnerable}}: 1 or 0 (true/false) - true if the player is immune to all damage and harmful effects except for [[The Void|void]] damage (damage caused by the {{cmd|kill}} command is void damage). This also makes all mobs, whether hostile or not, passive to the player. This is true for Creative and Spectator modes, and false for Survival and Adventure modes.
+*** {{nbt|byte|mayBuild}}: 1 or 0 (true/false) - true if the player can place and destroy blocks. This is true for Creative and Survival modes, and false for Spectator and Adventure modes.
+*** {{nbt|byte|mayfly}}: 1 or 0 (true/false) - true if the player can fly. This is true for Creative and Spectator modes, and false for Survival and Adventure modes.
+*** {{nbt|float|walkSpeed}}: The walking speed, always 0.1.
+** {{nbt|int|DataVersion}}: Version of the player NBT structure. Is increased with every new snapshot and release.
+** {{nbt|string|Dimension}}: The [[Resource location|ID]] of the dimension the player is in. Used to store the players last known location along with Pos.
+** {{nbt|list|EnderItems}}: Each compound tag in this list is an item in the player's 27-slot ender chest inventory. (Note: when empty, list type may have [[NBT#As used in Minecraft|unexpected value]].)
+*** {{nbt|compound}} An item in the inventory, includes the [[#Inventory slot numbers|Slot]] tag - slots are numbered 0 to 26, inclusive.
+**** See [[item format]].
+** {{nbt|compound|enteredNetherPosition}}: Optional. The [[Overworld]] position from which the player entered [[the Nether]], for use with the <code>[[Advancement/JSON_format#minecraft:nether_travel|minecraft:nether_travel]]</code> [[advancement]] trigger. The tag is set every time the player passes through [[Nether portal|a portal]] from the Overworld to the Nether. When entering a dimension other than the nether by not respawning, the tag is removed. Entering the Nether without using a portal does not update the tag.
+*** {{nbt|double|x}}: The X coordinate.
+*** {{nbt|double|y}}: The Y coordinate.
+*** {{nbt|double|z}}: The Z coordinate.
+** {{nbt|float|foodExhaustionLevel}}: See [[Hunger]].
+** {{nbt|int|foodLevel}}: The value of the hunger bar; 20 is full. See [[Hunger]].
+** {{nbt|float|foodSaturationLevel}}: See [[Hunger]].
+** {{nbt|int|foodTickTimer}}: See [[Hunger]].
+** {{nbt|list|Inventory}}: Each compound tag in this list is an item in the player's inventory. (Note: when empty, list type may have [[NBT#As used in Minecraft|unexpected value]].)
+*** {{nbt|compound}} An item in the inventory, includes the [[#Inventory slot numbers|Slot]] tag.
+**** See [[item format]].
+** {{nbt|compound|LastDeathLocation}}: May not exist. Location of the player's last death.
+***{{nbt|string|dimension}}: Dimension of last death.
+*** {{nbt|int-array|pos}}: Coordinates of last death.
+** {{nbt|int|playerGameType}}: The game mode of the player. 0 is [[Survival]], 1 is [[Creative]], 2 is [[Adventure]] and 3 is [[Spectator]].
+** {{nbt|int|previousPlayerGameType}}: The previous game mode of the player.
+** {{nbt|compound|recipeBook}}: Contains a JSON object detailing recipes the player has unlocked.
+*** See [[Recipe Book#Data values]].
+** {{nbt|compound|RootVehicle}}: The root entity that the player is riding. Optional.
+*** {{nbt|int-array|Attach}}: The [[UUID]] of the entity the player is riding, stored as four ints.
+*** {{nbt|compound|Entity}}: The NBT data of the root vehicle.
+**** See [[Entity format]].
+** {{nbt|int|Score}}: The Score displayed upon death.
+** {{nbt|byte|seenCredits}}: 1 or 0 (true/false) - true if the player has entered the [[Exit portal|exit portal]] in the [[The End|End]] at least once.
+** {{nbt|compound|SelectedItem}}: Data of the item currently being held by the player, excluding the [[player.dat format#Inventory slot numbers|Slot]] tag. Only exists when using the /data command, this value is not saved in the [[player.dat format|player.dat format]].
+*** See [[item format]].
+** {{nbt|int|SelectedItemSlot}}: The selected hotbar slot of the player.
+** {{nbt|compound|ShoulderEntityLeft}}: The entity that is on the player's left shoulder. Always displays as a parrot.
+*** See [[Entity format]].
+** {{nbt|compound|ShoulderEntityRight}}: The entity that is on the player's right shoulder. Always displays as a parrot.
+*** See [[Entity format]].
+** {{nbt|short|SleepTimer}}: The number of ticks the player had been in bed. 0 when the player is not sleeping. In bed, increases up to 100, then stops. Skips the night after all players in bed have reached 100. When getting out of bed, instantly changes to 100 and then increases for another 9 ticks (up to 109) before returning to 0.
+** {{nbt|string|SpawnDimension}}: May not exist. The dimension of the player's bed or respawn anchor. These tags are only removed if the player attempts to respawn with no valid bed or respawn anchor to spawn at at these coordinates. They are unaffected by breaking a bed or respawn anchor at these coordinates, and are unaffected by the player's death.
+** {{nbt|byte|SpawnForced}}: 1 or 0 (true/false) - may not exist. True if the player should spawn at the below coordinates even if no bed can be found.
+** {{nbt|int|SpawnX}}: ''See below.''
+** {{nbt|int|SpawnY}}: May not exist. The coordinates of the player's bed or respawn anchor. These tags are only removed if the player attempts to respawn with no valid bed or respawn anchor to spawn at at these coordinates. They are unaffected by breaking a bed or respawn anchor at these coordinates, and are unaffected by the player's death.
+** {{nbt|int|SpawnZ}}: ''See above.''
+** {{nbt|compound|warden_spawn_tracker}}: Contains data about the [[warden]] spawning process for this player.
+***{{nbt|int|cooldown_ticks}}: The number of ticks before the <code>warning_level</code> can be increased again. Decreases by 1 every tick. It is set to 200 game ticks (10 seconds) every time the warning level is increased.
+*** {{nbt|int|ticks_since_last_warning}}: The number of ticks since the player was warned for warden spawning. Increases by 1 every tick. After 12000 game ticks (10 minutes) it will be set back to 0, and the <code>warning_level</code> will be decreased by 1.
+*** {{nbt|int|warning_level}}: A warning level between 0 and 3 (inclusive). The warden will spawn at level 3.
+** {{nbt|int|XpLevel}}: The level shown on the [[XP]] bar.
+** {{nbt|float|XpP}}: The progress/percent across the XP bar to the next level.
+** {{nbt|int|XpSeed}}: The seed used for the next enchantment in [[enchantment table]]s.
+** {{nbt|int|XpTotal}}: The total amount of XP the player has collected over time; used for the Score upon death.
+</div><noinclude>
+[[Category:Entity data pages]]
+</noinclude>

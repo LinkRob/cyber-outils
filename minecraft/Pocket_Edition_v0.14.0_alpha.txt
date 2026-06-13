@@ -1,0 +1,403 @@
+{{version nav
+| title = v0.14.0
+| name = [[Overworld Update]]<ref>http://news.xbox.com/2016/11/11/end-2016-ender-update-minecraft-windows-10-pocket-edition/</ref>
+| edition = Pocket Edition
+| internal = 0.14.0.9</br> '''Windows 10''' 0.140.1.0
+| image = Pocket Edition 0.14.0.png
+| image2 = Windows 10 Edition Beta 0.14.0.png
+| date = February 18, 2016
+| prevparent = v0.13.0 alpha
+| prev = v0.13.2 alpha
+| next = v0.14.1 alpha
+| nextparent = v0.15.0 alpha
+| devversions = '''[[:Category:Pocket Edition v0.14.0 alpha builds‎|Builds]]''' (7)</br>
+([[Pocket Edition v0.14.0 alpha/Development versions|View all]])</br>
+}}<onlyinclude>
+
+{{for|a guide about all content in this release and the other releases of the Overworld Update|Bedrock Edition guides/Overworld Update}}
+'''v0.14.0''', the first release of the '''[[Overworld Update]]''', is a major update to ''[[Pocket Edition|Minecraft: Pocket Edition]]'' that was released on February 18, 2016. It added more redstone-related blocks, [[witch hut]]s, [[map]]s, [[slime block]]s, and a redesign of some menu interfaces. The update was the first to receive a name in the history of ''Pocket Edition''.
+
+== Additions ==
+=== Blocks ===
+; [[Comparator]]s
+* Based on the idea of the capacitor mentioned at Minecon 2012.
+* The crafting recipe is 3 [[File:On Redstone Torch (texture) JE1 BE1.png|28px]] [[redstone torch]]es, 1 [[File:Nether Quartz JE1 BE1.png|28px]] [[nether quartz]] and 3 [[File:Stone JE2 BE1.png|28px]] [[stone]].
+* It is the same as a repeater, but with 2 inputs.
+** If input A is stronger or equal to input B, it either repeats the signal or outputs the difference between A and B, so this can be used as an easier way make redstone contraptions like piston doors.
+*** Output is toggleable by right-clicking.
+** If input A is weaker than input B, then there is no output.
+* All containers output a redstone signal when a redstone comparator is placed against it directly. The strength of it depends on how full the container is and what disc number is used in a [[jukebox]].
+** This works with trapped chests as well, meaning it can provide two redstone signals with different causes at the same time.
+
+; [[Dispenser]]s
+* Crafted from cobblestone, a bow and redstone.
+* {{Version exclusive}}: Custom name does not appear in GUI.
+
+; [[Dropper]]s
+* The crafting recipe is 7 [[File:Cobblestone JE3 BE2.png|28px]] [[cobblestone]] and 1 [[File:Redstone Dust JE1 BE1.png|28px]] [[redstone]].
+* Places items in containers in front of them, if there is no container it will dispense the item without using it.
+* A [[dispenser]] "shoots" [[item]]s at the [[player]], while a [[dropper]] "throws" items at the player.<ref>{{tweet|dinner|291942193969639425}}</ref>
+* Can face all 6 directions, with a different texture when facing up or down.
+* Needs redstone signal to drop items.
+* Fires once when the input becomes powered.
+* Redstone signal emitted when a [[redstone comparator]] is placed against it directly - signal length depends on its fullness.
+* {{Version exclusive}}: Custom name does not appear in GUI.
+
+; [[Hopper]]s
+* The crafting recipe is 5 [[File:Iron Ingot JE2 BE1.png|28px]] [[iron ingot]]s and 1 [[File:Chest (S) JE1.png|28px]] [[chest]].
+* Places and takes out items in [[hopper]]s, [[chest]]s, [[furnace]]s, [[minecart with chest]]s, [[minecart with hopper]]s, [[dispenser]]s, [[dropper]]s, and [[brewing stand]]s.
+* Allows for the automation of many processes collecting drops.
+* Powering the [[hopper]] stops it from taking in items and releasing them.
+* Redstone signal emitted when a [[redstone comparator]] is placed against it directly - signal length depends on its fullness.
+** 1 item will give a signal strength of 1, a third of a stack (21 for items which stack to 64) gives a signal strength of 2.
+** The number of full stacks × 3 = Signal strength. 
+
+; [[Repeater]]s
+* Crafted from stone and redstone.
+
+; [[Minecart with chest]]
+* {{Version exclusive}}: Emits smoke when destroyed.
+* {{Version exclusive}}: Custom name does not appear in GUI.
+; [[Minecart with TNT]]
+* {{Version exclusive}}: Emits smoke when destroyed.
+; [[Minecart with hopper]]
+* {{Version exclusive}}: Emits smoke when destroyed.
+* {{Version exclusive}}: Custom name does not appear in GUI.
+
+; [[Cauldron]]s
+* Can be filled with a [[water bucket]].
+** {{Version exclusive}}: [[Water]] color can be changed by adding [[dye]]s.
+*** {{Version exclusive}}: Colors can be mixed.
+* {{Version exclusive}}: Can be used to dye leather armor.
+* {{Version exclusive}}: [[Water bottle]]s can be used to refill [[water]].
+* {{Version exclusive}}: Can store [[potion]]s.
+** {{Version exclusive}}: Will make an explosion sound if potions are mixed, and the potions will disappear.
+* {{Version exclusive}}: [[Potions]] inside [[cauldron]]s have a bubbling effect.
+* Buckets can now be filled from a full cauldron.
+
+; [[Red sandstone]]
+* Red variant of sandstone
+
+; [[Slime block]]s
+* Crafting recipe: 9 [[slime ball]]s.
+** Can be crafted back into 9 slime balls.
+* Players and mobs that land on their top side bounce, like on a trampoline.
+** This negates all fall damage.
+*** Holding {{key|shift}} negates the rebound, and does not negate the fall damage.
+** Bounce rebound velocity is scaled by impact velocity.
+*** Height can reach up to 60% of initial height, which implies a great restitution coefficient.
+** Does not affect falling item entities.
+* Walking on it is slower than walking on [[soul sand]] and close to one's speed while sneaking.
+* The placing/breaking sounds use the hurt sounds of [[slime]]s.
+* Can be mined with only one click, without any tools in survival.
+* Slime blocks push and pull each other, along with adjacent blocks, when at least one of them is moved by a sticky piston.
+** Normal pistons have the same effect, except that they fail to pull even a single slime block.
+** Coded by [https://www.youtube.com/user/KaboPC KaboPC] and [https://www.youtube.com/user/Panda4994 Panda4994].<ref>{{ytl|jpXBKXJlybg}}</ref><ref>{{tweet|dinnerbone|461189042659672064|You guys got that really fast. It was http://gfycat.com/ImperturbableMeanCuckoo, a feature that wouldn't be possible without the ZipKrowd guys' hard work <3|April 29, 2014}}</ref> Follow all the existing rules that pistons followed:
+*** A chain of slime blocks and its adjacent blocks connected to a piston, in any arrangement, can be moved as long as the following conditions are met:
+**** The piston is not moving more than twelve blocks at a time.
+**** Non-movable blocks are not obstructing the path.
+**** Not a single slime block in the chain is attached to the piston itself.
+** Allows for moveable contraptions.
+* Extending a piston with a slime block attached propels adjacent entities (mobs, players, items, launched arrows, etc.) in the appropriate direction.<ref>{{tweet|dinnerbone|461473908420796416|I don't think anyone has found it yet, so I'll go ahead and spoil it: Standing on a slime block that gets pushed up is lots of fun.|April 30, 2014}}</ref>
+
+=== Items ===
+; [[Map]]s
+* Lets the player scope out different biomes.
+* {{Version exclusive}}: Crafted using nine [[paper]].
+* {{Version exclusive}}: [[Compass]] must be added through an [[anvil]] in order to show the player's position.
+* {{Version exclusive}}: Can be cloned using the [[anvil]], instead of the [[crafting table]].
+* {{Version exclusive}}: Can be zoomed using the [[anvil]], instead of the [[crafting table]].
+
+; [[Ender pearl]]s
+* Used for teleport {{Verify}}
+* Can only be obtained through [[mods]].
+
+; [[Spawn egg]]s
+* [[Witch]]
+
+=== Mobs ===
+; [[Witch]]es
+* Looks like an offshoot [[villager]]
+* Throws splash potions of poison, slowness, weakness, and instant damage at players
+* Holds a potion and wiggles its nose when attacking
+* Has a hat, which sometimes emits particles
+* Drinks potions of instant health and fire resistance to defend themselves in combat
+* Is immune to 80% of splash potions' effects
+* Drops [[stick]]s, [[glowstone]], [[redstone]], [[gunpowder]], [[sugar]], [[spider eye]]s, and [[glass bottle]]s when killed
+* Has a chance to drop the potion it is holding if killed by players
+* Spawn exclusively in [[Witch Huts]] in [[swamp]]s
+* Uses new [[sounds]].
+* When more than 11 blocks from a target and lacking [[swiftness]], 50% chance of drinking a [[potion of swiftness]].
+
+=== Non-mob Entities ===
+; [[Item frame]]s
+* All items and blocks can be framed
+* [[Clock]]s, [[compass]]es and [[map]]s function - Maps show only one marker, the frame itself
+* Mounted maps are marked on copies of the map
+* Using pick block on it gives the framed item/block
+* {{Version exclusive}}: Uses BlockEntity instead of [[Entity]].
+* {{Version exclusive}}: Can't be placed in blocks.
+* Uses new [[sounds]].
+
+=== World generation ===
+; [[Witch hut]]s
+* Generates in swamps
+* {{Version exclusive}}: [[Cauldron]] contains random [[potion]].
+
+=== Gameplay ===
+; [[Creative mode]]
+* Added [[survival]] [[inventory]] tabs and [[crafting]] tabs.
+* Added the ability to put on [[armor]] in creative.
+* The [[player]] now keeps their inventory when changing a world to survival.
+
+=== General ===
+* Replaced [[Pocket Edition]] start screen with new UI.
+* Added more [[Achievements]]. (Windows 10 Only)
+* Added Export button to pause menu. (Windows 10 Only)
+** Button generates a file with suffix .mcworld.
+*** Can be imported using the Import button.
+* Added Import button to world selection screen (Windows 10 Only)
+** Worlds can now be imported.
+*** Can only import worlds from files with suffix .mcworld and must have valid world files in them.
+* [[Items]] now have an updated rendering system.
+* [[Skin|Skin packs]]
+** Redstone Specialists skin pack. 
+* [[Texture]]s
+** Update texture of [[language]] button.
+*** Looks more like Windows 10 Edition button.
+* [[Options]]
+** Change [[GUI]] size option.
+* New interact buttons
+** Open
+*** Used when opening [[minecarts with chests]] and [[minecarts with hoppers]].
+** Create map
+*** Used when creating [[map]]s.
+
+== Changes ==
+=== Blocks ===
+; {{Version exclusive}} Added [[Camera]] back.
+* Has a new texture
+* Now has an interact [[button]]
+* Can only be received through inventory editing.
+
+; [[Trapped chest]]s
+* Can be doubled just like regular chests
+* Will now form a double trapped chest when placed next to each other.
+
+; [[Pumpkin]]s and [[mob head]]s
+* Can now be worn as armor by the player.
+
+; Double [[flowers]]
+* Will now spawn their respective items when bonemealed.
+
+; [[Flowers]]
+* The hitbox of flowers and similar is not the full block anymore.
+
+=== Items ===
+; [[Leather armor]]
+* Can now be dyed.
+
+; [[Boat]]s
+* Now appear exactly where the player has clicked/tapped.
+
+; [[Snowball]]s
+* Now spawn when breaking snow with a shovel.
+
+; Splash Water Bottle
+* It extinguishes any fire block that it's thrown at, as well as a maximum of five of them in the vicinity.
+
+=== Mobs ===
+; Baby [[zombie]]s
+* {{Version exclusive}}: Now has a 15% chance of being a jockey. If they want to be a jockey, upon nearing the player or villager, they will check for one of the following to mount before attacking:
+** Adult [[chicken]]
+** Adult [[ocelot]]
+** Adult [[wolf]]
+** Adult [[zombie]]
+** [[Cow]]
+** [[Pig]]
+** [[Sheep]]
+** [[Spider]]
+
+; [[Blaze]]s
+* {{Version exclusive}}: Now glow in the dark.
+
+; [[Creeper]]s
+* Are slightly shorter (1.7 blocks tall rather than 1.8).
+* Detection range for players wearing their corresponding [[mob head]] adjusted to be 50% of the normal range.
+* Explosions are now much stronger and consistent in power
+
+; [[Enderman|Endermen]]
+* Drop the block they were holding when killed.
+
+; [[Ghast]]s
+* {{Version exclusive}}: Now have glowing eyes.
+
+; [[Magma cube]]s
+* {{Version exclusive}}: Cores now glow in the dark.
+
+; [[Villager]]s
+* Are slightly taller (1.95 blocks tall rather than 1.8).
+* Will now spawn a witch when struck by [[lightning]].
+* Naturally spawned villagers will now have more variety of professions
+
+; [[Skeleton]]s
+* Detection range for players wearing their corresponding [[mob head]] adjusted to be 50% of the normal range.
+* Are slightly taller (1.99 blocks tall rather than 1.95).
+
+; [[Zombie]]s
+* Detection range for players wearing their corresponding [[mob head]] adjusted to be 50% of the normal range.
+
+; [[Cow]]s
+* Are slightly taller (1.4 blocks tall rather than 1.3, with babies 0.7 blocks tall rather than 0.65).
+
+; [[Mooshroom]]s
+* Are slightly taller (1.4 blocks tall rather than 1.3, with babies 0.7 blocks tall rather than 0.65).
+
+; [[Squid]]
+* {{Version exclusive}}: Now have bubbling particles.
+* Are slightly smaller (0.8 blocks square rather than 0.95).
+
+; [[Wither skeleton]]s
+* Are slightly smaller (2.4 blocks tall and 0.7 blocks wide rather than 2.535 blocks tall and 0.72 blocks wide).
+
+; [[Iron golem]]s
+* Are slightly shorter (2.7 blocks tall rather than 2.9).
+
+; [[Wolf]]
+* Are slightly taller (0.85 blocks tall rather than 0.8).
+
+=== World generation ===
+; [[Mineshaft]]s
+* Will now generate [[minecarts with chests]].
+
+; [[Village]]s
+* Increased [[door]] to [[villager]] ratio in [[villages]].
+
+; [[Double fern]]s
+* Now spawn in cold climates all over the [[world]].
+
+; [[Moss stone boulder]]s
+* Mega Taigas' moss stone boulders are rounder.
+
+; [[Huge mushroom]]s
+* No longer spawn in the [[water]] around roofed forests.
+
+=== General ===
+; Graphics/Performance
+* Cleaned up textures.
+* Screenshots are full .png files.
+* [[Snow]], [[carpet]], and [[slab]]s now render faster.
+* Improved loading times.
+* Changed inventory button texture.
+
+; '''[[Creative mode]]'''
+* [[Chest]]s, [[anvil]]s, [[furnace]]s, [[dropper]]s, [[dispenser]]s, [[brewing stand]]s, [[enchantment table]]s, [[hopper]]s and [[crafting table]]s can now be interacted with by Creative mode players.
+* The [[player]] can now pick up 64 of a [[block]] in creative by tapping and holding.
+
+; '''[[Options]]'''
+* Broadcast to LAN is now grayed out during gameplay to indicate that it can't be changed.
+* Updated translations.
+
+== Fixes ==
+'''[https://bugs.mojang.com/browse/MCPE/fixforversion/15475 79 bugs fixed]'''
+* Trapped chest does not provide power to redstone repeater.
+* All clay types are displayed as gray blocks on the map.
+* Double fence gates don’t block users.
+* Player is unable to open minecart with chest and minecart with hopper.
+* Player can’t close the chest window.
+* Crash when a server kicks a player for inactivity.
+* Mechanisms are being powered by redstone dust that is not aligned with them.
+* Building massive world structures can lead to serious performance issues.
+* Crash when a farmer villager runs out of seed to plant.
+* Controller’s D-pad is inactive in the brewing stand interface.
+* Backgrounds & buttons in Asian languages are too short for longer phrases.
+* TNT minecart explosion on the curve does not destroy rail tracks under explosion.
+* Fixed most issues with chunks being sent multiple times.
+* Fixed server not running at the correct speed.
+* Amount of hits required to kill witch doesn’t vary with the weapon.
+* Fixed out-of-bounds error in Inventory related to linked slots.
+* Player keeps all but armor in their inventory upon death.
+* Skeleton heads don’t look hollow from the bottom.
+* Fence gates weren’t restoring their open state correctly either. The same pattern was needed as DoorBlock and TrapDoorBlock.
+* Character's arms are in weird positions on Kindle and some iPads.
+* The player is not able to open the chest when the character stands close to it.
+* Items from the bottom half of the double chest disappear when the world is restarted.
+* Missing Feed button when holding any kind of meat in front of an untamed wolf.
+* Missing Feed button while holding beetroot and potato in front of a pig.
+* No sound of swimming underwater.
+* Player keeps moving after Player opens inventory screen with controller.
+* Slots on anvil not lined up.
+* Minecarts do not stack.
+* The terrain flickers invisible if too many chunks are updated at the same time.
+* Mushroom stew should not be poisonous.
+* The darkening underwater effect fails to occur if the user rides a boat into a waterfall.
+* Flickering fence texture when it’s put underwater.
+* Clay generates instead of gravel.
+* It is no longer possible to stack beetroot soup.
+* Cannot use colors in chat.
+* Mobs stay aggressive after switching back to creative.
+* Enderman glitches.
+* Fixed door textures.
+* Fixed UI scaling issues.
+* {{bug|MCPE-369}} – Animals cannot walk through open doors.
+* {{bug|MCPE-7947}} – You cannot bonemeal 2 high plants.
+* {{bug|MCPE-8002}} – Animals and NPCs despawn randomly.
+* {{bug|MCPE-9357}} – Invert Y-Axis cannot be turned on when using touch controls on any platform but works as expected with controllers.
+* {{bug|MCPE-9378}} – Auto-jump cannot be turned off when using touch controls on any platform but works as expected with controllers.
+* {{bug|MCPE-9555}} – The rain and snow cross the blocks.
+* {{bug|MCPE-9803}} – Korean translation error in 0.11.0 & 0.12.1.
+* {{bug|MCPE-9866}} – Nether portal facing the ocean won't show the water.
+* {{bug|MCPE-10206}} – "Play" button not translating when you selected a different language.
+* {{bug|MCPE-10290}} – The buttons are bigger in cellphones and 7 inches tablet.
+* {{bug|MCPE-10507}} – Tapping D-pad arrows highlights block beneath.
+* {{bug|MCPE-10664}} – Enchantment tables hurt iron golems.
+* {{bug|MCPE-10868}} – Killing then healing peaceful mobs brings them partially back to life.
+* {{bug|MCPE-11086}} – All mobs drop nothing unless killed by the player (or spawned or hurt by the player within 5 min of being killed).
+* {{bug|MCPE-11158}} – Boat doesn't travel for people on LAN.
+* {{bug|MCPE-11166}} – Tamed Wolves display button Sit or Stand instead of Feed when holding Rotten Flesh.
+* {{bug|MCPE-11269}} – GUI Bug (in Japanese).
+* {{bug|MCPE-11274}} – Trapped chests do not combine to form a large trapped chest.
+* {{bug|MCPE-11282}} – Giant mushrooms are no longer spawned in terrain generation.
+* {{bug|MCPE-11583}} – Milking a cow causes players to drink the milk immediately.
+* {{bug|MCPE-11585}} – Lily pads not generating in Swamp biomes.
+* {{bug|MCPE-11586}} – Ghast attack animation does not appear when Ghasts attack.
+* {{bug|MCPE-11845}} – Opening Menu causes the player to stop crouching or sneaking.
+* {{bug|MCPE-11876}} – Iron golem takes damage by a cake.
+* {{bug|MCPE-11898}} – Iron golem get hurt while standing in daylight sensor night/day.
+* {{bug|MCPE-11932}} – Impossible redstone torch clock.
+* {{bug|MCPE-12081}} – [0.13.1] Slim custom skin models are titled "skins.customSlim".
+* {{bug|MCPE-12091}} – Dog collars cannot display colors other than white.
+* {{bug|MCPE-12097}} – [0.13.1] Held items do not move along with the arm.
+* {{bug|MCPE-12102}} – [0.13.1] Player's arms do not move from the idle position when aiming a bow.
+* {{bug|MCPE-12110}} – Inconsistent opaqueness of redstone lamp.
+* {{bug|MCPE-12161}} – Zombie Pigman hat layer is missing.
+* {{bug|MCPE-12165}} – Mushrooms are not converted into giant mushrooms.
+* {{bug|MCPE-12261}} – Zombie villager's left leg is z-fighting something.
+* {{bug|MCPE-12278}} – Fences are not connected to monster spawner.
+* {{bug|MCPE-12330}} – Mooshrooms, cows, pigs, sheep, and chickens don't panic after being attacked by the player.
+* {{bug|MCPE-12353}} – Iron golem suffocates on non-full blocks.
+* {{bug|MCPE-12451}} – No Achievement for Rainbow Collection.
+* {{bug|MCPE-12468}} – Background spinning camera at the language menu does not act the same as the main menu.
+* {{bug|MCPE-12594}} – Translation error Español (España).
+
+== Trivia ==
+*This is the first Pocket Edition update to receive an official name by Mojang.
+
+==Gallery==
+<gallery>
+Pocket Edition Redstone Components.jpg
+</gallery>
+
+== References ==
+{{reflist}}
+
+{{Pocket Edition versions|Alpha}}
+
+[[de:Pocket Edition Alpha 0.14.0]]
+[[el:Pocket Edition v0.14.0 alpha]]
+[[es:Edición Pocket Alpha 0.14.0]]
+[[fr:Version portable Alpha 0.14.0]]
+[[ja:Pocket Edition v0.14.0 alpha]]
+[[pt:Edição Pocket v0.14.0 alpha]]
+[[ru:Alpha 0.14.0 (Pocket Edition)]]
+[[zh:携带版0.14.0]]

@@ -1,0 +1,723 @@
+{{Entity
+| title = Panda
+| image = <gallery>
+Panda.png| Adult
+Baby Panda.png| Baby
+</gallery>
+| extratext = View [[#Gallery|all renders]]
+| health = {{hp|20}}<br>{{hp|10}} (Weak Panda)
+| behavior = Neutral (Adult)<br>Passive (Baby, or In peaceful difficulty)
+| classification = [[Animal]]
+| damage = Easy and Normal: {{hp|2}}<br>
+Hard: {{hp|3}}<br>
+'''Aggressive''':<br>
+Easy: {{hp|4}}<br>
+Normal: {{hp|6}}<br>
+Hard: {{hp|9}}
+| size = '''Adult:'''<br>Height: 1.25 Blocks<br>Width: 1.3 Blocks<br>
+'''Baby:'''<br>Height: 0.625 Blocks<br>Width: 0.65 Blocks<br>
+| speed = 0.15<br>0.07 (lazy panda)
+| spawn = {{BiomeLink|Jungle}}<br>{{BiomeLink|Bamboo Jungle}}<br>{{BiomeLink|Sparse Jungle}}{{only|be|short=1}}
+| usableitems = {{drop|Item|Bamboo}} {{drop|Item|Cake}}
+}}
+
+A '''panda''' is a rare neutral [[mob]] that resides in [[jungle]]s. Certain aspects of a panda's behavior and appearance vary depending on its [[Panda#Personalities|personality]].
+
+== Spawning ==
+Pandas spawn rarely in groups of 1–2 in [[jungle]] biomes at the surface on [[grass block]]s with at least two-block space above them at a light level of 9 or more. They are slightly more common in [[bamboo jungle]]s and have a 5% chance to spawn as cubs instead of adults. They do not spawn on [[podzol]] despite bamboo jungles being covered by it.<ref>{{bug|MC-155811|||WAI}}</ref>
+
+Pandas spawn with a randomized personality, with the normal personality being the most common and the brown variant being the rarest.
+
+== Drops ==
+Upon death, adult pandas drop:
+* 1 {{ItemLink|bamboo}}, unaffected by [[Looting]].<ref>{{bug|MC-160006||Drops from pandas are not affected by the Looting enchantment}}</ref>{{only|java}}
+* 0-2 {{ItemLink|bamboo}}, increased 1 per level of Looting.{{only|bedrock}}
+* {{xp|1|3}}, if killed by a tamed [[wolf]] or the [[player]].
+
+Baby pandas have a {{frac|1|700}} chance to drop 1 {{ItemLink|slimeball}} after they sneeze.
+
+Upon successful [[breeding]], {{xp|1|7}} is dropped.
+
+Like other baby [[animal]]s, killing a panda cub yields no [[item]]s or [[experience]].
+
+== Behavior ==
+Pandas act similarly to other neutral mobs; they attack when hurt but only once, similar to [[llama]]s and [[bee]]s. Pandas do not attack on [[Peaceful]] [[difficulty]]. Pandas follow any player that is carrying [[bamboo]] and stop following if the player moves beyond approximately 16 blocks away. They also whimper if a thunderstorm is happening in the area. Adult pandas seek out [[bamboo]] and [[cake]] to eat.
+
+Baby pandas have a {{frac|1|6000}} chance (0.01666%) of sneezing every tick. Weak baby pandas are more likely to sneeze with a {{frac|1|500}} (0.2%) chance every tick. Sneezing makes all adult pandas within 10 blocks jump and rarely drops a [[slimeball]]. Baby pandas also occasionally roll over and jump around.
+
+Pandas have one private inventory.
+
+Pandas can be ridden by baby [[zombie]] variants.{{only|bedrock}}
+
+A [[lead]] cannot be used on a panda by normal means.<ref>{{bug|MC-137818|||WAI}}</ref> However, a panda can be leashed using a map editor, an [[NBT]] editor, or by putting it on a boat and leashing the boat.
+
+If a panda is being attacked by a player near a [[villager]], that villager displays angry particles.{{only|java}} However, it does not affect the [[Village#Popularity|popularity]] of the player.
+
+=== Personalities ===
+[[File:PandaVariants.png|thumb|The different variations of pandas – from left to right: brown, lazy, worried, playful, weak, aggressive and normal.]]
+Pandas have different personalities: normal, lazy, worried, playful, aggressive, weak, or brown.
+
+* {{EntitySprite|Panda}} '''Normal pandas''':
+** Identifiable by their frown.
+** Do not have unique personality actions. 
+* {{EntitySprite|Lazy Panda}} '''Lazy pandas''': 
+** Identifiable by their smile.
+** Lie on their backs.
+** Are slower than normal pandas, making them the slowest land mob in the game.
+** Do not follow a player who is holding [[bamboo]] while they're lying on their back.{{only|java|short=1}} {{IN|bedrock}}, if a [[player]] is holding [[bamboo]], a lazy panda stops lying on its back and starts following that [[player]].
+[[File:WorriedPandaOnRainScreen.jpg|thumb|A worried panda shaking and hiding its face during a thunderstorm.]]
+* {{EntitySprite|Worried Panda}} '''Worried pandas''':
+** Identifiable by their worried expression.
+** Avoid the player and most hostile mobs, except [[slime]]s, [[magma cube]]s, [[ghast]]s, [[shulker]]s, [[phantom]]s and the [[ender dragon]].<!-- still move toward mobs attacking it after panic-->
+** Shake and hide their faces during [[thunderstorm]]s.
+** Do not eat bamboo or [[cake]] items on their own.
+[[File:Panda Rolling.gif|thumb|x200px|A Playful panda rolling.]]
+* {{EntitySprite|Playful Panda}} '''Playful pandas''':
+** Identifiable by their tongues which stick out.
+** Roll over and jump around even as adults. The ability to roll may sometimes cause harm or kill the panda as it can accidentally roll off a cliff or into other environmental hazards.<ref>{{bug|MC-137859||Panda tries to roll over and jump into some dangerous places|WAI}}</ref>
+* {{EntitySprite|Angry Panda}} '''Aggressive pandas''':
+** Identifiable by their thick eyebrows and tight frown.
+** When hit, an aggressive panda attacks the [[player]] and other mobs continuously until the target dies or goes beyond detection range, instead of only once. It also doesn't panic when harmed.
+** When nearby pandas are attacked, unless killed in one hit,{{Only|java|short=1}} aggressive pandas becomes hostile toward the attacker.
+** Are slow, but have [[reach]] rivaling that of the player.
+* {{EntitySprite|Weak Panda}} '''Weak pandas''':
+** Identifiable by their teary eyes and snotty noses.
+** Tend to sneeze more often as babies than regular baby pandas, and have half the health of other pandas.
+* {{EntitySprite|Brown Panda}} '''Brown pandas''':
+** Identifiable by their brown color and frown.
+** Do not have unique personality actions, but are brown and white instead of the usual black and white.
+
+=== Breeding ===
+The panda is the only animal to have extra [[breeding]] conditions. {{IN|java}}, pandas enter love mode when fed with bamboo, but will only breed if there is at least one [[bamboo]] block (not including shoots) within a five-block radius;{{verify|edition=java|Is the distance correct, and does it apply to one or both pandas?}} otherwise the pandas will briefly shake their heads and not breed until that requirement is met.
+
+{{IN|bedrock}}, there must be at least 8 [[bamboo]] blocks within a five-block radius of each panda in order for them to enter love mode. If a panda is fed without a sufficient amount of bamboo nearby, it sits and eats the [[bamboo]] instead of entering love mode.
+
+Once pandas successfully breed, they produce a panda cub which remains passive instead of neutral toward that [[player]].
+
+==Genetics==
+Each panda has two hidden values called "{{w|Allele|genes}}" or "alleles", as found in {{w|Genetics|genetics}}. Pandas have a main gene and a hidden gene, each assigned to a particular trait. Normal, aggressive, lazy, worried, and playful personalities are dominant traits, while weak and brown personalities are recessive traits. If the main gene is a dominant gene, then it will present as the personality regardless of the hidden gene. If the main gene is recessive and the hidden gene is not the same trait, then a normal personality results. As recessive traits, weak and brown personalities occur if both the main and hidden genes of a panda are weak or brown, respectively. The hidden gene is only relevant in determining the panda's personality if the main gene is recessive.
+
+When two pandas breed, each one passes one of their genes to their children, who then randomly mix both obtained genes as their respective main and hidden genes. There is also a {{frac|1|32}} chance for each gene of the baby to mutate into another gene. Normal, weak, and brown traits more commonly result from mutations than other traits do. These probabilities also apply to naturally spawned pandas for their main and hidden genes.
+
+{| class="wikitable" style="text-align: center"
+! rowspan=1 colspan=1 | Mutated Gene
+! colspan=1 | Probability
+|-
+! {{EntitySprite|Panda}} Normal
+! {{frac|5|16}}
+|-
+! {{EntitySprite|Angry Panda}} Aggressive
+! {{frac|1|16}}
+|-
+! {{EntitySprite|Lazy Panda}} Lazy
+! {{frac|1|16}}
+|-
+! {{EntitySprite|Worried Panda}} Worried
+! {{frac|1|16}}
+|-
+! {{EntitySprite|Playful Panda}} Playful
+! {{frac|1|16}}
+|-
+! {{EntitySprite|Weak Panda}} Weak
+! {{frac|5|16}}
+|-
+! {{EntitySprite|Brown Panda}} Brown
+! {{frac|1|8}}
+|}
+
+{| class="wikitable" style="text-align: center"
+! rowspan=2 colspan=2 | Panda Personality
+! colspan=7 | Hidden Gene
+|-
+! {{EntitySprite|Panda}} Normal
+! {{EntitySprite|Angry Panda}} Aggressive
+! {{EntitySprite|Lazy Panda}} Lazy
+! {{EntitySprite|Worried Panda}} Worried
+! {{EntitySprite|Playful Panda}} Playful
+! {{EntitySprite|Weak Panda}} Weak
+! {{EntitySprite|Brown Panda}} Brown
+|-
+! rowspan=7 | Main Gene
+! {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+|-
+! {{EntitySprite|Angry Panda}} Aggressive
+| {{EntitySprite|Angry Panda}} Aggressive
+| {{EntitySprite|Angry Panda}} Aggressive
+| {{EntitySprite|Angry Panda}} Aggressive
+| {{EntitySprite|Angry Panda}} Aggressive
+| {{EntitySprite|Angry Panda}} Aggressive
+| {{EntitySprite|Angry Panda}} Aggressive
+| {{EntitySprite|Angry Panda}} Aggressive
+|-
+! {{EntitySprite|Lazy Panda}} Lazy
+| {{EntitySprite|Lazy Panda}} Lazy
+| {{EntitySprite|Lazy Panda}} Lazy
+| {{EntitySprite|Lazy Panda}} Lazy
+| {{EntitySprite|Lazy Panda}} Lazy
+| {{EntitySprite|Lazy Panda}} Lazy
+| {{EntitySprite|Lazy Panda}} Lazy
+| {{EntitySprite|Lazy Panda}} Lazy
+|-
+! {{EntitySprite|Worried Panda}} Worried
+| {{EntitySprite|Worried Panda}} Worried
+| {{EntitySprite|Worried Panda}} Worried
+| {{EntitySprite|Worried Panda}} Worried
+| {{EntitySprite|Worried Panda}} Worried
+| {{EntitySprite|Worried Panda}} Worried
+| {{EntitySprite|Worried Panda}} Worried
+| {{EntitySprite|Worried Panda}} Worried
+|-
+! {{EntitySprite|Playful Panda}} Playful
+| {{EntitySprite|Playful Panda}} Playful
+| {{EntitySprite|Playful Panda}} Playful
+| {{EntitySprite|Playful Panda}} Playful
+| {{EntitySprite|Playful Panda}} Playful
+| {{EntitySprite|Playful Panda}} Playful
+| {{EntitySprite|Playful Panda}} Playful
+| {{EntitySprite|Playful Panda}} Playful
+|-
+! {{EntitySprite|Weak Panda}} Weak
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Weak Panda}} Weak
+| {{EntitySprite|Panda}} Normal
+|-
+! {{EntitySprite|Brown Panda}} Brown
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Panda}} Normal
+| {{EntitySprite|Brown Panda}} Brown
+|}
+:The only way to directly observe the hidden gene of a panda is to use the command : {{cmd|data get entity @e<nowiki>[type=minecraft:panda,sort=nearest,limit=1]</nowiki> HiddenGene}}{{only|Java}} or using third-party NBT editors.
+
+== Sounds ==
+{{Edition|Java}}:<br>
+Pandas use the Friendly Creatures sound category for entity-dependent sound events.
+{{Sound table
+|sound=Panda idle1.ogg
+|sound2=Panda idle2.ogg
+|sound3=Panda idle3.ogg
+|sound4=Panda idle4.ogg
+|subtitle=Panda pants
+|source=neutral
+|description=Randomly
+|id=entity.panda.ambient
+|translationkey=subtitles.entity.panda.ambient
+|volume=1.0
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|sound=Panda pre sneeze.ogg
+|subtitle=Panda's nose tickles
+|source=neutral
+|description=Before a baby panda sneezes
+|id=entity.panda.pre_sneeze
+|translationkey=subtitles.entity.panda.pre_sneeze
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Panda sneeze1.ogg
+|sound2=Panda sneeze2.ogg
+|sound3=Panda sneeze3.ogg
+|subtitle=Panda sneezes
+|source=neutral
+|description=When a baby panda sneezes
+|id=entity.panda.sneeze
+|translationkey=subtitles.entity.panda.sneeze
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Panda death1.ogg
+|sound2=Panda death2.ogg
+|sound3=Panda death3.ogg
+|sound4=Panda death4.ogg
+|subtitle=Panda dies
+|source=neutral
+|description=When a panda dies
+|id=entity.panda.death
+|translationkey=subtitles.entity.panda.death
+|volume=0.82
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|sound=Panda eat1.ogg
+|sound2=Panda eat2.ogg
+|sound3=Panda eat3.ogg
+|sound4=Panda eat4.ogg
+|sound5=Panda eat5.ogg
+|sound6=Panda eat6.ogg
+|sound7=Panda eat7.ogg
+|sound8=Panda eat8.ogg
+|sound9=Panda eat9.ogg
+|sound10=Panda eat10.ogg
+|sound11=Panda eat11.ogg
+|sound12=Panda eat12.ogg
+|subtitle=Panda eats
+|source=neutral
+|description=While a panda is eating an item
+|id=entity.panda.eat
+|translationkey=subtitles.entity.panda.eat
+|volume=''varies'' <ref group=sound>Can be 0.5, 1.0 or 1.5 for each sound, except {{cd|eat5}}, which can be 0.425, 0.85, or 1.275</ref>
+|pitch=0.8-1.2
+|distance=16}}
+{{Sound table
+|sound=Panda step1.ogg
+|sound2=Panda step2.ogg
+|sound3=Panda step3.ogg
+|sound4=Panda step4.ogg
+|sound5=Panda step5.ogg
+|subtitle=Panda steps<wbr><ref group=sound name=footstepsubtitle>{{Bug|MC-177110|||Fixed}}</ref><wbr>{{Until|JE 1.20.2}}<br>Footsteps<wbr>{{Upcoming|JE 1.20.2}}
+|source=neutral
+|description=While a panda is walking
+|id=entity.panda.step
+|translationkey=subtitles.entity.panda.step|translationkeynote=<ref group=sound name=footstepsubtitle/><wbr>{{Until|JE 1.20.2}}<br><code>subtitles.block.generic.footsteps</code><wbr>{{Upcoming|JE 1.20.2}}
+|volume=0.15
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Panda bleat1.ogg
+|sound2=Panda bleat2.ogg
+|sound3=Panda bleat3.ogg
+|sound4=Panda bleat4.ogg
+|sound5=Panda bleat5.ogg
+|subtitle=Panda bleats
+|source=neutral
+|description=When two pandas are fed too close together
+|id=entity.panda.cant_breed
+|translationkey=subtitles.entity.panda.cant_breed
+|volume=1.0
+|pitch=1.0
+|distance=16}}
+{{Sound table
+|sound=Aggressive panda idle1.ogg
+|sound2=Aggressive panda idle2.ogg
+|sound3=Aggressive panda idle3.ogg
+|sound4=Aggressive panda idle4.ogg
+|sound5=Panda nosebreath1.ogg
+|sound6=Panda nosebreath2.ogg
+|sound7=Panda nosebreath3.ogg
+|sound8=Panda pant1.ogg
+|sound9=Panda pant2.ogg
+|subtitle=Panda huffs
+|source=neutral
+|description=Randomly from an aggressive personality panda
+|id=entity.panda.aggressive_ambient
+|translationkey=subtitles.entity.panda.aggressive_ambient
+|volume=1.0 <ref group=sound>Except {{cd|idle4}}, which is 0.8</ref>
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|sound=Worried panda idle1.ogg
+|sound2=Worried panda idle2.ogg
+|sound3=Worried panda idle3.ogg
+|sound4=Worried panda idle4.ogg
+|sound5=Worried panda idle5.ogg
+|sound6=Worried panda idle6.ogg
+|subtitle=Panda whimpers
+|source=neutral
+|description=Randomly from a worried panda during a thunderstorm
+|id=entity.panda.worried_ambient
+|translationkey=subtitles.entity.panda.worried_ambient
+|volume=1.0
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|sound=Panda hurt1.ogg
+|sound2=Panda hurt2.ogg
+|sound3=Panda hurt3.ogg
+|sound4=Panda hurt4.ogg
+|sound5=Panda hurt5.ogg
+|sound6=Panda hurt6.ogg
+|subtitle=Panda hurts
+|source=neutral
+|description=When a panda is damaged
+|id=entity.panda.hurt
+|translationkey=subtitles.entity.panda.hurt
+|volume=0.82
+|pitch=0.8-1.2<br>(Baby: 1.3-1.7)
+|distance=16}}
+{{Sound table
+|sound=Panda bite1.ogg
+|sound2=Panda bite2.ogg
+|sound3=Panda bite3.ogg
+|subtitle=Panda bites
+|source=neutral
+|description=When a panda attacks something
+|id=entity.panda.bite
+|translationkey=subtitles.entity.panda.bite
+|volume=1.0
+|pitch=1.0
+|distance=16
+|foot=1}}
+
+{{Edition|Bedrock}}:
+{{Sound table
+|type=bedrock
+|rowspan=2
+|sound=Panda idle1.ogg
+|sound2=Panda idle2.ogg
+|sound3=Panda idle3.ogg
+|sound4=Panda idle4.ogg
+|source=neutral
+|description=Randomly from an adult panda<ref group="sound" name="lesssounds">This sound only plays less often than it should due to {{Bug|MCPE-153559}}, as <code>nosebreath</code> and <code>pant</code> sounds do not exist.</ref>
+|id=mob.panda.idle
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|source=neutral
+|description=Randomly from a baby panda<ref group="sound" name="lesssounds"/>
+|id=mob.panda_baby.idle
+|volume=1.0
+|pitch=1.2-1.8}}
+{{Sound table
+|sound=Panda pre sneeze.ogg
+|source=neutral
+|description=Before a baby panda sneezes
+|id=mob.panda.presneeze
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Panda sneeze1.ogg
+|sound2=Panda sneeze2.ogg
+|sound3=Panda sneeze3.ogg
+|source=neutral
+|description=When a baby panda sneezes
+|id=mob.panda.sneeze
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Panda death1.ogg
+|sound2=Panda death2.ogg
+|sound3=Panda death3.ogg
+|sound4=Panda death4.ogg
+|source=hostile
+|description=When a panda dies
+|id=mob.panda.death
+|volume=0.82
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Panda eat1.ogg
+|sound2=Panda eat2.ogg
+|sound3=Panda eat3.ogg
+|sound4=Panda eat4.ogg
+|sound5=Panda eat5.ogg
+|sound6=Panda eat6.ogg
+|sound7=Panda eat7.ogg
+|sound8=Panda eat8.ogg
+|sound9=Panda eat9.ogg
+|sound10=Panda eat10.ogg
+|sound11=Panda eat11.ogg
+|sound12=Panda eat12.ogg
+|source=neutral
+|description=While a panda is eating an item
+|id=mob.panda.eat
+|volume=''varies'' <ref group="sound" name="varieseat">All are 1.0, except for <code>eat5</code>, which is 0.85</ref>
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Panda step1.ogg
+|sound2=Panda step2.ogg
+|sound3=Panda step3.ogg
+|sound4=Panda step4.ogg
+|sound5=Panda step5.ogg
+|source=neutral
+|description=While a panda is walking
+|id=mob.panda.step
+|volume=0.4
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Panda bleat1.ogg
+|sound2=Panda bleat2.ogg
+|sound3=Panda bleat3.ogg
+|sound4=Panda bleat4.ogg
+|sound5=Panda bleat5.ogg
+|source=neutral
+|description=When two pandas are fed too close together
+|id=mob.panda.cant_breed
+|volume=1.0
+|pitch=0.8-1.2}}
+{{Sound table
+|sound=Aggressive panda idle1.ogg
+|sound2=Aggressive panda idle2.ogg
+|sound3=Aggressive panda idle3.ogg
+|sound4=Aggressive panda idle4.ogg
+|source=neutral
+|description=Randomly from an aggressive personality panda<ref group="sound" name="lesssounds"/>
+|id=mob.panda.idle.aggressive
+|volume=''varies'' <ref group="sound" name="variesaggressive">All are 1.0, except for <code>aggressive4</code>, which is 0.8</ref>
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Worried panda idle1.ogg
+|sound2=Worried panda idle2.ogg
+|sound3=Worried panda idle3.ogg
+|sound4=Worried panda idle4.ogg
+|sound5=Worried panda idle5.ogg
+|sound6=Worried panda idle6.ogg
+|source=neutral
+|description=Randomly from a worried panda during a thunderstorm
+|id=mob.panda.idle.worried
+|volume=1.0
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Panda hurt1.ogg
+|sound2=Panda hurt2.ogg
+|sound3=Panda hurt3.ogg
+|sound4=Panda hurt4.ogg
+|sound5=Panda hurt5.ogg
+|sound6=Panda hurt6.ogg
+|source=hostile
+|description=When a panda is damaged
+|id=mob.panda.hurt
+|volume=0.82
+|pitch=0.8-1.2 (Baby: 1.3-1.7)}}
+{{Sound table
+|sound=Panda bite1.ogg
+|sound2=Panda bite2.ogg
+|sound3=Panda bite3.ogg
+|source=hostile
+|description=When a panda attacks something
+|id=mob.panda.bite
+|volume=1.0
+|pitch=0.8-1.2
+|foot=1}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|generatetranslationkeys=java
+|displayname=Panda
+|spritetype=entity
+|nameid=panda
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|shownumericids=y
+|generatetranslationkeys=bedrock
+|displayname=Panda
+|spritetype=entity
+|nameid=panda
+|id=113
+|foot=1}}
+
+=== Entity data ===
+
+Panda have entity data associated with them that contains various properties.
+
+{{el|java}}:
+{{main|Entity format}}
+{{/ED}}
+
+{{el|bedrock}}:
+: See [[Bedrock Edition level format/Entity format]].
+
+== Achievements ==
+<table-progress-tracking table-id="1" unique-column-index="3">
+{{load achievements|Zoologist}}
+</table-progress-tracking>
+
+== Advancements ==
+<table-progress-tracking table-id="2" unique-column-index="2">
+{{load advancements|The Parrots and the Bats;Two by Two;It Spreads}}
+</table-progress-tracking>
+
+== History ==
+{{History||April 9, 2012|link=https://www.reddit.com/r/Minecraft/comments/s0pqt/i_am_nathan_adams_aka_dinnerbone_developer_of/c4a5sxc/?context=1|[[Dinnerbone]] states that he wants to add pandas into the game once he is "used to skinning and animating things".}}
+{{History||December 18, 2013|link=https://www.reddit.com/r/Minecraft/comments/1t6qn7/i_am_dinnerbone_a_minecraft_developer_ask_me/ce4z2bv/?context=3|Dinnerbone again states that he wants to add pandas into the game.}}
+{{History||September 26, 2018|link=https://www.reddit.com/r/Minecraft/comments/9irrq9/pandas_are_being_added_to_minecraft_china_edition/|[[File:Panda skin.png|64px]] Pandas win a community vote to be the next [[mob]] added to ''[[Minecraft China]]''.}}
+{{History||September 29, 2018|link={{tweet|minecraft|1046096508570009602}}|Pandas are announced at [[MINECON Earth 2018]].}}
+
+{{History|java}}
+{{History||1.14|snap=18w43a|[[File:Panda JE1 BE1.png|50px]] [[File:Lazy Panda JE1 BE1.png|50px]] [[File:Aggressive Panda JE1 BE2.png|50px]] [[File:Worried Panda JE1 BE1.png|50px]] [[File:Playful Panda JE1 BE1.png|50px]] [[File:Weak Panda JE1 BE1.png|50px]] [[File:Brown Panda JE1 BE1.png|50px]] Added pandas.
+|[[File:Baby Panda JE1.png|32px]] [[File:Lazy Baby Panda JE1.png|32px]] [[File:Aggressive Baby Panda JE1.png|32px]] [[File:Worried Baby Panda JE1.png|32px]] [[File:Playful Baby Panda JE1.png|32px]] [[File:Weak Baby Panda JE1.png|32px]] [[File:Brown Baby Panda JE1.png|32px]] Added baby pandas.}}
+{{History|||snap=19w08a|Pandas can no longer have armor equipped onto them with a dispenser.
+|Naturally spawned pandas now have a 5% chance of being a cub.}}
+{{History||1.15|snap=19w39a|[[File:Baby Panda 19w39a.png|32px]] [[File:Baby Lazy Panda 19w39a.png|32px]] [[File:Baby Aggressive Panda 19w39a.png|32px]] [[File:Baby Worried Panda 19w39a.png|32px]] [[File:Baby Playful Panda 19w39a.png|32px]] [[File:Baby Weak Panda 19w39a.png|32px]] [[File:Baby Brown Panda 19w39a.png|32px]] Due to a bug, the baby panda [[model]] is currently broken.}}
+{{History|||snap=19w40a|The baby panda model has been fixed.<ref>{{bug|MC-161995}}</ref>}}
+
+{{History|bedrock}}
+{{History||1.8.0|snap=beta 1.8.0.8|[[File:Panda JE1 BE1.png|50px]] [[File:Lazy Panda JE1 BE1.png|50px]] [[File:Aggressive Panda BE1.png|50px]] [[File:Worried Panda JE1 BE1.png|50px]] [[File:Playful Panda JE1 BE1.png|50px]] [[File:Weak Panda JE1 BE1.png|50px]] [[File:Brown Panda JE1 BE1.png|50px]] Added pandas.
+|[[File:Baby Panda BE1.png|32px]] [[File:Lazy Baby Panda BE1.png|32px]] [[File:Aggressive Baby Panda BE1.png|32px]] [[File:Worried Baby Panda BE1.png|32px]] [[File:Playful Baby Panda BE1.png|32px]] [[File:Weak Baby Panda BE1.png|32px]] [[File:Brown Baby Panda BE1.png|32px]] Added baby pandas.}}
+{{History|||snap=beta 1.8.0.10|Added [[sound]]s for pandas.
+|Pandas can now directly be given [[bamboo]] to [[breeding|breed]] them.
+|Aggressive pandas now deal more [[damage]].
+|Pandas now sit and snack, even if they're scared or angry at the [[player]].}}
+{{History|||snap=beta 1.8.0.11|The textures of aggressive pandas have been changed from [[File:Aggressive Panda BE1.png|50px]] [[File:Aggressive Baby Panda BE1.png|32px]] to [[File:Aggressive Panda JE1 BE2.png|50px]] [[File:Aggressive Baby Panda BE2.png|32px]].
+|All default pandas now bite once when attacked.
+|Aggressive pandas now defend other pandas.
+|Pandas now broadcast their anger to aggressive pandas.
+|Aggressive pandas now have more attack [[damage]] when killing nearby [[player]]s.}}
+{{History|||snap=beta 1.8.0.13|Pandas now more quickly return to their normal behavior after following a [[player]] holding [[bamboo]].}}
+
+{{History|ps4}}
+{{History||1.83|[[File:Panda JE1 BE1.png|50px]] [[File:Lazy Panda JE1 BE1.png|50px]] [[File:Aggressive Panda JE1 BE2.png|50px]] [[File:Worried Panda JE1 BE1.png|50px]] [[File:Playful Panda JE1 BE1.png|50px]] [[File:Weak Panda JE1 BE1.png|50px]] [[File:Brown Panda JE1 BE1.png|50px]] Added pandas.
+|[[File:Baby Panda BE1.png|32px]] [[File:Lazy Baby Panda BE1.png|32px]] [[File:Aggressive Baby Panda BE2.png|32px]] [[File:Worried Baby Panda BE1.png|32px]] [[File:Playful Baby Panda BE1.png|32px]] [[File:Weak Baby Panda BE1.png|32px]] [[File:Brown Baby Panda BE1.png|32px]] Added baby pandas.}}
+{{History|foot}}
+
+<gallery>
+PandaMinecon.png|The first image of pandas, from [[MINECON Earth 2018]].
+PandasEatingMinecon.jpg|A group of pandas eating [[bamboo]] shown at MINECON Earth 2018.
+Aggressive panda.png|An aggressive panda with its old texture.
+</gallery>
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+*To create the in-game [[sound]]s for pandas, [[Mojang Studios]]' lead sound designer, Samuel Åberg, went to [[Wikipedia:Guangzhou|Guangzhou, China]], to record real-life pandas.<ref>{{ytl|7mi5au5qH8g|Recording Panda sounds for Minecraft!||October 9, 2018}}</ref> This was also done with [[dolphin]]s.
+*The brown panda, known as the [[wikipedia:Qinling panda|Qinling panda]], is actually a subspecies of the giant panda discovered in the 1960s.<ref>https://en.wikipedia.org/wiki/Qinling_panda</ref>
+*The lazy panda is the slowest land mob in the game (not counting status effects such as [[Slowness]]).
+*The rarest mob {{in|bedrock}} is a baby [[husk]] with equipment and armor riding a brown panda, which has a 2.88×10<sup>−13</sup> percent (one in 3.47<span style="text-decoration:overline">2</span> trillion) chance of spawning.
+*Pandas were originally a bit slimmer.<ref>{{ytl|8jI4Qfj7U6Q|Making Mobs: Ten Things You Probably Didn't Know About Minecraft|t=165}}</ref>
+
+== Gallery ==
+<gallery>
+Panda.png
+Lazy Panda.png
+Aggressive Panda.png
+Worried Panda.png
+Playful Panda.png
+Weak Panda.png
+Brown Panda.png| 
+Sitting Panda.png
+Sitting Lazy Panda.png
+Sitting Aggressive Panda.png
+Sitting Worried Panda.png
+Sitting Playful Panda.png
+Sitting Weak Panda.png
+Sitting Brown Panda.png| 
+Panda.png|Lazy Panda.png|
+Aggressive Panda.png
+Worried Panda.png
+Playful Panda.png
+Weak Panda.png
+Brown Panda.png| 
+Sitting Panda BE.png
+Sitting Lazy Panda BE.png
+Sitting Aggressive Panda BE.png
+Sitting Worried Panda BE.png
+Sitting Playful Panda BE.png
+Sitting Weak Panda BE.png
+Sitting Brown Panda BE.png
+Baby Panda.png
+Lazy Baby Panda.png
+Aggressive Baby Panda.png
+Worried Baby Panda.png
+Playful Baby Panda.png
+Weak Baby Panda.png
+Brown Baby Panda.png
+Sitting Baby Panda BE.png
+Sitting Lazy Baby Panda BE.png
+Sitting Aggressive Baby Panda BE.png
+Sitting Worried Baby Panda BE.png
+Sitting Playful Baby Panda BE.png
+Sitting Weak Baby Panda BE.png
+Sitting Brown Baby Panda BE.png
+</gallery>
+
+==== Animations ====
+<gallery>
+Panda Rolling.gif|A panda rolling.
+Panda Lying.gif|A panda lying.
+Panda Unhappy.gif|A panda unhappy.
+</gallery>
+
+==== [[Event servers]] ====
+<gallery>
+File:Panda Mask (Trails and Tales Summer Event) Render.png|The Panda Mask, an item featured in the [[Trails & Tales Event]].
+File:Panda (Trails & Tales Event).png|Secret Panda, featured in the Trails & Tales Event.
+</gallery>
+
+=== Concept Art ===
+<gallery>
+Panda Old Design.jpg|Panda with a slimmer model.
+</gallery>
+
+=== Screenshots ===
+<gallery>
+Pandas Eating BE.png|Two pandas sitting up, eating bamboo.
+Playful panda on back.png|A panda lying on its back.
+WorriedPandaScreen.jpg|A worried panda on a beach.
+Worried Panda in Thunderstorm.png|A worried panda in a thunderstorm.
+Panda eat a cake.png|Panda eating a [[cake]].
+Panda eating a spyglass.png|A panda eating a [[spyglass]]. This results in [[missing texture]] particles being produced.<ref>{{bug|MC-206684}}</ref>
+LazyPandaCloseUp.png|A close up of a lazy panda in a bamboo forest.
+V1.8.0 panorama 1.png|A panda featured on a [[Bedrock Edition]] [[panorama]].
+File:Bamboo Galore.jpg|A panda with several bamboo blocks.
+</gallery>
+
+=== Official artwork ===
+<gallery>
+Zuri Chopping Bamboo Pixel Art.png|A panda eating bamboo while [[Zuri]] chops bamboo.
+Zuri on Bamboo Raft Pixel Art.png|A panda on a [[bamboo raft]] with Zuri.
+Zuri By Bamboo House Pixel Art.png|A panda sitting atop a bamboo house.
+Cats & Pandas.jpg|Pandas in promotional artwork for [[Bedrock Edition 1.8]].
+</gallery>
+
+=== In other media ===
+<gallery>
+MinecraftChinaVote.png|The vote in which the Panda was chosen over other Chinese animals.
+File:Pandas (Dungeons).png|[[MCD:Panda|Pandas]] as they appear in ''[[Minecraft Dungeons]]''.
+File:Panda Plateau.png|[[MCD:Panda Plateau|Panda Plateau]], a [[MCD:Mission|mission]] in ''Minecraft Dungeons'' centered around pandas.
+File:Diamond Level Panda.jpg|The ''Diamond Level Panda'', a premium action figure created for San Diego Comic Con 2023.<ref> https://twitter.com/Minecraft/status/1681018879974440960?s=20</ref>
+File:Panda Packaging.jpg|The ''Diamond Level Panda'’’s packaging.
+LEGO Panda.png|[[LEGO Minecraft]] panda minifigure.
+LEGO Baby Panda.png|[[LEGO Minecraft]] baby panda minifigure.
+LEGO Minecraft Panda Nursery Unboxed.png|[[LEGO Minecraft]] Panda Nursery set.
+LEGOMCThePandaHavenUnboxed.webp|[[LEGO Minecraft]] Panda Haven set.
+LEGO Panda Skin.png|Panda Skin, a panda-themed player minifigure from the [[LEGO Minecraft]] Modern Treehouse set.
+Never Ending Adventure.png|"Never Ending Adventure," an officially licensed cup featuring a panda.
+Panda Shirt.png|An officially licensed panda T-Shirt.
+File:Minecraft X UniQlo Green T-shirt Exclusive.jpg
+</gallery>
+
+=== Textures ===
+<gallery>
+File:Panda (texture).png
+File:Lazy Panda (texture).png|Lazy Panda
+File:Worried Panda (texture).png|Worried Panda
+File:Playful Panda (texture).png|Playful Panda
+File:Aggressive Panda (texture).png|Aggressive Panda
+File:Weak Panda (texture).png|Weak Panda
+File:Brown Panda (texture).png|Brown Panda
+</gallery>
+
+== References ==
+{{reflist}}
+
+{{Entities}}
+[[Category:Neutral mobs]]
+[[Category:Animal mobs]]
+
+[[cs:Panda]]
+[[de:Panda]]
+[[es:Panda]]
+[[fr:Panda]]
+[[it:Panda]]
+[[ja:パンダ]]
+[[ko:판다]]
+[[pl:Panda]]
+[[pt:Panda]]
+[[ru:Панда]]
+[[th:แพนด้า]]
+[[uk:Панда]]
+[[zh:熊猫]]
+[[Category:Four legged mobs]]
+[[Category:Bears]]
+[[Category:Group retaliating mobs]]
+[[Category:Retaliating mobs]]

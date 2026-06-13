@@ -1,0 +1,141 @@
+{{distinguish|Raid}}{{about|the patrol in ''Minecraft''|the user group of {{SITENAME}}|Minecraft Wiki:Patrollers}}
+[[File:Illager patrol.png|thumb|right|A patrol.]]
+
+A '''patrol''' (officially a '''pillager patrol''') <!-- appears in changelog several times and used as identifier in behavior pack --> is a rare, naturally-spawning group of [[pillager]]s.
+
+== Spawning ==
+
+Patrols spawn as a group of 1 to 6 [[pillager]]s {{in|java|lc=}} or 2–5 illagers {{in|bedrock|lc=}}, one of which is the patrol captain. The patrol captain wears an [[ominous banner]], known as the [[illager banner]] in ''Bedrock Edition'' and ''Minecraft Education'', on its head. The other illagers follow the captain around. 
+
+The patrol captain ''always'' spawns as a pillager, unless [[commands]] are used.
+
+{{IN|java}}, patrols never spawn if {{cmd|gamerule doPatrolSpawning}} is set to <code>false</code>.
+
+=== Conditions ===
+Patrols spawn naturally after the world age reaches 100 minutes (5 [[in-game day]]s), then after a delay between 10–11 minutes an attempt is made to spawn a patrol with 20% chance of success. After an attempt is made, the delay is reset.
+
+Patrols spawn in any [[Overworld]] biome except [[mushroom fields]], although a patrol may wander through the biome after spawning.
+
+Patrollers do not spawn in Peaceful [[difficulty]].
+
+==== ''Java Edition'' ====
+Patrols can spawn on any non-[[fluid]] block with a motion-blocking [[material]], with the exception of [[leaves]]. They can spawn during the day on blocks with a block light level of 8<!-- @PatrollingMonster.checkPatrollingMonsterSpawnRules():
+if(levelAccessor.getBrightness(LightLayer.BLOCK, blockPos) > 8){...} --> or lower. If a player is within 5 by 5 by 5 sub-chunk cube around a village, patrols do not spawn.
+[[File:Patrol spawning radius.png|thumb|A visual representation of patrols' spawning conditions. Captains can spawn on dark green blocks and the "support" pillagers can spawn on any green blocks.]]
+The game picks a random location 24–48 blocks along each of the X and Z axis away from the player to try to spawn the patrol's captain. If a pillager cannot spawn at the chosen position, it gives up and does not spawn anything. If the captain can spawn, the game tries to spawn the value of <code>localDifficulty</code> (rounded up) more pillagers, with each pillager spawning within a 4-block radius square around the previous pillager.
+
+==== ''Bedrock Edition'' ====
+{{IN|bedrock}}, patrols spawn around 24–48 blocks away from the player (or more than 48 blocks away if the player is in a village). Additionally, patrols can spawn in biomes where common monsters cannot spawn such as in:
+* {{BiomeLink|river}}<!-- no monster other than drowned -->
+* {{BiomeLink|frozen river}}<!-- no monster other than skeleton, stray, and drowned --> 
+* {{BiomeLink|snowy tundra}}<!-- no monster other than skeleton and stray -->
+* {{BiomeLink|snowy mountains}}<!-- no monster other than skeleton and stray -->
+* {{BiomeLink|legacy frozen ocean}}<!-- no monster other than skeleton, stray, and drowned --> 
+
+Patrols spawn on solid blocks at light level 0–7{{verify|See talk page; I've observed patrols spawning in broad daylight}} at the surface.
+
+=== Commands ===
+==== ''Bedrock Edition'' ====
+Players can summon patrol captain and patrol members via command within [[spawn event]].
+
+Summon patrol captain:
+:<code>/summon pillager ~ ~ ~ ~ ~ minecraft:promote_to_patrol_captain</code>
+
+Summon patrol members:
+:<code>/summon pillager ~ ~ ~ ~ ~ minecraft:spawn_as_patrol_follower</code>
+
+Summon unused vindicator patrol captain:
+:<code>/summon vindicator ~ ~ ~ ~ ~ minecraft:promote_to_patrol_captain</code>
+:Summon vindicator patrol member:
+:<code>/summon vindicator ~ ~ ~ ~ ~ minecraft:spawn_as_patrol_follower</code>
+
+== Behavior ==
+[[File:Patrol looking villager.png||thumb|Patrol looks at a villager and attracts their attention.]]
+Patrols seek villages, wander around, and attack nearby [[player]]s, adult [[villager]]s, [[iron golem]]s, [[snow golem]]s{{only|bedrock}} and [[wandering trader]]s. The patrol members' heads turn to follow a player or villager-like mob who looks at them or attracts their attention. A player or villager-like mob who approaches within 10 blocks of the patrol provokes them into loading their crossbows and attacking, and pursuing if the player flees. The pursuit lasts until either of the parties dies or gets 10 blocks away.
+
+[[Witch]]es that join the patrol assume the patrol's behavior.<ref>[[Witch#Contribution to raids|Witch § Contribution to raids]]</ref>
+
+{{IN|java}}, any [[illager]]s, [[ravager]]s, or [[witch]]es that did not spawn with the patrol can join the patrol if sufficiently near a patrol captain. Evokers and illusioners who join a patrol wander around but do not seek out targets as other illager members in the patrol. They still do cast spells to attack mobs, however.
+
+If a "Johnny" [[vindicator]] joins a patrol, all patrol members assume the Johnny vindicator's aggressive behavior, attacking any non-illager mob, which includes witches and ravagers (which are not illagers in ''Java Edition''), except baby villagers and ghasts. <!-- no need to tag Java Edition only for baby villagers as this paragraph is about a feature exclusive to Java Edition -->
+
+{{IN|bedrock}}, when one of the patrol members is attacked, it alerts nearby patrol members within 10 blocks to attack the same target as a swarm. The attacker can be any mob and doesn't need to be a player, and the distance between the attacker and the patrol can be up to 64 blocks away from alerted patrol members. This means that a [[llama]] who accidentally spits on a patrol member can provoke all of the members of the patrol at once. [[Vindicator]] patrol members target and attack the player without prior provocation.
+
+A patrol spawned by a player might not function properly; instead, causing some of the patrol members to wander around. One of the ways to fix this is to reduce the size of the patrol to around 5 members. Another way is to make the captain move, as the rest of the patrol members can move along with it and follow it around. [[Witch]]es might not function properly in a patrol because the witch is not an [[illager]].
+
+Just like normal [[pillager]]s, when a patrol pillager's arrow hits another pillager, the hit pillager does not retaliate.
+
+The patrol captain always drops an [[ominous banner]], known as the [[illager banner]] in ''Bedrock Edition'', upon death. It also drops a [[Ominous Bottle|ominous bottle]], which is a potion-like item that gives the player [[Bad Omen]].
+
+=== Bad Omen (Ominous Bottle) ===
+{{main|Bad Omen|Ominous Bottle}}
+As of [[Tricky Trials|Minecraft 1.21]], when a player kills a pillager captain (either directly or through a tamed wolf), the captain drops an [[Ominous Bottle]], an item that allows players to manually apply the [[Bad Omen]] effect by consuming it. In ''[[Java Edition]]'', the level of Bad Omen granted depends on the number of captains defeated consecutively, impacting the strength and number of raid waves triggered upon entering a village. In ''[[Bedrock Edition]]'', consuming the Ominous Bottle grants the Bad Omen effect but does not stack levels.
+
+The [[Bad Omen]] effect can be removed by drinking milk, entering a village, waiting for the effect to expire, or upon the player's death. Additionally, consuming an Ominous Bottle within the [[Trial Chambers]] activates the [[Trial Omen]] effect, initiating a special challenge called an Ominous Trial, which summons elite mobs or unlocks unique rewards. These additions provide players with more strategic options for raids and dungeon-like encounters.
+
+== History ==
+{{History|java}}
+{{History||1.14|snap=18w45a|Added patrols, which can spawn all types of [[illager]]s (minus the [[illusioner]] and the [[evoker]]) including [[ravager]]s.}}
+{{History|||snap=18w46a|Ravagers no longer spawn in patrols.
+|Patrols now spawn 5 [[illager]]s instead of 4.}}
+{{History|||snap=18w47a|Added the [[Bad Omen]] status effect, which is applied to players upon killing a patrol captain.
+|Patrols now spawn less often.}}
+{{History|||snap=18w50a|The player now gets unlimited time [[Bad Omen]] status effect when killing a patrol captain.}}
+{{History||1.14.3|snap=Pre-Release 2|Vindicators no longer spawn in patrols.
+|Patrols now spawn less commonly.
+|Patrols can now spawn in all [[biome]]s except [[mushroom fields]] and its variants.
+|Patrols no longer spawn if the block [[light level]] disallows monster spawning.}}
+{{History||1.15.2|snap=Pre-Release 1|Patrol spawning can now be controlled using {{cmd|gamerule|doPatrolSpawning}} }}
+{{History||1.16|snap=20w06a|Patrols no longer spawn when the [[player]] is close to a [[village]].}}
+
+{{History|bedrock}}
+{{History||1.11.0|snap=beta 1.11.0.1|Added patrols, with slightly different mechanics.}}
+{{History|||snap=beta 1.11.0.3|Illagers that spawn from patrols now follow the patrol captain.
+|Patrols can now be enabled or disabled using the {{cmd|mobevent}} command.}}
+{{History|||snap=beta 1.11.0.7|Patrols now spawn 48 blocks away or farther if the player is in a [[village]] boundary.}}
+{{History||1.13.0|snap=beta 1.13.0.9|Patrols can now spawn in all [[biome]]s except for [[mushroom fields]] and its variants.
+|The delay for patrols to spawn has been increased to 10-11 minutes, from 5-6 minutes.
+|Patrols now attack in swarms.}}
+{{History||1.14.0|snap=beta 1.14.0.2|Patrols can no longer spawn in the [[End]] and [[Nether]].}}
+{{History||1.18.0|snap=beta 1.18.0.20|Vindicators no longer spawn in patrols.}}
+
+{{History|PS4}}
+{{History||1.91|Added patrols.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list|patrol|pillager patrol|illager patrol}}
+
+== Trivia ==
+*The idea of pillagers appearing in patrols was decided based on wanting pillagers to not be "hidden away," giving the player a sense of life in the world outside of their personal area.<ref>[https://www.minecraft.net/en-us/article/meet-pillagers Meet the Pillagers]</ref>
+* In ''Bedrock Edition'', it is possible for patrols to spawn directly inside villages.
+* Although vindicator patroller and captain no longer spawn in ''Java Edition'' and ''Bedrock edition'', the vindicator captain still can be still found in the game data pack and summoned via command.
+
+== Gallery ==
+<gallery heights="70">
+File:Illager patrol leader riding ravager.png|A patrol captain riding a [[ravager]] (before [[18w46a]]).
+File:Illager banner.png|An [[ominous banner]] (before [[18w46a]]).
+File:PatrolLookingVillagerSecretly.png|A patrol looking at a nitwit villager secretly at night.
+File:Patrol_squad.png|Render of a patrol.
+</gallery>
+
+== See also ==
+* {{EntityLink|Pillager}}
+* {{EntityLink|Vindicator}}
+* [[Illager]]
+* [[Raid]]
+* {{BlockLink|Ominous Banner}}
+* [[Raid captain]]
+
+{{Gameplay}}
+
+[[de:Plünderer-Patrouille]]
+[[es:Banda]]
+[[fr:Patrouille d'illageois]]
+[[ja:略奪隊]]
+[[ko:우민 정찰]]
+[[pl:Patrol złosadniczy]]
+[[pt:Patrulha]]
+[[ru:Патруль разбойников]]
+[[th:กองโจรลาดตระเวน]]
+[[zh:灾厄巡逻队]]

@@ -1,0 +1,218 @@
+{{lowercase title}}
+{{exclusive|java}}
+
+'''<player>.dat''' files are used by [[server]]s to store the state of individual players. The format is also used within [[level.dat]] files to store the state of the [[singleplayer]] player, which overrides any <player>.dat files with the same name as the singleplayer player. These files are in [[NBT format]].
+
+== NBT structure ==
+
+{{:Player/ED}}
+
+== Item structure ==
+
+Items are used both in the player's inventory and Ender inventory, and in chest [[Chunk format#Block entity format|tile entities]], dropped item entities, furnace tile entities, brewing stand tile entities, and Villager trading recipes. Sometimes a Slot tag is used to specify the slot the item is in, such as with chests; other times there is no Slot tag, such as with dropped items.
+<div class="treeview">
+{{/Item}}
+</div>
+
+=== General Tags ===
+
+Items with durability can be made unbreakable and never lose any durability. Additionally, items can have specifications for Adventure mode to describe which blocks may be broken with them.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/General}}
+</div>
+
+=== Attribute Modifiers ===
+
+All items can be given [[Attribute#Modifiers|Modifiers]] which affect various [[Attribute]]s of the player or mob wearing or holding them. Note that if an item has default attribute modifiers, these cease to exist if this tag is added (e.g. a diamond sword given an empty '''AttributeModifiers''' list no longer provides a boost to damage). Also note that default attribute modifiers do not use this tag, and as such, it does not appear on a natural item.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Attribute Modifiers}}
+</div>
+
+=== Block Tags ===
+
+Blocks can be given tags to specify what blocks they may be placed against in Adventure mode, and to specify what Tile Entity NBT tags to apply to them when placed.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag
+{{/Block Tags}}
+</div>
+
+=== Display Properties ===
+
+[[Leather armor]] can be colored, and all items can have custom display names and lore. Various tooltips can also be hidden.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Display Properties}}
+</div>
+
+=== Enchantments ===
+
+There are two ways enchantments are associated with items; the first way is that the item is actually enchanted and the enchantment affects the behavior of the item, and the second way is that the item is an [[enchanted book]] which simply stores the enchantments without actually affecting the behavior of the item. There is also the '''RepairCost''' tag which tracks [[anvil]] usage for items, making them more costly with every use of the anvil.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Enchantments}}
+</div>
+'''StoredEnchantments''' tooltips are not displayed if edited onto an item other than an enchanted book. Enchantments stored in '''Enchantments''', however, are always displayed in the tooltip and cause the item to glow, even if they cannot have any effect.
+
+=== Potion Effects ===
+
+[[Potion]]s, [[splash potion]]s, [[lingering potion]]s, and [[tipped arrow]]s can have multiple, customized effects via the CustomPotionEffects tag. These effects are added to the default effect under the Potion tag if present. In addition the color can be overridden with the CustomPotionColor tag.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Potion}}
+</div>
+
+=== Armor Trim ===
+When armor is trimmed, it has the following NBT:
+<div class="treeview"><onlyinclude>
+* {{nbt|compound|tag}}: Parent Tag.
+{{:Player.dat format/Armor_Trim}}
+</onlyinclude></div><noinclude>
+
+=== Armor Stands, Spawn Eggs and Item Frames ===
+
+[[Armor stand]]s, [[spawn egg]]s and [[Item Frame|item frames]] may contain potential entity data.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Entity Spawners}}
+</div>
+
+=== Book and Quills ===
+
+[[Book and quill]]s use NBT data to save their contents.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Writable Books}}
+</div>
+
+=== Written Books ===
+
+[[Written book]]s use NBT data to save their contents as well as miscellaneous extra information.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Written Books}}
+</div>
+
+=== Buckets of Aquatic Mob ===
+
+[[Bucket of aquatic mob|Buckets of aquatic mob]] may contain potential entity data.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Bucket of Aquatic Mob}}
+</div>
+
+=== Bundle ===
+[[Bundle]]s use NBT data to save what item is stored.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Bundle}}
+</div>
+
+=== Compasses ===
+When used as a lodestone compass, [[compass]]es store information about their targeted [[lodestone]].
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Compasses}}
+</div>
+
+=== Crossbows ===
+
+[[Crossbow]]s use NBT data to save what item is charged in the crossbow
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Crossbow}}
+</div>
+
+=== Debug Sticks ===
+
+[[Debug stick]]s use the NBT to save the block state to edit for each block.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Debug Sticks}}
+</div>
+
+=== Firework Rockets ===
+
+[[Firework rocket]]s use the '''tag''' tag to store information about their effects.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Firework Rockets}}
+</div>
+
+=== Firework Stars ===
+
+[[Firework star]]s use the '''tag''' tag to store information about their effects.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Firework Stars}}
+</div>
+
+=== Maps ===
+
+[[Map]]s may be scaled.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Maps}}
+</div>
+
+=== Player Heads ===
+
+[[Head]]s of the player variety can be associated with a specific username to take on the skin of that player when placed. The hand-held item is also updated with the new skin. Within this section, the "owner" of a head means the player whose head it is a copy of, and a player whose inventory contains a head is called the "holder".
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Player Heads}}
+</div>
+
+=== Suspicious Stew ===
+
+[[Suspicious stew]]s store their [[potion effect]]s.
+<div class="treeview">
+* {{nbt|compound|tag}}: Parent tag.
+{{/Suspicious Stew}}
+</div>
+
+== Inventory slot numbers ==
+
+[[File:Items slot number.png|alt=This shows the numbers used to specify the slot in the inventory while editing with an NBT editor.]]
+
+== History ==
+{{Needs update|section=1|Almost certainly missing a lot of prior history}}
+
+{{History|java}}
+{{History||1.7.2|snap=?|Added {{code|Unbreakable}} tag for tools.}}
+{{History||1.8|snap=14w06a|Added <code>CanDestroy</code> for tools.
+|Added <code>HideFlags</code> to items.}}
+{{History|||snap=14w07a|Added <code>BlockEntityTag</code> for all blocks.}}
+{{History|||snap=14w10a|Added a 5th bit (value of 32) to <code>HideFlags</code> that hides potion effects.}}
+{{History|||snap=14w33a|Added <code>SelectedItem</code> for all items.}}
+{{History||1.12|snap=pre1|Added <code>enteredNetherPosition</code> to players, for use with the <code>[[Advancements#minecraft:nether_travel|minecraft:nether_travel]]</code> advancement trigger.}}
+{{History||1.13|snap=18w01a|<code>Name</code> tag is now a text component.
+|Removed the <code>LocName</code> tag.  Instead of <code>LocName:"gui.toTitle"</code>, use <code>Name:"{\"translate\":\"gui.toTitle\"}"</code>.}}
+{{History|||snap=18w21a|{{code|ench}} tag has been renamed {{code|Enchantments}}.}}
+{{History||1.14|snap=18w43a|{{code|Lore}} tag is now a text component.
+|Added {{code|CustomModelData}} tag to set custom item model with resource packs.}}
+{{History|||snap=19w06a|Added {{code|BlockStateTag}} for item forms of blocks.}}
+{{History||1.16.2|snap=20w27a|Added Flag 64 to {{code|HideFlags}} to hide "Dyed" on [[leather armor]].<ref>{{bug|MC-49476}}</ref>}}
+{{History||1.17.1|snap=Pre-release 1|{{code|Enchantments[].lvl}} tag is now read as short and clamped between 0 and 255.<ref>{{bug|MC-131290}}</ref>}}
+{{History||1.19|snap=22w14a|Added {{cd|LastDeathLocation}}, together with the [[recovery compass]].}}
+{{History||1.19.4|snap=23w04a|Added flag 128 to {{cd|HideFlags}} to hide [[armor trim]] tooltips.}}
+{{History|java upcoming}}
+{{History||1.20.2|snap=23w32a|In NBT format for item type {{cd|d=and|potion|lingering_potion|splash_potion|tipped_arrow}}, renamed {{cd|CustomPotionEffects}} to {{cd|custom_potion_effects}}.
+|In NBT format for item type {{cd|suspicious_stew}}, renamed {{cd|Effects}} to {{cd|effects}}, also changed following fields in this field: {{cd|EffectId}} (integer) -> {{cd|id}} (string, resource location), {{cd|EffectDuration}} -> {{cd|duration}}}}
+{{History|foot}}
+
+== References ==
+
+{{reflist}}
+
+{{Minecraft}}
+
+[[Category:Development]]
+
+[[de:Spielerdaten]]
+[[fr:Format Player.dat]]
+[[ja:Player.datフォーマット]]
+[[nl:Player.dat formaat]]
+[[pt:Formato Player.dat]]
+[[zh:Player.dat格式]]

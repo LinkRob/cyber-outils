@@ -1,0 +1,103 @@
+{| class="wikitable"
+! colspan="13" | Removed noise generators (Overworld)
+|-
+! Generator
+! colspan="2" | Infdev pre-0327 noise
+! colspan="2" | Island carver noise
+! colspan="2" | Scale noise
+! colspan="2" | Sand noise
+! colspan="2" | Gravel noise
+! colspan="2" | Tree density noise
+|-
+! Parameter
+! X
+! Z
+! X
+! Z
+! X
+! Z
+! X
+! Z
+! X
+! Z
+! X
+! Z
+|-
+! Offset
+| colspan="2" | <center>?</center>
+| colspan="2" | <center>?</center>
+| colspan="2" | <center>?</center>
+| colspan="2" | <center>?</center>
+| colspan="2" | <center>?</center>
+| colspan="2" | <center>?</center>
+|-
+! Factor
+| colspan="2" | <center>?</center>
+| colspan="2" | <center>?</center>
+| colspan="2" | <center>?</center>
+| colspan="2" | <center>?</center>
+| colspan="2" | <center>?</center>
+| colspan="2" | <center>?</center>
+|-
+! Octaves
+| colspan="2" | <center>16{{verify|Assumed to be this for convenience of calculation, and due to it lining up with the calculations in the upper table; may not actually be this though}}</center>
+| colspan="2" | <center>16{{verify|Assumed to be this for convenience of calculation, and due to it lining up with the calculations in the upper table; may not actually be this though}}</center>
+| colspan="2" | <center>16{{verify|Assumed to be this for convenience of calculation, and due to it lining up with the calculations in the upper table; may not actually be this though}}</center>
+| colspan="2" | <center>4{{verify|The calculations and default overflow distance line up with biome_fill_noise, however this could be due to something else entirely}}</center>
+| colspan="2" | <center>4{{verify|The calculations and default overflow distance line up with biome_fill_noise, however this could be due to something else entirely}}</center>
+| colspan="2" | <center>?</center>
+|-
+! Frequency
+| colspan="2" | <center>{{abbr|0.00195...|0.001953125}}</center>
+| colspan="2" | <center>{{abbr|0.00007...|0.0000701904296875}}</center>
+| colspan="2" | <center>{{abbr|0.000009...|0.00000855255126953125}}</center>
+| colspan="2" | <center>{{abbr|0.00391...|0.00390625}}</center>
+| colspan="2" | <center>{{abbr|0.00391...|0.00390625}}</center>
+| colspan="2" | <center>?</center>
+|-
+! {{abbr|Period|1/Frequency}}
+| colspan="2" | <center>512</center>
+| colspan="2" | <center>14246.96</center>
+| colspan="2" | <center>116924.175</center>
+| colspan="2" | <center>256</center>
+| colspan="2" | <center>256</center>
+| colspan="2" | <center>?</center>
+|-
+! {{abbr|Increments per block|(2^(Octaves-1))*Frequency}}
+| colspan="2" | <center>64</center>
+| colspan="2" | <center>2.3</center>
+| colspan="2" | <center>0.28025</center>
+| colspan="2" | <center>0.03125</center>
+| colspan="2" | <center>0.03125</center>
+| colspan="2" | <center>?</center>
+|-
+! {{abbr|Increments per sampling|4((2^(Octaves-1))*Frequency)}}
+| colspan="2" | <center>256</center>
+| colspan="2" | <center>9.2</center>
+| colspan="2" | <center>1.121</center>
+| colspan="2" | <center>0.125</center>
+| colspan="2" | <center>0.125</center>
+| colspan="2" | <center>?</center>
+|-
+! [[Far Lands|{{abbr|Expected 32-bit overflow distance|2147483648/((2^(Octaves-1))*Frequency)}}]]
+| colspan="2" | <center>33,554,432</center>
+| colspan="2" | <center>933,688,542</center>
+| colspan="2" | <center>7,662,742,722</center>
+| colspan="2" | <center>68,719,476,736</center>
+| colspan="2" | <center>68,719,476,736</center>
+| colspan="2" | <center>8,589,934,592</center>
+|-
+! [[Far Lands|{{abbr|Expected 64-bit overflow distance|9223372036854775808/((2^(Octaves-1))*Frequency)}}]]
+| colspan="2" | <center>{{abbr|144 quadrillion|144,115,188,075,855,872}}</center>
+| colspan="2" | <center>{{abbr|4 quintillion|4,010,161,755,154,250,351}}</center>
+| colspan="2" | <center>{{abbr|32 quintillion|32,911,229,391,096,434,640}}</center>
+| colspan="2" | <center>{{abbr|295 quintillion|295,147,905,179,352,825,856}}</center>
+| colspan="2" | <center>{{abbr|295 quintillion|295,147,905,179,352,825,856}}</center>
+| colspan="2" | <center>?</center>
+|}<noinclude>
+
+[[zh:噪声生成器/表格/已移除]]
+
+</noinclude>
+
+[[Category:Java Edition]]

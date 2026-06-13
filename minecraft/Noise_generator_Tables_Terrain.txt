@@ -1,0 +1,94 @@
+{| class="wikitable"
+! colspan="10" | Fundamental terrain noise generators (Overworld)
+|-
+! Generator
+! colspan="2" | Low noise
+! colspan="2" | High noise
+! colspan="3" | Selector noise
+! colspan="2" | Depth noise
+|-
+! Parameter
+! X
+! colspan="2" | Y
+! Z
+! X
+! Y
+! Z
+! X
+! Z
+|-
+! Offset
+| colspan="4" | <center>0</center>
+| colspan="3" | <center>0.5</center>
+| colspan="2" | <center>0</center>
+|-
+! Factor
+| colspan="4" | <center>1</center>
+| colspan="3" | <center>12.75</center>
+| colspan="2" | <center>1.024</center>
+|-
+! Octaves
+| colspan="4" | <center>16</center>
+| colspan="3" | <center>8</center>
+| colspan="2" | <center>16</center>
+|-
+! Frequency
+| <center>{{abbr|0.00522...|0.005221649073064327}}</center>
+| colspan="2" | <center>{{abbr|0.00261...|0.0026108245365321636}}</center>
+| <center>{{abbr|0.00522...|0.005221649073064327}}</center>
+| <center>{{abbr|0.01671...|0.016709277406334877}}</center>
+| <center>{{abbr|0.00835...|0.008354638703167439}}</center>
+| <center>{{abbr|0.01671...|0.016709277406334877}}</center>
+| colspan="2" | <center>{{abbr|0.00153...|0.00152587890625}}</center>
+|-
+! {{abbr|Period|1/Frequency}}
+| <center>191.51</center>
+| colspan="2" | <center>383.02</center>
+| <center>191.51</center>
+| <center>59.85</center>
+| <center>119.69</center>
+| <center>59.85</center>
+| colspan="2" | <center>655.36</center>
+|-
+! {{abbr|Increments per block|(2^(Octaves-1))*Frequency}}
+| <center>171.103</center>
+| colspan="2" | <center>85.5515</center>
+| <center>171.103</center>
+| <center>2.138</center>
+| <center>1.069</center>
+| <center>2.138</center>
+| colspan="2" | <center>50</center>
+|-
+! {{abbr|Increments per sampling|4((2^(Octaves-1))*Frequency)}}
+| <center>684.412</center>
+| colspan="2" | <center>342.206</center>
+| <center>684.412</center>
+| <center>8.555</center>
+| <center>4.278</center>
+| <center>8.555</center>
+| colspan="2" | <center>200</center>
+|-
+! [[Far Lands|{{abbr|Expected 32-bit overflow distance|2147483648/((2^(Octaves-1))*Frequency)}}]]
+| <center>12,550,824</center>
+| colspan="2" | <center>25,101,648</center>
+| <center>12,550,824</center>
+| <center>1,004,065,920</center>
+| <center>2,008,131,841</center>
+| <center>1,004,065,920</center>
+| colspan="2" | <center>42,949,672</center>
+|-
+! [[Far Lands|{{abbr|Expected 64-bit overflow distance|9223372036854775808/((2^(Octaves-1))*Frequency)}}]]
+| <center>{{abbr|53 quadrillion|53,905,378,859,432,512}}</center>
+| colspan="2" | <center>{{abbr|107 quadrillion|107,810,759,693,765,590}}</center>
+| <center>{{abbr|53 quadrillion|53,905,378,859,432,512}}</center>
+| <center>{{abbr|4 quintillion|4,312,430,291,606,100,245}}</center>
+| <center>{{abbr|8 quintillion|8,624,860,583,212,200,490}}</center>
+| <center>{{abbr|4 quintillion|4,312,430,291,606,100,245}}</center>
+| colspan="2" | <center>{{abbr|184 quadrillion|184,467,440,737,095,516}}</center>
+|}<noinclude>
+
+[[zh:噪声生成器/表格/地形]]
+
+</noinclude>
+
+[[Category:Java Edition]]

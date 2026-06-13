@@ -1,0 +1,15 @@
+<div class="treeview"><onlyinclude>
+**{{nbt|list|AttributeModifiers}}: Contains Attribute Modifiers on this item which modify Attributes of the wearer or holder (if the item is not in the hand or armor slots, it has no effect).
+***{{nbt|compound}}: A single Attribute Modifier.
+****{{nbt|string|AttributeName}}: The name of the Attribute this Modifier is to act upon.
+**** {{nbt|string|Name}}: The name of the Modifier. Has no known effect.
+**** {{nbt|string|Slot}}: Slot the item must be in for the modifier to take effect. "mainhand", "offhand", "feet", "legs", "chest", or "head".
+**** {{nbt|int|Operation}}: Modifier Operation. See [[Attribute#Modifiers|Attribute Modifiers]] for info.
+**** {{nbt|double|Amount}}: Amount of change from the modifier.
+**** {{nbt|int-array|UUID}}: The modifier's [[UUID]], stored as four ints. Used when equipping and unequipping the item to identify which modifier to add or remove from the entity.
+</onlyinclude></div><noinclude>
+[[Category:Top-level data pages]]
+[[ja:Player.datフォーマット/Attribute Modifiers]]
+[[pt:Formato Player.dat/Modificadores de atributo]]
+[[zh:Player.dat格式/属性修饰符]]
+</noinclude>

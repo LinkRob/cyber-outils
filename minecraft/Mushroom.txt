@@ -1,0 +1,257 @@
+{{About|mushrooms that can be found in the Overworld|Nether-exclusive fungi|Fungi|the cow-like mob|Mooshroom|the block that makes up huge mushrooms|Mushroom Block|the structure|Huge mushroom|other uses}}
+{{Block
+|title=Mushroom
+|image=Red Mushroom.png
+|image2=Brown Mushroom.png
+|invimage=Brown Mushroom
+|invimage2=Red Mushroom
+|renewable=Yes
+|transparent=Yes
+|light=Yes (1) (brown mushroom only)
+|flammable=No
+|lavasusceptible=No
+|stackable=Yes (64)
+|tool=Any
+}}
+
+A '''mushroom''' is a variety of fungus that grows and spreads in dark areas. Mushrooms generate as red or brown in color, and small or [[Huge mushroom|huge]] in size.
+
+== Obtaining ==
+=== Breaking ===
+Mushrooms can be [[instant mining|instantly mined]] with anything. Mining a huge [[mushroom block]] drops up to 2 mushrooms of the same color. [[Fortune]] does not affect the drop rate of mushrooms in any form.<ref>{{bug|MC-156657|||Invalid}}</ref>
+
+A mushroom also breaks instantly and drops as an item if:
+* the block below it is moved or destroyed;
+* a [[fluid]] flows over it;
+* a block next to it changes state, but only when it is ''not'' on [[podzol]], [[mycelium]], or [[nylium]] and light level is 13 or higher. 
+
+=== Natural generation ===
+Mushrooms naturally generate in poorly lit areas ([[light level]] of 12 or less). If this condition is met, each [[chunk]] has {{frac|1|8}} (12.5%) chance to generate red mushroom and {{frac|1|4}} (25.0%) chance to generate brown mushroom, in the form of [[random patch]]es.<ref>{{IN|java}}, they rarely generate because they cannot generate underground due to {{bug|MC-244162}}.</ref>
+
+Mushrooms also generate on surface in [[swamp]], [[old growth taiga]], [[mushroom fields]] [[biome]]s, and anywhere in [[the Nether]]. Unlike most plants, they seem to be able to generate on top of nearly any block types.
+
+{{IN|java}}, they are commonly found in patches on the [[bedrock]] ceiling of the Nether, and are the only blocks that can generate there. 
+ 
+[[Witch hut]]s have a [[flower pot]] with a red mushroom inside. Mushrooms are also supposed to generate inside "mushroom farm" rooms in [[woodland mansion]]s, although in ''Java Edition'' they do not generate there due to a bug.<ref>{{bug|MC-160169||Woodland Mansion mushroom room is missing mushrooms}}</ref>
+
+==== Fallen trees ====
+{{IN|bedrock}}, fallen oak, birch, spruce, and jungle trees have 0–2 mushrooms generated on them.
+
+=== Mob loot ===
+[[Shear]]ing a red or brown [[mooshroom]] drops 5 mushrooms of the corresponding color and turns it into a normal [[cow]].
+
+=== Chest loot ===
+{{LootChestItem|brown-mushroom}}
+
+=== Trading ===
+Mushrooms can be bought from [[wandering trader]] for an [[emerald]].
+
+== Usage ==
+Mushrooms can be planted and grown on blocks that have a full top surface in [[light]] levels below 13 and not directly underneath the sky. They cannot be planted on the top surfaces of [[slab]]s or [[stairs]].<ref>{{bug|MC-146825}}</ref> For more information, see [[Opacity/Placement]]. If planted on [[mycelium]], [[podzol]], or [[nylium]], they can stay planted in any light level, including be planted and remain under light from sky above. Both brown and red mushrooms grow at the same rate regardless of the light level.<ref name="Fully-Automated Tests of Mushroom Growth at Different Light Levels Using BUD Switch Harvester">http://www.youtube.com/watch?feature=player_detailpage&v=ALkf-b7MbBI&t=864s</ref><ref name="Large scale automated test with additional info">{{ytl|J7AmGnpMCng}}</ref>
+
+=== Huge mushrooms ===
+When [[bone meal]] is applied to a mushroom, the mushroom has a chance to grow into a [[huge mushroom]] of the same color, provided that it is on a proper block ([[grass block]], [[dirt]], [[coarse dirt]], [[rooted dirt]], or [[moss block]] at a light level of 12 or below; on [[podzol]], [[mycelium]], or [[nylium]] at any light level) and has enough space (7×7×8).
+
+=== Spread ===
+{{See also|Tutorials/Mushroom farming}}
+
+When receiving a [[Tick#Random tick|random tick]], a mushroom has a chance of spreading to a nearby block (including even above and below diagonally) if there are fewer than five mushrooms of the same type in a 9×9×3 volume around the original mushroom.
+
+=== Light source ===
+Brown mushrooms emit a barely visible [[light level]] of 1.<ref>{{bug|MC-832|||WAI}}</ref> However, they do not emit light in flower pots.<ref>{{bug|MC-200055}}</ref>
+
+=== Decoration ===
+Either type of mushroom can be planted in a [[flower pot]].
+
+=== Crafting ingredient ===
+{{crafting usage|Mushroom|match=end}}
+
+=== Composting ===
+Placing a mushroom into a [[composter]] has a 65% chance of raising the compost level by 1.
+
+== Sounds ==
+{{Sound table/Block/Grass}}
+
+== Data values ==
+=== ID ===
+{{edition|java}}:
+{{ID table
+|edition=java
+|showblocktags=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Brown Mushroom
+|spritetype=block
+|nameid=brown_mushroom
+|blocktags=enderman_holdable}}
+{{ID table
+|displayname=Red Mushroom
+|spritetype=block
+|nameid=red_mushroom
+|blocktags=enderman_holdable
+|foot=1}}
+
+{{edition|bedrock}}:
+{{ID table
+|edition=bedrock
+|shownumericids=y
+|showforms=y
+|generatetranslationkeys=y
+|displayname=Brown Mushroom
+|spritetype=block
+|nameid=brown_mushroom
+|id=39}}
+{{ID table
+|displayname=Red Mushroom
+|spritetype=block
+|nameid=red_mushroom
+|id=40
+|foot=1}}
+
+== History ==
+{{History|java classic}}
+{{History||0.0.20a|[[File:Red Mushroom JE1.png|32px]] [[File:Brown Mushroom JE1.png|32px]] Added red and brown mushrooms.
+|Mushrooms disappear when the [[light]] level is too low.
+|Mushrooms are decorative [[item]]s, which currently do not have a [[crafting]] use and remain in the ground when planted. 
+|Mushrooms can be placed on any [[block]] except another mushroom and remain planted when the block below them is removed.}}
+{{History||August 25, 2009|link=https://notch.tumblr.com/post/170887079/survival-mode-status-update-video-with-plenty-of|[[Notch]] showed mushrooms generating naturally in worlds.<ref>https://www.youtube.com/watch?v=QAARP2qdtww</ref>}}
+{{History||0.24_SURVIVAL_TEST|Added mushrooms to world generation.
+|The consumption of brown mushrooms now heals {{hp|5}}. 
+|The consumption of red mushrooms now causes {{hp|3}} [[damage]] to the [[player]]'s [[health]].}}
+{{History||0.25 SURVIVAL TEST|[[Pig]]s [[drops|drop]] 0-2 brown mushrooms.}}
+{{History||?|Mushrooms now spawn only underground.}}
+{{History|java indev}}
+{{History||0.31|snap=20091223-1|[[File:Red Mushroom JE2.png|32px]] [[File:Brown Mushroom JE2.png|32px]] Mushrooms now have a stretched model with wider texture planes.}}
+{{History|||snap=20100130|Red and brown mushrooms are now used to craft [[mushroom stew]].}}
+{{History|||snap=20100131|Brown mushrooms now emit [[light]].}}
+{{History||?|Mushrooms are now generated in rare instances under [[tree]]s or in the shadows of other floating continents in the "Floating" map type.}}
+{{History|java infdev}}
+{{History||20100616|Mushrooms can now naturally generate again.}}
+{{History|java alpha}}
+{{History||v1.2.0|snap=preview|With the addition of [[biome]]s and the dimly-lit [[the Nether|Nether]], mushrooms have become a more common sight.}}
+{{History|java beta}}
+{{History||1.6|snap=Test Build 3|Mushrooms can now be generated in the open when exploring during the [[Daylight cycle#Night|night]], or under low-[[light]] conditions such as those found under [[tree]]s or overhangs. If planted in direct [[sun]]light or a [[light level]] higher than 12, they pop out of the ground. Several bug reports mention mushrooms growing on top of trees, but this is a rare phenomenon.
+|Mushrooms have been given an ability to spread in [[light]] levels under 13 onto any [[block]] touching their own, including blocks located upward and downward diagonally.
+|Mushrooms can now be placed on any solid, non-transparent, block including [[pumpkin]]s, [[crafting table|workbenches]], [[furnace]]s and [[chest]]s.}}
+{{History||1.8|snap=Pre-release|[[File:Red Mushroom JE3.png|32px]] [[File:Brown Mushroom JE3.png|32px]] Changed [[lighting]].
+|[[Bone meal]] can now be used on mushrooms to grow [[huge mushroom]]s.
+|Mushrooms can now be found more easily in [[swamp]] biomes.}}
+{{History|||snap=?|The spreading ability of mushrooms has been severely restricted - a mushroom now spreads if there were fewer than 5 mushrooms of the same type in a 9×9×3 area around the original mushroom.}}
+{{History|java}}
+{{History||1.0.0|snap=Beta 1.9 Prerelease|Mushrooms can now spawn in [[mushroom island]] biomes.
+|[[Shears|Shearing]] a [[mooshroom]] drops 5 red mushrooms.}}
+{{History|||snap=Beta 1.9 Prerelease 2|Brown mushrooms are now used to craft [[fermented spider eye]]s.}}
+{{History||1.4.2|snap=12w34a|[[File:Potted Red Mushroom JE1.png|32px]] [[File:Potted Brown Mushroom JE1.png|32px]] Mushrooms can now be added to [[flower pot]]s.}}
+{{History||1.7.2|snap=13w36a|Added [[podzol]], which allows mushrooms to grow on it regardless of the [[light]] level.}}
+{{History||1.8|snap=14w07a|[[File:Red Mushroom JE4.png|32px]] [[File:Brown Mushroom JE4.png|32px]] Mushroom texture planes are no longer stretched by a factor of sqrt(2).}}
+{{History|||snap=14w10c|[[File:Red Mushroom JE5.png|32px]] [[File:Brown Mushroom JE5.png|32px]] Mushroom texture planes are now stretched a bit more than they were previously - were the texture full, it would reach the corners of the block.}}
+{{History|||snap=14w17a|[[File:Red Mushroom JE3.png|32px]] [[File:Brown Mushroom JE3.png|32px]] Mushroom texture planes are now the same size as they were before 14w07a.
+|[[File:Potted Red Mushroom JE2.png|32px]] [[File:Potted Brown Mushroom JE2.png|32px]] The flower pot's model has changed, resulting in a change of appearance to potted mushrooms.}}
+{{History|||snap=14w25a|[[File:Red Mushroom JE6.png|32px]] [[File:Brown Mushroom JE6.png|32px]] Mushrooms are now affected by the same shading full blocks are.
+|[[File:Potted Red Mushroom JE3.png|32px]] [[File:Potted Brown Mushroom JE3.png|32px]] This also applies to when in pots.}}
+{{History|||snap=14w26a|[[File:Red Mushroom JE3.png|32px]] [[File:Brown Mushroom JE3.png|32px]] Mushrooms are no longer subject to shading.
+|As of 22w18a, this is still yet to be fixed for potted mushrooms.<ref>{{bug|MC-129826}}</ref>}}
+{{History|||snap=14w27a|Red or brown mushrooms are now used to craft [[rabbit stew]].}}
+{{History||1.11|snap=16w39a|Mushrooms now generate in [[woodland mansion]]s.}}
+{{History||1.13|snap=17w47a|The names of mushrooms have been changed to "Brown Mushroom" and Red Mushroom," respectively.
+|Mushrooms can now be found in the [[flower pot]]s inside of [[witch hut]]s.}}
+{{History||1.14|snap=18w43a|[[File:Red Mushroom JE7.png|32px]] [[File:Brown Mushroom JE7.png|32px]] [[File:Potted Red Mushroom JE4.png|32px]] [[File:Potted Brown Mushroom JE4.png|32px]] The textures of mushrooms have been changed.
+|Mushrooms can now be used to craft [[suspicious stew]].}}
+{{History|||snap=19w03a|Placing a mushroom into a [[composter]] has a 50% chance of raising the compost level by 1.}}
+{{History|||snap=19w05a|Mushrooms now have a 65% chance of increasing the compost level in a composter by 1.
+|Added [[wandering trader]]s, which sell both types of mushrooms.}}
+{{History||1.16|snap=20w07a|Both red and brown mushrooms have a {{frac|10|109}} (~9.17%) chance of being given by the new [[piglin]]s when [[bartering]], in a stack size of 1–4.}}
+{{History|||snap=20w09a|Red and brown mushrooms can no longer be obtained through bartering with piglins.}}
+{{History||1.16.2|snap=20w27a|Red and brown mushrooms can now be placed and grown on [[nylium]] at any light level.}}
+{{History||1.17|snap=21w11a|[[File:Red Mushroom JE8.png|32px]] [[File:Brown Mushroom JE8.png|32px]] Changed lighting.}}
+{{History||1.18|snap=21w39a|[[File:Red Mushroom JE9.png|32px]] [[File:Brown Mushroom JE9.png|32px]] The default [[brightness]] has been changed from "Moody" to 50.
+|Mushrooms no longer generate underground.<ref>{{bug|MC-244162}}</ref>}}
+
+{{History|pocket alpha}}
+{{History||Pre-release|[[File:Red Mushroom JE7 BE1.png|32px]] [[File:Brown Mushroom JE7 BE1.png|32px]]{{verify|check models}} Added mushrooms. They could generate or be placed in any light level.}}
+{{History||v0.4.0|Red mushrooms can now be [[smelting|smelted]] to obtain [[rose red]].
+|Red and brown mushrooms are now used to craft [[mushroom stew]].}}
+{{History||v0.5.0|Mushrooms now spread.
+|Mushrooms can now only be generated or placed in areas with low light, making them significantly less common.
+|Mushrooms are now obtainable after activating the [[nether reactor]].}}
+{{History||v0.9.0|snap=build 1|Added [[huge mushroom]]s, which can be grown by applying [[bone meal]] to mushrooms.
+|[[Shears|Shearing]] a [[mooshroom]] now [[drops]] red mushrooms.}}
+{{History||v0.12.1|snap=build 1|Brown mushrooms are now used to craft [[fermented spider eye]]s.
+|Mushrooms can now occupy the same space as [[snow]].
+|Mushrooms are no longer available from the [[nether reactor]].
+|Red mushrooms can no longer be [[smelting|smelted]] to obtain [[rose red]].}}
+{{History||v0.14.0|snap=build 1|[[Flower pot|Potted]] red mushrooms now generate in [[swamp hut]]s.}}
+{{History|||snap=build 3|Hitboxes of mushrooms no longer occupy an entire [[block]].}}
+{{History|pocket}}
+{{History||1.1.0|snap=alpha 1.1.0.0|Mushrooms now generate in [[woodland mansion]]s.}}
+{{History|bedrock}}
+{{History||1.2.0|snap=beta 1.2.0.2|Brown mushrooms can now be found in bonus [[chest]]s.}}
+{{History||1.10.0|snap=beta 1.10.0.3|[[File:Red Mushroom JE8 BE2.png|32px]] [[File:Brown Mushroom JE8 BE2.png|32px]] The textures of mushrooms have been changed.
+|Mushrooms are now [[trading|sold]] by [[wandering trader]]s.}}
+{{History||1.11.0|snap=beta 1.11.0.1|Mushrooms can now be used to fill [[composter]]s.}}
+{{History||1.13.0|snap=beta 1.13.0.9|Mushrooms can now be used to craft [[suspicious stew]]s.}}
+{{History||1.16.0|snap=beta 1.16.0.51|The names of mushrooms have been changed to "Brown Mushroom" and "Red Mushroom," respectively.}}
+{{History||1.16.100|snap=beta 1.16.100.54|Red and brown mushrooms can now be placed on [[nylium]].}}
+
+{{History|console}}
+{{History||xbox=TU1|xbone=CU1|ps=1.0|wiiu=Patch 1|switch=1.0.1|[[File:Red Mushroom JE7 BE1.png|32px]] [[File:Brown Mushroom JE7 BE1.png|32px]]{{verify|check models}} Added mushrooms.}}
+{{History||xbox=none|xbone=none|ps=1.90|wiiu=none|switch=none|[[File:Red Mushroom JE8 BE2.png|32px]] [[File:Brown Mushroom JE8 BE2.png|32px]] The textures of mushrooms have been changed.}}
+
+{{History|New 3DS}}
+{{History||0.1.0|[[File:Red Mushroom JE7 BE1.png|32px]] [[File:Brown Mushroom JE7 BE1.png|32px]]{{verify|check models}} Added mushrooms.}}
+{{History|foot}}
+
+=== Data history ===
+{{History|java}}
+{{History||1.13|snap=17w47a|Prior to [[1.13/Flattening|''The Flattening'']], these blocks' numeral IDs were 39 and 40.}}
+{{History|foot}}
+
+== Issues ==
+{{issue list}}
+
+== Trivia ==
+* The red mushroom is based on the poisonous ''[[wikipedia:Amanita_muscaria|Amanita muscaria]]'' (fly agaric), while the brown mushroom is based on the edible ''[[wikipedia:Boletus_edulis|Boletus edulis]]'' (penny bun).<ref>{{tweet|jeb_|1563155397115985920|I agree about the fly mushroom. I think Notch added it because it looks cool. The brown mushroom is a penny bun and is definitely edible. We currently aren't planning to change them, but we'll see in the future.}}</ref>
+
+== Gallery ==
+<gallery>
+Swamp mushrooms.png|Mushrooms found in a [[swamp]] biome.
+Mushrooms In Cell.png|Mushrooms growing in a [[stronghold]] cell.
+Bug shrooms.png|A brown mushroom growing on a tree.
+Nether mushrooms.png|Mushrooms growing in the Nether.
+MushroomIsland Biome.png|An example of a mushroom fields biome.
+Glowstone mushroom.png|A red mushroom growing on a cluster of [[glowstone]] in the Nether.
+Moss mushroom.png|The rare occurrence of a mushroom growing on [[mossy cobblestone]] in a [[dungeon]].
+Mushroom Growing on Podzol.png|Mushrooms growing on [[podzol]].
+MushroomIsland mushrooms.jpg|Mushrooms growing on [[mycelium]] in a mushroom fields biome.
+Glowingbrownmushroom.png|Brown mushrooms illuminating a red mushroom and surrounding blocks.
+Red Mushrroom Spawns On Magma Block In Nether.png|Red Mushrooms can spawn naturally on [[magma block]]s in the [[Nether]].
+Island of mushrooms Beta.jpg|A large amount of mushrooms generated on a beach.
+</gallery>
+
+== References ==
+{{reflist}}
+
+== External links ==
+*[https://www.minecraft.net/en-us/article/taking-inventory-mushroom Taking Inventory: Mushroom] – Minecraft.net on December 21, 2018
+
+{{Blocks|vegetation}}
+
+[[Category:Fungi]]
+[[Category:Natural blocks]]
+[[Category:Non-solid blocks]]
+[[Category:Generated structure blocks]]
+[[Category:Light sources]]
+
+[[cs:Houba]]
+[[de:Pilz]]
+[[es:Champiñón]]
+[[fr:Champignon]]
+[[hu:Gomba]]
+[[it:Fungo]]
+[[ja:キノコ]]
+[[ko:버섯]]
+[[nl:Paddenstoel]]
+[[pl:Grzyb]]
+[[pt:Cogumelo]]
+[[ru:Грибы]]
+[[zh:蘑菇]]

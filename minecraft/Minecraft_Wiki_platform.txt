@@ -1,0 +1,23 @@
+<div style="display: inline-block; padding: 0 0.5em; font-size: 90%; vertical-align: top;">[[File:{{{image}}}|{{{size|x40}}}px{{#ifeq: {{{verlink}}}|none||{{!}}link={{{link|{{version/FP|{{{1}}}|plainlink=1}}}}}}}|{{{title}}}]]{{
+  #if: {{{1|}}} | <br>{{
+    #switch: {{{1}}}
+    | java-snap = '''{{version/FP|java-upcoming}}''' <span style="display: block; font-size: 0.95em; margin: -0.4em 0 0.4em 0;">{{version/FP|java-snap|link={{{verlink}}}}}</span>
+    | java-experimental = '''{{version/FP|java-experimental-version}}''' <span style="display: block; font-size: 0.95em; margin: -0.4em 0 0.4em 0;">{{version/FP|java-experimental|link={{{verlink}}}}}</span>
+    | bedrock-preview-win = '''{{version/FP|bedrock-upcoming}}''' <span style="display: block; font-size: 0.95em; margin: -0.4em 0 0.4em 0;">{{version/FP|bedrock-preview-win|link={{{verlink}}}}}</span>
+    | bedrock-beta-android = '''{{version/FP|bedrock-upcoming}}''' <span style="display: block; font-size: 0.95em; margin: -0.4em 0 0.4em 0;">{{version/FP|bedrock-beta-android|link={{{verlink}}}}}</span>
+    | bedrock-preview-ios = '''{{version/FP|bedrock-upcoming}}''' <span style="display: block; font-size: 0.95em; margin: -0.4em 0 0.4em 0;">{{version/FP|bedrock-preview-ios|link={{{verlink}}}}}</span>
+    | bedrock-preview-xbone = '''{{version/FP|bedrock-upcoming}}''' <span style="display: block; font-size: 0.95em; margin: -0.4em 0 0.4em 0;">{{version/FP|bedrock-preview-xbone|link={{{verlink}}}}}</span>
+    | education-beta = '''{{version/FP|education-upcoming}}''' <span style="display: block; font-size: 0.95em; margin: -0.4em 0 0.4em 0;">{{version/FP|education-beta|link={{{verlink}}}}}</span>
+    | education-beta-android = '''{{version/FP|education-upcoming}}''' <span style="display: block; font-size: 0.95em; margin: -0.4em 0 0.4em 0;">{{version/FP|education-beta-android|link={{{verlink}}}}}</span>
+    | education-beta-chromeos = '''{{version/FP|education-upcoming}}''' <span style="display: block; font-size: 0.95em; margin: -0.4em 0 0.4em 0;">{{version/FP|education-beta-chromeos|link={{{verlink}}}}}</span>
+    | #default = '''{{version/FP|{{{1}}}|link={{{verlink}}}}}'''
+  }}
+}}{{
+  #if: {{{store-url|}}}
+  | <span style="display: block; font-size: 0.95em; margin: -0.4em 0 0.4em 0;">([{{{store-url|}}} {{{store-text|Buy}}}]{{
+    #if: {{{trial-url|}}}
+    |&#160;{{!}}&#160;[{{{trial-url|}}} {{{trial-text|Trial}}}]
+  }})</span>
+}}</div><noinclude>
+{{documentation|page=Minecraft Wiki/platform/doc}}
+<!-- Put categories/interwiki on the documentation page --></noinclude>

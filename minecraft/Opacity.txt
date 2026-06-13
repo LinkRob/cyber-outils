@@ -1,0 +1,217 @@
+[[File:Opaque Leaves.png|thumb|200px|When leaves are opaque (in "fast" graphics), they completely obstruct rendering.]]
+[[File:Transparent Leaves.png|thumb|200px|When leaves are transparent (in "fancy" graphics), the world behind them is also rendered.]]
+{{about|see-through block textures, models, and lighting|blocks that can conduct redstone|Conductive|blocks that have collision boxes you cannot move through|solid block|partially see-through textures|Translucency}}
+{{wip|The term "transparency" has been used to describe many different properties in colloquial use; this page has been narrowed down to the visual and light-related definition.}}
+'''Opacity''' (and its inverse, '''transparency''') are properties of [[blocks]] which affect how the game renders it and other nearby blocks, as well as how {{w|Hidden-surface determination|occlusion culling}} is handled.
+
+== Properties ==
+The primary purpose of opacity is to tell the game engine if it needs to render other blocks behind that block; an opaque block completely obscures the view behind it, while a transparent block does not. Thus, transparency applies not only to [[solid block]]s like [[ice]] and [[glass]], but also to blocks like [[cacti]], [[stairs]], chests, and single [[slab]]s, which are not considered full blocks.
+By this definition, transparency does not imply that a block is actually see-through, which is a quality of the item texture specified by the game or [[resource pack]].
+
+[[Water]] that is completely surrounded by water or opaque blocks does not have a current. However, if one of the surrounding blocks is transparent, the water shows a downward current on its side, like a waterfall, although swim speed through that water remains unchanged.
+
+== Lighting ==
+Opacity also affects how [[light]] propagates through the world. Opaque blocks completely prevent light from traveling through them, while transparent blocks generally diminish the light by one light level per block (these value can be overridden however, and there are several [[Light#Light-filtering_blocks|exceptions]]).
+
+The [[Grass Block#Spread|growth of grass blocks]] is linked to the amount of light in the blocks directly above them. A grass block can be killed by placing an opaque or partially transparent block above it.
+
+Some transparent blocks can reduce or block [[light]], according to type:
+* {{BlockLink|Glass}} and {{BlockLink|carpets}} do not reduce the light passing through them, i.e. there is no additional modifier. In other words, light passes through them as if it were [[air]].
+* {{BlockLink|Lava}} is set to completely block light propagation. This is often unnoticeable since [[lava]] has the maximum light level of 15, but can be observed in cases where lava blocks skylight propagation.
+* {{BlockLink|Water}}, {{BlockLink|ice}}, {{BlockLink|leaves}}, {{BlockLink|slime block}}s, {{BlockLink|honey block}}s, and {{BlockLink|cobweb}}s do not have any extra effect on block light, but they do diffuse sky light.
+** {{IN|bedrock}}, water and ice have a -1 modifier to light propagation, on top of the normal decrease of 1 per block.
+** The light level from [[sunlight]] or [[moon]]light is the same in each block of air in the column of air above the highest obstruction in the column. When placed, water, ice, leaves, slime blocks, honey blocks, and cobwebs obstruct that light column so that the lowest air block above the leaves acts as other light sources do.
+* Sunlight is attenuated by [[leaves]] and each vertical layer of leaf blocks attenuates the light further.
+
+== Types of transparent blocks ==
+{| class="wikitable hlist" data-description="Transparent blocks"
+!Full-Block Solids
+|
+* {{BlockLink|Barrier}}
+* {{BlockLink|Beacon}}
+* {{BlockLink|Frosted Ice}}
+* {{BlockLink|Glass}}
+* {{BlockLink|Glowstone}}
+* {{BlockLink|Ice}}
+* {{BlockLink|Leaves}}
+* {{BlockLink|Observer}}
+* {{BlockLink|Sea Lantern}}
+|-
+!Non-Full-Block Solids
+|
+* {{BlockLink|id=Medium Amethyst Bud|Amethyst Bud}}
+*{{BlockLink|Amethyst Cluster}}
+*{{BlockLink|Anvil}}
+*{{BlockLink|Azalea}}
+*{{BlockLink|Bamboo}}
+*{{BlockLink|Beds|Link=Bed}}
+*{{BlockLink|Bell}}
+*{{BlockLink|Big Dripleaf}}
+*{{BlockLink|Brewing Stand}}
+*{{BlockLink|Bubble Column}}
+*{{BlockLink|id=cactus-side|Cactus}}
+*{{BlockLink|Cake}}
+*{{BlockLink|Calibrated Sculk Sensor}}
+*{{BlockLink|Campfire}}
+*{{BlockLink|Candle}}
+*{{BlockLink|Cauldron}}
+*{{BlockLink|Chain}}
+*{{BlockLink|Chest}}
+*{{BlockLink|Chorus Flower}}
+*{{BlockLink|Chorus Plant}}
+*{{BlockLink|Cobweb}}
+*{{BlockLink|Cocoa}}
+*{{BlockLink|Composter}}
+*{{BlockLink|Conduit}}
+*{{BlockLink|Daylight Detector}}
+*{{BlockLink|Decorated Pot}}
+*{{BlockLink|Dirt Path}}
+*{{BlockLink|Doors}}
+*{{BlockLink|Dragon Egg}}
+*{{BlockLink|Enchanting Table}}
+*{{BlockLink|End Portal Frame}}
+*{{BlockLink|End Rod}}
+*{{BlockLink|Ender Chest}}
+*{{BlockLink|id=farmland|Farmland}}
+*{{BlockLink|Fence Gates}}
+* {{BlockLink|Fences}}
+*{{BlockLink|Flower Pot}}
+*{{BlockLink|Glass Pane}}
+*{{BlockLink|Grindstone}}
+* {{BlockLink|id=Wall Signs|Hanging Signs}} <small>(wall variants)</small>
+* {{BlockLink|Honey Block}}
+*{{BlockLink|Hopper}}
+*{{BlockLink|Iron Bars}}
+*{{BlockLink|Ladder}}
+*{{BlockLink|Lantern}}
+*{{BlockLink|Lectern}}
+*{{BlockLink|Lightning Rod}}
+*{{BlockLink|Lily Pad}}
+*{{BlockLink|id=all-heads|Mob head|Mob Heads}}
+* {{BlockLink|Moss Carpet}}
+* {{BlockLink|Piston}} <small>(extended)</small>
+*{{BlockLink|Pitcher Plant}} <small>(crop variant)</small>
+*{{BlockLink|Pointed Dripstone}}
+*{{BlockLink|Redstone Comparator}}
+*{{BlockLink|Redstone Repeater}}
+*{{BlockLink|Scaffolding}}
+*{{BlockLink|Sculk Sensor}}
+*{{BlockLink|Sculk Shrieker}}
+*{{BlockLink|Sea Pickle}}
+*{{BlockLink|id=all-slabs|Slabs}} <small>(single)</small>
+*{{BlockLink|Sniffer Egg}}
+* {{BlockLink|Snow}} <small>(2–8 layers)</small>
+*{{BlockLink|Soul Sand}}
+*{{BlockLink|id=all-stairs|Stairs}}
+*{{BlockLink|id=piston|Sticky Piston}} <small>(extended)</small>
+*{{BlockLink|Stonecutter}}
+*{{BlockLink|Sweet Berry Bush}}
+*{{BlockLink|Trapdoors}}
+*{{BlockLink|Trapped Chest}}
+*{{BlockLink|Turtle Egg}}
+*{{BlockLink|id=all-walls|Wall|Walls}}
+|-
+! Non-Solids
+|
+*{{BlockLink|Air}}
+*{{BlockLink|id=banners|Banner|Banners}}
+*{{BlockLink|Buttons}}
+*{{BlockLink|Cave Vines}}
+*{{BlockLink|Coral|Corals}}
+*{{BlockLink|Coral Fans|link=Coral Fan}}
+*{{BlockLink|id=wheat-8|Crops}}
+*{{BlockLink|Dead Bush}}
+*{{BlockLink|Dead Coral Fans}}
+*{{BlockLink|Dead Coral|Dead Corals}}
+*{{BlockLink|End Gateway}}
+*{{BlockLink|End Portal}}
+*{{BlockLink|Fern}}
+*{{BlockLink|Fire}}
+*{{BlockLink|Flowers}}
+*{{BlockLink|Fungi}}
+*{{BlockLink|Glow Lichen}}
+*{{BlockLink|Grass}}
+*{{BlockLink|Hanging Roots}}
+*{{BlockLink|Hanging Signs}} <small>(ceiling variants)</small>
+*{{BlockLink|Kelp}}
+*{{BlockLink|Lever}}
+*{{BlockLink|Light Block}}
+*{{BlockLink|Mushrooms}}
+*{{BlockLink|Nether Portal}}
+*{{BlockLink|Nether Sprouts}}
+*{{BlockLink|Nether Wart}}
+*{{BlockLink|Pink Petals}}
+*{{BlockLink|Pitcher Plant}} <small>(non-crop variant)</small>
+*{{BlockLink|Powder Snow}}
+*{{BlockLink|Pressure Plates}}
+*{{BlockLink|Rail}}
+**{{BlockLink|Activator Rail|Activator}}
+** {{BlockLink|Detector Rail|Detector}}
+**{{BlockLink|Powered Rail|Powered}}
+*{{BlockLink|Redstone Dust}}
+*{{BlockLink|Redstone Torch}}
+*{{BlockLink|id=Warped Roots|Roots}}
+* {{BlockLink|Saplings}}
+*{{BlockLink|Sculk Vein}}
+*{{BlockLink|Seagrass}}
+*{{BlockLink|id=oak-sign|Sign}}
+* {{BlockLink|Small Dripleaf}}
+*{{BlockLink|Snow}} <small>(1 layer)</small>
+* {{BlockLink|Soul Torch}}
+*{{BlockLink|Spore Blossom}}
+*{{BlockLink|Pumpkin Stem|Stems}}
+*{{BlockLink|Structure Void}}
+*{{BlockLink|Sugar Cane}}
+* {{BlockLink|Torch}}
+*{{BlockLink|Tripwire Hook}}
+*{{BlockLink|Tripwire}}
+*{{BlockLink|Twisting Vines}}
+*{{BlockLink|Vines}}
+*{{BlockLink|Weeping Vines}}
+|-
+!Fluids
+|
+*{{BlockLink|Lava}}
+* {{BlockLink|Water}}
+|-
+!Rendering Only 
+|
+*{{BlockLink|Invisible Bedrock}}
+*{{BlockLink|Slime Block}} <small>(mob spawning possible)</small>
+*{{BlockLink|Monster Spawner}}
+|}
+
+==Video==
+
+<div style="text-align:center">{{yt|C9yJWCAWN6c}}</div>
+
+==Issues==
+
+{{Issue list|opacity|transparency}}
+
+==Trivia==
+*In [[the Nether]], the spawn point is always on top of an opaque [[block]]. This can be seen if the player used a [[respawn anchor]] to set their spawn in the Nether.
+*If an opaque block is given transparent pixels in an edited texture, then instead of showing the block behind it through the transparent part, it simply fills in the area with white.{{verify|Is it always white, or is it just the color used in that region ignoring the alpha channel? For examples, leaves have empty areas made "black" with 0 alpha, and that's why the gaps render black in-game with fast graphics.}} However, currently X-ray texture packs could be created using the blocks custom models feature.<ref>{{bug|MC-172659}}</ref>
+
+==See also==
+*[[Liquid]]
+
+==References==
+
+{{reflist}}
+
+{{Environment}}
+
+[[Category:Mechanics]]
+
+[[de:Transparenz]]
+[[es:Transparencia]]
+[[fr:Transparence]]
+[[ja:不透明度]]
+[[ko:불투명도]]
+[[nl:Ondoorzichtigheid]]
+[[pl:Przezroczystość]]
+[[pt:Opacidade]]
+[[ru:Прозрачность]]
+[[uk:Прозорість]]
+[[zh:不透明度]]

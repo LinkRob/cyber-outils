@@ -1,0 +1,12 @@
+<div class="treeview">
+*{{nbt|compound}} Block entity data
+** {{nbt inherit/blockentity}}
+** {{nbt|compound|blockState}}: The moving block represented by this block entity.
+*** {{nbt inherit/block state}}
+** {{nbt|byte|extending}}: 1 or 0 (true/false) – true if the piston is extending instead of withdrawing.
+** {{nbt|int|facing}}: Direction that the piston pushes (0=down, 1=up, 2=north, 3=south, 4=west, 5=east).
+** {{nbt|float|progress}}: How far the block has been moved. Starts at 0.0, and increments by 0.5 each tick. If the value is 1.0 or higher at the ''start'' of a tick (before incrementing), then the block transforms into the stored blockState. Negative values can be used to increase the time until transformation.
+** {{nbt|byte|source}}: 1 or 0 (true/false) – true if the block represents the piston head itself, false if it represents a block being pushed.
+</div><noinclude>
+[[Category:Block entity pages]]
+</noinclude>
